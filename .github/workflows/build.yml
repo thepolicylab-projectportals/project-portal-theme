@@ -1,0 +1,37 @@
+name: Build page
+
+on:
+  push:
+
+jobs:
+  build_job:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+
+      - name: Load cache
+        uses: actions/cache@v2
+        id: cache
+        with:
+          path: node_modules
+          key: node_modules-${{ runner.os }}-16-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Setup dependencies
+        run: npm install
+
+      - name: Create Env File
+        env:
+          DOT_ENV_FILE: ${{ secrets.DOT_ENV_FILE }}
+        run: |
+          echo "$DOT_ENV_FILE" > .env
+
+      - name: Build the page
+        run: npm run build
+
+      - name: Publish

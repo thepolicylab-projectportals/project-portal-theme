@@ -1,11 +1,25 @@
-import PropTypes from "prop-types"
-import React from "react"
+import React, { FunctionComponent } from "react"
 
-export const Feature = ({ label, value }) => {
+interface FeatureProps {
+  label: string
+  value: string | string[]
+  truncate?: boolean
+}
+
+export const Feature: FunctionComponent<FeatureProps> = ({
+  label,
+  value,
+  truncate,
+}) => {
+  let out = null
+  let className =
+    truncate === undefined || truncate === null || truncate
+      ? "truncate"
+      : "leading-normal"
   if (typeof value === "string") {
     if (value.startsWith("http") || value.startsWith("mailto")) {
-      value = (
-        <div className="truncate">
+      out = (
+        <div className={className}>
           <a
             href={value}
             target="_blank"
@@ -17,10 +31,10 @@ export const Feature = ({ label, value }) => {
         </div>
       )
     } else {
-      value = <div className="truncate">{value}</div>
+      out = <div className={className}>{value}</div>
     }
   } else if (Array.isArray(value)) {
-    value = value.map((item, i) => (
+    out = value.map((item, i) => (
       <span key={`${label}_${i}`} className="inline-block mr-4 break-normal">
         {item}
       </span>
@@ -33,16 +47,8 @@ export const Feature = ({ label, value }) => {
         {label}
       </h4>
       <div className="font-medium text-blue-800 dark:text-blue-400 text-base leading-loose mb-4">
-        {value}
+        {out}
       </div>
     </>
   )
-}
-
-Feature.propTypes = {
-  label: PropTypes.string,
-  value: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.arrayOf(PropTypes.string),
-  ]),
 }

@@ -1,10 +1,15 @@
-import PropTypes from "prop-types"
-import React from "react"
-import { Card } from "."
+import React, { FunctionComponent } from "react"
+import { Card, CardProps } from "."
 
-export const Cards = (props) => {
-  const { nodes } = props
+interface CardsProps {
+  nodes: [
+    {
+      data: CardProps
+    }
+  ]
+}
 
+export const Cards: FunctionComponent<CardsProps> = ({ nodes }) => {
   return (
     <div className="container pt-6 overflow-hidden">
       <div className="flex flex-wrap -mx-3 xl:-mx-6">
@@ -25,8 +30,4 @@ export const Cards = (props) => {
       </div>
     </div>
   )
-}
-
-Cards.propTypes = {
-  nodes: PropTypes.arrayOf(PropTypes.object).isRequired,
 }

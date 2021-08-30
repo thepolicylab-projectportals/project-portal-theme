@@ -1,23 +1,17 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { Cards, Hero, SiteMetadata } from "../components"
+import { Cards, Navbar, SiteMetadata } from "../components"
 import { Layout } from "../layouts/Layout"
 
 export default ({ data }) => {
   return (
     <Layout>
       <SiteMetadata
-        title="Travel destinations"
-        description="Check the most popular travel destinations in Europe."
-        image={data.hero.url}
+        title="Project Portal"
+        description="Question from East Evidencia."
       />
 
-      <Hero
-        image={data.hero}
-        tag="#travel"
-        title="Travel destinations"
-        description="Check the most popular travel locations in Europe."
-      />
+      <Navbar />
 
       <Cards nodes={data.items.nodes} />
     </Layout>
@@ -26,19 +20,18 @@ export default ({ data }) => {
 
 export const query = graphql`
   query IndexQuery($tableName: String!) {
-    hero: file(relativePath: { eq: "hero-travel.jpg" }) {
-      ...HeroImageFragment
-    }
     items: allAirtable(filter: { table: { eq: $tableName } }) {
       nodes {
         data {
-          country
-          image {
-            ...CardImageFragment
-          }
-          name
+          question
           slug
           summary
+          deliverable
+          expertise
+          timeline
+          commitment
+          contact
+          collaborationType
         }
       }
     }

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { FunctionComponent, ReactNode } from "react"
 import { ModalRoutingContext } from "gatsby-plugin-modal-routing"
 import "typeface-roboto"
 import "../styles/style.css"
@@ -6,7 +6,15 @@ import "../styles/style.css"
 import { LayoutFull } from "./LayoutFull"
 import { LayoutModal } from "./LayoutModal"
 
-export const Layout = ({ children, navigation }) => {
+interface LayoutProps {
+  navigation: any
+  children: ReactNode
+}
+
+export const Layout: FunctionComponent<LayoutProps> = ({
+  children,
+  navigation,
+}: LayoutProps) => {
   return (
     <ModalRoutingContext.Consumer>
       {({ modal, closeTo }) =>
