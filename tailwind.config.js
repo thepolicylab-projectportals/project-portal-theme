@@ -1,7 +1,7 @@
 const colors = require("tailwindcss/colors")
 
 module.exports = {
-  purge: ["./src/**/*.jsx", "./src/**/*.js"],
+  purge: ["./src/**/*.jsx", "./src/**/*.js", "./src/**/*.tsx", "./src/**/*.ts"],
   theme: {
     container: {
       center: true,

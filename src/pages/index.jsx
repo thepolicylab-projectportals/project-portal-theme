@@ -8,7 +8,7 @@ export default ({ data }) => {
     <Layout>
       <SiteMetadata
         title="Project Portal"
-        description="Question from East Evidencia."
+        description="Questions from East Evidencia."
       />
 
       <Navbar />

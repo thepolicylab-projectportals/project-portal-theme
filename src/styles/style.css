@@ -9,7 +9,6 @@ body.ReactModal__Body--open > div[aria-hidden="true"] {
 }
 
 @tailwind components;
-
 @tailwind utilities;
 
 .grayscale-1 {

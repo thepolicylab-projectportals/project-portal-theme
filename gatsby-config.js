@@ -62,8 +62,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Travel Destinations`,
-        short_name: `Travel Destinations`,
+        name: `Questions from East Evidencia`,
+        short_name: `Project Portal`,
         start_url: `/`,
         background_color: `#fff`,
         theme_color: `#4299e1`,
