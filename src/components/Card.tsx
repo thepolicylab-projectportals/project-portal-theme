@@ -10,9 +10,14 @@ export interface CardProps {
   summary: string
   deliverable: string
   expertise: string
-  timeline: string
+  keyDates: string
+  opportunityCloses: string
   commitment: string
   contact: string
+  applicationProcess: string
+  statusOfData: string
+  priorResearch: string
+  fundingInfo: string
   collaborationType: string[]
   navigation: {
     current: number
@@ -24,12 +29,7 @@ export const Card: FunctionComponent<CardProps> = ({
   question,
   slug,
   status,
-  summary,
-  deliverable,
-  expertise,
-  timeline,
-  commitment,
-  contact,
+  opportunityCloses,
   navigation,
   collaborationType,
 }) => {
@@ -52,7 +52,7 @@ export const Card: FunctionComponent<CardProps> = ({
           <div className="grid grid-cols-2">
             <div>IMAGE</div>
             <div>
-              <Feature label="Opportunity closes" value={timeline} />
+              <Feature label="Opportunity closes" value={opportunityCloses} />
             </div>
           </div>
         </div>

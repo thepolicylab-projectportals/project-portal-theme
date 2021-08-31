@@ -16,7 +16,7 @@
 - Card deck issues
 
   - Make same height
-  - Pagination
+  - Pagination (seems like a v2 issue)
   - Filtering (seems like a v2 issue)
   - Different icons for open/in-progress/completed projects
   - What if there are no projects?
@@ -32,5 +32,8 @@
   - Default images
 
 - Data structure
-  - Finish setting up "open" data airtable
   - How should "in progress" and "completed" airtables differ if at all?
+
+Notes:
+
+- Newlines in funding don't get preserved. Should encourge use of lists or something custom?

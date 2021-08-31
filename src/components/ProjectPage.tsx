@@ -38,8 +38,8 @@ export const ProjectPage = ({
       <div className="container pt-6 overflow-hidden bg-white">
         <div className="flex flex-wrap">
           <div className="w-full sm:w-2/3 lg:1/2">
-            <h2 className="text-3xl font-bold pb-3 text-gray-600">{title}</h2>
-            <p className="text-sm leading-snug">{lede}</p>
+            <h2 className="text-4xl font-bold pb-3 text-gray-600">{title}</h2>
+            <p className="text-lg leading-normal">{lede}</p>
           </div>
         </div>
       </div>

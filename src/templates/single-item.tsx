@@ -1,4 +1,4 @@
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import React, { FunctionComponent } from "react"
 import { Feature, SiteMetadata, Navbar } from "../components"
 import { Layout } from "../layouts/Layout"
@@ -14,10 +14,17 @@ interface SingleItemProps {
         summary: string
         deliverable: string
         expertise: string
-        timeline: string
+        opportunityCloses: string
+        keyDates: string
         commitment: string
-        contact: string
+        contactName: string
+        contactTitle: string
+        contactEmail: string
         collaborationType: string
+        applicationProcess: string
+        statusOfData: string
+        priorResearch: string
+        fundingInfo: string
       }
     }
   }
@@ -58,6 +65,11 @@ const SectionOfItem: FunctionComponent<SectionOfItemProps> = ({
                 li: {
                   component: LiItem,
                 },
+                a: {
+                  props: {
+                    className: "underline hover:no-underline",
+                  },
+                },
               },
             }}
           >
@@ -73,13 +85,18 @@ export const SingleItem: FunctionComponent<SingleItemProps> = (props) => {
   const { data, location } = props
   const {
     question,
-    slug,
     summary,
     deliverable,
     expertise,
-    timeline,
+    keyDates,
     commitment,
-    contact,
+    contactName,
+    contactTitle,
+    contactEmail,
+    applicationProcess,
+    statusOfData,
+    priorResearch,
+    fundingInfo,
     collaborationType,
   } = data.item.data
   const navigation = location.state ? location.state.navigation : null
@@ -102,9 +119,9 @@ export const SingleItem: FunctionComponent<SingleItemProps> = (props) => {
             </div>
             <div className="w-full pb-4 lg:w-1/3 lg:pr-4 lg:pb-0">
               <ProjectContact
-                name="Sue D. Nym"
-                title="My Title"
-                email="fake@fake.com"
+                name={contactName}
+                title={contactTitle}
+                email={contactEmail}
               />
             </div>
           </div>
@@ -123,7 +140,7 @@ export const SingleItem: FunctionComponent<SingleItemProps> = (props) => {
             </div>
             <div className="w-full lg:w-1/3 lg:pl-4">
               <SectionOfItem label="Deliverables" value={deliverable} />
-              <SectionOfItem label="Key dates" value={timeline} />
+              <SectionOfItem label="Key dates" value={keyDates} />
               <SectionOfItem label="Requirements" value={commitment} />
             </div>
           </div>
@@ -133,16 +150,19 @@ export const SingleItem: FunctionComponent<SingleItemProps> = (props) => {
               <h2>Project details</h2>
             </div>
             <div className="w-full lg:w-1/3">
-              <SectionOfItem label="Status of associated data" value="DUA!!!" />
+              <SectionOfItem
+                label="Status of associated data"
+                value={statusOfData}
+              />
             </div>
             <div className="w-full lg:w-1/3">
               <SectionOfItem
                 label="Prior research and background"
-                value="**Cool stuff**"
+                value={priorResearch}
               />
             </div>
             <div className="w-full lg:w-1/3">
-              <SectionOfItem label="Funding details" value="Dollar bills" />
+              <SectionOfItem label="Funding details" value={fundingInfo} />
             </div>
           </div>
 
@@ -151,7 +171,10 @@ export const SingleItem: FunctionComponent<SingleItemProps> = (props) => {
               <h2>Next steps</h2>
             </div>
             <div className="w-full lg:w-2/3">
-              <SectionOfItem label="Application process" value="Forms!!!" />
+              <SectionOfItem
+                label="Application process"
+                value={applicationProcess}
+              />
             </div>
           </div>
         </div>
@@ -171,9 +194,16 @@ export const query = graphql`
         summary
         deliverable
         expertise
-        timeline
+        opportunityCloses
+        keyDates
         commitment
-        contact
+        contactName
+        contactTitle
+        contactEmail
+        applicationProcess
+        statusOfData
+        priorResearch
+        fundingInfo
         collaborationType
       }
     }

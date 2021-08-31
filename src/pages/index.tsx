@@ -26,9 +26,16 @@ export const query = graphql`
           summary
           deliverable
           expertise
-          timeline
+          keyDates
+          opportunityCloses
           commitment
-          contact
+          contactName
+          contactTitle
+          contactEmail
+          applicationProcess
+          statusOfData
+          priorResearch
+          fundingInfo
           collaborationType
         }
       }
