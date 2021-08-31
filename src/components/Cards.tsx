@@ -2,11 +2,9 @@ import React, { FunctionComponent } from "react"
 import { Card, CardProps } from "."
 
 interface CardsProps {
-  nodes: [
-    {
-      data: CardProps
-    }
-  ]
+  nodes: {
+    data: CardProps
+  }[]
 }
 
 export const Cards: FunctionComponent<CardsProps> = ({ nodes }) => {

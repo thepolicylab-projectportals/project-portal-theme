@@ -1,7 +1,15 @@
 import React from "react"
+import { FunctionComponent } from "react"
+import { ReactNode } from "react"
 import { Footer, SignupForm } from "../components"
 
-export const LayoutFull = ({ children }) => {
+interface LayoutFullProps {
+  children: ReactNode
+}
+
+export const LayoutFull: FunctionComponent<LayoutFullProps> = ({
+  children,
+}) => {
   return (
     <div className="bg-white">
       {children}

@@ -7,7 +7,7 @@ import { LayoutFull } from "./LayoutFull"
 import { LayoutModal } from "./LayoutModal"
 
 interface LayoutProps {
-  navigation: any
+  navigation?: any
   children: ReactNode
 }
 

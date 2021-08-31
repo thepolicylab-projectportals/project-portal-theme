@@ -1,21 +1,23 @@
 import React, { FunctionComponent } from "react"
+import { Link } from "gatsby"
 import Icon from "react-icons"
 import { FaBars } from "react-icons/fa"
 
 interface NavbarItemProps {
   name: string
+  link?: string
 }
+//
 
-const NavbarItem: FunctionComponent<NavbarItemProps> = ({ name }) => {
+const NavbarItem: FunctionComponent<NavbarItemProps> = ({ name, link }) => {
   return (
     <>
       <li className="nav-item">
-        <a
-          className="px-3 py-2 flex items-center text-xs font-bold leading-snug text-black hover:opacity-75"
-          href="#pablo"
-        >
-          <span className="ml-2">{name}</span>
-        </a>
+        <span className="px-3 py-2 flex items-center text-xs font-bold leading-snug text-black hover:opacity-75">
+          <Link to={link ? link : "#pablo"}>
+            <span className="ml-2">{name}</span>
+          </Link>
+        </span>
       </li>
     </>
   )
@@ -52,9 +54,9 @@ export const Navbar: FunctionComponent<NavbarProps> = () => {
             id="example-navbar-danger"
           >
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
-              <NavbarItem name="Open opportunities" />
-              <NavbarItem name="In-progress projects" />
-              <NavbarItem name="Completed projects" />
+              <NavbarItem name="Open opportunities" link="/" />
+              <NavbarItem name="In-progress projects" link="/in-progress" />
+              <NavbarItem name="Completed projects" link="/completed" />
               <NavbarItem name="About" />
               <NavbarItem name="Contact" />
             </ul>

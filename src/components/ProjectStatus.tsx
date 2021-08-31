@@ -12,8 +12,10 @@ export const ProjectStatus: FunctionComponent<ProjectStatusProps> = ({
   let text: string = null
   if (status == "open") {
     text = "Open"
-  } else if (status == "in progress") {
+  } else if (status == "inProgress") {
     text = "In progress"
+  } else if (status == "complete") {
+    text = "Complete"
   }
 
   return (
