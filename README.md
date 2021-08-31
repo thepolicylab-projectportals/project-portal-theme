@@ -1,5 +1,7 @@
 # Airtable listing theme for Gatsby
 
+Link to the Airtable: https://airtable.com/tblGGysdQuun6M4mI/viw67jOefyUpvWNJN?blocks=hide
+
 ### Gatsby starter theme integrated with [Airtable](https://airtable.com/)
 
 ## Demo

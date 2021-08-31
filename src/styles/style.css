@@ -18,3 +18,11 @@ body.ReactModal__Body--open > div[aria-hidden="true"] {
 .blend-multiply {
   mix-blend-mode: multiply;
 }
+
+ul.list-style-type-dash {
+  list-style-type: "-";
+}
+
+li.list-style-type-dash span {
+  margin-left: 3px;
+}

@@ -1,0 +1,5 @@
+- Pagination on the main cards
+- Filtering on the main cards
+- Images for departments
+- "Opportunity closes"
+- Get half open circle for in progress

@@ -11,7 +11,7 @@ interface CardsProps {
 
 export const Cards: FunctionComponent<CardsProps> = ({ nodes }) => {
   return (
-    <div className="container pt-6 overflow-hidden">
+    <div className="container sm:mt-6 lg:mt-10 overflow-hidden bg-gray-100">
       <div className="flex flex-wrap -mx-3 xl:-mx-6">
         {nodes.map((item, i) => (
           <div
