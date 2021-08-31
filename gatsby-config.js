@@ -9,7 +9,7 @@ module.exports = {
       twitter: "https://www.twitter.com",
     },
     locale: "en",
-    title: "Travel destinations",
+    title: "Project portal",
   },
   plugins: [
     {

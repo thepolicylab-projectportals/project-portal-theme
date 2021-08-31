@@ -24,7 +24,7 @@ export const SiteMetadata = ({ description, image, title }) => {
       defer={false}
       defaultTitle={siteTitle}
       title={title}
-      titleTemplate={`%s | ${siteTitle}`}
+      titleTemplate={`${siteTitle}`}
     >
       <html lang={locale} />
       <meta name="viewport" content="width=device-width,initial-scale=1" />
