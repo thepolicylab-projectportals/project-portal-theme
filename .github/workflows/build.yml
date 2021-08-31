@@ -2,6 +2,8 @@ name: Build page
 
 on:
   push:
+    branches:
+      - main
 
 jobs:
   build_job:
