@@ -52,7 +52,7 @@ const SectionOfItem: FunctionComponent<SectionOfItemProps> = ({
   return (
     <>
       <section className="pt-4">
-        <h4 className="text-lg tracking-wide font-bold pb-2">{label}</h4>
+        <h4 className="lg:text-xl text-lg font-bold pb-2">{label}</h4>
         <div className="text-sm">
           <Markdown
             options={{
@@ -108,7 +108,7 @@ export const SingleItem: FunctionComponent<SingleItemProps> = (props) => {
       <Navbar />
 
       <article className="overflow-auto">
-        <div className="container py-8">
+        <div className="container pt-8">
           <div className="flex flex-wrap">
             <div className="w-full pb-4 lg:w-2/3 lg:pr-4 lg:pb-0">
               <div>IMAGE</div>
@@ -125,27 +125,33 @@ export const SingleItem: FunctionComponent<SingleItemProps> = (props) => {
               />
             </div>
           </div>
+        </div>
 
-          <div className="flex flex-wrap bg-gray-100">
-            <div className="w-full text-xl lg:text-2xl font-bold">
-              <h2>Overview</h2>
-            </div>
-            <div className="w-full pb-4 lg:w-2/3 lg:pr-4 lg:pb-0">
-              <SectionOfItem label="Project description" value={summary} />
-              <SectionOfItem
-                label="How will the results be used"
-                value="Somehow!"
-              />
-              <SectionOfItem label="Expertise needed" value={expertise} />
-            </div>
-            <div className="w-full lg:w-1/3 lg:pl-4">
-              <SectionOfItem label="Deliverables" value={deliverable} />
-              <SectionOfItem label="Key dates" value={keyDates} />
-              <SectionOfItem label="Requirements" value={commitment} />
+        <div className="relative bg-gray-100 mt-4">
+          <div className="container py-6">
+            <div className="flex flex-wrap">
+              <div className="w-full text-xl lg:text-3xl font-bold">
+                <h2>Overview</h2>
+              </div>
+              <div className="w-full pb-4 lg:w-2/3 lg:pr-4 lg:pb-0">
+                <SectionOfItem label="Project description" value={summary} />
+                <SectionOfItem
+                  label="How will the results be used"
+                  value="Somehow!"
+                />
+                <SectionOfItem label="Expertise needed" value={expertise} />
+              </div>
+              <div className="w-full lg:w-1/3 lg:pl-4">
+                <SectionOfItem label="Deliverables" value={deliverable} />
+                <SectionOfItem label="Key dates" value={keyDates} />
+                <SectionOfItem label="Requirements" value={commitment} />
+              </div>
             </div>
           </div>
+        </div>
 
-          <div className="flex flex-wrap pt-4">
+        <div className="container pt-4">
+          <div className="flex flex-wrap">
             <div className="w-full text-xl lg:text-2xl font-bold pb-2">
               <h2>Project details</h2>
             </div>
