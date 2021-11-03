@@ -22,31 +22,6 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     {
-      resolve: `gatsby-plugin-modal-routing`,
-      options: {
-        // See http://reactcommunity.org/react-modal/#usage
-        modalProps: {
-          style: {
-            overlay: {
-              backgroundColor: `rgba(0, 0, 0, 0.5)`,
-            },
-            content: {
-              position: `absolute`,
-              border: `none`,
-              background: `none`,
-              padding: 0,
-              top: 0,
-              bottom: 0,
-              right: 0,
-              left: 0,
-              overflow: `auto`,
-              WebkitOverflowScrolling: `touch`,
-            },
-          },
-        },
-      },
-    },
-    {
       resolve: `gatsby-source-airtable`,
       options: {
         apiKey: process.env.AIRTABLE_API_KEY,

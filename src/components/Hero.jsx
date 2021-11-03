@@ -1,5 +1,5 @@
 import { graphql } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import PropTypes from "prop-types"
 import React from "react"
 
@@ -9,7 +9,7 @@ export const Hero = (props) => {
   return (
     <div className="container mt-12">
       <div className="flex relative rounded-md overflow-hidden bg-blue-400">
-        <Img
+        <GatsbyImage
           alt={title}
           className="grayscale-1 blend-multiply"
           fadeIn={false}

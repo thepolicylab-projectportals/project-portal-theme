@@ -22,14 +22,11 @@ interface BoundActionCreators {
 
 export type GatsbyCreatePages = (fns: {
   graphql: any
-  boundActionCreators: BoundActionCreators
+  actions: BoundActionCreators
 }) => void
 
-export const createPages: GatsbyCreatePages = async ({
-  graphql,
-  boundActionCreators,
-}) => {
-  const { createPage } = boundActionCreators
+export const createPages: GatsbyCreatePages = async ({ graphql, actions }) => {
+  const { createPage } = actions
   const allAirtable = await graphql(`
     {
       allAirtable(filter: { table: { eq: "${tableName}" } }) {
