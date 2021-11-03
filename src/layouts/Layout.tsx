@@ -1,5 +1,5 @@
 import React, { FunctionComponent, ReactNode } from "react"
-import "typeface-roboto"
+import "@fontsource/public-sans"
 import { Footer, SignupForm } from "../components"
 import "../styles/style.css"
 
