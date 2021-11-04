@@ -13,7 +13,7 @@ module.exports = {
     extend: {
       colors: {
         gray: colors.trueGray,
-        blue: colors.lightBlue,
+        blue: colors.sky,
         rust: {
           50: "#faf6f6",
           100: "#f5eded",
@@ -39,5 +39,5 @@ module.exports = {
     },
   },
   variants: {},
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 }

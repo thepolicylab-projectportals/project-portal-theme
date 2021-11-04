@@ -58,7 +58,7 @@ export const Navbar: FunctionComponent<NavbarProps> = () => {
               <NavbarItem name="In-progress projects" link="/in-progress" />
               <NavbarItem name="Completed projects" link="/completed" />
               <NavbarItem name="About" link="/about" />
-              <NavbarItem name="Contact" />
+              <NavbarItem name="Contact" link="/contact" />
             </ul>
           </div>
         </div>

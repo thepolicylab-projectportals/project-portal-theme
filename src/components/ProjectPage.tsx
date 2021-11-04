@@ -1,7 +1,8 @@
 import React from "react"
-import { Link, withPrefix } from "gatsby"
+import { Link } from "gatsby"
 import { Cards, CardProps, Navbar, SiteMetadata } from "../components"
 import { Layout } from "../layouts/Layout"
+import { HeaderWithImage } from "./HeaderWithImage"
 
 export interface ProjectPageProps {
   title: string
@@ -44,22 +45,11 @@ export const ProjectPage = ({
 
       <Navbar />
 
-      <div
-        className="container px-16 py-12 overflow-hidden bg-rust"
-        style={{
-          background: `url(${data.bgImage.childImageSharp.resize.src})`,
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "auto",
-          backgroundPositionY: "bottom",
-        }}
-      >
-        <div className="flex flex-wrap m-4">
-          <div className="w-full sm:w-2/3 lg:1/2 bg-white p-8">
-            <h2 className="text-4xl font-bold pb-3 text-gray-600">{title}</h2>
-            <p className="text-lg leading-normal">{lede}</p>
-          </div>
-        </div>
-      </div>
+      <HeaderWithImage
+        title={title}
+        imageSrc={data.bgImage.childImageSharp.resize.src}
+        lede={lede}
+      />
 
       <Cards nodes={data.items.nodes} />
 
