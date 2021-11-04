@@ -40,7 +40,7 @@ export const ProjectPage = ({
       <div
         className="container px-16 py-12 overflow-hidden bg-rust"
         style={{
-          background: `url(${withPrefix("/static/images/bg-index.png")})`,
+          background: `url(${withPrefix("/images/bg-index.png")})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "auto",
           backgroundPositionY: "bottom",
