@@ -4,6 +4,12 @@ import { Navbar, SiteMetadata } from "../components"
 import { Layout } from "../layouts/Layout"
 import { HeaderWithImage } from "../components/HeaderWithImage"
 
+const encode = (data: { [Key: string]: string }) => {
+  return Object.keys(data)
+    .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&")
+}
+
 interface ContactProps {
   data: {
     bgImage: {
@@ -35,30 +41,24 @@ class ContactForm extends Component {
       message: "",
     }
 
-    this.handleChangeName = this.handleChangeName.bind(this)
-    this.handleChangeEmail = this.handleChangeEmail.bind(this)
-    this.handleChangeSubject = this.handleChangeSubject.bind(this)
-    this.handleChangeMessage = this.handleChangeMessage.bind(this)
+    this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  handleChangeName(event) {
-    this.setState({ name: event.target.value })
-  }
-
-  handleChangeEmail(event) {
-    this.setState({ email: event.target.value })
-  }
-
-  handleChangeSubject(event) {
-    this.setState({ subject: event.target.value })
-  }
-
-  handleChangeMessage(event) {
-    this.setState({ message: event.target.value })
+  handleChange(event) {
+    this.setState({ [event.target.name]: event.target.value })
   }
 
   handleSubmit(event) {
+    // This code will actually post to netlify
+    // fetch("/", {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    //   body: encode({ "form-name": "contact", ...this.state })
+    // })
+    //   .then(() => alert("Success!"))
+    //   .catch(error => alert(error));
+
     alert(
       `${this.state.name} ${this.state.email} ${this.state.subject} ${this.state.message}`
     )
@@ -67,7 +67,11 @@ class ContactForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form
+        onSubmit={this.handleSubmit}
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+      >
         <div className="mb-6">
           <label
             htmlFor="name"
@@ -84,7 +88,7 @@ class ContactForm extends Component {
             type="text"
             className="shadow appearance-none border w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline"
             value={this.state.name}
-            onChange={this.handleChangeName}
+            onChange={this.handleChange}
           />
         </div>
 
@@ -104,7 +108,7 @@ class ContactForm extends Component {
             type="email"
             className="shadow appearance-none border w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline"
             value={this.state.email}
-            onChange={this.handleChangeEmail}
+            onChange={this.handleChange}
           />
         </div>
 
@@ -124,7 +128,7 @@ class ContactForm extends Component {
             type="text"
             className="shadow appearance-none border w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline"
             value={this.state.subject}
-            onChange={this.handleChangeSubject}
+            onChange={this.handleChange}
           />
         </div>
 
@@ -143,7 +147,7 @@ class ContactForm extends Component {
             required
             className="shadow appearance-none border w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline h-48"
             value={this.state.message}
-            onChange={this.handleChangeMessage}
+            onChange={this.handleChange}
           />
         </div>
 
