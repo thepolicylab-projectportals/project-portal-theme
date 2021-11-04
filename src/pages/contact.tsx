@@ -153,7 +153,7 @@ class ContactForm extends Component {
 
         <div className="flex items-center justify-between">
           <button
-            className="bg-rust-500 hover:bg-rust-200 text-white text-lg font-bold py-4 px-6 focus:outline-none focus:shadow-outline"
+            className="bg-rust-500 hover:bg-rust-800 text-white text-lg font-bold py-4 px-6 focus:outline-none focus:shadow-outline"
             type="submit"
           >
             Submit

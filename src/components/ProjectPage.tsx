@@ -65,7 +65,7 @@ export const ProjectPage = ({
             <div className="mt-2 text-md">{footerText}</div>
             <div>
               <Link to={footerLink}>
-                <button className="bg-rust-500 hover:bg-rust-200 text-white font-bold mt-4 py-2 px-12 rounded text-sm py-3">
+                <button className="bg-rust-500 hover:bg-rust-800 text-white font-bold mt-4 py-2 px-12 rounded text-sm py-3">
                   {footerButton}
                 </button>
               </Link>

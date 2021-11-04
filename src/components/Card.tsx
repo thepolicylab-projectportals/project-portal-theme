@@ -74,7 +74,7 @@ export const Card: FunctionComponent<CardProps> = ({
           </div>
         </div>
         <div className="p-5 pb-1 border-solid border-t-2">
-          <button className="bg-rust-500 hover:bg-rust-200 text-white font-bold py-2 px-4 w-full rounded text-sm py-3">
+          <button className="bg-rust-500 hover:bg-rust-800 text-white font-bold py-2 px-4 w-full rounded text-sm py-3">
             View Opportunity
           </button>
         </div>
