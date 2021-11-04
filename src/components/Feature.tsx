@@ -32,10 +32,15 @@ export const Feature: FunctionComponent<FeatureProps> = ({
   )
 }
 
-const Tag = (props) => (
+interface TagProps {
+  color: string
+  children: string
+}
+
+const Tag: FunctionComponent<TagProps> = ({ color, children }) => (
   <span
-    className={`px-3 py-1 mt-1 uppercase text-sm whitespace-nowrap font-semibold bg-${props.color} mr-2`}
+    className={`px-3 py-1 mt-1 uppercase text-sm whitespace-nowrap font-semibold bg-${color} mr-2`}
   >
-    {props.children}
+    {children}
   </span>
 )

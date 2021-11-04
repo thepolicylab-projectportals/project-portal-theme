@@ -40,7 +40,7 @@ export const Card: FunctionComponent<CardProps> = ({
   navigation,
 }) => {
   return (
-    <div className="bg-white h-full shadow-sm rounded-md overflow-hidden border border-gray-200 py-4 px-2">
+    <div className="bg-white shadow-sm rounded-md overflow-hidden border border-gray-200 py-4 px-2">
       <Link to={`/project/${slug}`} state={{ navigation }}>
         <div className="mt-4 ml-4">
           <ProjectStatus status={status} />
