@@ -178,13 +178,13 @@ export default ({ data }: ContactProps) => {
 
       <div className="container pt-6 overflow-hidden bg-white">
         <div className="flex flex-wrap">
-          <div className="w-2/3">
+          <div className="lg:w-2/3 sm:w-full">
             <h2 className="text-2xl font-bold text-black dark:text-white tracking-tight leading-loose lg:text-5xl mb-8">
               Want to talk to the Office of Innovation? We'd love to hear from
               you!
             </h2>
 
-            <p className="text-lg leading-normal">
+            <p className="text-md lg:text-lg leading-normal">
               Check out our frequently asked questions. Please direct
               project-specific questions to points of contact listed for
               individual projects. We're happy to discuss questions about the
@@ -197,7 +197,7 @@ export default ({ data }: ContactProps) => {
 
       <div className="container pt-6 overflow-hidden bg-white">
         <div className="flex flex-wrap">
-          <div className="w-2/3">
+          <div className="lg:w-2/3 w-full">
             <ContactForm />
           </div>
         </div>
