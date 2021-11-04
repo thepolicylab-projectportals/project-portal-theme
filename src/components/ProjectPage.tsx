@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, withPrefix } from "gatsby"
 import { Cards, CardProps, Navbar, SiteMetadata } from "../components"
 import { Layout } from "../layouts/Layout"
 
@@ -7,6 +7,7 @@ export interface ProjectPageProps {
   title: string
   lede: string
   footerTitle: string
+  footerText: string
   footerButton: string
   footerLink: string
   data: {
@@ -23,6 +24,7 @@ export const ProjectPage = ({
   data,
   lede,
   footerTitle,
+  footerText,
   footerButton,
   footerLink,
 }: ProjectPageProps) => {
@@ -35,9 +37,17 @@ export const ProjectPage = ({
 
       <Navbar />
 
-      <div className="container pt-6 overflow-hidden bg-white">
-        <div className="flex flex-wrap">
-          <div className="w-full sm:w-2/3 lg:1/2">
+      <div
+        className="container px-16 py-12 overflow-hidden bg-rust"
+        style={{
+          background: `url(${withPrefix("/static/images/bg-index.png")})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "auto",
+          backgroundPositionY: "bottom",
+        }}
+      >
+        <div className="flex flex-wrap m-4">
+          <div className="w-full sm:w-2/3 lg:1/2 bg-white p-8">
             <h2 className="text-4xl font-bold pb-3 text-gray-600">{title}</h2>
             <p className="text-lg leading-normal">{lede}</p>
           </div>
@@ -46,21 +56,23 @@ export const ProjectPage = ({
 
       <Cards nodes={data.items.nodes} />
 
-      <div className="container pt-8 overflow-hidden bg-white">
+      <div
+        className="container py-8 overflow-hidden mt-12 px-16"
+        style={{ backgroundColor: "#F7F7F7" }}
+      >
         <div className="flex flex-wrap">
-          <div className="w-full sm:w-2/3 lg:w-1/2">
+          <div className="sm:w-full lg:w-2/3">
             <h2 className="text-3xl font-bold pb-3 text-gray-600">
               {footerTitle}
             </h2>
-          </div>
-        </div>
-        <div className="flex flex-wrap">
-          <div className="w-full sm:w-1/3 lg:w-1/4">
-            <Link to={footerLink}>
-              <button className="bg-blue-800 hover:bg-blue-700 text-white font-bold py-2 px-4 w-full rounded text-sm py-3">
-                {footerButton}
-              </button>
-            </Link>
+            <div className="mt-2 text-md">{footerText}</div>
+            <div>
+              <Link to={footerLink}>
+                <button className="bg-rust-500 hover:bg-rust-200 text-white font-bold mt-4 py-2 px-12 rounded text-sm py-3">
+                  {footerButton}
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

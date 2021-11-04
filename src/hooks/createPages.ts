@@ -41,8 +41,8 @@ export const createPages: GatsbyCreatePages = async ({ graphql, actions }) => {
 
   allAirtable.data.allAirtable.nodes.forEach(({ data: { slug } }) => {
     createPage({
-      path: `/${slug}`,
-      component: resolve(__dirname, "../templates/single-item.tsx"),
+      path: `/project/${slug}`,
+      component: resolve(__dirname, "../templates/ProjectDetail.tsx"),
       context: { slug },
     })
   })

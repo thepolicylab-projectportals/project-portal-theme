@@ -3,27 +3,39 @@ import React, { FunctionComponent } from "react"
 interface FeatureProps {
   label: string
   value: string | string[]
+  color: string
 }
 
-export const Feature: FunctionComponent<FeatureProps> = ({ label, value }) => {
+export const Feature: FunctionComponent<FeatureProps> = ({
+  label,
+  value,
+  color,
+}) => {
   let out = null
   if (Array.isArray(value)) {
     out = value.map((item, i) => (
-      <span
-        key={`${label}_${i}`}
-        className="bg-blue-200 px-2 inline-block mr-4 uppercase text-sm"
-      >
+      <Tag key={`${label}_${i}`} color={color}>
         {item}
-      </span>
+      </Tag>
     ))
   } else {
-    out = value
+    out = <Tag color={color}>{value}</Tag>
   }
 
   return (
     <>
-      <h4 className="text-black uppercase text-xs font-bold pb-px">{label}</h4>
-      <div className="text-black text-sm leading-loose mb-4">{out}</div>
+      <h5 className="font-sans text-black text-sm mb-1 font-extrabold uppercase">
+        {label}
+      </h5>
+      <div className="flex flex-wrap">{out}</div>
     </>
   )
 }
+
+const Tag = (props) => (
+  <span
+    className={`px-3 py-1 mt-1 uppercase text-sm whitespace-nowrap font-semibold bg-${props.color} mr-2`}
+  >
+    {props.children}
+  </span>
+)

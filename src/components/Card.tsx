@@ -5,20 +5,24 @@ import { ProjectStatus } from "./ProjectStatus"
 
 export interface CardProps {
   question: string
+  partnerName: string
   slug: string
-  status: string
   summary: string
+  status: string
+  startDate: Date
+  endDate: Date
+  agency: string
+  policyAreas: string[]
+  supportNeeded: string[]
   deliverable: string
+  purpose: string
   expertise: string
+  requirement: string
   keyDates: string
-  opportunityCloses: string
-  commitment: string
-  contact: string
-  applicationProcess: string
-  statusOfData: string
   priorResearch: string
+  statusOfData: string
   fundingInfo: string
-  collaborationType: string[]
+  commitment: string
   navigation: {
     current: number
     items: string[]
@@ -29,13 +33,15 @@ export const Card: FunctionComponent<CardProps> = ({
   question,
   slug,
   status,
-  opportunityCloses,
+  policyAreas,
+  supportNeeded,
+  agency,
+  endDate,
   navigation,
-  collaborationType,
 }) => {
   return (
-    <div className="bg-white h-full shadow-sm rounded-md overflow-hidden">
-      <Link to={`/${slug}`} state={{ navigation }}>
+    <div className="bg-white h-full shadow-sm rounded-md overflow-hidden border border-gray-200 py-4 px-2">
+      <Link to={`/project/${slug}`} state={{ navigation }}>
         <div className="mt-4 ml-4">
           <ProjectStatus status={status} />
         </div>
@@ -43,18 +49,34 @@ export const Card: FunctionComponent<CardProps> = ({
           <h1 className="text-2xl text-black font-bold leading-snug pb-4">
             {question}
           </h1>
-          <Feature label="Collaboration type" value={collaborationType} />
-          <button className="bg-blue-800 hover:bg-blue-700 text-white font-bold py-2 px-4 w-full rounded text-sm py-3">
-            View Opportunity
-          </button>
+          <div className="text-md mt-4">
+            <span className="font-bold">Opportunity closes: </span>
+            {endDate}
+          </div>
+          <div className="text-md mb-4">
+            <span className="font-bold">Agency: </span>
+            {agency}
+          </div>
+
+          <div className="mt-4">
+            <Feature
+              label="Policy Areas"
+              color="blue-200"
+              value={policyAreas}
+            />
+          </div>
+          <div className="mt-4">
+            <Feature
+              label="Support Needed"
+              color="purple-200"
+              value={supportNeeded}
+            />
+          </div>
         </div>
         <div className="p-5 pb-1 border-solid border-t-2">
-          <div className="grid grid-cols-2">
-            <div>IMAGE</div>
-            <div>
-              <Feature label="Opportunity closes" value={opportunityCloses} />
-            </div>
-          </div>
+          <button className="bg-rust-500 hover:bg-rust-200 text-white font-bold py-2 px-4 w-full rounded text-sm py-3">
+            View Opportunity
+          </button>
         </div>
       </Link>
     </div>

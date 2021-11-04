@@ -6,8 +6,7 @@ export default ({ data }: ProjectPageProps) =>
   ProjectPage({
     data,
     title: "In-progress projects",
-    lede:
-      "Agencies are working with partners to answer important questions to improve the lives of residents. All these projects are ongoing, so check back soon for results.",
+    lede: "Agencies are working with partners to answer important questions to improve the lives of residents. All these projects are ongoing, so check back soon for results.",
     footerTitle: "Curious to learn more? See findings from completed projects.",
     footerButton: "View completed projects",
     footerLink: "/completed",
@@ -24,6 +23,7 @@ export const query = graphql`
       nodes {
         data {
           question
+          partnerName
           slug
           status
           summary
