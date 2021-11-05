@@ -6,6 +6,7 @@ export default ({ data }: ProjectPageProps) =>
   ProjectPage({
     data,
     title: "In-progress projects",
+    pageName: "in-progress",
     lede: "Agencies are working with partners to answer important questions to improve the lives of residents. All these projects are ongoing, so check back soon for results.",
     footerTitle: "Curious to learn more? See findings from completed projects.",
     footerText:

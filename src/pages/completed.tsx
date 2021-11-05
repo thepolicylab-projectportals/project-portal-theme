@@ -6,6 +6,7 @@ export default ({ data }: ProjectPageProps) =>
   ProjectPage({
     data,
     title: "Completed projects",
+    pageName: "completed",
     lede: "We are committed to using and sharing evidence. Below are all the projects completed to date, along with findings and links to additional resources, as applicable.",
     footerTitle:
       "Interested to use evidence to improve the lives of residents? Check out open partnership opportunities.",

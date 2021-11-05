@@ -10,7 +10,7 @@ export default () => {
         description="Questions from East Evidencia"
       />
 
-      <Navbar />
+      <Navbar activePage="about" />
 
       <div className="container pt-6 overflow-hidden bg-white">
         <div className="flex flex-wrap">

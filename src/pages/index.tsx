@@ -7,6 +7,7 @@ export default ({ data }: ProjectPageProps) =>
     data,
     title: "Open research questions",
     lede: "We are assembling an interdisciplinary network of partners, who collectively can provide methodological expertise related to design, data analytics, and field experimentation, as well as domain knowledge related to the topics. There are opportunities for every-level to highly-experienced scientists.",
+    pageName: "open",
     footerTitle: "Help us shape the future of the partnerships portal!",
     footerText:
       "This portal is part of a pilot on new ways to connect academics with research opportunities in government. If you are interested in contributing to the project, we’d like to get in touch.",

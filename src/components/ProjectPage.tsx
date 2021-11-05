@@ -7,6 +7,7 @@ import { HeaderWithImage } from "./HeaderWithImage"
 export interface ProjectPageProps {
   title: string
   lede: string
+  pageName: string
   footerTitle: string
   footerText: string
   footerButton: string
@@ -31,6 +32,7 @@ export const ProjectPage = ({
   title,
   data,
   lede,
+  pageName,
   footerTitle,
   footerText,
   footerButton,
@@ -43,7 +45,7 @@ export const ProjectPage = ({
         description="Questions from East Evidencia."
       />
 
-      <Navbar />
+      <Navbar activePage={pageName} />
 
       <HeaderWithImage
         title={title}

@@ -172,7 +172,7 @@ export default ({ data }: ContactProps) => {
         description="Questions from East Evidencia"
       />
 
-      <Navbar />
+      <Navbar activePage="contact" />
 
       <HeaderWithImage
         title="Contact"

@@ -1,21 +1,30 @@
 import React, { FunctionComponent } from "react"
 import { Link } from "gatsby"
-import Icon from "react-icons"
 import { FaBars } from "react-icons/fa"
 
 interface NavbarItemProps {
   name: string
   link?: string
+  isActive: boolean
 }
-//
 
-const NavbarItem: FunctionComponent<NavbarItemProps> = ({ name, link }) => {
+const NavbarItem: FunctionComponent<NavbarItemProps> = ({
+  name,
+  link,
+  isActive,
+}) => {
   return (
     <>
       <li className="nav-item">
         <span className="px-3 py-2 flex items-center text-md font-bold leading-snug text-black hover:opacity-75">
           <Link to={link ? link : "#pablo"}>
-            <span className="ml-2">{name}</span>
+            {isActive ? (
+              <span className="ml-2 border-b-4 pb-1 border-rust-500">
+                {name}
+              </span>
+            ) : (
+              <span className="ml-2">{name}</span>
+            )}
           </Link>
         </span>
       </li>
@@ -23,9 +32,13 @@ const NavbarItem: FunctionComponent<NavbarItemProps> = ({ name, link }) => {
   )
 }
 
-interface NavbarProps {}
+interface NavbarProps {
+  activePage: string
+}
 
-export const Navbar: FunctionComponent<NavbarProps> = () => {
+export const Navbar: FunctionComponent<NavbarProps> = ({
+  activePage,
+}: NavbarProps) => {
   const [navbarOpen, setNavbarOpen] = React.useState(false)
   return (
     <>
@@ -54,11 +67,31 @@ export const Navbar: FunctionComponent<NavbarProps> = () => {
             id="example-navbar-danger"
           >
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
-              <NavbarItem name="Open opportunities" link="/" />
-              <NavbarItem name="In-progress projects" link="/in-progress" />
-              <NavbarItem name="Completed projects" link="/completed" />
-              <NavbarItem name="About" link="/about" />
-              <NavbarItem name="Contact" link="/contact" />
+              <NavbarItem
+                name="Open opportunities"
+                link="/"
+                isActive={activePage == "open"}
+              />
+              <NavbarItem
+                name="In-progress projects"
+                link="/in-progress"
+                isActive={activePage == "in-progress"}
+              />
+              <NavbarItem
+                name="Completed projects"
+                link="/completed"
+                isActive={activePage == "completed"}
+              />
+              <NavbarItem
+                name="About"
+                link="/about"
+                isActive={activePage == "about"}
+              />
+              <NavbarItem
+                name="Contact"
+                link="/contact"
+                isActive={activePage == "contact"}
+              />
             </ul>
           </div>
         </div>
