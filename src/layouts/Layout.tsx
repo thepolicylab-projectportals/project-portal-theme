@@ -9,7 +9,7 @@ interface LayoutProps {
 
 export const Layout: FunctionComponent<LayoutProps> = ({ children }) => {
   return (
-    <div className="bg-white lg:container sm:mx-0 sm:w-full md:mx-0 md:w-full lg:mx-auto lg:min-w-max border-l border-r border-gray-200 px-0">
+    <div className="bg-white sm:mx-0 sm:w-full lg:container lg:p-0 lg:mx-auto border-l border-r border-gray-200 ">
       {children}
       <div className="bg-white dark:bg-transparent border-t border-b border-transparent py-8 lg:py-16 mt-8">
         <div className="container">
