@@ -262,10 +262,10 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
                     collaborator by {endDate}.
                   </p>
                   <div className="mt-4">
-                    <button className="bg-rust-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-sm py-3 mr-2">
+                    <button className="bg-rust-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-sm py-3 mr-2 mt-2">
                       Express Interest
                     </button>
-                    <button className="bg-rust-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-sm py-3">
+                    <button className="bg-rust-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-sm py-3 mt-2">
                       Ask a question
                     </button>
                   </div>
