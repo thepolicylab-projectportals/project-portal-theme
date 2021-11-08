@@ -1,17 +1,16 @@
 import { graphql, navigate } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import React, { FunctionComponent } from "react"
 import { Feature, SiteMetadata, Navbar } from "../components"
 import { Layout } from "../layouts/Layout"
 import Markdown from "markdown-to-jsx"
 import { ProjectContact } from "../components/ProjectContact"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
-  faFacebookSquare,
-  faLinkedin,
-  faTwitterSquare,
-} from "@fortawesome/free-brands-svg-icons"
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons"
+  FaFacebookSquare,
+  FaLinkedin,
+  FaTwitterSquare,
+  FaEnvelope,
+} from "react-icons/fa"
 
 interface ProjectDetailProps {
   data: {
@@ -35,7 +34,6 @@ interface ProjectDetailProps {
         priorResearch: string
         statusOfData: string
         fundingInfo: string
-        commitment: string
         contactName: string
         contactTitle: string
         contactEmail: string
@@ -67,7 +65,7 @@ const SectionOfItem: FunctionComponent<SectionOfItemProps> = ({
   return (
     <>
       <section className="pt-4">
-        <h4 className="lg:text-xl text-lg font-bold pb-2">{label}</h4>
+        <h4 className="pb-2 text-lg font-bold lg:text-xl">{label}</h4>
         <div className="text-md">
           <Markdown
             options={{
@@ -97,7 +95,7 @@ const SectionOfItem: FunctionComponent<SectionOfItemProps> = ({
 }
 
 const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
-  const { data, location } = props
+  const { data } = props
   const {
     question,
     partnerName,
@@ -117,13 +115,11 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
     priorResearch,
     statusOfData,
     fundingInfo,
-    commitment,
     contactName,
     contactTitle,
     contactEmail,
     contactImage,
   } = data.item.data
-  const navigation = location.state ? location.state.navigation : null
 
   return (
     <Layout>
@@ -131,17 +127,17 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
 
       <Navbar />
 
-      <div className="my-4 mx-12 text-blue-500 underline">
+      <div className="mx-12 my-4 text-blue-500 underline">
         <a href="#" onClick={() => navigate(-1)}>
           Back to viewing opportunities
         </a>
       </div>
 
       <article>
-        <div className="pt-12 bg-rust-500 pl-16 pb-12">
+        <div className="pt-12 pb-12 pl-16 bg-rust-500">
           <div className="flex flex-wrap">
             <div className="w-full pb-4 lg:w-4/5 lg:pr-4 lg:pb-0">
-              <h1 className="text-2xl lg:text-4xl text-white font-semibold leading-tight pb-4">
+              <h1 className="pb-4 text-4xl font-semibold leading-tight text-white">
                 {question}
               </h1>
               <div className="text-white text-md">
@@ -154,52 +150,48 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
               </div>
             </div>
             <div className="w-full lg:w-1/5">
-              <h4 className="text-md font-bold text-white">
+              <h4 className="font-bold text-white text-md">
                 Share this project
               </h4>
-              <div>
-                <a href="https://facebook.com" className="mr-1">
-                  <FontAwesomeIcon
-                    icon={faFacebookSquare}
-                    size="lg"
-                    className="text-white"
-                  />
+              <div className="mt-1">
+                <a
+                  href="https://facebook.com"
+                  className="inline-block mr-1 text-xl text-white"
+                >
+                  <FaFacebookSquare />
                 </a>
-                <a href="https://twitter.com" className="mr-1">
-                  <FontAwesomeIcon
-                    icon={faTwitterSquare}
-                    size="lg"
-                    className="text-white"
-                  />
+                <a
+                  href="https://twitter.com"
+                  className="inline-block mr-1 text-xl text-white"
+                >
+                  <FaTwitterSquare />
                 </a>
-                <a href="https://linkedin.com" className="mr-1">
-                  <FontAwesomeIcon
-                    icon={faLinkedin}
-                    size="lg"
-                    className="text-white"
-                  />
+                <a
+                  href="https://linkedin.com"
+                  className="inline-block mr-1 text-xl text-white"
+                >
+                  <FaLinkedin />
                 </a>
-                <a href="mailto:thepolicylab@brown.edu" className="mr-1">
-                  <FontAwesomeIcon
-                    icon={faEnvelope}
-                    size="lg"
-                    className="text-white"
-                  />
+                <a
+                  href="mailto:thepolicylab@brown.edu"
+                  className="inline-block mr-1 text-xl text-white"
+                >
+                  <FaEnvelope />
                 </a>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="mt-4 mb-4 mx-12 flex flex-wrap">
-          <div className="mr-8 mt-2">
+        <div className="flex flex-wrap mx-12 mt-4 mb-4">
+          <div className="mt-2 mr-8">
             <Feature
               label="Policy Areas"
               color="blue-200"
               value={policyAreas}
             />
           </div>
-          <div className="mr-8 mt-2">
+          <div className="mt-2 mr-8">
             <Feature
               label="Support Needed"
               color="purple-200"
@@ -208,9 +200,9 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
           </div>
         </div>
 
-        <div className="mt-12  mx-8">
+        <div className="mx-8 mt-12">
           <div className="container">
-            <div className="w-full text-xl lg:text-2xl font-bold">
+            <div className="w-full text-xl font-bold lg:text-2xl">
               <h2>Project overview</h2>
             </div>
             <div className="flex flex-wrap">
@@ -231,30 +223,29 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
                   />
                 </div>
               </div>
-              <div className="w-full lg:w-1/3 bg-gray-100 p-8">
-                <h3 className="font-bold text-black text-lg mb-2">
+              <div className="w-full p-8 bg-gray-100 lg:w-1/3">
+                <h3 className="mb-2 text-lg font-bold text-black">
                   Project point of contact
                 </h3>
-                <div className="flex flexwrap">
-                  <Img
+                <div className="flex flex-wrap">
+                  <GatsbyImage
                     className="m-2 rounded-full"
                     alt={contactName}
-                    fadeIn={false}
-                    fixed={contactImage.localFiles[0].childImageSharp.fixed}
+                    image={getImage(contactImage.localFiles[0])}
                   />
                   <div className="p-2">
-                    <h3 className="font-bold text-black text-md mb-1">
+                    <h3 className="mb-1 font-bold text-black text-md">
                       {contactName}
                     </h3>
-                    <p className="text-black text-md mb-1">{contactTitle}</p>
-                    <p className="text-black text-md mb-1">{contactEmail}</p>
+                    <p className="mb-1 text-black text-md">{contactTitle}</p>
+                    <p className="mb-1 text-black text-md">{contactEmail}</p>
                   </div>
                 </div>
                 <div>
-                  <h3 className="font-bold text-black text-lg mb-2 mt-4">
+                  <h3 className="mt-4 mb-2 text-lg font-bold text-black">
                     Interested in collaborating?
                   </h3>
-                  <p className="text-md text-black mt-2">
+                  <p className="mt-2 text-black text-md">
                     Researchers should use this page to express their interest
                     in participating and sign up for a short discussion with the
                     project team. The project team will share more details about
@@ -262,10 +253,10 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
                     collaborator by {endDate}.
                   </p>
                   <div className="mt-4">
-                    <button className="bg-rust-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-sm py-3 mr-2 mt-2">
+                    <button className="px-4 py-2 py-3 mt-2 mr-2 text-sm font-bold text-white rounded bg-rust-500 hover:bg-blue-700">
                       Express Interest
                     </button>
-                    <button className="bg-rust-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-sm py-3 mt-2">
+                    <button className="px-4 py-2 py-3 mt-2 text-sm font-bold text-white rounded bg-rust-500 hover:bg-blue-700">
                       Ask a question
                     </button>
                   </div>
@@ -275,48 +266,48 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
           </div>
         </div>
 
-        <hr className="border-gray-300 text-center mx-12 my-8" />
+        <hr className="mx-12 my-8 text-center border-gray-300" />
 
         <div className="container mx-8 my-4">
           <div className="flex flex-wrap">
-            <div className="w-full text-xl lg:text-2xl font-bold pb-2">
+            <div className="w-full pb-2 text-xl font-bold lg:text-2xl">
               <h2>Collaborator details</h2>
             </div>
-            <div className="w-full lg:w-1/3 px-4">
+            <div className="w-full px-4 lg:w-1/3">
               <SectionOfItem label="Expertise needed" value={expertise} />
             </div>
-            <div className="w-full lg:w-1/3 px-4">
+            <div className="w-full px-4 lg:w-1/3">
               <SectionOfItem
                 label="Requirements and restrictions"
                 value={requirement}
               />
             </div>
-            <div className="w-full lg:w-1/3 px-4">
+            <div className="w-full px-4 lg:w-1/3">
               <SectionOfItem label="Key dates" value={keyDates} />
             </div>
           </div>
         </div>
 
-        <hr className="border-gray-300 text-center mx-12 my-8" />
+        <hr className="mx-12 my-8 text-center border-gray-300" />
 
         <div className="container mx-8 my-4 border-top-">
           <div className="flex flex-wrap">
-            <div className="w-full text-xl lg:text-2xl font-bold pb-2">
+            <div className="w-full pb-2 text-xl font-bold lg:text-2xl">
               <h2>Project details</h2>
             </div>
-            <div className="w-full lg:w-1/3 px-4">
+            <div className="w-full px-4 lg:w-1/3">
               <SectionOfItem
                 label="Status of associated data"
                 value={statusOfData}
               />
             </div>
-            <div className="w-full lg:w-1/3 px-4">
+            <div className="w-full px-4 lg:w-1/3">
               <SectionOfItem
                 label="Prior research and background"
                 value={priorResearch}
               />
             </div>
-            <div className="w-full lg:w-1/3 px-4">
+            <div className="w-full px-4 lg:w-1/3">
               <SectionOfItem label="Funding details" value={fundingInfo} />
             </div>
           </div>
@@ -350,7 +341,6 @@ export const query = graphql`
         priorResearch
         statusOfData
         fundingInfo
-        commitment
         contactName
         contactTitle
         contactEmail
@@ -358,9 +348,7 @@ export const query = graphql`
           localFiles {
             id
             childImageSharp {
-              fixed: fixed(width: 100, height: 100) {
-                ...GatsbyImageSharpFixed
-              }
+              gatsbyImageData(width: 100, height: 100, placeholder: BLURRED)
             }
           }
         }

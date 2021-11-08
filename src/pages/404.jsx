@@ -5,15 +5,15 @@ import { Link } from "gatsby"
 import "@fontsource/public-sans"
 import "../styles/style.css"
 
-export default () => {
+const Page404 = () => {
   return (
-    <div className="flex min-h-screen items-center">
+    <div className="flex items-center min-h-screen">
       <SiteMetadata title="Error 404" description="Page not found" />
       <div className="container">
-        <h1 className="text-3xl lg:text-5xl font-extrabold leading-tight">
+        <h1 className="text-3xl font-extrabold leading-tight lg:text-5xl">
           Error 404
         </h1>
-        <h3 className="text-lg lg:text-xl font-medium">
+        <h3 className="text-lg font-medium lg:text-xl">
           The page you're looking for doesn't exist.
           <br />
           <br />
@@ -25,3 +25,5 @@ export default () => {
     </div>
   )
 }
+
+export default Page404

@@ -1,11 +1,5 @@
 import React from "react"
-import {
-  Cards,
-  CardProps,
-  Navbar,
-  SiteMetadata,
-  BottomBanner,
-} from "../components"
+import { Cards, CardProps, Navbar, SiteMetadata } from "../components"
 import { Layout } from "../layouts/Layout"
 import { HeaderWithImage } from "./HeaderWithImage"
 
@@ -13,10 +7,6 @@ export interface ProjectPageProps {
   title: string
   lede: string
   pageName: string
-  footerTitle: string
-  footerText: string
-  footerButton: string
-  footerLink: string
   data: {
     items: {
       nodes: {
@@ -38,10 +28,6 @@ export const ProjectPage = ({
   data,
   lede,
   pageName,
-  footerTitle,
-  footerText,
-  footerButton,
-  footerLink,
 }: ProjectPageProps) => {
   return (
     <Layout>
@@ -59,13 +45,6 @@ export const ProjectPage = ({
       />
 
       <Cards nodes={data.items.nodes} />
-
-      <BottomBanner
-        title={footerTitle}
-        text={footerText}
-        link={footerLink}
-        buttonText={footerButton}
-      />
     </Layout>
   )
 }
