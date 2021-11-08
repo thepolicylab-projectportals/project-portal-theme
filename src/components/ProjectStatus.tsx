@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react"
-import { FaCircle } from "react-icons/fa"
+import { FaCircle, FaPlayCircle, FaCheckCircle } from "react-icons/fa"
 
 interface ProjectStatusProps {
   status: string
@@ -8,20 +8,23 @@ interface ProjectStatusProps {
 export const ProjectStatus: FunctionComponent<ProjectStatusProps> = ({
   status,
 }) => {
-  let Icon = status == "open" ? FaCircle : FaCircle
+  let Icon = null
   let text: string = null
   if (status == "open") {
+    Icon = FaCircle
     text = "Open"
   } else if (status == "inProgress") {
+    Icon = FaPlayCircle
     text = "In progress"
   } else if (status == "complete") {
+    Icon = FaCheckCircle
     text = "Complete"
   }
 
   return (
     <>
       <div className="flex w-full">
-        <span className="text-rust-500 align-inherit pt-1 text-sm">
+        <span className="pt-1 text-sm text-rust-500 align-inherit">
           <Icon />
         </span>
         <span className="pl-2 uppercase">{text}</span>
