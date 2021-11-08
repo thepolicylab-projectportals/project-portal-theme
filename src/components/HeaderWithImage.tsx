@@ -1,5 +1,5 @@
 import { withPrefix } from "gatsby"
-import React, { Component } from "react"
+import React from "react"
 
 interface HeaderWithImageProps {
   title: string
@@ -14,7 +14,7 @@ export const HeaderWithImage = ({
 }: HeaderWithImageProps) => {
   return (
     <div
-      className="px-0 py-0 md:px-4 md:py-12 xl:px-16 xl:py-12 lg:container overflow-hidden bg-white mx-0"
+      className="px-0 py-0 mx-0 overflow-hidden bg-white md:px-12 md:py-12 xl:container"
       style={{
         background: `url(${withPrefix(imageSrc)})`,
         backgroundRepeat: "no-repeat",
@@ -23,8 +23,8 @@ export const HeaderWithImage = ({
       }}
     >
       <div className="flex flex-wrap m-0 lg:m-4">
-        <div className="w-full lg:w-2/3 bg-white p-8">
-          <h2 className="text-4xl font-bold pb-3 text-gray-600">{title}</h2>
+        <div className="w-full p-8 bg-white lg:w-2/3">
+          <h2 className="pb-3 text-4xl font-bold text-gray-600">{title}</h2>
           <p className="text-lg leading-normal">{lede}</p>
         </div>
       </div>

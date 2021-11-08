@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react"
-import { Link } from "gatsby"
-import { FaBars } from "react-icons/fa"
+import { Link, withPrefix } from "gatsby"
+import { FaBars, FaTimes } from "react-icons/fa"
 
 interface NavbarItemProps {
   name: string
@@ -16,10 +16,10 @@ const NavbarItem: FunctionComponent<NavbarItemProps> = ({
   return (
     <>
       <li className="nav-item">
-        <span className="px-3 py-2 flex items-center text-md font-bold leading-snug text-black hover:opacity-75">
+        <span className="flex items-center p-5 font-bold leading-snug text-black text-white hover:opacity-75 xl:text-black xl:px-3 xl:py-2">
           <Link to={link ? link : "#pablo"}>
             {isActive ? (
-              <span className="ml-2 border-b-4 pb-1 border-rust-500">
+              <span className="pb-1 ml-2 border-b-4 border-white xl:border-rust-500">
                 {name}
               </span>
             ) : (
@@ -42,31 +42,36 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
   const [navbarOpen, setNavbarOpen] = React.useState(false)
   return (
     <>
-      <nav className="relative flex flex-wrap items-center justify-between px-2 py-6 bg-gray-100">
-        <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
-          <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
-            <Link
-              className="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-black"
-              to="/"
-            >
-              Logo Ipsum
-            </Link>
+      <nav className="relative flex flex-wrap items-center justify-between p-0 bg-gray-100 xl:px-2 xl:py-6">
+        <div className="flex flex-wrap justify-between w-full px-0 xl:px-4">
+          <div className="relative flex flex-wrap w-full xl:static xl:block xl:w-auto">
             <button
-              className="text-black cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
+              className="block p-6 ml-0 text-xl leading-none text-white outline-none cursor-pointer bg-rust-500 xl:hidden focus:outline-none"
               type="button"
               onClick={() => setNavbarOpen(!navbarOpen)}
             >
-              <FaBars />
+              {navbarOpen ? <FaTimes /> : <FaBars />}
             </button>
+            <Link
+              className="block mx-4 my-auto text-lg font-bold text-black align-middle whitespace-nowrap"
+              to="/"
+            >
+              <img
+                className="hidden xl:inline-block"
+                src={withPrefix("images/sa-logo.png")}
+                alt={"Logo"}
+              />
+              San Antonio Research Partnership Portal
+            </Link>
           </div>
           <div
             className={
-              "lg:flex flex-grow items-center" +
+              "relative flex-grow items-center bg-rust-500 xl:bg-transparent xl:flex xl:bg-gray-100" +
               (navbarOpen ? " flex" : " hidden")
             }
             id="example-navbar-danger"
           >
-            <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
+            <ul className="flex flex-col list-none xl:flex-row xl:ml-auto">
               <NavbarItem
                 name="Open opportunities"
                 link="/"
