@@ -43,7 +43,7 @@ module.exports = {
         background_color: `#fff`,
         theme_color: `#4299e1`,
         display: `standalone`,
-        icon: `src/images/icon.ico`,
+        icon: `src/images/icon.png`,
       },
     },
     {
