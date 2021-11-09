@@ -78,7 +78,7 @@ const CollapsibleList = (collapsibleTitle: string, collapsibleText:string) => {
 const AboutList = (aboutTitle: string, aboutText: string) =>{
   return(
     <div>
-      <h3 className="text-l lg:text-3xl font-bold text-black dark:text-white tracking-tight p-1">
+      <h3 className="text-l lg:text-3xl font-bold text-black dark:text-white tracking-tight p-1 text-justify">
         {aboutTitle}
       </h3>
       <p className="text-md lg:text-lg leading-normal text-justify p-2">
