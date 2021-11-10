@@ -8,11 +8,6 @@ export default ({ data }: ProjectPageProps) =>
     title: "In-progress projects",
     pageName: "in-progress",
     lede: "Agencies are working with partners to answer important questions to improve the lives of residents. All these projects are ongoing, so check back soon for results.",
-    footerTitle: "Curious to learn more? See findings from completed projects.",
-    footerText:
-      "This portal is part of a pilot on new ways to connect academics with research opportunities in government. If you are interested in contributing to the project, we’d like to get in touch.",
-    footerButton: "View completed projects",
-    footerLink: "/completed",
   })
 
 export const query = graphql`

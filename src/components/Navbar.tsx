@@ -42,9 +42,14 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
   const [navbarOpen, setNavbarOpen] = React.useState(false)
   return (
     <>
-      <nav className="relative flex flex-wrap items-center justify-between p-0 bg-gray-100 xl:px-2 xl:py-6">
+      <nav
+        id="nav-bar"
+        className={
+          "sticky top-0 flex flex-wrap items-center justify-between w-full p-0 bg-gray-100 xl:relative xl:px-2 xl:py-6 overflow-hidden"
+        }
+      >
         <div className="flex flex-wrap justify-between w-full px-0 xl:px-4">
-          <div className="relative flex flex-wrap w-full xl:static xl:block xl:w-auto">
+          <div className="relative flex flex-no-wrap w-full xl:static xl:block xl:w-auto">
             <button
               className="block p-6 ml-0 text-xl leading-none text-white outline-none cursor-pointer bg-rust-500 xl:hidden focus:outline-none"
               type="button"
@@ -53,7 +58,7 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
               {navbarOpen ? <FaTimes /> : <FaBars />}
             </button>
             <Link
-              className="block mx-4 my-auto text-lg font-bold text-black align-middle whitespace-nowrap"
+              className="block mx-4 my-auto overflow-hidden text-lg font-bold text-black align-middle whitespace-nowrap"
               to="/"
             >
               <img
@@ -66,7 +71,7 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
           </div>
           <div
             className={
-              "relative flex-grow items-center bg-rust-500 xl:bg-transparent xl:flex xl:bg-gray-100" +
+              "sticky top-16 xl:relative xl:top-0 flex-grow items-center bg-rust-500 xl:bg-transparent xl:flex xl:bg-gray-100 z-10 xl:z-0 transition-transform" +
               (navbarOpen ? " flex" : " hidden")
             }
             id="example-navbar-danger"

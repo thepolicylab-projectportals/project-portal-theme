@@ -40,22 +40,22 @@ export const Card: FunctionComponent<CardProps> = ({
   navigation,
 }) => {
   return (
-    <div className="bg-white shadow-sm rounded-md overflow-hidden border border-gray-200 py-4 px-2">
+    <div className="px-2 py-4 overflow-hidden bg-white border border-gray-200 rounded-md shadow-sm">
       <Link to={`/project/${slug}`} state={{ navigation }}>
         <div className="flex flex-col h-full">
           <div className="mt-4 ml-4">
             <ProjectStatus status={status} />
           </div>
           <div className="p-5 pb-5">
-            <h1 className="text-2xl text-black font-bold leading-snug pb-4">
+            <h1 className="pb-4 text-2xl font-bold leading-snug text-black">
               {question}
             </h1>
             <div>
-              <div className="text-md mt-4">
+              <div className="mt-4 text-md">
                 <span className="font-bold">Opportunity closes: </span>
                 {endDate}
               </div>
-              <div className="text-md mb-4">
+              <div className="mb-4 text-md">
                 <span className="font-bold">Agency: </span>
                 {agency}
               </div>
@@ -75,8 +75,8 @@ export const Card: FunctionComponent<CardProps> = ({
               </div>
             </div>
           </div>
-          <div className="p-5 pb-1 border-solid border-t-2 mt-auto">
-            <button className="bg-rust-500 hover:bg-rust-800 text-white font-bold py-2 px-4 w-full rounded text-sm py-3">
+          <div className="p-5 pb-1 mt-auto border-t-2 border-solid">
+            <button className="w-full px-4 py-3 text-sm font-bold text-white rounded bg-rust-500 hover:bg-rust-800">
               View Opportunity
             </button>
           </div>
