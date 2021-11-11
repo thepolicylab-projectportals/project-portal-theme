@@ -7,7 +7,7 @@ export default ({ data }: ProjectPageProps) =>
     data,
     title: "Open research questions",
     lede: "We are assembling an interdisciplinary network of partners, who collectively can provide methodological expertise related to design, data analytics, and field experimentation, as well as domain knowledge related to the topics. There are opportunities for every-level to highly-experienced scientists.",
-    pageName: "open",
+    pageName: "Open opportunities",
   })
 
 export const query = graphql`

@@ -2,6 +2,14 @@ require("dotenv").config()
 
 module.exports = {
   siteMetadata: {
+    title: "San Antonio Research Partnership Portal",
+    pages: [
+      { name: "Open opportunities", link: "/", show: true },
+      { name: "In-progress projects", link: "/in-progress", show: true },
+      { name: "Completed projects", link: "/completed", show: false },
+      { name: "About", link: "/about", show: true },
+      { name: "Contact", link: "/contact", show: true },
+    ],
     links: {
       contact: "mailto:contact@me.com",
       facebook: "https://www.facebook.com",
@@ -9,7 +17,6 @@ module.exports = {
       twitter: "https://www.twitter.com",
     },
     locale: "en",
-    title: "Project portal",
   },
   plugins: [
     {
@@ -37,11 +44,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Questions from East Evidencia`,
+        name: `San Antonio Research Partnership Portal`,
         short_name: `Project Portal`,
         start_url: `/`,
-        background_color: `#fff`,
-        theme_color: `#4299e1`,
+        background_color: `#fafafa`,
+        theme_color: `#9c4c47`,
         display: `standalone`,
         icon: `src/images/icon.png`,
       },

@@ -6,7 +6,7 @@ export default ({ data }: ProjectPageProps) =>
   ProjectPage({
     data,
     title: "Completed projects",
-    pageName: "completed",
+    pageName: "Completed projects",
     lede: "We are committed to using and sharing evidence. Below are all the projects completed to date, along with findings and links to additional resources, as applicable.",
   })
 

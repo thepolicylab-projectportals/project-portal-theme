@@ -22,7 +22,7 @@ interface ContactProps {
   }
 }
 
-interface ConcactFormState {
+interface ContactFormState {
   name: string
   email: string
   subject: string
@@ -30,7 +30,7 @@ interface ConcactFormState {
 }
 
 class ContactForm extends Component {
-  state: ConcactFormState
+  state: ContactFormState
 
   constructor(props) {
     super(props)
@@ -75,7 +75,7 @@ class ContactForm extends Component {
         <div className="mb-6">
           <label
             htmlFor="name"
-            className="block text-black text-lg font-bold mb-2"
+            className="block mb-2 text-lg font-bold text-black"
           >
             Full name
           </label>
@@ -86,7 +86,7 @@ class ContactForm extends Component {
             placeholder="Start typing"
             required
             type="text"
-            className="shadow appearance-none border w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline"
+            className="w-full px-3 py-2 leading-tight text-black border shadow appearance-none focus:outline-none focus:shadow-outline"
             value={this.state.name}
             onChange={this.handleChange}
           />
@@ -95,7 +95,7 @@ class ContactForm extends Component {
         <div className="mb-6">
           <label
             htmlFor="email"
-            className="block text-black text-lg font-bold mb-2"
+            className="block mb-2 text-lg font-bold text-black"
           >
             Email address
           </label>
@@ -106,7 +106,7 @@ class ContactForm extends Component {
             placeholder="example@example.com"
             required
             type="email"
-            className="shadow appearance-none border w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline"
+            className="w-full px-3 py-2 leading-tight text-black border shadow appearance-none focus:outline-none focus:shadow-outline"
             value={this.state.email}
             onChange={this.handleChange}
           />
@@ -115,7 +115,7 @@ class ContactForm extends Component {
         <div className="mb-6">
           <label
             htmlFor="subject"
-            className="block text-black text-lg font-bold mb-2"
+            className="block mb-2 text-lg font-bold text-black"
           >
             Subject
           </label>
@@ -126,7 +126,7 @@ class ContactForm extends Component {
             placeholder="Start typing"
             required
             type="text"
-            className="shadow appearance-none border w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline"
+            className="w-full px-3 py-2 leading-tight text-black border shadow appearance-none focus:outline-none focus:shadow-outline"
             value={this.state.subject}
             onChange={this.handleChange}
           />
@@ -135,7 +135,7 @@ class ContactForm extends Component {
         <div className="mb-6">
           <label
             htmlFor="message"
-            className="block text-black text-lg font-bold mb-2"
+            className="block mb-2 text-lg font-bold text-black"
           >
             Message
           </label>
@@ -145,7 +145,7 @@ class ContactForm extends Component {
             id="message"
             placeholder="Start typing"
             required
-            className="shadow appearance-none border w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline h-48"
+            className="w-full h-48 px-3 py-2 leading-tight text-black border shadow appearance-none focus:outline-none focus:shadow-outline"
             value={this.state.message}
             onChange={this.handleChange}
           />
@@ -153,7 +153,7 @@ class ContactForm extends Component {
 
         <div className="flex items-center justify-between">
           <button
-            className="bg-rust-500 hover:bg-rust-800 text-white text-lg font-bold py-4 px-6 focus:outline-none focus:shadow-outline"
+            className="px-6 py-4 text-lg font-bold text-white bg-rust-500 hover:bg-rust-800 focus:outline-none focus:shadow-outline"
             type="submit"
           >
             Submit
@@ -172,7 +172,7 @@ export default ({ data }: ContactProps) => {
         description="Questions from East Evidencia"
       />
 
-      <Navbar activePage="contact" />
+      <Navbar activePage="Contact" />
 
       <HeaderWithImage
         title="Contact"
@@ -183,12 +183,12 @@ export default ({ data }: ContactProps) => {
       <div className="container pt-6 overflow-hidden bg-white">
         <div className="flex flex-wrap">
           <div className="lg:w-2/3 sm:w-full">
-            <h2 className="text-2xl font-bold text-black dark:text-white tracking-tight leading-loose lg:text-5xl mb-8">
+            <h2 className="mb-8 text-2xl font-bold leading-loose tracking-tight text-black dark:text-white lg:text-5xl">
               Want to talk to the Office of Innovation? We'd love to hear from
               you!
             </h2>
 
-            <p className="text-md lg:text-lg leading-normal">
+            <p className="leading-normal text-md lg:text-lg">
               Check out our frequently asked questions. Please direct
               project-specific questions to points of contact listed for
               individual projects. We're happy to discuss questions about the
@@ -201,7 +201,7 @@ export default ({ data }: ContactProps) => {
 
       <div className="container pt-6 overflow-hidden bg-white">
         <div className="flex flex-wrap">
-          <div className="lg:w-2/3 w-full">
+          <div className="w-full lg:w-2/3">
             <ContactForm />
           </div>
         </div>

@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react"
-import { Link, withPrefix } from "gatsby"
+import { Link, withPrefix, useStaticQuery, graphql } from "gatsby"
 import { FaBars, FaTimes } from "react-icons/fa"
 
 interface NavbarItemProps {
@@ -16,7 +16,7 @@ const NavbarItem: FunctionComponent<NavbarItemProps> = ({
   return (
     <>
       <li className="nav-item">
-        <span className="flex items-center p-5 font-bold leading-snug text-black text-white hover:opacity-75 xl:text-black xl:px-3 xl:py-2">
+        <span className="flex items-center p-5 font-bold leading-snug text-white hover:opacity-75 xl:text-black xl:px-3 xl:py-2">
           <Link to={link ? link : "#pablo"}>
             {isActive ? (
               <span className="pb-1 ml-2 border-b-4 border-white xl:border-rust-500">
@@ -40,6 +40,25 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
   activePage,
 }: NavbarProps) => {
   const [navbarOpen, setNavbarOpen] = React.useState(false)
+  const {
+    site: {
+      siteMetadata: { title, pages },
+    },
+  } = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+          pages {
+            name
+            link
+            show
+          }
+        }
+      }
+    }
+  `)
+
   return (
     <>
       <nav
@@ -66,7 +85,7 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
                 src={withPrefix("images/sa-logo.png")}
                 alt={"Logo"}
               />
-              San Antonio Research Partnership Portal
+              {title}
             </Link>
           </div>
           <div
@@ -77,31 +96,18 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
             id="example-navbar-danger"
           >
             <ul className="flex flex-col list-none xl:flex-row xl:ml-auto">
-              <NavbarItem
-                name="Open opportunities"
-                link="/"
-                isActive={activePage == "open"}
-              />
-              <NavbarItem
-                name="In-progress projects"
-                link="/in-progress"
-                isActive={activePage == "in-progress"}
-              />
-              <NavbarItem
-                name="Completed projects"
-                link="/completed"
-                isActive={activePage == "completed"}
-              />
-              <NavbarItem
-                name="About"
-                link="/about"
-                isActive={activePage == "about"}
-              />
-              <NavbarItem
-                name="Contact"
-                link="/contact"
-                isActive={activePage == "contact"}
-              />
+              {pages.map(({ name, link, show }, i) =>
+                show ? (
+                  <NavbarItem
+                    key={"nav" + i}
+                    name={name}
+                    link={link}
+                    isActive={activePage === name}
+                  />
+                ) : (
+                  ""
+                )
+              )}
             </ul>
           </div>
         </div>
