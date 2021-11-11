@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { graphql } from "gatsby"
+import { graphql, navigate } from "gatsby"
 import { Navbar, SiteMetadata } from "../components"
 import { Layout } from "../layouts/Layout"
 import { HeaderWithImage } from "../components/HeaderWithImage"
@@ -50,19 +50,16 @@ class ContactForm extends Component {
   }
 
   handleSubmit(event) {
-    // This code will actually post to netlify
-    // fetch("/", {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    //   body: encode({ "form-name": "contact", ...this.state })
-    // })
-    //   .then(() => alert("Success!"))
-    //   .catch(error => alert(error));
-
-    alert(
-      `${this.state.name} ${this.state.email} ${this.state.subject} ${this.state.message}`
-    )
     event.preventDefault()
+
+    // This code will actually post to netlify
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "contact", ...this.state }),
+    })
+      .then(() => navigate("/thank-you/"))
+      .catch((error) => alert(error))
   }
 
   render() {
