@@ -90,7 +90,7 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
           </div>
           <div
             className={
-              "sticky top-16 xl:relative xl:top-0 flex-grow items-center bg-rust-500 xl:bg-transparent xl:flex xl:bg-gray-100 z-10 xl:z-0 transition-transform" +
+              "fixed top-16 w-full md:w-2/3 xl:w-auto xl:relative xl:top-0 flex-grow items-center bg-rust-500 xl:bg-transparent xl:flex xl:bg-gray-100 z-10 xl:z-0 transition-transform" +
               (navbarOpen ? " flex" : " hidden")
             }
             id="example-navbar-danger"

@@ -15,7 +15,7 @@ export const query = graphql`
     items: allAirtable(
       filter: {
         table: { eq: $tableName }
-        data: { status: { eq: "inProgress" } }
+        data: { status: { eq: "in-progress" } }
       }
     ) {
       nodes {

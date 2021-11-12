@@ -26,6 +26,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     {
@@ -36,6 +37,11 @@ module.exports = {
           {
             baseId: process.env.AIRTABLE_BASE_ID,
             tableName: process.env.AIRTABLE_TABLE_NAME,
+            tableLinks: ["contacts"],
+          },
+          {
+            baseId: process.env.AIRTABLE_BASE_ID,
+            tableName: "Project Contacts",
             mapping: { contactImage: "fileNode" },
           },
         ],

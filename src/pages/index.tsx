@@ -55,7 +55,7 @@ export const query = graphql`
     }
     bgImage: file(relativePath: { regex: "/bg-index.png/" }) {
       childImageSharp {
-        resize(width: 1536, height: 352) {
+        resize(width: 1536, height: 400) {
           src
         }
       }

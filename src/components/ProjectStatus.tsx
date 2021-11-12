@@ -13,12 +13,12 @@ export const ProjectStatus: FunctionComponent<ProjectStatusProps> = ({
   if (status == "open") {
     Icon = FaCircle
     text = "Open"
-  } else if (status == "inProgress") {
+  } else if (status == "in-progress") {
     Icon = FaPlayCircle
     text = "In progress"
   } else if (status == "completed") {
     Icon = FaCheckCircle
-    text = "Complete"
+    text = "Completed"
   }
 
   return (

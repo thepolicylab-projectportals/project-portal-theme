@@ -1,16 +1,21 @@
 import { graphql, Link, withPrefix } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import React, { FunctionComponent } from "react"
-import { Feature, SiteMetadata, Navbar } from "../components"
+import {
+  Feature,
+  SiteMetadata,
+  Navbar,
+  MainContact,
+  SectionOfItem,
+} from "../components"
 import { Layout } from "../layouts/Layout"
-import Markdown from "markdown-to-jsx"
-import { ProjectContact } from "../components/ProjectContact"
 import {
   FaFacebookSquare,
   FaLinkedin,
   FaTwitterSquare,
   FaEnvelope,
 } from "react-icons/fa"
+import { CollaboratorDetails, ProjectTeam } from "../components"
+import { statusOutput } from "../utils"
 
 interface ProjectDetailProps {
   data: {
@@ -21,6 +26,7 @@ interface ProjectDetailProps {
         slug: string
         summary: string
         status: string
+        opportunityCloses: Date
         startDate: Date
         endDate: Date
         agency: string
@@ -34,111 +40,55 @@ interface ProjectDetailProps {
         priorResearch: string
         statusOfData: string
         fundingInfo: string
-        contactName: string
-        contactTitle: string
-        contactEmail: string
-        contactImage: any
+        contacts: {
+          data: {
+            name: string
+            title: string
+            employer: string
+            email: string
+            contactImage: any
+          }
+        }[]
       }
     }
   }
   location: any
 }
 
-interface SectionOfItemProps {
-  label: string
-  value: string
-}
-
-const LiItem = ({ children, ...props }) => {
-  props["className"] = "list-style-type-dash"
-  return (
-    <li {...props}>
-      <span>{children}</span>
-    </li>
-  )
-}
-
-const SectionOfItem: FunctionComponent<SectionOfItemProps> = ({
-  label,
-  value,
-}) => {
-  return (
-    <>
-      <section className="pt-4">
-        <h4 className="pb-2 text-lg font-bold lg:text-xl">{label}</h4>
-        <div className="text-md">
-          <Markdown
-            options={{
-              overrides: {
-                ul: {
-                  props: {
-                    className: "list-inside list-disc",
-                  },
-                },
-                li: {
-                  component: LiItem,
-                },
-                a: {
-                  props: {
-                    className: "underline hover:no-underline",
-                  },
-                },
-              },
-            }}
-          >
-            {value}
-          </Markdown>
-        </div>
-      </section>
-    </>
-  )
-}
-
 const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
   const { data } = props
   const {
     question,
-    partnerName,
-    slug,
     summary,
     status,
+    opportunityCloses,
     startDate,
     endDate,
     agency,
     policyAreas,
     supportNeeded,
     deliverable,
+    purpose,
     expertise,
     requirement,
-    purpose,
     keyDates,
     priorResearch,
     statusOfData,
     fundingInfo,
-    contactName,
-    contactTitle,
-    contactEmail,
-    contactImage,
+    contacts,
   } = data.item.data
 
-  const activePage =
-    status === "open"
-      ? "open"
-      : status === "inProgress"
-      ? "in-progress"
-      : "complete"
-
-  console.log(props.location)
+  const mainContact = contacts[0].data
 
   return (
     <Layout>
       <SiteMetadata title={question} description={summary} />
 
-      <Navbar activePage={activePage} />
+      <Navbar activePage={null} />
 
-      <section className="mx-12 my-4 text-blue-500 underline">
-        <Link to={withPrefix(`/${activePage === "open" ? "" : activePage}`)}>
-          Back to viewing opportunities
+      <section className="mx-12 my-4 text-blue-500 underline hover:text-rust-500">
+        <Link to={withPrefix(`/${status === "open" ? "" : status}`)}>
+          Back to viewing all {status} projects
         </Link>
       </section>
 
@@ -150,8 +100,15 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
                 {question}
               </h1>
               <div className="text-white text-md">
-                <span className="font-bold">Opportunity closes: </span>
-                {endDate}
+                <span className="font-bold">
+                  {statusOutput(
+                    status,
+                    "Opportunity closes: ",
+                    "Project started: ",
+                    "Project ended: "
+                  )}
+                </span>
+                {statusOutput(status, opportunityCloses, startDate, endDate)}
               </div>
               <div className="text-white text-md">
                 <span className="font-bold">Agency: </span>
@@ -220,7 +177,11 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
               </div>
               <div className="mt-4">
                 <SectionOfItem
-                  label="Anticipated deliverables"
+                  label={
+                    status === "completed"
+                      ? "Deliverables"
+                      : "Anticipated deliverables"
+                  }
                   value={deliverable}
                 />
               </div>
@@ -231,95 +192,33 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
                 />
               </div>
             </div>
-
-            <div className="w-full px-4 py-8 my-4 bg-gray-100 lg:px-8 lg:py-4 lg:w-1/3 lg:rounded">
-              <h3 className="mb-2 text-lg font-bold text-black">
-                Project point of contact
-              </h3>
-              <div className="flex flex-wrap">
-                <GatsbyImage
-                  className="m-2 rounded-full"
-                  alt={contactName}
-                  image={getImage(contactImage.localFiles[0])}
-                />
-                <div className="p-2">
-                  <h3 className="mb-1 font-bold text-black text-md">
-                    {contactName}
-                  </h3>
-                  <p className="mb-1 text-black text-md">{contactTitle}</p>
-                  <p className="mb-1 text-black text-md">{contactEmail}</p>
-                </div>
-              </div>
-              <div>
-                <h3 className="mt-4 mb-2 text-lg font-bold text-black">
-                  Interested in collaborating?
-                </h3>
-                <p className="mt-2 text-black text-md">
-                  Researchers should use this page to express their interest in
-                  participating and sign up for a short discussion with the
-                  project team. The project team will share more details about
-                  the project and answer any questions. We hope to select a
-                  collaborator by {endDate}.
-                </p>
-                <div className="mt-4">
-                  <button className="px-4 py-3 mt-2 mr-2 text-sm font-bold text-white rounded bg-rust-500 hover:bg-blue-700">
-                    Express Interest
-                  </button>
-                  <button className="px-4 py-3 mt-2 text-sm font-bold text-white rounded bg-rust-500 hover:bg-blue-700">
-                    Ask a question
-                  </button>
-                </div>
-              </div>
-            </div>
+            <MainContact
+              {...mainContact}
+              status={status}
+              date={status === "open" ? opportunityCloses : endDate}
+            />
           </div>
         </section>
 
         <hr className="mx-4 my-8 text-center border-gray-300 lg:mx-12" />
 
-        <section className="px-4 lg:px-12">
-          <div className="flex flex-wrap">
-            <div className="w-full pb-2 text-xl font-bold lg:text-2xl">
-              <h2>Collaborator details</h2>
-            </div>
-            <div className="w-full px-4 lg:w-1/3">
-              <SectionOfItem label="Expertise needed" value={expertise} />
-            </div>
-            <div className="w-full px-4 lg:w-1/3">
-              <SectionOfItem
-                label="Requirements and restrictions"
-                value={requirement}
-              />
-            </div>
-            <div className="w-full px-4 lg:w-1/3">
-              <SectionOfItem label="Key dates" value={keyDates} />
-            </div>
-          </div>
-        </section>
-
-        <hr className="mx-4 my-8 text-center border-gray-300 lg:mx-12" />
-
-        <section className="px-4 lg:px-12">
-          <div className="flex flex-wrap">
-            <div className="w-full pb-2 text-xl font-bold lg:text-2xl">
-              <h2>Project details</h2>
-            </div>
-            <div className="w-full px-4 lg:w-1/3">
-              <SectionOfItem
-                label="Status of associated data"
-                value={statusOfData}
-              />
-            </div>
-            <div className="w-full px-4 lg:w-1/3">
-              <SectionOfItem
-                label="Prior research and background"
-                value={priorResearch}
-              />
-            </div>
-            <div className="w-full px-4 lg:w-1/3">
-              <SectionOfItem label="Funding details" value={fundingInfo} />
-            </div>
-          </div>
-        </section>
+        {status === "open" ? (
+          <CollaboratorDetails
+            {...{
+              expertise,
+              requirement,
+              keyDates,
+              priorResearch,
+              statusOfData,
+              fundingInfo,
+            }}
+          />
+        ) : (
+          <ProjectTeam
+            title="Project Team"
+            contacts={contacts.map((contact) => contact.data)}
+          />
+        )}
       </article>
     </Layout>
   )
@@ -336,6 +235,7 @@ export const query = graphql`
         slug
         summary
         status
+        opportunityCloses
         startDate
         endDate
         agency
@@ -349,14 +249,24 @@ export const query = graphql`
         priorResearch
         statusOfData
         fundingInfo
-        contactName
-        contactTitle
-        contactEmail
-        contactImage {
-          localFiles {
-            id
-            childImageSharp {
-              gatsbyImageData(width: 100, height: 100, placeholder: BLURRED)
+        contacts {
+          data {
+            name
+            title
+            employer
+            email
+            contactImage {
+              localFiles {
+                id
+                childImageSharp {
+                  gatsbyImageData(
+                    width: 100
+                    height: 100
+                    placeholder: BLURRED
+                    layout: FIXED
+                  )
+                }
+              }
             }
           }
         }

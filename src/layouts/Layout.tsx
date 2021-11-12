@@ -16,7 +16,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({ children }) => {
         text={
           "This portal is part of a pilot on new ways to connect academics with research opportunities in government. If you are interested in contributing to the project, we’d like to get in touch."
         }
-        link={"/feedback"}
+        link={"/contact"}
         buttonText={"Share your feedback"}
       />
       <Footer />
