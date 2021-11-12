@@ -91,6 +91,11 @@ Netlify builds are currently scheduled to trigger:
 
 We are currently investigating how to trigger a build upon certain Airtable actions.
 
-### On forms
+## Forms (Netlify + Zapier + Airtable)
 
-tktk
+We are using Netlify's built in [Forms](https://docs.netlify.com/forms/setup/?_ga=2.154814840.1787923700.1636648625-1173918369.1635907455)
+product. Submissions to these forms are then stored in the Airtable workspace associated
+with the project using [Zapier](https://zapier.com/apps/airtable/integrations/netlify).
+
+We note that this Zapier automation piece shouldn't be necessary long term, but it's
+cheap for now and reduces engineering effort for v1.
