@@ -6,14 +6,10 @@ import {
   Navbar,
   MainContact,
   SectionOfItem,
+  ShareProject,
 } from "../components"
 import { Layout } from "../layouts/Layout"
-import {
-  FaFacebookSquare,
-  FaLinkedin,
-  FaTwitterSquare,
-  FaEnvelope,
-} from "react-icons/fa"
+
 import { CollaboratorDetails, ProjectTeam } from "../components"
 import { statusOutput } from "../utils"
 
@@ -115,37 +111,7 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
                 {agency}
               </div>
             </div>
-            <div className="w-full lg:w-1/5">
-              <h4 className="font-bold text-white text-md">
-                Share this project
-              </h4>
-              <div className="mt-1">
-                <a
-                  href="https://facebook.com"
-                  className="inline-block mr-1 text-xl text-white"
-                >
-                  <FaFacebookSquare />
-                </a>
-                <a
-                  href="https://twitter.com"
-                  className="inline-block mr-1 text-xl text-white"
-                >
-                  <FaTwitterSquare />
-                </a>
-                <a
-                  href="https://linkedin.com"
-                  className="inline-block mr-1 text-xl text-white"
-                >
-                  <FaLinkedin />
-                </a>
-                <a
-                  href="mailto:thepolicylab@brown.edu"
-                  className="inline-block mr-1 text-xl text-white"
-                >
-                  <FaEnvelope />
-                </a>
-              </div>
-            </div>
+            <ShareProject />
           </div>
         </section>
 
@@ -219,6 +185,14 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
             contacts={contacts.map((contact) => contact.data)}
           />
         )}
+
+        <section className="mx-12 my-4">
+          <Link to={withPrefix(`/${status === "open" ? "" : status}`)}>
+            <button className="px-4 py-3 mt-2 mr-2 text-sm font-bold text-white rounded bg-rust-500 hover:bg-rust-800">
+              Back
+            </button>
+          </Link>
+        </section>
       </article>
     </Layout>
   )

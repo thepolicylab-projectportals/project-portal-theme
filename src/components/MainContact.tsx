@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from "react"
+import { Link } from "gatsby"
 import { Contact } from "../components"
 import { statusOutput } from "../utils"
 
@@ -76,12 +77,20 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
           {statusOutput(status, openText, inProgressText, completeText)}
         </p>
         <div className="mt-4">
-          <button className="px-4 py-3 mt-2 mr-2 text-sm font-bold text-white rounded bg-rust-500 hover:bg-blue-700">
-            Express Interest
-          </button>
-          <button className="px-4 py-3 mt-2 text-sm font-bold text-white rounded bg-rust-500 hover:bg-blue-700">
-            Ask a question
-          </button>
+          {status === "open" ? (
+            <a href={`mailto:${email}`}>
+              <button className="px-4 py-3 mt-2 mr-2 text-sm font-bold text-white rounded bg-rust-500 hover:bg-rust-800">
+                Express Interest
+              </button>
+            </a>
+          ) : (
+            ""
+          )}
+          <Link to={"/contact"}>
+            <button className="px-4 py-3 mt-2 text-sm font-bold rounded text-rust-500 bg-rust-500 hover:bg-rust-500 hover:text-white border-1 border-rust-500">
+              Ask a question
+            </button>
+          </Link>
         </div>
       </div>
     </div>
