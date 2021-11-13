@@ -87,7 +87,7 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
             ""
           )}
           <Link to={"/contact"}>
-            <button className="px-4 py-3 mt-2 text-sm font-bold rounded text-rust-500 bg-rust-500 hover:bg-rust-500 hover:text-white border-1 border-rust-500">
+            <button className="px-4 py-3 mt-2 text-sm font-bold bg-white border rounded text-rust-500 hover:bg-rust-500 hover:text-white border-rust-500">
               Ask a question
             </button>
           </Link>

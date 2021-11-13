@@ -12,9 +12,9 @@ See the `README` for details on necessary configurations for local builds.
 
 ## Airtable
 
-Currently there are two Airtable bases that are used throughout this project. The first
-describes all the content on the site (the projects) and the second tracks all form
-submissions.
+Currently there are three Airtable bases that are used throughout this project. The first
+two describe all the content on the site (the projects and all contacts) and third second
+tracks all form submissions.
 
 An important fact about each project is that its _slug_ must be unique. This will be
 enforced by the Airtable eventually, but it is currently ignored due to development
