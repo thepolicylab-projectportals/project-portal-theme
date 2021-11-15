@@ -55,6 +55,7 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
   const { data } = props
   const {
     question,
+    slug,
     summary,
     status,
     opportunityCloses,
@@ -186,9 +187,9 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
           />
         )}
 
-        <section className="mx-12 my-8">
+        <section className="mx-8 my-8 md:mx-12">
           <Link to={withPrefix(`/${status === "open" ? "" : status}`)}>
-            <button className="px-4 py-3 mt-2 mr-2 text-sm font-bold text-white rounded bg-rust-500 hover:bg-rust-800">
+            <button className="px-4 py-3 text-sm font-bold text-white rounded bg-rust-500 hover:bg-rust-800">
               Back
             </button>
           </Link>

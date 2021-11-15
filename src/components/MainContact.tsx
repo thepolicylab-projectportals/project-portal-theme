@@ -46,18 +46,9 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
     </>
   )
 
-  console.log(
-    statusOutput(
-      status,
-      "Interested in collaborating?",
-      "The project is in progress.",
-      "The project is complete."
-    )
-  )
-
   return (
     <div className="w-full px-4 py-8 my-4 bg-gray-100 lg:px-8 lg:w-1/3 lg:py-4 lg:rounded">
-      <h3 className="mb-2 text-lg font-bold text-black">
+      <h3 className="mb-6 text-lg font-bold text-black">
         Project point of contact
       </h3>
       <Contact
