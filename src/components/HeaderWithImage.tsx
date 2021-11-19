@@ -14,17 +14,17 @@ export const HeaderWithImage = ({
 }: HeaderWithImageProps) => {
   return (
     <div
-      className="px-0 py-0 mx-0 overflow-hidden bg-white md:px-12 md:py-12 xl:container"
+      className="px-0 py-0 mx-0 overflow-hidden bg-white md:px-8 md:py-12 xl:px-16 xl:container"
       style={{
         background: `url(${withPrefix(imageSrc)})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "auto",
-        backgroundPositionY: "bottom",
+        backgroundPositionY: "center",
       }}
     >
-      <div className="flex flex-wrap m-0 lg:m-4">
+      <div className="m-0 lg:m-4">
         <div className="w-full p-8 bg-white lg:w-2/3">
-          <h2 className="pb-3 text-4xl font-bold text-gray-600">{title}</h2>
+          <h1 className="pb-3 text-4xl font-bold text-gray-600">{title}</h1>
           <p className="text-lg leading-normal">{lede}</p>
         </div>
       </div>

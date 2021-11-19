@@ -3,12 +3,12 @@ import {
   FaFacebookSquare,
   FaLinkedin,
   FaTwitterSquare,
-  FaEnvelope,
+  FaEnvelopeSquare,
 } from "react-icons/fa"
 
 export const ShareProject: React.FC = () => {
   return (
-    <div className="w-full lg:w-1/5">
+    <div className="max-w-md">
       <h4 className="font-bold text-white text-md">Share this project</h4>
       <div className="mt-1">
         <a
@@ -33,7 +33,7 @@ export const ShareProject: React.FC = () => {
           href="mailto:thepolicylab@brown.edu"
           className="inline-block mr-1 text-xl text-white"
         >
-          <FaEnvelope />
+          <FaEnvelopeSquare />
         </a>
       </div>
     </div>

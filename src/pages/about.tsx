@@ -1,8 +1,10 @@
-import React, { Component, useState } from "react"
-import { Link, withPrefix, graphql } from "gatsby"
+import React, { useState } from "react"
+import { graphql } from "gatsby"
 import { Navbar, SiteMetadata } from "../components"
 import { Layout } from "../layouts/Layout"
 import { HeaderWithImage } from "../components/HeaderWithImage"
+import { Disclosure } from "@headlessui/react"
+import { FaPlus, FaMinus } from "react-icons/fa"
 
 const aboutTextData = [
   {
@@ -51,40 +53,34 @@ interface AboutProps {
   }
 }
 
-const CollapsibleList = (collapsibleTitle: string, collapsibleText: string) => {
-  const [isActive, setIsActive] = useState(false)
+interface AccordionProps {
+  title: string
+  text: string
+}
 
+const Accordion: React.FC<AccordionProps> = ({ title, text }) => {
   return (
-    <div className="accordian-item">
-      <div
-        className="p-3 m-4 bg-gray-300 accordian-title"
-        onClick={() => setIsActive(!isActive)}
-      >
-        <div className="float-left text-xl font-bold text-black dark:text-white">
-          {collapsibleTitle}
-        </div>
-        <div className="float-right">{isActive ? "-" : "+"}</div>
-        <div className="clear-both"></div>
-      </div>
-      {isActive && (
-        <div className="p-3 m-4 leading-normal text-justify accordion-content text-md lg:text-lg">
-          <p>{collapsibleText}</p>
-        </div>
-      )}
+    <div className="w-full my-6">
+      <Disclosure>
+        {({ open }) => (
+          <>
+            <Disclosure.Button className="flex justify-between w-full px-4 py-3 bg-gray-100">
+              <span className="font-bold">{title}</span>
+              {open ? <FaMinus /> : <FaPlus />}
+            </Disclosure.Button>
+            <Disclosure.Panel className="p-4 w-9/10">{text}</Disclosure.Panel>
+          </>
+        )}
+      </Disclosure>
     </div>
   )
 }
 
-const AboutList = (aboutTitle: string, aboutText: string) => {
+const AboutList = ({ aboutTitle, aboutText }) => {
   return (
-    <div>
-      <h3 className="p-1 font-bold tracking-tight text-justify text-black text-l lg:text-3xl dark:text-white">
-        {aboutTitle}
-      </h3>
-      <p className="p-2 leading-normal text-justify text-md lg:text-lg">
-        {aboutText}
-      </p>
-      <br></br>
+    <div className="mb-8">
+      <h3 className="mb-4">{aboutTitle}</h3>
+      <p>{aboutText}</p>
     </div>
   )
 }
@@ -105,38 +101,32 @@ export default ({ data }: AboutProps) => {
         imageSrc={data.bgImage.childImageSharp.resize.src}
       />
 
-      <div className="container px-16 pt-6 overflow-hidden bg-white">
-        <div className="flex flex-wrap">
-          <div className="lg:w-2/3 sm:w-full">
-            <h2 className="mb-8 text-2xl font-bold leading-loose tracking-tight text-black dark:text-white lg:text-5xl">
-              San Antonio Research Partnerships Portal Goals
-            </h2>
-            {aboutTextData.map((list) => AboutList(list.title, list.text))}
-          </div>
-        </div>
-      </div>
+      <article className="w-full px-8 mt-6 lg:px-16 xl:px-24 lg:w-2/3">
+        <section>
+          <h1 className="my-8 font-bold text-black">
+            San Antonio Research Partnerships Portal Goals
+          </h1>
+          {aboutTextData.map(({ title, text }, i) => (
+            <AboutList key={"list_" + i} aboutTitle={title} aboutText={text} />
+          ))}
+        </section>
 
-      <div className="container px-16 pt-6 overflow-hidden bg-white">
-        <div className="flex flex-wrap">
-          <div className="lg:w-2/3 sm:w-full">
-            <h2 className="mb-8 text-2xl font-bold leading-loose tracking-tight text-black dark:text-white lg:text-5xl">
-              Frequently Asked Questions
-            </h2>
-            {aboutListData.map((list) =>
-              CollapsibleList(list.title, list.text)
-            )}
-          </div>
-        </div>
-      </div>
+        <section>
+          <h2 className="my-6">Frequently Asked Questions</h2>
+          {aboutListData.map(({ title, text }, i) => (
+            <Accordion key={"collapsibleList_" + i} title={title} text={text} />
+          ))}
+        </section>
+      </article>
     </Layout>
   )
 }
 
 export const query = graphql`
   query AboutQuery {
-    bgImage: file(relativePath: { regex: "/bg-about.png/" }) {
+    bgImage: file(relativePath: { regex: "/about.jpg/" }) {
       childImageSharp {
-        resize(width: 1536, height: 352) {
+        resize(width: 1536) {
           src
         }
       }

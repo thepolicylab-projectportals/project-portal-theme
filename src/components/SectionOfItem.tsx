@@ -21,7 +21,7 @@ export const SectionOfItem: FunctionComponent<SectionOfItemProps> = ({
   return (
     <>
       <section className="pt-4">
-        <h4 className="pb-2 text-lg font-bold lg:text-xl">{label}</h4>
+        <h4>{label}</h4>
         <div className="text-md">
           <Markdown
             options={{

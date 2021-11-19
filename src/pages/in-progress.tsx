@@ -41,20 +41,9 @@ export const query = graphql`
         }
       }
     }
-    allImageSharp {
-      edges {
-        node {
-          ... on ImageSharp {
-            resize(width: 125, height: 125, rotate: 180) {
-              src
-            }
-          }
-        }
-      }
-    }
-    bgImage: file(relativePath: { regex: "/bg-inprogress.png/" }) {
+    bgImage: file(relativePath: { regex: "/in-progress.jpg/" }) {
       childImageSharp {
-        resize(width: 1536, height: 352) {
+        resize(width: 1536) {
           src
         }
       }

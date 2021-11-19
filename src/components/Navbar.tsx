@@ -72,6 +72,7 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
             <button
               className="block p-6 ml-0 text-xl leading-none text-white outline-none cursor-pointer bg-rust-500 xl:hidden focus:outline-none"
               type="button"
+              aria-label="Open navigation menu"
               onClick={() => setNavbarOpen(!navbarOpen)}
             >
               {navbarOpen ? <FaTimes /> : <FaBars />}
@@ -83,14 +84,14 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
               <img
                 className="hidden xl:inline-block"
                 src={withPrefix("images/sa-logo.png")}
-                alt={"Logo"}
+                alt="Portal Logo"
               />
               {title}
             </Link>
           </div>
           <div
             className={
-              "fixed top-16 w-full md:w-2/3 xl:w-auto xl:relative xl:top-0 flex-grow items-center bg-rust-500 xl:bg-transparent xl:flex xl:bg-gray-100 z-10 xl:z-0 transition-transform" +
+              "fixed top-16 w-full md:w-2/3 xl:w-auto xl:relative xl:top-0 flex-grow items-center bg-rust-500 xl:bg-transparent xl:flex xl:bg-gray-100 z-10 xl:z-0 transition-transform drop-shadow-lg filter xl:drop-shadow-none" +
               (navbarOpen ? " flex" : " hidden")
             }
             id="example-navbar-danger"

@@ -150,10 +150,7 @@ class ContactForm extends Component {
         </div>
 
         <div className="flex items-center justify-between">
-          <button
-            className="px-6 py-4 text-lg font-bold text-white bg-rust-500 hover:bg-rust-800 focus:outline-none focus:shadow-outline"
-            type="submit"
-          >
+          <button className="btn" type="submit">
             Submit
           </button>
         </div>
@@ -178,41 +175,30 @@ export default ({ data }: ContactProps) => {
         imageSrc={data.bgImage.childImageSharp.resize.src}
       />
 
-      <div className="container pt-6 overflow-hidden bg-white">
-        <div className="flex flex-wrap">
-          <div className="lg:w-2/3 sm:w-full">
-            <h2 className="mb-8 text-2xl font-bold leading-loose tracking-tight text-black dark:text-white lg:text-5xl">
-              Want to talk to the Office of Innovation? We'd love to hear from
-              you!
-            </h2>
+      <article className="w-full px-8 mt-6 lg:px-16 xl:px-24 lg:w-2/3">
+        <h1 className="my-8 font-bold">
+          Want to talk to the Office of Innovation? We'd love to hear from you!
+        </h1>
 
-            <p className="leading-normal text-md lg:text-lg">
-              Check out our frequently asked questions. Please direct
-              project-specific questions to points of contact listed for
-              individual projects. We're happy to discuss questions about the
-              partnerships pilot, general questions about working with the City
-              of San Antonio, and ideas for how we can improve this site.
-            </p>
-          </div>
-        </div>
-      </div>
+        <p className="mb-10 leading-normal text-md lg:text-lg">
+          Check out our frequently asked questions. Please direct
+          project-specific questions to points of contact listed for individual
+          projects. We're happy to discuss questions about the partnerships
+          pilot, general questions about working with the City of San Antonio,
+          and ideas for how we can improve this site.
+        </p>
 
-      <div className="container pt-6 overflow-hidden bg-white">
-        <div className="flex flex-wrap">
-          <div className="w-full lg:w-2/3">
-            <ContactForm />
-          </div>
-        </div>
-      </div>
+        <ContactForm />
+      </article>
     </Layout>
   )
 }
 
 export const query = graphql`
   query ContactQuery {
-    bgImage: file(relativePath: { regex: "/bg-contact.png/" }) {
+    bgImage: file(relativePath: { regex: "/contact.jpg/" }) {
       childImageSharp {
-        resize(width: 1536, height: 352) {
+        resize(width: 1536) {
           src
         }
       }

@@ -3,28 +3,24 @@ import { Link } from "gatsby"
 
 export const Footer = () => {
   return (
-    <div
-      className={
-        "bg-rust-500 w-full xl:container px-2 py-8 xl:px-12 flex flex-wrap justify-between"
-      }
-    >
-      <div className={"block w-full lg:w-auto"}>
+    <footer className="flex flex-wrap justify-between w-full px-2 py-8 bg-rust-500 xl:container xl:px-12">
+      <div className="block w-full lg:w-auto">
         <a href="https://www.sanantonio.gov/">
-          <img className={"inline-block"} src="/images/sa-logo.png" />
-          <h3 className={"inline-block text-white text-lg ml-4 font-bold"}>
+          <img className="inline-block" src="/images/sa-logo.png" />
+          <p className="inline-block ml-4 text-lg font-bold text-white">
             City of San Antonio
-          </h3>
+          </p>
         </a>
       </div>
-      <div className={"mt-6 lg:my-auto"}>
-        <ul className={"list-none text-white text-sm font-bold"}>
+      <div className="mt-6 lg:my-auto">
+        <ul className="text-sm font-bold text-white list-none">
           <ListItem target={"/#"}>Employer Directory</ListItem>
           <ListItem target={"/#"}>Accessibility</ListItem>
           <ListItem target={"/#"}>Term of use</ListItem>
           <ListItem target={"/#"}>Privacy</ListItem>
         </ul>
       </div>
-    </div>
+    </footer>
   )
 }
 

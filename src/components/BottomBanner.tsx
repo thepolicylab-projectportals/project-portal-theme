@@ -16,10 +16,10 @@ export const BottomBanner: React.FC<BottomBannerProps> = ({
   buttonText,
 }: BottomBannerProps) => {
   return (
-    <div className="px-8 py-16 mt-12 overflow-hidden bg-gray-100 xl:px-16">
-      <div className="flex flex-wrap">
+    <div className="py-16 mt-12 overflow-hidden bg-gray-100 p-responsive">
+      <div className="m-responsive">
         <div className="w-full lg:w-2/3">
-          <h2 className="pb-3 text-3xl font-bold text-gray-600">{title}</h2>
+          <div className="pb-3 text-3xl font-bold text-gray-600">{title}</div>
           <div className="mt-2 text-md">{text}</div>
           <div>
             <Link to={link}>

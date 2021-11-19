@@ -35,11 +35,11 @@ export default ({ data }: ThankYouProps) => {
       <div className="container pt-6 overflow-hidden bg-white">
         <div className="flex flex-wrap">
           <div className="lg:w-2/3 sm:w-full">
-            <h2 className="text-2xl font-bold text-black dark:text-white tracking-tight leading-loose lg:text-5xl mb-8">
+            <h2 className="mb-8 text-2xl font-bold leading-loose tracking-tight text-black dark:text-white lg:text-5xl">
               Thank you for your interest!
             </h2>
 
-            <p className="text-md lg:text-lg leading-normal">
+            <p className="leading-normal text-md lg:text-lg">
               We'll get back to you as soon as possible. In the meantime,
               continue checking out our{" "}
               <Link to="/" className="underline">
@@ -56,7 +56,7 @@ export default ({ data }: ThankYouProps) => {
 
 export const query = graphql`
   query ThankYouQuery {
-    bgImage: file(relativePath: { regex: "/bg-contact.png/" }) {
+    bgImage: file(relativePath: { regex: "/contact.jpg/" }) {
       childImageSharp {
         resize(width: 1536, height: 352) {
           src

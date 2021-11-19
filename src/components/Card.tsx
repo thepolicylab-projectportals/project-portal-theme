@@ -47,9 +47,9 @@ export const Card: FunctionComponent<CardProps> = ({
             <ProjectStatus status={status} />
           </div>
           <div className="p-5 pb-5">
-            <h1 className="pb-4 text-2xl font-bold leading-snug text-black">
+            <div className="pb-4 text-2xl font-bold leading-snug text-black">
               {question}
-            </h1>
+            </div>
             <div>
               <div className="mt-4 text-md">
                 <span className="font-bold">Opportunity closes: </span>
@@ -76,9 +76,7 @@ export const Card: FunctionComponent<CardProps> = ({
             </div>
           </div>
           <div className="p-5 pb-1 mt-auto border-t-2 border-solid">
-            <button className="w-full px-4 py-3 text-sm font-bold text-white rounded bg-rust-500 hover:bg-rust-800">
-              View Opportunity
-            </button>
+            <button className="btn-wide">View opportunity</button>
           </div>
         </div>
       </Link>

@@ -90,12 +90,10 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
       </section>
 
       <article>
-        <section className="px-6 py-16 md:px-8 lg:px-16 bg-rust-500">
-          <div className="flex flex-wrap">
-            <div className="w-full pb-4 lg:w-4/5 lg:pr-4 lg:pb-0">
-              <h1 className="pb-4 text-4xl font-semibold leading-tight text-white">
-                {question}
-              </h1>
+        <header className="py-16 p-responsive bg-rust-500">
+          <div className="flex flex-col justify-between m-responsive lg:flex-row">
+            <div className="w-full lg:w-9/10">
+              <h1 className="w-4/5 font-semibold text-white">{question}</h1>
               <div className="text-white text-md">
                 <span className="font-bold">
                   {statusOutput(
@@ -114,86 +112,86 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
             </div>
             <ShareProject />
           </div>
-        </section>
+        </header>
 
-        <section className="flex flex-wrap px-4 py-4 md:px-6 lg:px-14">
-          <div className="mt-2 mr-8">
-            <Feature
-              label="Policy Areas"
-              color="blue-200"
-              value={policyAreas}
-            />
-          </div>
-          <div className="mt-2 mr-8">
-            <Feature
-              label="Support Needed"
-              color="purple-200"
-              value={supportNeeded}
-            />
-          </div>
-        </section>
-
-        <section className="px-0 pt-8 pb-4 md:px-8 lg:px-16 ">
-          <h2 className="w-full px-4 text-2xl font-bold lg:px-0">
-            Project overview
-          </h2>
-          <div className="flex flex-wrap w-full py-4">
-            <div className="w-full px-8 lg:px-0 lg:w-2/3">
-              <div>
-                <SectionOfItem px-4 label="Summary" value={summary} />
-              </div>
-              <div className="mt-4">
-                <SectionOfItem
-                  label={
-                    status === "completed"
-                      ? "Deliverables"
-                      : "Anticipated deliverables"
-                  }
-                  value={deliverable}
-                />
-              </div>
-              <div className="mt-4">
-                <SectionOfItem
-                  label="How results will be used"
-                  value={purpose}
-                />
-              </div>
+        <main className="p-responsive">
+          <section className="flex flex-wrap py-6 m-responsive">
+            <div className="mt-2 mr-8">
+              <Feature
+                label="Policy Areas"
+                color="blue-200"
+                value={policyAreas}
+              />
             </div>
-            <MainContact
-              {...mainContact}
-              status={status}
-              date={status === "open" ? opportunityCloses : endDate}
+            <div className="mt-2 mr-8">
+              <Feature
+                label="Support Needed"
+                color="purple-200"
+                value={supportNeeded}
+              />
+            </div>
+          </section>
+
+          <section className="mt-8">
+            <div className="m-responsive">
+              <h2>Project overview</h2>
+            </div>
+            <div className="flex flex-col justify-between w-full py-4 lg:flex-row">
+              <div className="m-responsive">
+                <div className="w-full lg:w-4/5">
+                  <SectionOfItem label="Summary" value={summary} />
+                </div>
+                <div className="w-full mt-4 lg:w-4/5">
+                  <SectionOfItem
+                    label={
+                      status === "completed"
+                        ? "Deliverables"
+                        : "Anticipated deliverables"
+                    }
+                    value={deliverable}
+                  />
+                </div>
+                <div className="w-full mt-4 lg:w-4/5">
+                  <SectionOfItem
+                    label="How results will be used"
+                    value={purpose}
+                  />
+                </div>
+              </div>
+              <MainContact
+                {...mainContact}
+                status={status}
+                date={status === "open" ? opportunityCloses : endDate}
+              />
+            </div>
+          </section>
+
+          <hr className="my-8 border-gray-300 m-responsive" />
+
+          {status === "open" ? (
+            <CollaboratorDetails
+              {...{
+                expertise,
+                requirement,
+                keyDates,
+                priorResearch,
+                statusOfData,
+                fundingInfo,
+              }}
             />
-          </div>
-        </section>
+          ) : (
+            <ProjectTeam
+              title="Project Team"
+              contacts={contacts.map((contact) => contact.data)}
+            />
+          )}
 
-        <hr className="mx-4 my-8 text-center border-gray-300 lg:mx-12" />
-
-        {status === "open" ? (
-          <CollaboratorDetails
-            {...{
-              expertise,
-              requirement,
-              keyDates,
-              priorResearch,
-              statusOfData,
-              fundingInfo,
-            }}
-          />
-        ) : (
-          <ProjectTeam
-            title="Project Team"
-            contacts={contacts.map((contact) => contact.data)}
-          />
-        )}
-
-        <section className="mx-8 my-8 md:mx-12">
-          <Link to={withPrefix(`/${status === "open" ? "" : status}`)}>
-            <button className="px-4 py-3 text-sm font-bold text-white rounded bg-rust-500 hover:bg-rust-800">
-              Back
-            </button>
-          </Link>
-        </section>
+          <section className="my-12">
+            <Link to={withPrefix(`/${status === "open" ? "" : status}`)}>
+              <button className="btn m-responsive">Back</button>
+            </Link>
+          </section>
+        </main>
       </article>
     </Layout>
   )

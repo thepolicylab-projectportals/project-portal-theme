@@ -26,22 +26,20 @@ export const CollaboratorDetails: React.FC<CollaboratorDetailsProps> = ({
         ""
       ) : (
         <>
-          <section className="px-4 lg:px-12">
-            <div className="w-full pb-2 text-xl font-bold lg:text-2xl">
-              <h2>Collaborator details</h2>
-            </div>
-            <div className="flex flex-wrap">
+          <section className="m-responsive">
+            <h3>Collaborator details</h3>
+            <div className="grid grid-cols-1 gap-3 lg:grid-cols-3">
               {isNA(expertise) ? (
                 ""
               ) : (
-                <div className="w-full px-4 lg:w-1/3">
+                <div className="px-4">
                   <SectionOfItem label="Expertise needed" value={expertise} />
                 </div>
               )}
               {isNA(requirement) ? (
                 ""
               ) : (
-                <div className="w-full px-4 lg:w-1/3">
+                <div className="px-4">
                   <SectionOfItem
                     label="Requirements and restrictions"
                     value={requirement}
@@ -51,14 +49,14 @@ export const CollaboratorDetails: React.FC<CollaboratorDetailsProps> = ({
               {isNA(keyDates) ? (
                 ""
               ) : (
-                <div className="w-full px-4 lg:w-1/3">
+                <div className="px-4">
                   <SectionOfItem label="Key dates" value={keyDates} />
                 </div>
               )}
             </div>
           </section>
 
-          <hr className="mx-4 my-8 text-center border-gray-300 lg:mx-12" />
+          <hr className="my-8 border-gray-300" />
         </>
       )}
 
@@ -66,15 +64,13 @@ export const CollaboratorDetails: React.FC<CollaboratorDetailsProps> = ({
         ""
       ) : (
         <>
-          <section className="px-4 lg:px-12">
-            <div className="w-full pb-2 text-xl font-bold lg:text-2xl">
-              <h2>Project details</h2>
-            </div>
-            <div className="flex flex-wrap">
+          <section className="m-responsive">
+            <h3>Project details</h3>
+            <div className="grid grid-cols-1 gap-3 lg:grid-cols-3">
               {isNA(statusOfData) ? (
                 ""
               ) : (
-                <div className="w-full px-4 lg:w-1/3">
+                <div className="px-4">
                   <SectionOfItem
                     label="Status of associated data"
                     value={statusOfData}
@@ -84,7 +80,7 @@ export const CollaboratorDetails: React.FC<CollaboratorDetailsProps> = ({
               {isNA(priorResearch) ? (
                 ""
               ) : (
-                <div className="w-full px-4 lg:w-1/3">
+                <div className="px-4">
                   <SectionOfItem
                     label="Prior research and background"
                     value={priorResearch}
@@ -94,7 +90,7 @@ export const CollaboratorDetails: React.FC<CollaboratorDetailsProps> = ({
               {isNA(fundingInfo) ? (
                 ""
               ) : (
-                <div className="w-full px-4 lg:w-1/3">
+                <div className="px-4">
                   <SectionOfItem label="Funding details" value={fundingInfo} />
                 </div>
               )}

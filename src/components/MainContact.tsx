@@ -47,43 +47,38 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
   )
 
   return (
-    <div className="w-full px-4 py-8 my-4 bg-gray-100 lg:px-8 lg:w-1/3 lg:py-4 lg:rounded">
-      <h3 className="mb-6 text-lg font-bold text-black">
-        Project point of contact
-      </h3>
-      <Contact
-        {...{ name, title, employer, email, contactImage }}
-        showEmail={true}
-      />
+    <aside className="w-full p-8 my-8 bg-gray-100 lg:my-0 lg:max-w-md">
+      <h4>Project point of contact</h4>
+      <div className="my-6">
+        <Contact
+          {...{ name, title, employer, email, contactImage }}
+          showEmail={false}
+        />
+      </div>
       <div>
-        <h3 className="mt-4 mb-2 text-lg font-bold text-black">
+        <h4>
           {statusOutput(
             status,
             "Interested in collaborating?",
             "The project is in progress.",
             "The project is complete."
           )}
-        </h3>
+        </h4>
         <p className="mt-2 text-black text-md">
           {statusOutput(status, openText, inProgressText, completeText)}
         </p>
         <div className="mt-4">
           {status === "open" ? (
             <a href={`mailto:${email}`}>
-              <button className="px-4 py-3 mt-2 mr-2 text-sm font-bold text-white rounded bg-rust-500 hover:bg-rust-800">
-                Express Interest
-              </button>
+              <button className="btn">Email point of contact</button>
             </a>
           ) : (
-            ""
+            <Link to={"/contact"}>
+              <button className="btn-white">Ask a question</button>
+            </Link>
           )}
-          <Link to={"/contact"}>
-            <button className="px-4 py-3 mt-2 text-sm font-bold bg-white border rounded text-rust-500 hover:bg-rust-500 hover:text-white border-rust-500">
-              Ask a question
-            </button>
-          </Link>
         </div>
       </div>
-    </div>
+    </aside>
   )
 }
