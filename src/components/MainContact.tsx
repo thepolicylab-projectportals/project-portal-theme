@@ -47,7 +47,7 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
   )
 
   return (
-    <aside className="w-full p-8 my-8 bg-gray-100 lg:my-0 lg:max-w-md">
+    <div className="w-full p-8 my-8 bg-gray-100 lg:w-2/5 xl:w-1/3">
       <h4>Project point of contact</h4>
       <div className="my-6">
         <Contact
@@ -79,6 +79,6 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
           )}
         </div>
       </div>
-    </aside>
+    </div>
   )
 }

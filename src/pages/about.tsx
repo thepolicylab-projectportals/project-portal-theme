@@ -89,8 +89,8 @@ export default ({ data }: AboutProps) => {
   return (
     <Layout>
       <SiteMetadata
-        title="Project Portal - About"
-        description="Questions from East Evidencia"
+        title="About - San Antonio Research Partnership Portal "
+        description="About San Antonio Research Partnership Portal"
       />
 
       <Navbar activePage="About" />
@@ -101,7 +101,7 @@ export default ({ data }: AboutProps) => {
         imageSrc={data.bgImage.childImageSharp.resize.src}
       />
 
-      <article className="w-full px-8 mt-6 lg:px-16 xl:px-24 lg:w-2/3">
+      <article className="w-full px-8 lg:px-16 xl:px-24 lg:w-2/3">
         <section>
           <h1 className="my-8 font-bold text-black">
             San Antonio Research Partnerships Portal Goals

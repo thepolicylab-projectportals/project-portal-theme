@@ -23,7 +23,7 @@ export const BottomBanner: React.FC<BottomBannerProps> = ({
           <div className="mt-2 text-md">{text}</div>
           <div>
             <Link to={link}>
-              <button className="px-12 py-3 mt-4 text-sm font-bold text-white rounded bg-rust-500 hover:bg-rust-800">
+              <button className="px-12 py-3 mt-12 text-sm font-bold text-white rounded bg-rust-500 hover:bg-rust-800">
                 {buttonText}
               </button>
             </Link>

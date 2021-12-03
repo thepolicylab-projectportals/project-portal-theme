@@ -31,7 +31,7 @@ li.list-style-type-dash span {
 }
 
 h1 {
-  @apply pb-4 text-4xl leading-tight;
+  @apply pb-4 text-3xl leading-tight md:text-4xl;
 }
 
 h2 {
@@ -55,11 +55,11 @@ h4 {
 }
 
 .btn-white {
-  @apply btn-base bg-white border rounded text-rust-500 hover:bg-rust-500 hover:text-white border-rust-500;
+  @apply bg-white border rounded btn-base text-rust-500 hover:bg-rust-500 hover:text-white border-rust-500;
 }
 
 .btn-wide {
-  @apply btn w-full;
+  @apply w-full btn;
 }
 
 .p-responsive {
