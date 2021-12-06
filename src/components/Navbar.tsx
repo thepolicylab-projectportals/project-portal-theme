@@ -64,7 +64,7 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
       <nav
         id="nav-bar"
         className={
-          "sticky top-0 flex flex-wrap items-center justify-between w-full p-0 bg-gray-100 xl:relative xl:px-2 xl:py-6 overflow-hidden"
+          "sticky top-0 flex flex-wrap items-center justify-between w-full p-0 bg-gray-100 xl:relative xl:px-2 xl:py-6 overflow-hidden z-10"
         }
       >
         <div className="flex flex-wrap justify-between w-full px-0 xl:px-4">
