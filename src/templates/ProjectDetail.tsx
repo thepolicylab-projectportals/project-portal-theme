@@ -37,6 +37,7 @@ interface ProjectDetailProps {
         priorResearch: string
         statusOfData: string
         fundingInfo: string
+        emailContent: string
         contacts: {
           data: {
             name: string
@@ -73,6 +74,7 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
     statusOfData,
     fundingInfo,
     contacts,
+    emailContent,
   } = data.item.data
 
   const mainContact = contacts[0].data
@@ -169,6 +171,7 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
                 {...mainContact}
                 status={status}
                 date={status === "open" ? opportunityCloses : endDate}
+                emailContent={emailContent}
               />
             </div>
           </section>
@@ -229,6 +232,7 @@ export const query = graphql`
         priorResearch
         statusOfData
         fundingInfo
+        emailContent
         contacts {
           data {
             name

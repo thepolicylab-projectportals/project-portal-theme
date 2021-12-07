@@ -1,8 +1,16 @@
 import React, { FunctionComponent } from "react"
-import moment from "moment"
 import { Link } from "gatsby"
 import { Contact } from "../components"
 import { statusOutput } from "../utils"
+import Markdown from "markdown-to-jsx"
+
+const LiItem = ({ children, ...props }) => {
+  return (
+    <li {...props}>
+      <span>{children}</span>
+    </li>
+  )
+}
 
 interface ProjectContactProps {
   name: string
@@ -12,6 +20,7 @@ interface ProjectContactProps {
   contactImage: any
   status: string
   date: Date
+  emailContent: string
 }
 
 export const MainContact: FunctionComponent<ProjectContactProps> = ({
@@ -21,32 +30,29 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
   email,
   contactImage,
   status,
-  date,
+  emailContent,
 }) => {
-  const openText = (
-    <>
-      Researchers should use this page to express their interest in
-      participating and sign up for a short discussion with the project team.
-      The project team will share more details about the project and answer any
-      questions. We hope to select a collaborator by{" "}
-      {moment(date).format("MMMM D, YYYY")}.
-    </>
-  )
+  // const openText = (
+  //   <>
+  //     Researchers should use this page to express their interest in
+  //     participating and sign up for a short discussion with the project team.
+  //     The project team will share more details about the project and answer any
+  //     questions. We hope to select a collaborator by{" "}
+  //     {moment(date).format("MMMM D, YYYY")}.
+  //   </>
+  // )
+  const inProgressText =
+    "As with all collaborations, we plan to post results and deliverables as soon as the project is complete. In the meantime, we welcome questions about the project."
 
-  const inProgressText = (
-    <>
-      As with all collaborations, we plan to post results and deliverables as
-      soon as the project is complete. In the meantime, we welcome questions
-      about the project.
-    </>
-  )
+  const completeText =
+    "We hope that you find the deliverables useful. We welcome questions about the project or how you might apply these results in your program."
 
-  const completeText = (
-    <>
-      We hope that you find the deliverables useful. We welcome questions about
-      the project or how you might apply these results in your program.
-    </>
-  )
+  let mainText =
+    status === "open"
+      ? emailContent
+      : status === "in-progress"
+      ? inProgressText
+      : completeText
 
   return (
     <div className="w-full lg:w-2/5 xl:w-1/3">
@@ -67,9 +73,28 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
               "The project is complete."
             )}
           </h4>
-          <p className="mt-2 text-black text-md">
-            {statusOutput(status, openText, inProgressText, completeText)}
-          </p>
+          <Markdown
+            className="mt-2 text-black text-md"
+            options={{
+              wrapper: "div",
+              forceWrapper: true,
+              forceBlock: true,
+              overrides: {
+                ul: {
+                  props: {
+                    className: "list-inside list-disc",
+                  },
+                },
+                a: {
+                  props: {
+                    className: "underline hover:no-underline",
+                  },
+                },
+              },
+            }}
+          >
+            {mainText}
+          </Markdown>
           <div className="mt-4">
             {status === "open" ? (
               <a href={`mailto:${email}`}>
