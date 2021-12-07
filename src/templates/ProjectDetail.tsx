@@ -122,7 +122,7 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
         </header>
 
         <main className="p-responsive">
-          <section className="flex flex-wrap py-6 m-responsive gap-x-10 gap-y-4">
+          <section className="flex flex-wrap items-start py-6 m-responsive gap-x-10 gap-y-4">
             <div className="mt-2">
               <Feature
                 label="Policy Areas"

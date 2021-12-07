@@ -49,36 +49,38 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
   )
 
   return (
-    <div className="w-full p-8 my-8 bg-gray-100 lg:w-2/5 xl:w-1/3">
-      <h4>Project point of contact</h4>
-      <div className="my-6">
-        <Contact
-          {...{ name, title, employer, email, contactImage }}
-          showEmail={false}
-        />
-      </div>
-      <div>
-        <h4>
-          {statusOutput(
-            status,
-            "Interested in collaborating?",
-            "The project is in progress.",
-            "The project is complete."
-          )}
-        </h4>
-        <p className="mt-2 text-black text-md">
-          {statusOutput(status, openText, inProgressText, completeText)}
-        </p>
-        <div className="mt-4">
-          {status === "open" ? (
-            <a href={`mailto:${email}`}>
-              <button className="btn">Email point of contact</button>
-            </a>
-          ) : (
-            <Link to={"/contact"}>
-              <button className="btn-white">Ask a question</button>
-            </Link>
-          )}
+    <div className="w-full lg:w-2/5 xl:w-1/3">
+      <div className="w-full p-8 my-8 bg-gray-100">
+        <h4>Project point of contact</h4>
+        <div className="my-6">
+          <Contact
+            {...{ name, title, employer, email, contactImage }}
+            showEmail={false}
+          />
+        </div>
+        <div>
+          <h4>
+            {statusOutput(
+              status,
+              "Interested in collaborating?",
+              "The project is in progress.",
+              "The project is complete."
+            )}
+          </h4>
+          <p className="mt-2 text-black text-md">
+            {statusOutput(status, openText, inProgressText, completeText)}
+          </p>
+          <div className="mt-4">
+            {status === "open" ? (
+              <a href={`mailto:${email}`}>
+                <button className="btn">Email point of contact</button>
+              </a>
+            ) : (
+              <Link to={"/contact"}>
+                <button className="btn-white">Ask a question</button>
+              </Link>
+            )}
+          </div>
         </div>
       </div>
     </div>
