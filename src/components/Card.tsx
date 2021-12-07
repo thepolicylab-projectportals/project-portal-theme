@@ -2,6 +2,8 @@ import { Link } from "gatsby"
 import React, { FunctionComponent } from "react"
 import { Feature } from "."
 import { ProjectStatus } from "./ProjectStatus"
+import { statusOutput } from "../utils"
+import moment from "moment"
 
 export interface CardProps {
   question: string
@@ -9,6 +11,7 @@ export interface CardProps {
   slug: string
   summary: string
   status: string
+  opportunityCloses: Date
   startDate: Date
   endDate: Date
   agency: string
@@ -36,6 +39,8 @@ export const Card: FunctionComponent<CardProps> = ({
   policyAreas,
   supportNeeded,
   agency,
+  opportunityCloses,
+  startDate,
   endDate,
   navigation,
 }) => {
@@ -52,8 +57,20 @@ export const Card: FunctionComponent<CardProps> = ({
             </div>
             <div>
               <div className="mt-4 text-md">
-                <span className="font-bold">Opportunity closes: </span>
-                {endDate}
+                <span className="font-bold">
+                  {statusOutput(
+                    status,
+                    "Opportunity closes: ",
+                    "Project started: ",
+                    "Project ended: "
+                  )}
+                </span>
+                {statusOutput(
+                  status,
+                  moment(opportunityCloses).format("MMMM D, YYYY"),
+                  moment(startDate).format("MMMM D, YYYY"),
+                  moment(endDate).format("MMMM D, YYYY")
+                )}
               </div>
               <div className="mb-4 text-md">
                 <span className="font-bold">Agency: </span>

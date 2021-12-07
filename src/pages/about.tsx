@@ -64,7 +64,7 @@ const Accordion: React.FC<AccordionProps> = ({ title, text }) => {
       <Disclosure>
         {({ open }) => (
           <>
-            <Disclosure.Button className="flex justify-between w-full px-4 py-3 bg-gray-100">
+            <Disclosure.Button className="flex justify-between w-full px-4 py-3 text-left bg-gray-100">
               <span className="font-bold">{title}</span>
               {open ? <FaMinus /> : <FaPlus />}
             </Disclosure.Button>
