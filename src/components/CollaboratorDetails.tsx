@@ -56,7 +56,7 @@ export const CollaboratorDetails: React.FC<CollaboratorDetailsProps> = ({
             </div>
           </section>
 
-          <hr className="my-8 border-gray-300" />
+          <hr className="my-8 border-gray-300 m-responsive" />
         </>
       )}
 
