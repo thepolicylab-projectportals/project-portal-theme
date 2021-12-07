@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from "react"
+import moment from "moment"
 import { Link } from "gatsby"
 import { Contact } from "../components"
 import { statusOutput } from "../utils"
@@ -27,7 +28,8 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
       Researchers should use this page to express their interest in
       participating and sign up for a short discussion with the project team.
       The project team will share more details about the project and answer any
-      questions. We hope to select a collaborator by {date}.
+      questions. We hope to select a collaborator by{" "}
+      {moment(date).format("MMMM D, YYYY")}.
     </>
   )
 

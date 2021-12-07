@@ -1,5 +1,6 @@
 import { graphql, Link, withPrefix } from "gatsby"
 import React, { FunctionComponent } from "react"
+import moment from "moment"
 import {
   Feature,
   SiteMetadata,
@@ -55,7 +56,6 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
   const { data } = props
   const {
     question,
-    slug,
     summary,
     status,
     opportunityCloses,
@@ -105,7 +105,12 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
                     "Project ended: "
                   )}
                 </span>
-                {statusOutput(status, opportunityCloses, startDate, endDate)}
+                {statusOutput(
+                  status,
+                  moment(opportunityCloses).format("MMMM D, YYYY"),
+                  moment(startDate).format("MMMM D, YYYY"),
+                  moment(endDate).format("MMMM D, YYYY")
+                )}
               </div>
               <div className="text-white text-md">
                 <span className="font-bold">Agency: </span>
