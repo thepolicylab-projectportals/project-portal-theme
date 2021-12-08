@@ -22,6 +22,7 @@ export const query = graphql`
           slug
           summary
           status
+          opportunityCloses
           startDate
           endDate
           agency
