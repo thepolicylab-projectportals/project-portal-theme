@@ -17,6 +17,7 @@ export const query = graphql`
         table: { eq: $tableName }
         data: { status: { eq: "completed" } }
       }
+      sort: { fields: [data___endDate], order: DESC }
     ) {
       nodes {
         data {

@@ -14,6 +14,7 @@ export const query = graphql`
   query IndexQuery($tableName: String!) {
     items: allAirtable(
       filter: { table: { eq: $tableName }, data: { status: { eq: "open" } } }
+      sort: { fields: [data___opportunityCloses], order: ASC }
     ) {
       nodes {
         data {

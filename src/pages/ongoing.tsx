@@ -14,6 +14,7 @@ export const query = graphql`
   query OngoingQuery($tableName: String!) {
     items: allAirtable(
       filter: { table: { eq: $tableName }, data: { status: { eq: "ongoing" } } }
+      sort: { fields: [data___startDate], order: DESC }
     ) {
       nodes {
         data {
