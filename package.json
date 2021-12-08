@@ -8,8 +8,7 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "deploy": "gatsby build && gh-pages -d public" 
+    "clean": "gatsby clean"
   },
   "dependencies": {
     "@fontsource/public-sans": "^4.5.0",
