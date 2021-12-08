@@ -3,14 +3,8 @@ import React from "react"
 export const statusOutput = (
   status: string,
   open: any,
-  inProgress: any,
+  ongoing: any,
   completed: any
 ): any => (
-  <>
-    {status === "open"
-      ? open
-      : status === "in-progress"
-      ? inProgress
-      : completed}
-  </>
+  <>{status === "open" ? open : status === "ongoing" ? ongoing : completed}</>
 )

@@ -7,7 +7,7 @@ export default ({ data }: ProjectPageProps) =>
     data,
     title: "Completed projects",
     pageName: "Completed projects",
-    lede: "We are committed to using and sharing evidence. Below are all the projects completed to date, along with findings and links to additional resources, as applicable.",
+    lede: "Sharing results and ideas helps us better serve our residents. Below are all our collaborations completed to date, along with findings and links to additional resources.",
   })
 
 export const query = graphql`

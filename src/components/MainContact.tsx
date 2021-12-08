@@ -41,7 +41,7 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
   //     {moment(date).format("MMMM D, YYYY")}.
   //   </>
   // )
-  const inProgressText =
+  const ongoingText =
     "As with all collaborations, we plan to post results and deliverables as soon as the project is complete. In the meantime, we welcome questions about the project."
 
   const completeText =
@@ -50,8 +50,8 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
   let mainText =
     status === "open"
       ? emailContent
-      : status === "in-progress"
-      ? inProgressText
+      : status === "ongoing"
+      ? ongoingText
       : completeText
 
   return (
@@ -69,7 +69,7 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
             {statusOutput(
               status,
               "Interested in collaborating?",
-              "The project is in progress.",
+              "The project is ongoing.",
               "The project is complete."
             )}
           </h4>

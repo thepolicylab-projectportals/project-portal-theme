@@ -5,18 +5,15 @@ import { ProjectPage, ProjectPageProps } from "../components"
 export default ({ data }: ProjectPageProps) =>
   ProjectPage({
     data,
-    title: "In-progress projects",
-    pageName: "In-progress projects",
-    lede: "Agencies are working with partners to answer important questions to improve the lives of residents. All these projects are ongoing, so check back soon for results.",
+    title: "Ongoing projects",
+    pageName: "Ongoing projects",
+    lede: "Learn about the ongoing research collaborations in San Antonio. Check back soon for results!",
   })
 
 export const query = graphql`
-  query InProgressQuery($tableName: String!) {
+  query OngoingQuery($tableName: String!) {
     items: allAirtable(
-      filter: {
-        table: { eq: $tableName }
-        data: { status: { eq: "in-progress" } }
-      }
+      filter: { table: { eq: $tableName }, data: { status: { eq: "ongoing" } } }
     ) {
       nodes {
         data {
@@ -41,7 +38,7 @@ export const query = graphql`
         }
       }
     }
-    bgImage: file(relativePath: { regex: "/in-progress.jpg/" }) {
+    bgImage: file(relativePath: { regex: "/ongoing.jpg/" }) {
       childImageSharp {
         resize(width: 1536) {
           src

@@ -5,8 +5,8 @@ import { ProjectPage, ProjectPageProps } from "../components"
 export default ({ data }: ProjectPageProps) =>
   ProjectPage({
     data,
-    title: "Open research questions",
-    lede: "We are assembling an interdisciplinary network of partners, who collectively can provide methodological expertise related to design, data analytics, and field experimentation, as well as domain knowledge related to the topics. There are opportunities for every-level to highly-experienced scientists.",
+    title: "Open opportunities",
+    lede: "San Antonio is building research partnerships to help answer questions about how to best serve residents. We are seeking partners with methodological expertise related to design, data analytics, and field experimentation, as well as domain knowledge related to the topics. Browse open opportunities below, and we look forward to hearing from you!",
     pageName: "Open opportunities",
   })
 

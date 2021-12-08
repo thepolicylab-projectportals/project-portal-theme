@@ -81,7 +81,7 @@ class ContactForm extends Component {
             aria-label="Full name"
             name="name"
             id="name"
-            placeholder="Start typing"
+            placeholder="John Doe"
             required
             type="text"
             className="w-full px-3 py-2 leading-tight text-black border shadow appearance-none focus:outline-none focus:shadow-outline"
@@ -121,7 +121,7 @@ class ContactForm extends Component {
             aria-label="Subject"
             name="subject"
             id="subject"
-            placeholder="Start typing"
+            placeholder="I want to ask a question about ..."
             required
             type="text"
             className="w-full px-3 py-2 leading-tight text-black border shadow appearance-none focus:outline-none focus:shadow-outline"
@@ -141,7 +141,7 @@ class ContactForm extends Component {
             aria-label="Message"
             name="message"
             id="message"
-            placeholder="Start typing"
+            placeholder=""
             required
             className="w-full h-48 px-3 py-2 leading-tight text-black border shadow appearance-none focus:outline-none focus:shadow-outline"
             value={this.state.message}
@@ -181,11 +181,11 @@ export default ({ data }: ContactProps) => {
         </h1>
 
         <p className="mb-10 leading-normal text-md lg:text-lg">
-          Check out our frequently asked questions. Please direct
+          Our team is happy to answer questions about the partnerships pilot,
+          general questions about working with the City of San Antonio, and
+          gather ideas for how we can improve this site. Please direct
           project-specific questions to points of contact listed for individual
-          projects. We're happy to discuss questions about the partnerships
-          pilot, general questions about working with the City of San Antonio,
-          and ideas for how we can improve this site.
+          projects.
         </p>
 
         <ContactForm />

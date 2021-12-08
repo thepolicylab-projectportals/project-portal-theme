@@ -5,7 +5,7 @@ module.exports = {
     title: "San Antonio Research Partnership Portal",
     pages: [
       { name: "Open opportunities", link: "/", show: true },
-      { name: "In-progress projects", link: "/in-progress", show: true },
+      { name: "Ongoing projects", link: "/ongoing", show: true },
       { name: "Completed projects", link: "/completed", show: false },
       { name: "About", link: "/about", show: true },
       { name: "Contact", link: "/contact", show: true },

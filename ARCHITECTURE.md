@@ -28,7 +28,7 @@ each kind of project as described in the Airtable.
 Currently there are three types of projects:
 
 - Open (`src/pages/index.tsx`),
-- In progress (`src/pages/in-progress.tsx`), and
+- Ongoing (`src/pages/ongoing.tsx`), and
 - Completed (`src/pages/completed.tsx`).
 
 The latter two types of projects will only appear on the Navbar if there are actually
