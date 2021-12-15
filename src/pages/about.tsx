@@ -32,7 +32,7 @@ const aboutListData = [
   },
   {
     title: "Do I need to have prior experience working with government?",
-    text: "Placeholder text for publish results here. Placeholder text for publish results here. Placeholder text for publish results here. Placeholder text for publish results here. Placeholder text for publish results here. Placeholder text for publish results here.",
+    text: "No, but prior experience is helpful. Applied research and collaboration with government partners often requires more flexibility and communication than a lab-based or retrospective study, so be sure to discuss expectations and timeline when considering a collaboration opportunity.",
   },
   {
     title: "Are these opportunities available for students?",
