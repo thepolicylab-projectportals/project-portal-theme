@@ -18,10 +18,11 @@ export const Footer = () => {
       </div>
       <div className="mt-6 lg:my-auto">
         <ul className="text-sm font-bold text-white list-none">
-          <ListItem target={"/#"}>Employer Directory</ListItem>
-          <ListItem target={"/#"}>Accessibility</ListItem>
-          <ListItem target={"/#"}>Term of use</ListItem>
-          <ListItem target={"/#"}>Privacy</ListItem>
+          <ListItem target={"http://www.sanantonio.gov/Equity.aspx"}>Office of Equity</ListItem>
+          <ListItem target={"http://www.sanantonio.gov/ada/"}>ADA Compliance</ListItem>
+          <ListItem target={"http://www.sanantonio.gov/opengovernment/"}>Open Records</ListItem>
+          <ListItem target={"http://www.sanantonio.gov/disclaimer.aspx"}>Privacy Policy and Disclaimer</ListItem>
+          <ListItem target={"https://www.sanantonio.gov/"}>sanantonio.gov</ListItem>
         </ul>
       </div>
     </footer>
