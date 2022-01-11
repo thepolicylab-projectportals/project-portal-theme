@@ -26,7 +26,7 @@ $ npm install
 
 ### Set up Airtable API keys
 
-Create a `.env` file and fill it with your unique values:
+Create a `.env` file in the `sites/<site id>` directory you want to develop on and fill it with your unique values:
 
 ```
 AIRTABLE_API_KEY=""
@@ -47,11 +47,11 @@ If you modified any data in your Airtable base, please be sure to restart the de
 
 This project comes with a few handy commands for linting and code fixing. The most important ones are the ones to develop and ship code. You can find the most important commands below.
 
-#### `gatsby develop`
+#### `gatsby develop:<site id>`
 
 Run in the project locally.
 
-#### `gatsby build`
+#### `gatsby build:<site id>`
 
 Run a production build into `./public`. The result is ready to be put on any static hosting you prefer.
 
@@ -59,13 +59,16 @@ Run a production build into `./public`. The result is ready to be put on any sta
 
 At a high-level, this is a static site which:
 
-- Hosts content on [Airtable](https://airtable.com),
-- Builds using [Gatsby](https://www.gatsbyjs.com),
-- Utilizes [Tailwind CSS](https://tailwindcss.com),
-- Is hosted on [Netlify](https://www.netlify.com), and
-- Collects form information on Netlify and pushes that information back to Airtable.
+- Overlays configuration for specific sites/deployments
+- Hosts content on [Airtable](https://airtable.com)
+- Builds using [Gatsby](https://www.gatsbyjs.com)
+- Utilizes [Tailwind CSS](https://tailwindcss.com)
+- Is hosted on [Netlify](https://www.netlify.com)
+- Collects form information on Netlify and pushes that information back to Airtable
 
-See the `README` for details on necessary configurations for local builds.
+### Site configuration
+
+Each site (deployment) has a folder named by its site id in the `sites` directory. See [the sites README](sites/README.md) for details on how to configure a site.
 
 ### Airtable
 
