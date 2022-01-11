@@ -79,14 +79,14 @@ export const Card: FunctionComponent<CardProps> = ({
               <div className="mt-4">
                 <Feature
                   label="Policy Areas"
-                  color="blue-200"
+                  color="policyareas-200"
                   value={policyAreas}
                 />
               </div>
               <div className="mt-4">
                 <Feature
                   label="Support Needed"
-                  color="purple-200"
+                  color="supportneeded-200"
                   value={supportNeeded}
                 />
               </div>

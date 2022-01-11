@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 
 export const Footer = () => {
   return (
-    <footer className="flex flex-wrap justify-between w-full px-2 py-8 bg-rust-500 xl:container xl:px-12">
+    <footer className="flex flex-wrap justify-between w-full px-2 py-8 bg-primary-500 xl:container xl:px-12">
       <div className="block w-full lg:w-auto">
         <a href="https://www.sanantonio.gov/">
           <img
@@ -18,11 +18,21 @@ export const Footer = () => {
       </div>
       <div className="mt-6 lg:my-auto">
         <ul className="text-sm font-bold text-white list-none">
-          <ListItem target={"http://www.sanantonio.gov/Equity.aspx"}>Office of Equity</ListItem>
-          <ListItem target={"http://www.sanantonio.gov/ada/"}>ADA Compliance</ListItem>
-          <ListItem target={"http://www.sanantonio.gov/opengovernment/"}>Open Records</ListItem>
-          <ListItem target={"http://www.sanantonio.gov/disclaimer.aspx"}>Privacy Policy and Disclaimer</ListItem>
-          <ListItem target={"https://www.sanantonio.gov/"}>sanantonio.gov</ListItem>
+          <ListItem target={"http://www.sanantonio.gov/Equity.aspx"}>
+            Office of Equity
+          </ListItem>
+          <ListItem target={"http://www.sanantonio.gov/ada/"}>
+            ADA Compliance
+          </ListItem>
+          <ListItem target={"http://www.sanantonio.gov/opengovernment/"}>
+            Open Records
+          </ListItem>
+          <ListItem target={"http://www.sanantonio.gov/disclaimer.aspx"}>
+            Privacy Policy and Disclaimer
+          </ListItem>
+          <ListItem target={"https://www.sanantonio.gov/"}>
+            sanantonio.gov
+          </ListItem>
         </ul>
       </div>
     </footer>

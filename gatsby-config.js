@@ -1,4 +1,11 @@
-require("dotenv").config()
+require("dotenv").config({
+  path: `${process.env.PP_CONFIG_BASE}/.env`,
+})
+
+const {
+  AIRTABLE_TABLE_PROJECTS,
+  AIRTABLE_TABLE_CONTACTS,
+} = require("./src/consts.js")
 
 module.exports = {
   siteMetadata: {
@@ -24,7 +31,7 @@ module.exports = {
       options: {
         postCssPlugins: [
           require("tailwindcss")({
-            config: `sites/${process.env.PP_SITE_ID}/tailwind.config.js`,
+            config: `${process.env.PP_CONFIG_BASE}tailwind.config.js`,
           }),
           require("autoprefixer"),
         ],
@@ -41,12 +48,12 @@ module.exports = {
         tables: [
           {
             baseId: process.env.AIRTABLE_BASE_ID,
-            tableName: process.env.AIRTABLE_TABLE_NAME,
+            tableName: AIRTABLE_TABLE_PROJECTS,
             tableLinks: ["contacts"],
           },
           {
             baseId: process.env.AIRTABLE_BASE_ID,
-            tableName: "Project Contacts",
+            tableName: AIRTABLE_TABLE_CONTACTS,
             mapping: { contactImage: "fileNode" },
           },
         ],

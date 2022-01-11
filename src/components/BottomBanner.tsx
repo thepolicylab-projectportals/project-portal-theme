@@ -23,7 +23,7 @@ BottomBannerProps) => {
           <div className="mt-2 text-md">
             {text}
             <a
-              className="font-semibold text-black underline hover:text-rust-500"
+              className="font-semibold text-black underline hover:text-primary-500"
               href={link}
             >
               let us know

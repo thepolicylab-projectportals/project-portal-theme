@@ -1,6 +1,6 @@
 import { resolve } from "path"
 
-const { AIRTABLE_TABLE_NAME: tableName } = process.env
+import { AIRTABLE_TABLE_PROJECTS as tableName } from "../consts"
 
 interface PageInput {
   path: string

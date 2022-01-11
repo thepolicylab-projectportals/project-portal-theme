@@ -6,9 +6,9 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "build:satx": "PP_SITE_ID=satx gatsby build",
+    "build:satx": "PP_CONFIG_BASE=sites/satx/ gatsby build",
     "develop": "gatsby develop",
-    "develop:satx": "PP_SITE_ID=satx gatsby develop",
+    "develop:satx": "PP_CONFIG_BASE=sites/satx/ gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
   },

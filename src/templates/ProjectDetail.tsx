@@ -85,14 +85,14 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
 
       <Navbar activePage={null} />
 
-      <section className="mx-12 my-4 text-blue-500 underline hover:text-rust-500">
+      <section className="mx-12 my-4 text-link-500 underline hover:text-primary-500">
         <Link to={withPrefix(`/${status === "open" ? "" : status}`)}>
           Back to viewing all {status} projects
         </Link>
       </section>
 
       <article>
-        <header className="py-16 p-responsive bg-rust-500">
+        <header className="py-16 p-responsive bg-primary-500">
           <div className="flex flex-col justify-between m-responsive lg:flex-row">
             <div className="w-auto">
               <h1 className="w-full font-semibold text-white lg:w-4/5">
