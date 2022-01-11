@@ -5,7 +5,8 @@
   "author": "Wojciech Kocjan <wojciech@kocjan.net>",
   "license": "MIT",
   "scripts": {
-    "build": "PP_SITE_ID=satx gatsby build",
+    "build": "gatsby build",
+    "build:satx": "PP_SITE_ID=satx gatsby build",
     "develop": "gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
