@@ -1,8 +1,10 @@
 module.exports = {
   presets: [require("../../tailwind.config.js")],
   theme: {
-    colors: {
-      blue: "green",
+    extend: {
+      colors: {
+        blue: "green",
+      },
     },
   },
 }
