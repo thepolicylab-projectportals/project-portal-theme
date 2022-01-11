@@ -144,10 +144,12 @@ a narrow media format (e.g., a phone) and a wide media format (e.g., a desktop).
 
 ### Netlify
 
-Netlify builds are currently scheduled to trigger:
+We use Netlify's github integration to manage builds.
 
-- Nightly (via Netlify's scheduler) and
-- Upon a push to the github repository (via a Github action cURLing a Netlify API).
+- Production builds are triggered upon a push/merge to the `prod` branch
+- Staging builds are triggered upon a push/merge to the `main` branch
+- Preview builds are triggered upon a pull request to either `main` or `prod`
+- TO REVIEW: Nightly (via Netlify's scheduler)
 
 We are currently investigating how to trigger a build upon certain Airtable actions.
 
