@@ -24,7 +24,7 @@ module.exports = {
       options: {
         postCssPlugins: [
           require("tailwindcss")({
-            config: `sites/${process.env.SITE_ID}/tailwind.config.js`,
+            config: `sites/${process.env.PP_SITE_ID}/tailwind.config.js`,
           }),
           require("autoprefixer"),
         ],
