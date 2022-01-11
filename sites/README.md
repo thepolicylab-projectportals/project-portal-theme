@@ -28,8 +28,8 @@ AIRTABLE_BASE_ID
 In the base package.json, add scripts to conveniently build/develop this site:
 
 ```
-"develop:<site id>": "PP_CONFIG_BASE=/sites/<site id> gatsby develop",
-"build:<site id>": "PP_CONFIG_BASE=/sites/<site id> gatsby build",
+"develop:<site id>": "cross-env PP_CONFIG_BASE=/sites/<site id> gatsby develop",
+"build:<site id>": "cross-env PP_CONFIG_BASE=/sites/<site id> gatsby build",
 ```
 
 ### Add tailwind theme

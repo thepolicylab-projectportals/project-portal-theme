@@ -1,5 +1,5 @@
 require("dotenv").config({
-  path: `${process.env.PP_CONFIG_BASE}/.env`,
+  path: `${process.env.PP_CONFIG_BASE}.env`,
 })
 
 const {

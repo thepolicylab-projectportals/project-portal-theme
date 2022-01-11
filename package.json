@@ -6,9 +6,9 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "build:satx": "PP_CONFIG_BASE=sites/satx/ gatsby build",
+    "build:satx": "cross-env PP_CONFIG_BASE=sites/satx/ gatsby build",
     "develop": "gatsby develop",
-    "develop:satx": "PP_CONFIG_BASE=sites/satx/ gatsby develop",
+    "develop:satx": "cross-env PP_CONFIG_BASE=sites/satx/ gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
   },
@@ -43,6 +43,7 @@
     "use-media": "^1.4.0"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "gh-pages": "^3.2.3",
     "husky": "^4.3.0",
     "prettier": "^2.2.1",
