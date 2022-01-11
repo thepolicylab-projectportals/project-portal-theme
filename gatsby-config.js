@@ -22,7 +22,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-postcss`,
       options: {
-        postCssPlugins: [require("tailwindcss"), require("autoprefixer")],
+        postCssPlugins: [
+          require("tailwindcss")({
+            config: `sites/${process.env.SITE_ID}/tailwind.config.js`,
+          }),
+          require("autoprefixer"),
+        ],
       },
     },
     `gatsby-plugin-react-helmet`,
