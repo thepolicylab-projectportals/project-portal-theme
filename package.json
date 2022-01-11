@@ -8,6 +8,7 @@
     "build": "gatsby build",
     "build:satx": "PP_SITE_ID=satx gatsby build",
     "develop": "gatsby develop",
+    "develop:satx": "PP_SITE_ID=satx gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
   },
