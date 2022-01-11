@@ -149,7 +149,6 @@ We use Netlify's github integration to manage builds.
 - Production builds are triggered upon a push/merge to the `prod` branch
 - Staging builds are triggered upon a push/merge to the `main` branch
 - Preview builds are triggered upon a pull request to either `main` or `prod`
-- TO REVIEW: Nightly (via Netlify's scheduler)
 
 We are currently investigating how to trigger a build upon certain Airtable actions.
 
