@@ -61,12 +61,10 @@
     "lede": "Learn about the ongoing research collaborations in San Antonio. Check back soon for results!"
   },
   "footer": {
-    "heading": [
-      {
-        "title": "City of Antonio",
-        "link": "https://www.sanantonio.gov/"
-      }
-    ],
+    "heading": {
+      "title": "City of Antonio",
+      "link": "https://www.sanantonio.gov/"
+    },
     "links": [
       {
         "title": "Office of Equity",

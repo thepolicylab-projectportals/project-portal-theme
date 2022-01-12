@@ -6,14 +6,14 @@ export const Footer = () => {
   return (
     <footer className="flex flex-wrap justify-between w-full px-2 py-8 bg-rust-500 xl:container xl:px-12">
       <div className="block w-full lg:w-auto">
-        <a href="https://www.sanantonio.gov/">
+        <a href={footer.heading.link}>
           <img
             className="inline-block"
             src="/images/sa-logo.png"
             alt="San Antonio Logo"
           />
           <p className="inline-block ml-4 text-lg font-bold text-white">
-            {footer.heading[0].title}
+            {footer.heading.title}
           </p>
         </a>
       </div>
