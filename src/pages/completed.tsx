@@ -6,9 +6,7 @@ import { completed } from "../../language.json"
 export default ({ data }: ProjectPageProps) =>
   ProjectPage({
     data,
-    title: completed[0].title,
-    pageName: completed[0].pageName,
-    lede: completed[0].lede,
+    ...completed,
   })
 
 export const query = graphql`

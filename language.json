@@ -1,6 +1,6 @@
 {
   "about": {
-    "aboutTextData": [
+    "aims": [
       {
         "title": "Build and use evidence to improve the lives of San Antonio residents.",
         "text": "The San Antonio Research Partnerships Portal is a pilot initiative from The San Antonio Office of Innovation and multiple departments within San Antonio City Government. Our goal is to connect government officials with San Antonio's rich community of Academic Institutions to answer important questions about how to best design, deliver, and evaluate city services. We believe that evidence is an important part of improving public services, and we're excited about what we can do together!"
@@ -14,7 +14,7 @@
         "text": "Applied research on a specific challenge has the potential to benefit public services as a whole. To do this, we need to be transparent with our results and methods. We know that publication is an important part of the research process, and will work with collaborators to support publication where appropriate."
       }
     ],
-    "aboutListData": [
+    "faq": [
       {
         "title": "What sort of collaborators are you looking for?",
         "text": "We are looking for academic researchers from a range of disciplines relevant to policy and program design and evaluation. Example disciplines include public policy, economics, behavioral science, sociology, marketing, and law, but we encourage you to apply for any opportunity that you think you are a good fit for!"
@@ -45,31 +45,26 @@
       }
     ]
   },
-  "index": [
-    {
-      "title": "Open opportunities",
-      "lede": "San Antonio is building research partnerships to help answer questions about how to best serve residents. We are seeking partners with methodological expertise related to design, data analytics, and field experimentation, as well as domain knowledge related to the topics. Browse open opportunities below, and we look forward to hearing from you!",
-      "pageName": "Open opportunities"
-    }
-  ],
-  "completed": [
-    {
-      "title": "Completed projects",
-      "pageName": "Completed projects",
-      "lede": "Sharing results and ideas helps us better serve our residents. Below are all our collaborations completed to date, along with findings and links to additional resources."
-    }
-  ],
-  "ongoing": [
-    {
-      "title": "Ongoing projects",
-      "pageName": "Ongoing projects",
-      "lede": "Learn about the ongoing research collaborations in San Antonio. Check back soon for results!"
-    }
-  ],
+  "open": {
+    "title": "Open opportunities",
+    "lede": "San Antonio is building research partnerships to help answer questions about how to best serve residents. We are seeking partners with methodological expertise related to design, data analytics, and field experimentation, as well as domain knowledge related to the topics. Browse open opportunities below, and we look forward to hearing from you!",
+    "pageName": "Open opportunities"
+  },
+  "completed": {
+    "title": "Completed projects",
+    "pageName": "Completed projects",
+    "lede": "Sharing results and ideas helps us better serve our residents. Below are all our collaborations completed to date, along with findings and links to additional resources."
+  },
+  "ongoing": {
+    "title": "Ongoing projects",
+    "pageName": "Ongoing projects",
+    "lede": "Learn about the ongoing research collaborations in San Antonio. Check back soon for results!"
+  },
   "footer": {
-    "paragraph": [
+    "heading": [
       {
-        "title": "City of Antonio"
+        "title": "City of Antonio",
+        "link": "https://www.sanantonio.gov/"
       }
     ],
     "links": [

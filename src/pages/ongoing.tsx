@@ -6,9 +6,7 @@ import { ongoing } from "../../language.json"
 export default ({ data }: ProjectPageProps) =>
   ProjectPage({
     data,
-    title: ongoing[0].title,
-    pageName: ongoing[0].pageName,
-    lede: ongoing[0].lede,
+    ...ongoing,
   })
 
 export const query = graphql`

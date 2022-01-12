@@ -13,7 +13,7 @@ export const Footer = () => {
             alt="San Antonio Logo"
           />
           <p className="inline-block ml-4 text-lg font-bold text-white">
-            {footer.paragraph[0].title}
+            {footer.heading[0].title}
           </p>
         </a>
       </div>

@@ -70,14 +70,14 @@ export default ({ data }: AboutProps) => {
       <article className="w-full px-8 lg:px-16 xl:px-24 lg:w-2/3">
         <section>
           <h1 className="my-8 font-bold text-black">What we’re here to do</h1>
-          {about.aboutTextData.map(({ title, text }, i) => (
+          {about.aims.map(({ title, text }, i) => (
             <AboutList key={"list_" + i} aboutTitle={title} aboutText={text} />
           ))}
         </section>
 
         <section>
           <h2 className="my-6">Frequently Asked Questions</h2>
-          {about.aboutListData.map(({ title, text }, i) => (
+          {about.faq.map(({ title, text }, i) => (
             <Accordion key={"collapsibleList_" + i} title={title} text={text} />
           ))}
         </section>
