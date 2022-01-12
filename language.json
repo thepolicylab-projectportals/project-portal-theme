@@ -1,50 +1,55 @@
 {
-  "aboutTextData": [
+  "about": {
+    "aboutTextData": [
+      {
+        "title": "Build and use evidence to improve the lives of San Antonio residents.",
+        "text": "The San Antonio Research Partnerships Portal is a pilot initiative from The San Antonio Office of Innovation and multiple departments within San Antonio City Government. Our goal is to connect government officials with San Antonio's rich community of Academic Institutions to answer important questions about how to best design, deliver, and evaluate city services. We believe that evidence is an important part of improving public services, and we're excited about what we can do together!"
+      },
+      {
+        "title": "Promote durable partnerships at all stages of the learning process.",
+        "text": "We believe great work is built from lasting relationships. We're looking for thought partners, not just evaluators, and seek collaborators from a wide variety of academic disciplines. Project opportunities range from problem framing to introduction to existing research to intervention and evaluation design to technical assistance to reporting."
+      },
+      {
+        "title": "Share knowledge about what works.",
+        "text": "Applied research on a specific challenge has the potential to benefit public services as a whole. To do this, we need to be transparent with our results and methods. We know that publication is an important part of the research process, and will work with collaborators to support publication where appropriate."
+      }
+    ],
+    "aboutListData": [
+      {
+        "title": "What sort of collaborators are you looking for?",
+        "text": "We are looking for academic researchers from a range of disciplines relevant to policy and program design and evaluation. Example disciplines include public policy, economics, behavioral science, sociology, marketing, and law, but we encourage you to apply for any opportunity that you think you are a good fit for!"
+      },
+      {
+        "title": "Do I need to have prior experience working with government?",
+        "text": "No, but prior experience is helpful. Applied research and collaboration with government partners often requires more flexibility and communication than a lab-based or retrospective study, so be sure to discuss expectations and timeline when considering a collaboration opportunity."
+      },
+      {
+        "title": "Are these opportunities available for students?",
+        "text": "It depends on the project. Check out the project description to learn more about expectations and requirements. Opportunities that require a PhD or equivalent experience will usually state so in their announcement."
+      },
+      {
+        "title": "Can multiple people work on a project?",
+        "text": "It depends on the project. If you are interested in working with a team, please reach out to the project point of contact for further discussion."
+      },
+      {
+        "title": "What kind of funding is available?",
+        "text": "Some projects are able to offer funding, others may not have funding available at this time, and some may be open to seeking funding from external sources. The extent and source of funding will depend on the scope of the project, level of expertise needed, and other factors. Research partners, agency officials, and the Office of Innovation can discuss funding details, including needs and potential sources, on a case-by-case basis."
+      },
+      {
+        "title": "What kind of data is available?",
+        "text": "Data availability depends on the specific project. Projects may involve qualitative and quantitative data, and collecting or analyzing data. In many cases, academic collaborators will need to sign a Data Use Agreement in order to access and use existing government data."
+      },
+      {
+        "title": "Can I propose a project idea?",
+        "text": "The Office of Innovation is always interested in exploring opportunities for improving city services. If you have a research idea, please email us with a description of your idea, and we’ll get in touch to see if it’s a good fit for the portal."
+      }
+    ]
+  },
+  "index": [
     {
-      "title": "Build and use evidence to improve the lives of San Antonio residents.",
-      "text": "The San Antonio Research Partnerships Portal is a pilot initiative from The San Antonio Office of Innovation and multiple departments within San Antonio City Government. Our goal is to connect government officials with San Antonio's rich community of Academic Institutions to answer important questions about how to best design, deliver, and evaluate city services. We believe that evidence is an important part of improving public services, and we're excited about what we can do together!"
-    },
-    {
-      "title": "Promote durable partnerships at all stages of the learning process.",
-      "text": "We believe great work is built from lasting relationships. We're looking for thought partners, not just evaluators, and seek collaborators from a wide variety of academic disciplines. Project opportunities range from problem framing to introduction to existing research to intervention and evaluation design to technical assistance to reporting."
-    },
-    {
-      "title": "Share knowledge about what works.",
-      "text": "Applied research on a specific challenge has the potential to benefit public services as a whole. To do this, we need to be transparent with our results and methods. We know that publication is an important part of the research process, and will work with collaborators to support publication where appropriate."
-    }
-  ],
-  "aboutListData": [
-    {
-      "title": "What sort of collaborators are you looking for?",
-      "text": "We are looking for academic researchers from a range of disciplines relevant to policy and program design and evaluation. Example disciplines include public policy, economics, behavioral science, sociology, marketing, and law, but we encourage you to apply for any opportunity that you think you are a good fit for!"
-    },
-    {
-      "title": "Do I need to have prior experience working with government?",
-      "text": "No, but prior experience is helpful. Applied research and collaboration with government partners often requires more flexibility and communication than a lab-based or retrospective study, so be sure to discuss expectations and timeline when considering a collaboration opportunity."
-    },
-    {
-      "title": "Are these opportunities available for students?",
-      "text": "It depends on the project. Check out the project description to learn more about expectations and requirements. Opportunities that require a PhD or equivalent experience will usually state so in their announcement."
-    },
-    {
-      "title": "Can multiple people work on a project?",
-      "text": "It depends on the project. If you are interested in working with a team, please reach out to the project point of contact for further discussion."
-    },
-    {
-      "title": "What kind of funding is available?",
-      "text": "Some projects are able to offer funding, others may not have funding available at this time, and some may be open to seeking funding from external sources. The extent and source of funding will depend on the scope of the project, level of expertise needed, and other factors. Research partners, agency officials, and the Office of Innovation can discuss funding details, including needs and potential sources, on a case-by-case basis."
-    },
-    {
-      "title": "What kind of data is available?",
-      "text": "Data availability depends on the specific project. Projects may involve qualitative and quantitative data, and collecting or analyzing data. In many cases, academic collaborators will need to sign a Data Use Agreement in order to access and use existing government data."
-    },
-    {
-      "title": "Can I propose a project idea?",
-      "text": "The Office of Innovation is always interested in exploring opportunities for improving city services. If you have a research idea, please email us with a description of your idea, and we’ll get in touch to see if it’s a good fit for the portal."
-    },
-    {
-      "title": "About - San Antonio Research Partnership Portal",
-      "description": "About San Antonio Research Partnership Portal"
+      "title": "Open opportunities",
+      "lede": "San Antonio is building research partnerships to help answer questions about how to best serve residents. We are seeking partners with methodological expertise related to design, data analytics, and field experimentation, as well as domain knowledge related to the topics. Browse open opportunities below, and we look forward to hearing from you!",
+      "pageName": "Open opportunities"
     }
   ],
   "completed": [
@@ -60,5 +65,34 @@
       "pageName": "Ongoing projects",
       "lede": "Learn about the ongoing research collaborations in San Antonio. Check back soon for results!"
     }
-  ]
+  ],
+  "footer": {
+    "paragraph": [
+      {
+        "title": "City of Antonio"
+      }
+    ],
+    "links": [
+      {
+        "title": "Office of Equity",
+        "link": "http://www.sanantonio.gov/Equity.aspx"
+      },
+      {
+        "title": "ADA Compliance",
+        "link": "http://www.sanantonio.gov/ada/"
+      },
+      {
+        "title": "Open Records",
+        "link": "http://www.sanantonio.gov/opengovernment/"
+      },
+      {
+        "title": "Privacy Policy and Disclaimer",
+        "link": "http://www.sanantonio.gov/disclaimer.aspx"
+      },
+      {
+        "title": "sanantonio.gov",
+        "link": "https://www.sanantonio.gov/"
+      }
+    ]
+  }
 }
