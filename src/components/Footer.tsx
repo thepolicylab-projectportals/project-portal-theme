@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import { footer } from "../../language.json"
 
 export const Footer = () => {
   return (
@@ -12,17 +13,15 @@ export const Footer = () => {
             alt="San Antonio Logo"
           />
           <p className="inline-block ml-4 text-lg font-bold text-white">
-            City of San Antonio
+            {footer.paragraph[0].title}
           </p>
         </a>
       </div>
       <div className="mt-6 lg:my-auto">
         <ul className="text-sm font-bold text-white list-none">
-          <ListItem target={"http://www.sanantonio.gov/Equity.aspx"}>Office of Equity</ListItem>
-          <ListItem target={"http://www.sanantonio.gov/ada/"}>ADA Compliance</ListItem>
-          <ListItem target={"http://www.sanantonio.gov/opengovernment/"}>Open Records</ListItem>
-          <ListItem target={"http://www.sanantonio.gov/disclaimer.aspx"}>Privacy Policy and Disclaimer</ListItem>
-          <ListItem target={"https://www.sanantonio.gov/"}>sanantonio.gov</ListItem>
+          {footer.links.map(({ title, link }, i) => (
+            <ListItem target={link}>{title} </ListItem>
+          ))}
         </ul>
       </div>
     </footer>
