@@ -19,8 +19,10 @@ export const Footer = () => {
       </div>
       <div className="mt-6 lg:my-auto">
         <ul className="text-sm font-bold text-white list-none">
-          {footer.links.map(({ title, link }) => (
-            <ListItem target={link}>{title} </ListItem>
+          {footer.links.map(({ title, link }, i) => (
+            <ListItem key={"link_" + i} target={link}>
+              {title}{" "}
+            </ListItem>
           ))}
         </ul>
       </div>
@@ -28,7 +30,7 @@ export const Footer = () => {
   )
 }
 
-const ListItem = ({ target, children }) => {
+const ListItem = ({ target, children, key }) => {
   return (
     <>
       <li className="block px-4 py-2 lg:inline-block lg:ml-6">
