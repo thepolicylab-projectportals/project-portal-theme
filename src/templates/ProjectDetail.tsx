@@ -28,7 +28,6 @@ interface ProjectDetailProps {
         endDate: Date
         agency: string
         policyAreas: string[]
-        supportNeeded: string[]
         deliverable: string
         purpose: string
         expertise: string
@@ -64,7 +63,6 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
     endDate,
     agency,
     policyAreas,
-    supportNeeded,
     deliverable,
     purpose,
     expertise,
@@ -130,13 +128,6 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
                 label="Policy Areas"
                 color="blue-200"
                 value={policyAreas}
-              />
-            </div>
-            <div className="mt-2">
-              <Feature
-                label="Support Needed"
-                color="purple-200"
-                value={supportNeeded}
               />
             </div>
           </section>
@@ -223,7 +214,6 @@ export const query = graphql`
         endDate
         agency
         policyAreas
-        supportNeeded
         deliverable
         purpose
         expertise

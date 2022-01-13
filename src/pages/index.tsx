@@ -27,7 +27,6 @@ export const query = graphql`
           endDate
           agency
           policyAreas
-          supportNeeded
           deliverable
           purpose
           expertise
