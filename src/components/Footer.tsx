@@ -19,7 +19,7 @@ export const Footer = () => {
       </div>
       <div className="mt-6 lg:my-auto">
         <ul className="text-sm font-bold text-white list-none">
-          {footer.links.map(({ title, link }, i) => (
+          {footer.links.map(({ title, link }) => (
             <ListItem target={link}>{title} </ListItem>
           ))}
         </ul>
