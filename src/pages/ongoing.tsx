@@ -1,13 +1,12 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { ProjectPage, ProjectPageProps } from "../components"
+import { ongoing } from "../../language.json"
 
 export default ({ data }: ProjectPageProps) =>
   ProjectPage({
     data,
-    title: "Ongoing projects",
-    pageName: "Ongoing projects",
-    lede: "Learn about the ongoing research collaborations in San Antonio. Check back soon for results!",
+    ...ongoing,
   })
 
 export const query = graphql`
