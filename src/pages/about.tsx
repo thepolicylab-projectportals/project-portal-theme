@@ -6,6 +6,7 @@ import { HeaderWithImage } from "../components/HeaderWithImage"
 import { Disclosure } from "@headlessui/react"
 import { FaPlus, FaMinus } from "react-icons/fa"
 import language from "site/language.json"
+import meta from "site/meta.json"
 
 interface AboutProps {
   data: {
@@ -55,8 +56,8 @@ export default ({ data }: AboutProps) => {
   return (
     <Layout>
       <SiteMetadata
-        title={`About - ${language.meta.title}`}
-        description={`About ${language.meta.title}`}
+        title={`About - ${meta.title}`}
+        description={`About ${meta.title}`}
       />
 
       <Navbar activePage="About" />

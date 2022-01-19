@@ -1,7 +1,7 @@
 import { resolve } from "path"
 
 import { AIRTABLE_TABLE_PROJECTS as tableName } from "../consts"
-const language = require(`../../${process.env.PP_CONFIG_BASE}language.json`)
+const meta = require(`../../${process.env.PP_CONFIG_BASE}meta.json`)
 
 interface PageInput {
   path: string
@@ -33,7 +33,7 @@ export const createPages: GatsbyCreatePages = async ({ graphql, actions }) => {
       allAirtable(
         filter: {
           table: { eq: "${tableName}" }
-          data: { partnerName: { eq: "${language.meta.airtablePartnerName}" } }
+          data: { partnerName: { eq: "${meta.airtablePartnerName}" } }
         }
       ) {
         nodes {
@@ -62,7 +62,7 @@ export const onCreatePage = ({ page, actions }) => {
     context: {
       ...page.context,
       tableName,
-      partnerName: language.meta.airtablePartnerName,
+      partnerName: meta.airtablePartnerName,
     },
   })
 }

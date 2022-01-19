@@ -9,12 +9,12 @@ const {
   AIRTABLE_TABLE_CONTACTS,
 } = require("./src/consts.js")
 
-const language = require(`./${process.env.PP_CONFIG_BASE}language.json`)
+const meta = require(`./${process.env.PP_CONFIG_BASE}meta.json`)
 const tailwindConfig = require(`./${process.env.PP_CONFIG_BASE}tailwind.config.js`)
 
 module.exports = {
   siteMetadata: {
-    title: language.meta.title,
+    title: meta.title,
     pages: [
       { name: "Open opportunities", link: "/", show: true },
       { name: "Ongoing projects", link: "/ongoing", show: true },
@@ -61,7 +61,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: language.meta.title,
+        name: meta.title,
         short_name: `Project Portal`,
         start_url: `/`,
         background_color: `#fafafa`,
