@@ -76,6 +76,11 @@ module.exports = {
       },
     },
     {
+      // This plugin allows us to also search for files in the site-specific directory set
+      // in the environment variable `PP_BASE_CONFIG`.
+      //
+      // This allows an `import blah from "blah.json"` statement to find the blah.json file
+      // in sites/<your site>/, instead of requiring that to be a relative path.
       resolve: "gatsby-plugin-root-import",
       options: {
         resolveModules: [process.env.PP_CONFIG_BASE],
