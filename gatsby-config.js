@@ -2,6 +2,8 @@ require("dotenv").config({
   path: `${process.env.PP_CONFIG_BASE}.env`,
 })
 
+const path = require("path")
+
 const {
   AIRTABLE_TABLE_PROJECTS,
   AIRTABLE_TABLE_CONTACTS,
@@ -79,11 +81,11 @@ module.exports = {
       // This plugin allows us to also search for files in the site-specific directory set
       // in the environment variable `PP_BASE_CONFIG`.
       //
-      // This allows an `import blah from "blah.json"` statement to find the blah.json file
-      // in sites/<your site>/, instead of requiring that to be a relative path.
+      // This allows an `import blah from "site/blah.json"` statement to find the blah.json file
+      // in sites/<your site>/.
       resolve: "gatsby-plugin-root-import",
       options: {
-        resolveModules: [process.env.PP_CONFIG_BASE],
+        site: path.join(__dirname, process.env.PP_CONFIG_BASE),
       },
     },
   ],
