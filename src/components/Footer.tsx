@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import { footer } from "../../language.json"
+import { footer } from "language.json"
 
 export const Footer = () => {
   return (

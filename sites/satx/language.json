@@ -1,4 +1,8 @@
 {
+  "meta": {
+    "title": "San Antonio R&D Project Portal",
+    "airtableProject": "San Antonio"
+  },
   "about": {
     "aims": [
       {

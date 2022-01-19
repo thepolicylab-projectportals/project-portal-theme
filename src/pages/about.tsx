@@ -5,7 +5,7 @@ import { Layout } from "../layouts/Layout"
 import { HeaderWithImage } from "../components/HeaderWithImage"
 import { Disclosure } from "@headlessui/react"
 import { FaPlus, FaMinus } from "react-icons/fa"
-import { about } from "../../language.json"
+import { about } from "language.json"
 
 interface AboutProps {
   data: {
@@ -55,7 +55,7 @@ export default ({ data }: AboutProps) => {
   return (
     <Layout>
       <SiteMetadata
-        title="About - San Antonio Research Partnership Portal "
+        title={`About - ${language.meta.title}`}
         description="About San Antonio Research Partnership Portal"
       />
 

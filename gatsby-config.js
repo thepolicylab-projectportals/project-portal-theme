@@ -7,9 +7,12 @@ const {
   AIRTABLE_TABLE_CONTACTS,
 } = require("./src/consts.js")
 
+const language = require(`./${process.env.PP_CONFIG_BASE}language.json`)
+const tailwindConfig = require(`./${process.env.PP_CONFIG_BASE}tailwind.config.js`)
+
 module.exports = {
   siteMetadata: {
-    title: "San Antonio Research Partnership Portal",
+    title: language.meta.title,
     pages: [
       { name: "Open opportunities", link: "/", show: true },
       { name: "Ongoing projects", link: "/ongoing", show: true },
@@ -17,12 +20,6 @@ module.exports = {
       { name: "About", link: "/about", show: true },
       { name: "Contact", link: "/contact", show: true },
     ],
-    links: {
-      contact: "mailto:contact@me.com",
-      facebook: "https://www.facebook.com",
-      linkedin: "https://www.linkedin.com",
-      twitter: "https://www.twitter.com",
-    },
     locale: "en",
   },
   plugins: [
@@ -62,11 +59,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `San Antonio Research Partnership Portal`,
+        name: language.meta.title,
         short_name: `Project Portal`,
         start_url: `/`,
         background_color: `#fafafa`,
-        theme_color: `#9c4c47`,
+        theme_color: tailwindConfig.theme.extend.colors.primary[500],
         display: `standalone`,
         icon: `src/images/icon.png`,
       },
@@ -76,6 +73,12 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images/`,
+      },
+    },
+    {
+      resolve: "gatsby-plugin-root-import",
+      options: {
+        resolveModules: [process.env.PP_CONFIG_BASE],
       },
     },
   ],
