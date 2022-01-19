@@ -33,7 +33,7 @@ AIRTABLE_API_KEY=""
 AIRTABLE_BASE_ID=""
 ```
 
-You can find your API key and Base ID by clicking "Help" and then "API Documentation". Table name in the example is "Destinations" (case sensitive name).
+You can find your API key and Base ID by clicking "Help" and then "API Documentation".
 
 You're now ready to go. If you want to customize the Airtable base, please refer to [`gatsby-source-airtable` plugin documentation](https://www.gatsbyjs.org/packages/gatsby-source-airtable/).
 
@@ -54,6 +54,8 @@ Run in the project locally.
 #### `gatsby build:<site id>`
 
 Run a production build into `./public`. The result is ready to be put on any static hosting you prefer.
+
+**Note:** Sometimes webpack's dev and prod builds don't quite align. If you're seeing an issue on a production build, consider using this command to build the production website locally and then running `gatsby serve` to view it.
 
 ## Architecture Description for Project Portal
 
@@ -121,7 +123,7 @@ template (`src/templates/ProjectDetail.tsx`).
 #### Some things to keep in mind
 
 In general, avoid placing images in `static` and instead favor `src/images`. These
-images may then be process in a graphql query with sharp for, e.g., cutting down on
+images may then be processed in a graphql query with sharp for, e.g., cutting down on
 size, providing webpack suffices, and so forth.
 
 If the build fails for some reason, there's a high chance it's a gatsby cache problem.
