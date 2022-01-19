@@ -1,4 +1,11 @@
-require("dotenv").config()
+require("dotenv").config({
+  path: `${process.env.PP_CONFIG_BASE}.env`,
+})
+
+const {
+  AIRTABLE_TABLE_PROJECTS,
+  AIRTABLE_TABLE_CONTACTS,
+} = require("./src/consts.js")
 
 module.exports = {
   siteMetadata: {
@@ -22,7 +29,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-postcss`,
       options: {
-        postCssPlugins: [require("tailwindcss"), require("autoprefixer")],
+        postCssPlugins: [
+          require("tailwindcss")({
+            config: `${process.env.PP_CONFIG_BASE}tailwind.config.js`,
+          }),
+          require("autoprefixer"),
+        ],
       },
     },
     `gatsby-plugin-react-helmet`,
@@ -36,12 +48,12 @@ module.exports = {
         tables: [
           {
             baseId: process.env.AIRTABLE_BASE_ID,
-            tableName: process.env.AIRTABLE_TABLE_NAME,
+            tableName: AIRTABLE_TABLE_PROJECTS,
             tableLinks: ["contacts"],
           },
           {
             baseId: process.env.AIRTABLE_BASE_ID,
-            tableName: "Project Contacts",
+            tableName: AIRTABLE_TABLE_CONTACTS,
             mapping: { contactImage: "fileNode" },
           },
         ],

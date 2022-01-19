@@ -4,7 +4,7 @@ import { footer } from "../../language.json"
 
 export const Footer = () => {
   return (
-    <footer className="flex flex-wrap justify-between w-full px-2 py-8 bg-rust-500 xl:container xl:px-12">
+    <footer className="flex flex-wrap justify-between w-full px-2 py-8 bg-primary-500 xl:container xl:px-12">
       <div className="block w-full lg:w-auto">
         <a href={footer.heading.link}>
           <img

@@ -1,6 +1,6 @@
 "use strict"
 
-require("dotenv").config()
+// require("dotenv").config()
 
 require("source-map-support").install()
 require("ts-node").register({

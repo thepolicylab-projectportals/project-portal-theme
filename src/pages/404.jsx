@@ -17,7 +17,7 @@ const Page404 = () => {
           The page you're looking for doesn't exist.
           <br />
           <br />
-          <Link to="/" className="text-blue-600">
+          <Link to="/" className="text-link-600">
             Go back to homepage
           </Link>
         </h3>
