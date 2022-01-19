@@ -34,7 +34,7 @@ In the base package.json, add scripts to conveniently build/develop this site:
 
 ### Add language file
 
-To customize the language usedin the app, we create a `language.json` file which provides all text blurbs in the app as well as some metadata for the deployment. Copy the `language.json` file from another site to get started and update it as needed.
+To customize the language used in the app, we create a `language.json` file which provides all text blurbs in the app as well as some metadata for the deployment. Copy the `language.json` file from another site to get started and update it as needed.
 
 ### Add tailwind theme
 
