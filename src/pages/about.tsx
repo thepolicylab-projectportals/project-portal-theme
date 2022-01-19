@@ -56,7 +56,7 @@ export default ({ data }: AboutProps) => {
     <Layout>
       <SiteMetadata
         title={`About - ${language.meta.title}`}
-        description="About San Antonio Research Partnership Portal"
+        description={`About ${language.meta.title}`}
       />
 
       <Navbar activePage="About" />

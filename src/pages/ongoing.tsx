@@ -10,9 +10,12 @@ export default ({ data }: ProjectPageProps) =>
   })
 
 export const query = graphql`
-  query OngoingQuery($tableName: String!) {
+  query OngoingQuery($tableName: String!, $partnerName: String!) {
     items: allAirtable(
-      filter: { table: { eq: $tableName }, data: { status: { eq: "ongoing" } } }
+      filter: {
+        table: { eq: $tableName }
+        data: { status: { eq: "ongoing" }, partnerName: { eq: $partnerName } }
+      }
       sort: { fields: [data___startDate], order: DESC }
     ) {
       nodes {
