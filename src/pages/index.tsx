@@ -1,12 +1,12 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { ProjectPage, ProjectPageProps } from "../components"
-import language from "../../language.json"
+import { open } from "../../language.json"
 
 export default ({ data }: ProjectPageProps) =>
   ProjectPage({
     data,
-    ...language.open,
+    ...open,
   })
 
 export const query = graphql`
