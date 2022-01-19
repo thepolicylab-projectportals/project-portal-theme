@@ -32,6 +32,10 @@ In the base package.json, add scripts to conveniently build/develop this site:
 "build:<site id>": "cross-env PP_CONFIG_BASE=/sites/<site id> gatsby build",
 ```
 
+### Add language file
+
+To customize the language usedin the app, we create a `language.json` file which provides all text blurbs in the app as well as some metadata for the deployment. Copy the `language.json` file from another site to get started and update it as needed.
+
 ### Add tailwind theme
 
 To customize tailwind colors/fonts for a site, we create a `tailwind.config.js` file which extends our base config. Below is an example. See [the tailwind documentation](https://tailwindcss.com/docs/presets#how-configurations-are-merged) for more information on how these values are merged with the base values.
