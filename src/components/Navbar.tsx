@@ -16,10 +16,10 @@ const NavbarItem: FunctionComponent<NavbarItemProps> = ({
   return (
     <>
       <li className="nav-item">
-        <span className="flex items-center p-5 font-bold leading-snug text-white hover:opacity-75 xl:text-black xl:px-3 xl:py-2">
+        <span className="flex items-center p-5 leading-snug text-white hover:opacity-75 xl:text-black xl:px-3 xl:py-2">
           <Link to={link ? link : "#pablo"}>
             {isActive ? (
-              <span className="pb-1 ml-2 border-b-4 border-white xl:border-rust-500">
+              <span className="font-bold pb-1 ml-2 border-b-2 border-white xl:border-rust-500">
                 {name}
               </span>
             ) : (
