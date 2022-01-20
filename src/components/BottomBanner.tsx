@@ -20,7 +20,12 @@ BottomBannerProps) => {
       <div className="m-responsive">
         <div className="w-full">
           {/* <div className="pb-3 text-3xl font-bold text-gray-600">{title}</div> */}
-          <div className="mt-2 text-md">
+          <img
+            className="inline-block w-52 h-24 float-left"
+            src="/images/RD_LOGO_FINAL _ with partner logos.png"
+            alt="R+D League logos"
+          />
+          <div className="inline-block w-4/5 mt-5 text-xl float-right">
             {text}
             <a
               className="font-semibold text-black underline hover:text-rust-500"
