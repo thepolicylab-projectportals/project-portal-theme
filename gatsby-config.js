@@ -2,14 +2,19 @@ require("dotenv").config({
   path: `${process.env.PP_CONFIG_BASE}.env`,
 })
 
+const path = require("path")
+
 const {
   AIRTABLE_TABLE_PROJECTS,
   AIRTABLE_TABLE_CONTACTS,
 } = require("./src/consts.js")
 
+const meta = require(`./${process.env.PP_CONFIG_BASE}meta.json`)
+const tailwindConfig = require(`./${process.env.PP_CONFIG_BASE}tailwind.config.js`)
+
 module.exports = {
   siteMetadata: {
-    title: "San Antonio Research Partnership Portal",
+    title: meta.title,
     pages: [
       { name: "Open opportunities", link: "/", show: true },
       { name: "Ongoing projects", link: "/ongoing", show: true },
@@ -17,12 +22,6 @@ module.exports = {
       { name: "About", link: "/about", show: true },
       { name: "Contact", link: "/contact", show: true },
     ],
-    links: {
-      contact: "mailto:contact@me.com",
-      facebook: "https://www.facebook.com",
-      linkedin: "https://www.linkedin.com",
-      twitter: "https://www.twitter.com",
-    },
     locale: "en",
   },
   plugins: [
@@ -62,11 +61,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `San Antonio Research Partnership Portal`,
+        name: meta.title,
         short_name: `Project Portal`,
         start_url: `/`,
         background_color: `#fafafa`,
-        theme_color: `#9c4c47`,
+        theme_color: tailwindConfig.theme.extend.colors.primary[500],
         display: `standalone`,
         icon: `src/images/icon.png`,
       },
@@ -76,6 +75,17 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images/`,
+      },
+    },
+    {
+      // This plugin allows us to also search for files in the site-specific directory set
+      // in the environment variable `PP_BASE_CONFIG`.
+      //
+      // This allows an `import blah from "site/blah.json"` statement to find the blah.json file
+      // in sites/<your site>/.
+      resolve: "gatsby-plugin-root-import",
+      options: {
+        site: path.join(__dirname, process.env.PP_CONFIG_BASE),
       },
     },
   ],
