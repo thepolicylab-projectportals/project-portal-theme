@@ -56,56 +56,56 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
 
   return (
     <div className="w-full lg:w-2/5 xl:w-1/3">
-      <div className="w-full p-8 my-8 bg-gray-100">
-        <h4>Project point of contact</h4>
-        <div className="my-6">
-          <Contact
-            {...{ name, title, employer, email, contactImage }}
-            showEmail={false}
-          />
-        </div>
-        <div>
-          <h4>
-            {statusOutput(
-              status,
-              "Interested in collaborating?",
-              "The project is ongoing.",
-              "The project is complete."
-            )}
-          </h4>
-          <Markdown
-            className="mt-2 text-black text-md"
-            options={{
-              wrapper: "div",
-              forceWrapper: true,
-              forceBlock: true,
-              overrides: {
-                ul: {
-                  props: {
-                    className: "list-inside list-disc",
-                  },
-                },
-                a: {
-                  props: {
-                    className: "underline hover:no-underline",
-                  },
+      <div className="w-full p-8 -mt-20 mb-8 bg-gray-100">
+        <h4>
+          {statusOutput(
+            status,
+            "Interested in collaborating?",
+            "The project is ongoing.",
+            "The project is complete."
+          )}
+        </h4>
+        <Markdown
+          className="text-black text-md"
+          options={{
+            wrapper: "div",
+            forceWrapper: true,
+            forceBlock: true,
+            overrides: {
+              ul: {
+                props: {
+                  className: "list-inside list-disc",
                 },
               },
-            }}
-          >
-            {mainText}
-          </Markdown>
-          <div className="mt-4">
-            {status === "open" ? (
-              <a href={`mailto:${email}`}>
-                <button className="btn">Email point of contact</button>
-              </a>
-            ) : (
-              <Link to={"/contact"}>
-                <button className="btn-white">Ask a question</button>
-              </Link>
-            )}
-          </div>
+              a: {
+                props: {
+                  className: "underline hover:no-underline",
+                },
+              },
+            },
+          }}
+        >
+          {mainText}
+        </Markdown>
+        <div className="mt-4">
+          {status === "open" ? (
+            <a href={`mailto:${email}`}>
+              <button className="btn">Email point of contact</button>
+            </a>
+          ) : (
+            <Link to={"/contact"}>
+              <button className="btn-white">Ask a question</button>
+            </Link>
+          )}
+        </div>
+      </div>
+      <div className="w-full p-8 my-8 bg-gray-100">
+        <h4>Project point of contact</h4>
+        <div className="mt-4">
+          <Contact
+            {...{ name, title, employer, email, contactImage }}
+            showEmail={true}
+          />
         </div>
       </div>
     </div>

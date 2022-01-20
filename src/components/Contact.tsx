@@ -50,11 +50,15 @@ export const Contact: React.FC<ContactProps> = ({
           />
         )}
       </div>
-      <div className="p-2">
-        <p className="mb-1 font-bold text-black text-md">{name}</p>
-        <p className="mb-1 text-black text-md">{title}</p>
-        <p className="mb-1 text-black text-md">{employer}</p>
-        {showEmail ? <p className="mb-1 text-black text-md">{email}</p> : ""}
+      <div className="pl-2 pr-2 pb-2">
+        <p className="font-bold text-black text-md">{name}</p>
+        <p className="text-black text-md">{title}</p>
+        <p className="text-black text-md">{employer}</p>
+        {showEmail ? (
+          <p className="text-black text-md underline">{email}</p>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   )
