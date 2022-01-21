@@ -1,6 +1,9 @@
 import React, { FunctionComponent } from "react"
 import { Link, withPrefix, useStaticQuery, graphql } from "gatsby"
 import { FaBars, FaTimes } from "react-icons/fa"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
+
+import meta from "site/meta.json"
 
 interface NavbarItemProps {
   name: string
@@ -44,6 +47,7 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
     site: {
       siteMetadata: { title, pages },
     },
+    logo,
   } = useStaticQuery(graphql`
     query {
       site {
@@ -56,8 +60,15 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
           }
         }
       }
+      logo: file(relativePath: { regex: "/logo.png/" }) {
+        childImageSharp {
+          gatsbyImageData
+        }
+      }
     }
   `)
+
+  const image = getImage(logo)
 
   return (
     <>
@@ -78,13 +89,13 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
               {navbarOpen ? <FaTimes /> : <FaBars />}
             </button>
             <Link
-              className="block mx-4 my-auto overflow-hidden text-lg font-bold text-black align-middle whitespace-nowrap"
+              className="block mx-4 my-auto overflow-hidden text-lg font-bold text-black flex items-center whitespace-nowrap"
               to="/"
             >
-              <img
+              <GatsbyImage
                 className="hidden xl:inline-block"
-                src={withPrefix("images/sa-logo.png")}
-                alt="Portal Logo"
+                image={image}
+                alt={meta.title + " logo"}
               />
               {title}
             </Link>

@@ -38,6 +38,14 @@ To customize the language used in the app, we create a `language.json` file whic
 
 ### Add metadata file
 
+### Add images
+
+The site-specific images used throught the app should be contained in an `images/` directory within the site's directory. For images, we use convention over configuration, so it is the names of the files that must match the expected thing. The following files must be provided:
+
+- `[about/completed/contact/ongoing/open].jpg`: Splash images used as the background of the header for the respective page
+- `icon.png`: A small icon used as the favicon for the page (the little icon in the broswer tab)
+- `logo.png`: A small icon used in the navbar and footer for the page.
+
 To customize the metadata used in the app, we create a `meta.json` file which provides metadata used in the deployment (such as the site's title, and the airtable partner name). Copy the `meta.json` file from another site to get started and update it as needed.
 
 ### Add tailwind theme

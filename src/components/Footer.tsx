@@ -1,16 +1,31 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, graphql, useStaticQuery } from "gatsby"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
+
+import meta from "site/meta.json"
 import { footer } from "site/language.json"
 
 export const Footer = () => {
+  const { logo } = useStaticQuery(graphql`
+    query {
+      logo: file(relativePath: { regex: "/logo.png/" }) {
+        childImageSharp {
+          gatsbyImageData
+        }
+      }
+    }
+  `)
+
+  const image = getImage(logo)
+
   return (
     <footer className="flex flex-wrap justify-between w-full px-2 py-8 bg-primary-500 xl:container xl:px-12">
       <div className="block w-full lg:w-auto">
-        <a href={footer.heading.link}>
-          <img
+        <a className="flex items-center" href={footer.heading.link}>
+          <GatsbyImage
             className="inline-block"
-            src="/images/sa-logo.png"
-            alt="San Antonio Logo"
+            image={image}
+            alt={meta.title + " logo"}
           />
           <p className="inline-block ml-4 text-lg font-bold text-white">
             {footer.heading.title}

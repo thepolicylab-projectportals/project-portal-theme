@@ -42,7 +42,7 @@ export const Contact: React.FC<ContactProps> = ({
           <StaticImage
             className="rounded-full"
             alt={name}
-            src={"../images/narwhal.jpg"}
+            src={"/images/narwhal.jpg"}
             width={100}
             height={100}
             placeholder="blurred"
