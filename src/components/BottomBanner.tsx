@@ -28,7 +28,7 @@ BottomBannerProps) => {
           <div className="inline-block w-4/5 mt-5 text-xl float-right">
             {text}
             <a
-              className="font-semibold text-black underline hover:text-rust-500"
+              className="font-semibold text-black underline hover:text-primary-500"
               href={link}
             >
               let us know

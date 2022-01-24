@@ -1,26 +1,42 @@
 import React from "react"
-import language from "../../language.json"
+import { Link, graphql, useStaticQuery } from "gatsby"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
+
+import meta from "site/meta.json"
+import { footer } from "site/language.json"
 
 export const Footer = () => {
+  const { logo } = useStaticQuery(graphql`
+    query {
+      logo: file(relativePath: { regex: "/logo.png/" }) {
+        childImageSharp {
+          gatsbyImageData
+        }
+      }
+    }
+  `)
+
+  const image = getImage(logo)
+
   return (
-    <footer className="flex flex-wrap justify-between w-full px-2 py-8 bg-rust-500 xl:container xl:px-12">
+    <footer className="flex flex-wrap justify-between w-full px-2 py-8 bg-primary-500 xl:container xl:px-12">
       <div className="block w-full lg:w-auto">
-        <a href={language.footer.heading.link}>
-          <img
+        <a className="flex items-center" href={footer.heading.link}>
+          <GatsbyImage
             className="inline-block"
-            src="/images/sa-logo.png"
-            alt="San Antonio Logo"
+            image={image}
+            alt={meta.title + " logo"}
           />
           <p className="inline-block ml-4 text-lg font-bold text-white">
-            {language.footer.heading.title}
+            {footer.heading.title}
           </p>
         </a>
       </div>
       <div className="mt-6 lg:my-auto">
         <ul className="text-sm font-bold text-white list-none">
-          {language.footer.links.map(({ title, link }, i) => (
+          {footer.links.map(({ title, link }, i) => (
             <ListItem key={"link_" + i} target={link}>
-              {title}
+              {title}{" "}
             </ListItem>
           ))}
         </ul>
@@ -29,11 +45,11 @@ export const Footer = () => {
   )
 }
 
-const ListItem = ({ target, children }) => {
+const ListItem = ({ target, children, key }) => {
   return (
     <>
       <li className="block px-4 py-2 lg:inline-block lg:ml-6">
-        <a href={target}>{children}</a>
+        <Link to={target}>{children}</Link>
       </li>
     </>
   )

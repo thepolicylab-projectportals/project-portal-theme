@@ -1,18 +1,21 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { ProjectPage, ProjectPageProps } from "../components"
-import language from "../../language.json"
+import { ongoing } from "site/language.json"
 
 export default ({ data }: ProjectPageProps) =>
   ProjectPage({
     data,
-    ...language.ongoing,
+    ...ongoing,
   })
 
 export const query = graphql`
-  query OngoingQuery($tableName: String!) {
+  query OngoingQuery($tableName: String!, $partnerName: String!) {
     items: allAirtable(
-      filter: { table: { eq: $tableName }, data: { status: { eq: "ongoing" } } }
+      filter: {
+        table: { eq: $tableName }
+        data: { status: { eq: "ongoing" }, partnerName: { eq: $partnerName } }
+      }
       sort: { fields: [data___startDate], order: DESC }
     ) {
       nodes {
