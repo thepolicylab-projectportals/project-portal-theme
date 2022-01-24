@@ -67,14 +67,19 @@ module.exports = {
         background_color: `#fafafa`,
         theme_color: tailwindConfig.theme.extend.colors.primary[500],
         display: `standalone`,
-        icon: `src/images/icon.png`,
+        icon: path.join(
+          __dirname,
+          process.env.PP_CONFIG_BASE,
+          "images",
+          "icon.png"
+        ),
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images/`,
+        path: path.join(__dirname, process.env.PP_CONFIG_BASE, "images"),
       },
     },
     {
