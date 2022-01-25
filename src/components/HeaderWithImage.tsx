@@ -14,7 +14,7 @@ export const HeaderWithImage = ({
 }: HeaderWithImageProps) => {
   return (
     <div
-      className="px-4 py-4 mx-0 mb-16 overflow-hidden bg-white md:px-8 md:py-12 xl:px-16 xl:container"
+      className="px-4 py-4 mx-0 mb-16 bg-white md:px-8 md:py-12 xl:px-16 xl:container"
       style={{
         background: `url(${withPrefix(imageSrc)})`,
         backgroundRepeat: "no-repeat",
@@ -22,12 +22,10 @@ export const HeaderWithImage = ({
         backgroundPositionY: "center",
       }}
     >
-      <div className="m-0 lg:m-4">
-        <div className="w-full p-8 bg-white lg:w-2/3">
-          <h1 className="pb-3 mb-4 text-4xl font-bold text-gray-600">
-            {title}
-          </h1>
-          <p className="text-lg leading-normal">{lede}</p>
+      <div className="lg:-mb-24 m-0 lg:m-4 bg-white border-b-8 border-primary-500 border-solid">
+        <div className="w-full p-8 lg:w-2/3">
+          <h1 className="pb-3 mb-4 text-h1 font-bold text-gray-600">{title}</h1>
+          <p className="text-body leading-normal">{lede}</p>
         </div>
       </div>
     </div>
