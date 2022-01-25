@@ -56,7 +56,7 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
 
   return (
     <div className="w-full lg:w-2/5 xl:w-1/3">
-      <div className="w-full p-8 -mt-20 mb-8 bg-gray-100">
+      <div className="w-full p-8 mb-8 bg-gray-100">
         <h4>
           {statusOutput(
             status,

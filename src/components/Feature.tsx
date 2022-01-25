@@ -24,7 +24,7 @@ export const Feature: FunctionComponent<FeatureProps> = ({
 
   return (
     <>
-      <h5 className="font-sans text-black text-sm mb-1 font-extrabold uppercase">
+      <h5 className="font-sans text-black text-caps mb-1 font-extrabold uppercase">
         {label}
       </h5>
       <div className="flex flex-wrap">{out}</div>

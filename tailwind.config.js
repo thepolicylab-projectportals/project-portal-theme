@@ -29,6 +29,14 @@ module.exports = {
       },
       fontSize: {
         xxs: "0.625rem",
+        h1: "3.75rem",
+        h2: "3rem",
+        h3: "2.25rem",
+        h4: "1.5rem",
+        body: "1.5rem",
+        button: "1.3125rem",
+        nav: "1.3125rem",
+        tag: "1.125rem",
       },
       maxHeight: {
         48: "12rem",
