@@ -55,47 +55,6 @@ export const CollaboratorDetails: React.FC<CollaboratorDetailsProps> = ({
               )}
             </div>
           </section>
-
-          <hr className="my-8 border-gray-300 m-responsive" />
-        </>
-      )}
-
-      {isNA(priorResearch) && isNA(statusOfData) && isNA(fundingInfo) ? (
-        ""
-      ) : (
-        <>
-          <section className="m-responsive">
-            <h3>Project details</h3>
-            <div className="grid grid-cols-1 gap-3 lg:grid-cols-3">
-              {isNA(statusOfData) ? (
-                ""
-              ) : (
-                <div className="px-4">
-                  <SectionOfItem
-                    label="Status of associated data"
-                    value={statusOfData}
-                  />
-                </div>
-              )}
-              {isNA(priorResearch) ? (
-                ""
-              ) : (
-                <div className="px-4">
-                  <SectionOfItem
-                    label="Prior research and background"
-                    value={priorResearch}
-                  />
-                </div>
-              )}
-              {isNA(fundingInfo) ? (
-                ""
-              ) : (
-                <div className="px-4">
-                  <SectionOfItem label="Funding details" value={fundingInfo} />
-                </div>
-              )}
-            </div>
-          </section>
         </>
       )}
     </>
