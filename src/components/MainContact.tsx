@@ -57,7 +57,7 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
   return (
     <div className="w-full lg:w-2/5 xl:w-1/3">
       <div className="w-full p-8 mb-8 bg-gray-100">
-        <h4>
+        <h4 className="text-h4">
           {statusOutput(
             status,
             "Interested in collaborating?",
@@ -66,7 +66,7 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
           )}
         </h4>
         <Markdown
-          className="text-black text-md"
+          className="text-black text-body"
           options={{
             wrapper: "div",
             forceWrapper: true,
@@ -100,8 +100,8 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
         </div>
       </div>
       <div className="w-full p-8 my-8 bg-gray-100">
-        <h4>Project point of contact</h4>
-        <div className="mt-4">
+        <h4 className="text-h4">Project point of contact</h4>
+        <div className="mt-4 text-body">
           <Contact
             {...{ name, title, employer, email, contactImage }}
             showEmail={true}

@@ -27,7 +27,7 @@ export const CollaboratorDetails: React.FC<CollaboratorDetailsProps> = ({
       ) : (
         <>
           <section className="m-responsive">
-            <h3>Application details</h3>
+            <h3 className="text-h3">Application details</h3>
             <div className="grid grid-cols-1 gap-3 lg:grid-cols-3">
               {isNA(expertise) ? (
                 ""

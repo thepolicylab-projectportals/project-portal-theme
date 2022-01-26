@@ -51,9 +51,9 @@ export const Contact: React.FC<ContactProps> = ({
         )}
       </div>
       <div className="pl-2 pr-2 pb-2">
-        <p className="font-bold text-black text-md">{name}</p>
-        <p className="text-black text-md">{title}</p>
-        <p className="text-black text-md">{employer}</p>
+        <p className="font-bold text-black text-body">{name}</p>
+        <p className="text-black text-body">{title}</p>
+        <p className="text-black text-body">{employer}</p>
         {showEmail ? (
           <p className="text-black text-md underline">{email}</p>
         ) : (

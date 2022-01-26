@@ -24,10 +24,10 @@ export const Feature: FunctionComponent<FeatureProps> = ({
 
   return (
     <>
-      <h5 className="font-sans text-black text-caps mb-1 font-extrabold uppercase">
+      <h5 className="font-sans text-black text-tag mb-1 font-extrabold uppercase">
         {label}
       </h5>
-      <div className="flex flex-wrap">{out}</div>
+      <div className="text-tag flex flex-wrap">{out}</div>
     </>
   )
 }
@@ -39,7 +39,7 @@ interface TagProps {
 
 const Tag: FunctionComponent<TagProps> = ({ color, children }) => (
   <span
-    className={`px-3 py-1 mt-1 uppercase text-sm whitespace-nowrap font-semibold bg-${color} mr-2`}
+    className={`px-3 py-1 mt-1 uppercase text-tag whitespace-nowrap font-semibold bg-${color} mr-2`}
   >
     {children}
   </span>
