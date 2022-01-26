@@ -70,7 +70,7 @@ export default ({ data }: AboutProps) => {
         imageSrc={data.bgImage.childImageSharp.resize.src}
       />
 
-      <article className="w-full px-8 lg:px-16 xl:px-24 lg:w-2/3">
+      <article className="w-full pt-5 px-8 lg:px-16 xl:px-24 lg:w-2/3">
         <section>
           <h1 className="text-h2 my-8 font-bold text-black">
             What we’re here to do

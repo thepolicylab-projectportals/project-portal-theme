@@ -175,7 +175,7 @@ export default ({ data }: ContactProps) => {
         imageSrc={data.bgImage.childImageSharp.resize.src}
       />
 
-      <article className="w-full px-8 lg:px-16 xl:px-24 lg:w-2/3">
+      <article className="w-full pt-5 px-8 lg:px-16 xl:px-24 lg:w-2/3">
         <h1 className="my-8 text-h2 font-bold">
           Want to talk to the Office of Innovation? We'd love to hear from you!
         </h1>
