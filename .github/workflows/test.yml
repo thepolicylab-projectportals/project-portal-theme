@@ -17,7 +17,7 @@ jobs:
           AIRTABLE_BASE_ID: ${{ secrets.AIRTABLE_BASE_ID }}
 
       - name: Start up app
-        run: npm run serve:satx & npx wait-on http://localhost:8000
+        run: npm run serve:satx & npx wait-on http://localhost:9000
 
       - name: Run pa11y-ci
         run: npm exec -c 'pa11y http://localhost:8000 2>&1 | tee pa11y_output.txt
