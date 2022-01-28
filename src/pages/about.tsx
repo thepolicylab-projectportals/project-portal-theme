@@ -72,9 +72,9 @@ export default ({ data }: AboutProps) => {
 
       <article className="w-full pt-5 px-8 lg:px-16 xl:px-24 lg:w-2/3">
         <section>
-          <h1 className="text-h2 my-8 font-bold text-black">
+          <h2 className="text-h2 my-8 font-bold text-black">
             What we’re here to do
-          </h1>
+          </h2>
           {language.about.aims.map(({ title, text }, i) => (
             <AboutList key={"list_" + i} aboutTitle={title} aboutText={text} />
           ))}
