@@ -26,6 +26,7 @@ export const Footer = () => {
             className="inline-block"
             image={image}
             alt={meta.title + " logo"}
+            loading="eager"
           />
           <p className="inline-block ml-4 text-lg font-bold text-white">
             {footer.heading.title}
