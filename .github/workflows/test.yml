@@ -26,7 +26,7 @@ jobs:
         run: npm run serve & npx wait-on http://localhost:9000
 
       - name: Run pa11y-ci
-        run: npm exec -c 'pa11y --sitemap http://localhost:9000/sitemap/sitemap-index.xml --reporter=pa11y-reporter-html http://localhost:9000 2>&1 | tee pa11y_output.html'
+        run: npm exec -c 'pa11y-ci -s http://localhost:9000/sitemap/sitemap-index.xml http://localhost:9000 > pa11y_output.html'
 
       - name: Read pa11y_output file.
         id: pa11y_output
