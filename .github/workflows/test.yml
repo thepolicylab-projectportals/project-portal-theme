@@ -34,7 +34,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           message: "<details><summary>Pa11y testing results</summary>
 
-            ```${{ steps.pa11y_output.outputs.content }}```
+            <pre><code>${{ steps.pa11y_output.outputs.content }}</code></pre>
 
             </details>"
 
