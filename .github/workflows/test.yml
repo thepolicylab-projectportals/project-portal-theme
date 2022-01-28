@@ -39,7 +39,7 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           message:
-            "<details><summary><pre><code>Git SHA: ${{ github.sha }}</pre></code><h3>Pa11y testing results: ${{ matrix.site }} </h3></summary>
+            "<details><summary><p>Git SHA: <code>${{ github.sha }}</code></p><h3>Pa11y testing results: ${{ matrix.site }} </h3></summary>
 
             <pre><code>${{ steps.pa11y_output.outputs.content }}</code></pre>
 
