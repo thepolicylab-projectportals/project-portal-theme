@@ -1,6 +1,6 @@
 import React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { getImage } from "gatsby-plugin-image"
 
 import meta from "site/meta.json"
 import { footer } from "site/language.json"
@@ -18,15 +18,16 @@ export const Footer = () => {
 
   const image = getImage(logo)
 
+  // use of GatsbyImage for the logo causs pa11y error as it doesn't register as an image
   return (
     <footer className="flex flex-wrap justify-between w-full px-2 py-8 bg-primary-500 xl:container xl:px-12">
       <div className="block w-full lg:w-auto">
         <a className="flex items-center" href={footer.heading.link}>
-          <GatsbyImage
-            className="inline-block"
-            image={image}
+          <img
+            srcSet={image.images.sources[0].srcSet}
             alt={meta.title + " logo"}
-            loading="eager"
+            height={image.height}
+            width={image.width}
           />
           <p className="inline-block ml-4 text-lg font-bold text-white">
             {footer.heading.title}
