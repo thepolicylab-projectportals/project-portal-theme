@@ -11,7 +11,7 @@ jobs:
         site: [satx]
 
     env:
-      PP_CONFIG_BASE: ${{ format('/sites/{0}/', matrix.site) }}
+      PP_CONFIG_BASE: ${{ format('sites/{0}/', matrix.site) }}
 
     steps:
       - name: Checkout source
