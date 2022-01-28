@@ -20,7 +20,7 @@ BottomBannerProps) => {
     query {
       logo: file(relativePath: { regex: "/rd_logo.png/" }) {
         childImageSharp {
-          gatsbyImageData(width: 215)
+          gatsbyImageData(width: 160)
         }
       }
     }
