@@ -47,6 +47,7 @@
     "@types/tailwindcss": "^3.0.2",
     "cross-env": "^7.0.3",
     "gatsby-plugin-root-import": "^2.0.8",
+    "gatsby-plugin-sitemap": "^5.6.0",
     "gh-pages": "^3.2.3",
     "husky": "^4.3.0",
     "pa11y-ci": "^3.0.1",
