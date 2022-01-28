@@ -26,13 +26,13 @@ jobs:
         run: npm run serve & npx wait-on http://localhost:9000
 
       - name: Run pa11y-ci
-        run: npm exec -c 'pa11y --sitemap http://localhost:9000/sitemap/sitemap-index.xml http://localhost:9000 2>&1 | tee pa11y_output.txt'
+        run: npm exec -c 'pa11y --sitemap http://localhost:9000/sitemap/sitemap-index.xml --reporter=pa11y-reporter-html http://localhost:9000 2>&1 | tee pa11y_output.html'
 
       - name: Read pa11y_output file.
         id: pa11y_output
         uses: juliangruber/read-file-action@v1
         with:
-          path: ./pa11y_output.txt
+          path: ./pa11y_output.html
 
       - name: Comment on pull request.
         uses: thollander/actions-comment-pull-request@v1
@@ -41,7 +41,7 @@ jobs:
           message:
             "<details><summary><p>Git SHA: <code>${{ github.sha }}</code></p><h3>Pa11y testing results: ${{ matrix.site }} </h3></summary>
 
-            <pre><code>${{ steps.pa11y_output.outputs.content }}</code></pre>
+            ${{ steps.pa11y_output.outputs.content }}
 
             </details>"
 
