@@ -9,6 +9,7 @@
     "build:satx": "cross-env PP_CONFIG_BASE=sites/satx/ gatsby build",
     "develop": "gatsby develop",
     "develop:satx": "cross-env PP_CONFIG_BASE=sites/satx/ gatsby develop",
+    "serve": "gatsby serve",
     "serve:satx": "cross-env PP_CONFIG_BASE=sites/satx/ gatsby serve",
     "clean": "gatsby clean"
   },

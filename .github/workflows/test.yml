@@ -6,18 +6,24 @@ jobs:
   build:
     name: Building site and running pa11y-ci tests
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        site: [satx]
+
+    env:
+      PP_CONFIG_BASE: ${{ format('/sites/{0}/', matrix.site }}
 
     steps:
       - name: Checkout source
         uses: actions/checkout@v2
 
-      - run: npm ci && npm run build:satx
+      - run: npm ci && npm run build
         env:
           AIRTABLE_API_KEY: ${{ secrets.AIRTABLE_API_KEY }}
           AIRTABLE_BASE_ID: ${{ secrets.AIRTABLE_BASE_ID }}
 
       - name: Start up app
-        run: npm run serve:satx & npx wait-on http://localhost:9000
+        run: npm run serve & npx wait-on http://localhost:9000
 
       - name: Run pa11y-ci
         run: npm exec -c 'pa11y http://localhost:9000 2>&1 | tee pa11y_output.txt'
