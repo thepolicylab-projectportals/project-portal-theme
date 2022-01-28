@@ -1,7 +1,6 @@
 import React from "react"
 import { SectionOfItem } from "../components"
-
-const isNA = (s: string): boolean => !s || s === "\n"
+import { isNA } from "../utils"
 
 interface CollaboratorDetailsProps {
   expertise?: string

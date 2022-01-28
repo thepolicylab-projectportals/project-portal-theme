@@ -13,8 +13,7 @@ import { Layout } from "../layouts/Layout"
 
 import { CollaboratorDetails, ProjectTeam } from "../components"
 import { statusOutput } from "../utils"
-
-const isNA = (s: string): boolean => !s || s === "\n"
+import { isNA } from "../utils"
 
 interface ProjectDetailProps {
   data: {
@@ -89,7 +88,7 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
         <header className="py-16 p-responsive bg-primary-500">
           <div className="flex flex-col justify-between m-responsive lg:flex-row">
             <div className="w-auto">
-              <h1 className="text-h2 w-full font-semibold text-white lg:w-4/5">
+              <h1 className="text-h2 w-full font-bold leading-[3rem] text-white lg:w-4/5">
                 {question}
               </h1>
               <div className="mt-4 text-white text-body">
@@ -153,41 +152,33 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
                     value={purpose}
                   />
                 </div>
-                {isNA(priorResearch) &&
-                isNA(statusOfData) &&
-                isNA(fundingInfo) ? (
+                {isNA(statusOfData) ? (
                   ""
                 ) : (
-                  <>
-                    {isNA(statusOfData) ? (
-                      ""
-                    ) : (
-                      <div className="w-full mt-4 lg:w-11/12">
-                        <SectionOfItem
-                          label="Funding"
-                          value={fundingInfo}
-                          value={statusOfData}
-                        />
-                      </div>
-                    )}
-                    {isNA(priorResearch) ? (
-                      ""
-                    ) : (
-                      <div className="w-full mt-4 lg:w-11/12">
-                        <SectionOfItem label="Data" value={statusOfData} />
-                      </div>
-                    )}
-                    {isNA(fundingInfo) ? (
-                      ""
-                    ) : (
-                      <div className="w-full mt-4 lg:w-11/12">
-                        <SectionOfItem
-                          label="Helpful links"
-                          value={priorResearch}
-                        />
-                      </div>
-                    )}
-                  </>
+                  <div className="w-full mt-4 lg:w-11/12">
+                    <SectionOfItem
+                      label="Funding"
+                      value={fundingInfo}
+                      value={statusOfData}
+                    />
+                  </div>
+                )}
+                {isNA(priorResearch) ? (
+                  ""
+                ) : (
+                  <div className="w-full mt-4 lg:w-11/12">
+                    <SectionOfItem label="Data" value={statusOfData} />
+                  </div>
+                )}
+                {isNA(fundingInfo) ? (
+                  ""
+                ) : (
+                  <div className="w-full mt-4 lg:w-11/12">
+                    <SectionOfItem
+                      label="Helpful links"
+                      value={priorResearch}
+                    />
+                  </div>
                 )}
               </div>
               <MainContact
