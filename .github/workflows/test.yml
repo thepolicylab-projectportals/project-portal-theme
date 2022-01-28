@@ -38,7 +38,8 @@ jobs:
         uses: thollander/actions-comment-pull-request@v1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          message: "<details><summary>Pa11y testing results</summary>
+          message:
+            "<details><summary>Pa11y testing results: ${{ matrix.site }}</summary>
 
             <pre><code>${{ steps.pa11y_output.outputs.content }}</code></pre>
 
