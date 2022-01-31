@@ -41,11 +41,14 @@ jobs:
 
       - name: Comment on pull request (failure).
         if: ${{ failure() }}
-        uses: thollander/actions-comment-pull-request@v1
+        uses: marocchino/sticky-pull-request-comment@v2
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          header: ${{ matrix.site }}
           message:
-            "<details><summary><p>Git SHA: <code>${{ github.sha }}</code></p><h3>Pa11y testing <strong>FAIL</strong>: ${{ matrix.site }} </h3></summary>
+            "<p><small>Note: This comment gets updated with every commit</small></p>
+
+            <details><summary><p>Git SHA: <code>${{ github.sha }}</code></p><h3>Pa11y testing <strong>FAIL</strong>: ${{ matrix.site }} </h3></summary>
 
             <pre><code>
             ${{ steps.pa11y_output.outputs.content }}
@@ -55,11 +58,14 @@ jobs:
 
       - name: Comment on pull request (success).
         if: ${{ success() }}
-        uses: thollander/actions-comment-pull-request@v1
+        uses: marocchino/sticky-pull-request-comment@v2
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          header: ${{ matrix.site }}
           message:
-            "<details><summary><p>Git SHA: <code>${{ github.sha }}</code></p><h3>Pa11y testing <strong>PASS</strong>: ${{ matrix.site }} </h3></summary>
+            "<p><small>Note: This comment gets updated with every commit</small></p>
+
+            <details><summary><p>Git SHA: <code>${{ github.sha }}</code></p><h3>Pa11y testing <strong>PASS</strong>: ${{ matrix.site }} </h3></summary>
 
             <pre><code>
             ${{ steps.pa11y_output.outputs.content }}
