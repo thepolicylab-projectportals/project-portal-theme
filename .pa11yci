@@ -3,6 +3,9 @@
     "concurrency": 4,
     "standard": "WCAG2AA",
     "runners": ["axe"],
-    "reporters": [["json", { "fileName": "./results.json" }]]
+    "reporters": [
+      "cli",
+      ["json", { "fileName": "./results.json" }]
+    ]
   }
 }

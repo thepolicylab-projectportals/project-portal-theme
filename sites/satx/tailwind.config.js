@@ -5,7 +5,6 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        link: colors.sky,
         primary: {
           50: "#faf6f6",
           100: "#f5eded",

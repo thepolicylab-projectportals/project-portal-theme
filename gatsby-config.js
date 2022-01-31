@@ -12,8 +12,6 @@ const {
 const meta = require(`./${process.env.PP_CONFIG_BASE}meta.json`)
 const tailwindConfig = require(`./${process.env.PP_CONFIG_BASE}tailwind.config.js`)
 
-console.log(process.env)
-
 module.exports = {
   siteMetadata: {
     siteUrl: process.env.CI ? "http://localhost:9000" : meta.url,
