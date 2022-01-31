@@ -25,18 +25,21 @@ AIRTABLE_BASE_ID
 
 ### Add scripts to `package.json`
 
-In the base package.json, add scripts to conveniently build/develop this site:
+In the base package.json, add scripts to conveniently build/develop/serve this site:
 
 ```
 "develop:<site id>": "cross-env PP_CONFIG_BASE=/sites/<site id> gatsby develop",
 "build:<site id>": "cross-env PP_CONFIG_BASE=/sites/<site id> gatsby build",
+"serve:<site id>": "cross-env PP_CONFIG_BASE=/sites/<site id> gatsby serve",
 ```
 
 ### Add language file
 
-To customize the language used in the app, we create a `language.json` file which provides all text blurbs in the app as well as some metadata for the deployment. Copy the `language.json` file from another site to get started and update it as needed.
+To customize the language used in the app, we create a `language.json` file which provides all text blurbs in the app. Copy the `language.json` file from another site to get started and update it as needed.
 
 ### Add metadata file
+
+The metadata file includes items used in the build of the site, but may or may not be used in the display of the site (e.g. the url). Copy the `meta.json` file from another site to get started and update it as needed.
 
 ### Add images
 
