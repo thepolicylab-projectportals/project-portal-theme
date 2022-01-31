@@ -45,6 +45,10 @@ module.exports = {
         "90vh": "90vh",
         none: "none",
       },
+      lineHeight: {
+        snug: "1.15",
+        h2: "3rem",
+      },
     },
   },
   variants: {},
