@@ -29,6 +29,7 @@ jobs:
         run: npm exec -c 'pa11y-ci -s http://localhost:9000/sitemap/sitemap-0.xml'
 
       - name: Prettify result file
+        if: ${{ always() }}
         run: python -m json.tool results.json pretty_results.json
 
       - name: Read pa11y result file
