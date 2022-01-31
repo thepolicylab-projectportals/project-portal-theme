@@ -26,22 +26,37 @@ jobs:
         run: npm run serve & npx wait-on http://localhost:9000
 
       - name: Run pa11y-ci
-        run: npm exec -c 'pa11y-ci -s http://localhost:9000/sitemap/sitemap-index.xml http://localhost:9000 > pa11y_output.html'
+        run: npm exec -c 'pa11y-ci -s http://localhost:9000/sitemap/sitemap-0.xml'
 
-      - name: Read pa11y_output file.
-        if: ${{ failure() }}
+      - name: Prettify result file
+        run: python -m json.tool results.json pretty_results.json
+
+      - name: Read pa11y result file
+        if: ${{ always() }}
         id: pa11y_output
         uses: juliangruber/read-file-action@v1
         with:
-          path: ./pa11y_output.html
+          path: ./pretty_results.json
 
-      - name: Comment on pull request.
+      - name: Comment on pull request (failure).
         if: ${{ failure() }}
         uses: thollander/actions-comment-pull-request@v1
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           message:
-            "<details><summary><p>Git SHA: <code>${{ github.sha }}</code></p><h3>Pa11y testing results: ${{ matrix.site }} </h3></summary>
+            "<details><summary><p>Git SHA: <code>${{ github.sha }}</code></p><h3>Pa11y testing <strong>FAIL</strong>: ${{ matrix.site }} </h3></summary>
+
+            ${{ steps.pa11y_output.outputs.content }}
+
+            </details>"
+
+      - name: Comment on pull request (success).
+        if: ${{ success() }}
+        uses: thollander/actions-comment-pull-request@v1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          message:
+            "<details><summary><p>Git SHA: <code>${{ github.sha }}</code></p><h3>Pa11y testing <strong>PASS</strong>: ${{ matrix.site }} </h3></summary>
 
             ${{ steps.pa11y_output.outputs.content }}
 

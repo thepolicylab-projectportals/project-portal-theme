@@ -3,6 +3,6 @@
     "concurrency": 4,
     "standard": "WCAG2AA",
     "runners": ["axe"],
-    "reporters": ["pa11y-reporter-html"]
+    "reporters": [["json", { "fileName": "./results.json" }]]
   }
 }
