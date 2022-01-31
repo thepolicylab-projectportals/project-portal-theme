@@ -19,7 +19,7 @@ export const Footer = () => {
   const image = getImage(logo)
 
   return (
-    <footer className=" flex flex-wrap justify-between w-full px-2 py-8 bg-primary-500 xl:container xl:px-12">
+    <footer className="flex flex-wrap justify-between w-full px-2 py-8 bg-primary-500 xl:container xl:px-12">
       <div className="block w-full lg:w-auto">
         <a className="flex items-center" href={footer.heading.link}>
           <GatsbyImage
@@ -27,7 +27,7 @@ export const Footer = () => {
             image={image}
             alt={meta.title + " logo"}
           />
-          <p className="text-center inline-block text-h3 font-bold text-white">
+          <p className="text-center inline-block text-h4 font-bold text-white">
             {footer.heading.title}
           </p>
         </a>
