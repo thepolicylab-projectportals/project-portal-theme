@@ -74,7 +74,7 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
             overrides: {
               ul: {
                 props: {
-                  className: "list-inside list-disc",
+                  className: "list-outside list-disc ml-5",
                 },
               },
               a: {

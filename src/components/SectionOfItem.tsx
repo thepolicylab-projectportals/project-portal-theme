@@ -28,7 +28,7 @@ export const SectionOfItem: FunctionComponent<SectionOfItemProps> = ({
               overrides: {
                 ul: {
                   props: {
-                    className: "list-inside list-disc",
+                    className: "list-outside list-disc ml-5",
                   },
                 },
                 li: {
