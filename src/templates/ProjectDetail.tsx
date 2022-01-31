@@ -116,7 +116,7 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
           </div>
         </header>
 
-        <main className="p-responsive">
+        <main className="p-responsive pb-4">
           <section className="flex flex-wrap items-start py-6 m-responsive gap-x-10 gap-y-4">
             <div className="text-tag mt-2">
               <Feature
