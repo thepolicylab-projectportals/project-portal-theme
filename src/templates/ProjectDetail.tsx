@@ -85,7 +85,7 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
 
       <Navbar activePage={null} />
 
-      <section className="mx-12 my-4 text-link-500 underline hover:text-primary-500">
+      <section className="mx-12 my-4 text-link underline hover:text-primary-500">
         <Link to={withPrefix(`/${status === "open" ? "" : status}`)}>
           Back to viewing all {status} projects
         </Link>

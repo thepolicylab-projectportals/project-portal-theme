@@ -10,6 +10,7 @@
     "develop": "gatsby develop",
     "develop:satx": "cross-env PP_CONFIG_BASE=sites/satx/ gatsby develop",
     "serve": "gatsby serve",
+    "serve:satx": "cross-env PP_CONFIG_BASE=sites/satx/ gatsby serve",
     "clean": "gatsby clean"
   },
   "dependencies": {
@@ -46,8 +47,10 @@
     "@types/tailwindcss": "^3.0.2",
     "cross-env": "^7.0.3",
     "gatsby-plugin-root-import": "^2.0.8",
+    "gatsby-plugin-sitemap": "^5.6.0",
     "gh-pages": "^3.2.3",
     "husky": "^4.3.0",
+    "pa11y-ci": "^3.0.1",
     "prettier": "^2.2.1",
     "pretty-quick": "^3.1.0",
     "typescript": "^4.4.4"
