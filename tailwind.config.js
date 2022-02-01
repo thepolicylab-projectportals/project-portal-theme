@@ -22,7 +22,7 @@ module.exports = {
     extend: {
       colors: {
         gray: colors.trueGray,
-        link: colors.blueGray,
+        link: "#005EA2",
         policyareas: colors.sky,
         supportneeded: colors.purple,
         primary: colors.cyan,

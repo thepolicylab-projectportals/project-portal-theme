@@ -14,6 +14,7 @@ const tailwindConfig = require(`./${process.env.PP_CONFIG_BASE}tailwind.config.j
 
 module.exports = {
   siteMetadata: {
+    siteUrl: process.env.CI ? "http://localhost:9000" : meta.url,
     title: meta.title,
     pages: [
       { name: "Open opportunities", link: "/", show: true },
@@ -40,6 +41,7 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-source-airtable`,
       options: {
