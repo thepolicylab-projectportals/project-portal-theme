@@ -50,7 +50,7 @@ jobs:
 
             <details>
             <summary>
-            <p>Git SHA: <code>${{ github.sha }}</code></p>
+            <p>Git SHA: <code>${{ github.event.pull_request.head.sha }}</code></p>
             <p>Site: <code>${{ matrix.site }}</code></p>
             <h3>Pa11y test status: <strong>FAIL</strong></h3>
             </summary>
@@ -71,7 +71,7 @@ jobs:
 
             <details>
             <summary>
-            <p>Git SHA: <code>${{ github.sha }}</code></p>
+            <p>Git SHA: <code>${{ github.event.pull_request.head.sha }}</code></p>
             <p>Site: <code>${{ matrix.site }}</code></p>
             <h3>Pa11y test status: <strong>PASS</strong></h3>
             </summary>
