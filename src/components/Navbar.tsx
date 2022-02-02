@@ -19,14 +19,14 @@ const NavbarItem: FunctionComponent<NavbarItemProps> = ({
   return (
     <>
       <li className="nav-item">
-        <span className="flex items-center p-5 font-bold leading-snug text-white hover:opacity-75 xl:text-black xl:px-3 xl:py-2">
+        <span className="flex items-center p-5 leading-snug text-white hover:opacity-75 xl:text-black xl:px-3 xl:py-2">
           <Link to={link ? link : "#pablo"}>
             {isActive ? (
-              <span className="pb-1 ml-2 border-b-4 border-white xl:border-primary-500">
+              <span className="text-nav pb-1 ml-2 font-bold border-b-2 border-white xl:border-primary-500">
                 {name}
               </span>
             ) : (
-              <span className="ml-2">{name}</span>
+              <span className="text-nav ml-2">{name}</span>
             )}
           </Link>
         </span>
@@ -89,7 +89,7 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
               {navbarOpen ? <FaTimes /> : <FaBars />}
             </button>
             <Link
-              className="block mx-4 my-auto overflow-hidden text-lg font-bold text-black flex items-center whitespace-nowrap"
+              className="block mx-4 my-auto overflow-hidden text-h4 text-black flex items-center whitespace-nowrap"
               to="/"
             >
               <GatsbyImage

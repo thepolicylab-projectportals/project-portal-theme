@@ -32,10 +32,12 @@ const Accordion: React.FC<AccordionProps> = ({ title, text }) => {
         {({ open }) => (
           <>
             <Disclosure.Button className="flex items-center justify-between w-full px-4 py-3 text-left bg-gray-100">
-              <span className="font-bold">{title}</span>
+              <span className="text-h4 font-bold">{title}</span>
               {open ? <FaMinus /> : <FaPlus />}
             </Disclosure.Button>
-            <Disclosure.Panel className="p-4 w-9/10">{text}</Disclosure.Panel>
+            <Disclosure.Panel className="text-body p-4 w-9/10">
+              {text}
+            </Disclosure.Panel>
           </>
         )}
       </Disclosure>
@@ -46,8 +48,8 @@ const Accordion: React.FC<AccordionProps> = ({ title, text }) => {
 const AboutList = ({ aboutTitle, aboutText }) => {
   return (
     <div className="mb-8">
-      <h3 className="mb-4">{aboutTitle}</h3>
-      <p>{aboutText}</p>
+      <h3 className="text-h3 mb-4">{aboutTitle}</h3>
+      <p className="text-body">{aboutText}</p>
     </div>
   )
 }
@@ -68,16 +70,18 @@ export default ({ data }: AboutProps) => {
         imageSrc={data.bgImage.childImageSharp.resize.src}
       />
 
-      <article className="w-full px-8 lg:px-16 xl:px-24 lg:w-2/3">
+      <article className="w-full pt-5 px-8 lg:px-16 xl:px-24 lg:w-2/3">
         <section>
-          <h1 className="my-8 font-bold text-black">What we’re here to do</h1>
+          <h2 className="text-h2 my-8 font-bold text-black">
+            What we’re here to do
+          </h2>
           {language.about.aims.map(({ title, text }, i) => (
             <AboutList key={"list_" + i} aboutTitle={title} aboutText={text} />
           ))}
         </section>
 
         <section>
-          <h2 className="my-6">Frequently Asked Questions</h2>
+          <h2 className="text-h2 my-6">Frequently Asked Questions</h2>
           {language.about.faq.map(({ title, text }, i) => (
             <Accordion key={"collapsibleList_" + i} title={title} text={text} />
           ))}

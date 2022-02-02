@@ -1,6 +1,7 @@
 import { string } from "prop-types"
-import { Link } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 import React from "react"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 interface BottomBannerProps {
   // title: string
@@ -15,12 +16,28 @@ export const BottomBanner: React.FC<BottomBannerProps> = ({
   link,
 }: // buttonText,
 BottomBannerProps) => {
+  const { logo } = useStaticQuery(graphql`
+    query {
+      logo: file(relativePath: { regex: "/rd_logo.png/" }) {
+        childImageSharp {
+          gatsbyImageData(width: 160)
+        }
+      }
+    }
+  `)
+
+  const image = getImage(logo)
+
   return (
     <div className="py-6 mt-12 overflow-hidden bg-gray-100 p-responsive">
       <div className="m-responsive">
         <div className="w-full">
-          {/* <div className="pb-3 text-3xl font-bold text-gray-600">{title}</div> */}
-          <div className="mt-2 text-md">
+          <GatsbyImage
+            className="inline-block float-left"
+            image={image}
+            alt="R+D logo"
+          />
+          <div className="inline-block w-4/5 mt-5 text-body float-right">
             {text}
             <a
               className="font-semibold text-black underline hover:text-primary-500"

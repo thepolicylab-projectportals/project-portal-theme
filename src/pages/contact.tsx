@@ -73,7 +73,7 @@ class ContactForm extends Component {
         <div className="mb-6">
           <label
             htmlFor="name"
-            className="block mb-2 text-lg font-bold text-black"
+            className="block mb-2 text-contact font-bold text-black"
           >
             Full name
           </label>
@@ -84,7 +84,7 @@ class ContactForm extends Component {
             placeholder="John Doe"
             required
             type="text"
-            className="w-full px-3 py-2 leading-tight text-black border shadow appearance-none focus:outline-none focus:shadow-outline"
+            className="w-full text-contact px-3 py-2 leading-tight text-black border shadow appearance-none focus:outline-none focus:shadow-outline"
             value={this.state.name}
             onChange={this.handleChange}
           />
@@ -93,7 +93,7 @@ class ContactForm extends Component {
         <div className="mb-6">
           <label
             htmlFor="email"
-            className="block mb-2 text-lg font-bold text-black"
+            className="block mb-2 text-contact font-bold text-black"
           >
             Email address
           </label>
@@ -104,7 +104,7 @@ class ContactForm extends Component {
             placeholder="example@example.com"
             required
             type="email"
-            className="w-full px-3 py-2 leading-tight text-black border shadow appearance-none focus:outline-none focus:shadow-outline"
+            className="w-full text-contact px-3 py-2 leading-tight text-black border shadow appearance-none focus:outline-none focus:shadow-outline"
             value={this.state.email}
             onChange={this.handleChange}
           />
@@ -113,7 +113,7 @@ class ContactForm extends Component {
         <div className="mb-6">
           <label
             htmlFor="subject"
-            className="block mb-2 text-lg font-bold text-black"
+            className="block mb-2 text-contact font-bold text-black"
           >
             Subject
           </label>
@@ -124,7 +124,7 @@ class ContactForm extends Component {
             placeholder="I want to ask a question about ..."
             required
             type="text"
-            className="w-full px-3 py-2 leading-tight text-black border shadow appearance-none focus:outline-none focus:shadow-outline"
+            className="w-full text-contact px-3 py-2 leading-tight text-black border shadow appearance-none focus:outline-none focus:shadow-outline"
             value={this.state.subject}
             onChange={this.handleChange}
           />
@@ -133,7 +133,7 @@ class ContactForm extends Component {
         <div className="mb-6">
           <label
             htmlFor="message"
-            className="block mb-2 text-lg font-bold text-black"
+            className="block mb-2 text-contact font-bold text-black"
           >
             Message
           </label>
@@ -143,7 +143,7 @@ class ContactForm extends Component {
             id="message"
             placeholder=""
             required
-            className="w-full h-48 px-3 py-2 leading-tight text-black border shadow appearance-none focus:outline-none focus:shadow-outline"
+            className="w-full text-contact h-48 px-3 py-2 leading-tight text-black border shadow appearance-none focus:outline-none focus:shadow-outline"
             value={this.state.message}
             onChange={this.handleChange}
           />
@@ -175,12 +175,12 @@ export default ({ data }: ContactProps) => {
         imageSrc={data.bgImage.childImageSharp.resize.src}
       />
 
-      <article className="w-full px-8 lg:px-16 xl:px-24 lg:w-2/3">
-        <h1 className="my-8 font-bold">
+      <article className="w-full pt-5 px-8 lg:px-16 xl:px-24 lg:w-2/3">
+        <h1 className="my-8 text-h2 font-bold">
           Want to talk to the Office of Innovation? We'd love to hear from you!
         </h1>
 
-        <p className="mb-10 leading-normal text-md lg:text-lg">
+        <p className="mb-10 leading-normal text-body lg:text-body">
           Our team is happy to answer questions about the partnerships pilot,
           general questions about working with the City of San Antonio, and
           gather ideas for how we can improve this site. Please direct

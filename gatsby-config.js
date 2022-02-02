@@ -19,7 +19,7 @@ module.exports = {
     pages: [
       { name: "Open opportunities", link: "/", show: true },
       { name: "Ongoing projects", link: "/ongoing", show: true },
-      { name: "Completed projects", link: "/completed", show: false },
+      { name: "Completed projects", link: "/completed", show: true },
       { name: "About", link: "/about", show: true },
       { name: "Contact", link: "/contact", show: true },
     ],

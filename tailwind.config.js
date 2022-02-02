@@ -9,7 +9,6 @@ module.exports = {
       "./src/**/*.tsx",
       "./src/**/*.ts",
     ],
-    safelist: ["bg-supportneeded-200", "bg-policyareas-200"],
   },
   theme: {
     container: {
@@ -23,18 +22,30 @@ module.exports = {
       colors: {
         gray: colors.trueGray,
         link: "#005EA2",
-        policyareas: colors.sky,
-        supportneeded: colors.purple,
+        policyareas: "#73B3E7",
         primary: colors.cyan,
       },
       fontSize: {
         xxs: "0.625rem",
+        h1: "3.5rem",
+        h2: "2.75rem",
+        h3: "2rem",
+        h4: "1.25rem",
+        body: "1.10rem",
+        button: "1.0625rem",
+        nav: "1.0625rem",
+        contact: "1.0625rem",
+        tag: "0.875rem",
       },
       maxHeight: {
         48: "12rem",
         "80vh": "80vh",
         "90vh": "90vh",
         none: "none",
+      },
+      lineHeight: {
+        snug: "1.15",
+        h2: "3rem",
       },
     },
   },

@@ -3,43 +3,42 @@ import React, { FunctionComponent } from "react"
 interface FeatureProps {
   label: string
   value: string | string[]
-  color: string
+  className: string
 }
 
 export const Feature: FunctionComponent<FeatureProps> = ({
   label,
   value,
-  color,
+  className,
 }) => {
   let out = null
   if (Array.isArray(value)) {
     out = value.map((item, i) => (
-      <Tag key={`${label}_${i}`} color={color}>
+      <Tag key={`${label}_${i}`} className={className}>
         {item}
       </Tag>
     ))
   } else {
-    out = <Tag color={color}>{value}</Tag>
+    out = <Tag className={className}>{value}</Tag>
   }
 
   return (
     <>
-      <h5 className="font-sans text-black text-sm mb-1 font-extrabold uppercase">
+      <h5 className="font-sans text-black text-tag mb-1 font-extrabold uppercase">
         {label}
       </h5>
-      <div className="flex flex-wrap">{out}</div>
+      <div className="text-tag flex flex-wrap">{out}</div>
     </>
   )
 }
 
 interface TagProps {
-  color: string
   children: string
 }
 
-const Tag: FunctionComponent<TagProps> = ({ color, children }) => (
+const Tag: FunctionComponent<TagProps> = ({ className, children }) => (
   <span
-    className={`px-3 py-1 mt-1 uppercase text-sm whitespace-nowrap font-semibold bg-${color} mr-2`}
+    className={`px-3 py-1 mt-1 uppercase text-tag whitespace-nowrap font-semibold mr-2 ${className}`}
   >
     {children}
   </span>

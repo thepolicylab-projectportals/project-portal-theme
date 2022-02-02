@@ -24,7 +24,7 @@ export const ProjectStatus: FunctionComponent<ProjectStatusProps> = ({
   return (
     <>
       <div className="flex w-full">
-        <span className="pt-1 text-sm text-primary-500 align-inherit">
+        <span className="pt-1 text-body text-primary-500 align-inherit">
           <Icon />
         </span>
         <span className="pl-2 uppercase">{text}</span>

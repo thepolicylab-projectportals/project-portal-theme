@@ -16,7 +16,6 @@ export interface CardProps {
   endDate: Date
   agency: string
   policyAreas: string[]
-  supportNeeded: string[]
   deliverable: string
   purpose: string
   expertise: string
@@ -37,7 +36,6 @@ export const Card: FunctionComponent<CardProps> = ({
   slug,
   status,
   policyAreas,
-  supportNeeded,
   agency,
   opportunityCloses,
   startDate,
@@ -52,11 +50,11 @@ export const Card: FunctionComponent<CardProps> = ({
             <ProjectStatus status={status} />
           </div>
           <div className="p-5 pb-5">
-            <div className="pb-4 text-2xl font-bold leading-snug text-black">
+            <div className="pb-4 text-h3 font-bold leading-snug text-black">
               {question}
             </div>
             <div>
-              <div className="mt-4 text-md">
+              <div className="mt-4 text-body">
                 <span className="font-bold">
                   {statusOutput(
                     status,
@@ -72,22 +70,15 @@ export const Card: FunctionComponent<CardProps> = ({
                   moment(endDate).format("MMMM D, YYYY")
                 )}
               </div>
-              <div className="mb-4 text-md">
-                <span className="font-bold">Agency: </span>
+              <div className="mb-4 text-body">
+                <span className="font-bold">Department: </span>
                 {agency}
               </div>
               <div className="mt-4">
                 <Feature
                   label="Policy Areas"
-                  color="policyareas-200"
+                  className="bg-policyareas"
                   value={policyAreas}
-                />
-              </div>
-              <div className="mt-4">
-                <Feature
-                  label="Support Needed"
-                  color="supportneeded-200"
-                  value={supportNeeded}
                 />
               </div>
             </div>

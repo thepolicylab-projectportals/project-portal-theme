@@ -21,14 +21,14 @@ export const SectionOfItem: FunctionComponent<SectionOfItemProps> = ({
   return (
     <>
       <section className="pt-4">
-        <h4>{label}</h4>
-        <div className="text-md">
+        <h4 className="text-h4">{label}</h4>
+        <div className="text-h4">
           <Markdown
             options={{
               overrides: {
                 ul: {
                   props: {
-                    className: "list-inside list-disc",
+                    className: "list-outside list-disc ml-5",
                   },
                 },
                 li: {

@@ -47,15 +47,15 @@ h4 {
 }
 
 .btn-base {
-  @apply px-4 py-3 mt-2 mr-2 text-sm font-bold;
+  @apply px-4 py-3 mt-2 mr-2 text-button font-bold;
 }
 
 .btn {
-  @apply text-white rounded btn-base bg-primary-500 hover:bg-primary-800;
+  @apply text-white text-button rounded btn-base bg-primary-500 hover:bg-primary-800;
 }
 
 .btn-white {
-  @apply bg-white border rounded btn-base text-primary-500 hover:bg-primary-500 hover:text-white border-primary-500;
+  @apply bg-white border text-button rounded btn-base text-primary-500 hover:bg-primary-500 hover:text-white border-primary-500;
 }
 
 .btn-wide {

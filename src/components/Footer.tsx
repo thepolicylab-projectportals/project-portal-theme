@@ -29,13 +29,13 @@ export const Footer = () => {
             height={image.height}
             width={image.width}
           />
-          <p className="inline-block ml-4 text-lg font-bold text-white">
+          <p className="text-center inline-block text-h4 font-bold text-white">
             {footer.heading.title}
           </p>
         </a>
       </div>
       <div className="mt-6 lg:my-auto">
-        <ul className="text-sm font-bold text-white list-none">
+        <ul className="text-nav font-bold text-white list-none">
           {footer.links.map(({ title, link }, i) => (
             <ListItem key={"link_" + i} target={link}>
               {title}{" "}
@@ -50,7 +50,7 @@ export const Footer = () => {
 const ListItem = ({ target, children, key }) => {
   return (
     <>
-      <li className="block px-4 py-2 lg:inline-block lg:ml-6">
+      <li className="block px-2 py-2 lg:inline-block lg:ml-6">
         <Link to={target}>{children}</Link>
       </li>
     </>
