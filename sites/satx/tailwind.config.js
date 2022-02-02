@@ -1,14 +1,8 @@
-const colors = require("tailwindcss/colors")
-
 module.exports = {
   presets: [require("../../tailwind.config.js")],
   theme: {
     extend: {
       colors: {
-        policyareas: {
-          200: "#73B3E7",
-        },
-        link: colors.sky,
         primary: {
           50: "#faf6f6",
           100: "#f5eded",

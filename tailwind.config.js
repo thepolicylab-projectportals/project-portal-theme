@@ -9,7 +9,6 @@ module.exports = {
       "./src/**/*.tsx",
       "./src/**/*.ts",
     ],
-    safelist: ["bg-supportneeded-200", "bg-policyareas-200"],
   },
   theme: {
     container: {
@@ -23,8 +22,7 @@ module.exports = {
       colors: {
         gray: colors.trueGray,
         link: "#005EA2",
-        policyareas: colors.sky,
-        supportneeded: colors.purple,
+        policyareas: "#73B3E7",
         primary: colors.cyan,
       },
       fontSize: {

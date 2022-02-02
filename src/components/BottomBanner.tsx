@@ -32,7 +32,6 @@ BottomBannerProps) => {
     <div className="py-6 mt-12 overflow-hidden bg-gray-100 p-responsive">
       <div className="m-responsive">
         <div className="w-full">
-          {/* <div className="pb-3 text-3xl font-bold text-gray-600">{title}</div> */}
           <GatsbyImage
             className="inline-block float-left"
             image={image}

@@ -121,7 +121,7 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
             <div className="text-tag mt-2">
               <Feature
                 label="Policy Areas"
-                color="policyareas-200"
+                className="bg-policyareas"
                 value={policyAreas}
               />
             </div>
@@ -152,27 +152,17 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
                     value={purpose}
                   />
                 </div>
-                {isNA(statusOfData) ? (
-                  ""
-                ) : (
+                {!isNA(fundingInfo) && (
                   <div className="w-full mt-4 lg:w-11/12">
-                    <SectionOfItem
-                      label="Funding"
-                      value={fundingInfo}
-                      value={statusOfData}
-                    />
+                    <SectionOfItem label="Funding" value={fundingInfo} />
                   </div>
                 )}
-                {isNA(priorResearch) ? (
-                  ""
-                ) : (
+                {!isNA(statusOfData) && (
                   <div className="w-full mt-4 lg:w-11/12">
                     <SectionOfItem label="Data" value={statusOfData} />
                   </div>
                 )}
-                {isNA(fundingInfo) ? (
-                  ""
-                ) : (
+                {!isNA(priorResearch) && (
                   <div className="w-full mt-4 lg:w-11/12">
                     <SectionOfItem
                       label="Helpful links"
