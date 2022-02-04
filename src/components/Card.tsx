@@ -76,7 +76,7 @@ export const Card: FunctionComponent<CardProps> = ({
               </div>
               <div className="mt-4">
                 <Feature
-                  label="Policy Areas"
+                  label="Topics"
                   className="bg-policyareas"
                   value={policyAreas}
                 />
