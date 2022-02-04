@@ -20,9 +20,21 @@ export const Footer = () => {
 
   // use of GatsbyImage for the logo causs pa11y error as it doesn't register as an image
   return (
-    <footer className="flex flex-wrap justify-between w-full px-2 py-8 bg-footer xl:container xl:px-12">
+    <footer className="w-full px-2 py-8 bg-footer xl:container xl:px-12">
+      <div className="flex items-center justify-center mt-6 lg:my-auto">
+        <ul className="text-nav text-footer_text list-none">
+          {footer.links.map(({ title, link }, i) => (
+            <ListItem key={"link_" + i} target={link}>
+              {title}{" "}
+            </ListItem>
+          ))}
+        </ul>
+      </div>
       <div className="block w-full lg:w-auto">
-        <a className="flex items-center" href={footer.heading.link}>
+        <a
+          className="flex items-center justify-center"
+          href={footer.heading.link}
+        >
           <img
             srcSet={image.images.sources[0].srcSet}
             alt={meta.title + " logo"}
@@ -33,15 +45,6 @@ export const Footer = () => {
             {footer.heading.title}
           </p>
         </a>
-      </div>
-      <div className="mt-6 lg:my-auto">
-        <ul className="text-nav text-footer_text list-none">
-          {footer.links.map(({ title, link }, i) => (
-            <ListItem key={"link_" + i} target={link}>
-              {title}{" "}
-            </ListItem>
-          ))}
-        </ul>
       </div>
     </footer>
   )
