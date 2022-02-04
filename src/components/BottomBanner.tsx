@@ -29,7 +29,7 @@ BottomBannerProps) => {
   const image = getImage(logo)
 
   return (
-    <div className="py-6 mt-12 overflow-hidden bg-gray-100 p-responsive">
+    <div className="py-6 mt-12 overflow-hidden bg-rd p-responsive">
       <div className="m-responsive">
         <div className="w-full">
           <GatsbyImage

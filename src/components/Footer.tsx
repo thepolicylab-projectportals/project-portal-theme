@@ -8,9 +8,9 @@ import { footer } from "site/language.json"
 export const Footer = () => {
   const { logo } = useStaticQuery(graphql`
     query {
-      logo: file(relativePath: { regex: "/logo.png/" }) {
+      logo: file(relativePath: { regex: "/footer.png/" }) {
         childImageSharp {
-          gatsbyImageData
+          gatsbyImageData(width: 175)
         }
       }
     }
@@ -20,7 +20,7 @@ export const Footer = () => {
 
   // use of GatsbyImage for the logo causs pa11y error as it doesn't register as an image
   return (
-    <footer className="flex flex-wrap justify-between w-full px-2 py-8 bg-primary-500 xl:container xl:px-12">
+    <footer className="flex flex-wrap justify-between w-full px-2 py-8 bg-footer xl:container xl:px-12">
       <div className="block w-full lg:w-auto">
         <a className="flex items-center" href={footer.heading.link}>
           <img
@@ -29,13 +29,13 @@ export const Footer = () => {
             height={image.height}
             width={image.width}
           />
-          <p className="text-center inline-block text-h4 font-bold text-white">
+          <p className="text-center inline-block text-h4 font-bold text-footer_text">
             {footer.heading.title}
           </p>
         </a>
       </div>
       <div className="mt-6 lg:my-auto">
-        <ul className="text-nav font-bold text-white list-none">
+        <ul className="text-nav text-footer_text list-none">
           {footer.links.map(({ title, link }, i) => (
             <ListItem key={"link_" + i} target={link}>
               {title}{" "}
