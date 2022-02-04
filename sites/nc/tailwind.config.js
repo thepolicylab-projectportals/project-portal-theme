@@ -3,6 +3,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        navbar: "#ECF0F3",
+        rd: "#ffffff",
+        footer: "#ECF0F3",
+        footer_text: "#092940",
         primary: {
           50: "#",
           100: "#",
