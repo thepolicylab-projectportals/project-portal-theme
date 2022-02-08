@@ -106,3 +106,7 @@ AIRTABLE_API_KEY
 AIRTABLE_BASE_ID
 PP_CONFIG_BASE
 ```
+
+#### Set up content check
+
+Create a build hook on the site following [Netlify's docs](https://docs.netlify.com/configure-builds/build-hooks/). Copy the url provided and add it to the GitHub repo's secrets with a name such as `<SITE>_WEBHOOK_URL`. Then add the name of this key to the build matrix in the `.github/workflows/content-deploy.yml` file.
