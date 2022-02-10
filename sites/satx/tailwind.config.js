@@ -6,7 +6,7 @@ module.exports = {
         navbar: "#F7F7F7",
         rd: "#F7F7F7",
         footer: "#8b0b04",
-        footer_text: "#FFFFFF",
+        footertext: "#FFFFFF",
         primary: {
           50: "#faf6f6",
           100: "#f5eded",
