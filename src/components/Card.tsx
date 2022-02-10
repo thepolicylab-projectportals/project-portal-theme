@@ -50,7 +50,7 @@ export const Card: FunctionComponent<CardProps> = ({
             <ProjectStatus status={status} />
           </div>
           <div className="p-5 pb-5">
-            <div className="pb-4 text-h4 sm:text-h3 font-bold leading-snug text-black">
+            <div className="pb-4 text-h3mobile sm:text-h3 font-bold leading-snug text-black">
               {question}
             </div>
             <div>

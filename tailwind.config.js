@@ -30,6 +30,7 @@ module.exports = {
         h1: "3.5rem",
         h2: ["2.75rem", "3rem"],
         h3: ["2rem", "2.25rem"],
+        h3mobile: ["1.5rem", "1.75rem"],
         h4: "1.25rem",
         body: "1.10rem",
         button: "1.0625rem",
