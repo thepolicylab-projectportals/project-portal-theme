@@ -28,8 +28,8 @@ module.exports = {
       fontSize: {
         xxs: "0.625rem",
         h1: "3.5rem",
-        h2: "2.75rem",
-        h3: "2rem",
+        h2: ["2.75rem", "3rem"],
+        h3: ["2rem", "2.25rem"],
         h4: "1.25rem",
         body: "1.10rem",
         button: "1.0625rem",
@@ -45,7 +45,6 @@ module.exports = {
       },
       lineHeight: {
         snug: "1.15",
-        h2: "3rem",
       },
     },
   },
