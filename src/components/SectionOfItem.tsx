@@ -22,7 +22,7 @@ export const SectionOfItem: FunctionComponent<SectionOfItemProps> = ({
     <>
       <section className="pt-4">
         <h4 className="text-h4">{label}</h4>
-        <div className="text-h4">
+        <div className="text-body">
           <Markdown
             options={{
               overrides: {
