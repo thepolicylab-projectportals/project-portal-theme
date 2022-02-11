@@ -22,7 +22,7 @@ module.exports = {
       colors: {
         gray: colors.trueGray,
         link: "#005EA2",
-        policyareas: "#73B3E7",
+        topics: "#73B3E7",
         primary: colors.cyan,
       },
       fontSize: {

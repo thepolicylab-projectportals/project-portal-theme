@@ -28,7 +28,7 @@ interface ProjectDetailProps {
         startDate: Date
         endDate: Date
         agency: string
-        policyAreas: string[]
+        topics: string[]
         deliverable: string
         purpose: string
         expertise: string
@@ -63,7 +63,7 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
     startDate,
     endDate,
     agency,
-    policyAreas,
+    topics,
     deliverable,
     purpose,
     expertise,
@@ -119,11 +119,7 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
         <main className="p-responsive pb-4">
           <section className="flex flex-wrap items-start py-6 m-responsive gap-x-10 gap-y-4">
             <div className="text-tag mt-2">
-              <Feature
-                label="Policy Areas"
-                className="bg-policyareas"
-                value={policyAreas}
-              />
+              <Feature label="Topics" className="bg-topics" value={topics} />
             </div>
           </section>
 
@@ -226,7 +222,7 @@ export const query = graphql`
         startDate
         endDate
         agency
-        policyAreas
+        topics
         deliverable
         purpose
         expertise
