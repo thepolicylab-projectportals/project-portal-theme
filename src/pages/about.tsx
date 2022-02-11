@@ -48,7 +48,7 @@ const Accordion: React.FC<AccordionProps> = ({ title, text }) => {
 const AboutList = ({ aboutTitle, aboutText }) => {
   return (
     <div className="mb-8">
-      <h3 className="text-h3 mb-4">{aboutTitle}</h3>
+      <h3 className="text-h3mobile sm:text-h3 mb-4">{aboutTitle}</h3>
       <p className="text-body">{aboutText}</p>
     </div>
   )
@@ -72,7 +72,7 @@ export default ({ data }: AboutProps) => {
 
       <article className="w-full pt-5 px-8 lg:px-16 xl:px-24 lg:w-2/3">
         <section>
-          <h2 className="text-h2 my-8 font-bold text-black">
+          <h2 className="text-h3 sm:text-h2 my-8 font-bold text-black">
             What we’re here to do
           </h2>
           {language.about.aims.map(({ title, text }, i) => (
@@ -81,7 +81,9 @@ export default ({ data }: AboutProps) => {
         </section>
 
         <section>
-          <h2 className="text-h2 my-6">Frequently Asked Questions</h2>
+          <h2 className="text-h3 sm:text-h2 my-6">
+            Frequently Asked Questions
+          </h2>
           {language.about.faq.map(({ title, text }, i) => (
             <Accordion key={"collapsibleList_" + i} title={title} text={text} />
           ))}
