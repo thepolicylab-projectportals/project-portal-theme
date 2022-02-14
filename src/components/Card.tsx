@@ -15,7 +15,7 @@ export interface CardProps {
   startDate: Date
   endDate: Date
   agency: string
-  policyAreas: string[]
+  topics: string[]
   deliverable: string
   purpose: string
   expertise: string
@@ -35,7 +35,7 @@ export const Card: FunctionComponent<CardProps> = ({
   question,
   slug,
   status,
-  policyAreas,
+  topics,
   agency,
   opportunityCloses,
   startDate,
@@ -50,7 +50,7 @@ export const Card: FunctionComponent<CardProps> = ({
             <ProjectStatus status={status} />
           </div>
           <div className="p-5 pb-5">
-            <div className="pb-4 text-h3 font-bold leading-snug text-black">
+            <div className="pb-4 text-h3mobile sm:text-h3 font-bold leading-snug text-black">
               {question}
             </div>
             <div>
@@ -75,11 +75,7 @@ export const Card: FunctionComponent<CardProps> = ({
                 {agency}
               </div>
               <div className="mt-4">
-                <Feature
-                  label="Topics"
-                  className="bg-policyareas"
-                  value={policyAreas}
-                />
+                <Feature label="Topics" className="bg-topics" value={topics} />
               </div>
             </div>
           </div>

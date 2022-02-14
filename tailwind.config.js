@@ -22,14 +22,15 @@ module.exports = {
       colors: {
         gray: colors.trueGray,
         link: "#005EA2",
-        policyareas: "#73B3E7",
+        topics: "#73B3E7",
         primary: colors.cyan,
       },
       fontSize: {
         xxs: "0.625rem",
         h1: "3.5rem",
-        h2: "2.75rem",
-        h3: "2rem",
+        h2: ["2.75rem", "3rem"],
+        h3: ["2rem", "2.25rem"],
+        h3mobile: ["1.5rem", "1.75rem"],
         h4: "1.25rem",
         body: "1.10rem",
         button: "1.0625rem",
@@ -45,7 +46,6 @@ module.exports = {
       },
       lineHeight: {
         snug: "1.15",
-        h2: "3rem",
       },
     },
   },
