@@ -31,7 +31,7 @@ const Accordion: React.FC<AccordionProps> = ({ title, text }) => {
       <Disclosure>
         {({ open }) => (
           <>
-            <Disclosure.Button className="flex items-center justify-between w-full px-4 py-3 text-left bg-gray-100">
+            <Disclosure.Button className="flex items-center justify-between w-full px-4 py-3 text-left bg-navbar">
               <span className="text-h4 font-bold">{title}</span>
               {open ? <FaMinus /> : <FaPlus />}
             </Disclosure.Button>
