@@ -45,6 +45,10 @@
       }
     ]
   },
+  "contact": {
+    "title": "Want to talk to the Office of Innovation? We'd love to hear from you!",
+    "lede": "Our team is happy to answer questions about the partnerships pilot, general questions about working with the City of San Antonio, and gather ideas for how we can improve this site. Please direct project-specific questions to points of contact listed for individual projects."
+  },
   "open": {
     "title": "Open opportunities",
     "lede": "San Antonio is building research partnerships to help answer questions about how to best serve residents. We are seeking partners with methodological expertise related to design, data analytics, and field experimentation, as well as domain knowledge related to the topics. Browse open opportunities below, and we look forward to hearing from you!",
