@@ -74,7 +74,7 @@ export const Card: FunctionComponent<CardProps> = ({
                 <span className="font-bold">Department: </span>
                 {agency}
               </div>
-              <div className="mt-4">
+              <div className="text-tag mt-4">
                 <Feature label="Topics" className="bg-topics" value={topics} />
               </div>
             </div>
