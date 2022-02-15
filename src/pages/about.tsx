@@ -7,6 +7,7 @@ import { Disclosure } from "@headlessui/react"
 import { FaPlus, FaMinus } from "react-icons/fa"
 import language from "site/language.json"
 import meta from "site/meta.json"
+import Markdown from "markdown-to-jsx"
 
 interface AboutProps {
   data: {
@@ -31,7 +32,7 @@ const Accordion: React.FC<AccordionProps> = ({ title, text }) => {
       <Disclosure>
         {({ open }) => (
           <>
-            <Disclosure.Button className="flex items-center justify-between w-full px-4 py-3 text-left bg-gray-100">
+            <Disclosure.Button className="flex items-center justify-between w-full px-4 py-3 text-left bg-navbar">
               <span className="text-h4 font-bold">{title}</span>
               {open ? <FaMinus /> : <FaPlus />}
             </Disclosure.Button>
@@ -49,7 +50,19 @@ const AboutList = ({ aboutTitle, aboutText }) => {
   return (
     <div className="mb-8">
       <h3 className="text-h3mobile sm:text-h3 mb-4">{aboutTitle}</h3>
-      <p className="text-body">{aboutText}</p>
+      <Markdown
+        options={{
+          overrides: {
+            a: {
+              props: {
+                className: "underline hover:no-underline",
+              },
+            },
+          },
+        }}
+      >
+        {aboutText}
+      </Markdown>
     </div>
   )
 }

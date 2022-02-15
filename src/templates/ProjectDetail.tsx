@@ -85,7 +85,7 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
       <Navbar activePage={null} />
 
       <article>
-        <header className="py-16 p-responsive bg-primary-500">
+        <header className="py-16 p-responsive bg-primary">
           <div className="flex flex-col justify-between m-responsive lg:flex-row">
             <div className="w-auto">
               <h1 className="text-h3 sm:text-h2 w-full font-bold leading-h2 text-white lg:w-4/5">

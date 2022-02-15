@@ -51,11 +51,11 @@ h4 {
 }
 
 .btn {
-  @apply text-white text-button rounded btn-base bg-primary-500 hover:bg-primary-800;
+  @apply text-white text-button rounded btn-base bg-primary hover:bg-primarydark;
 }
 
 .btn-white {
-  @apply bg-white border text-button rounded btn-base text-primary-500 hover:bg-primary-500 hover:text-white border-primary-500;
+  @apply bg-white border text-button rounded btn-base text-primary hover:bg-primary hover:text-white border-primary;
 }
 
 .btn-wide {

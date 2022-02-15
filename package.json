@@ -7,10 +7,13 @@
   "scripts": {
     "build": "gatsby build",
     "build:satx": "cross-env PP_CONFIG_BASE=sites/satx/ gatsby build",
+    "build:nc": "cross-env PP_CONFIG_BASE=sites/nc/ gatsby build",
     "develop": "gatsby develop",
     "develop:satx": "cross-env PP_CONFIG_BASE=sites/satx/ gatsby develop",
+    "develop:nc": "cross-env PP_CONFIG_BASE=sites/nc/ gatsby develop",
     "serve": "gatsby serve",
     "serve:satx": "cross-env PP_CONFIG_BASE=sites/satx/ gatsby serve",
+    "serve:nc": "cross-env PP_CONFIG_BASE=sites/nc/ gatsby serve",
     "clean": "gatsby clean"
   },
   "dependencies": {
@@ -24,7 +27,7 @@
     "gatsby-link": "^4.1.0",
     "gatsby-plugin-config": "^1.0.7",
     "gatsby-plugin-image": "^2.1.0",
-    "gatsby-plugin-manifest": "^4.1.0",
+    "gatsby-plugin-manifest": "^4.6.0",
     "gatsby-plugin-postcss": "^5.1.0",
     "gatsby-plugin-react-helmet": "^5.1.0",
     "gatsby-plugin-sharp": "^4.1.0",

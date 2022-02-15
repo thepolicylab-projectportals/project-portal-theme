@@ -22,7 +22,7 @@ const NavbarItem: FunctionComponent<NavbarItemProps> = ({
         <span className="flex items-center p-5 leading-snug text-white hover:opacity-75 xl:text-black xl:px-3 xl:py-2">
           <Link to={link ? link : "#pablo"}>
             {isActive ? (
-              <span className="text-nav pb-1 ml-2 font-bold border-b-2 border-white xl:border-primary-500">
+              <span className="text-nav pb-1 ml-2 font-bold border-b-2 border-white xl:border-primary">
                 {name}
               </span>
             ) : (
@@ -60,9 +60,9 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
           }
         }
       }
-      logo: file(relativePath: { regex: "/logo.png/" }) {
+      logo: file(relativePath: { regex: "/^logo.png$/" }) {
         childImageSharp {
-          gatsbyImageData
+          gatsbyImageData(width: 88)
         }
       }
     }
@@ -75,13 +75,13 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
       <nav
         id="nav-bar"
         className={
-          "sticky top-0 flex flex-wrap items-center justify-between w-full p-0 bg-gray-100 xl:relative xl:px-2 xl:py-6 overflow-hidden z-10"
+          "sticky top-0 flex flex-wrap items-center justify-between w-full p-0 bg-navbar xl:relative xl:px-2 xl:py-6 overflow-hidden z-10"
         }
       >
         <div className="flex flex-wrap justify-between w-full px-0 xl:px-4">
           <div className="relative flex flex-no-wrap w-full xl:static xl:block xl:w-auto">
             <button
-              className="block p-6 ml-0 text-xl leading-none text-white outline-none cursor-pointer bg-primary-500 xl:hidden focus:outline-none"
+              className="block p-6 ml-0 text-xl leading-none text-white outline-none cursor-pointer bg-primary xl:hidden focus:outline-none"
               type="button"
               aria-label="Open navigation menu"
               onClick={() => setNavbarOpen(!navbarOpen)}
@@ -102,7 +102,7 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
           </div>
           <div
             className={
-              "fixed top-16 w-full md:w-2/3 xl:w-auto xl:relative xl:top-0 flex-grow items-center bg-primary-500 xl:bg-transparent xl:flex xl:bg-gray-100 z-10 xl:z-0 transition-transform drop-shadow-lg filter xl:drop-shadow-none" +
+              "fixed top-16 w-full md:w-2/3 xl:w-auto xl:relative xl:top-0 flex-grow items-center bg-primary xl:bg-transparent xl:flex xl:bg-navbar z-10 xl:z-0 transition-transform drop-shadow-lg filter xl:drop-shadow-none" +
               (navbarOpen ? " flex" : " hidden")
             }
             id="example-navbar-danger"
