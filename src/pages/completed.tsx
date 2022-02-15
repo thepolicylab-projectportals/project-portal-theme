@@ -1,21 +1,20 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { ProjectPage, ProjectPageProps } from "../components"
+import language from "site/language.json"
 
 export default ({ data }: ProjectPageProps) =>
   ProjectPage({
     data,
-    title: "Completed projects",
-    pageName: "Completed projects",
-    lede: "Sharing results and ideas helps us better serve our residents. Below are all our collaborations completed to date, along with findings and links to additional resources.",
+    ...language.completed,
   })
 
 export const query = graphql`
-  query CompletedQuery($tableName: String!) {
+  query CompletedQuery($tableName: String!, $partnerName: String!) {
     items: allAirtable(
       filter: {
         table: { eq: $tableName }
-        data: { status: { eq: "completed" } }
+        data: { status: { eq: "completed" }, partnerName: { eq: $partnerName } }
       }
       sort: { fields: [data___endDate], order: DESC }
     ) {
@@ -29,6 +28,8 @@ export const query = graphql`
           expertise
           keyDates
           opportunityCloses
+          agency
+          topics
           commitment
           contactName
           contactTitle

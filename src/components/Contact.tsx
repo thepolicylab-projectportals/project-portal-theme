@@ -42,7 +42,7 @@ export const Contact: React.FC<ContactProps> = ({
           <StaticImage
             className="rounded-full"
             alt={name}
-            src={"../images/narwhal.jpg"}
+            src={"/images/narwhal.jpg"}
             width={100}
             height={100}
             placeholder="blurred"
@@ -50,11 +50,15 @@ export const Contact: React.FC<ContactProps> = ({
           />
         )}
       </div>
-      <div className="p-2">
-        <p className="mb-1 font-bold text-black text-md">{name}</p>
-        <p className="mb-1 text-black text-md">{title}</p>
-        <p className="mb-1 text-black text-md">{employer}</p>
-        {showEmail ? <p className="mb-1 text-black text-md">{email}</p> : ""}
+      <div className="pl-2 pr-2 pb-2">
+        <p className="font-bold text-black text-body">{name}</p>
+        <p className="text-black text-body">{title}</p>
+        <p className="text-black text-body">{employer}</p>
+        {showEmail ? (
+          <p className="text-black text-body underline">{email}</p>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   )

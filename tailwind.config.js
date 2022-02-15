@@ -9,7 +9,6 @@ module.exports = {
       "./src/**/*.tsx",
       "./src/**/*.ts",
     ],
-    safelist: ["bg-purple-200", "bg-blue-200"],
   },
   theme: {
     container: {
@@ -22,28 +21,31 @@ module.exports = {
     extend: {
       colors: {
         gray: colors.trueGray,
-        blue: colors.sky,
-        rust: {
-          50: "#faf6f6",
-          100: "#f5eded",
-          200: "#e6d2d1",
-          300: "#d7b7b5",
-          400: "#ba827e",
-          500: "#9c4c47",
-          600: "#8c4440",
-          700: "#753935",
-          800: "#5e2e2b",
-          900: "#4c2523",
-        },
+        link: "#005EA2",
+        topics: "#73B3E7",
+        primary: colors.cyan,
       },
       fontSize: {
         xxs: "0.625rem",
+        h1: "3.5rem",
+        h2: ["2.75rem", "3rem"],
+        h3: ["2rem", "2.25rem"],
+        h3mobile: ["1.5rem", "1.75rem"],
+        h4: "1.25rem",
+        body: "1.10rem",
+        button: "1.0625rem",
+        nav: "1.0625rem",
+        contact: "1.0625rem",
+        tag: "0.875rem",
       },
       maxHeight: {
         48: "12rem",
         "80vh": "80vh",
         "90vh": "90vh",
         none: "none",
+      },
+      lineHeight: {
+        snug: "1.15",
       },
     },
   },

@@ -1,10 +1,9 @@
 "use strict"
 
-require("dotenv").config()
-
 require("source-map-support").install()
 require("ts-node").register({
   compilerOptions: {
+    resolveJsonModule: true,
     module: "commonjs",
     target: "es2017",
   },

@@ -1,0 +1,112 @@
+# Site Configurations
+
+Each variant (site) of the project portal contains a folder in this directory. To use the configuration for that site, set the `PP_CONFIG_BASE` environment variable to the folder path including the trailing slash (e.g. `sites/satx/`).
+
+## Creating a new site
+
+Each new site will require some infrastructure setup and configuration files.
+
+### Create a folder for the site
+
+Add a folder to this directory with a short identifying name (e.g. `satx`, `nc`). All files created from here below will go in that folder.
+
+### Add a README
+
+Add a `README.md` file with some basic information on the configuration of that site including important contacts/decisions as well as a link to the production app.
+
+### Add a `.env`
+
+Create a `.env` file with the environment variables for this site. See the base README for instructions on getting the API Key.
+
+```
+AIRTABLE_API_KEY
+AIRTABLE_BASE_ID
+```
+
+### Add scripts to `package.json`
+
+In the base package.json, add scripts to conveniently build/develop/serve this site:
+
+```
+"develop:<site id>": "cross-env PP_CONFIG_BASE=/sites/<site id> gatsby develop",
+"build:<site id>": "cross-env PP_CONFIG_BASE=/sites/<site id> gatsby build",
+"serve:<site id>": "cross-env PP_CONFIG_BASE=/sites/<site id> gatsby serve",
+```
+
+### Add language file
+
+To customize the language used in the app, we create a `language.json` file which provides all text blurbs in the app. Copy the `language.json` file from another site to get started and update it as needed.
+
+### Add metadata file
+
+The metadata file includes items used in the build of the site, but may or may not be used in the display of the site (e.g. the url). Copy the `meta.json` file from another site to get started and update it as needed.
+
+### Add images
+
+The site-specific images used throught the app should be contained in an `images/` directory within the site's directory. For images, we use convention over configuration, so it is the names of the files that must match the expected thing. The following files must be provided:
+
+- `[about/completed/contact/ongoing/open].jpg`: Splash images used as the background of the header for the respective page
+- `icon.png`: A small icon used as the favicon for the page (the little icon in the broswer tab)
+- `logo.png`: A small icon used in the navbar and footer for the page.
+- `rd_logo.png`: A small icon used in the bottom banner for the page.
+
+To customize the metadata used in the app, we create a `meta.json` file which provides metadata used in the deployment (such as the site's title, and the airtable partner name). Copy the `meta.json` file from another site to get started and update it as needed.
+
+### Add tailwind theme
+
+To customize tailwind colors/fonts for a site, we create a `tailwind.config.js` file which extends our base config. Below is an example. See [the tailwind documentation](https://tailwindcss.com/docs/presets#how-configurations-are-merged) for more information on how these values are merged with the base values.
+
+```js
+// tailwind.config.js
+const colors = require("tailwindcss/colors")
+
+module.exports = {
+  presets: [require("../../tailwind.config.js")],
+  theme: {
+    extend: {
+      colors: {
+        link: colors.sky,
+        primary: {
+          50: "#faf6f6",
+          100: "#f5eded",
+          200: "#e6d2d1",
+          300: "#d7b7b5",
+          400: "#ba827e",
+          500: "#9c4c47",
+          600: "#8c4440",
+          700: "#753935",
+          800: "#5e2e2b",
+          900: "#4c2523",
+        },
+      },
+    },
+  },
+}
+```
+
+### Create a netlify site
+
+Create the site. Once created, go to `Site Settings > Build & Deploy > Continuous Deployment` and add the following setttings:
+
+#### Branches
+
+```
+Production branch: prod
+Branch deploys: main
+```
+
+We want to deploy a staging version of the site on merge to `main` and the production version on merge to `prod`.
+
+#### Environment
+
+Make sure the following keys are set:
+
+```
+AIRTABLE_API_KEY
+AIRTABLE_BASE_ID
+PP_CONFIG_BASE
+```
+
+#### Set up content check
+
+Create a build hook on the site following [Netlify's docs](https://docs.netlify.com/configure-builds/build-hooks/). Copy the url provided and add it to the GitHub repo's secrets with a name such as `<SITE>_WEBHOOK_URL`. Then add the name of this key to the build matrix in the `.github/workflows/content-deploy.yml` file.

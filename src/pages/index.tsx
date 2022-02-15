@@ -1,19 +1,21 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { ProjectPage, ProjectPageProps } from "../components"
+import { open } from "site/language.json"
 
 export default ({ data }: ProjectPageProps) =>
   ProjectPage({
     data,
-    title: "Open opportunities",
-    lede: "San Antonio is building research partnerships to help answer questions about how to best serve residents. We are seeking partners with methodological expertise related to design, data analytics, and field experimentation, as well as domain knowledge related to the topics. Browse open opportunities below, and we look forward to hearing from you!",
-    pageName: "Open opportunities",
+    ...open,
   })
 
 export const query = graphql`
-  query IndexQuery($tableName: String!) {
+  query IndexQuery($tableName: String!, $partnerName: String!) {
     items: allAirtable(
-      filter: { table: { eq: $tableName }, data: { status: { eq: "open" } } }
+      filter: {
+        table: { eq: $tableName }
+        data: { status: { eq: "open" }, partnerName: { eq: $partnerName } }
+      }
       sort: { fields: [data___opportunityCloses], order: ASC }
     ) {
       nodes {
@@ -27,8 +29,7 @@ export const query = graphql`
           startDate
           endDate
           agency
-          policyAreas
-          supportNeeded
+          topics
           deliverable
           purpose
           expertise
