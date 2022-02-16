@@ -29,6 +29,8 @@ export const query = graphql`
           expertise
           keyDates
           opportunityCloses
+          agency
+          topics
           commitment
           contactName
           contactTitle

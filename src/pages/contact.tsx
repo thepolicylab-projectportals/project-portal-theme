@@ -4,6 +4,7 @@ import { Navbar, SiteMetadata } from "../components"
 import { Layout } from "../layouts/Layout"
 import { HeaderWithImage } from "../components/HeaderWithImage"
 import { contact } from "site/language.json"
+import Markdown from "markdown-to-jsx"
 
 const encode = (data: { [Key: string]: string }) => {
   return Object.keys(data)
@@ -179,9 +180,20 @@ export default ({ data }: ContactProps) => {
       <article className="w-full pt-5 px-8 lg:px-16 xl:px-24 lg:w-2/3">
         <h1 className="my-8 text-h2 font-bold">{contact.title}</h1>
 
-        <p className="mb-10 leading-normal text-body lg:text-body">
+        <Markdown
+          className="mb-10 leading-normal text-body lg:text-body"
+          options={{
+            overrides: {
+              a: {
+                props: {
+                  className: "underline hover:no-underline",
+                },
+              },
+            },
+          }}
+        >
           {contact.lede}
-        </p>
+        </Markdown>
 
         <ContactForm />
       </article>

@@ -33,11 +33,11 @@ BottomBannerProps) => {
       <div className="m-responsive">
         <div className="w-full">
           <GatsbyImage
-            className="inline-block float-left"
+            className="inline-block float-left my-5"
             image={image}
             alt="R+D logo"
           />
-          <div className="inline-block w-4/5 mt-5 text-body float-right">
+          <div className="inline-block w-4/5 my-5 text-body float-right">
             {text}
             <a
               className="font-semibold text-black underline hover:text-primary"

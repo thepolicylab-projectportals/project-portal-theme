@@ -2,89 +2,76 @@
   "about": {
     "aims": [
       {
-        "title": "Build and use evidence to improve the lives of North Carolina residents.",
-        "text": "The North Carolina Research Partnerships Portal is a pilot initiative from The NC Office of Innovation and multiple departments within San Antonio City Government. Our goal is to connect government officials with San Antonio's rich community of Academic Institutions to answer important questions about how to best design, deliver, and evaluate city services. We believe that evidence is an important part of improving public services, and we're excited about what we can do together!"
-      },
-      {
-        "title": "Promote durable partnerships at all stages of the learning process.",
-        "text": "We believe great work is built from lasting relationships. We're looking for thought partners, not just evaluators, and seek collaborators from a wide variety of academic disciplines. Project opportunities range from problem framing to introduction to existing research to intervention and evaluation design to technical assistance to reporting."
-      },
-      {
-        "title": "Share knowledge about what works.",
-        "text": "Applied research on a specific challenge has the potential to benefit public services as a whole. To do this, we need to be transparent with our results and methods. We know that publication is an important part of the research process, and will work with collaborators to support publication where appropriate."
+        "text": "The North Carolina Office of Strategic Partnerships (OSP) develops, launches, and enhances partnerships between state government and NC's research and philanthropic sectors. This includes elevating state government's internal capacity to use and generate evidence in its policy and programmatic functions.<br>To further facilitate this work, OSP is piloting the NC Project Portal to share state agency research needs and to empower people with a way to express interest in partnering to work on those needs.<br>If you are interested in working on a project, please connect. OSP seeks partners from a wide range of disciplines, reflecting the fact that needs are varied as are the backgrounds and expertise needed to address those needs. Where possible, project summaries include information about what types of expertise are likely needed but if you have an idea for how to contribute that is different or not stated in the summary, please let us know.<br>After OSP collects expressions of interest, agency partners, research partners, and OSP work together to determine fit and how to best approach the project. OSP prioritizes partnerships that are scalable, sustainable, and develop public, open-source resources.<br>To learn more about how OSP facilitates cross-sector partnerships, watch the [Monthly Connect: North Carolina Office of Strategic Partnerships Information and Resources](https://ncosbm.sharefile.com/d-sc8ccd4bc6d204d139b62c913d74078bc) and visit the [OSP website](https://www.osbm.nc.gov/operational-excellence/nc-office-strategic-partnerships)."
       }
     ],
     "faq": [
       {
-        "title": "What sort of collaborators are you looking for?",
-        "text": "We are looking for academic researchers from a range of disciplines relevant to policy and program design and evaluation. Example disciplines include public policy, economics, behavioral science, sociology, marketing, and law, but we encourage you to apply for any opportunity that you think you are a good fit for!"
-      },
-      {
         "title": "Do I need to have prior experience working with government?",
-        "text": "No, but prior experience is helpful. Applied research and collaboration with government partners often requires more flexibility and communication than a lab-based or retrospective study, so be sure to discuss expectations and timeline when considering a collaboration opportunity."
+        "text": "No. We hope that the Project Portal encourages people who have not worked with government to consider doing so. OSP can help you understand what makes for a good partnership and how it may be different (or similar) to other domains."
       },
       {
-        "title": "Are these opportunities available for students?",
-        "text": "It depends on the project. Check out the project description to learn more about expectations and requirements. Opportunities that require a PhD or equivalent experience will usually state so in their announcement."
+        "title": "Are these opportunities open to students?",
+        "text": "Yes, for some projects. OSP encourages student involvement and, in some cases, may be able to provide support for their participation on a project. Ultimately the needs of the agency (which vary project to project) along with research partner input, determine what type of expertise will fit best for each project partnership. The project description will usually state if specific experience is required. If you're a student interested in a project, we encourage you to express your interest even if you're unsure whether your expertise is a good fit."
       },
       {
-        "title": "Can multiple people work on a project?",
-        "text": "It depends on the project. If you are interested in working with a team, please reach out to the project point of contact for further discussion."
+        "title": "Can multiple people or organizations work on a project?",
+        "text": "Yes. Needs vary from project to project with respect to expertise needed, project scope, timeline, and other factors. Each project summary page describes expectations and requirements for that project. When appropriate and feasible, OSP encourages people within or across organizations to work collaboratively. If you are interested in working with one or more collaborators but have not identified those collaborators, please contact OSP at partnerships@osbm.nc.gov."
       },
       {
-        "title": "What kind of funding is available?",
-        "text": "Some projects are able to offer funding, others may not have funding available at this time, and some may be open to seeking funding from external sources. The extent and source of funding will depend on the scope of the project, level of expertise needed, and other factors. Research partners, agency officials, and the Office of Innovation can discuss funding details, including needs and potential sources, on a case-by-case basis."
+        "title": "Is there funding for projects?",
+        "text": "It depends. Project needs and the availability of funding (if needed) vary from project to project and are likely to depend on scope, deliverables, expertise needed, and other factors. OSP, agency partners, and research partners work together to determine if a project has costs, what funding may be available, and possibilities for pursuing funding, if needed."
       },
       {
-        "title": "What kind of data is available?",
-        "text": "Data availability depends on the specific project. Projects may involve qualitative and quantitative data, and collecting or analyzing data. In many cases, academic collaborators will need to sign a Data Use Agreement in order to access and use existing government data."
+        "title": "What kind of data are available?",
+        "text": "It depends. Projects with data components may involve qualitative and quantitative data. Data may already be collected or it may need to be collected. OSP, agency partners, and research partners work together to assess what data would advance a project and, in turn, whether and how to collect and share it."
       },
       {
         "title": "Can I propose a project idea?",
-        "text": "The Office of Innovation is always interested in exploring opportunities for improving city services. If you have a research idea, please email us with a description of your idea, and we’ll get in touch to see if it’s a good fit for the portal."
+        "text": "Yes! OSP welcomes ideas for government-research partnerships or other cross-sector collaborative opportunities. If you have a project idea, please email partnerships@osbm.nc.gov with a brief description of your proposed project. The description should include, at a minimum, a project overview, how the results would benefit North Carolinians, and an estimated timeline."
       }
     ]
   },
+  "contact": {
+    "title": "How do I connect with the NC Office of Strategic Partnerships?",
+    "lede": "If you have questions about the Project Portal or about the NC Office of Strategic Partnerships more broadly, please email [partnerships@osbm.nc.gov](mailto:partnerships@osbm.nc.gov)."
+  },
   "open": {
-    "title": "Open opportunities",
-    "lede": "San Antonio is building research partnerships to help answer questions about how to best serve residents. We are seeking partners with methodological expertise related to design, data analytics, and field experimentation, as well as domain knowledge related to the topics. Browse open opportunities below, and we look forward to hearing from you!",
+    "title": "Open partnership opportunities",
+    "lede": "North Carolina state agencies are increasingly interested in collaborating with external partners to answer questions that inform decision making and improve policy and programmatic functions. The NC Office of Strategic Partnerships (OSP) helps develop, launch, and enhance these cross-sector partnerships. OSP created the NC Project Portal to share opportunities for partnering with state agencies' on their research needs and for people to express interest in pursuing those  opportunities. Have a question about partnerships? Visit our FAQ page.",
     "pageName": "Open opportunities"
   },
   "completed": {
     "title": "Completed projects",
     "pageName": "Completed projects",
-    "lede": "Sharing results and ideas helps us better serve our residents. Below are all our collaborations completed to date, along with findings and links to additional resources."
+    "lede": "North Carolina state agencies collaborate with external partners to answer important research, policy, and programmatic questions.  Some of these projects the NC Office of Strategic Partnerships (OSP) works on directly and others OSP catalyzes and finds research expertise to support. Learn more below about some completed partnerships."
   },
   "ongoing": {
-    "title": "Ongoing projects",
+    "title": "In-progress projects",
     "pageName": "Ongoing projects",
-    "lede": "Learn about the ongoing research collaborations in San Antonio. Check back soon for results!"
+    "lede": "North Carolina state agencies collaborate with external partners to answer important research, policy, and programmatic questions. Some projects the NC Office of Strategic Partnerships (OSP) works on directly and others OSP catalyzes and finds research expertise to support. Learn more about in-progress projects here."
   },
   "footer": {
     "heading": {
-      "title": "City of Antonio",
-      "link": "https://www.sanantonio.gov/"
+      "title": "Office of State Budget and Management",
+      "link": "https://www.osbm.nc.gov/"
     },
     "links": [
       {
-        "title": "Office of Equity",
-        "link": "http://www.sanantonio.gov/Equity.aspx"
+        "title": "EMPLOYEE DIRECTORY",
+        "link": "https://www.osbm.nc.gov/employee-directory"
       },
       {
-        "title": "ADA Compliance",
-        "link": "http://www.sanantonio.gov/ada/"
+        "title": "ACCESSIBILITY",
+        "link": "https://www.nc.gov/accessibility"
       },
       {
-        "title": "Open Records",
-        "link": "http://www.sanantonio.gov/opengovernment/"
+        "title": "TERMS OF USE",
+        "link": "https://www.nc.gov/terms"
       },
       {
-        "title": "Privacy Policy and Disclaimer",
-        "link": "http://www.sanantonio.gov/disclaimer.aspx"
-      },
-      {
-        "title": "sanantonio.gov",
-        "link": "https://www.sanantonio.gov/"
+        "title": "OPEN BUDGET",
+        "link": "https://www.nc.gov/government/open-budget"
       }
     ]
   }
