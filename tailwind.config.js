@@ -18,6 +18,9 @@ module.exports = {
     fontFamily: {
       sans: ["Public Sans", "Roboto", "system-ui", "sans-serif"],
     },
+    minHeight: {
+      "15rem": "15rem",
+    },
     extend: {
       colors: {
         gray: colors.trueGray,

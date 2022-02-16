@@ -22,12 +22,12 @@ export const HeaderWithImage = ({
         backgroundPositionY: "center",
       }}
     >
-      <div className="lg:-mb-28 m-0 lg:m-4 bg-white border-b-8 border-primary border-solid">
+      <div className="lg:-mb-28 m-0 lg:m-4 bg-white border-b-8 border-primary border-solid sm:min-h-15rem flex align-center">
         <div className="w-full p-4 sm:p-12 lg:pl-28 lg:w-2/3">
           <h1 className="pb-3 mb-4 text-h3 sm:text-h1 font-bold text-black">
             {title}
           </h1>
-          <p className="text-body leading-normal">{lede}</p>
+          {lede && <p className="text-body leading-normal">{lede}</p>}
         </div>
       </div>
     </div>
