@@ -31,13 +31,15 @@ BottomBannerProps) => {
   return (
     <div className="py-6 mt-12 overflow-hidden bg-rd p-responsive">
       <div className="m-responsive">
-        <div className="w-full">
-          <GatsbyImage
-            className="inline-block float-left my-5"
-            image={image}
-            alt="R+D logo"
-          />
-          <div className="inline-block w-4/5 my-5 text-body float-right">
+        <div className="w-full flex gap-4 sm:gap-8 items-center justify-center flex-wrap">
+          <div className="flex-1">
+            <GatsbyImage
+              className="inline-block"
+              image={image}
+              alt="R+D logo"
+            />
+          </div>
+          <div className="inline-block text-body flex-4 min-w-20ch">
             {text}
             <a
               className="font-semibold text-black underline hover:text-primary"
