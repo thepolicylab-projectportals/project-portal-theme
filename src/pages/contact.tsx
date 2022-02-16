@@ -3,6 +3,7 @@ import { graphql, navigate } from "gatsby"
 import { Navbar, SiteMetadata } from "../components"
 import { Layout } from "../layouts/Layout"
 import { HeaderWithImage } from "../components/HeaderWithImage"
+import { contact } from "site/language.json"
 
 const encode = (data: { [Key: string]: string }) => {
   return Object.keys(data)
@@ -176,16 +177,10 @@ export default ({ data }: ContactProps) => {
       />
 
       <article className="w-full pt-5 px-8 lg:px-16 xl:px-24 lg:w-2/3">
-        <h1 className="my-8 text-h2 font-bold">
-          Want to talk to the Office of Innovation? We'd love to hear from you!
-        </h1>
+        <h1 className="my-8 text-h2 font-bold">{contact.title}</h1>
 
         <p className="mb-10 leading-normal text-body lg:text-body">
-          Our team is happy to answer questions about the partnerships pilot,
-          general questions about working with the City of San Antonio, and
-          gather ideas for how we can improve this site. Please direct
-          project-specific questions to points of contact listed for individual
-          projects.
+          {contact.lede}
         </p>
 
         <ContactForm />

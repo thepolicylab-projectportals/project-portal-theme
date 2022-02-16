@@ -28,7 +28,7 @@ interface ProjectDetailProps {
         startDate: Date
         endDate: Date
         agency: string
-        policyAreas: string[]
+        topics: string[]
         deliverable: string
         purpose: string
         expertise: string
@@ -63,7 +63,7 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
     startDate,
     endDate,
     agency,
-    policyAreas,
+    topics,
     deliverable,
     purpose,
     expertise,
@@ -88,7 +88,7 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
         <header className="py-16 p-responsive bg-primary">
           <div className="flex flex-col justify-between m-responsive lg:flex-row">
             <div className="w-auto">
-              <h1 className="text-h2 w-full font-bold leading-h2 text-white lg:w-4/5">
+              <h1 className="text-h3 sm:text-h2 w-full font-bold leading-h2 text-white lg:w-4/5">
                 {question}
               </h1>
               <div className="mt-4 text-white text-body">
@@ -119,17 +119,13 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
         <main className="p-responsive pb-4">
           <section className="flex flex-wrap items-start py-6 m-responsive gap-x-10 gap-y-4">
             <div className="text-tag mt-2">
-              <Feature
-                label="Policy Areas"
-                className="bg-policyareas"
-                value={policyAreas}
-              />
+              <Feature label="Topics" className="bg-topics" value={topics} />
             </div>
           </section>
 
           <section className="mt-8">
             <div className="m-responsive">
-              <h2 className="text-h3">Project overview</h2>
+              <h2 className="text-h3mobile sm:text-h3">Project overview</h2>
             </div>
             <div className="flex flex-col justify-between w-full py-4 lg:flex-row">
               <div className="m-responsive lg:w-3/5 xl:2/3">
@@ -226,7 +222,7 @@ export const query = graphql`
         startDate
         endDate
         agency
-        policyAreas
+        topics
         deliverable
         purpose
         expertise

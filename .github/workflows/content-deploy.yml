@@ -1,0 +1,40 @@
+name: Redeploy if New Content
+
+on:
+  schedule:
+    # 6am UTC i.e., 2am EDT / 1am EST
+    - cron: "0 6 * * *"
+
+jobs:
+  content_check:
+    name: Deploy if new content
+    runs-on: ubuntu-20.04
+
+    strategy:
+      matrix:
+        include:
+          - secret: SATX_WEBHOOK_URL
+            partner-name: San%20Antonio
+
+    steps:
+      - name: Get Airtable lastModified
+        id: airtable
+        env:
+          AIRTABLE_BASE_ID: ${{ secrets.AIRTABLE_BASE_ID }}
+          AIRTABLE_API_KEY: ${{ secrets.AIRTABLE_API_KEY }}
+          PARTNERNAME: ${{ matrix.partner-name }}
+        run: |
+          LASTDATE=$(curl "https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/Project%20Page%20Content?fields%5B%5D=lastModified&maxRecords=1&sort%5B0%5D%5Bfield%5D=lastModified&sort%5B0%5D%5Bdirection%5D=desc&filterByFormula=%28%7BpartnerName%7D%20%3D%20%27${PARTNERNAME}%27%29" -H "Authorization: Bearer ${AIRTABLE_API_KEY}" | jq -r '.records[0].fields.lastModified')
+          echo "::set-output name=last_modified::${LASTDATE}"
+
+      - name: Get Compare Date
+        id: date
+        run: |
+          YESTERDAY=$(date -u --date='1 day ago' '+%FT%T.000Z')
+          echo "::set-output name=compare_date::${YESTERDAY}"
+
+      - name: POST request to Netlify webhook
+        if: ${{ steps.airtable.outputs.last_modified >= steps.date.outputs.compare_date }}
+        env:
+          WEBHOOK_URL: ${{ secrets[matrix.secret] }}
+        run: curl -X POST -d {} "${WEBHOOK_URL}"

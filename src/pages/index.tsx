@@ -29,7 +29,7 @@ export const query = graphql`
           startDate
           endDate
           agency
-          policyAreas
+          topics
           deliverable
           purpose
           expertise
