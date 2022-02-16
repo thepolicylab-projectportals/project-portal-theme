@@ -31,10 +31,7 @@ export const ProjectPage = ({
 }: ProjectPageProps) => {
   return (
     <Layout>
-      <SiteMetadata
-        title="Project Portal"
-        description="Questions from East Evidencia."
-      />
+      <SiteMetadata title={title} description={lede} />
 
       <Navbar activePage={pageName} />
 

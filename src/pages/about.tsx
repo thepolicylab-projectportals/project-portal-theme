@@ -70,10 +70,7 @@ const AboutList = ({ aboutTitle, aboutText }) => {
 export default ({ data }: AboutProps) => {
   return (
     <Layout>
-      <SiteMetadata
-        title={`About - ${meta.title}`}
-        description={`About ${meta.title}`}
-      />
+      <SiteMetadata title="About" description={`About the ${meta.title}`} />
 
       <Navbar activePage="About" />
 

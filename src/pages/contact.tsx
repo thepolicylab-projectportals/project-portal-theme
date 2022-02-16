@@ -165,8 +165,8 @@ export default ({ data }: ContactProps) => {
   return (
     <Layout>
       <SiteMetadata
-        title="Project Portal - Contact Us"
-        description="Questions from East Evidencia"
+        title={language.contact.title}
+        description={language.contact.lede}
       />
 
       <Navbar activePage="Contact" />
