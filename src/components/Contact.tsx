@@ -31,7 +31,7 @@ export const Contact: React.FC<ContactProps> = ({
       >
         {contactImage ? (
           <GatsbyImage
-            className="relative rounded-full"
+            className="relative rounded-full hidden md:block"
             alt={name}
             image={getImage(contactImage.localFiles[0])}
             style={{
