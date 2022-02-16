@@ -10,7 +10,7 @@ export const Footer = () => {
     query {
       logo: file(relativePath: { regex: "/footer.png/" }) {
         childImageSharp {
-          gatsbyImageData(width: 175)
+          gatsbyImageData(height: 64)
         }
       }
     }
