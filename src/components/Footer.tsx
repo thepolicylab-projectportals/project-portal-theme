@@ -53,7 +53,7 @@ export const Footer = () => {
 const ListItem = ({ target, children, key }) => {
   return (
     <>
-      <li className="block px-2 py-2 lg:inline-block lg:ml-6 underline text-center">
+      <li className="block px-2 py-2 lg:inline-block lg:ml-6 underline hover:no-underline text-center">
         <Link to={target}>{children}</Link>
       </li>
     </>
