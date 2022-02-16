@@ -49,7 +49,7 @@ const Accordion: React.FC<AccordionProps> = ({ title, text }) => {
 const AboutList = ({ aboutTitle, aboutText }) => {
   return (
     <div className="mb-8">
-      <h3 className="text-h3mobile sm:text-h3 mb-4">{aboutTitle}</h3>
+      <h3 className="text-h3 mb-4">{aboutTitle}</h3>
       <Markdown
         options={{
           overrides: {
@@ -108,7 +108,7 @@ export default ({ data }: AboutProps) => {
 
 export const query = graphql`
   query AboutQuery {
-    bgImage: file(relativePath: { regex: "/about.jpg/" }) {
+    bgImage: file(relativePath: { regex: "/^about.jpg$/" }) {
       childImageSharp {
         resize(width: 1536) {
           src

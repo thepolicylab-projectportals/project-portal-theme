@@ -1,12 +1,12 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { ProjectPage, ProjectPageProps } from "../components"
-import { ongoing } from "site/language.json"
+import language from "site/language.json"
 
 export default ({ data }: ProjectPageProps) =>
   ProjectPage({
     data,
-    ...ongoing,
+    ...language.ongoing,
   })
 
 export const query = graphql`
@@ -43,7 +43,7 @@ export const query = graphql`
         }
       }
     }
-    bgImage: file(relativePath: { regex: "/ongoing.jpg/" }) {
+    bgImage: file(relativePath: { regex: "/^ongoing.jpg$/" }) {
       childImageSharp {
         resize(width: 1536) {
           src
