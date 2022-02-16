@@ -203,7 +203,7 @@ export default ({ data }: ContactProps) => {
 
 export const query = graphql`
   query ContactQuery {
-    bgImage: file(relativePath: { regex: "/contact.jpg/" }) {
+    bgImage: file(relativePath: { regex: "/^contact.jpg$/" }) {
       childImageSharp {
         resize(width: 1536) {
           src
