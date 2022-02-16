@@ -3,7 +3,7 @@ import { graphql, navigate } from "gatsby"
 import { Navbar, SiteMetadata } from "../components"
 import { Layout } from "../layouts/Layout"
 import { HeaderWithImage } from "../components/HeaderWithImage"
-import { contact } from "site/language.json"
+import language from "site/language.json"
 import Markdown from "markdown-to-jsx"
 
 const encode = (data: { [Key: string]: string }) => {
@@ -178,7 +178,7 @@ export default ({ data }: ContactProps) => {
       />
 
       <article className="w-full pt-5 px-8 lg:px-16 xl:px-24 lg:w-2/3">
-        <h1 className="my-8 text-h2 font-bold">{contact.title}</h1>
+        <h1 className="my-8 text-h2 font-bold">{language.contact.title}</h1>
 
         <Markdown
           className="mb-10 leading-normal text-body lg:text-body"
@@ -192,7 +192,7 @@ export default ({ data }: ContactProps) => {
             },
           }}
         >
-          {contact.lede}
+          {language.contact.lede}
         </Markdown>
 
         <ContactForm />
