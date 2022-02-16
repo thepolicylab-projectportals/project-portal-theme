@@ -108,7 +108,7 @@ export default ({ data }: AboutProps) => {
 
 export const query = graphql`
   query AboutQuery {
-    bgImage: file(relativePath: { regex: "/^about.jpg$" }) {
+    bgImage: file(relativePath: { regex: "/^about.jpg$/" }) {
       childImageSharp {
         resize(width: 1536) {
           src

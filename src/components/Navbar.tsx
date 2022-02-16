@@ -60,7 +60,7 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
           }
         }
       }
-      logo: file(relativePath: { regex: "/^logo.png$" }) {
+      logo: file(relativePath: { regex: "/^logo.png$/" }) {
         childImageSharp {
           gatsbyImageData(width: 88)
         }
