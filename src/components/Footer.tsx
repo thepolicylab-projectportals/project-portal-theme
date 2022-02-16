@@ -3,12 +3,12 @@ import { Link, graphql, useStaticQuery } from "gatsby"
 import { getImage } from "gatsby-plugin-image"
 
 import meta from "site/meta.json"
-import { footer } from "site/language.json"
+import language from "site/language.json"
 
 export const Footer = () => {
   const { logo } = useStaticQuery(graphql`
     query {
-      logo: file(relativePath: { regex: "/footer.png/" }) {
+      logo: file(relativePath: { regex: "/^footer.png$/" }) {
         childImageSharp {
           gatsbyImageData(width: 175)
         }
@@ -23,7 +23,7 @@ export const Footer = () => {
     <footer className="w-full px-2 py-8 bg-footer xl:container xl:px-12">
       <div className="flex items-center justify-center mt-6 lg:my-auto">
         <ul className="text-nav text-footertext list-none">
-          {footer.links.map(({ title, link }, i) => (
+          {language.footer.links.map(({ title, link }, i) => (
             <ListItem key={"link_" + i} target={link}>
               {title}{" "}
             </ListItem>
@@ -33,7 +33,7 @@ export const Footer = () => {
       <div className="block w-full lg:w-auto">
         <a
           className="flex items-center justify-center"
-          href={footer.heading.link}
+          href={language.footer.heading.link}
         >
           <img
             srcSet={image.images.sources[0].srcSet}
@@ -42,7 +42,7 @@ export const Footer = () => {
             width={image.width}
           />
           <p className="text-center inline-block text-h4 font-bold text-footertext">
-            {footer.heading.title}
+            {language.footer.heading.title}
           </p>
         </a>
       </div>
