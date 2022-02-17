@@ -15,15 +15,30 @@ module.exports = {
       center: true,
       padding: "1.25rem",
     },
+    flex: {
+      4: "4 4 0%",
+    },
     fontFamily: {
       sans: ["Public Sans", "Roboto", "system-ui", "sans-serif"],
     },
+    minHeight: {
+      "15rem": "15rem",
+    },
+    minWidth: {
+      "20ch": "20ch",
+    },
     extend: {
       colors: {
-        gray: colors.trueGray,
+        gray: colors.neutral,
         link: "#005EA2",
         topics: "#73B3E7",
-        primary: colors.cyan,
+        navbar: "#ECF0F3",
+        rd: "#ffffff",
+        footer: "#ECF0F3",
+        footertext: "#092940",
+        primary: colors.cyan[500],
+        primarydark: colors.cyan[800],
+        warning: colors.amber[500],
       },
       fontSize: {
         h1: ["2.5rem", "2.75rem"],
