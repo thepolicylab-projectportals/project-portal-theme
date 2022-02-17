@@ -10,7 +10,7 @@ export const Footer = () => {
     query {
       logo: file(relativePath: { regex: "/^footer.png$/" }) {
         childImageSharp {
-          gatsbyImageData(width: 175)
+          gatsbyImageData(height: 64)
         }
       }
     }
@@ -25,14 +25,14 @@ export const Footer = () => {
         <ul className="text-nav text-footertext list-none">
           {language.footer.links.map(({ title, link }, i) => (
             <ListItem key={"link_" + i} target={link}>
-              {title}{" "}
+              {title}
             </ListItem>
           ))}
         </ul>
       </div>
-      <div className="block w-full lg:w-auto">
+      <div className="block w-full lg:w-auto mt-5">
         <a
-          className="flex items-center justify-center"
+          className="flex items-center gap-4 justify-center flex-wrap"
           href={language.footer.heading.link}
         >
           <img
@@ -53,7 +53,7 @@ export const Footer = () => {
 const ListItem = ({ target, children, key }) => {
   return (
     <>
-      <li className="block px-2 py-2 lg:inline-block lg:ml-6 underline">
+      <li className="block px-2 py-2 lg:inline-block lg:ml-6 underline hover:no-underline text-center">
         <Link to={target}>{children}</Link>
       </li>
     </>
