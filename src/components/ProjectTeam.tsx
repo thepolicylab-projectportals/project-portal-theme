@@ -12,7 +12,7 @@ export const ProjectTeam: React.FC<ProjectTeamProps> = ({
 }) => {
   return (
     <section className="m-responsive">
-      <h3 className="text-h3mobile sm:text-h3 my-4">{title}</h3>
+      <h3 className="text-h3 my-4">{title}</h3>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 justify-self-center">
         {contacts.map((contact, i) => (
           <div className="w-auto px-4">
