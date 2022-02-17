@@ -24,10 +24,10 @@ export const HeaderWithImage = ({
     >
       <div className="lg:-mb-28 m-0 lg:m-4 bg-white border-b-8 border-primary border-solid flex align-center">
         <div className="w-full p-4 sm:p-12 lg:pl-28 lg:w-2/3">
-          <h1 className="pb-3 text-h3 sm:text-h1 font-bold text-black">
+          <h1 className="text-h3 pb-0 sm:text-h1 font-bold text-black">
             {title}
           </h1>
-          {lede && <p className="text-body mt-4 leading-normal">{lede}</p>}
+          {lede && <p className="text-body mt-7 leading-normal">{lede}</p>}
         </div>
       </div>
     </div>
