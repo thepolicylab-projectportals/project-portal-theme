@@ -199,8 +199,7 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
           <section className="my-12">
             <Link to={withPrefix(`/${status === "open" ? "" : status}`)}>
               <button className="btn m-responsive">
-                {" "}
-                <StaticImage class="mt-0.5" src="../images/backarrow.png" />
+                <StaticImage class="mt-1 w-2" src="../images/backarrow.png" />
                 <span class="pl-2">Back</span>
               </button>
             </Link>
