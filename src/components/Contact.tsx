@@ -24,6 +24,7 @@ export const Contact: React.FC<ContactProps> = ({
   return (
     <div className="flex items-start gap-4 overflow-hidden flex-nowrap justify-left">
       <div
+        className="hidden sm:block"
         style={{
           width: "100px",
           height: "100px",
@@ -31,7 +32,7 @@ export const Contact: React.FC<ContactProps> = ({
       >
         {contactImage ? (
           <GatsbyImage
-            className="relative rounded-full hidden md:block"
+            className="relative rounded-full"
             alt={name}
             image={getImage(contactImage.localFiles[0])}
             style={{
