@@ -20,8 +20,8 @@ export default ({ data }: ThankYouProps) => {
   return (
     <Layout>
       <SiteMetadata
-        title="Project Portal - About"
-        description="Questions from East Evidencia"
+        title="Thank you"
+        description="Thank you for your interest in working with us!"
       />
 
       <Navbar activePage="about" />
@@ -56,7 +56,7 @@ export default ({ data }: ThankYouProps) => {
 
 export const query = graphql`
   query ThankYouQuery {
-    bgImage: file(relativePath: { regex: "/contact.jpg/" }) {
+    bgImage: file(relativePath: { regex: "/^contact.jpg$/" }) {
       childImageSharp {
         resize(width: 1536, height: 352) {
           src
