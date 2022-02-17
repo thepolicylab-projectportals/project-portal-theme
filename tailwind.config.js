@@ -15,8 +15,14 @@ module.exports = {
       center: true,
       padding: "1.25rem",
     },
+    flex: {
+      4: "4 4 0%",
+    },
     fontFamily: {
       sans: ["Public Sans", "Roboto", "system-ui", "sans-serif"],
+    },
+    minWidth: {
+      "20ch": "20ch",
     },
     extend: {
       colors: {
