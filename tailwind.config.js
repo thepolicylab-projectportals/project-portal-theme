@@ -21,6 +21,9 @@ module.exports = {
     fontFamily: {
       sans: ["Public Sans", "Roboto", "system-ui", "sans-serif"],
     },
+    minHeight: {
+      "15rem": "15rem",
+    },
     minWidth: {
       "20ch": "20ch",
     },
