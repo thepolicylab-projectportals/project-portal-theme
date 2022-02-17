@@ -23,7 +23,7 @@ export const MarkdownText = ({ text }: MarkdownTextProps) => {
           forceBlock: true,
           a: {
             props: {
-              className: "underline hover:no-underline",
+              className: "text-link underline hover:no-underline",
             },
           },
           p: {

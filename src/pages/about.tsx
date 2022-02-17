@@ -37,7 +37,7 @@ const Accordion: React.FC<AccordionProps> = ({ title, text }) => {
               {open ? <FaMinus /> : <FaPlus />}
             </Disclosure.Button>
             <Disclosure.Panel className="text-body p-4 w-9/10">
-              {text}
+              <MarkdownText text={text} />
             </Disclosure.Panel>
           </>
         )}
