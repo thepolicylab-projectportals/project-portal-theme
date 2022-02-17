@@ -1,14 +1,17 @@
+const DARK_BLUE = "#092940"
+const LIGHT_BLUE = "#ECF0F3"
+
 module.exports = {
   presets: [require("../../tailwind.config.js")],
   theme: {
     extend: {
       colors: {
-        navbar: "#ECF0F3",
+        navbar: LIGHT_BLUE,
         rd: "#ffffff",
-        footer: "#ECF0F3",
-        footertext: "#092940",
+        footer: LIGHT_BLUE,
+        footertext: DARK_BLUE,
         primary: "#00376D",
-        primarydark: "#092940",
+        primarydark: DARK_BLUE,
       },
     },
   },
