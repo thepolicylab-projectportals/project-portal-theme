@@ -28,7 +28,7 @@ export const query = graphql`
           deliverable
           expertise
           keyDates
-          opportunityCloses
+          startDate
           agency
           topics
           commitment

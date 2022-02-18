@@ -92,22 +92,28 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
               <h1 className="text-h3 sm:text-h2 w-full font-bold leading-h2 text-white lg:w-4/5">
                 {question}
               </h1>
-              <div className="mt-4 text-white text-body">
-                <span className="font-bold">
+              {statusOutput(status, true, startDate, endDate) === null ? (
+                ""
+              ) : (
+                <div className="mt-4 text-white text-body">
+                  <span className="font-bold">
+                    {statusOutput(
+                      status,
+                      "Opportunity closes: ",
+                      "Project started: ",
+                      "Project ended: "
+                    )}
+                  </span>
                   {statusOutput(
                     status,
-                    "Opportunity closes: ",
-                    "Project started: ",
-                    "Project ended: "
+                    opportunityCloses
+                      ? moment(opportunityCloses).format("MMMM D, YYYY")
+                      : "Until filled",
+                    moment(startDate).format("MMMM D, YYYY"),
+                    moment(endDate).format("MMMM D, YYYY")
                   )}
-                </span>
-                {statusOutput(
-                  status,
-                  moment(opportunityCloses).format("MMMM D, YYYY"),
-                  moment(startDate).format("MMMM D, YYYY"),
-                  moment(endDate).format("MMMM D, YYYY")
-                )}
-              </div>
+                </div>
+              )}
               <div className="text-white text-body">
                 <span className="font-bold">Agency: </span>
                 {agency}
