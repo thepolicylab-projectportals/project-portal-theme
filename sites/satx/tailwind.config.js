@@ -1,13 +1,16 @@
+const RUST = "#8b0b04"
+const GREY = "#F7F7F7"
+
 module.exports = {
   presets: [require("../../tailwind.config.js")],
   theme: {
     extend: {
       colors: {
-        navbar: "#F7F7F7",
-        rd: "#F7F7F7",
-        footer: "#8b0b04",
+        navbar: GREY,
+        rd: GREY,
+        footer: RUST,
         footertext: "#FFFFFF",
-        primary: "#8b0b04",
+        primary: RUST,
         primarydark: "#4a0804",
       },
     },

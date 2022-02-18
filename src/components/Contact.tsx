@@ -24,6 +24,7 @@ export const Contact: React.FC<ContactProps> = ({
   return (
     <div className="flex items-start gap-4 overflow-hidden flex-nowrap justify-left">
       <div
+        className="hidden sm:block"
         style={{
           width: "100px",
           height: "100px",
@@ -55,7 +56,7 @@ export const Contact: React.FC<ContactProps> = ({
         <p className="text-black text-body">{title}</p>
         <p className="text-black text-body">{employer}</p>
         {showEmail ? (
-          <p className="text-black text-body underline">{email}</p>
+          <p className="text-black text-body underline break-all">{email}</p>
         ) : (
           ""
         )}
