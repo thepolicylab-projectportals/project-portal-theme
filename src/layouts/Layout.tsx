@@ -3,6 +3,7 @@ import "@fontsource/public-sans"
 import { Footer, BottomBanner, DevelopmentBanner } from "../components"
 import "../styles/style.css"
 import meta from "site/meta.json"
+import language from "site/language.json"
 
 interface LayoutProps {
   children: ReactNode
@@ -17,7 +18,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({ children }) => {
         text={
           "This portal is part of a pilot initiative to support applied research partnerships. If you have ideas for how to further improve it, please "
         }
-        link={"mailto:thepolicylab@brown.edu"}
+        link={"mailto:" + language.email.title}
       />
       <Footer />
     </div>
