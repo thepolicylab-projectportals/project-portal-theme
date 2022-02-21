@@ -2,8 +2,8 @@ name: Redeploy if New Content
 
 on:
   schedule:
-    # 6am UTC i.e., 2am EDT / 1am EST
-    - cron: "0 6 * * *"
+    # Every hour
+    - cron: "0 */1 * * *"
 
 jobs:
   content_check:
