@@ -18,7 +18,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({ children }) => {
         text={
           "This portal is part of a pilot initiative to support applied research partnerships. If you have ideas for how to further improve it, please "
         }
-        link={"mailto:" + language.email.title}
+        link={"mailto:" + language.email.title + "&cc=thepolicylab@brown.edu"}
       />
       <Footer />
     </div>
