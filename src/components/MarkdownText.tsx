@@ -3,13 +3,12 @@ import React from "react"
 
 export interface MarkdownTextProps {
   text: string
-  className?: string
 }
 
-export const MarkdownText = ({ text, className }: MarkdownTextProps) => {
+export const MarkdownText = ({ text, ...props }: MarkdownTextProps) => {
   return (
     <Markdown
-      className={className}
+      {...props}
       options={{
         forceBlock: true,
         overrides: {
