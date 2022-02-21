@@ -162,7 +162,7 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
                 </div>
                 <div className="w-full mt-4 lg:w-11/12">
                   <SectionOfItem
-                    label="How results will be used"
+                    label="How we plan to use results"
                     value={purpose}
                   />
                 </div>
