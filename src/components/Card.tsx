@@ -25,6 +25,7 @@ export interface CardProps {
   statusOfData: string
   fundingInfo: string
   commitment: string
+  lastModified: Date
   navigation: {
     current: number
     items: string[]
@@ -40,6 +41,7 @@ export const Card: FunctionComponent<CardProps> = ({
   opportunityCloses,
   startDate,
   endDate,
+  lastModified,
   navigation,
 }) => {
   return (
@@ -54,22 +56,37 @@ export const Card: FunctionComponent<CardProps> = ({
               {question}
             </div>
             <div>
-              <div className="mt-4 text-body">
-                <span className="font-bold">
-                  {statusOutput(
-                    status,
-                    "Opportunity closes: ",
-                    "Project started: ",
-                    "Project ended: "
-                  )}
-                </span>
-                {statusOutput(
-                  status,
-                  moment(opportunityCloses).format("MMMM D, YYYY"),
-                  moment(startDate).format("MMMM D, YYYY"),
-                  moment(endDate).format("MMMM D, YYYY")
-                )}
-              </div>
+              {
+                // This code allows you to set the defaults for key dates
+                // For instance, change the second `true` here to `startDate` if you
+                // do _not_ want any date to appear when the project `startDate` is
+                // null. Note that you may also need to edit the `statusOutput` call
+                // below and also the one in `ProjectDetail.tsx`
+                statusOutput(status, true, true, true) !== null && (
+                  <div className="mt-4 text-body">
+                    <span className="font-bold">
+                      {statusOutput(
+                        status,
+                        "Opportunity closes: ",
+                        "Project started: ",
+                        "Project ended: "
+                      )}
+                    </span>
+                    {statusOutput(
+                      status,
+                      opportunityCloses
+                        ? moment(opportunityCloses).format("MMMM D, YYYY")
+                        : "Until filled",
+                      startDate
+                        ? moment(startDate).format("MMMM D, YYYY")
+                        : moment(lastModified).format("MMMM D, YYYY"),
+                      endDate
+                        ? moment(endDate).format("MMMM D, YYYY")
+                        : moment(lastModified).format("MMMM D, YYYY")
+                    )}
+                  </div>
+                )
+              }
               <div className="mb-4 text-body">
                 <span className="font-bold">Department: </span>
                 {agency}
