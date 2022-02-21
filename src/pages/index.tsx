@@ -42,6 +42,7 @@ export const query = graphql`
           contactName
           contactTitle
           contactEmail
+          lastModified
         }
       }
     }
