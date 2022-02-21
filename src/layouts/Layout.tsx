@@ -14,6 +14,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({ children }) => {
       {!meta.live && <DevelopmentBanner />}
       {children}
       <BottomBanner />
+      <Footer />
     </div>
   )
 }
