@@ -91,5 +91,8 @@
         "link": "https://www.sanantonio.gov/"
       }
     ]
+  },
+  "email": {
+    "title": "mailto:thepolicylab@brown.edu"
   }
 }
