@@ -92,9 +92,7 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
               <h1 className="text-h3 sm:text-h2 w-full font-bold leading-h2 text-white lg:w-4/5">
                 {question}
               </h1>
-              {statusOutput(status, true, startDate, endDate) === null ? (
-                ""
-              ) : (
+              {statusOutput(status, true, startDate, endDate) !== null && (
                 <div className="mt-4 text-white text-body">
                   <span className="font-bold">
                     {statusOutput(

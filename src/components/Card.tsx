@@ -54,9 +54,7 @@ export const Card: FunctionComponent<CardProps> = ({
               {question}
             </div>
             <div>
-              {statusOutput(status, true, startDate, endDate) === null ? (
-                ""
-              ) : (
+              {statusOutput(status, true, startDate, endDate) !== null && (
                 <div className="mt-4 text-body">
                   <span className="font-bold">
                     {statusOutput(
