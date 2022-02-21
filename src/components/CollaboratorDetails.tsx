@@ -6,18 +6,12 @@ interface CollaboratorDetailsProps {
   expertise?: string
   requirement?: string
   keyDates?: string
-  priorResearch?: string
-  statusOfData?: string
-  fundingInfo?: string
 }
 
 export const CollaboratorDetails: React.FC<CollaboratorDetailsProps> = ({
   expertise,
   requirement,
   keyDates,
-  priorResearch,
-  statusOfData,
-  fundingInfo,
 }) => {
   return (
     <>
