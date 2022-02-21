@@ -28,7 +28,10 @@ export const HeaderWithImage = ({
             {title}
           </h1>
           {lede && (
-            <MarkdownText className="text-body leading-normal" text={lede} />
+            <MarkdownText
+              className="pt-6 text-body leading-normal"
+              text={lede}
+            />
           )}
         </div>
       </div>
