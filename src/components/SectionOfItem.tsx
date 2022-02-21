@@ -1,17 +1,9 @@
 import React, { FunctionComponent } from "react"
-import Markdown from "markdown-to-jsx"
+import { MarkdownText } from "../components"
 
 interface SectionOfItemProps {
   label: string
   value: string
-}
-
-const LiItem = ({ children, ...props }) => {
-  return (
-    <li {...props}>
-      <span>{children}</span>
-    </li>
-  )
 }
 
 export const SectionOfItem: FunctionComponent<SectionOfItemProps> = ({
@@ -23,27 +15,7 @@ export const SectionOfItem: FunctionComponent<SectionOfItemProps> = ({
       <section className="pt-4">
         <h4 className="text-h4">{label}</h4>
         <div className="text-body">
-          <Markdown
-            options={{
-              overrides: {
-                ul: {
-                  props: {
-                    className: "list-outside list-disc ml-5",
-                  },
-                },
-                li: {
-                  component: LiItem,
-                },
-                a: {
-                  props: {
-                    className: "underline hover:no-underline",
-                  },
-                },
-              },
-            }}
-          >
-            {value}
-          </Markdown>
+          <MarkdownText text={value} />
         </div>
       </section>
     </>

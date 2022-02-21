@@ -202,9 +202,6 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
                 expertise,
                 requirement,
                 keyDates,
-                priorResearch,
-                statusOfData,
-                fundingInfo,
               }}
             />
           ) : (
