@@ -35,12 +35,14 @@ export const Footer = () => {
           className="flex items-center gap-4 justify-center flex-wrap"
           href={language.footer.heading.link}
         >
-          <img
-            srcSet={image.images.sources[0].srcSet}
-            alt={meta.title + " logo"}
-            height={image.height}
-            width={image.width}
-          />
+          {image && (
+            <img
+              srcSet={image.images.sources[0].srcSet}
+              alt={meta.title + " logo"}
+              height={image.height}
+              width={image.width}
+            />
+          )}
           <p className="text-center inline-block text-h4 font-bold text-footertext">
             {language.footer.heading.title}
           </p>

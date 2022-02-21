@@ -1,16 +1,7 @@
 import React, { FunctionComponent } from "react"
 import { Link } from "gatsby"
-import { Contact } from "../components"
+import { Contact, MarkdownText } from "../components"
 import { statusOutput } from "../utils"
-import Markdown from "markdown-to-jsx"
-
-const LiItem = ({ children, ...props }) => {
-  return (
-    <li {...props}>
-      <span>{children}</span>
-    </li>
-  )
-}
 
 interface ProjectContactProps {
   name: string
@@ -65,28 +56,9 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
             "The project is complete."
           )}
         </h4>
-        <Markdown
-          className="text-black text-body"
-          options={{
-            wrapper: "div",
-            forceWrapper: true,
-            forceBlock: true,
-            overrides: {
-              ul: {
-                props: {
-                  className: "list-outside list-disc ml-5",
-                },
-              },
-              a: {
-                props: {
-                  className: "underline hover:no-underline",
-                },
-              },
-            },
-          }}
-        >
-          {mainText}
-        </Markdown>
+        <div className="text-black text-body">
+          <MarkdownText text={mainText} />
+        </div>
         <div className="mt-4">
           {status === "open" ? (
             <a href={`mailto:${email}`}>

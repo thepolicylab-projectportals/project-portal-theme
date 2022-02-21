@@ -1,21 +1,11 @@
 import { string } from "prop-types"
-import { Link, useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import React from "react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { MarkdownText } from "../components"
+import language from "site/language.json"
 
-interface BottomBannerProps {
-  // title: string
-  text: string
-  link: string
-  // buttonText: string
-}
-
-export const BottomBanner: React.FC<BottomBannerProps> = ({
-  // title,
-  text,
-  link,
-}: // buttonText,
-BottomBannerProps) => {
+export const BottomBanner = () => {
   const { logo } = useStaticQuery(graphql`
     query {
       logo: file(relativePath: { regex: "/^rd_logo.png$/" }) {
@@ -32,22 +22,17 @@ BottomBannerProps) => {
     <div className="py-6 mt-12 overflow-hidden bg-rd p-responsive">
       <div className="m-responsive">
         <div className="w-full flex gap-4 sm:gap-8 items-center justify-center flex-wrap">
-          <div className="flex-1">
-            <GatsbyImage
-              className="inline-block"
-              image={image}
-              alt="R+D logo"
-            />
-          </div>
+          {image && (
+            <div className="flex-1">
+              <GatsbyImage
+                className="inline-block"
+                image={image}
+                alt="R+D logo"
+              />
+            </div>
+          )}
           <div className="inline-block text-body flex-4 min-w-20ch">
-            {text}
-            <a
-              className="font-semibold text-black underline hover:text-primary"
-              href={link}
-            >
-              let us know
-            </a>
-            !
+            <MarkdownText text={language.bottom_banner.text} />
           </div>
         </div>
       </div>
