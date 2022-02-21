@@ -8,7 +8,7 @@
     "faq": [
       {
         "title": "Do I need to have prior experience working with government?",
-        "text": "No. We hope that the Project Portal encourages people who have not worked with government to consider doing so. OSP can help you understand what makes for a good partnership and how it may be different (or similar) to other domains."
+        "text": "No. We hope that the NC Project Portal encourages people who have not worked with government to consider doing so. OSP can help you understand what makes for a good partnership and how it may be different (or similar) to other domains."
       },
       {
         "title": "Are these opportunities open to students?",
@@ -16,7 +16,7 @@
       },
       {
         "title": "Can multiple people or organizations work on a project?",
-        "text": "Yes. Needs vary from project to project with respect to expertise needed, project scope, timeline, and other factors. Each project summary page describes expectations and requirements for that project. When appropriate and feasible, OSP encourages people within or across organizations to work collaboratively. If you are interested in working with one or more collaborators but have not identified those collaborators, please contact OSP at partnerships@osbm.nc.gov."
+        "text": "Yes. Needs vary from project to project with respect to expertise needed, project scope, timeline, and other factors. Each project summary page describes expectations and requirements for that project. When appropriate and feasible, OSP encourages people within or across organizations to work collaboratively. If you are interested in working with one or more collaborators but have not identified those collaborators, please contact OSP at [partnerships@osbm.nc.gov](mailto:partnerships@osbm.nc.gov)."
       },
       {
         "title": "Is there funding for projects?",
@@ -28,13 +28,13 @@
       },
       {
         "title": "Can I propose a project idea?",
-        "text": "Yes! OSP welcomes ideas for government-research partnerships or other cross-sector collaborative opportunities. If you have a project idea, please email partnerships@osbm.nc.gov with a brief description of your proposed project. The description should include, at a minimum, a project overview, how the results would benefit North Carolinians, and an estimated timeline."
+        "text": "Yes! OSP welcomes ideas for government-research partnerships or other cross-sector collaborative opportunities. If you have a project idea, please email [partnerships@osbm.nc.gov](mailto:partnerships@osbm.nc.gov) with a brief description of your proposed project. The description should include, at a minimum, a project overview, how the results would benefit North Carolinians, and an estimated timeline."
       }
     ]
   },
   "contact": {
     "title": "How do I connect with the NC Office of Strategic Partnerships?",
-    "lede": "If you have questions about the Project Portal or about the NC Office of Strategic Partnerships more broadly, please email [partnerships@osbm.nc.gov](mailto:partnerships@osbm.nc.gov)."
+    "lede": "If you have questions about the NC Project Portal or about the NC Office of Strategic Partnerships more broadly, please email [partnerships@osbm.nc.gov](mailto:partnerships@osbm.nc.gov)."
   },
   "open": {
     "title": "Open partnership opportunities",
