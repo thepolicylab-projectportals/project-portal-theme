@@ -22,13 +22,15 @@ export const BottomBanner = () => {
     <div className="py-6 mt-12 overflow-hidden bg-rd p-responsive">
       <div className="m-responsive">
         <div className="w-full flex gap-4 sm:gap-8 items-center justify-center flex-wrap">
-          <div className="flex-1">
-            <GatsbyImage
-              className="inline-block"
-              image={image}
-              alt="R+D logo"
-            />
-          </div>
+          {image && (
+            <div className="flex-1">
+              <GatsbyImage
+                className="inline-block"
+                image={image}
+                alt="R+D logo"
+              />
+            </div>
+          )}
           <div className="inline-block text-body flex-4 min-w-20ch">
             <MarkdownText text={language.bottom_banner.text} />
           </div>
