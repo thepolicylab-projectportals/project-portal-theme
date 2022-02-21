@@ -1,13 +1,12 @@
 import React, { useState } from "react"
 import { graphql } from "gatsby"
-import { Navbar, SiteMetadata } from "../components"
+import { MarkdownText, Navbar, SiteMetadata } from "../components"
 import { Layout } from "../layouts/Layout"
 import { HeaderWithImage } from "../components/HeaderWithImage"
 import { Disclosure } from "@headlessui/react"
 import { FaPlus, FaMinus } from "react-icons/fa"
 import language from "site/language.json"
 import meta from "site/meta.json"
-import { MarkdownText } from "../components/MarkdownText"
 
 interface AboutProps {
   data: {

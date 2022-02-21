@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react"
-import { MarkdownText } from "../components/MarkdownText"
+import { MarkdownText } from "../components"
 
 interface SectionOfItemProps {
   label: string

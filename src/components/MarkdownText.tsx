@@ -3,24 +3,16 @@ import React from "react"
 
 export interface MarkdownTextProps {
   text: string
+  className?: string
 }
 
-const LiItem = ({ children, ...props }) => {
-  return (
-    <li {...props}>
-      <span>{children}</span>
-    </li>
-  )
-}
-
-export const MarkdownText = ({ text }: MarkdownTextProps) => {
+export const MarkdownText = ({ text, className }: MarkdownTextProps) => {
   return (
     <Markdown
+      className={className}
       options={{
+        forceBlock: true,
         overrides: {
-          wrapper: "div",
-          forceWrapper: true,
-          forceBlock: true,
           a: {
             props: {
               className: "text-link underline hover:no-underline",
@@ -36,8 +28,10 @@ export const MarkdownText = ({ text }: MarkdownTextProps) => {
               className: "list-outside list-disc ml-5",
             },
           },
-          li: {
-            component: LiItem,
+          ol: {
+            props: {
+              className: "list-outside list-decimal ml-5",
+            },
           },
         },
       }}

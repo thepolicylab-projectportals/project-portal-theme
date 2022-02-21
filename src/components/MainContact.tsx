@@ -1,16 +1,7 @@
 import React, { FunctionComponent } from "react"
 import { Link } from "gatsby"
-import { Contact } from "../components"
+import { Contact, MarkdownText } from "../components"
 import { statusOutput } from "../utils"
-import { MarkdownText } from "../components/MarkdownText"
-
-const LiItem = ({ children, ...props }) => {
-  return (
-    <li {...props}>
-      <span>{children}</span>
-    </li>
-  )
-}
 
 interface ProjectContactProps {
   name: string

@@ -1,6 +1,6 @@
 import { withPrefix } from "gatsby"
 import React from "react"
-import { MarkdownText } from "../components/MarkdownText"
+import { MarkdownText } from "../components"
 interface HeaderWithImageProps {
   title: string
   lede: string
@@ -27,7 +27,7 @@ export const HeaderWithImage = ({
           <h1 className="pb-3 mb-4 text-h3 sm:text-h1 font-bold text-black">
             {title}
           </h1>
-          <MarkdownText text={lede} />
+          <MarkdownText className="text-body leading-normal" text={lede} />
         </div>
       </div>
     </div>

@@ -1,10 +1,9 @@
 import React, { Component } from "react"
 import { graphql, navigate } from "gatsby"
-import { Navbar, SiteMetadata } from "../components"
+import { MarkdownText, Navbar, SiteMetadata } from "../components"
 import { Layout } from "../layouts/Layout"
 import { HeaderWithImage } from "../components/HeaderWithImage"
 import language from "site/language.json"
-import { MarkdownText } from "../components/MarkdownText"
 
 const encode = (data: { [Key: string]: string }) => {
   return Object.keys(data)
@@ -181,9 +180,10 @@ export default ({ data }: ContactProps) => {
         <h1 className="mt-8 mb-2 text-h2 font-bold">
           {language.contact.title}
         </h1>
-        <div className="mb-10 leading-normal text-body lg:text-body">
-          <MarkdownText text={language.contact.lede} />
-        </div>
+        <MarkdownText
+          className="mb-10 leading-normal text-body lg:text-body"
+          text={language.contact.lede}
+        />
         <ContactForm />
       </article>
     </Layout>
