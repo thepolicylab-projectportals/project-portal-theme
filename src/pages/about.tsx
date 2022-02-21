@@ -1,13 +1,12 @@
 import React, { useState } from "react"
 import { graphql } from "gatsby"
-import { Navbar, SiteMetadata } from "../components"
+import { MarkdownText, Navbar, SiteMetadata } from "../components"
 import { Layout } from "../layouts/Layout"
 import { HeaderWithImage } from "../components/HeaderWithImage"
 import { Disclosure } from "@headlessui/react"
 import { FaPlus, FaMinus } from "react-icons/fa"
 import language from "site/language.json"
 import meta from "site/meta.json"
-import Markdown from "markdown-to-jsx"
 
 interface AboutProps {
   data: {
@@ -37,7 +36,7 @@ const Accordion: React.FC<AccordionProps> = ({ title, text }) => {
               {open ? <FaMinus /> : <FaPlus />}
             </Disclosure.Button>
             <Disclosure.Panel className="text-body p-4 w-9/10">
-              {text}
+              <MarkdownText text={text} />
             </Disclosure.Panel>
           </>
         )}
@@ -50,19 +49,7 @@ const AboutList = ({ aboutTitle, aboutText }) => {
   return (
     <div className="mb-8">
       {aboutTitle && <h3 className="text-h3 mb-4">{aboutTitle}</h3>}
-      <Markdown
-        options={{
-          overrides: {
-            a: {
-              props: {
-                className: "underline hover:no-underline",
-              },
-            },
-          },
-        }}
-      >
-        {aboutText}
-      </Markdown>
+      <MarkdownText text={aboutText} />
     </div>
   )
 }

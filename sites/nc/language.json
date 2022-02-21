@@ -58,8 +58,8 @@
     },
     "links": [
       {
-        "title": "EMPLOYEE DIRECTORY",
-        "link": "https://www.osbm.nc.gov/employee-directory"
+        "title": "STAFF DIRECTORY",
+        "link": "https://www.osbm.nc.gov/operational-excellence/office-strategic-partnerships/nc-office-strategic-partnerships-team"
       },
       {
         "title": "ACCESSIBILITY",
@@ -74,5 +74,8 @@
         "link": "https://www.nc.gov/government/open-budget"
       }
     ]
+  },
+  "bottom_banner": {
+    "text": "This portal is part of a pilot initiative to support applied research partnerships. If you have ideas for how to further improve it, please [let us know!](mailto:partnerships@osbm.nc.gov?cc=thepolicylab@brown.edu)"
   }
 }

@@ -27,7 +27,7 @@ export const query = graphql`
           deliverable
           expertise
           keyDates
-          opportunityCloses
+          endDate
           agency
           topics
           commitment
@@ -39,6 +39,7 @@ export const query = graphql`
           priorResearch
           fundingInfo
           collaborationType
+          lastModified
         }
       }
     }
