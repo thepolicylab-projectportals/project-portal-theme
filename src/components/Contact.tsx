@@ -56,7 +56,7 @@ export const Contact: React.FC<ContactProps> = ({
         <p className="text-black text-body">{title}</p>
         <p className="text-black text-body">{employer}</p>
         {showEmail ? (
-          <p className="text-black text-body underline break-all">{email}</p>
+          <p className="text-black text-body break-all">{email}</p>
         ) : (
           ""
         )}
