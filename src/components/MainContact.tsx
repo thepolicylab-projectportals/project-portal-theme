@@ -52,7 +52,7 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
           {statusOutput(
             status,
             "Interested in collaborating?",
-            "The project is ongoing.",
+            "The project is in progress.",
             "The project is complete."
           )}
         </h4>
