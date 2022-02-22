@@ -88,7 +88,7 @@ export const Card: FunctionComponent<CardProps> = ({
                 )
               }
               <div className="mb-4 text-body">
-                <span className="font-bold">Department: </span>
+                <span className="font-bold">Department or Agency: </span>
                 {agency}
               </div>
               <div className="text-tag mt-4">
@@ -97,7 +97,14 @@ export const Card: FunctionComponent<CardProps> = ({
             </div>
           </div>
           <div className="p-5 pb-1 mt-auto border-t-2 border-solid">
-            <button className="btn-wide">View opportunity</button>
+            <button className="btn-wide">
+              {statusOutput(
+                status,
+                "View opportunity",
+                "View project",
+                "View project"
+              )}
+            </button>
           </div>
         </div>
       </Link>

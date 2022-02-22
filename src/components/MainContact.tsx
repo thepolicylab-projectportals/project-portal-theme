@@ -33,7 +33,7 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
   //   </>
   // )
   const ongoingText =
-    "As with all collaborations, we plan to post results and deliverables as soon as the project is complete. In the meantime, we welcome questions about the project."
+    "We plan to post results and deliverables when the project is complete. In the meantime, we welcome questions about the project."
 
   const completeText =
     "We hope that you find the deliverables useful. We welcome questions about the project or how you might apply these results in your program."
@@ -52,7 +52,7 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
           {statusOutput(
             status,
             "Interested in collaborating?",
-            "The project is ongoing.",
+            "The project is in progress.",
             "The project is complete."
           )}
         </h4>
