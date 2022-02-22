@@ -36,7 +36,7 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
     "We plan to post results and deliverables when the project is complete. In the meantime, we welcome questions about the project."
 
   const completeText =
-    "We hope that you find the deliverables useful. We welcome questions about the project or how you might apply these results in your program."
+    "We’re eager to learn how you use the results and welcome any questions."
 
   let mainText =
     status === "open"
