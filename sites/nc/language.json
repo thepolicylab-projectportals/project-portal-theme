@@ -34,7 +34,7 @@
   },
   "contact": {
     "title": "How do I connect with the NC Office of Strategic Partnerships?",
-    "lede": "If you have questions about the NC Project Portal or about the NC Office of Strategic Partnerships more broadly, please contact us using the form below."
+    "lede": "If you have questions or feedback about the NC Project Portal, or questions about the Office of Strategic Partnerships (OSP) more broadly, please contact us using the form below. Submissions will be sent to OSP and The Policy Lab at Brown University, who are collaborating with us on the NC Project Portal."
   },
   "open": {
     "title": "Open partnership opportunities",
@@ -76,6 +76,6 @@
     ]
   },
   "bottom_banner": {
-    "text": "If you have ideas for how to improve this project portal, please [let us know!](mailto:partnerships@osbm.nc.gov?cc=thepolicylab@brown.edu)"
+    "text": "This project portal was developed by OSP and The Policy Lab at Brown University. If you have ideas for how to improve it, please [let us know!](mailto:partnerships@osbm.nc.gov?cc=thepolicylab@brown.edu)"
   }
 }
