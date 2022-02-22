@@ -122,7 +122,7 @@ class ContactForm extends Component {
             aria-label="Subject"
             name="subject"
             id="subject"
-            placeholder="I want to ask a question about ..."
+            placeholder=" I want to get in touch about ..."
             required
             type="text"
             className="w-full text-contact px-3 py-2 leading-tight text-black border shadow appearance-none focus:outline-none focus:shadow-outline"
