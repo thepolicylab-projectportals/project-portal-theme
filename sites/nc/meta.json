@@ -2,5 +2,6 @@
   "title": "North Carolina Project Portal",
   "airtablePartnerName": "North Carolina",
   "url": "https://projectportal.nc.gov/",
-  "live": false
+  "live": false,
+  "gtag": "G-W667ER3CGB"
 }
