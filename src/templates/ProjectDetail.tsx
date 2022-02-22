@@ -126,7 +126,7 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
                 )
               }
               <div className="text-white text-body">
-                <span className="font-bold">Department/Agency: </span>
+                <span className="font-bold">Department or Agency: </span>
                 {agency}
               </div>
             </div>
