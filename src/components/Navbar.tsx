@@ -36,7 +36,7 @@ const NavbarItem: FunctionComponent<NavbarItemProps> = ({
 }
 
 interface NavbarProps {
-  activePage: string
+  activePage?: string
 }
 
 export const Navbar: FunctionComponent<NavbarProps> = ({
