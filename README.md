@@ -4,16 +4,6 @@ Link to the Airtable: https://airtable.com/tblGGysdQuun6M4mI/viw67jOefyUpvWNJN?b
 
 ### Gatsby theme integrated with [Airtable](https://airtable.com/)
 
-## Features
-
-- Integration with [Airtable](https://airtable.com/)
-- Item details displayed in a modal with navigation (previous / next)
-- Responsive/adaptive images via [gatsby-image](https://www.gatsbyjs.org/packages/gatsby-image/)
-- Uses utility-first [TailwindCSS](https://tailwindcss.com/) framework
-- Responsive design (desktop / mobile)
-- Generic newsletter form
-- Dark Mode support 🌙
-
 ## 🚀 Getting started
 
 Install [Node package manager (NPM)](https://nodejs.org/) (if you haven't already).
