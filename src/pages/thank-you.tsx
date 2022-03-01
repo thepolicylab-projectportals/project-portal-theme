@@ -1,6 +1,5 @@
 import React, { Component, useState } from "react"
 import { Link, withPrefix, graphql } from "gatsby"
-import { Navbar, SiteMetadata } from "../components"
 import { Layout } from "../layouts/Layout"
 import { HeaderWithImage } from "../components/HeaderWithImage"
 
@@ -18,14 +17,11 @@ interface ThankYouProps {
 
 export default ({ data }: ThankYouProps) => {
   return (
-    <Layout>
-      <SiteMetadata
-        title="Thank you"
-        description="Thank you for your interest in working with us!"
-      />
-
-      <Navbar activePage="about" />
-
+    <Layout
+      activePage="about"
+      title="Thank you"
+      description="Thank you for your interest in working with us!"
+    >
       <HeaderWithImage
         title="Thank You"
         lede=""

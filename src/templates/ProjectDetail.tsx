@@ -4,8 +4,6 @@ import { StaticImage } from "gatsby-plugin-image"
 import moment from "moment"
 import {
   Feature,
-  SiteMetadata,
-  Navbar,
   MainContact,
   SectionOfItem,
   ShareProject,
@@ -82,11 +80,7 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
   const mainContact = contacts[0].data
 
   return (
-    <Layout>
-      <SiteMetadata title={question} description={summary} />
-
-      <Navbar activePage={null} />
-
+    <Layout title={question} description={summary}>
       <article>
         <header className="py-16 p-responsive bg-primary">
           <div className="flex flex-col justify-between m-responsive lg:flex-row">

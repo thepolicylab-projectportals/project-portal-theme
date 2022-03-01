@@ -1,15 +1,11 @@
 import React from "react"
-import { SiteMetadata } from "../components"
 import { Link } from "gatsby"
+import { Layout } from "../layouts/Layout"
 
-import "@fontsource/public-sans"
-import "../styles/style.css"
-
-const Page404 = () => {
+export default () => {
   return (
-    <div className="flex items-center min-h-screen">
-      <SiteMetadata title="Error 404" description="Page not found" />
-      <div className="container">
+    <Layout title="Error 404" description="Page not found">
+      <div className="w-full py-20 px-8 lg:px-16 xl:px-24 lg:w-2/3">
         <h1 className="text-3xl font-extrabold leading-tight lg:text-5xl">
           Error 404
         </h1>
@@ -22,8 +18,6 @@ const Page404 = () => {
           </Link>
         </h3>
       </div>
-    </div>
+    </Layout>
   )
 }
-
-export default Page404
