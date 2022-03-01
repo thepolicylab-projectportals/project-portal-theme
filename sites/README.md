@@ -105,6 +105,7 @@ Make sure the following keys are set:
 AIRTABLE_API_KEY
 AIRTABLE_BASE_ID
 PP_CONFIG_BASE
+NETLIFY_SKIP_GATSBY_FUNCTIONS=true
 ```
 
 #### Set up content check
