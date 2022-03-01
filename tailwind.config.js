@@ -15,17 +15,8 @@ module.exports = {
       center: true,
       padding: "1.25rem",
     },
-    flex: {
-      4: "4 4 0%",
-    },
     fontFamily: {
       sans: ["Public Sans", "Roboto", "system-ui", "sans-serif"],
-    },
-    minHeight: {
-      "15rem": "15rem",
-    },
-    minWidth: {
-      "20ch": "20ch",
     },
     extend: {
       colors: {
@@ -40,6 +31,9 @@ module.exports = {
         primarydark: colors.cyan[800],
         warning: colors.amber[500],
       },
+      flex: {
+        4: "4 4 0%",
+      },
       fontSize: {
         h1: ["2.5rem", "2.75rem"],
         h2: ["2rem", "2.25rem"],
@@ -50,6 +44,12 @@ module.exports = {
         nav: "0.875rem",
         contact: "1rem",
         tag: "0.875rem",
+      },
+      minHeight: {
+        "15rem": "15rem",
+      },
+      minWidth: {
+        "20ch": "20ch",
       },
       maxHeight: {
         48: "12rem",

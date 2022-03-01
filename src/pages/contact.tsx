@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { graphql, navigate } from "gatsby"
-import { MarkdownText, Navbar, SiteMetadata } from "../components"
+import { MarkdownText } from "../components"
 import { Layout } from "../layouts/Layout"
 import { HeaderWithImage } from "../components/HeaderWithImage"
 import language from "site/language.json"
@@ -162,14 +162,11 @@ class ContactForm extends Component {
 
 export default ({ data }: ContactProps) => {
   return (
-    <Layout>
-      <SiteMetadata
-        title={language.contact.title}
-        description={language.contact.lede}
-      />
-
-      <Navbar activePage="Contact" />
-
+    <Layout
+      activePage="Contact"
+      title={language.contact.title}
+      description={language.contact.lede}
+    >
       <HeaderWithImage
         title="Contact"
         lede=""
