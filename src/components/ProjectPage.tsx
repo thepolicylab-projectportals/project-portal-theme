@@ -1,5 +1,5 @@
 import React from "react"
-import { Cards, CardProps, Navbar, SiteMetadata } from "../components"
+import { Cards, CardProps } from "../components"
 import { Layout } from "../layouts/Layout"
 import { HeaderWithImage } from "./HeaderWithImage"
 
@@ -30,11 +30,7 @@ export const ProjectPage = ({
   pageName,
 }: ProjectPageProps) => {
   return (
-    <Layout>
-      <SiteMetadata title={title} description={lede} />
-
-      <Navbar activePage={pageName} />
-
+    <Layout activePage={pageName} title={title} description={lede}>
       <HeaderWithImage
         title={title}
         imageSrc={data.bgImage.childImageSharp.resize.src}

@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { graphql } from "gatsby"
-import { MarkdownText, Navbar, SiteMetadata } from "../components"
+import { MarkdownText } from "../components"
 import { Layout } from "../layouts/Layout"
 import { HeaderWithImage } from "../components/HeaderWithImage"
 import { Disclosure } from "@headlessui/react"
@@ -56,11 +56,11 @@ const AboutList = ({ aboutTitle, aboutText }) => {
 
 export default ({ data }: AboutProps) => {
   return (
-    <Layout>
-      <SiteMetadata title="About" description={`About the ${meta.title}`} />
-
-      <Navbar activePage="About" />
-
+    <Layout
+      activePage="About"
+      title="About"
+      description={`About the ${meta.title}`}
+    >
       <HeaderWithImage
         title="About"
         lede=""
