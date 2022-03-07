@@ -39,6 +39,7 @@ export const createPages: GatsbyCreatePages = async ({ graphql, actions }) => {
         nodes {
           data {
             slug
+            status
           }
         }
       }
@@ -50,6 +51,67 @@ export const createPages: GatsbyCreatePages = async ({ graphql, actions }) => {
       path: `/project/${slug}`,
       component: resolve(__dirname, "../templates/ProjectDetail.tsx"),
       context: { slug },
+    })
+  })
+
+  const openPosts = allAirtable.data.allAirtable.nodes.filter(
+    (node) => node.data.status == "open"
+  ).length
+  const ongoingPosts = allAirtable.data.allAirtable.nodes.filter(
+    (node) => node.data.status == "ongoing"
+  ).length
+  const completedPosts = allAirtable.data.allAirtable.nodes.filter(
+    (node) => node.data.status == "completed"
+  ).length
+  const postsPerPage = 6
+
+  const openPages = Math.ceil(openPosts / postsPerPage)
+  const ongoingPages = Math.ceil(ongoingPosts / postsPerPage)
+  const completedPages = Math.ceil(completedPosts / postsPerPage)
+  console.log(openPages)
+
+  Array.from({ length: openPages }).forEach((_, i) => {
+    createPage({
+      path: i == 0 ? `/` : `/open/${i + 1}`,
+      component: resolve(__dirname, "../templates/index.tsx"),
+      context: {
+        tableName,
+        partnerName: meta.airtablePartnerName,
+        limit: postsPerPage,
+        skip: i * postsPerPage,
+        openPages,
+        currentPage: i + 1,
+      },
+    })
+  })
+
+  Array.from({ length: completedPages }).forEach((_, i) => {
+    createPage({
+      path: i == 0 ? `/completed` : `/completed/${i + 1}`,
+      component: resolve(__dirname, "../templates/completed.tsx"),
+      context: {
+        tableName,
+        partnerName: meta.airtablePartnerName,
+        limit: postsPerPage,
+        skip: i * postsPerPage,
+        completedPages,
+        currentPage: i + 1,
+      },
+    })
+  })
+
+  Array.from({ length: ongoingPages }).forEach((_, i) => {
+    createPage({
+      path: i == 0 ? `/ongoing` : `/ongoing/${i + 1}`,
+      component: resolve(__dirname, "../templates/ongoing.tsx"),
+      context: {
+        tableName,
+        partnerName: meta.airtablePartnerName,
+        limit: postsPerPage,
+        skip: i * postsPerPage,
+        ongoingPages,
+        currentPage: i + 1,
+      },
     })
   })
 }

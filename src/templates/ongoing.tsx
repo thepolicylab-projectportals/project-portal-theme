@@ -6,28 +6,36 @@ import language from "site/language.json"
 export default ({ data }: ProjectPageProps) =>
   ProjectPage({
     data,
-    ...language.completed,
+    ...language.ongoing,
   })
 
 export const query = graphql`
-  query CompletedQuery($tableName: String!, $partnerName: String!) {
+  query OngoingQuery(
+    $tableName: String!
+    $partnerName: String!
+    $limit: Int!
+    $skip: Int!
+  ) {
     items: allAirtable(
       filter: {
         table: { eq: $tableName }
-        data: { status: { eq: "completed" }, partnerName: { eq: $partnerName } }
+        data: { status: { eq: "ongoing" }, partnerName: { eq: $partnerName } }
       }
-      sort: { fields: [data___endDate], order: DESC }
+      sort: { fields: [data___startDate], order: DESC }
+      limit: $limit
+      skip: $skip
     ) {
       nodes {
         data {
           question
+          partnerName
           slug
           status
           summary
           deliverable
           expertise
           keyDates
-          endDate
+          startDate
           agency
           topics
           commitment
@@ -43,18 +51,7 @@ export const query = graphql`
         }
       }
     }
-    allImageSharp {
-      edges {
-        node {
-          ... on ImageSharp {
-            resize(width: 125, height: 125, rotate: 180) {
-              src
-            }
-          }
-        }
-      }
-    }
-    bgImage: file(relativePath: { regex: "/^completed.jpg$/" }) {
+    bgImage: file(relativePath: { regex: "/^ongoing.jpg$/" }) {
       childImageSharp {
         resize(width: 1536) {
           src

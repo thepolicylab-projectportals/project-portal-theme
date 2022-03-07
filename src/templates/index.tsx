@@ -10,13 +10,20 @@ export default ({ data }: ProjectPageProps) =>
   })
 
 export const query = graphql`
-  query IndexQuery($tableName: String!, $partnerName: String!) {
+  query IndexQuery(
+    $tableName: String!
+    $partnerName: String!
+    $limit: Int!
+    $skip: Int!
+  ) {
     items: allAirtable(
       filter: {
         table: { eq: $tableName }
         data: { status: { eq: "open" }, partnerName: { eq: $partnerName } }
       }
       sort: { fields: [data___opportunityCloses], order: ASC }
+      limit: $limit
+      skip: $skip
     ) {
       nodes {
         data {
