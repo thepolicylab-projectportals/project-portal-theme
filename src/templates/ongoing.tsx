@@ -5,7 +5,6 @@ import language from "site/language.json"
 
 export default function ongoingPage({ data, pageContext }) {
   const { currentPage, numPages } = pageContext
-  console.log(pageContext)
   return ProjectPage({
     currentPage,
     numPages,

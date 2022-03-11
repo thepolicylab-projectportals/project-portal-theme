@@ -3,12 +3,15 @@ import { graphql } from "gatsby"
 import { ProjectPage, ProjectPageProps } from "../components"
 import language from "site/language.json"
 
-export default ({ data }: ProjectPageProps) =>
-  ProjectPage({
+export default function completedPage({ data, pageContext }) {
+  const { currentPage, numPages } = pageContext
+  return ProjectPage({
+    currentPage,
+    numPages,
     data,
     ...language.completed,
   })
-
+}
 export const query = graphql`
   query CompletedQuery(
     $tableName: String!
