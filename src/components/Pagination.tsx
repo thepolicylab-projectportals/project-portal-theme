@@ -26,8 +26,6 @@ export const Pagination = ({ currentPage, numPages }: PaginationProps) => {
   `)
   const back_arrow = getImage(back)
   const forward_arrow = getImage(forward)
-  console.log(numPages)
-  console.log("aint no way")
   const isFirst = currentPage === 1
   const isLast = currentPage === numPages
   const prevPagePath =
