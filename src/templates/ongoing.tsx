@@ -3,11 +3,16 @@ import { graphql } from "gatsby"
 import { ProjectPage, ProjectPageProps } from "../components"
 import language from "site/language.json"
 
-export default ({ data }: ProjectPageProps) =>
-  ProjectPage({
+export default function ongoingPage({ data, pageContext }) {
+  const { currentPage, numPages } = pageContext
+  console.log(pageContext)
+  return ProjectPage({
+    currentPage,
+    numPages,
     data,
     ...language.ongoing,
   })
+}
 
 export const query = graphql`
   query OngoingQuery(

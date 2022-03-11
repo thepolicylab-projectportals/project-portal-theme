@@ -2,8 +2,11 @@ import React from "react"
 import { Cards, CardProps } from "../components"
 import { Layout } from "../layouts/Layout"
 import { HeaderWithImage } from "./HeaderWithImage"
+import { Pagination } from "./Pagination"
 
 export interface ProjectPageProps {
+  currentPage: number
+  numPages: number
   title: string
   lede: string
   pageName: string
@@ -24,6 +27,8 @@ export interface ProjectPageProps {
 }
 
 export const ProjectPage = ({
+  currentPage,
+  numPages,
   title,
   data,
   lede,
@@ -36,8 +41,8 @@ export const ProjectPage = ({
         imageSrc={data.bgImage.childImageSharp.resize.src}
         lede={lede}
       />
-
       <Cards nodes={data.items.nodes} />
+      <Pagination currentPage={currentPage} numPages={numPages} />
     </Layout>
   )
 }
