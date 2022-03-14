@@ -7,9 +7,14 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 interface PaginationProps {
   currentPage: number
   numPages: number
+  status: string
 }
 
-export const Pagination = ({ currentPage, numPages }: PaginationProps) => {
+export const Pagination = ({
+  currentPage,
+  numPages,
+  status,
+}: PaginationProps) => {
   const { back, forward } = useStaticQuery(graphql`
     query {
       back: file(relativePath: { regex: "/^back-arrow.png$/" }) {
@@ -30,21 +35,27 @@ export const Pagination = ({ currentPage, numPages }: PaginationProps) => {
   const isLast = currentPage === numPages
   const prevPagePath =
     currentPage - 1 === 1
-      ? "/ongoing/"
-      : "/ongoing/" + (currentPage - 1).toString()
-  const nextPagePath = "/ongoing/" + (currentPage + 1).toString()
+      ? `/${status}/`
+      : `/${status}/` + (currentPage - 1).toString()
+  const nextPagePath = `/${status}/` + (currentPage + 1).toString()
+
+  const prevPageClass = isFirst
+    ? "text-primary pr-4 pointer-events-none"
+    : "text-primary pr-4"
+  const nextPageClass = isLast
+    ? "text-primary pl-4 pointer-events-none"
+    : "text-primary pr-4"
 
   const getPageNumberPath = (currentIndex) => {
     if (currentIndex === 0) {
-      return "/ongoing"
+      return `/${status}/`
     }
-
-    return "/ongoing/" + (currentIndex + 1)
+    return `/${status}/` + (currentIndex + 1)
   }
 
   return (
     <div className="flex items-center gap-4 justify-center flex-wrap">
-      <Link className="text-primary pr-4" to={prevPagePath} rel="prev">
+      <Link className={prevPageClass} to={prevPagePath} rel="prev">
         <GatsbyImage
           className="inline-block mt-1.5 mr-1"
           image={back_arrow}
@@ -64,7 +75,7 @@ export const Pagination = ({ currentPage, numPages }: PaginationProps) => {
           </Link>
         )
       })}
-      <Link className="text-primary pl-4" to={nextPagePath} rel="next">
+      <Link className={nextPageClass} to={nextPagePath} rel="next">
         {" "}
         Next
         <GatsbyImage

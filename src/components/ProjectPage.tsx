@@ -10,6 +10,7 @@ export interface ProjectPageProps {
   title: string
   lede: string
   pageName: string
+  status: string
   data: {
     items: {
       nodes: {
@@ -33,6 +34,7 @@ export const ProjectPage = ({
   data,
   lede,
   pageName,
+  status,
 }: ProjectPageProps) => {
   return (
     <Layout activePage={pageName} title={title} description={lede}>
@@ -42,7 +44,11 @@ export const ProjectPage = ({
         lede={lede}
       />
       <Cards nodes={data.items.nodes} />
-      <Pagination currentPage={currentPage} numPages={numPages} />
+      <Pagination
+        currentPage={currentPage}
+        numPages={numPages}
+        status={status}
+      />
     </Layout>
   )
 }

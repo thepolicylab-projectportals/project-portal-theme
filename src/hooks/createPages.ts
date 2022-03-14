@@ -66,6 +66,7 @@ export const createPages: GatsbyCreatePages = async ({ graphql, actions }) => {
   const postsPerPage = 6
 
   var numPages = Math.ceil(openPosts / postsPerPage)
+  var status = "open"
   Array.from({ length: numPages }).forEach((_, i) => {
     createPage({
       path: i == 0 ? `/` : `/open/${i + 1}`,
@@ -77,11 +78,13 @@ export const createPages: GatsbyCreatePages = async ({ graphql, actions }) => {
         skip: i * postsPerPage,
         numPages,
         currentPage: i + 1,
+        status,
       },
     })
   })
 
   var numPages = Math.ceil(completedPosts / postsPerPage)
+  var status = "completed"
   Array.from({ length: numPages }).forEach((_, i) => {
     createPage({
       path: i == 0 ? `/completed` : `/completed/${i + 1}`,
@@ -93,11 +96,13 @@ export const createPages: GatsbyCreatePages = async ({ graphql, actions }) => {
         skip: i * postsPerPage,
         numPages,
         currentPage: i + 1,
+        status,
       },
     })
   })
 
   var numPages = Math.ceil(ongoingPosts / postsPerPage)
+  var status = "ongoing"
   Array.from({ length: numPages }).forEach((_, i) => {
     createPage({
       path: i == 0 ? `/ongoing` : `/ongoing/${i + 1}`,
@@ -109,6 +114,7 @@ export const createPages: GatsbyCreatePages = async ({ graphql, actions }) => {
         skip: i * postsPerPage,
         numPages,
         currentPage: i + 1,
+        status,
       },
     })
   })

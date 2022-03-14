@@ -4,10 +4,11 @@ import { ProjectPage, ProjectPageProps } from "../components"
 import language from "site/language.json"
 
 export default function ongoingPage({ data, pageContext }) {
-  const { currentPage, numPages } = pageContext
+  const { currentPage, numPages, status } = pageContext
   return ProjectPage({
     currentPage,
     numPages,
+    status,
     data,
     ...language.ongoing,
   })
