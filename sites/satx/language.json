@@ -67,7 +67,7 @@
   },
   "footer": {
     "heading": {
-      "title": "City of Antonio",
+      "title": "City of San Antonio",
       "link": "https://www.sanantonio.gov/"
     },
     "links": [
@@ -94,6 +94,6 @@
     ]
   },
   "bottom_banner": {
-    "text": "This portal is part of a pilot initiative to support applied research partnerships. If you have ideas for how to further improve it, please [let us know!](mailto:thepolicylab@brown.edu)"
+    "text": "This portal is part of a pilot initiative to support applied research partnerships. If you have ideas for how to further improve it, please [let us know!](/contact)"
   }
 }
