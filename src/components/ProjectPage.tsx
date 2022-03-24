@@ -3,8 +3,9 @@ import { Cards, CardProps } from "../components"
 import { Layout } from "../layouts/Layout"
 import { HeaderWithImage } from "./HeaderWithImage"
 import { Pagination } from "./Pagination"
-import { useStaticQuery, graphql } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { GatsbyImage } from "gatsby-plugin-image"
+import BackIcon from "./BackIcon.tsx"
+import ForwardIcon from "./ForwardIcon.tsx"
 
 export interface ProjectPageProps {
   title: string
@@ -32,77 +33,59 @@ export const ProjectPage = ({
   lede,
   pageName,
 }: ProjectPageProps) => {
-  const allNews = data.items.nodes // ARRAY OF ALL PROJECTS
+  const ITEMS_PER_PAGE = 6
+  // array of all projects
+  const allProjects = data.items.nodes
   const [pageStart, setPageStart] = useState(0)
-  const [pageEnd, setPageEnd] = useState(6)
-  const [list, setList] = useState([...allNews.slice(0, 6)]) //  STATE FOR THE LIST
+  const [pageEnd, setPageEnd] = useState(ITEMS_PER_PAGE)
+  //  state for the list
+  const [list, setList] = useState([...allProjects.slice(0, ITEMS_PER_PAGE)])
 
-  const [loadPrev, setLoadPrev] = useState(false) //     STATE TO TRIGGER PREV POSTS
-  const [loadNext, setLoadNext] = useState(false) //     STATE TO TRIGGER NEXT POSTS
-  const [hasPrev, setHasPrev] = useState(pageStart > 0) //  STATE OF WHETHER THERE ARE PREV POSTS
-  const [hasNext, setHasNext] = useState(pageEnd < allNews.length) //  STATE OF WHETHER THERE ARE NEXT POSTS
+  //  state of whether there are prev projects
+  const [hasPrev, setHasPrev] = useState(pageStart > 0)
+  //  state of whether there are next projects
+  const [hasNext, setHasNext] = useState(pageEnd < allProjects.length)
+
+  const numPages = Math.ceil(allProjects.length / ITEMS_PER_PAGE)
+  const [currentPage, setCurrentPage] = useState(0)
 
   const handleLoadNext = () => {
-    // HANDLE LOAD NEXT BUTTON CLICK
-    setLoadNext(true)
+    // handle load next button click
+    if (hasNext) {
+      setPageStart(pageStart + ITEMS_PER_PAGE)
+      setPageEnd(pageEnd + ITEMS_PER_PAGE)
+    }
   }
   const handleLoadPrev = () => {
-    // HANDLE LOAD PREV BUTTON CLICK
-    setLoadPrev(true)
+    // handle load prev button click
+    if (hasPrev) {
+      setPageStart(pageStart - ITEMS_PER_PAGE)
+      setPageEnd(pageEnd - ITEMS_PER_PAGE)
+    }
+  }
+
+  const handleLoadCustom = (i) => {
+    const start = i * ITEMS_PER_PAGE
+    const end = start + ITEMS_PER_PAGE
+    setPageStart(start)
+    setPageEnd(end)
   }
 
   useEffect(() => {
-    //  HANDLE LOADING THE PREV POSTS
-    if (loadPrev && hasPrev) {
-      const isMore = pageStart > 0
-      if (isMore) {
-        setPageStart(pageStart - 6) //UPDATE START/END BEFORE UPDATING LIST
-        setPageEnd(pageEnd - 6)
-        setList([...allNews.slice(pageStart - 6, pageEnd - 6)])
-      }
-      setLoadPrev(false)
-    }
-  }, [loadPrev, hasPrev])
-  useEffect(() => {
-    //  HANDLE LOADING THE NEXT POSTS
-    if (loadNext && hasNext) {
-      const isMore = pageEnd < allNews.length
-      if (isMore) {
-        setPageStart(pageStart + 6)
-        setPageEnd(pageEnd + 6)
-        setList([...allNews.slice(pageStart + 6, pageEnd + 6)])
-      }
-      setLoadNext(false)
-    }
-  }, [loadNext, hasNext])
+    //   check if there are more next projects
+    setList([...allProjects.slice(pageStart, pageEnd)])
+  }, [pageStart, pageEnd])
 
   useEffect(() => {
-    //    CHECK IF THERE ARE MORE NEXT POSTS
-    const isMore = pageStart > 0
-    setHasPrev(isMore)
-  }, [list]) //   TRIGGERED WHEN LIST IS CHANGED
-  useEffect(() => {
-    //    CHECK IF THERE ARE MORE NEXT POSTS
-    const isMore = pageEnd < allNews.length
-    setHasNext(isMore)
-  }, [list]) //   TRIGGERED WHEN LIST IS CHANGED
+    //   check if there are more next projects
+    console.log(pageStart)
+    setHasPrev(pageStart > 0)
+  }, [list]) //  triggered when list is changed
 
-  const { back, forward } = useStaticQuery(graphql`
-    query {
-      back: file(relativePath: { regex: "/^back-arrow.png$/" }) {
-        childImageSharp {
-          gatsbyImageData(width: 8)
-        }
-      }
-      forward: file(relativePath: { regex: "/^forward-arrow.png$/" }) {
-        childImageSharp {
-          gatsbyImageData(width: 8)
-        }
-      }
-    }
-  `)
-  const back_arrow = getImage(back)
-  const forward_arrow = getImage(forward)
+  useEffect(() => {
+    //   check if there are more next projects
+    setHasNext(pageEnd < allProjects.length)
+  }, [list]) // triggered when list is changed
 
   return (
     <Layout activePage={pageName} title={title} description={lede}>
@@ -113,51 +96,37 @@ export const ProjectPage = ({
       />
       <Cards nodes={list} />
       <div className="flex items-center gap-4 justify-center flex-wrap">
-        {hasPrev ? (
-          <button className="text-primary pr-4" onClick={handleLoadPrev}>
-            <GatsbyImage
-              className="inline-block mt-1.5 mr-1"
-              image={back_arrow}
-              alt="back arrow"
-            />
-            Prev
-          </button>
-        ) : (
-          <button
-            className="text-primary pr-4 pointer-events-none"
-            onClick={handleLoadPrev}
-          >
-            <GatsbyImage
-              className="inline-block mt-1.5 mr-1"
-              image={back_arrow}
-              alt="back arrow"
-            />
-            Prev
-          </button>
-        )}
-
-        {hasNext ? (
-          <button className="text-primary pr-4" onClick={handleLoadNext}>
-            Next
-            <GatsbyImage
-              className="inline-block mt-1.5 ml-1"
-              image={forward_arrow}
-              alt="forward arrow"
-            />
-          </button>
-        ) : (
-          <button
-            className="text-primary pr-4 pointer-events-none"
-            onClick={handleLoadNext}
-          >
-            Next
-            <GatsbyImage
-              className="inline-block mt-1.5 ml-1"
-              image={forward_arrow}
-              alt="forward arrow"
-            />
-          </button>
-        )}
+        <button
+          className={`pr-4 ${
+            hasPrev ? "text-primary" : "text-gray-500 pointer-events-none"
+          }`}
+          onClick={handleLoadPrev}
+        >
+          <BackIcon /> Previous
+        </button>
+        {Array.from({ length: numPages }, (_, i) => {
+          return (
+            <button
+              className={`${
+                pageStart / ITEMS_PER_PAGE === i
+                  ? "btn pointer-events-none"
+                  : "btn-white"
+              } min-w-3rem p-2 border-solid`}
+              key={"Page" + i}
+              onClick={() => handleLoadCustom(i)}
+            >
+              {i + 1}
+            </button>
+          )
+        })}
+        <button
+          className={`pl-4 ${
+            hasNext ? "text-primary" : "text-gray-500 pointer-events-none"
+          }`}
+          onClick={handleLoadNext}
+        >
+          Next <ForwardIcon />
+        </button>
       </div>
     </Layout>
   )
