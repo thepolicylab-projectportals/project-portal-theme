@@ -39,15 +39,13 @@ export const ProjectPage = ({
   const [pageStart, setPageStart] = useState(0)
   const [pageEnd, setPageEnd] = useState(ITEMS_PER_PAGE)
   //  state for the list
-  const [list, setList] = useState([...allProjects.slice(0, ITEMS_PER_PAGE)])
+  const [list, setList] = useState([...allProjects.slice(pageStart, pageEnd)])
 
   //  state of whether there are prev projects
   const [hasPrev, setHasPrev] = useState(pageStart > 0)
   //  state of whether there are next projects
   const [hasNext, setHasNext] = useState(pageEnd < allProjects.length)
-
   const numPages = Math.ceil(allProjects.length / ITEMS_PER_PAGE)
-  const [currentPage, setCurrentPage] = useState(0)
 
   const handleLoadNext = () => {
     // handle load next button click
@@ -77,13 +75,12 @@ export const ProjectPage = ({
   }, [pageStart, pageEnd])
 
   useEffect(() => {
-    //   check if there are more next projects
-    console.log(pageStart)
+    // update if there is a previous page
     setHasPrev(pageStart > 0)
   }, [list]) //  triggered when list is changed
 
   useEffect(() => {
-    //   check if there are more next projects
+    //   update if there are more next projects
     setHasNext(pageEnd < allProjects.length)
   }, [list]) // triggered when list is changed
 
