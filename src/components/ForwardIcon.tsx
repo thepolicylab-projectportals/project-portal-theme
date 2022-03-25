@@ -9,9 +9,8 @@ const ForwardIcon = () => {
       height="17.309"
       viewBox="0 0 10.775 17.309"
     >
-      <g id="back-icon" transform="translate(8.654 16.248) rotate(180)">
+      <g transform="translate(8.654 16.248) rotate(180)">
         <path
-          id="Path_900"
           data-name="Path 900"
           d="M-18540.5,8685l-7.594,7.594,7.594,7.594"
           transform="translate(18548.096 -8685)"
