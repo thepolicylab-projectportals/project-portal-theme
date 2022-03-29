@@ -52,22 +52,24 @@ export const ProjectPage = ({
     if (hasNext) {
       setPageStart(pageStart + ITEMS_PER_PAGE)
       setPageEnd(pageEnd + ITEMS_PER_PAGE)
+      // For Safari
+      document.body.scrollTo(0, 650)
+      // For Chrome, Firefox, IE and Opera
+      document.documentElement.scrollTo(0, 650)
+      //   check if there are more next projects
     }
-    // For Safari
-    document.body.scrollTop = 0
-    // For Chrome, Firefox, IE and Opera
-    document.documentElement.scrollTop = 0
   }
   const handleLoadPrev = () => {
     // handle load prev button click
     if (hasPrev) {
       setPageStart(pageStart - ITEMS_PER_PAGE)
       setPageEnd(pageEnd - ITEMS_PER_PAGE)
+      // For Safari
+      document.body.scrollTo(0, 650)
+      // For Chrome, Firefox, IE and Opera
+      document.documentElement.scrollTo(0, 650)
+      //   check if there are more next projects
     }
-    // For Safari
-    document.body.scrollTop = 0
-    // For Chrome, Firefox, IE and Opera
-    document.documentElement.scrollTop = 0
   }
 
   const handleLoadCustom = (i) => {
@@ -76,13 +78,13 @@ export const ProjectPage = ({
     setPageStart(start)
     setPageEnd(end)
     // For Safari
-    document.body.scrollTop = 0
+    document.body.scrollTo(0, 650)
     // For Chrome, Firefox, IE and Opera
-    document.documentElement.scrollTop = 0
+    document.documentElement.scrollTo(0, 650)
+    //   check if there are more next projects
   }
 
   useEffect(() => {
-    //   check if there are more next projects
     setList([...allProjects.slice(pageStart, pageEnd)])
   }, [pageStart, pageEnd])
 
