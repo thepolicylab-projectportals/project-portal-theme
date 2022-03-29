@@ -47,6 +47,7 @@ export const ProjectPage = ({
   const [hasNext, setHasNext] = useState(pageEnd < allProjects.length)
   const numPages = Math.ceil(allProjects.length / ITEMS_PER_PAGE)
 
+  console.log("test")
   const handleLoadNext = () => {
     // handle load next button click
     if (hasNext) {
