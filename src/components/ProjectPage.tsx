@@ -47,13 +47,16 @@ export const ProjectPage = ({
   const [hasNext, setHasNext] = useState(pageEnd < allProjects.length)
   const numPages = Math.ceil(allProjects.length / ITEMS_PER_PAGE)
 
-  console.log("test")
   const handleLoadNext = () => {
     // handle load next button click
     if (hasNext) {
       setPageStart(pageStart + ITEMS_PER_PAGE)
       setPageEnd(pageEnd + ITEMS_PER_PAGE)
     }
+    // For Safari
+    document.body.scrollTop = 0
+    // For Chrome, Firefox, IE and Opera
+    document.documentElement.scrollTop = 0
   }
   const handleLoadPrev = () => {
     // handle load prev button click
@@ -61,6 +64,10 @@ export const ProjectPage = ({
       setPageStart(pageStart - ITEMS_PER_PAGE)
       setPageEnd(pageEnd - ITEMS_PER_PAGE)
     }
+    // For Safari
+    document.body.scrollTop = 0
+    // For Chrome, Firefox, IE and Opera
+    document.documentElement.scrollTop = 0
   }
 
   const handleLoadCustom = (i) => {
@@ -68,6 +75,10 @@ export const ProjectPage = ({
     const end = start + ITEMS_PER_PAGE
     setPageStart(start)
     setPageEnd(end)
+    // For Safari
+    document.body.scrollTop = 0
+    // For Chrome, Firefox, IE and Opera
+    document.documentElement.scrollTop = 0
   }
 
   useEffect(() => {
