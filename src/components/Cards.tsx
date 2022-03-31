@@ -9,7 +9,7 @@ interface CardsProps {
 
 export const Cards: FunctionComponent<CardsProps> = ({ nodes }) => {
   return (
-    <div className="mt-6 mb-10 md:mx-8 lg:mt-10 lg:pt-16 lg:pb-10 overflow-hidden px-2 xl:px-12 bg-white">
+    <div className="mt-6 pb-10 md:mx-8 lg:mt-10 lg:pt-16 lg:pb-20 overflow-hidden px-2 xl:px-12 bg-white">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-3 xl:mx-6 gap-4 justify-self-center">
         {nodes.map((item, i) => (
           <Card
