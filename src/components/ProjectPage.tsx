@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import { Cards, CardProps } from "../components"
 import { Layout } from "../layouts/Layout"
 import { HeaderWithImage } from "./HeaderWithImage"
@@ -46,42 +46,31 @@ export const ProjectPage = ({
   //  state of whether there are next projects
   const [hasNext, setHasNext] = useState(pageEnd < allProjects.length)
   const numPages = Math.ceil(allProjects.length / ITEMS_PER_PAGE)
+  const scrollToRef = useRef()
 
   const handleLoadNext = () => {
+    scrollToRef.current.scrollIntoView()
     // handle load next button click
     if (hasNext) {
       setPageStart(pageStart + ITEMS_PER_PAGE)
       setPageEnd(pageEnd + ITEMS_PER_PAGE)
-      // For Safari
-      document.body.scrollTo(0, 650)
-      // For Chrome, Firefox, IE and Opera
-      document.documentElement.scrollTo(0, 650)
-      //   check if there are more next projects
     }
   }
   const handleLoadPrev = () => {
+    scrollToRef.current.scrollIntoView()
     // handle load prev button click
     if (hasPrev) {
       setPageStart(pageStart - ITEMS_PER_PAGE)
       setPageEnd(pageEnd - ITEMS_PER_PAGE)
-      // For Safari
-      document.body.scrollTo(0, 650)
-      // For Chrome, Firefox, IE and Opera
-      document.documentElement.scrollTo(0, 650)
-      //   check if there are more next projects
     }
   }
 
   const handleLoadCustom = (i) => {
+    scrollToRef.current.scrollIntoView()
     const start = i * ITEMS_PER_PAGE
     const end = start + ITEMS_PER_PAGE
     setPageStart(start)
     setPageEnd(end)
-    // For Safari
-    document.body.scrollTo(0, 650)
-    // For Chrome, Firefox, IE and Opera
-    document.documentElement.scrollTo(0, 650)
-    //   check if there are more next projects
   }
 
   useEffect(() => {
@@ -105,39 +94,41 @@ export const ProjectPage = ({
         imageSrc={data.bgImage.childImageSharp.resize.src}
         lede={lede}
       />
-      <Cards nodes={list} />
-      <div className="flex items-center gap-4 justify-center flex-wrap">
-        <button
-          className={`pr-4 ${
-            hasPrev ? "text-primary" : "text-gray-500 pointer-events-none"
-          }`}
-          onClick={handleLoadPrev}
-        >
-          <BackIcon /> Previous
-        </button>
-        {Array.from({ length: numPages }, (_, i) => {
-          return (
-            <button
-              className={`${
-                pageStart / ITEMS_PER_PAGE === i
-                  ? "btn pointer-events-none"
-                  : "btn-white"
-              } min-w-3rem p-2 border-solid`}
-              key={"Page" + i}
-              onClick={() => handleLoadCustom(i)}
-            >
-              {i + 1}
-            </button>
-          )
-        })}
-        <button
-          className={`pl-4 ${
-            hasNext ? "text-primary" : "text-gray-500 pointer-events-none"
-          }`}
-          onClick={handleLoadNext}
-        >
-          Next <ForwardIcon />
-        </button>
+      <div ref={scrollToRef}>
+        <Cards nodes={list} />
+        <div className="flex items-center gap-4 justify-center flex-wrap">
+          <button
+            className={`pr-4 ${
+              hasPrev ? "text-primary" : "text-gray-500 pointer-events-none"
+            }`}
+            onClick={handleLoadPrev}
+          >
+            <BackIcon /> Previous
+          </button>
+          {Array.from({ length: numPages }, (_, i) => {
+            return (
+              <button
+                className={`${
+                  pageStart / ITEMS_PER_PAGE === i
+                    ? "btn pointer-events-none"
+                    : "btn-white"
+                } min-w-3rem p-2 border-solid`}
+                key={"Page" + i}
+                onClick={() => handleLoadCustom(i)}
+              >
+                {i + 1}
+              </button>
+            )
+          })}
+          <button
+            className={`pl-4 ${
+              hasNext ? "text-primary" : "text-gray-500 pointer-events-none"
+            }`}
+            onClick={handleLoadNext}
+          >
+            Next <ForwardIcon />
+          </button>
+        </div>
       </div>
     </Layout>
   )
