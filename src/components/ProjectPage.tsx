@@ -48,8 +48,12 @@ export const ProjectPage = ({
   const numPages = Math.ceil(allProjects.length / ITEMS_PER_PAGE)
   const scrollToRef = useRef()
 
+  const handleScroll = () => {
+    scrollToRef?.current?.scrollIntoView()
+  }
+
   const handleLoadNext = () => {
-    scrollToRef.current.scrollIntoView()
+    handleScroll()
     // handle load next button click
     if (hasNext) {
       setPageStart(pageStart + ITEMS_PER_PAGE)
@@ -57,7 +61,7 @@ export const ProjectPage = ({
     }
   }
   const handleLoadPrev = () => {
-    scrollToRef.current.scrollIntoView()
+    handleScroll()
     // handle load prev button click
     if (hasPrev) {
       setPageStart(pageStart - ITEMS_PER_PAGE)
@@ -66,7 +70,7 @@ export const ProjectPage = ({
   }
 
   const handleLoadCustom = (i) => {
-    scrollToRef.current.scrollIntoView()
+    handleScroll()
     const start = i * ITEMS_PER_PAGE
     const end = start + ITEMS_PER_PAGE
     setPageStart(start)
@@ -94,41 +98,42 @@ export const ProjectPage = ({
         imageSrc={data.bgImage.childImageSharp.resize.src}
         lede={lede}
       />
-      <div ref={scrollToRef}>
-        <Cards nodes={list} />
-        <div className="flex items-center gap-4 justify-center flex-wrap">
-          <button
-            className={`pr-4 ${
-              hasPrev ? "text-primary" : "text-gray-500 pointer-events-none"
-            }`}
-            onClick={handleLoadPrev}
-          >
-            <BackIcon /> Previous
-          </button>
-          {Array.from({ length: numPages }, (_, i) => {
-            return (
-              <button
-                className={`${
-                  pageStart / ITEMS_PER_PAGE === i
-                    ? "btn pointer-events-none"
-                    : "btn-white"
-                } min-w-3rem p-2 border-solid`}
-                key={"Page" + i}
-                onClick={() => handleLoadCustom(i)}
-              >
-                {i + 1}
-              </button>
-            )
-          })}
-          <button
-            className={`pl-4 ${
-              hasNext ? "text-primary" : "text-gray-500 pointer-events-none"
-            }`}
-            onClick={handleLoadNext}
-          >
-            Next <ForwardIcon />
-          </button>
-        </div>
+      <div className="relative">
+        <div ref={scrollToRef} className="absolute -top-100px"></div>
+      </div>
+      <Cards nodes={list} />
+      <div className="flex items-center gap-4 justify-center flex-wrap">
+        <button
+          className={`pr-4 ${
+            hasPrev ? "text-primary" : "text-gray-500 pointer-events-none"
+          }`}
+          onClick={handleLoadPrev}
+        >
+          <BackIcon /> Previous
+        </button>
+        {Array.from({ length: numPages }, (_, i) => {
+          return (
+            <button
+              className={`${
+                pageStart / ITEMS_PER_PAGE === i
+                  ? "btn pointer-events-none"
+                  : "btn-white"
+              } min-w-3rem p-2 border-solid`}
+              key={"Page" + i}
+              onClick={() => handleLoadCustom(i)}
+            >
+              {i + 1}
+            </button>
+          )
+        })}
+        <button
+          className={`pl-4 ${
+            hasNext ? "text-primary" : "text-gray-500 pointer-events-none"
+          }`}
+          onClick={handleLoadNext}
+        >
+          Next <ForwardIcon />
+        </button>
       </div>
     </Layout>
   )
