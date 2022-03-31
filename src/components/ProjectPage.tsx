@@ -102,7 +102,7 @@ export const ProjectPage = ({
         <div ref={scrollToRef} className="absolute -top-100px"></div>
       </div>
       <Cards nodes={list} />
-      <div className="flex items-center gap-4 mt-6 justify-center flex-wrap">
+      <div className="flex items-center gap-4 justify-center flex-wrap">
         <button
           className={`pr-4 ${
             hasPrev ? "text-primary" : "text-gray-500 pointer-events-none"
