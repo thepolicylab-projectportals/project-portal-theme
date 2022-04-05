@@ -103,37 +103,43 @@ export const ProjectPage = ({
       </div>
       <Cards nodes={list} />
       <div className="flex items-center gap-4 justify-center flex-wrap">
-        <button
-          className={`pr-4 ${
-            hasPrev ? "text-primary" : "text-gray-500 pointer-events-none"
-          }`}
-          onClick={handleLoadPrev}
-        >
-          <BackIcon /> Previous
-        </button>
-        {Array.from({ length: numPages }, (_, i) => {
-          return (
-            <button
-              className={`${
-                pageStart / ITEMS_PER_PAGE === i
-                  ? "btn pointer-events-none"
-                  : "btn-white"
-              } min-w-3rem p-2 border-solid`}
-              key={"Page" + i}
-              onClick={() => handleLoadCustom(i)}
-            >
-              {i + 1}
-            </button>
-          )
-        })}
-        <button
-          className={`pl-4 ${
-            hasNext ? "text-primary" : "text-gray-500 pointer-events-none"
-          }`}
-          onClick={handleLoadNext}
-        >
-          Next <ForwardIcon />
-        </button>
+        <div className="flex-1 flex justify-end">
+          <button
+            className={`font-bold pr-4 ${
+              hasPrev ? "text-primary" : "text-gray-500 pointer-events-none"
+            }`}
+            onClick={handleLoadPrev}
+          >
+            <BackIcon /> Previous
+          </button>
+        </div>
+        <div className="flex items-center gap-4 justify-center">
+          {Array.from({ length: numPages }, (_, i) => {
+            return (
+              <button
+                className={`${
+                  pageStart / ITEMS_PER_PAGE === i
+                    ? "btn pointer-events-none"
+                    : "btn-white"
+                } min-w-3rem p-2 border-solid`}
+                key={"Page" + i}
+                onClick={() => handleLoadCustom(i)}
+              >
+                {i + 1}
+              </button>
+            )
+          })}
+        </div>
+        <div className="flex-1 flex justify-start">
+          <button
+            className={`font-bold pl-4 ${
+              hasNext ? "text-primary" : "text-gray-500 pointer-events-none"
+            }`}
+            onClick={handleLoadNext}
+          >
+            Next <ForwardIcon />
+          </button>
+        </div>
       </div>
     </Layout>
   )
