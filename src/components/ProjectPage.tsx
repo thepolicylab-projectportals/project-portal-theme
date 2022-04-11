@@ -49,7 +49,7 @@ export const ProjectPage = ({
   const scrollToRef = useRef()
 
   const handleScroll = () => {
-    scrollToRef?.current?.scrollIntoView()
+    scrollToRef?.current?.scrollIntoView({ behavior: "smooth" })
   }
 
   const handleLoadNext = () => {
