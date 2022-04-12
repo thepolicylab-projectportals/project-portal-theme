@@ -2,6 +2,8 @@ import { graphql, Link, withPrefix } from "gatsby"
 import React, { FunctionComponent } from "react"
 import { StaticImage } from "gatsby-plugin-image"
 import moment from "moment"
+import BackIcon from "../components/BackIcon.tsx"
+
 import {
   Feature,
   MainContact,
@@ -207,8 +209,8 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
           <section className="my-12">
             <Link to={withPrefix(`/${status === "open" ? "" : status}`)}>
               <button className="btn m-responsive">
-                <StaticImage class="mt-1 w-2" src="../images/backarrow.png" />
-                <span class="pl-2">Back</span>
+                <BackIcon />
+                <span className="pl-2">Back</span>
               </button>
             </Link>
           </section>
