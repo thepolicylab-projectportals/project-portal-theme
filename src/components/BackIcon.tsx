@@ -16,7 +16,7 @@ const BackIcon = () => {
           transform="translate(18548.096 -8685)"
           fill="none"
           stroke="currentColor"
-          stroke-width="3"
+          strokeWidth="3"
         />
       </g>
     </svg>
