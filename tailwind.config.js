@@ -34,6 +34,9 @@ module.exports = {
       flex: {
         4: "4 4 0%",
       },
+      spacing: {
+        "100px": "100px",
+      },
       fontSize: {
         h1: ["2.5rem", "2.75rem"],
         h2: ["2rem", "2.25rem"],
@@ -49,6 +52,7 @@ module.exports = {
         "15rem": "15rem",
       },
       minWidth: {
+        "3rem": "3rem",
         "20ch": "20ch",
       },
       maxHeight: {
