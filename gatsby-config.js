@@ -107,7 +107,7 @@ module.exports = {
     title: meta.title,
     pages: [
       { name: "Open opportunities", link: "/", show: true },
-      { name: "In-progress projects", link: "/ongoing", show: true },
+      { name: "Ongoing projects", link: "/ongoing", show: true },
       { name: "Completed projects", link: "/completed", show: true },
       { name: "About", link: "/about", show: true },
       { name: "Contact", link: "/contact", show: true },
