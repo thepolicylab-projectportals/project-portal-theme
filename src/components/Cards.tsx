@@ -13,7 +13,7 @@ export const Cards: FunctionComponent<CardsProps> = ({ nodes }) => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-3 xl:mx-6 gap-4 justify-self-center">
         {nodes.map((item, i) => (
           <Card
-            key={"card_" + i}
+            key={"card_" + item.data.slug}
             {...item.data}
             navigation={{
               current: i,

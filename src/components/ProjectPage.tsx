@@ -7,10 +7,39 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import BackIcon from "./BackIcon.tsx"
 import ForwardIcon from "./ForwardIcon.tsx"
 
+function customSort(dateField, sortDescending) {
+  return function (a, b) {
+    let sortValue = 0
+    const aValue = a.data[dateField]
+    const bValue = b.data[dateField]
+
+    // equal items sort equally
+    if (aValue === bValue) {
+      sortValue = 0
+    }
+    // nulls sort after anything else
+    else if (aValue === null) {
+      sortValue = 1
+    } else if (bValue === null) {
+      sortValue = -1
+    }
+    // otherwise, if we're descending
+    else {
+      sortValue = aValue > bValue ? -1 : 1
+    }
+
+    if (!sortDescending) {
+      sortValue = sortValue * -1
+    }
+
+    return sortValue
+  }
+}
 export interface ProjectPageProps {
   title: string
   lede: string
   pageName: string
+  dateField: string
   data: {
     items: {
       nodes: {
@@ -32,10 +61,22 @@ export const ProjectPage = ({
   data,
   lede,
   pageName,
+  dateField,
 }: ProjectPageProps) => {
   const ITEMS_PER_PAGE = 6
   // array of all projects
-  const allProjects = data.items.nodes
+
+  const [allProjects, setAllProjects] = useState(data.items.nodes)
+
+  const [sortNewestToOldest, setSortNewestToOldest] = useState(true)
+
+  useEffect(() => {
+    //sorting of allProjects based on sortNewestToOldest
+    const sortedList = [...allProjects]
+    sortedList.sort(customSort(dateField, sortNewestToOldest))
+    setAllProjects(sortedList)
+  }, [sortNewestToOldest]) // triggered when list is changed
+
   const [pageStart, setPageStart] = useState(0)
   const [pageEnd, setPageEnd] = useState(ITEMS_PER_PAGE)
   //  state for the list
@@ -79,7 +120,7 @@ export const ProjectPage = ({
 
   useEffect(() => {
     setList([...allProjects.slice(pageStart, pageEnd)])
-  }, [pageStart, pageEnd])
+  }, [pageStart, pageEnd, allProjects])
 
   useEffect(() => {
     // update if there is a previous page
@@ -91,6 +132,11 @@ export const ProjectPage = ({
     setHasNext(pageEnd < allProjects.length)
   }, [list]) // triggered when list is changed
 
+  const handleSort = (e) => {
+    setSortNewestToOldest(e.target.value === "true" ? true : false)
+    console.log(sortNewestToOldest)
+  }
+
   return (
     <Layout activePage={pageName} title={title} description={lede}>
       <HeaderWithImage
@@ -100,6 +146,15 @@ export const ProjectPage = ({
       />
       <div className="relative">
         <div ref={scrollToRef} className="absolute -top-100px"></div>
+      </div>
+      <div className="overflow-hidden px-2 xl:px-12 bg-white">
+        <label className="flex flex-wrap font-bold" for="sort">
+          Sort by
+        </label>
+        <select value={sortNewestToOldest} onChange={handleSort}>
+          <option value={true}>Newest to Oldest</option>
+          <option value={false}>Oldest to Newest</option>
+        </select>
       </div>
       <Cards nodes={list} />
       <div className="flex items-center gap-4 justify-center flex-wrap">
