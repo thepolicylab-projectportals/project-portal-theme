@@ -61,13 +61,13 @@
     "lede": "Sharing results and ideas helps us better serve our residents. Below are all our collaborations completed to date, along with findings and links to additional resources."
   },
   "ongoing": {
-    "title": "Ongoing projects",
-    "pageName": "Ongoing projects",
+    "title": "In-progress projects",
+    "pageName": "In-progress projects",
     "lede": "Learn about the ongoing research collaborations in San Antonio. Check back soon for results!"
   },
   "footer": {
     "heading": {
-      "title": "City of Antonio",
+      "title": "City of San Antonio",
       "link": "https://www.sanantonio.gov/"
     },
     "links": [
@@ -94,6 +94,6 @@
     ]
   },
   "bottom_banner": {
-    "text": "This portal is part of a pilot initiative to support applied research partnerships. If you have ideas for how to further improve it, please [let us know!](mailto:thepolicylab@brown.edu)"
+    "text": "This portal is part of a pilot initiative to support applied research partnerships. If you have ideas for how to further improve it, please [let us know!](/contact)"
   }
 }
