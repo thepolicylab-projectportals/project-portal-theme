@@ -10,6 +10,7 @@ const {
 } = require("./src/consts.js")
 
 const meta = require(`./${process.env.PP_CONFIG_BASE}meta.json`)
+const language = require(`./${process.env.PP_CONFIG_BASE}language.json`)
 const tailwindConfig = require(`./${process.env.PP_CONFIG_BASE}tailwind.config.js`)
 
 const plugins = [
@@ -106,9 +107,9 @@ module.exports = {
     siteUrl: process.env.CI ? "http://localhost:9000" : meta.url,
     title: meta.title,
     pages: [
-      { name: "Open opportunities", link: "/", show: true },
-      { name: "Ongoing projects", link: "/ongoing", show: true },
-      { name: "Completed projects", link: "/completed", show: true },
+      { name: language.open.pageName, link: "/", show: true },
+      { name: language.ongoing.pageName, link: "/ongoing", show: true },
+      { name: language.completed.pageName, link: "/completed", show: true },
       { name: "About", link: "/about", show: true },
       { name: "Contact", link: "/contact", show: true },
     ],

@@ -69,13 +69,14 @@
     "lede": "Sharing results and ideas helps us better serve our residents. Below are all our collaborations completed to date, along with findings and links to additional resources.  In-depth, detailed reports/results for each individual trial can be found on the Projects page of R&D League [website](https://www.sanantonio.gov/Innovation/R-D-League#280463953-projects)."
   },
   "ongoing": {
-    "title": "Ongoing projects",
-    "pageName": "Ongoing projects",
+
+    "title": "In-progress projects",
+    "pageName": "In-progress projects",
     "lede": "Learn about the ongoing research collaborations in San Antonio. In-depth, detailed reports/results for each individual trial can be found on the Projects page of the R&D League [website](https://www.sanantonio.gov/Innovation/R-D-League#280463953-projects)."
   },
   "footer": {
     "heading": {
-      "title": "City of Antonio",
+      "title": "City of San Antonio",
       "link": "https://www.sanantonio.gov/"
     },
     "links": [
@@ -102,6 +103,6 @@
     ]
   },
   "bottom_banner": {
-    "text": "This portal is part of a pilot initiative to support applied research partnerships. If you have ideas for how to further improve it, please [let us know!](mailto:thepolicylab@brown.edu)"
+    "text": "This portal is part of a pilot initiative to support applied research partnerships. If you have ideas for how to further improve it, please [let us know!](/contact)"
   }
 }
