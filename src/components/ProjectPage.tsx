@@ -147,16 +147,18 @@ export const ProjectPage = ({
       <div className="relative">
         <div ref={scrollToRef} className="absolute -top-100px"></div>
       </div>
-      <div className="overflow-hidden px-2 xl:px-12 bg-white">
-        <label className="flex flex-wrap font-bold" for="sort">
-          Sort by
-        </label>
-        <select id="sort" value={sortNewestToOldest} onChange={handleSort}>
-          <option value={true}>Newest to Oldest</option>
-          <option value={false}>Oldest to Newest</option>
-        </select>
+      <div className="pt-4 pb-10 md:mx-8 lg:mt-6 lg:pt-8 lg:pb-20 overflow-hidden px-2 xl:px-12 bg-white">
+        <div className="overflow-hidden mb-8 mx-3 xl:mx-6 bg-white">
+          <label className="flex flex-wrap font-bold" for="sort">
+            Sort by
+          </label>
+          <select id="sort" value={sortNewestToOldest} onChange={handleSort}>
+            <option value={true}>Newest to Oldest</option>
+            <option value={false}>Oldest to Newest</option>
+          </select>
+        </div>
+        <Cards nodes={list} />
       </div>
-      <Cards nodes={list} />
       <div className="flex items-center gap-4 justify-center flex-wrap">
         <div className="flex-1 flex justify-end">
           <button

@@ -9,19 +9,17 @@ interface CardsProps {
 
 export const Cards: FunctionComponent<CardsProps> = ({ nodes }) => {
   return (
-    <div className="mt-6 pb-10 md:mx-8 lg:mt-10 lg:pt-16 lg:pb-20 overflow-hidden px-2 xl:px-12 bg-white">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-3 xl:mx-6 gap-4 justify-self-center">
-        {nodes.map((item, i) => (
-          <Card
-            key={"card_" + item.data.slug}
-            {...item.data}
-            navigation={{
-              current: i,
-              items: nodes.map((item) => `/${item.data.slug}`),
-            }}
-          />
-        ))}
-      </div>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-3 xl:mx-6 gap-4 justify-self-center">
+      {nodes.map((item, i) => (
+        <Card
+          key={"card_" + item.data.slug}
+          {...item.data}
+          navigation={{
+            current: i,
+            items: nodes.map((item) => `/${item.data.slug}`),
+          }}
+        />
+      ))}
     </div>
   )
 }
