@@ -151,7 +151,7 @@ export const ProjectPage = ({
         <label className="flex flex-wrap font-bold" for="sort">
           Sort by
         </label>
-        <select value={sortNewestToOldest} onChange={handleSort}>
+        <select id="sort" value={sortNewestToOldest} onChange={handleSort}>
           <option value={true}>Newest to Oldest</option>
           <option value={false}>Oldest to Newest</option>
         </select>
