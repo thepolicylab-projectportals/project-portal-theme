@@ -62,7 +62,7 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
       }
       logo: file(relativePath: { regex: "/^logo.png$/" }) {
         childImageSharp {
-          gatsbyImageData(width: 60)
+          gatsbyImageData(width: 88)
         }
       }
     }
@@ -93,7 +93,7 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
               to="/"
             >
               <GatsbyImage
-                className="hidden xl:inline-block mx-4"
+                className="hidden xl:inline-block"
                 image={image}
                 alt={meta.title + " logo"}
               />
