@@ -42,7 +42,7 @@
       },
       {
         "title": "What happens after I submit an interest form?",
-        "text": "After we collect expressions of interest, agency partners, research partners, and the Office of Innovation work together to determine fit and how to best approach the project. Some projects may have a Q&A session to provide more information and some may require a more detailed submission process. The City of San Antonio prioritizes partnerships that are scalable, sustainable, and develop public, open-source resources."
+        "text": "After we collect expressions of interest, agency partners, research partners, and the Office of Innovation work together to determine fit and how to best approach the project. Some projects may have a Q&A session to provide more information and some may require a more detailed submission process. The City of San Antonio prioritizes partnerships that are scalable and sustainable, and that develop public, open-source resources."
       },
       {
         "title": "Can I propose a project idea?",
@@ -66,12 +66,12 @@
   "completed": {
     "title": "Completed projects",
     "pageName": "Completed projects",
-    "lede": "Sharing results and ideas helps us better serve our residents. Below are all our collaborations completed to date, along with findings and links to additional resources.  In-depth, detailed reports/results for each individual trial can be found on the Projects page of R&D League [website](https://www.sanantonio.gov/Innovation/R-D-League#280463953-projects)."
+    "lede": "Sharing results and ideas helps us better serve our residents. Below are all our collaborations completed to date, along with findings and links to additional resources. In-depth, detailed reports/results for each individual trial can be found on the Projects page of the [R&D League website](https://www.sanantonio.gov/Innovation/R-D-League#280463953-projects)."
   },
   "ongoing": {
     "title": "Ongoing projects",
     "pageName": "Ongoing projects",
-    "lede": "Learn about the ongoing research collaborations in San Antonio. In-depth, detailed reports/results for each individual trial can be found on the Projects page of the R&D League [website](https://www.sanantonio.gov/Innovation/R-D-League#280463953-projects)."
+    "lede": "Learn about the ongoing research collaborations in San Antonio. In-depth, detailed reports/results for each individual trial can be found on the Projects page of the [R&D League website](https://www.sanantonio.gov/Innovation/R-D-League#280463953-projects)."
   },
   "footer": {
     "heading": {

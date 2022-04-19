@@ -8,7 +8,7 @@ import language from "site/language.json"
 export const Footer = () => {
   const { logo } = useStaticQuery(graphql`
     query {
-      logo: file(relativePath: { regex: "/^footer.png/" }) {
+      logo: file(relativePath: { regex: "/^footer.png$/" }) {
         childImageSharp {
           gatsbyImageData(height: 60)
         }
