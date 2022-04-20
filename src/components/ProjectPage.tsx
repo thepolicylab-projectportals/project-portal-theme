@@ -134,6 +134,8 @@ export const ProjectPage = ({
 
   const handleSort = (e) => {
     setSortNewestToOldest(e.target.value === "true" ? true : false)
+    setPageStart(0)
+    setPageEnd(ITEMS_PER_PAGE)
     console.log(sortNewestToOldest)
   }
 
