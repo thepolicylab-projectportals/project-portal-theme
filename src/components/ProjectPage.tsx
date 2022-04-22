@@ -75,7 +75,7 @@ export const ProjectPage = ({
     const sortedList = [...allProjects]
     sortedList.sort(customSort(dateField, sortNewestToOldest))
     setAllProjects(sortedList)
-  }, [sortNewestToOldest]) // triggered when list is changed
+  }, [sortNewestToOldest])
 
   const [pageStart, setPageStart] = useState(0)
   const [pageEnd, setPageEnd] = useState(ITEMS_PER_PAGE)
@@ -136,7 +136,6 @@ export const ProjectPage = ({
     setSortNewestToOldest(e.target.value === "true" ? true : false)
     setPageStart(0)
     setPageEnd(ITEMS_PER_PAGE)
-    console.log(sortNewestToOldest)
   }
 
   return (
