@@ -4,11 +4,11 @@
     "aims": [
       {
         "title": "Build and use evidence to improve the lives of San Antonio residents.",
-        "text": "The Research Partnerships Portal is a pilot initiative from The San Antonio Office of Innovation and multiple departments within San Antonio City Government. Our goal is to connect government officials with San Antonio's rich community of Academic Institutions to answer important questions about how to best design, deliver, and evaluate city services. We believe that evidence is an important part of improving public services, and we're excited about what we can do together!"
+        "text": "The Research Partnerships Portal is a pilot initiative from the City of San Antonio’s Office of Innovation and multiple City departments. Our goal is to connect City departments and offices with San Antonio's research and philanthropic sectors to answer important questions about how to best design, deliver, and evaluate city services. We believe that evidence is an important part of improving public services and policy, and we're excited about what we can do together!"
       },
       {
         "title": "Promote durable partnerships at all stages of the learning process.",
-        "text": "We believe great work is built from lasting relationships. We're looking for thought partners, not just evaluators, and seek collaborators from a wide variety of research disciplines. Project opportunities may include problem framing, introduction to existing research, intervention and evaluation design, technical assistance, reporting, and other areas."
+        "text": "We believe that great work is built from lasting relationships. We're looking for thought partners, not just evaluators, and seek collaborators from a wide variety of research disciplines. Project opportunities may include problem framing, introduction to existing research, intervention and evaluation design, technical assistance, reporting, and other research and collaboration areas."
       },
       {
         "title": "Share knowledge about what works.",
@@ -18,7 +18,7 @@
     "faq": [
       {
         "title": "What sort of collaborators are you looking for?",
-        "text": "We are looking for academic and scientific researchers from a range of disciplines relevant to policy and program design and evaluation. Example disciplines include public policy, economics, behavioral science, sociology, marketing, data analytics, and law, but we encourage you to apply for any opportunity that you think you are a good fit for. Where possible, project summaries include information about what types of expertise are likely needed but if you have an idea for how to contribute that is different or not stated in the summary, please let us know."
+        "text": "We are looking for academic and scientific researchers from a range of disciplines relevant to policy and program design and evaluation. Example disciplines include public policy, economics, behavioral science, sociology, marketing, data analytics, and law, but we encourage you to apply for any opportunity that you think would be a good fit for you or your team. Where possible, project summaries include information about what types of expertise are likely needed but if you have an idea for how to contribute that is different or not stated in the summary, please let us know."
       },
       {
         "title": "Do I need to have prior experience working with government?",
@@ -26,7 +26,7 @@
       },
       {
         "title": "Are these opportunities available for students?",
-        "text": "It depends on the project. Check out the project description to learn more about expectations and requirements. Opportunities typically require a PhD or equivalent experience. Those challenges open to student participation will usually state so in the announcement."
+        "text": "It depends on the project, so check out the project description to learn more about expectations and requirements. Opportunities typically require a PhD or equivalent experience. Those challenges open to student participation will usually state so in the announcement."
       },
       {
         "title": "Can multiple people work on a project?",
@@ -34,7 +34,7 @@
       },
       {
         "title": "What kind of funding is available?",
-        "text": "Some projects are able to offer funding, others may not have funding available at this time, and some may be open to seeking funding from external sources. The extent and source of funding will depend on the scope of the project, level of expertise needed, and other factors. Research partners, agency officials, and the Office of Innovation can discuss funding details, including needs and potential sources, on a case-by-case basis."
+        "text": "Some projects have dedicated funding, others may not have funding available at this time, and some may be open to funding from external sources. The extent and source of funding will depend on the scope of the project, level of expertise needed, and other factors. Research partners, agency officials, and the Office of Innovation can discuss funding details on a case-by-case basis, including needs and potential sources."
       },
       {
         "title": "What kind of data is available?",
@@ -42,11 +42,11 @@
       },
       {
         "title": "What happens after I submit an interest form?",
-        "text": "After we collect expressions of interest, agency partners, research partners, and the Office of Innovation work together to determine fit and how to best approach the project. Some projects may have a Q&A session to provide more information and some may require a more detailed submission process. The City of San Antonio prioritizes partnerships that are scalable and sustainable, and that develop public, open-source resources."
+        "text": "After we collect expressions of interest, agency partners, research partners, and the Office of Innovation will work together to determine fit and how to best approach the project. Some projects may have a Q&A session to provide more information and some may require a more detailed submission process. The City of San Antonio prioritizes partnerships that are scalable, sustainable, and develop public, open-source resources."
       },
       {
         "title": "Can I propose a project idea?",
-        "text": "The City of San Antonio is always interested in exploring government–research partnerships or other cross-sector collaborative opportunities for improving city services. If you have a research idea, please email us with a description of your idea. The description should include, at a minimum, a project overview, how the results would benefit residents of San Antonio, and an estimated timeline. We’ll get in touch to discuss if it’s a good fit for the portal."
+        "text": "The City of San Antonio is always interested in exploring government–research partnerships or other cross-sector collaborative opportunities for improving City services. If you have a research idea, please email us with a description of your idea. The description should include, at a minimum, a project overview, how the results would benefit residents of San Antonio, and an estimated project timeline. We’ll get in touch to discuss if it’s a good fit for the portal."
       },
       {
         "title": "What is the R&D League?",
@@ -56,11 +56,11 @@
   },
   "contact": {
     "title": "Want to talk to the Office of Innovation? We'd love to hear from you!",
-    "lede": "Our team is happy to answer questions about the partnerships pilot, project-specific questions, general questions about working with the City of San Antonio, and gather ideas for how we can improve this site."
+    "lede": "Our team is happy to answer questions about the partnerships pilot, project-specific questions, general questions about working with the City of San Antonio, and ideas for how we can improve this site."
   },
   "open": {
     "title": "Open opportunities",
-    "lede": "San Antonio is building research partnerships to help answer questions about how to best serve city residents. We are seeking academic and scientific research partners with methodological expertise related to design, data analytics, and field experimentation, as well as domain knowledge related to the topics. Browse open opportunities below. If you would like to be considered for involvement with a project, complete the interest form and we’ll be in touch with more information about the requirements and next steps. We look forward to hearing from you!",
+    "lede": "San Antonio is building research partnerships to help answer questions about how to best serve city residents. We are seeking academic and scientific research partners with methodological expertise related to design, data analytics, and field experimentation, as well as domain knowledge related to the topics. Browse open opportunities below. If you would like to be considered for involvement with a project, complete the interest form and we’ll be in touch with more information about the requirements and next steps. We look forward to hearing from you!\n\n<b>Interested in collaborating?</b>\nClick to complete the interest form, providing:\n<li>Your contact details</li><li>The project of interest</li><li>A brief summary of your interest in the project</li>",
     "pageName": "Open opportunities"
   },
   "completed": {
