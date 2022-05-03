@@ -66,12 +66,12 @@
   "completed": {
     "title": "Completed projects",
     "pageName": "Completed projects",
-    "lede": "Sharing results and ideas helps us better serve our residents. Below are all our collaborations completed to date, along with findings and links to additional resources. In-depth, detailed reports/results for each individual trial can be found on the Projects page of the [R&D League website](https://www.sanantonio.gov/Innovation/R-D-League#280463953-projects)."
+    "lede": "Sharing results and ideas helps us better serve our residents. Below are our collaborations completed to date, along with key findings and links to additional resources. Additional information, including detailed reports/results for each individual trial, can be found on the \"Projects\" page of the City's [R&D League website](https://www.sanantonio.gov/Innovation/R-D-League#280463953-projects)."
   },
   "ongoing": {
     "title": "In-progress projects",
     "pageName": "In-progress projects",
-    "lede": "Learn about the ongoing research collaborations in San Antonio. In-depth, detailed reports/results for each individual trial can be found on the Projects page of the [R&D League website](https://www.sanantonio.gov/Innovation/R-D-League#280463953-projects)."
+    "lede": "Learn about the ongoing research collaborations in San Antonio. In-depth, detailed reports/results for each individual trial can be found on the \"Projects\" page of the City's [R&D League website](https://www.sanantonio.gov/Innovation/R-D-League#280463953-projects)."
   },
   "footer": {
     "heading": {
