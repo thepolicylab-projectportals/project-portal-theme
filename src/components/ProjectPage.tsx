@@ -6,6 +6,7 @@ import { Pagination } from "./Pagination"
 import { GatsbyImage } from "gatsby-plugin-image"
 import BackIcon from "./BackIcon.tsx"
 import ForwardIcon from "./ForwardIcon.tsx"
+import Select from "react-select"
 
 function customSort(dateField, sortDescending) {
   return function (a, b) {
@@ -64,29 +65,43 @@ export const ProjectPage = ({
   dateField,
 }: ProjectPageProps) => {
   const ITEMS_PER_PAGE = 6
-  // array of all projects
+  const allProjects = data.items.nodes
+  const [displayProjects, setDisplayProjects] = useState(data.items.nodes)
 
-  const [allProjects, setAllProjects] = useState(data.items.nodes)
+  const projectTopics = []
+
+  for (const project of allProjects) {
+    for (const topic of project.data.topics) {
+      const topicOption = { value: topic, label: topic }
+      if (
+        !projectTopics.some((existingTopic) => existingTopic.value === topic)
+      ) {
+        projectTopics.push(topicOption)
+      }
+    }
+  }
 
   const [sortNewestToOldest, setSortNewestToOldest] = useState(true)
 
   useEffect(() => {
     //sorting of allProjects based on sortNewestToOldest
-    const sortedList = [...allProjects]
+    const sortedList = [...displayProjects]
     sortedList.sort(customSort(dateField, sortNewestToOldest))
-    setAllProjects(sortedList)
+    setDisplayProjects(sortedList)
   }, [sortNewestToOldest])
 
   const [pageStart, setPageStart] = useState(0)
   const [pageEnd, setPageEnd] = useState(ITEMS_PER_PAGE)
   //  state for the list
-  const [list, setList] = useState([...allProjects.slice(pageStart, pageEnd)])
+  const [list, setList] = useState([
+    ...displayProjects.slice(pageStart, pageEnd),
+  ])
 
   //  state of whether there are prev projects
   const [hasPrev, setHasPrev] = useState(pageStart > 0)
   //  state of whether there are next projects
-  const [hasNext, setHasNext] = useState(pageEnd < allProjects.length)
-  const numPages = Math.ceil(allProjects.length / ITEMS_PER_PAGE)
+  const [hasNext, setHasNext] = useState(pageEnd < displayProjects.length)
+  const numPages = Math.ceil(displayProjects.length / ITEMS_PER_PAGE)
   const scrollToRef = useRef()
 
   const handleScroll = () => {
@@ -119,8 +134,8 @@ export const ProjectPage = ({
   }
 
   useEffect(() => {
-    setList([...allProjects.slice(pageStart, pageEnd)])
-  }, [pageStart, pageEnd, allProjects])
+    setList([...displayProjects.slice(pageStart, pageEnd)])
+  }, [pageStart, pageEnd, displayProjects])
 
   useEffect(() => {
     // update if there is a previous page
@@ -129,13 +144,36 @@ export const ProjectPage = ({
 
   useEffect(() => {
     //   update if there are more next projects
-    setHasNext(pageEnd < allProjects.length)
+    setHasNext(pageEnd < displayProjects.length)
   }, [list]) // triggered when list is changed
 
   const handleSort = (e) => {
     setSortNewestToOldest(e.target.value === "true" ? true : false)
     setPageStart(0)
     setPageEnd(ITEMS_PER_PAGE)
+  }
+
+  const [selectedOptions, setSelectedOptions] = useState([])
+
+  const [filterList, setFilterList] = useState(allProjects)
+  useEffect(() => {
+    handleScroll()
+    if (selectedOptions.length == 0) {
+      setDisplayProjects(allProjects)
+    } else {
+      const filteredResults = allProjects.filter(topicFilter)
+      setDisplayProjects(filteredResults)
+    }
+    setPageStart(0)
+    setPageEnd(ITEMS_PER_PAGE)
+  }, [selectedOptions]) // triggered when list is changed
+
+  function topicFilter(project) {
+    for (const topicValue of selectedOptions) {
+      if (project.data.topics.includes(topicValue.value)) {
+        return true
+      }
+    }
   }
 
   return (
@@ -157,6 +195,17 @@ export const ProjectPage = ({
             <option value={true}>Newest to Oldest</option>
             <option value={false}>Oldest to Newest</option>
           </select>
+        </div>
+        <div className="mb-8">
+          <label className="flex flex-wrap font-bold" for="sort">
+            Filter by
+          </label>
+          <Select
+            isMulti={true}
+            value={selectedOptions}
+            onChange={setSelectedOptions}
+            options={projectTopics}
+          />
         </div>
         <Cards nodes={list} />
       </div>
