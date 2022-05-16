@@ -147,26 +147,13 @@ export const ProjectPage = ({
     setHasNext(pageEnd < displayProjects.length)
   }, [list]) // triggered when list is changed
 
-  //   const handleSort = (val) => {
-  //     console.log(val)
-  //     setSortNewestToOldest(val)
-  //     setPageStart(0)
-  //     setPageEnd(ITEMS_PER_PAGE)
-  //   }
-
   const [selectedOptions, setSelectedOptions] = useState([])
 
   useEffect(() => {
     handleScroll()
     if (selectedOptions.length == 0) {
-      //sortedProjects, keeping up with sort preference
-      //all projects sorted, so reset display projects
       setDisplayProjects(sortedProjects)
     } else {
-      //creating copy of array by value, so sortedProjects
-      //remains array of all sorted projects
-      //[...sortedProjects]
-      //const filteredResults = sortedProjects.slice()
       setDisplayProjects(sortedProjects.filter(topicFilter))
     }
     setPageStart(0)
