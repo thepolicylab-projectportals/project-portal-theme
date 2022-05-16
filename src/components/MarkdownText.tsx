@@ -35,7 +35,7 @@ export const MarkdownText = ({ text, ...props }: MarkdownTextProps) => {
         },
       }}
     >
-      {text}
+      {text ?? ""}
     </Markdown>
   )
 }
