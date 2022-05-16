@@ -66,8 +66,8 @@ export const ProjectPage = ({
 }: ProjectPageProps) => {
   const ITEMS_PER_PAGE = 6
   const allProjects = data.items.nodes
-  const [sortedProjects, setSortedProjects] = useState(data.items.nodes)
-  const [displayProjects, setDisplayProjects] = useState(data.items.nodes)
+  const [sortedProjects, setSortedProjects] = useState(allProjects)
+  const [displayProjects, setDisplayProjects] = useState(allProjects)
 
   const projectTopics = []
 
@@ -78,6 +78,7 @@ export const ProjectPage = ({
       }
     }
   }
+
   const sortOptions = [
     { value: true, label: "Newest to Oldest" },
     { value: false, label: "Oldest to Newest" },
@@ -95,12 +96,14 @@ export const ProjectPage = ({
   const [pageStart, setPageStart] = useState(0)
   const [pageEnd, setPageEnd] = useState(ITEMS_PER_PAGE)
   //  state for the list
-  const [list, setList] = useState([...allProjects.slice(pageStart, pageEnd)])
+  const [list, setList] = useState([
+    ...displayProjects.slice(pageStart, pageEnd),
+  ])
 
   //  state of whether there are prev projects
   const [hasPrev, setHasPrev] = useState(pageStart > 0)
   //  state of whether there are next projects
-  const [hasNext, setHasNext] = useState(pageEnd < list.length)
+  const [hasNext, setHasNext] = useState(pageEnd < displayProjects.length)
   const numPages = Math.ceil(displayProjects.length / ITEMS_PER_PAGE)
   const scrollToRef = useRef()
 
@@ -154,19 +157,16 @@ export const ProjectPage = ({
     if (selectedOptions.length == 0) {
       setDisplayProjects(sortedProjects)
     } else {
-      setDisplayProjects(sortedProjects.filter(topicFilter))
+      const filteredTopics = selectedOptions.map(({ value }) => value)
+      setDisplayProjects(
+        sortedProjects.filter((project) =>
+          project.data.topics.some((topic) => filteredTopics.includes(topic))
+        )
+      )
     }
     setPageStart(0)
     setPageEnd(ITEMS_PER_PAGE)
   }, [selectedOptions, sortedProjects]) // triggered when list is changed
-
-  function topicFilter(project) {
-    for (const topicValue of selectedOptions) {
-      if (project.data.topics.includes(topicValue.value)) {
-        return true
-      }
-    }
-  }
 
   return (
     <Layout activePage={pageName} title={title} description={lede}>
