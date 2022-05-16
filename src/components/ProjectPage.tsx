@@ -153,7 +153,6 @@ export const ProjectPage = ({
   const [selectedOptions, setSelectedOptions] = useState([])
 
   useEffect(() => {
-    handleScroll()
     if (selectedOptions.length == 0) {
       setDisplayProjects(sortedProjects)
     } else {
@@ -200,7 +199,7 @@ export const ProjectPage = ({
           </div>
           <div className="flex-1 min-w-30ch">
             <label id="filter-label" className="font-bold" htmlFor="filter">
-              Filter by
+              Filter by topic
             </label>
             <Select
               aria-labelledby="filter-label"
