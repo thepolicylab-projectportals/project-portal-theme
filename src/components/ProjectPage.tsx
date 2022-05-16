@@ -6,6 +6,7 @@ import { Pagination } from "./Pagination"
 import { GatsbyImage } from "gatsby-plugin-image"
 import BackIcon from "./BackIcon.tsx"
 import ForwardIcon from "./ForwardIcon.tsx"
+import Select from "react-select"
 
 function customSort(dateField, sortDescending) {
   return function (a, b) {
@@ -64,29 +65,46 @@ export const ProjectPage = ({
   dateField,
 }: ProjectPageProps) => {
   const ITEMS_PER_PAGE = 6
-  // array of all projects
+  const allProjects = data.items.nodes
+  const [sortedProjects, setSortedProjects] = useState(allProjects)
+  const [displayProjects, setDisplayProjects] = useState(allProjects)
 
-  const [allProjects, setAllProjects] = useState(data.items.nodes)
+  const projectTopics = []
 
-  const [sortNewestToOldest, setSortNewestToOldest] = useState(true)
+  for (const project of allProjects) {
+    for (const topic of project.data.topics) {
+      if (!projectTopics.some(({ value }) => value === topic)) {
+        projectTopics.push({ value: topic, label: topic })
+      }
+    }
+  }
+
+  const sortOptions = [
+    { value: true, label: "Newest to Oldest" },
+    { value: false, label: "Oldest to Newest" },
+  ]
+  const [sortDirection, setSortDirection] = useState(sortOptions[0])
 
   useEffect(() => {
-    //sorting of allProjects based on sortNewestToOldest
     const sortedList = [...allProjects]
-    sortedList.sort(customSort(dateField, sortNewestToOldest))
-    setAllProjects(sortedList)
-  }, [sortNewestToOldest])
+    sortedList.sort(customSort(dateField, sortDirection.value))
+    setSortedProjects(sortedList)
+    setPageStart(0)
+    setPageEnd(ITEMS_PER_PAGE)
+  }, [sortDirection])
 
   const [pageStart, setPageStart] = useState(0)
   const [pageEnd, setPageEnd] = useState(ITEMS_PER_PAGE)
   //  state for the list
-  const [list, setList] = useState([...allProjects.slice(pageStart, pageEnd)])
+  const [list, setList] = useState([
+    ...displayProjects.slice(pageStart, pageEnd),
+  ])
 
   //  state of whether there are prev projects
   const [hasPrev, setHasPrev] = useState(pageStart > 0)
   //  state of whether there are next projects
-  const [hasNext, setHasNext] = useState(pageEnd < allProjects.length)
-  const numPages = Math.ceil(allProjects.length / ITEMS_PER_PAGE)
+  const [hasNext, setHasNext] = useState(pageEnd < displayProjects.length)
+  const numPages = Math.ceil(displayProjects.length / ITEMS_PER_PAGE)
   const scrollToRef = useRef()
 
   const handleScroll = () => {
@@ -119,8 +137,8 @@ export const ProjectPage = ({
   }
 
   useEffect(() => {
-    setList([...allProjects.slice(pageStart, pageEnd)])
-  }, [pageStart, pageEnd, allProjects])
+    setList([...displayProjects.slice(pageStart, pageEnd)])
+  }, [pageStart, pageEnd, displayProjects])
 
   useEffect(() => {
     // update if there is a previous page
@@ -129,13 +147,29 @@ export const ProjectPage = ({
 
   useEffect(() => {
     //   update if there are more next projects
-    setHasNext(pageEnd < allProjects.length)
+    setHasNext(pageEnd < displayProjects.length)
   }, [list]) // triggered when list is changed
 
-  const handleSort = (e) => {
-    setSortNewestToOldest(e.target.value === "true" ? true : false)
+  const [selectedOptions, setSelectedOptions] = useState([])
+
+  useEffect(() => {
+    handleScroll()
+    if (selectedOptions.length == 0) {
+      setDisplayProjects(sortedProjects)
+    } else {
+      const filteredTopics = selectedOptions.map(({ value }) => value)
+      setDisplayProjects(
+        sortedProjects.filter((project) =>
+          project.data.topics.some((topic) => filteredTopics.includes(topic))
+        )
+      )
+    }
     setPageStart(0)
     setPageEnd(ITEMS_PER_PAGE)
+  }, [selectedOptions, sortedProjects]) // triggered when list is changed
+
+  const selectStyle = {
+    placeholder: (provided) => ({ ...provided, color: "#767676" }),
   }
 
   return (
@@ -149,14 +183,36 @@ export const ProjectPage = ({
         <div ref={scrollToRef} className="absolute -top-100px"></div>
       </div>
       <div className="pt-4 pb-10 md:mx-8 lg:mt-6 lg:pt-8 lg:pb-20 overflow-hidden px-2 xl:px-12 bg-white">
-        <div className="overflow-hidden mb-8 mx-3 xl:mx-6 bg-white">
-          <label className="flex flex-wrap font-bold" for="sort">
-            Sort by
-          </label>
-          <select id="sort" value={sortNewestToOldest} onChange={handleSort}>
-            <option value={true}>Newest to Oldest</option>
-            <option value={false}>Oldest to Newest</option>
-          </select>
+        <div className="flex flex-wrap gap-4 mb-8 mx-3 xl:mx-6 bg-white">
+          <div className="flex-1 min-w-30ch">
+            <label id="sort-label" className="font-bold" htmlFor="sort">
+              Sort by
+            </label>
+            <Select
+              aria-labelledby="sort-label"
+              inputId="sort"
+              name="sort-select"
+              value={sortDirection}
+              onChange={setSortDirection}
+              options={sortOptions}
+              styles={selectStyle}
+            />
+          </div>
+          <div className="flex-1 min-w-30ch">
+            <label id="filter-label" className="font-bold" htmlFor="filter">
+              Filter by
+            </label>
+            <Select
+              aria-labelledby="filter-label"
+              inputId="filter"
+              name="filter-select"
+              isMulti={true}
+              value={selectedOptions}
+              onChange={setSelectedOptions}
+              options={projectTopics}
+              styles={selectStyle}
+            />
+          </div>
         </div>
         <Cards nodes={list} />
       </div>
