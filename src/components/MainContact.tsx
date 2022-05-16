@@ -2,6 +2,7 @@ import React, { FunctionComponent } from "react"
 import { Link } from "gatsby"
 import { Contact, MarkdownText } from "../components"
 import { statusOutput } from "../utils"
+import meta from "site/meta.json"
 
 interface ProjectContactProps {
   name: string
@@ -23,22 +24,13 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
   status,
   emailContent,
 }) => {
-  // const openText = (
-  //   <>
-  //     Researchers should use this page to express their interest in
-  //     participating and sign up for a short discussion with the project team.
-  //     The project team will share more details about the project and answer any
-  //     questions. We hope to select a collaborator by{" "}
-  //     {moment(date).format("MMMM D, YYYY")}.
-  //   </>
-  // )
   const ongoingText =
     "We plan to post results and deliverables when the project is complete. In the meantime, we welcome questions about the project."
 
   const completeText =
     "We’re eager to learn how you use the results and welcome any questions."
 
-  let mainText =
+  const mainText =
     status === "open"
       ? emailContent
       : status === "ongoing"
@@ -61,9 +53,15 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
         </div>
         <div className="mt-4">
           {status === "open" ? (
-            <a href={`mailto:${email}`}>
-              <button className="btn">Email point of contact</button>
-            </a>
+            meta.projectInterestLink ? (
+              <a href={meta.projectInterestLink} target="_blank" rel="noopener">
+                <button className="btn">Express interest</button>
+              </a>
+            ) : (
+              <a href={`mailto:${email}`}>
+                <button className="btn">Email point of contact</button>
+              </a>
+            )
           ) : (
             <Link to={"/contact"}>
               <button className="btn-white">Ask a question</button>
