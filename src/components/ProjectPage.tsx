@@ -168,6 +168,10 @@ export const ProjectPage = ({
     setPageEnd(ITEMS_PER_PAGE)
   }, [selectedOptions, sortedProjects]) // triggered when list is changed
 
+  const selectStyle = {
+    placeholder: (provided) => ({ ...provided, color: "#767676" }),
+  }
+
   return (
     <Layout activePage={pageName} title={title} description={lede}>
       <HeaderWithImage
@@ -191,6 +195,7 @@ export const ProjectPage = ({
               value={sortDirection}
               onChange={setSortDirection}
               options={sortOptions}
+              styles={selectStyle}
             />
           </div>
           <div className="flex-1 min-w-30ch">
@@ -205,6 +210,7 @@ export const ProjectPage = ({
               value={selectedOptions}
               onChange={setSelectedOptions}
               options={projectTopics}
+              styles={selectStyle}
             />
           </div>
         </div>
