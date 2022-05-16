@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react"
 import { Link } from "gatsby"
 import { Contact, MarkdownText } from "../components"
 import { statusOutput } from "../utils"
-import { projectInterestLink } from "site/meta.json"
+import meta from "site/meta.json"
 
 interface ProjectContactProps {
   name: string
@@ -53,8 +53,8 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
         </div>
         <div className="mt-4">
           {status === "open" ? (
-            projectInterestLink ? (
-              <a href={projectInterestLink} target="_blank" rel="noopener">
+            meta.projectInterestLink ? (
+              <a href={meta.projectInterestLink} target="_blank" rel="noopener">
                 <button className="btn">Express interest</button>
               </a>
             ) : (
