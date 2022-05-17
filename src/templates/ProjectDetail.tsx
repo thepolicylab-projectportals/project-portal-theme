@@ -143,25 +143,31 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
             </div>
             <div className="flex flex-col justify-between w-full py-4 lg:flex-row">
               <div className="m-responsive lg:w-3/5 xl:2/3">
-                <div className="w-full lg:w-11/12">
-                  <SectionOfItem label="Summary" value={summary} />
-                </div>
-                <div className="w-full mt-4 lg:w-11/12">
-                  <SectionOfItem
-                    label={
-                      status === "completed"
-                        ? "Deliverables"
-                        : "Anticipated deliverables"
-                    }
-                    value={deliverable}
-                  />
-                </div>
-                <div className="w-full mt-4 lg:w-11/12">
-                  <SectionOfItem
-                    label="Planned use of results"
-                    value={purpose}
-                  />
-                </div>
+                {!isNA(summary) && (
+                  <div className="w-full lg:w-11/12">
+                    <SectionOfItem label="Summary" value={summary} />
+                  </div>
+                )}
+                {!isNA(deliverable) && (
+                  <div className="w-full mt-4 lg:w-11/12">
+                    <SectionOfItem
+                      label={
+                        status === "completed"
+                          ? "Deliverables"
+                          : "Anticipated deliverables"
+                      }
+                      value={deliverable}
+                    />
+                  </div>
+                )}
+                {!isNA(purpose) && (
+                  <div className="w-full mt-4 lg:w-11/12">
+                    <SectionOfItem
+                      label="Planned use of results"
+                      value={purpose}
+                    />
+                  </div>
+                )}
                 {!isNA(fundingInfo) && (
                   <div className="w-full mt-4 lg:w-11/12">
                     <SectionOfItem label="Funding" value={fundingInfo} />
