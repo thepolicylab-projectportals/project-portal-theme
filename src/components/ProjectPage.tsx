@@ -72,9 +72,11 @@ export const ProjectPage = ({
   const projectTopics = []
 
   for (const project of allProjects) {
-    for (const topic of project.data.topics) {
-      if (!projectTopics.some(({ value }) => value === topic)) {
-        projectTopics.push({ value: topic, label: topic })
+    if (project.data.topics != null) {
+      for (const topic of project.data.topics) {
+        if (!projectTopics.some(({ value }) => value === topic)) {
+          projectTopics.push({ value: topic, label: topic })
+        }
       }
     }
   }
