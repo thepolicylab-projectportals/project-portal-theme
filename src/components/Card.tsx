@@ -2,7 +2,7 @@ import { Link } from "gatsby"
 import React, { FunctionComponent } from "react"
 import { Feature } from "."
 import { ProjectStatus } from "./ProjectStatus"
-import { statusOutput } from "../utils"
+import { statusOutput, isNA } from "../utils"
 import moment from "moment"
 
 export interface CardProps {
@@ -91,9 +91,15 @@ export const Card: FunctionComponent<CardProps> = ({
                 <span className="font-bold">Department or Agency: </span>
                 {agency}
               </div>
-              <div className="text-tag mt-4">
-                <Feature label="Topics" className="bg-topics" value={topics} />
-              </div>
+              {!isNA(topics) && (
+                <div className="text-tag mt-4">
+                  <Feature
+                    label="Topics"
+                    className="bg-topics"
+                    value={topics}
+                  />
+                </div>
+              )}
             </div>
           </div>
           <div className="p-5 pb-1 mt-auto border-t-2 border-solid">

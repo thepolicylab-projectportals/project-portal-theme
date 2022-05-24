@@ -13,8 +13,7 @@ import {
 import { Layout } from "../layouts/Layout"
 
 import { CollaboratorDetails, ProjectTeam } from "../components"
-import { statusOutput } from "../utils"
-import { isNA } from "../utils"
+import { statusOutput, isNA } from "../utils"
 
 interface ProjectDetailProps {
   data: {
@@ -132,9 +131,11 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
 
         <main className="p-responsive pb-4">
           <section className="flex flex-wrap items-start py-6 m-responsive gap-x-10 gap-y-4">
-            <div className="text-tag mt-2">
-              <Feature label="Topics" className="bg-topics" value={topics} />
-            </div>
+            {!isNA(topics) && (
+              <div className="text-tag mt-2">
+                <Feature label="Topics" className="bg-topics" value={topics} />
+              </div>
+            )}
           </section>
 
           <section className="mt-8">
