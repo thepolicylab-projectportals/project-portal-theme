@@ -72,7 +72,7 @@ export const ProjectPage = ({
   const projectTopics = []
 
   for (const project of allProjects) {
-    if (project.data.topics != null) {
+    if (project.data.topics) {
       for (const topic of project.data.topics) {
         if (!projectTopics.some(({ value }) => value === topic)) {
           projectTopics.push({ value: topic, label: topic })
