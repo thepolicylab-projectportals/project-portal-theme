@@ -8,19 +8,19 @@
     "faq": [
       {
         "title": "Do I need to have prior experience working with government?",
-        "text": "No. We hope that the NC Project Portal encourages people who have not worked with government to consider doing so. OSP can help you understand what makes for a good partnership and how it may be different (or similar) to other domains."
+        "text": "No. We hope that the NC Project Portal encourages people who have not worked with government to consider doing so."
       },
       {
         "title": "Are these opportunities open to students?",
-        "text": "Yes, for some projects. OSP encourages student involvement and, in some cases, may be able to provide support for their participation on a project. Ultimately the needs of the agency (which vary project to project) along with research partner input, determine what type of expertise will fit best for each project partnership. The project description will usually state if specific experience is required. If you're a student interested in a project, we encourage you to express your interest even if you're unsure whether your expertise is a good fit."
+        "text": "Yes, for some projects. If you're a student interested in a project, we encourage you to express your interest even if you're unsure whether your expertise is a good fit. The needs of the agency along with research partner input, determine what type of expertise will fit best for each project."
       },
       {
         "title": "Can multiple people or organizations work on a project?",
-        "text": "Yes. Needs vary from project to project with respect to expertise needed, project scope, timeline, and other factors. Each project summary page describes expectations and requirements for that project. When appropriate and feasible, OSP encourages people within or across organizations to work collaboratively. If you are interested in working with one or more collaborators but have not identified those collaborators, please contact OSP at [partnerships@osbm.nc.gov](mailto:partnerships@osbm.nc.gov)."
+        "text": "Yes. Needs vary from project to project with respect to scope, expertise needed, timeline, and other factors. OSP encourages people within or across organizations to work collaboratively when feasible. If you are interested in working with one or more collaborators but have not identified them, please contact OSP at [partnerships@osbm.nc.gov](mailto:partnerships@osbm.nc.gov)."
       },
       {
         "title": "Is there funding for projects?",
-        "text": "It depends. Project needs and the availability of funding (if needed) vary from project to project and are likely to depend on scope, deliverables, expertise needed, and other factors. OSP, agency partners, and research partners work together to determine if a project has costs, what funding may be available, and possibilities for pursuing funding, if needed."
+        "text": "It depends. The availability of funding (if needed) varies from project to project. OSP, agency partners, and research partners work together to determine if a project has costs, what funding may be available, and possibilities for pursuing funding, if needed."
       },
       {
         "title": "What kind of data are available?",
@@ -34,7 +34,7 @@
   },
   "contact": {
     "title": "How do I connect with the NC Office of Strategic Partnerships?",
-    "lede": "If you have questions or feedback about the NC Project Portal, or questions about the Office of Strategic Partnerships (OSP) more broadly, please contact us using the form below. Submissions will be sent to OSP and The Policy Lab at Brown University, who are collaborating with us on the NC Project Portal."
+    "lede": "If you have questions or feedback about the NC Project Portal or questions about the Office of Strategic Partnerships (OSP), please use the form below. Your submission will go to OSP and The Policy Lab at Brown University, which is collaborating with OSP on the NC Project Portal."
   },
   "open": {
     "title": "Open partnership opportunities",
