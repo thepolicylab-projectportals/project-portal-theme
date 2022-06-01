@@ -39,6 +39,7 @@ interface ProjectDetailProps {
         statusOfData: string
         fundingInfo: string
         emailContent: string
+        showMainContactOnProjectTeam: boolean
         contacts: {
           data: {
             name: string
@@ -74,11 +75,21 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
     priorResearch,
     statusOfData,
     fundingInfo,
+    showMainContactOnProjectTeam,
     contacts,
     emailContent,
   } = data.item.data
 
-  const mainContact = contacts[0].data
+  var mainContact = null
+  var projectTeam = null
+
+  if (contacts) {
+    mainContact = contacts[0].data
+    projectTeam = contacts
+    if (!showMainContactOnProjectTeam) {
+      projectTeam = contacts.slice(1, contacts.length)
+    }
+  }
 
   return (
     <Layout title={question} description={summary}>
@@ -210,7 +221,7 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
           ) : (
             <ProjectTeam
               title="Project Team"
-              contacts={contacts.map((contact) => contact.data)}
+              contacts={projectTeam.map((contact) => contact.data)}
             />
           )}
           <section className="my-12">
@@ -252,6 +263,7 @@ export const query = graphql`
         statusOfData
         fundingInfo
         emailContent
+        showMainContactOnProjectTeam
         contacts {
           data {
             name
