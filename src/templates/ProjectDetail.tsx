@@ -39,7 +39,7 @@ interface ProjectDetailProps {
         statusOfData: string
         fundingInfo: string
         emailContent: string
-        showMainContactOnProjectTeam: Boolean
+        showMainContactOnProjectTeam: boolean
         contacts: {
           data: {
             name: string
