@@ -80,18 +80,15 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
     emailContent,
   } = data.item.data
 
-  var mainContact
-  var projectTeam
+  var mainContact = null
+  var projectTeam = null
 
   if (contacts) {
     mainContact = contacts[0].data
-    projectTeam = contacts.slice(0, contacts.length)
+    projectTeam = contacts
     if (!showMainContactOnProjectTeam) {
       projectTeam = contacts.slice(1, contacts.length)
     }
-  } else {
-    mainContact = null
-    projectTeam = null
   }
 
   return (
