@@ -10,6 +10,11 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean"
   },
+  "peerDependencies": {
+    "gatsby": "^4.0.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
   "dependencies": {
     "@fontsource/public-sans": "^4.5.0",
     "@headlessui/react": "^1.4.2",
@@ -40,7 +45,8 @@
     "react-select": "^5.3.1",
     "react-share": "^4.4.0",
     "tailwindcss": "^2.0.1",
-    "use-media": "^1.4.0"
+    "use-media": "^1.4.0",
+    "yarn": "^1.22.18"
   },
   "devDependencies": {
     "@types/tailwindcss": "^3.0.2",
