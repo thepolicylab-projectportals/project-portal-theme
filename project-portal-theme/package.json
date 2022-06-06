@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-airtable-listing",
-  "description": "Gatsby starter theme integrated with Airtable",
-  "version": "1.0.3",
-  "author": "Wojciech Kocjan <wojciech@kocjan.net>",
+  "name": "project-portal-theme",
+  "description": "",
+  "version": "1.0.0",
+  "author": "",
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
