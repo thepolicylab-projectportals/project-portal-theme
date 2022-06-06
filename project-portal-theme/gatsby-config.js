@@ -12,7 +12,7 @@ const {
 const meta = require("./site/meta.json")
 const language = require("./site/language.json")
 const tailwindConfig = require("./site/tailwind.config.js")
-console.log()
+
 const plugins = [
   {
     resolve: `gatsby-plugin-postcss`,
