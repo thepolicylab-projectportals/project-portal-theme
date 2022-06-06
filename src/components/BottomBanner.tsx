@@ -1,5 +1,5 @@
 import { string } from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
 import React from "react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { MarkdownText } from "../components"
@@ -22,13 +22,15 @@ export const BottomBanner = () => {
     <div className="py-6 mt-12 overflow-hidden bg-rd p-responsive">
       <div className="m-responsive">
         <div className="w-full flex gap-4 sm:gap-8 items-center justify-center flex-wrap">
-          {image && (
-            <GatsbyImage
-              className="inline-block"
-              image={image}
-              alt="R+D logo"
-            />
-          )}
+          <Link to={language.bottom_banner.link}>
+            {image && (
+              <GatsbyImage
+                className="inline-block"
+                image={image}
+                alt="R+D logo"
+              />
+            )}
+          </Link>
           <div className="inline-block text-body flex-4 min-w-20ch">
             <MarkdownText text={language.bottom_banner.text} />
           </div>
