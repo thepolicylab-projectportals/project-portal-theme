@@ -1,0 +1,77 @@
+{
+  "about": {
+    "aims": [
+      {
+        "text": "The North Carolina Office of Strategic Partnerships (OSP) develops, launches, and enhances partnerships between state government and NC's research and philanthropic sectors. This includes elevating state government's internal capacity to use and generate evidence in its policy and programmatic functions.\n\nTo further facilitate this work, OSP is piloting the NC Project Portal to share state agency research needs and to empower people with a way to express interest in partnering to work on those needs.\n\nIf you are interested in working on a project, please connect. OSP seeks partners from a wide range of disciplines, reflecting the fact that needs are varied as are the backgrounds and expertise needed to address those needs. Where possible, project summaries include information about what types of expertise are likely needed but if you have an idea for how to contribute that is different or not stated in the summary, please let us know.\n\nAfter OSP collects expressions of interest, agency partners, research partners, and OSP work together to determine fit and how to best approach the project. OSP prioritizes partnerships that are scalable, sustainable, and develop public, open-source resources.\n\nTo learn more about how OSP facilitates cross-sector partnerships, watch the [Monthly Connect: North Carolina Office of Strategic Partnerships Information and Resources](https://ncosbm.sharefile.com/share/view/sef84169b1fcc4e008710fcaa118f1ee0) and visit the [OSP website](https://www.osbm.nc.gov/operational-excellence/nc-office-strategic-partnerships)."
+      }
+    ],
+    "faq": [
+      {
+        "title": "Do I need to have prior experience working with government?",
+        "text": "No. We hope that the NC Project Portal encourages people who have not worked with government to consider doing so."
+      },
+      {
+        "title": "Are these opportunities open to students?",
+        "text": "Yes, for some projects. If you're a student interested in a project, we encourage you to express your interest even if you're unsure whether your expertise is a good fit. The needs of the agency along with research partner input, determine what type of expertise will fit best for each project."
+      },
+      {
+        "title": "Can multiple people or organizations work on a project?",
+        "text": "Yes. Needs vary from project to project with respect to scope, expertise needed, timeline, and other factors. OSP encourages people within or across organizations to work collaboratively when feasible. If you are interested in working with one or more collaborators but have not identified them, please contact OSP at [partnerships@osbm.nc.gov](mailto:partnerships@osbm.nc.gov)."
+      },
+      {
+        "title": "Is there funding for projects?",
+        "text": "It depends. The availability of funding (if needed) varies from project to project. OSP, agency partners, and research partners work together to determine if a project has costs, what funding may be available, and possibilities for pursuing funding, if needed."
+      },
+      {
+        "title": "What kind of data are available?",
+        "text": "It depends. Projects with data components may involve qualitative and quantitative data. Data may already be collected or it may need to be collected. OSP, agency partners, and research partners work together to assess what data would advance a project and, in turn, whether and how to collect and share it."
+      },
+      {
+        "title": "Can I propose a project idea?",
+        "text": "Yes! OSP welcomes ideas for government-research partnerships or other cross-sector collaborative opportunities. If you have a project idea, please email [partnerships@osbm.nc.gov](mailto:partnerships@osbm.nc.gov) with a brief description of your proposed project. The description should include, at a minimum, a project overview, how the results would benefit North Carolinians, and an estimated timeline."
+      }
+    ]
+  },
+  "contact": {
+    "title": "How do I connect with the NC Office of Strategic Partnerships?",
+    "lede": "If you have questions or feedback about the NC Project Portal or questions about the Office of Strategic Partnerships (OSP), please use the form below. Your submission will go to OSP and The Policy Lab at Brown University, which is collaborating with OSP on the NC Project Portal."
+  },
+  "open": {
+    "title": "Open partnership opportunities",
+    "pageName": "Open opportunities",
+    "lede": "North Carolina state agencies are increasingly interested in collaborating with external partners to answer questions that inform decision making and improve policy and programmatic functions. The NC Office of Strategic Partnerships (OSP) helps develop, launch, and enhance these cross-sector partnerships. Learn more below about some open opportunities.\n\nOSP created the NC Project Portal to share opportunities for partnering with state agencies on their research needs and for people to express interest in pursuing those opportunities. Have a question about partnerships? Visit our [FAQ](/about) page."
+  },
+  "completed": {
+    "title": "Completed projects",
+    "pageName": "Completed projects",
+    "lede": "North Carolina state agencies collaborate with external partners to answer important research, policy, and programmatic questions.  Some of these projects the NC Office of Strategic Partnerships (OSP) works on directly and others OSP catalyzes and finds research expertise to support. Learn more below about some completed projects.\n\nOSP created the NC Project Portal to share opportunities for partnering with state agencies on their research needs and for people to express interest in pursuing those opportunities. Have a question about partnerships? Visit our [FAQ](/about) page."
+  },
+  "ongoing": {
+    "title": "In-progress projects",
+    "pageName": "In-progress projects",
+    "lede": "North Carolina state agencies collaborate with external partners to answer important research, policy, and programmatic questions. Some projects the NC Office of Strategic Partnerships (OSP) works on directly and others OSP catalyzes and finds research expertise to support. Learn more about in-progress projects here.\n\nOSP created the NC Project Portal to share opportunities for partnering with state agencies on their research needs and for people to express interest in pursuing those opportunities. Have a question about partnerships? Visit our [FAQ](/about) page."
+  },
+  "footer": {
+    "heading": {
+      "title": "NC Office of Strategic Partnerships",
+      "link": "https://www.osbm.nc.gov/"
+    },
+    "links": [
+      {
+        "title": "STAFF DIRECTORY",
+        "link": "https://www.osbm.nc.gov/operational-excellence/office-strategic-partnerships/nc-office-strategic-partnerships-team"
+      },
+      {
+        "title": "ACCESSIBILITY",
+        "link": "https://www.nc.gov/accessibility"
+      },
+      {
+        "title": "TERMS OF USE",
+        "link": "https://www.nc.gov/terms"
+      }
+    ]
+  },
+  "bottom_banner": {
+    "text": "This project portal was developed by the NC Office of Strategic Partnerships and The Policy Lab at Brown University. If you have ideas for how to improve it, please [let us know!](/contact)"
+  }
+}

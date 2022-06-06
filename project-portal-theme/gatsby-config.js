@@ -1,5 +1,5 @@
 require("dotenv").config({
-  path: `${process.env.PP_CONFIG_BASE}.env`,
+  path: `./site/.env`,
 })
 
 const path = require("path")
@@ -9,9 +9,9 @@ const {
   AIRTABLE_TABLE_CONTACTS,
 } = require("./src/consts.js")
 
-const meta = require(`./${process.env.PP_CONFIG_BASE}meta.json`)
-const language = require(`./${process.env.PP_CONFIG_BASE}language.json`)
-const tailwindConfig = require(`./${process.env.PP_CONFIG_BASE}tailwind.config.js`)
+const meta = require(`./site/meta.json`)
+const language = require(`./site/language.json`)
+const tailwindConfig = require(`./site/tailwind.config.js`)
 
 const plugins = [
   {
@@ -19,7 +19,7 @@ const plugins = [
     options: {
       postCssPlugins: [
         require("tailwindcss")({
-          config: `${process.env.PP_CONFIG_BASE}tailwind.config.js`,
+          config: `./site/tailwind.config.js`,
         }),
         require("autoprefixer"),
       ],
@@ -59,7 +59,7 @@ const plugins = [
       display: `standalone`,
       icon: path.join(
         __dirname,
-        process.env.PP_CONFIG_BASE,
+        "site",
         "images",
         "icon.png"
       ),
@@ -69,7 +69,7 @@ const plugins = [
     resolve: `gatsby-source-filesystem`,
     options: {
       name: `images`,
-      path: path.join(__dirname, process.env.PP_CONFIG_BASE, "images"),
+      path: path.join(__dirname, "site", "images"),
     },
   },
   {
@@ -80,7 +80,7 @@ const plugins = [
     // in sites/<your site>/.
     resolve: "gatsby-plugin-root-import",
     options: {
-      site: path.join(__dirname, process.env.PP_CONFIG_BASE),
+      site: path.join(__dirname, "site"),
     },
   },
 ]

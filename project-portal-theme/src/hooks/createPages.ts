@@ -1,7 +1,7 @@
 import { resolve } from "path"
 
 import { AIRTABLE_TABLE_PROJECTS as tableName } from "../consts"
-const meta = require(`../../${process.env.PP_CONFIG_BASE}meta.json`)
+const meta = require(`../../site/meta.json`)
 
 interface PageInput {
   path: string
