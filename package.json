@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "workspaces": [
+    "project-portal-theme",
+    "example"
+  ],
+  "dependencies": {
+    "yarn": "^1.22.18"
+  }
+}
