@@ -13,8 +13,7 @@ import {
 import { Layout } from "../layouts/Layout"
 
 import { CollaboratorDetails, ProjectTeam } from "../components"
-import { statusOutput } from "../utils"
-import { isNA } from "../utils"
+import { statusOutput, isNA } from "../utils"
 
 interface ProjectDetailProps {
   data: {
@@ -40,6 +39,7 @@ interface ProjectDetailProps {
         statusOfData: string
         fundingInfo: string
         emailContent: string
+        showMainContactOnProjectTeam: boolean
         contacts: {
           data: {
             name: string
@@ -75,11 +75,21 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
     priorResearch,
     statusOfData,
     fundingInfo,
+    showMainContactOnProjectTeam,
     contacts,
     emailContent,
   } = data.item.data
 
-  const mainContact = contacts[0].data
+  var mainContact = null
+  var projectTeam = null
+
+  if (contacts) {
+    mainContact = contacts[0].data
+    projectTeam = contacts
+    if (!showMainContactOnProjectTeam) {
+      projectTeam = contacts.slice(1, contacts.length)
+    }
+  }
 
   return (
     <Layout title={question} description={summary}>
@@ -132,9 +142,11 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
 
         <main className="p-responsive pb-4">
           <section className="flex flex-wrap items-start py-6 m-responsive gap-x-10 gap-y-4">
-            <div className="text-tag mt-2">
-              <Feature label="Topics" className="bg-topics" value={topics} />
-            </div>
+            {!isNA(topics) && (
+              <div className="text-tag mt-2">
+                <Feature label="Topics" className="bg-topics" value={topics} />
+              </div>
+            )}
           </section>
 
           <section className="mt-8">
@@ -209,7 +221,7 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
           ) : (
             <ProjectTeam
               title="Project Team"
-              contacts={contacts.map((contact) => contact.data)}
+              contacts={projectTeam.map((contact) => contact.data)}
             />
           )}
           <section className="my-12">
@@ -251,6 +263,7 @@ export const query = graphql`
         statusOfData
         fundingInfo
         emailContent
+        showMainContactOnProjectTeam
         contacts {
           data {
             name

@@ -34,7 +34,7 @@
       },
       {
         "title": "What kind of funding is available?",
-        "text": "Some projects have dedicated funding, others may not have funding available at this time, and some may be open to funding from external sources. The extent and source of funding will depend on the scope of the project, level of expertise needed, and other factors. Research partners, agency officials, and the Office of Innovation can discuss funding details on a case-by-case basis, including needs and potential sources."
+        "text": "Some projects have dedicated funding, others may not have funding available at this time, and some may be open to funding from external sources. The extent and source of funding will depend on the scope of the project, level of expertise needed, and other factors. Research partners, City department representatives, and the Office of Innovation can discuss funding details on a case-by-case basis, including needs and potential sources."
       },
       {
         "title": "What kind of data is available?",
@@ -42,11 +42,11 @@
       },
       {
         "title": "What happens after I submit an interest form?",
-        "text": "After we collect expressions of interest, agency partners, research partners, and the Office of Innovation will work together to determine fit and how to best approach the project. Some projects may have a Q&A session to provide more information and some may require a more detailed submission process. The City of San Antonio prioritizes partnerships that are scalable, sustainable, and develop public, open-source resources."
+        "text": "After we collect expressions of interest, City departments, research partners, and the Office of Innovation will work together to determine fit and how to best approach the project. Some projects may have a Q&A session to provide more information and some may require a more detailed submission process. The City of San Antonio prioritizes partnerships that are scalable, sustainable, and develop public, open-source resources."
       },
       {
         "title": "Can I propose a project idea?",
-        "text": "The City of San Antonio is always interested in exploring government–research partnerships or other cross-sector collaborative opportunities for improving City services. If you have a research idea, please email us with a description of your idea. The description should include, at a minimum, a project overview, how the results would benefit residents of San Antonio, and an estimated project timeline. We’ll get in touch to discuss if it’s a good fit for the portal."
+        "text": "The City of San Antonio is always interested in exploring government–research partnerships or other cross-sector collaborative opportunities for improving City services. If you have a research idea, please email us at [innovation@sanantonio.gov](mailto:innovation@sanantonio.gov) with a description of your idea. The description should include, at a minimum, a project overview, how the results would benefit residents of San Antonio, and an estimated project timeline. We’ll get in touch to discuss if it’s a good fit for the portal."
       },
       {
         "title": "What is the R&D League?",
@@ -71,7 +71,7 @@
   "ongoing": {
     "title": "In-progress projects",
     "pageName": "In-progress projects",
-    "lede": "Learn about the ongoing research collaborations in San Antonio. In-depth, detailed reports/results for each individual trial can be found on the \"Projects\" page of the City's [R&D League website](https://www.sanantonio.gov/Innovation/R-D-League#280463953-projects)."
+    "lede": "Learn about the ongoing research collaborations in San Antonio. More information on our current and past initiatives can be found on the City's [R&D League web page](https://www.sanantonio.gov/Innovation/R-D-League)."
   },
   "footer": {
     "heading": {
