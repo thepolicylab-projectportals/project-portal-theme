@@ -6,5 +6,9 @@
   ],
   "dependencies": {
     "yarn": "^1.22.18"
+  },
+  "scripts": {
+    "develop": "yarn workspace example develop",
+    "build": "yarn workspace example build"
   }
 }
