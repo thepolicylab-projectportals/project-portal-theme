@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import React from "react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { MarkdownText } from "../components"
-import language from "site/language.json"
+const language = require("../language.json")
 
 export const BottomBanner = () => {
   const { logo } = useStaticQuery(graphql`

@@ -3,7 +3,7 @@ import { graphql, navigate } from "gatsby"
 import { MarkdownText } from "../components"
 import { Layout } from "../layouts/Layout"
 import { HeaderWithImage } from "../components/HeaderWithImage"
-import language from "site/language.json"
+const language = require("../language.json")
 
 const encode = (data: { [Key: string]: string }) => {
   return Object.keys(data)

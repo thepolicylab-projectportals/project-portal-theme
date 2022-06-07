@@ -2,10 +2,11 @@ import React, { useState } from "react"
 import { graphql } from "gatsby"
 import { MarkdownText } from "../components"
 import { Layout } from "../layouts/Layout"
+const language = require("../language.json")
 import { HeaderWithImage } from "../components/HeaderWithImage"
 import { Disclosure } from "@headlessui/react"
 import { FaPlus, FaMinus } from "react-icons/fa"
-import language from "site/language.json"
+
 import meta from "site/meta.json"
 
 interface AboutProps {

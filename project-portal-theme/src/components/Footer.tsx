@@ -1,6 +1,7 @@
 import React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import { getImage } from "gatsby-plugin-image"
+const language = require("../language.json")
 
 import meta from "site/meta.json"
 import language from "site/language.json"

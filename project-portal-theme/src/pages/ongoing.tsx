@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { ProjectPage, ProjectPageProps } from "../components"
-import language from "site/language.json"
+const language = require("../language.json")
 
 export default ({ data }: ProjectPageProps) =>
   ProjectPage({
