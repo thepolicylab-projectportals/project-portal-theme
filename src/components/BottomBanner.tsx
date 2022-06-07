@@ -22,7 +22,7 @@ export const BottomBanner = () => {
     <div className="py-6 mt-12 overflow-hidden bg-rd p-responsive">
       <div className="m-responsive">
         <div className="w-full flex gap-4 sm:gap-8 items-center justify-center flex-wrap">
-          <Link to={language.bottom_banner.link}>
+          <Link id="R+D link" to={language.bottom_banner.link}>
             {image && (
               <GatsbyImage
                 className="inline-block"
