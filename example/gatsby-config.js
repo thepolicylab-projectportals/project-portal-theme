@@ -1,8 +1,3 @@
-const THEME_BLUE = "#00376D"
-const DARK_BLUE = "#092940"
-const LIGHT_BLUE = "#ECF0F3"
-const WHITE = "#ffffff"
-
 module.exports = {
   siteMetadata: {
     title: "Example Project Portal Content",
@@ -16,23 +11,9 @@ module.exports = {
       options: {
         title: "Example Project Portal",
         airtablePartnerName: "Example content",
-        tailwindConfig: {
-          theme: {
-            extend: {
-              colors: {
-                navbar: LIGHT_BLUE,
-                  rd: WHITE,
-                  footer: LIGHT_BLUE,
-                  footertext: DARK_BLUE,
-                  primary: THEME_BLUE,
-                  primarydark: DARK_BLUE,
-              },
-            },
-          },
-        }
+        projectInterestLink: ""
       }
     },
-
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {

@@ -3,7 +3,7 @@ require("dotenv").config({
 })
 
 const path = require("path")
-const merge = require('lodash.merge');
+
 
 const {
   AIRTABLE_TABLE_PROJECTS,
@@ -12,12 +12,9 @@ const {
 
 
 const language = require("./src/language.json")
-const tailwindDefaults = require("./src/tailwind.defaults.js")
 
 
 module.exports = themeOptions => {
-  tailwindConfig = merge(tailwindDefaults, themeOptions.tailwindConfig)
-
   return {
     siteMetadata: {
       title: themeOptions.title,
@@ -32,17 +29,14 @@ module.exports = themeOptions => {
         { name: "About", link: "/about", show: true },
         { name: "Contact", link: "/contact", show: true },
       ],
-      locale: "en",
-      tailwindConfig: tailwindConfig
+      locale: "en"
     },
   plugins: [
     {
       resolve: `gatsby-plugin-postcss`,
       options: {
         postCssPlugins: [
-          require("tailwindcss")({
-            config: tailwindConfig,
-          }),
+          require("tailwindcss")(require("./tailwind.config")),
           require("autoprefixer"),
         ],
       },
@@ -77,7 +71,7 @@ module.exports = themeOptions => {
         short_name: `Project Portal`,
         start_url: `/`,
         background_color: `#fafafa`,
-        theme_color: tailwindConfig.theme.extend.colors.primary[500],
+        // theme_color: tailwindConfig.theme.extend.colors.primary[500],
         display: `standalone`,
         icon: path.join(
           __dirname,

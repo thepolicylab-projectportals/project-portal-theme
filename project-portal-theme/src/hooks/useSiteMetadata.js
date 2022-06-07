@@ -6,8 +6,9 @@ export default function useSiteMetadata() {
       site {
         siteMetadata {
           title
-          projectInterestLink
           live
+          locale
+          projectInterestLink
         }
       }
     }
