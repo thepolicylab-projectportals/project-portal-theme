@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "resolveJsonModule": true,
+    "module": "commonjs",
+    "target": "es2017",
+    "noImplicitAny": false,
+    "esModuleInterop": true,
+    "jsx": "react"
+  }
+}

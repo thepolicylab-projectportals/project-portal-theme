@@ -1,13 +1,7 @@
 "use strict"
 
 require("source-map-support").install()
-require("ts-node").register({
-  compilerOptions: {
-    resolveJsonModule: true,
-    module: "commonjs",
-    target: "es2017",
-  },
-})
+require("ts-node").register(require("./tsconfig.json"))
 
 const createPagesModule = require("./src/hooks/createPages")
 
