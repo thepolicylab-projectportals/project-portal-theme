@@ -1,7 +1,6 @@
 import { resolve } from "path"
 
-import { AIRTABLE_TABLE_PROJECTS as tableName } from "../consts"
-const meta = require(`../../site/meta.json`)
+const tableName = require("../consts").AIRTABLE_TABLE_PROJECTS
 
 interface PageInput {
   path: string
@@ -24,16 +23,18 @@ interface BoundActionCreators {
 export type GatsbyCreatePages = (fns: {
   graphql: any
   actions: BoundActionCreators
-}) => void
+},
+themeOptions: any
+) => void
 
-export const createPages: GatsbyCreatePages = async ({ graphql, actions }) => {
+export const createPages: GatsbyCreatePages = async ({ graphql, actions }, themeOptions) => {
   const { createPage } = actions
   const allAirtable = await graphql(`
     {
       allAirtable(
         filter: {
           table: { eq: "${tableName}" }
-          data: { partnerName: { eq: "${meta.airtablePartnerName}" } }
+          data: { partnerName: { eq: "${themeOptions.airtablePartnerName}" } }
         }
       ) {
         nodes {
@@ -54,7 +55,7 @@ export const createPages: GatsbyCreatePages = async ({ graphql, actions }) => {
   })
 }
 
-export const onCreatePage = ({ page, actions }) => {
+export const onCreatePage = ({ page, actions }, themeOptions) => {
   const { createPage } = actions
 
   createPage({
@@ -62,7 +63,7 @@ export const onCreatePage = ({ page, actions }) => {
     context: {
       ...page.context,
       tableName,
-      partnerName: meta.airtablePartnerName,
+      partnerName: themeOptions.airtablePartnerName,
     },
   })
 }
