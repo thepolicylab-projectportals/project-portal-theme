@@ -2,7 +2,7 @@ import { graphql, Link, withPrefix } from "gatsby"
 import React, { FunctionComponent } from "react"
 import { StaticImage } from "gatsby-plugin-image"
 import moment from "moment"
-import BackIcon from "../components/BackIcon.tsx"
+import BackIcon from "../components/BackIcon"
 
 import {
   Feature,
