@@ -3,7 +3,7 @@ import { Link, withPrefix, useStaticQuery, graphql } from "gatsby"
 import { FaBars, FaTimes } from "react-icons/fa"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
-import meta from "site/meta.json"
+import useSiteMetadata from "../hooks/useSiteMetadata"
 
 interface NavbarItemProps {
   name: string
@@ -70,6 +70,8 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
 
   const image = getImage(logo)
 
+  const meta = useSiteMetadata()
+
   return (
     <>
       <nav
@@ -95,7 +97,7 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
               <GatsbyImage
                 className="hidden xl:inline-block"
                 image={image}
-                alt={meta.title + " logo"}
+                alt={meta.useSiteMetadataTitle + " logo"}
               />
               {title}
             </Link>

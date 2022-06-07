@@ -7,7 +7,7 @@ import { HeaderWithImage } from "../components/HeaderWithImage"
 import { Disclosure } from "@headlessui/react"
 import { FaPlus, FaMinus } from "react-icons/fa"
 
-import meta from "site/meta.json"
+import useSiteMetadata from "../hooks/useSiteMetadata"
 
 interface AboutProps {
   data: {
@@ -56,6 +56,7 @@ const AboutList = ({ aboutTitle, aboutText }) => {
 }
 
 export default ({ data }: AboutProps) => {
+  const meta = useSiteMetadata()
   return (
     <Layout
       activePage="About"

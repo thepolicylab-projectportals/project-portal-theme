@@ -3,8 +3,7 @@ import { Link, graphql, useStaticQuery } from "gatsby"
 import { getImage } from "gatsby-plugin-image"
 const language = require("../language.json")
 
-import meta from "site/meta.json"
-import language from "site/language.json"
+import useSiteMetadata from "../hooks/useSiteMetadata"
 
 export const Footer = () => {
   const { logo } = useStaticQuery(graphql`
@@ -18,6 +17,8 @@ export const Footer = () => {
   `)
 
   const image = getImage(logo)
+
+  const meta = useSiteMetadata()
 
   // use of GatsbyImage for the logo causs pa11y error as it doesn't register as an image
   return (

@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react"
 import { Link } from "gatsby"
 import { Contact, MarkdownText } from "../components"
 import { statusOutput } from "../utils"
-import meta from "site/meta.json"
+import useSiteMetadata from "../hooks/useSiteMetadata"
 
 interface ProjectContactProps {
   name: string
@@ -36,6 +36,8 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
       : status === "ongoing"
       ? ongoingText
       : completeText
+
+  const meta = useSiteMetadata()
 
   return (
     <div className="w-full lg:w-2/5 xl:w-1/3">

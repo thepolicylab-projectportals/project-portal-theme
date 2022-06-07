@@ -8,7 +8,7 @@ import {
   SiteMetadata,
 } from "../components"
 import "../styles/style.css"
-import meta from "site/meta.json"
+import useSiteMetadata from "../hooks/useSiteMetadata"
 
 interface LayoutProps {
   activePage?: string
@@ -23,6 +23,9 @@ export const Layout: FunctionComponent<LayoutProps> = ({
   description,
   children,
 }) => {
+
+  const meta = useSiteMetadata()
+
   return (
     <div className="w-full mx-0 bg-white border-0 xl:container xl:p-0 xl:mx-auto xl:border-l xl:border-r xl:border-gray-200 flex flex-col min-h-screen">
       {!meta.live && <DevelopmentBanner />}
