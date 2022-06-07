@@ -59,18 +59,18 @@
     "lede": "Our team is happy to answer questions about the partnerships pilot, project-specific questions, general questions about working with the City of San Antonio, and ideas for how we can improve this site."
   },
   "open": {
-    "title": "Open opportunities",
+    "title": "Open Opportunities",
     "lede": "The City of San Antonio is building research partnerships to help answer questions about how to best serve residents. We are seeking academic and scientific research partners with methodological expertise related to design, data analytics, and field experimentation, as well as domain knowledge related to the topics. Browse open opportunities below. If you would like to be considered for involvement with a project, please complete the interest form and we’ll be in touch with more information about the requirements and next steps. We look forward to hearing from you!",
-    "pageName": "Open opportunities"
+    "pageName": "Open Opportunities"
   },
   "completed": {
-    "title": "Completed projects",
-    "pageName": "Completed projects",
+    "title": "Completed Projects",
+    "pageName": "Completed Projects",
     "lede": "Sharing results and ideas helps us better serve our residents. Below are our collaborations completed to date, along with key findings and links to additional resources. Additional information, including detailed reports/results for each individual trial, can be found on the \"Projects\" page of the City's [R&D League website](https://www.sanantonio.gov/Innovation/R-D-League#280463953-projects)."
   },
   "ongoing": {
-    "title": "In-progress projects",
-    "pageName": "In-progress projects",
+    "title": "In-progress Projects",
+    "pageName": "In-progress Projects",
     "lede": "Learn about the ongoing research collaborations in San Antonio. More information on our current and past initiatives can be found on the City's [R&D League web page](https://www.sanantonio.gov/Innovation/R-D-League)."
   },
   "footer": {
