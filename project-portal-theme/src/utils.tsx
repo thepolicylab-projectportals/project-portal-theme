@@ -7,3 +7,4 @@ export const statusOutput = (
   status === "open" ? open : status === "ongoing" ? ongoing : completed
 
 export const isNA = (s: string): boolean => !s || s === "\n"
+export const isEmpty = (a: string[]): boolean => a === undefined || a.length == 0
