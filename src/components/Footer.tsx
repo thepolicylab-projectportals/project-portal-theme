@@ -22,7 +22,9 @@ export const Footer = () => {
   return (
     <footer className="w-full px-2 py-8 bg-footer xl:container xl:px-12">
       <div className="flex items-center justify-center mt-6 lg:my-auto">
-        <div className="text-footertext">{language.footer.copyright}</div>
+        <div className="text-nav text-footertext">
+          {language.footer.copyright}
+        </div>
       </div>
       <div className="flex items-center justify-center mt-6 lg:my-auto">
         <ul className="text-nav text-footertext list-none">
