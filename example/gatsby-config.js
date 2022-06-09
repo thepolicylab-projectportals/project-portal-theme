@@ -10,17 +10,7 @@ module.exports = {
     gtag: ""
   },
   plugins: [
-    {
-      resolve: `gatsby-plugin-postcss`,
-      options: {
-        postCssPlugins: [
-          require("tailwindcss")(
-            require('./tailwind.config.js')
-          ),
-          require("autoprefixer"),
-        ],
-      },
-    },
+    `gatsby-plugin-postcss`,
     {
       resolve: "project-portal-theme",
       options: {
