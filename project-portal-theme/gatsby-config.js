@@ -32,15 +32,6 @@ module.exports = themeOptions => {
       locale: "en"
     },
   plugins: [
-    {
-      resolve: `gatsby-plugin-postcss`,
-      options: {
-        postCssPlugins: [
-          require("tailwindcss")(require("./tailwind.config")),
-          require("autoprefixer"),
-        ],
-      },
-    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,

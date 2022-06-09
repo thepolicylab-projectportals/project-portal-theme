@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `./.env`,
+})
+
 module.exports = {
   siteMetadata: {
     title: "Example Project Portal Content",
@@ -7,10 +11,21 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-plugin-postcss`,
+      options: {
+        postCssPlugins: [
+          require("tailwindcss")(
+            require('./tailwind.config.js')
+          ),
+          require("autoprefixer"),
+        ],
+      },
+    },
+    {
       resolve: "project-portal-theme",
       options: {
         title: "Example Project Portal",
-        airtablePartnerName: "Example content",
+        airtablePartnerName: "North Carolina",
         projectInterestLink: ""
       }
     },
