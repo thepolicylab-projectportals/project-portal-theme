@@ -13,7 +13,7 @@ const language = require("./src/language.json")
 module.exports = themeOptions => {
   return {
     siteMetadata: {
-      title: "Project Portal Theme",
+      siteTitle: "Project Portal Theme",
       siteUrl: "http://localhost:8000",
       live: false,
       pages: [

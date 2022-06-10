@@ -5,10 +5,12 @@ export default function useSiteMetadata() {
     {
       site {
         siteMetadata {
-          title
+          siteTitle
+          short_name
+          siteUrl
+          projectInterestLink
           live
           locale
-          projectInterestLink
         }
       }
     }

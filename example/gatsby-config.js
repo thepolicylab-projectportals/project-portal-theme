@@ -3,11 +3,12 @@ require("dotenv").config({
 })
 
 const siteMetadata = {
-  title: "Example Project Portal Content",
+  siteTitle: "Example Project Portal Content",
   short_name: "Project Portal",
   siteUrl: process.env.CI ? "http://localhost:9000" : "https://localhost",
   projectInterestLink: "",
-  live: false
+  live: false,
+  locale: "en"
 }
 
 const tailwindConfig = require("./tailwind.config")
