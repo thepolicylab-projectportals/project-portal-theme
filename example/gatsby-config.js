@@ -30,7 +30,6 @@ module.exports = {
         tailwindConfig: tailwindConfig
       }
     },
-    `gatsby-plugin-postcss`,
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
