@@ -21,7 +21,6 @@ module.exports = themeOptions => {
       siteUrl: process.env.CI ? "http://localhost:9000" : "http://localhost:8000",
       projectInterestLink: themeOptions.projectInterestLink ? themeOptions.projectInterestLink : "",
       live: false,
-      gtag: "",
       pages: [
         { name: language.open.pageName, link: "/", show: true },
         { name: language.ongoing.pageName, link: "/ongoing", show: true },
