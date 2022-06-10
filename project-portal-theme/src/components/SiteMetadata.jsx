@@ -6,10 +6,6 @@ import useSiteMetadata from "../hooks/useSiteMetadata"
 export const SiteMetadata = ({description, image, title}) => {
   const {
     siteTitle,
-    short_name,
-    siteUrl,
-    projectInterestLink,
-    live,
     locale
   } = useSiteMetadata()
 
