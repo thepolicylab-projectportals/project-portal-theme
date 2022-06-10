@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+body {
+  background-color: #fafafa;
+  @apply font-sans antialiased;
+}
+
+body.ReactModal__Body--open > div[aria-hidden="true"] {
+  filter: blur(10px);
+}
+
+
+.grayscale-1 {
+  filter: grayscale(1);
+}
+
+.blend-multiply {
+  mix-blend-mode: multiply;
+}
+
+ul.list-style-type-dash {
+  list-style-type: "-";
+}
+
+li.list-style-type-dash span {
+  margin-left: 3px;
+}
+
+h1 {
+  @apply pb-4 text-3xl leading-tight md:text-4xl;
+}
+
+h2 {
+  @apply text-2xl font-bold lg:px-0;
+}
+
+h3 {
+  @apply pb-2 text-xl font-bold lg:text-2xl;
+}
+
+h4 {
+  @apply pb-2 text-lg font-bold lg:text-xl;
+}
+
+.btn-base {
+  @apply px-4 py-3 text-button font-bold border border-primary;
+}
+
+.btn {
+  @apply text-white text-button rounded btn-base bg-primary hover:bg-primarydark;
+}
+
+.btn-white {
+  @apply bg-white text-button rounded btn-base text-primary hover:bg-primary hover:text-white;
+}
+
+.btn-wide {
+  @apply w-full btn;
+}
+
+.p-responsive {
+  @apply px-0 lg:px-8 xl:px-16;
+}
+
+.m-responsive {
+  @apply mx-8 lg:mx-0;
+}

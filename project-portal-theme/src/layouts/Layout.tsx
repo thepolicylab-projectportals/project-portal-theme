@@ -7,7 +7,7 @@ import {
   Navbar,
   SiteMetadata,
 } from "../components"
-import "../../../example/src/styles/style.css"
+import "../styles/global.css"
 import useSiteMetadata from "../hooks/useSiteMetadata"
 
 interface LayoutProps {
