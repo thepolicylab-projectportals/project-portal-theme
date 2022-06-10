@@ -4,7 +4,7 @@ const BROWN = "#382C2B"
 const WHITE = "#FFFFFF"
 
 module.exports = {
-  presets: [require("../../tailwind.config.js")],
+  presets: [require("../../tailwind.presets.js")],
   theme: {
     extend: {
       colors: {

@@ -54,14 +54,14 @@ To customize the metadata used in the app, we create a `meta.json` file which pr
 
 ### Add tailwind theme
 
-To customize tailwind colors/fonts for a site, we create a `tailwind.config.js` file which extends our base config. Below is an example. See [the tailwind documentation](https://tailwindcss.com/docs/presets#how-configurations-are-merged) for more information on how these values are merged with the base values.
+To customize tailwind colors/fonts for a site, we create a `tailwind.presets.js` file which extends our base config. Below is an example. See [the tailwind documentation](https://tailwindcss.com/docs/presets#how-configurations-are-merged) for more information on how these values are merged with the base values.
 
 ```js
-// tailwind.config.js
+// tailwind.presets.js
 const colors = require("tailwindcss/colors")
 
 module.exports = {
-  presets: [require("../../tailwind.config.js")],
+  presets: [require("../../tailwind.presets.js")],
   theme: {
     extend: {
       colors: {

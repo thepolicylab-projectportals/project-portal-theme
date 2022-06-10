@@ -1,5 +1,5 @@
 module.exports = {
-  presets: [require("../project-portal-theme/tailwind.config")],
+  presets: [require("../project-portal-theme/tailwind.presets")],
   purge: {
     enabled: true,
     content: [
