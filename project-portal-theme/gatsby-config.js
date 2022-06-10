@@ -13,9 +13,8 @@ const language = require("./src/language.json")
 module.exports = themeOptions => {
   return {
     siteMetadata: {
-      title: themeOptions.title,
-      siteUrl: process.env.CI ? "http://localhost:9000" : "http://localhost:8000",
-      projectInterestLink: themeOptions.projectInterestLink ? themeOptions.projectInterestLink : "",
+      title: "Project Portal Theme",
+      siteUrl: "http://localhost:8000",
       live: false,
       pages: [
         { name: language.open.pageName, link: "/", show: true },
@@ -35,15 +34,15 @@ module.exports = themeOptions => {
     {
       resolve: `gatsby-source-airtable`,
       options: {
-        apiKey: process.env.AIRTABLE_API_KEY,
+        apiKey: themeOptions.airtableSettings.airtableAPIKey,
         tables: [
           {
-            baseId: process.env.AIRTABLE_BASE_ID,
+            baseId: themeOptions.airtableSettings.airtableBaseID,
             tableName: AIRTABLE_TABLE_PROJECTS,
             tableLinks: ["contacts"],
           },
           {
-            baseId: process.env.AIRTABLE_BASE_ID,
+            baseId: themeOptions.airtableSettings.airtableBaseID,
             tableName: AIRTABLE_TABLE_CONTACTS,
             mapping: { contactImage: "fileNode" },
           },
@@ -53,11 +52,11 @@ module.exports = themeOptions => {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: themeOptions.title,
-        short_name: `Project Portal`,
+        name: themeOptions.siteMetadata.title,
+        short_name: themeOptions.siteMetadata.short_name,
         start_url: `/`,
-        background_color: `#fafafa`,
-        // theme_color: tailwindConfig.theme.extend.colors.primary[500],
+        background_color: themeOptions.tailwindConfig.theme.extend.colors.background,
+        theme_color: themeOptions.tailwindConfig.theme.extend.colors.primary[500],
         display: `standalone`,
         icon: path.join(
           __dirname,

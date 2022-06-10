@@ -2,23 +2,35 @@ require("dotenv").config({
   path: `./.env`,
 })
 
+const siteMetadata = {
+  title: "Example Project Portal Content",
+  short_name: "Project Portal",
+  siteUrl: process.env.CI ? "http://localhost:9000" : "https://localhost",
+  projectInterestLink: "",
+  live: false
+}
+
+const tailwindConfig = require("./tailwind.config")
+
+const airtableSettings = {
+  airtablePartnerName: "North Carolina",
+  airtableBaseID: process.env.AIRTABLE_BASE_ID,
+  airtableAPIKey: process.env.AIRTABLE_API_KEY
+}
+
+
 module.exports = {
-  siteMetadata: {
-    title: "Example Project Portal Content",
-    url: process.env.CI ? "http://localhost:9000" : "https://localhost",
-    live: false,
-    gtag: ""
-  },
+  siteMetadata: siteMetadata,
   plugins: [
-    `gatsby-plugin-postcss`,
     {
       resolve: "project-portal-theme",
       options: {
-        title: "Example Project Portal",
-        airtablePartnerName: "North Carolina",
-        projectInterestLink: ""
+        siteMetadata: siteMetadata,
+        airtableSettings: airtableSettings,
+        tailwindConfig: tailwindConfig
       }
     },
+    `gatsby-plugin-postcss`,
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {

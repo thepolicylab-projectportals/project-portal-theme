@@ -10,6 +10,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        background: "#fafafa",
         navbar: "#ECF0F3",
         rd:  "#ffffff",
         footer: "#ECF0F3",

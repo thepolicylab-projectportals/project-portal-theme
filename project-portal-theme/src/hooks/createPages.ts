@@ -34,7 +34,7 @@ export const createPages: GatsbyCreatePages = async ({ graphql, actions }, theme
       allAirtable(
         filter: {
           table: { eq: "${tableName}" }
-          data: { partnerName: { eq: "${themeOptions.airtablePartnerName}" } }
+          data: { partnerName: { eq: "${themeOptions.airtableSettings.airtablePartnerName}" } }
         }
       ) {
         nodes {
@@ -63,7 +63,7 @@ export const onCreatePage = ({ page, actions }, themeOptions) => {
     context: {
       ...page.context,
       tableName,
-      partnerName: themeOptions.airtablePartnerName,
+      partnerName: themeOptions.airtableSettings.airtablePartnerName,
     },
   })
 }
