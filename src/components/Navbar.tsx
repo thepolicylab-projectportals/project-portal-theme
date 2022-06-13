@@ -26,7 +26,9 @@ const NavbarItem: FunctionComponent<NavbarItemProps> = ({
                 {name}
               </span>
             ) : (
-              <span className="text-nav ml-2">{name}</span>
+              <span className="text-nav pb-1 ml-2 border-b-2 hover:border-primary xl:border-transparent">
+                {name}
+              </span>
             )}
           </Link>
         </span>
