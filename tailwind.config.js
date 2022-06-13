@@ -44,7 +44,7 @@ module.exports = {
         h4: "1rem",
         body: "1rem",
         button: "0.875rem",
-        nav: "0.875rem",
+        nav: "1rem",
         contact: "1rem",
         tag: "0.875rem",
       },

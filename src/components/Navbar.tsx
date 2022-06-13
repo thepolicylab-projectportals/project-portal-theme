@@ -91,7 +91,7 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
               {navbarOpen ? <FaTimes /> : <FaBars />}
             </button>
             <Link
-              className="block mx-4 my-auto overflow-hidden text-h4 text-black font-bold flex gap-4 items-center whitespace-nowrap"
+              className="block mx-4 my-auto overflow-hidden text-nav text-black font-bold flex gap-4 items-center whitespace-nowrap"
               to="/"
             >
               <GatsbyImage
