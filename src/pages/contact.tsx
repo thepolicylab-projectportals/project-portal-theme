@@ -4,6 +4,7 @@ import { MarkdownText } from "../components"
 import { Layout } from "../layouts/Layout"
 import { HeaderWithImage } from "../components/HeaderWithImage"
 import language from "site/language.json"
+import { isNA } from "../utils"
 
 const encode = (data: { [Key: string]: string }) => {
   return Object.keys(data)
@@ -175,9 +176,11 @@ export default ({ data }: ContactProps) => {
 
       <article className="w-full pt-5 px-8 lg:px-16 xl:px-24 lg:w-2/3">
         <h1 className="mt-8 text-h2 font-bold">{language.contact.title1}</h1>
-        <h2 className="mb-2 -mt-4 text-h2 font-bold">
-          {language.contact.title2}
-        </h2>
+        {!isNA(language.contact.title2) && (
+          <h2 className="mb-2 -mt-4 text-h2 font-bold">
+            {language.contact.title2}
+          </h2>
+        )}
         <MarkdownText
           className="mb-10 leading-normal text-body lg:text-body"
           text={language.contact.lede}
