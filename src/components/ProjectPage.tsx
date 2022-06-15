@@ -218,7 +218,7 @@ export const ProjectPage = ({
         </div>
         <Cards nodes={list} />
       </div>
-      {(!isNA(hasPrev) || !isNA(hasNext)) && (
+      {!(isNA(hasPrev) && isNA(hasNext)) && (
         <div className="flex items-center gap-4 justify-center flex-wrap">
           <div className="flex-1 flex justify-end">
             <button
