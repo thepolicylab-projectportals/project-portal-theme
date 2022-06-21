@@ -4,6 +4,7 @@ import { MarkdownText } from "../components"
 import { Layout } from "../layouts/Layout"
 import { HeaderWithImage } from "../components/HeaderWithImage"
 import language from "site/language.json"
+import Captcha from "demos-react-captcha"
 
 const encode = (data: { [Key: string]: string }) => {
   return Object.keys(data)
@@ -28,6 +29,7 @@ interface ContactFormState {
   email: string
   subject: string
   message: string
+  //captchaSuccess: boolean
 }
 
 class ContactForm extends Component {
@@ -40,8 +42,8 @@ class ContactForm extends Component {
       email: "",
       subject: "",
       message: "",
+      //captchaSuccess: false
     }
-
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
@@ -64,6 +66,7 @@ class ContactForm extends Component {
   }
 
   render() {
+    const { captchaSuccess } = this.state
     return (
       <form
         onSubmit={this.handleSubmit}
@@ -150,8 +153,14 @@ class ContactForm extends Component {
           />
         </div>
 
+        <div className="mb-4">
+          <Captcha
+            onChange={(status) => this.setState({ captchaSuccess: status })}
+          />
+        </div>
+
         <div className="flex items-center justify-between">
-          <button className="btn" type="submit">
+          <button className="btn" type="submit" disabled={!captchaSuccess}>
             Submit
           </button>
         </div>
