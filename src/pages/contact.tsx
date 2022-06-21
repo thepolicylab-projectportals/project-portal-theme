@@ -30,6 +30,65 @@ interface ContactFormState {
   message: string
 }
 
+function changeCheck() {
+  //job of changeCheck is to remove all error messages that
+  //may have been brought up from a previous submit attempt
+  if (event.target.name != "subject") {
+    document.getElementById(event.target.name + "ErrorLabel").className =
+      "font-bold text-red-600 hidden"
+    document.getElementById(event.target.name).className =
+      "w-full text-contact px-3 py-2 leading-tight text-black shadow appearance-none outline-transparent focus:outline-none focus:shadow-outline"
+
+    if (event.target.name == "email") {
+      document.getElementById("invalidEmailErrorLabel").className =
+        "font-bold text-red-600 hidden"
+    }
+  }
+}
+
+function submitCheck(state) {
+  //job of submitCheck is to display error messages for all
+  //incorrectly filled out required fields
+  var nameCheck = true
+  var emailCheck = true
+  var messageCheck = true
+  //check name is filled out
+  if (state.name == "") {
+    document.getElementById("nameErrorLabel").className =
+      "font-bold text-red-600"
+    document.getElementById("name").className =
+      "w-full text-contact px-3 py-2 leading-tight text-black border-2 border-red-500 shadow appearance-none outline-transparent focus:outline-none focus:shadow-outline"
+    nameCheck = false
+  }
+  //check email is filled out AND if filled out, it is in proper email format
+  if (state.email == "") {
+    document.getElementById("emailErrorLabel").className =
+      "font-bold text-red-600"
+    document.getElementById("email").className =
+      "w-full text-contact px-3 py-2 leading-tight text-black border-2 border-red-500 shadow appearance-none outline-transparent focus:outline-none focus:shadow-outline"
+    emailCheck = false
+  }
+  //if email exists, make sure it is valid email format
+  else {
+    if (!document.getElementById("email").validity.valid) {
+      document.getElementById("invalidEmailErrorLabel").className =
+        "font-bold text-red-600"
+      document.getElementById("email").className =
+        "w-full text-contact px-3 py-2 leading-tight text-black border-2 border-red-500 shadow appearance-none outline-transparent focus:outline-none focus:shadow-outline"
+      emailCheck = false
+    }
+  }
+  //check message is filled out
+  if (state.message == "") {
+    document.getElementById("messageErrorLabel").className =
+      "font-bold text-red-600"
+    document.getElementById("message").className =
+      "w-full text-contact px-3 py-2 leading-tight text-black border-2 border-red-500 shadow appearance-none outline-transparent focus:outline-none focus:shadow-outline"
+    messageCheck = false
+  }
+  return nameCheck && emailCheck && messageCheck
+}
+
 class ContactForm extends Component {
   state: ContactFormState
 
@@ -47,20 +106,23 @@ class ContactForm extends Component {
   }
 
   handleChange(event) {
+    changeCheck(event)
     this.setState({ [event.target.name]: event.target.value })
   }
 
   handleSubmit(event) {
+    //to prevent browser reload/refresh during submit
     event.preventDefault()
-
-    // This code will actually post to netlify
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", ...this.state }),
-    })
-      .then(() => navigate("/thank-you/"))
-      .catch((error) => alert(error))
+    if (submitCheck(this.state)) {
+      // This code will actually post to netlify
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({ "form-name": "contact", ...this.state }),
+      })
+        .then(() => navigate("/thank-you/"))
+        .catch((error) => alert(error))
+    }
   }
 
   render() {
@@ -70,6 +132,7 @@ class ContactForm extends Component {
         data-netlify="true"
         data-netlify-honeypot="bot-field"
         name="contact"
+        novalidate=""
       >
         <div className="mb-6">
           <label
@@ -78,12 +141,15 @@ class ContactForm extends Component {
           >
             Full name
           </label>
+          <label id="nameErrorLabel" className="font-bold text-red-600 hidden">
+            FULL NAME REQUIRED TO SUBMIT
+          </label>
           <input
             aria-label="Full name"
             name="name"
             id="name"
             placeholder="John Doe"
-            required
+            required=""
             type="text"
             className="w-full text-contact px-3 py-2 leading-tight text-black border shadow appearance-none focus:outline-none focus:shadow-outline"
             value={this.state.name}
@@ -98,12 +164,21 @@ class ContactForm extends Component {
           >
             Email address
           </label>
+          <label id="emailErrorLabel" className="font-bold text-red-600 hidden">
+            EMAIL ADDRESS REQUIRED TO SUBMIT
+          </label>
+          <label
+            id="invalidEmailErrorLabel"
+            className="font-bold text-red-600 hidden"
+          >
+            MUST INPUT PROPER EMAIL ADDRESS
+          </label>
           <input
             aria-label="Full name"
             name="email"
             id="email"
             placeholder="example@example.com"
-            required
+            required=""
             type="email"
             className="w-full text-contact px-3 py-2 leading-tight text-black border shadow appearance-none focus:outline-none focus:shadow-outline"
             value={this.state.email}
@@ -123,7 +198,7 @@ class ContactForm extends Component {
             name="subject"
             id="subject"
             placeholder="I want to get in touch about ..."
-            required
+            required=""
             type="text"
             className="w-full text-contact px-3 py-2 leading-tight text-black border shadow appearance-none focus:outline-none focus:shadow-outline"
             value={this.state.subject}
@@ -138,12 +213,18 @@ class ContactForm extends Component {
           >
             Message
           </label>
+          <label
+            id="messageErrorLabel"
+            className="font-bold text-red-600 hidden"
+          >
+            MESSAGE REQUIRED TO SUBMIT
+          </label>
           <textarea
             aria-label="Message"
             name="message"
             id="message"
             placeholder=""
-            required
+            required=""
             className="w-full text-contact h-48 px-3 py-2 leading-tight text-black border shadow appearance-none focus:outline-none focus:shadow-outline"
             value={this.state.message}
             onChange={this.handleChange}
