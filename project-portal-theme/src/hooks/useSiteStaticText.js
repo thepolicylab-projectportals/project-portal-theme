@@ -6,7 +6,19 @@ export const useSiteStaticText = () => {
       site {
         siteMetadata {
           staticText {
+            contact {
+              title
+              lede
+            }
             open {
+              title
+              lede
+            }
+            ongoing {
+              title
+              lede
+            }
+            completed {
               title
               lede
             }

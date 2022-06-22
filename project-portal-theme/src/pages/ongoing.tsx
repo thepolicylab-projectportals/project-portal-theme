@@ -1,12 +1,12 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { ProjectPage, ProjectPageProps } from "../components"
-const language = require("../language.json")
+import { useSiteStaticText } from "../hooks/useSiteStaticText"
 
 export default ({ data }: ProjectPageProps) =>
   ProjectPage({
     data,
-    ...language.ongoing,
+    ...useSiteStaticText().ongoing,
     dateField: "startDate",
   })
 

@@ -3,7 +3,7 @@ import { graphql, navigate } from "gatsby"
 import { MarkdownText } from "../components"
 import { Layout } from "../layouts/Layout"
 import { HeaderWithImage } from "../components/HeaderWithImage"
-const language = require("../language.json")
+import { useSiteStaticText } from "../hooks/useSiteStaticText"
 
 const encode = (data: { [Key: string]: string }) => {
   return Object.keys(data)
@@ -164,8 +164,8 @@ export default ({ data }: ContactProps) => {
   return (
     <Layout
       activePage="Contact"
-      title={language.contact.title}
-      description={language.contact.lede}
+      title={useSiteStaticText().contact.title}
+      description={useSiteStaticText().contact.lede}
     >
       <HeaderWithImage
         title="Contact"
@@ -175,11 +175,11 @@ export default ({ data }: ContactProps) => {
 
       <article className="w-full pt-5 px-8 lg:px-16 xl:px-24 lg:w-2/3">
         <h1 className="mt-8 mb-2 text-h2 font-bold">
-          {language.contact.title}
+          {useSiteStaticText().contact.title}
         </h1>
         <MarkdownText
           className="mb-10 leading-normal text-body lg:text-body"
-          text={language.contact.lede}
+          text={useSiteStaticText().contact.lede}
         />
         <ContactForm />
       </article>
