@@ -6,21 +6,22 @@ const {
 } = require("./src/consts.js")
 
 module.exports = (themeOptions) => {
+  const siteMetadata = {
+    siteTitle: "Project Portal Theme",
+    siteUrl: "http://localhost:8000",
+    live: false,
+    pages: [
+      { name: "Open opportunities", link: "/", show: true },
+      { name: "In-progress projects", link: "/ongoing", show: true },
+      { name: "Completed projects", link: "/completed", show: true },
+      { name: "About", link: "/about", show: true },
+      { name: "Contact", link: "/contact", show: true },
+    ],
+    locale: "en",
+    staticText: themeOptions.staticText,
+  }
   return {
-    siteMetadata: {
-      siteTitle: "Project Portal Theme",
-      siteUrl: "http://localhost:8000",
-      live: false,
-      pages: [
-        { name: "Open opportunities", link: "/", show: true },
-        { name: "In-progress projects", link: "/ongoing", show: true },
-        { name: "Completed projects", link: "/completed", show: true },
-        { name: "About", link: "/about", show: true },
-        { name: "Contact", link: "/contact", show: true },
-      ],
-      locale: "en",
-      staticText: themeOptions.staticText,
-    },
+    siteMetadata: siteMetadata,
     plugins: [
       {
         resolve: `gatsby-plugin-postcss`,
@@ -52,20 +53,6 @@ module.exports = (themeOptions) => {
               mapping: { contactImage: "fileNode" },
             },
           ],
-        },
-      },
-      {
-        resolve: `gatsby-plugin-manifest`,
-        options: {
-          name: themeOptions.siteMetadata.title,
-          short_name: themeOptions.siteMetadata.short_name,
-          start_url: `/`,
-          background_color:
-            themeOptions.tailwindConfig.theme.extend.colors.background,
-          theme_color:
-            themeOptions.tailwindConfig.theme.extend.colors.primary[500],
-          display: `standalone`,
-          icon: path.join(__dirname, "site", "images", "icon.png"),
         },
       },
       {
