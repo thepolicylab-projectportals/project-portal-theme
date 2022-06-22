@@ -2,15 +2,21 @@
   "private": true,
   "workspaces": [
     "project-portal-theme",
-    "example"
+    "example",
+    "project-portal-nc"
   ],
   "dependencies": {
     "yarn": "^1.22.18"
   },
   "scripts": {
-    "develop": "yarn workspace example develop",
+    "develop": "PORT=8000 yarn workspace example develop",
     "build": "yarn workspace example build",
-    "serve": "yarn workspace example serve",
-    "clean": "yarn workspace example clean"
+    "serve": "PORT=9000 yarn workspace example serve",
+    "clean": "yarn workspace example clean",
+
+    "clean:nc": "yarn workspace project-portal-nc clean",
+    "develop:nc": "PORT=8001 yarn workspace project-portal-nc develop",
+    "build:nc": "yarn workspace project-portal-nc build",
+    "serve:nc": "PORT=9001 yarn workspace project-portal-nc serve"
   }
 }

@@ -2,7 +2,7 @@ const DARK_BLUE = "#092940"
 const LIGHT_BLUE = "#ECF0F3"
 
 module.exports = {
-  presets: [require("../../tailwind.presets.js")],
+  presets: [require("../project-portal-theme/tailwind.presets")],
   theme: {
     extend: {
       colors: {
