@@ -10,9 +10,9 @@
     "yarn": "^1.22.18"
   },
   "scripts": {
-    "develop": "PORT=8000 yarn workspace example develop",
+    "develop": "yarn workspace example develop",
     "build": "yarn workspace example build",
-    "serve": "PORT=9000 yarn workspace example serve",
+    "serve": "yarn workspace example serve",
     "clean": "yarn workspace example clean",
 
     "clean:nc": "yarn workspace project-portal-nc clean",
