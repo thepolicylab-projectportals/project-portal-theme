@@ -34,7 +34,7 @@ module.exports = {
       options: {
         // Settings for loading project and contact data from Airtable
         airtableSettings: {
-          airtablePartnerName: "North Carolina",
+          airtablePartnerName: "Example Content",
           airtableBaseID: process.env.AIRTABLE_BASE_ID,
           airtableAPIKey: process.env.AIRTABLE_API_KEY,
         },
