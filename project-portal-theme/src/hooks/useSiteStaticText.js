@@ -22,6 +22,9 @@ export const useSiteStaticText = () => {
               title
               lede
             }
+            bottom_banner {
+              text
+            }
           }
         }
       }

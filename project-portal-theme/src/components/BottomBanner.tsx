@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import React from "react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { MarkdownText } from "../components"
-const language = require("../language.json")
+import { useSiteStaticText } from "../hooks/useSiteStaticText"
 
 export const BottomBanner = () => {
   const { logo } = useStaticQuery(graphql`
@@ -18,6 +18,8 @@ export const BottomBanner = () => {
 
   const image = getImage(logo)
 
+  const staticText = useSiteStaticText()
+
   return (
     <div className="py-6 mt-12 overflow-hidden bg-rd p-responsive">
       <div className="m-responsive">
@@ -30,7 +32,7 @@ export const BottomBanner = () => {
             />
           )}
           <div className="inline-block text-body flex-4 min-w-20ch">
-            <MarkdownText text={language.bottom_banner.text} />
+            <MarkdownText text={staticText.bottom_banner.text} />
           </div>
         </div>
       </div>
