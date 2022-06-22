@@ -155,7 +155,9 @@ class ContactForm extends Component {
 
         <div className="mb-4">
           <Captcha
+            aria-label="Captcha"
             onChange={(status) => this.setState({ captchaSuccess: status })}
+            placeholder="Enter captcha"
           />
         </div>
 
