@@ -142,7 +142,7 @@ class ContactForm extends Component {
             Full name
           </label>
           <label id="nameErrorLabel" className="font-bold text-red-600 hidden">
-            Enter your full name
+            Please enter your full name
           </label>
           <input
             aria-label="Full name"
@@ -165,13 +165,13 @@ class ContactForm extends Component {
             Email address
           </label>
           <label id="emailErrorLabel" className="font-bold text-red-600 hidden">
-            Enter your email address
+            Please enter your email address
           </label>
           <label
             id="invalidEmailErrorLabel"
             className="font-bold text-red-600 hidden"
           >
-            Enter a valid email address
+            Please enter a valid email address
           </label>
           <input
             aria-label="Full name"
@@ -217,7 +217,7 @@ class ContactForm extends Component {
             id="messageErrorLabel"
             className="font-bold text-red-600 hidden"
           >
-            Enter a brief message
+            Please enter a brief message
           </label>
           <textarea
             aria-label="Message"
