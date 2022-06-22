@@ -2,12 +2,12 @@ import React, { useState } from "react"
 import { graphql } from "gatsby"
 import { MarkdownText } from "../components"
 import { Layout } from "../layouts/Layout"
-const language = require("../language.json")
 import { HeaderWithImage } from "../components/HeaderWithImage"
 import { Disclosure } from "@headlessui/react"
 import { FaPlus, FaMinus } from "react-icons/fa"
 
 import useSiteMetadata from "../hooks/useSiteMetadata"
+import { useSiteStaticText } from "../hooks/useSiteStaticText"
 
 interface AboutProps {
   data: {
@@ -57,6 +57,7 @@ const AboutList = ({ aboutTitle, aboutText }) => {
 
 export default ({ data }: AboutProps) => {
   const meta = useSiteMetadata()
+  const staticText = useSiteStaticText()
   return (
     <Layout
       activePage="About"
@@ -71,12 +72,12 @@ export default ({ data }: AboutProps) => {
 
       <article className="w-full pt-5 px-8 lg:px-16 xl:px-24 lg:w-2/3">
         <section className="mb-20">
-          {language.about.header && (
+          {staticText.about.header && (
             <h2 className="text-h3 sm:text-h2 my-8 font-bold text-black">
-              {language.about.header}
+              {staticText.about.header}
             </h2>
           )}
-          {language.about.aims.map(({ title, text }, i) => (
+          {staticText.about.aims.map(({ title, text }, i) => (
             <AboutList key={"list_" + i} aboutTitle={title} aboutText={text} />
           ))}
         </section>
@@ -85,7 +86,7 @@ export default ({ data }: AboutProps) => {
           <h2 className="text-h3 sm:text-h2 my-6">
             Frequently Asked Questions
           </h2>
-          {language.about.faq.map(({ title, text }, i) => (
+          {staticText.about.faq.map(({ title, text }, i) => (
             <Accordion key={"collapsibleList_" + i} title={title} text={text} />
           ))}
         </section>

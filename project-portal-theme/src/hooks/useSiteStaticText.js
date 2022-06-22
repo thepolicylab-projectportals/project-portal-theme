@@ -6,6 +6,16 @@ export const useSiteStaticText = () => {
       site {
         siteMetadata {
           staticText {
+            about {
+              header
+              aims {
+                text
+              }
+              faq {
+                title
+                text
+              }
+            }
             contact {
               title
               lede
