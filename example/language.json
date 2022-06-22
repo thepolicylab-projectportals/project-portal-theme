@@ -23,14 +23,17 @@
   },
   "open": {
     "title": "Open partnership opportunities",
+    "pageName": "Open opportunities",
     "lede": "State agencies are increasingly interested in collaborating with external partners to answer questions that inform decision making and improve policy and programmatic functions. Learn more below about some open opportunities. Have a question about partnerships? Visit our [FAQ](/about) page."
   },
   "completed": {
     "title": "Completed projects",
+    "pageName": "Completed projects",
     "lede": "State agencies collaborate with external partners to answer important research, policy, and programmatic questions. Learn more below about some completed projects. Have a question about partnerships? Visit our [FAQ](/about) page."
   },
   "ongoing": {
     "title": "In-progress projects",
+    "pageName": "In-progress projects",
     "lede": "State agencies collaborate with external partners to answer important research, policy, and programmatic questions. Learn more about in-progress projects here. Have a question about partnerships? Visit our [FAQ](/about) page."
   },
   "footer": {

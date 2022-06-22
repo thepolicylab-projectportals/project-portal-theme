@@ -3,6 +3,8 @@ require("dotenv").config({
   path: `./.env`,
 })
 
+const staticText = require("./language.json")
+
 // General metadata for the site
 const siteMetadata = {
   siteTitle: "Example Project Portal Content",
@@ -11,7 +13,11 @@ const siteMetadata = {
   projectInterestLink: "",
   live: false,
   locale: "en",
-  pages: [{ name: "Project Proposals", link: "/", show: true }],
+  pages: [
+    { name: staticText.open.pageName, link: "/", show: true },
+    { name: staticText.ongoing.pageName, link: "/ongoing", show: true },
+    { name: staticText.completed.pageName, link: "/completed", show: true },
+  ],
 }
 
 // Load the styling configuration. It's imported here as it will be used in both the theme and manifest options.
@@ -37,7 +43,7 @@ module.exports = {
         tailwindConfig: tailwindConfig,
 
         // Load the static text from the language file
-        staticText: require("./language.json"),
+        staticText: staticText,
       },
     },
     {
