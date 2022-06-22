@@ -3,6 +3,13 @@ const LIGHT_BLUE = "#ECF0F3"
 
 module.exports = {
   presets: [require("../project-portal-theme/tailwind.presets")],
+  purge: {
+    enabled: true,
+    content: [
+      "./src/**/*.{js,jsx,ts,tsx,html}",
+      "../project-portal-theme/src/**/*.{js,jsx,ts,tsx,html}"
+    ],
+  },
   theme: {
     extend: {
       colors: {
