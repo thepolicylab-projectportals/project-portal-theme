@@ -3,6 +3,7 @@ require("dotenv").config({
   path: `./.env`,
 })
 
+// General metadata for the site
 const siteMetadata = {
   siteTitle: "Example Project Portal Content",
   short_name: "Project Portal",
@@ -13,10 +14,11 @@ const siteMetadata = {
   pages: [{ name: "Project Proposals", link: "/", show: true }],
 }
 
+// Load the styling configuration. It's imported here as it will be used in both the theme and manifest options.
 const tailwindConfig = require("./tailwind.config")
 
 module.exports = {
-  // General metadata for the site – this overrides anything defined in the theme
+  // Import the Metadata, overriding anything with defaults in the theme
   siteMetadata: siteMetadata,
 
   plugins: [
@@ -31,7 +33,7 @@ module.exports = {
           airtableAPIKey: process.env.AIRTABLE_API_KEY,
         },
 
-        // Load the styling configuration
+        // Use the styling configuration in the theme
         tailwindConfig: tailwindConfig,
 
         // Load the static text from the language file
