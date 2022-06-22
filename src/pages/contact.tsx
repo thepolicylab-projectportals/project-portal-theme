@@ -153,11 +153,13 @@ class ContactForm extends Component {
           />
         </div>
 
-        <div className="mb-4">
+        <div
+          className="mb-4"
+          aria-hidden="true"
+          aria-readonly="true"
+          aria-label="Captcha"
+        >
           <Captcha
-            aria-hidden="true"
-            aria-readonly="true"
-            aria-label="Captcha"
             onChange={(status) => this.setState({ captchaSuccess: status })}
             placeholder="Enter captcha"
           />
