@@ -10,6 +10,7 @@ const siteMetadata = {
   projectInterestLink: "",
   live: false,
   locale: "en",
+  pages: [{ name: "Project Proposals", link: "/", show: true }],
 }
 
 const tailwindConfig = require("./tailwind.config")
