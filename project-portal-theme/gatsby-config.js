@@ -56,13 +56,6 @@ module.exports = (themeOptions) => {
         },
       },
       {
-        resolve: `gatsby-source-filesystem`,
-        options: {
-          name: `images`,
-          path: path.join(__dirname, "site", "images"),
-        },
-      },
-      {
         // This plugin allows us to also search for files in the site-specific directory set
         // in the environment variable `PP_BASE_CONFIG`.
         //
