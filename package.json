@@ -3,7 +3,8 @@
   "workspaces": [
     "project-portal-theme",
     "example",
-    "project-portal-nc"
+    "project-portal-nc",
+    "project-portal-satx"
   ],
   "dependencies": {
     "yarn": "^1.22.18"
@@ -15,8 +16,13 @@
     "clean": "yarn workspace example clean",
 
     "clean:nc": "yarn workspace project-portal-nc clean",
-    "develop:nc": "PORT=8001 yarn workspace project-portal-nc develop",
+    "develop:nc": "yarn workspace project-portal-nc develop",
     "build:nc": "yarn workspace project-portal-nc build",
-    "serve:nc": "PORT=9001 yarn workspace project-portal-nc serve"
+    "serve:nc": "yarn workspace project-portal-nc serve",
+
+    "clean:satx": "yarn workspace project-portal-satx clean",
+    "develop:satx": "yarn workspace project-portal-satx develop",
+    "build:satx": "yarn workspace project-portal-satx build",
+    "serve:satx": "yarn workspace project-portal-satx serve"
   }
 }

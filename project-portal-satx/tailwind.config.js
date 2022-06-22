@@ -4,7 +4,14 @@ const BROWN = "#382C2B"
 const WHITE = "#FFFFFF"
 
 module.exports = {
-  presets: [require("../../tailwind.presets.js")],
+  presets: [require("../project-portal-theme/tailwind.presets")],
+  purge: {
+    enabled: true,
+    content: [
+      "./src/**/*.{js,jsx,ts,tsx,html}",
+      "../project-portal-theme/src/**/*.{js,jsx,ts,tsx,html}"
+    ],
+  },
   theme: {
     extend: {
       colors: {
