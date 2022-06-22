@@ -25,6 +25,16 @@ export const useSiteStaticText = () => {
             bottom_banner {
               text
             }
+            footer {
+              heading {
+                title
+                link
+              }
+              links {
+                title
+                link
+              }
+            }
           }
         }
       }

@@ -1,9 +1,9 @@
 import React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import { getImage } from "gatsby-plugin-image"
-const language = require("../language.json")
 
 import useSiteMetadata from "../hooks/useSiteMetadata"
+import { useSiteStaticText } from "../hooks/useSiteStaticText"
 
 export const Footer = () => {
   const { logo } = useStaticQuery(graphql`
@@ -20,12 +20,14 @@ export const Footer = () => {
 
   const meta = useSiteMetadata()
 
+  const staticText = useSiteStaticText()
+
   // use of GatsbyImage for the logo causs pa11y error as it doesn't register as an image
   return (
     <footer className="w-full px-2 py-8 bg-footer xl:container xl:px-12">
       <div className="flex items-center justify-center mt-6 lg:my-auto">
         <ul className="text-nav text-footertext list-none">
-          {language.footer.links.map(({ title, link }, i) => (
+          {staticText.footer.links.map(({ title, link }, i) => (
             <ListItem key={"link_" + i} target={link}>
               {title}
             </ListItem>
@@ -35,7 +37,7 @@ export const Footer = () => {
       <div className="block w-full lg:w-auto mt-5">
         <a
           className="flex items-center gap-4 justify-center flex-wrap"
-          href={language.footer.heading.link}
+          href={staticText.footer.heading.link}
         >
           {image && (
             <img
@@ -46,7 +48,7 @@ export const Footer = () => {
             />
           )}
           <p className="text-center inline-block text-h4 font-bold text-footertext">
-            {language.footer.heading.title}
+            {staticText.footer.heading.title}
           </p>
         </a>
       </div>
