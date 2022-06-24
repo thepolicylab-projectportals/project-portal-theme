@@ -132,7 +132,7 @@ class ContactForm extends Component {
         data-netlify="true"
         data-netlify-honeypot="bot-field"
         name="contact"
-        novalidate=""
+        noValidate
       >
         <div className="mb-6">
           <label
@@ -149,7 +149,7 @@ class ContactForm extends Component {
             name="name"
             id="name"
             placeholder="John Doe"
-            required=""
+            required
             type="text"
             className="w-full text-contact px-3 py-2 leading-tight text-black border shadow appearance-none focus:outline-none focus:shadow-outline"
             value={this.state.name}
@@ -178,7 +178,7 @@ class ContactForm extends Component {
             name="email"
             id="email"
             placeholder="example@example.com"
-            required=""
+            required
             type="email"
             className="w-full text-contact px-3 py-2 leading-tight text-black border shadow appearance-none focus:outline-none focus:shadow-outline"
             value={this.state.email}
@@ -198,7 +198,7 @@ class ContactForm extends Component {
             name="subject"
             id="subject"
             placeholder="I want to get in touch about ..."
-            required=""
+            required
             type="text"
             className="w-full text-contact px-3 py-2 leading-tight text-black border shadow appearance-none focus:outline-none focus:shadow-outline"
             value={this.state.subject}
@@ -224,7 +224,7 @@ class ContactForm extends Component {
             name="message"
             id="message"
             placeholder=""
-            required=""
+            required
             className="w-full text-contact h-48 px-3 py-2 leading-tight text-black border shadow appearance-none focus:outline-none focus:shadow-outline"
             value={this.state.message}
             onChange={this.handleChange}
