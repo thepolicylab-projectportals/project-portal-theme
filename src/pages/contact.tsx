@@ -52,29 +52,29 @@ function submitCheck(state) {
   var nameCheck = true
   var emailCheck = true
   var messageCheck = true
+
+  const errorTextClassName = "font-bold text-red-600"
+  const errorBoxClassName =
+    "w-full text-contact px-3 py-2 leading-tight text-black border-2 border-red-500 shadow appearance-none outline-transparent focus:outline-none focus:shadow-outline"
+
   //check name is filled out
   if (state.name == "") {
-    document.getElementById("nameErrorLabel").className =
-      "font-bold text-red-600"
-    document.getElementById("name").className =
-      "w-full text-contact px-3 py-2 leading-tight text-black border-2 border-red-500 shadow appearance-none outline-transparent focus:outline-none focus:shadow-outline"
+    document.getElementById("nameErrorLabel").className = errorTextClassName
+    document.getElementById("name").className = errorBoxClassName
     nameCheck = false
   }
   //check email is filled out AND if filled out, it is in proper email format
   if (state.email == "") {
-    document.getElementById("emailErrorLabel").className =
-      "font-bold text-red-600"
-    document.getElementById("email").className =
-      "w-full text-contact px-3 py-2 leading-tight text-black border-2 border-red-500 shadow appearance-none outline-transparent focus:outline-none focus:shadow-outline"
+    document.getElementById("emailErrorLabel").className = errorTextClassName
+    document.getElementById("email").className = errorBoxClassName
     emailCheck = false
   }
   //if email exists, make sure it is valid email format
   else {
     if (!document.getElementById("email").validity.valid) {
       document.getElementById("invalidEmailErrorLabel").className =
-        "font-bold text-red-600"
-      document.getElementById("email").className =
-        "w-full text-contact px-3 py-2 leading-tight text-black border-2 border-red-500 shadow appearance-none outline-transparent focus:outline-none focus:shadow-outline"
+        errorTextClassName
+      document.getElementById("email").className = errorBoxClassName
       emailCheck = false
     }
   }
