@@ -154,7 +154,9 @@ class ContactForm extends Component {
         </div>
 
         <ReCAPTCHA
-          data-type="audio"
+          aria-hidden="true"
+          aria-readonly="true"
+          aria-label="reCaptcha"
           sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
           onChange={(status) => this.setState({ captchaSuccess: status })}
         />
