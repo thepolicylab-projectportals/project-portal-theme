@@ -4,7 +4,7 @@ import { MarkdownText } from "../components"
 import { Layout } from "../layouts/Layout"
 import { HeaderWithImage } from "../components/HeaderWithImage"
 import language from "site/language.json"
-import Captcha from "demos-react-captcha"
+import ReCAPTCHA from "react-google-recaptcha"
 
 const encode = (data: { [Key: string]: string }) => {
   return Object.keys(data)
@@ -153,20 +153,14 @@ class ContactForm extends Component {
           />
         </div>
 
-        <div
-          className="mb-4"
-          aria-hidden="true"
-          aria-readonly="true"
-          aria-label="Captcha"
-        >
-          <Captcha
-            onChange={(status) => this.setState({ captchaSuccess: status })}
-            placeholder="Enter captcha"
-          />
-        </div>
+        <ReCAPTCHA
+          data-type="audio"
+          sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+          onChange={(status) => this.setState({ captchaSuccess: status })}
+        />
 
         <div className="flex items-center justify-between">
-          <button className="btn" type="submit" disabled={!captchaSuccess}>
+          <button className="btn" type="submit">
             Submit
           </button>
         </div>
