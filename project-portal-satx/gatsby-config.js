@@ -7,7 +7,7 @@ const staticText = require("./language.json")
 
 // General metadata for the site
 const siteMetadata = {
-  "title": "Research Partnerships Portal",
+  siteTitle: "Research Partnerships Portal",
   short_name: "Project Portal",
   siteUrl: process.env.CI ? "http://localhost:9000" : "https://satx-project-portal-preview.thepolicylab.io",
   projectInterestLink: "https://forms.office.com/pages/responsepage.aspx?id=TyGwGkqsB0Snxi7x63baxdz0AxwEGGlPjxiu18ubfUNUQk1LRlo4SjIxQzhFTzBBTEhQWUYxRkk1SC4u",
