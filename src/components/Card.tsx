@@ -76,7 +76,7 @@ export const Card: FunctionComponent<CardProps> = ({
                       status,
                       opportunityCloses
                         ? moment(opportunityCloses).format("MMMM D, YYYY")
-                        : "Until filled",
+                        : "Open until filled",
                       startDate
                         ? moment(startDate).format("MMMM D, YYYY")
                         : moment(lastModified).format("MMMM D, YYYY"),
