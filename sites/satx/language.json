@@ -50,7 +50,7 @@
       },
       {
         "title": "What is the R&D League?",
-        "text": "The R&D League is a partnership established to build a research and development (R&D) program at the City of San Antonio that paves the path to a better future for our community. The League creates opportunities for cross-sector, multi-disciplinary teams to utilize scientific methods and data to investigate new ideas, facilitate evidence-based policymaking, and explore the frontier of innovation for our 1.5 million residents. Core League members are the City of San Antonio (CoSA), Southwest Research Institute (SwRI), United Services Automobile Association (USAA), the University of Texas at San Antonio (UTSA), and The Policy Lab @ Brown University. Learn more about the R&D League [here](https://www.sanantonio.gov/Innovation/R-D-League)\n"
+        "text": "The R&D League is a partnership established to build a research and development (R&D) program in the City of San Antonio that paves the path to a better future for our community. The League creates opportunities for cross-sector, multi-disciplinary teams to utilize scientific methods and data to investigate new ideas, facilitate evidence-based policymaking, and explore the frontier of innovation for our 1.5 million residents. Core League members are the City of San Antonio (CoSA), Southwest Research Institute (SwRI), United Services Automobile Association (USAA), the University of Texas at San Antonio (UTSA), and The Policy Lab @ Brown University. Learn more about the R&D League [here](https://www.sanantonio.gov/Innovation/R-D-League)\n"
       }
     ]
   },
@@ -59,18 +59,18 @@
     "lede": "Our team is happy to answer questions about the partnerships pilot, project-specific questions, general questions about working with the City of San Antonio, and ideas for how we can improve this site."
   },
   "open": {
-    "title": "Open opportunities",
+    "title": "Open Opportunities",
     "lede": "The City of San Antonio is building research partnerships to help answer questions about how to best serve residents. We are seeking academic and scientific research partners with methodological expertise related to design, data analytics, and field experimentation, as well as domain knowledge related to the topics. Browse open opportunities below. If you would like to be considered for involvement with a project, please complete the interest form and we’ll be in touch with more information about the requirements and next steps. We look forward to hearing from you!",
-    "pageName": "Open opportunities"
+    "pageName": "Open Opportunities"
   },
   "completed": {
-    "title": "Completed projects",
-    "pageName": "Completed projects",
+    "title": "Completed Projects",
+    "pageName": "Completed Projects",
     "lede": "Sharing results and ideas helps us better serve our residents. Below are our collaborations completed to date, along with key findings and links to additional resources. Additional information, including detailed reports/results for each individual trial, can be found on the \"Projects\" page of the City's [R&D League website](https://www.sanantonio.gov/Innovation/R-D-League#280463953-projects)."
   },
   "ongoing": {
-    "title": "In-progress projects",
-    "pageName": "In-progress projects",
+    "title": "In-Progress Projects",
+    "pageName": "In-Progress Projects",
     "lede": "Learn about the ongoing research collaborations in San Antonio. More information on our current and past initiatives can be found on the City's [R&D League web page](https://www.sanantonio.gov/Innovation/R-D-League)."
   },
   "footer": {
@@ -78,6 +78,7 @@
       "title": "City of San Antonio",
       "link": "https://www.sanantonio.gov/"
     },
+    "copyright": "Copyright 2022 City of San Antonio, images courtesy of the City of San Antonio",
     "links": [
       {
         "title": "Office of Equity",
@@ -88,20 +89,29 @@
         "link": "http://www.sanantonio.gov/ada/"
       },
       {
+        "title": "Telecommuting",
+        "link": "https://www.sanantonio.gov/EASI"
+      },
+      {
+        "title": "Site Map",
+        "link": "https://www.sanantonio.gov/Website-Map"
+      },
+      {
         "title": "Open Records",
         "link": "http://www.sanantonio.gov/opengovernment/"
       },
       {
-        "title": "Privacy Policy and Disclaimer",
-        "link": "http://www.sanantonio.gov/disclaimer.aspx"
+        "title": "Contact Us",
+        "link": "https://www.sanantonio.gov/contact"
       },
       {
-        "title": "sanantonio.gov",
-        "link": "https://www.sanantonio.gov/"
+        "title": "Privacy Policy & Disclaimer",
+        "link": "http://www.sanantonio.gov/disclaimer.aspx"
       }
     ]
   },
   "bottom_banner": {
-    "text": "This portal is part of a pilot initiative to support applied research partnerships. If you have ideas for how to further improve it, please [let us know!](/contact)"
+    "text": "This portal is part of a pilot initiative to support applied research partnerships. If you have ideas for how to further improve it, please [let us know!](/contact)",
+    "link": "https://www.sanantonio.gov/Innovation/R-D-League"
   }
 }

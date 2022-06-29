@@ -56,6 +56,7 @@
       "title": "NC Office of Strategic Partnerships",
       "link": "https://www.osbm.nc.gov/"
     },
+    "copyright": "© 2022 The State of North Carolina. All rights reserved.",
     "links": [
       {
         "title": "STAFF DIRECTORY",
@@ -72,6 +73,7 @@
     ]
   },
   "bottom_banner": {
-    "text": "This project portal was developed by the NC Office of Strategic Partnerships and The Policy Lab at Brown University. If you have ideas for how to improve it, please [let us know!](/contact)"
+    "text": "This project portal was developed by the NC Office of Strategic Partnerships and The Policy Lab at Brown University. If you have ideas for how to improve it, please [let us know!](/contact)",
+    "link": ""
   }
 }

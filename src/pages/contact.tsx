@@ -77,6 +77,7 @@ class ContactForm extends Component {
             className="block mb-2 text-contact font-bold text-black"
           >
             Full name
+            <span className="text-red"> *</span>
           </label>
           <input
             aria-label="Full name"
@@ -97,6 +98,7 @@ class ContactForm extends Component {
             className="block mb-2 text-contact font-bold text-black"
           >
             Email address
+            <span className="text-red"> *</span>
           </label>
           <input
             aria-label="Full name"
@@ -137,6 +139,7 @@ class ContactForm extends Component {
             className="block mb-2 text-contact font-bold text-black"
           >
             Message
+            <span className="text-red"> *</span>
           </label>
           <textarea
             aria-label="Message"
