@@ -30,6 +30,7 @@ module.exports = {
         primary: colors.cyan[500],
         primarydark: colors.cyan[800],
         warning: colors.amber[500],
+        red: "#b50909",
       },
       flex: {
         4: "4 4 0%",
@@ -44,7 +45,7 @@ module.exports = {
         h4: "1rem",
         body: "1rem",
         button: "0.875rem",
-        nav: "0.875rem",
+        nav: "1rem",
         contact: "1rem",
         tag: "0.875rem",
       },
