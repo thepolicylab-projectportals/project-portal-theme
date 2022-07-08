@@ -30,18 +30,26 @@ interface ContactFormState {
   message: string
 }
 
-function changeCheck() {
+const inputBoxStartClassName =
+  "w-full text-contact px-3 py-2 leading-tight text-black shadow appearance-none outline-transparent focus:outline-none focus:shadow-outline"
+const inputBoxErrorClassName =
+  "w-full text-contact px-3 py-2 leading-tight text-black border-2 border-red-500 shadow appearance-none outline-transparent focus:outline-none focus:shadow-outline"
+
+const errorLabelHiddenClassName = "font-bold text-red-600 hidden"
+const errorLabelShownClassName = "font-bold text-red-600"
+
+function changeCheck(event) {
   //job of changeCheck is to remove all error messages that
   //may have been brought up from a previous submit attempt
   if (event.target.name != "subject") {
     document.getElementById(event.target.name + "ErrorLabel").className =
-      "font-bold text-red-600 hidden"
+      errorLabelHiddenClassName
     document.getElementById(event.target.name).className =
-      "w-full text-contact px-3 py-2 leading-tight text-black shadow appearance-none outline-transparent focus:outline-none focus:shadow-outline"
+      inputBoxStartClassName
 
     if (event.target.name == "email") {
       document.getElementById("invalidEmailErrorLabel").className =
-        "font-bold text-red-600 hidden"
+        errorLabelHiddenClassName
     }
   }
 }
@@ -53,37 +61,34 @@ function submitCheck(state) {
   var emailCheck = true
   var messageCheck = true
 
-  const errorTextClassName = "font-bold text-red-600"
-  const errorBoxClassName =
-    "w-full text-contact px-3 py-2 leading-tight text-black border-2 border-red-500 shadow appearance-none outline-transparent focus:outline-none focus:shadow-outline"
-
   //check name is filled out
   if (state.name == "") {
-    document.getElementById("nameErrorLabel").className = errorTextClassName
-    document.getElementById("name").className = errorBoxClassName
+    document.getElementById("nameErrorLabel").className =
+      errorLabelShownClassName
+    document.getElementById("name").className = inputBoxErrorClassName
     nameCheck = false
   }
   //check email is filled out AND if filled out, it is in proper email format
   if (state.email == "") {
-    document.getElementById("emailErrorLabel").className = errorTextClassName
-    document.getElementById("email").className = errorBoxClassName
+    document.getElementById("emailErrorLabel").className =
+      errorLabelShownClassName
+    document.getElementById("email").className = inputBoxErrorClassName
     emailCheck = false
   }
   //if email exists, make sure it is valid email format
   else {
     if (!document.getElementById("email").validity.valid) {
       document.getElementById("invalidEmailErrorLabel").className =
-        errorTextClassName
-      document.getElementById("email").className = errorBoxClassName
+        errorLabelShownClassName
+      document.getElementById("email").className = inputBoxErrorClassName
       emailCheck = false
     }
   }
   //check message is filled out
   if (state.message == "") {
     document.getElementById("messageErrorLabel").className =
-      "font-bold text-red-600"
-    document.getElementById("message").className =
-      "w-full text-contact px-3 py-2 leading-tight text-black border-2 border-red-500 shadow appearance-none outline-transparent focus:outline-none focus:shadow-outline"
+      errorLabelShownClassName
+    document.getElementById("message").className = inputBoxErrorClassName
     messageCheck = false
   }
   return nameCheck && emailCheck && messageCheck
@@ -141,7 +146,7 @@ class ContactForm extends Component {
           >
             Full name
           </label>
-          <label id="nameErrorLabel" className="font-bold text-red-600 hidden">
+          <label id="nameErrorLabel" className={errorLabelHiddenClassName}>
             Please enter your full name
           </label>
           <input
@@ -164,12 +169,12 @@ class ContactForm extends Component {
           >
             Email address
           </label>
-          <label id="emailErrorLabel" className="font-bold text-red-600 hidden">
+          <label id="emailErrorLabel" className={errorLabelHiddenClassName}>
             Please enter your email address
           </label>
           <label
             id="invalidEmailErrorLabel"
-            className="font-bold text-red-600 hidden"
+            className={errorLabelHiddenClassName}
           >
             Please enter a valid email address
           </label>
@@ -213,10 +218,7 @@ class ContactForm extends Component {
           >
             Message
           </label>
-          <label
-            id="messageErrorLabel"
-            className="font-bold text-red-600 hidden"
-          >
+          <label id="messageErrorLabel" className={errorLabelHiddenClassName}>
             Please enter a brief message
           </label>
           <textarea
