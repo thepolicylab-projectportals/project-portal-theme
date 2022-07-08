@@ -30,13 +30,21 @@ interface ContactFormState {
   message: string
 }
 
-const inputBoxStartClassName =
-  "w-full text-contact px-3 py-2 leading-tight text-black shadow appearance-none outline-transparent focus:outline-none focus:shadow-outline"
-const inputBoxErrorClassName =
-  "w-full text-contact px-3 py-2 leading-tight text-black border-2 border-red-500 shadow appearance-none outline-transparent focus:outline-none focus:shadow-outline"
+const errorLabelShownClassName = "font-bold text-red"
 
-const errorLabelHiddenClassName = "font-bold text-red-600 hidden"
-const errorLabelShownClassName = "font-bold text-red-600"
+const errorLabelHiddenClassName = "font-bold text-red hidden"
+
+const standardInputBoxStartClassName =
+  "w-full text-contact px-3 py-2 leading-tight text-black shadow appearance-none outline-transparent focus:outline-none focus:shadow-outline"
+
+const messageInputBoxStartClassName =
+  "w-full text-contact h-48 px-3 py-2 leading-tight text-black shadow appearance-none outline-transparent focus:outline-none focus:shadow-outline"
+
+const standardInputBoxErrorClassName =
+  "w-full text-contact px-3 py-2 leading-tight text-black border-2 border-red shadow appearance-none outline-transparent focus:outline-none focus:shadow-outline"
+
+const messageInputBoxErrorClassName =
+  "w-full text-contact h-48 px-3 py-2 leading-tight text-black border-2 border-red shadow appearance-none focus:outline-none focus:shadow-outline"
 
 function changeCheck(event) {
   //job of changeCheck is to remove all error messages that
@@ -45,7 +53,15 @@ function changeCheck(event) {
     document.getElementById(event.target.name + "ErrorLabel").className =
       errorLabelHiddenClassName
     document.getElementById(event.target.name).className =
-      inputBoxStartClassName
+      standardInputBoxStartClassName
+
+    if (event.target.name == "message") {
+      document.getElementById(event.target.name).className =
+        messageInputBoxStartClassName
+    } else {
+      document.getElementById(event.target.name).className =
+        standardInputBoxStartClassName
+    }
 
     if (event.target.name == "email") {
       document.getElementById("invalidEmailErrorLabel").className =
@@ -65,14 +81,14 @@ function submitCheck(state) {
   if (state.name == "") {
     document.getElementById("nameErrorLabel").className =
       errorLabelShownClassName
-    document.getElementById("name").className = inputBoxErrorClassName
+    document.getElementById("name").className = standardInputBoxErrorClassName
     nameCheck = false
   }
   //check email is filled out AND if filled out, it is in proper email format
   if (state.email == "") {
     document.getElementById("emailErrorLabel").className =
       errorLabelShownClassName
-    document.getElementById("email").className = inputBoxErrorClassName
+    document.getElementById("email").className = standardInputBoxErrorClassName
     emailCheck = false
   }
   //if email exists, make sure it is valid email format
@@ -80,7 +96,8 @@ function submitCheck(state) {
     if (!document.getElementById("email").validity.valid) {
       document.getElementById("invalidEmailErrorLabel").className =
         errorLabelShownClassName
-      document.getElementById("email").className = inputBoxErrorClassName
+      document.getElementById("email").className =
+        standardInputBoxErrorClassName
       emailCheck = false
     }
   }
@@ -88,7 +105,7 @@ function submitCheck(state) {
   if (state.message == "") {
     document.getElementById("messageErrorLabel").className =
       errorLabelShownClassName
-    document.getElementById("message").className = inputBoxErrorClassName
+    document.getElementById("message").className = messageInputBoxErrorClassName
     messageCheck = false
   }
   return nameCheck && emailCheck && messageCheck
