@@ -30,7 +30,7 @@ interface ContactFormState {
   email: string
   subject: string
   message: string
-  //captchaSuccess: boolean
+  captchaSuccess: boolean
 }
 
 class ContactForm extends Component {
@@ -43,10 +43,11 @@ class ContactForm extends Component {
       email: "",
       subject: "",
       message: "",
-      //captchaSuccess: false
+      captchaSuccess: false,
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleCaptcha = this.handleCaptcha.bind(this)
   }
 
   handleChange(event) {
@@ -64,6 +65,10 @@ class ContactForm extends Component {
     })
       .then(() => navigate("/thank-you/"))
       .catch((error) => alert(error))
+  }
+
+  handleCaptcha(event) {
+    this.setState({ captchaSuccess: true })
   }
 
   render() {
@@ -161,12 +166,16 @@ class ContactForm extends Component {
           aria-hidden="true"
           aria-readonly="true"
           aria-label="reCaptcha"
-          sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
-          onChange={(status) => this.setState({ captchaSuccess: status })}
+          sitekey="6LfawqQgAAAAADYGSbA_i3B4AO2VtTBhQVAtrmYt"
+          onChange={this.handleCaptcha}
         />
 
-        <div className="flex items-center justify-between">
-          <button className="btn" type="submit">
+        <div className="flex mt-4 items-center justify-between">
+          <button
+            className="btn"
+            type="submit"
+            disabled={!this.state.captchaSuccess}
+          >
             Submit
           </button>
         </div>
