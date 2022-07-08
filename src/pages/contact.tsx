@@ -4,7 +4,6 @@ import { MarkdownText } from "../components"
 import { Layout } from "../layouts/Layout"
 import { HeaderWithImage } from "../components/HeaderWithImage"
 import language from "site/language.json"
-import { isNA } from "../utils"
 
 const encode = (data: { [Key: string]: string }) => {
   return Object.keys(data)
