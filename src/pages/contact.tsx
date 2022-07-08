@@ -4,6 +4,7 @@ import { MarkdownText } from "../components"
 import { Layout } from "../layouts/Layout"
 import { HeaderWithImage } from "../components/HeaderWithImage"
 import language from "site/language.json"
+import { isNA } from "../utils"
 
 const encode = (data: { [Key: string]: string }) => {
   return Object.keys(data)
@@ -145,6 +146,7 @@ class ContactForm extends Component {
             className="block mb-2 text-contact font-bold text-black"
           >
             Full name
+            <span className="text-red"> *</span>
           </label>
           <label id="nameErrorLabel" className={errorLabelHiddenClassName}>
             Please enter your full name
@@ -168,6 +170,7 @@ class ContactForm extends Component {
             className="block mb-2 text-contact font-bold text-black"
           >
             Email address
+            <span className="text-red"> *</span>
           </label>
           <label id="emailErrorLabel" className={errorLabelHiddenClassName}>
             Please enter your email address
@@ -217,6 +220,7 @@ class ContactForm extends Component {
             className="block mb-2 text-contact font-bold text-black"
           >
             Message
+            <span className="text-red"> *</span>
           </label>
           <label id="messageErrorLabel" className={errorLabelHiddenClassName}>
             Please enter a brief message
@@ -257,9 +261,7 @@ export default ({ data }: ContactProps) => {
       />
 
       <article className="w-full pt-5 px-8 lg:px-16 xl:px-24 lg:w-2/3">
-        <h1 className="mt-8 mb-2 text-h2 font-bold">
-          {language.contact.title}
-        </h1>
+        <h2 className="my-4 text-h2 font-bold">{language.contact.title}</h2>
         <MarkdownText
           className="mb-10 leading-normal text-body lg:text-body"
           text={language.contact.lede}
