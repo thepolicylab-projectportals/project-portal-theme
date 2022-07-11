@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4128344e-192b-460c-a7e5-b809c5bb9324/deploy-status)](https://app.netlify.com/sites/preeminent-chebakia-76ac7b/deploys)
+
 # Project Portal
 
 Link to the Airtable: https://airtable.com/tblGGysdQuun6M4mI/viw67jOefyUpvWNJN?blocks=hide
