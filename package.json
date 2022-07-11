@@ -10,6 +10,8 @@
     "yarn": "^1.22.18"
   },
   "scripts": {
+    "publish-theme": "cd ./project-portal-theme && yarn publish",
+
     "develop": "yarn workspace example develop",
     "build": "yarn workspace example build",
     "serve": "yarn workspace example serve",
