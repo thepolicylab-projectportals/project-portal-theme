@@ -2,7 +2,7 @@
   "private": true,
   "workspaces": [
     "project-portal-theme",
-    "example",
+    "project-portal-example",
     "project-portal-nc",
     "project-portal-satx"
   ],
@@ -12,10 +12,10 @@
   "scripts": {
     "publish-theme": "cd ./project-portal-theme && yarn publish",
 
-    "develop": "yarn workspace example develop",
-    "build": "yarn workspace example build",
-    "serve": "yarn workspace example serve",
-    "clean": "yarn workspace example clean",
+    "develop": "yarn workspace project-portal-example develop",
+    "build": "yarn workspace project-portal-example build",
+    "serve": "yarn workspace project-portal-example serve",
+    "clean": "yarn workspace project-portal-example clean",
 
     "clean:nc": "yarn workspace project-portal-nc clean",
     "develop:nc": "yarn workspace project-portal-nc develop",
