@@ -8,7 +8,7 @@ Each new site will require some infrastructure setup and configuration files.
 
 ### Create a workspace for the site based on the example template
 
-- Duplicate the [`example`](./example) directory and rename to something like `project-portal-<site id>` where `<site id>` is a unique identifier for the government which wants the site. This directory is a yarn workspace.
+- Duplicate the [`example`](./project-portal-example) directory and rename to something like `project-portal-<site id>` where `<site id>` is a unique identifier for the government which wants the site. This directory is a yarn workspace.
 - Update the `./project-portal-<site id>/package.json` so that the "name" field exactly matches the directory name `project-portal-<site id>`.
 
 ### Update `gatsby-config.js` file
