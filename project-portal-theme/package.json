@@ -1,9 +1,16 @@
 {
-  "name": "project-portal-theme",
+  "name": "@thepolicylab-projectportals/project-portal-theme",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/thepolicylab-projectportals/project-portal-theme.git"
+  },
   "description": "",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "",
   "license": "MIT",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
@@ -66,17 +73,5 @@
   "keywords": [
     "airtable",
     "gatsby"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/wkocjan/gatsby-airtable-listing"
-  },
-  "bugs": {
-    "url": "https://github.com/wkocjan/gatsby-airtable-listing/issues"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npx pretty-quick --staged"
-    }
-  }
+  ]
 }
