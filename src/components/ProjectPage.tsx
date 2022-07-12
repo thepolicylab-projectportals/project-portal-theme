@@ -30,7 +30,7 @@ function customSort(dateField, sortDescending) {
       sortValue = aValue > bValue ? -1 : 1
     }
 
-    if (!sortDescending) {
+    if (sortDescending === 2 || sortDescending === 3) {
       sortValue = sortValue * -1
     }
 
@@ -42,6 +42,7 @@ export interface ProjectPageProps {
   lede: string
   pageName: string
   dateField: string
+  dateCreated: string
   data: {
     items: {
       nodes: {
@@ -64,6 +65,7 @@ export const ProjectPage = ({
   lede,
   pageName,
   dateField,
+  dateCreated,
 }: ProjectPageProps) => {
   const ITEMS_PER_PAGE = 6
   const allProjects = data.items.nodes
@@ -83,14 +85,19 @@ export const ProjectPage = ({
   }
 
   const sortOptions = [
-    { value: true, label: "Newest to Oldest" },
-    { value: false, label: "Oldest to Newest" },
+    { value: 1, label: dateField + " - Newest to Oldest", field: dateField },
+    { value: 2, label: dateField + " - Oldest to Newest", field: dateField },
+    {
+      value: 3,
+      label: dateCreated + " - Oldest to Newest",
+      field: dateCreated,
+    },
   ]
   const [sortDirection, setSortDirection] = useState(sortOptions[0])
 
   useEffect(() => {
     const sortedList = [...allProjects]
-    sortedList.sort(customSort(dateField, sortDirection.value))
+    sortedList.sort(customSort(sortDirection.field, sortDirection.value))
     setSortedProjects(sortedList)
     setPageStart(0)
     setPageEnd(ITEMS_PER_PAGE)
