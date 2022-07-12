@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="develop all" type="CompoundRunConfigurationType">
+    <toRun name="develop:example --verbose" type="js.build_tools.npm" />
+    <toRun name="develop:nc --verbose" type="js.build_tools.npm" />
+    <toRun name="develop:satx --verbose" type="js.build_tools.npm" />
+    <method v="2" />
+  </configuration>
+</component>
