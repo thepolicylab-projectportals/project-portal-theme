@@ -268,8 +268,9 @@ class ContactForm extends Component {
         </div>
 
         <ReCAPTCHA
+          id="g-captcha"
           aria-readonly="true"
-          aria-label="reCaptcha"
+          aria-label="recaptcha"
           sitekey={this.state.recaptchaSiteKey}
           onChange={this.handleCaptcha}
         />
