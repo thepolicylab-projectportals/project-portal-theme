@@ -1,4 +1,4 @@
-@import "../../../project-portal-theme/src/styles/global.css";
+@import "@thepolicylab-projectportals/project-portal-theme/src/styles/global.css";
 
 @tailwind base;
 @tailwind components;

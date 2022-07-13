@@ -30,7 +30,7 @@ module.exports = {
   plugins: [
     {
       // Use the Project Portal Theme as the first plugin – this builds the website as a whole
-      resolve: "project-portal-theme",
+      resolve: "@thepolicylab-projectportals/project-portal-theme",
       options: {
         // Settings for loading project and contact data from Airtable
         airtableSettings: {
