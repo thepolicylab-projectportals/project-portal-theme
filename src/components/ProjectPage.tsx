@@ -7,7 +7,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import BackIcon from "./BackIcon.tsx"
 import ForwardIcon from "./ForwardIcon.tsx"
 import Select from "react-select"
-import { isNA } from "../utils"
+import { projectStatus, isNA } from "../utils"
 
 function customSort(dateField, sortDescending) {
   return function (a, b) {
@@ -69,6 +69,8 @@ export const ProjectPage = ({
 }: ProjectPageProps) => {
   const ITEMS_PER_PAGE = 6
   const allProjects = data.items.nodes
+  console.log("YEEEt")
+  console.log(pageName)
   const [sortedProjects, setSortedProjects] = useState(allProjects)
   const [displayProjects, setDisplayProjects] = useState(allProjects)
 
@@ -84,12 +86,19 @@ export const ProjectPage = ({
     }
   }
 
+  const project_status = projectStatus(
+    pageName,
+    "Opportunity Closes: ",
+    "Project Started: ",
+    "Project Ended: "
+  )
+
   const sortOptions = [
-    { value: 1, label: dateField + " - Newest to Oldest", field: dateField },
-    { value: 2, label: dateField + " - Oldest to Newest", field: dateField },
+    { value: 1, label: project_status + "Newest to Oldest", field: dateField },
+    { value: 2, label: project_status + "Oldest to Newest", field: dateField },
     {
       value: 3,
-      label: dateCreated + " - Oldest to Newest",
+      label: "Date Posted: Oldest to Newest",
       field: dateCreated,
     },
   ]
