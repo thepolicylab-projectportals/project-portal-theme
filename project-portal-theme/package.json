@@ -4,12 +4,6 @@
   "version": "1.0.0",
   "author": "",
   "license": "MIT",
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean"
-  },
   "peerDependencies": {
     "gatsby": "^4.0.2",
     "react": "^16.13.1",
