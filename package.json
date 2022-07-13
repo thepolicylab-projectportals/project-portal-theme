@@ -16,6 +16,8 @@
     "pretty-quick": "^3.1.0"
   },
   "scripts": {
+    "publish-theme": "yarn publish project-portal-theme",
+
     "develop": "yarn workspace project-portal-example develop",
     "build": "yarn workspace project-portal-example build",
     "serve": "yarn workspace project-portal-example serve",
