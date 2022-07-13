@@ -60,20 +60,6 @@ module.exports = {
       },
     },
     {
-      // Include a Google Analytics Tag
-      resolve: `gatsby-plugin-google-gtag`,
-      options: {
-        trackingIds: ["G-W667ER3CGB"],
-        gtagConfig: {
-          anonymize_ip: true,
-        },
-        pluginConfig: {
-          head: true,
-          respectDNT: true,
-        },
-      },
-    },
-    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
