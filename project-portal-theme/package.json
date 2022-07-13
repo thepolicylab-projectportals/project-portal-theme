@@ -42,8 +42,7 @@
     "react-share": "^4.4.0",
     "source-map-support": "^0.5.20",
     "tailwindcss": "^2.0.1",
-    "ts-node": "^10.8.1",
-    "use-media": "^1.4.0"
+    "ts-node": "^10.8.1"
   },
   "devDependencies": {
     "@types/tailwindcss": "^3.0.2",
