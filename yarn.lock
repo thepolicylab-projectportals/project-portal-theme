@@ -5985,7 +5985,7 @@ gatsby-legacy-polyfills@^2.16.0:
     "@babel/runtime" "^7.15.4"
     core-js-compat "3.9.0"
 
-gatsby-link@^4.1.0, gatsby-link@^4.16.0:
+gatsby-link@^4.16.0:
   version "4.16.0"
   resolved "https://registry.yarnpkg.com/gatsby-link/-/gatsby-link-4.16.0.tgz#cfab380f15f2105de78c3e826153d96d5dd1f8ec"
   integrity sha512-CuWV3BFZsIYKChsaRoGbTWn2VhPKRJ8d9rM8QbCpYdNNBdvZFADUeHpQaIX9g9hB9ZoSMFKp5MbMVcWGi50f8w==
@@ -6031,11 +6031,6 @@ gatsby-parcel-config@^0.7.0:
     "@parcel/transformer-json" "2.6.0"
     "@parcel/transformer-raw" "2.6.0"
     "@parcel/transformer-react-refresh-wrap" "2.6.0"
-
-gatsby-plugin-config@^1.0.7:
-  version "1.0.7"
-  resolved "https://registry.npmjs.org/gatsby-plugin-config/-/gatsby-plugin-config-1.0.7.tgz"
-  integrity sha512-js7zLJcTD+G5ea4rPYHztb+N+KqGo6ax5rGviuTUDdKu0N1oGWp8FuozQrdx7TPKjMv/g5pvMAGrhk5TcPd5tQ==
 
 gatsby-plugin-google-gtag@^4.8.0:
   version "4.16.0"
