@@ -16,7 +16,6 @@
     "@tailwindcss/forms": "^0.3.4",
     "autoprefixer": "^10.0.4",
     "classnames": "^2.2.6",
-    "dotenv": "^8.6.0",
     "gatsby": "^4.0.2",
     "gatsby-link": "^4.1.0",
     "gatsby-plugin-config": "^1.0.7",
