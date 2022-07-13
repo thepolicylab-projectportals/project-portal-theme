@@ -12,9 +12,9 @@ export const projectStatus = (
   ongoing: any,
   completed: any
 ): any =>
-  status === "Open opportunities"
+  status === "opportunityCloses"
     ? open
-    : status === "In-progress projects"
+    : status === "startDate"
     ? ongoing
     : completed
 

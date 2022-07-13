@@ -85,7 +85,7 @@ export const ProjectPage = ({
   }
 
   const project_status = projectStatus(
-    pageName,
+    dateField,
     "Opportunity Closes: ",
     "Project Started: ",
     "Project Ended: "
