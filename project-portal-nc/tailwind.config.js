@@ -2,7 +2,7 @@ const DARK_BLUE = "#092940"
 const LIGHT_BLUE = "#ECF0F3"
 
 module.exports = {
-  presets: [require("../project-portal-theme/tailwind.presets")],
+  presets: [require("../project-portal-theme/src/styles/tailwind.presets")],
   purge: {
     enabled: true,
     content: [

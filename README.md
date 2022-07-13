@@ -122,7 +122,7 @@ Try running `npm run clean`.
 ### Tailwind
 
 The vast majority of the CSS is provided in the JSX by Tailwind CSS classes. Primary
-color schemes are described in `tailwind.presets.js` (though this is a work in progress).
+color schemes are described in `src/styles/tailwind.presets.js` (though this is a work in progress).
 
 #### Some things to keep in mind
 
