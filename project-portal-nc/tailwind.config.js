@@ -2,12 +2,14 @@ const DARK_BLUE = "#092940"
 const LIGHT_BLUE = "#ECF0F3"
 
 module.exports = {
-  presets: [require("@thepolicylab-projectportals/project-portal-theme/src/styles/tailwind.presets")],
+  presets: [
+    require("@thepolicylab-projectportals/project-portal-theme/src/styles/tailwind.presets"),
+  ],
   purge: {
     enabled: true,
     content: [
       "./src/**/*.{js,jsx,ts,tsx,html}",
-      "@thepolicylab-projectportals/project-portal-theme/src/**/*.{js,jsx,ts,tsx,html}"
+      "../node_modules/@thepolicylab-projectportals/project-portal-theme/src/**/*.{js,jsx,ts,tsx,html}",
     ],
   },
   theme: {
