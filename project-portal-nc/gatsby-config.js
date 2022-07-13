@@ -9,7 +9,9 @@ const staticText = require("./language.json")
 const siteMetadata = {
   siteTitle: "North Carolina Project Portal",
   short_name: "Project Portal",
-  siteUrl: process.env.CI ? "http://localhost:9000" : "https://projectportal.nc.gov/",
+  siteUrl: process.env.CI
+    ? "http://localhost:9000"
+    : "https://projectportal.nc.gov/",
   projectInterestLink: "",
   live: true,
   locale: "en",
@@ -71,13 +73,6 @@ module.exports = {
           head: true,
           respectDNT: true,
         },
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: "./images",
       },
     },
   ],

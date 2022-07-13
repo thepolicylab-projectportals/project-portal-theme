@@ -62,12 +62,5 @@ module.exports = {
         icon: "./images/icon.png",
       },
     },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: "./images",
-      },
-    },
   ],
 }
