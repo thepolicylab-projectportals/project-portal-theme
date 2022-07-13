@@ -6172,7 +6172,7 @@ gatsby-plugin-utils@^3.10.0:
     mini-svg-data-uri "^1.4.4"
     svgo "^2.8.0"
 
-gatsby-react-router-scroll@^5.1.0, gatsby-react-router-scroll@^5.16.0:
+gatsby-react-router-scroll@^5.16.0:
   version "5.16.0"
   resolved "https://registry.yarnpkg.com/gatsby-react-router-scroll/-/gatsby-react-router-scroll-5.16.0.tgz#7114bfa1e3460dc1b8edeed1951a840785eac238"
   integrity sha512-85L2eZH3ck9eNhIMH09lThiiH85oaVE/0Vw9oCfsRkyfm7C0oW9HAUUgAAAgWHZBQ1Xw9wPUpIiP0XjKlk1U0w==
