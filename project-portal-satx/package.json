@@ -7,9 +7,7 @@
     "gatsby": "^4.0.2",
     "@thepolicylab-projectportals/project-portal-theme": "^1.0.0",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "tailwindcss": "^2.0.1",
-    "autoprefixer": "^10.0.4"
+    "react-dom": "^16.13.1"
   },
   "scripts": {
     "develop": "gatsby develop",
