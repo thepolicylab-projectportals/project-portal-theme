@@ -1,3 +1,5 @@
+require("ts-node").register(require("./tsconfig.json"))
+
 const {
   AIRTABLE_TABLE_PROJECTS,
   AIRTABLE_TABLE_CONTACTS,
