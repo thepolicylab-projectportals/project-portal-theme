@@ -6,6 +6,7 @@
   "dependencies": {
     "dotenv": "^8.6.0",
     "gatsby": "^4.0.2",
+    "gatsby-plugin-manifest": "^4.6.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "@thepolicylab-projectportals/project-portal-theme": "^1.0.0"
