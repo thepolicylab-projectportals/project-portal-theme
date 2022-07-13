@@ -69,8 +69,6 @@ export const ProjectPage = ({
 }: ProjectPageProps) => {
   const ITEMS_PER_PAGE = 6
   const allProjects = data.items.nodes
-  console.log("YEEEt")
-  console.log(pageName)
   const [sortedProjects, setSortedProjects] = useState(allProjects)
   const [displayProjects, setDisplayProjects] = useState(allProjects)
 
