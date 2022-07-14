@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { graphql, navigate, useStaticQuery } from "gatsby"
+import { graphql, navigate } from "gatsby"
 import { MarkdownText } from "../components"
 import { Layout } from "../layouts/Layout"
 import { HeaderWithImage } from "../components/HeaderWithImage"
@@ -14,11 +14,6 @@ const encode = (data: { [Key: string]: string }) => {
 
 interface ContactProps {
   data: {
-    site: {
-      siteMetadata: {
-        recaptchaSiteKey
-      }
-    }
     bgImage: {
       childImageSharp: {
         resize: {
@@ -34,7 +29,6 @@ interface ContactFormState {
   email: string
   subject: string
   message: string
-  recaptchaSiteKey: string
   captchaSuccess: boolean
 }
 
@@ -122,14 +116,13 @@ function submitCheck(state) {
 class ContactForm extends Component {
   state: ContactFormState
 
-  constructor(recaptcha, props) {
-    super(recaptcha, props)
+  constructor(props) {
+    super(props)
     this.state = {
       name: "",
       email: "",
       subject: "",
       message: "",
-      recaptchaSiteKey: recaptcha.recaptcha,
       captchaSuccess: false,
     }
     this.handleChange = this.handleChange.bind(this)
@@ -162,6 +155,7 @@ class ContactForm extends Component {
   }
 
   render() {
+    const { captchaSuccess } = this.state
     return (
       <form
         onSubmit={this.handleSubmit}
@@ -268,7 +262,7 @@ class ContactForm extends Component {
         </div>
 
         <ReCAPTCHA
-          sitekey={this.state.recaptchaSiteKey}
+          sitekey="6LfawqQgAAAAADYGSbA_i3B4AO2VtTBhQVAtrmYt"
           onChange={this.handleCaptcha}
         />
 
@@ -305,7 +299,7 @@ export default ({ data }: ContactProps) => {
           className="mb-10 leading-normal text-body lg:text-body"
           text={language.contact.lede}
         />
-        <ContactForm recaptcha={data.site.siteMetadata.recaptchaSiteKey} />
+        <ContactForm />
       </article>
     </Layout>
   )
@@ -313,11 +307,6 @@ export default ({ data }: ContactProps) => {
 
 export const query = graphql`
   query ContactQuery {
-    site {
-      siteMetadata {
-        recaptchaSiteKey
-      }
-    }
     bgImage: file(relativePath: { regex: "/^contact.jpg$/" }) {
       childImageSharp {
         resize(width: 1536) {

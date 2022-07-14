@@ -113,7 +113,6 @@ module.exports = {
       { name: "About", link: "/about", show: true },
       { name: "Contact", link: "/contact", show: true },
     ],
-    recaptchaSiteKey: process.env.RECAPTCHA_SITE_KEY,
     locale: "en",
   },
   plugins: plugins,
