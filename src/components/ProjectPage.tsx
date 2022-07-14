@@ -9,7 +9,7 @@ import ForwardIcon from "./ForwardIcon.tsx"
 import Select from "react-select"
 import { projectStatus, isNA } from "../utils"
 
-function customSort(dateField: string, sortDescending: boolean) {
+function customSort(dateField: string, sortAscending: boolean) {
   return function (a, b) {
     let sortValue = 0
     const aValue = a.data[dateField]
@@ -30,7 +30,7 @@ function customSort(dateField: string, sortDescending: boolean) {
       sortValue = aValue > bValue ? -1 : 1
     }
 
-    if (sortDescending) {
+    if (sortAscending) {
       sortValue = sortValue * -1
     }
 
@@ -94,27 +94,27 @@ export const ProjectPage = ({
   const sortOptions = [
     {
       value: 1,
-      label: project_status + "Newest to Oldest",
-      field: dateField,
-      sortDescending: true,
+      label: "Date Posted: Newest to Oldest",
+      field: dateCreated,
+      sortAscending: false,
     },
     {
       value: 2,
-      label: project_status + "Oldest to Newest",
-      field: dateField,
-      sortDescending: false,
+      label: "Date Posted: Oldest to Newest",
+      field: dateCreated,
+      sortAscending: true,
     },
     {
       value: 3,
-      label: "Date Posted: Oldest to Newest",
-      field: dateCreated,
-      sortDescending: false,
+      label: project_status + "Newest to Oldest",
+      field: dateField,
+      sortAscending: false,
     },
     {
       value: 4,
-      label: "Date Posted: Newest to Oldest",
-      field: dateCreated,
-      sortDescending: true,
+      label: project_status + "Oldest to Newest",
+      field: dateField,
+      sortAscending: true,
     },
   ]
   const [sortDirection, setSortDirection] = useState(sortOptions[0])
@@ -122,7 +122,7 @@ export const ProjectPage = ({
   useEffect(() => {
     const sortedList = [...allProjects]
     sortedList.sort(
-      customSort(sortDirection.field, sortDirection.sortDescending)
+      customSort(sortDirection.field, sortDirection.sortAscending)
     )
     setSortedProjects(sortedList)
     setPageStart(0)
