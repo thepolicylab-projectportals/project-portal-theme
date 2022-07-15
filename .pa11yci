@@ -6,6 +6,7 @@
     "reporters": [
       "cli",
       ["json", { "fileName": "./results.json" }]
-    ]
+    ],
+    "hideElements": "#g-recaptcha-response, iframe[style*='display: none;']"
   }
 }

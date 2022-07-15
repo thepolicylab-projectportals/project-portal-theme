@@ -9,3 +9,6 @@
 
   # Default build command.
   command = "npm run build"
+
+[context.deploy-preview.environment]
+  RECAPTCHA_SITE_KEY = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"

@@ -25,6 +25,7 @@ jobs:
           AIRTABLE_BASE_ID: ${{ secrets.AIRTABLE_BASE_ID }}
           AIRTABLE_API_KEY: ${{ secrets.AIRTABLE_API_KEY }}
           PARTNERNAME: ${{ matrix.partner-name }}
+          RECAPTCHA_SITE_KEY: ${{ secrets.RECAPTCHA_SITE_KEY }}
         run: |
           LASTDATE=$(curl "https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/Project%20Page%20Content?fields%5B%5D=lastModified&maxRecords=1&sort%5B0%5D%5Bfield%5D=lastModified&sort%5B0%5D%5Bdirection%5D=desc&filterByFormula=%28%7BpartnerName%7D%20%3D%20%27${PARTNERNAME}%27%29" -H "Authorization: Bearer ${AIRTABLE_API_KEY}" | jq -r '.records[0].fields.lastModified')
           echo "::set-output name=last_modified::${LASTDATE}"
@@ -35,6 +36,7 @@ jobs:
           AIRTABLE_BASE_ID: ${{ secrets.AIRTABLE_BASE_ID }}
           AIRTABLE_API_KEY: ${{ secrets.AIRTABLE_API_KEY }}
           PARTNERNAME: ${{ matrix.partner-name }}
+          RECAPTCHA_SITE_KEY: ${{ secrets.RECAPTCHA_SITE_KEY }}
         run: |
           LASTDATE=$(curl "https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/Project%20Contacts?fields%5B%5D=lastModified&maxRecords=1&sort%5B0%5D%5Bfield%5D=lastModified&sort%5B0%5D%5Bdirection%5D=desc" -H "Authorization: Bearer ${AIRTABLE_API_KEY}" | jq -r '.records[0].fields.lastModified')
           echo "::set-output name=last_modified::${LASTDATE}"

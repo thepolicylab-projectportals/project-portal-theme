@@ -1,9 +1,10 @@
 import React, { Component } from "react"
-import { graphql, navigate } from "gatsby"
+import { graphql, navigate, useStaticQuery } from "gatsby"
 import { MarkdownText } from "../components"
 import { Layout } from "../layouts/Layout"
 import { HeaderWithImage } from "../components/HeaderWithImage"
 import language from "site/language.json"
+import ReCAPTCHA from "react-google-recaptcha"
 
 const encode = (data: { [Key: string]: string }) => {
   return Object.keys(data)
@@ -13,6 +14,11 @@ const encode = (data: { [Key: string]: string }) => {
 
 interface ContactProps {
   data: {
+    site: {
+      siteMetadata: {
+        recaptchaSiteKey
+      }
+    }
     bgImage: {
       childImageSharp: {
         resize: {
@@ -28,6 +34,8 @@ interface ContactFormState {
   email: string
   subject: string
   message: string
+  recaptchaSiteKey: string
+  captchaSuccess: boolean
 }
 
 const errorLabelShownClassName = "font-bold text-red"
@@ -114,17 +122,19 @@ function submitCheck(state) {
 class ContactForm extends Component {
   state: ContactFormState
 
-  constructor(props) {
-    super(props)
+  constructor(recaptcha, props) {
+    super(recaptcha, props)
     this.state = {
       name: "",
       email: "",
       subject: "",
       message: "",
+      recaptchaSiteKey: recaptcha.recaptcha,
+      captchaSuccess: false,
     }
-
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleCaptcha = this.handleCaptcha.bind(this)
   }
 
   handleChange(event) {
@@ -145,6 +155,10 @@ class ContactForm extends Component {
         .then(() => navigate("/thank-you/"))
         .catch((error) => alert(error))
     }
+  }
+
+  handleCaptcha(event) {
+    this.setState({ captchaSuccess: true })
   }
 
   render() {
@@ -253,8 +267,17 @@ class ContactForm extends Component {
           />
         </div>
 
-        <div className="flex items-center justify-between">
-          <button className="btn" type="submit">
+        <ReCAPTCHA
+          sitekey={this.state.recaptchaSiteKey}
+          onChange={this.handleCaptcha}
+        />
+
+        <div className="flex mt-4 items-center justify-between">
+          <button
+            className="btn"
+            type="submit"
+            disabled={!this.state.captchaSuccess}
+          >
             Submit
           </button>
         </div>
@@ -282,7 +305,7 @@ export default ({ data }: ContactProps) => {
           className="mb-10 leading-normal text-body lg:text-body"
           text={language.contact.lede}
         />
-        <ContactForm />
+        <ContactForm recaptcha={data.site.siteMetadata.recaptchaSiteKey} />
       </article>
     </Layout>
   )
@@ -290,6 +313,11 @@ export default ({ data }: ContactProps) => {
 
 export const query = graphql`
   query ContactQuery {
+    site {
+      siteMetadata {
+        recaptchaSiteKey
+      }
+    }
     bgImage: file(relativePath: { regex: "/^contact.jpg$/" }) {
       childImageSharp {
         resize(width: 1536) {
