@@ -1,7 +1,7 @@
 {
   "name": "@thepolicylab-projectportals/project-portal-theme",
   "description": "",
-  "version": "1.0.16",
+  "version": "1.0.19",
   "author": "The Policy Lab <thepolicylab@brown.edu>",
   "license": "MIT",
   "main": "index.js",
@@ -55,6 +55,6 @@
     "url": "https://github.com/thepolicylab-projectportals/project-portal-theme/issues"
   },
   "publishConfig": {
-    "registry":"https://npm.pkg.github.com"
+    "registry": "https://npm.pkg.github.com"
   }
 }
