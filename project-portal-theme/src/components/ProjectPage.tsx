@@ -2,10 +2,8 @@ import React, { useState, useEffect, useRef } from "react"
 import { Cards, CardProps } from "../components"
 import { Layout } from "../layouts/Layout"
 import { HeaderWithImage } from "./HeaderWithImage"
-import { Pagination } from "./Pagination"
-import { GatsbyImage } from "gatsby-plugin-image"
-import BackIcon from "./BackIcon.tsx"
-import ForwardIcon from "./ForwardIcon.tsx"
+import BackIcon from "./BackIcon"
+import ForwardIcon from "./ForwardIcon"
 import Select from "react-select"
 
 function customSort(dateField, sortDescending) {
