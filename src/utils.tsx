@@ -8,11 +8,14 @@ export const statusOutput = (
 
 export const projectStatus = (
   status: string,
+  created: any,
   open: any,
   ongoing: any,
   completed: any
 ): any =>
-  status === "opportunityCloses"
+  status === "created"
+    ? created
+    : status === "opportunityCloses"
     ? open
     : status === "startDate"
     ? ongoing

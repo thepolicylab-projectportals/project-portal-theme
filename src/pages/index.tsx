@@ -7,8 +7,7 @@ export default ({ data }: ProjectPageProps) =>
   ProjectPage({
     data,
     ...language.open,
-    dateField: "opportunityCloses",
-    dateCreated: "created",
+    options: ["created", "opportunityCloses"],
   })
 
 export const query = graphql`

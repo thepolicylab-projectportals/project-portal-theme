@@ -41,8 +41,7 @@ export interface ProjectPageProps {
   title: string
   lede: string
   pageName: string
-  dateField: string
-  dateCreated: string
+  options: []
   data: {
     items: {
       nodes: {
@@ -64,8 +63,7 @@ export const ProjectPage = ({
   data,
   lede,
   pageName,
-  dateField,
-  dateCreated,
+  options,
 }: ProjectPageProps) => {
   const ITEMS_PER_PAGE = 6
   const allProjects = data.items.nodes
@@ -84,39 +82,34 @@ export const ProjectPage = ({
     }
   }
 
-  const project_status = projectStatus(
-    dateField,
-    "Opportunity Closes: ",
-    "Project Started: ",
-    "Project Ended: "
-  )
-
-  const sortOptions = [
-    {
-      value: 1,
-      label: "Date Posted: Newest to Oldest",
-      field: dateCreated,
-      sortAscending: false,
-    },
-    {
-      value: 2,
-      label: "Date Posted: Oldest to Newest",
-      field: dateCreated,
-      sortAscending: true,
-    },
-    {
-      value: 3,
+  var sortOptions = []
+  var count = 1
+  for (const sortOption of options) {
+    const project_status = projectStatus(
+      sortOption,
+      "Date Posted: ",
+      "Opportunity Closes: ",
+      "Project Started: ",
+      "Project Ended: "
+    )
+    const value1 = {
+      value: count,
       label: project_status + "Newest to Oldest",
-      field: dateField,
+      field: sortOption,
       sortAscending: false,
-    },
-    {
-      value: 4,
+    }
+    count++
+    const value2 = {
+      value: count,
       label: project_status + "Oldest to Newest",
-      field: dateField,
+      field: sortOption,
       sortAscending: true,
-    },
-  ]
+    }
+    sortOptions.push(value1)
+    sortOptions.push(value2)
+    count++
+  }
+  console.log(sortOptions)
   const [sortDirection, setSortDirection] = useState(sortOptions[0])
 
   useEffect(() => {

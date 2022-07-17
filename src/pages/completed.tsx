@@ -7,8 +7,7 @@ export default ({ data }: ProjectPageProps) =>
   ProjectPage({
     data,
     ...language.completed,
-    dateField: "endDate",
-    dateCreated: "created",
+    options: ["endDate", "created"],
   })
 
 export const query = graphql`
