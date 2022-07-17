@@ -83,7 +83,7 @@ export const ProjectPage = ({
   }
 
   var sortOptions = []
-  var count = 1
+  var index = 1
   for (const sortOption of options) {
     const project_status = projectStatus(
       sortOption,
@@ -92,22 +92,22 @@ export const ProjectPage = ({
       "Project Started: ",
       "Project Ended: "
     )
-    const value1 = {
-      value: count,
+    const newToOldOption = {
+      value: index,
       label: project_status + "Newest to Oldest",
       field: sortOption,
       sortAscending: false,
     }
-    count++
-    const value2 = {
-      value: count,
+    index++
+    const oldToNewOption = {
+      value: index,
       label: project_status + "Oldest to Newest",
       field: sortOption,
       sortAscending: true,
     }
-    sortOptions.push(value1)
-    sortOptions.push(value2)
-    count++
+    sortOptions.push(newToOldOption)
+    sortOptions.push(oldToNewOption)
+    index++
   }
   console.log(sortOptions)
   const [sortDirection, setSortDirection] = useState(sortOptions[0])
