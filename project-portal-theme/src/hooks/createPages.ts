@@ -18,14 +18,18 @@ interface BoundActionCreators {
   }) => void
 }
 
-export type GatsbyCreatePages = (fns: {
-  graphql: any
-  actions: BoundActionCreators
-},
-themeOptions: any
+export type GatsbyCreatePages = (
+  fns: {
+    graphql: any
+    actions: BoundActionCreators
+  },
+  themeOptions: any
 ) => void
 
-export const createPages: GatsbyCreatePages = async ({ graphql, actions }, themeOptions) => {
+export const createPages: GatsbyCreatePages = async (
+  { graphql, actions },
+  themeOptions
+) => {
   const { createPage } = actions
   const allAirtable = await graphql(`
     {
