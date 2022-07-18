@@ -19,4 +19,5 @@ packName=$(cd $themeDir && npm pack)
 echo "Theme name is: $packName"
 
 echo "Install the theme and then everything else"
-(cd $testDir && npm install "../$themeDir/$packName" && npm install && npm run develop)
+(cd $testDir && ln -s "node_modules/@thepolicylab-projectportals/project-portal-theme" themeDir) &
+(cd $testDir && npm install "../$themeDir/$packName" && npm install && npm run build && npm run serve --port=8111)
