@@ -1,4 +1,3 @@
-const resolve = require("path").resolve
 const tableName = require("../consts").AIRTABLE_TABLE_PROJECTS
 
 interface PageInput {
@@ -45,10 +44,13 @@ export const createPages: GatsbyCreatePages = async ({ graphql, actions }, theme
     }
   `)
 
+  const projectDetailComponentPath = require.resolve(
+    "@thepolicylab-projectportals/project-portal-theme/src/templates/ProjectDetail.tsx"
+  )
   allAirtable.data.allAirtable.nodes.forEach(({ data: { slug } }) => {
     createPage({
       path: `/project/${slug}`,
-      component: resolve(__dirname, "../templates/ProjectDetail.tsx"),
+      component: projectDetailComponentPath,
       context: { slug },
     })
   })
