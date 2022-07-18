@@ -71,3 +71,5 @@ yarn-error.log
 results.json
 
 .idea/
+
+testDir/
