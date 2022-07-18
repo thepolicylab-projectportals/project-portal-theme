@@ -5,7 +5,7 @@
     <scripts>
       <script value="develop:nc" />
     </scripts>
-    <arguments value="--verbose --port 8001" />
+    <arguments value="--verbose --port 8001 --inspect" />
     <node-interpreter value="project" />
     <envs>
       <env name="DEBUG" value="gatsby*" />

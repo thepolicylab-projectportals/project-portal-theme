@@ -5,7 +5,7 @@
     <scripts>
       <script value="develop:satx" />
     </scripts>
-    <arguments value="--verbose --port 8002" />
+    <arguments value="--verbose --port 8002 --inspect" />
     <node-interpreter value="project" />
     <envs>
       <env name="DEBUG" value="gatsby*" />
