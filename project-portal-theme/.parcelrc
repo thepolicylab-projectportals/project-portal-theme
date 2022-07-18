@@ -1,0 +1,3 @@
+{
+  "extends": "gatsby-parcel-config/lib/index.json"
+}
