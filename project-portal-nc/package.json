@@ -4,13 +4,13 @@
   "main": "gatsby-config.js",
   "license": "MIT",
   "dependencies": {
-    "dotenv": "^8.6.0",
+    "@thepolicylab-projectportals/project-portal-theme": "^1.0.0",
+    "dotenv": "^16.0.1",
     "gatsby": "^4.0.2",
     "gatsby-plugin-google-gtag": "^4.8.0",
     "gatsby-plugin-manifest": "^4.6.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "@thepolicylab-projectportals/project-portal-theme": "^1.0.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "scripts": {
     "develop": "gatsby develop",

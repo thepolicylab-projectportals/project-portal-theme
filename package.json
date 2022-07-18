@@ -10,24 +10,21 @@
     "yarn": "^1.22.18"
   },
   "devDependencies": {
-    "gh-pages": "^3.2.3",
+    "gh-pages": "^4.0.0",
     "pa11y-ci": "^3.0.1",
     "prettier": "^2.2.1",
     "pretty-quick": "^3.1.0"
   },
   "scripts": {
     "publish-theme": "yarn publish project-portal-theme",
-
     "develop": "yarn workspace project-portal-example develop",
     "build": "yarn workspace project-portal-example build",
     "serve": "yarn workspace project-portal-example serve",
     "clean": "yarn workspace project-portal-example clean",
-
     "clean:nc": "yarn workspace project-portal-nc clean",
     "develop:nc": "yarn workspace project-portal-nc develop",
     "build:nc": "yarn workspace project-portal-nc build",
     "serve:nc": "yarn workspace project-portal-nc serve",
-
     "clean:satx": "yarn workspace project-portal-satx clean",
     "develop:satx": "yarn workspace project-portal-satx develop",
     "build:satx": "yarn workspace project-portal-satx build",
