@@ -8,7 +8,7 @@ import {
   SiteMetadata,
 } from "../components"
 import "../styles/global.css"
-import useSiteMetadata from "../hooks/useSiteMetadata"
+import { useSiteMetadata } from "../hooks/useSiteMetadata"
 
 interface LayoutProps {
   activePage?: string
@@ -23,7 +23,6 @@ export const Layout: FunctionComponent<LayoutProps> = ({
   description,
   children,
 }) => {
-
   const meta = useSiteMetadata()
 
   return (

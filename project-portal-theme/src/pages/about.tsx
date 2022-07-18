@@ -6,7 +6,7 @@ import { HeaderWithImage } from "../components/HeaderWithImage"
 import { Disclosure } from "@headlessui/react"
 import { FaPlus, FaMinus } from "react-icons/fa"
 
-import useSiteMetadata from "../hooks/useSiteMetadata"
+import { useSiteMetadata } from "../hooks/useSiteMetadata"
 import { useSiteStaticText } from "../hooks/useSiteStaticText"
 
 interface AboutProps {

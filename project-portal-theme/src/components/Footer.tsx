@@ -2,7 +2,7 @@ import React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import { getImage } from "gatsby-plugin-image"
 
-import useSiteMetadata from "../hooks/useSiteMetadata"
+import { useSiteMetadata } from "../hooks/useSiteMetadata"
 import { useSiteStaticText } from "../hooks/useSiteStaticText"
 
 export const Footer = () => {

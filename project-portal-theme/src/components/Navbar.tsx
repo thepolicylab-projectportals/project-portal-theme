@@ -3,7 +3,7 @@ import { Link, withPrefix, useStaticQuery, graphql } from "gatsby"
 import { FaBars, FaTimes } from "react-icons/fa"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
-import useSiteMetadata from "../hooks/useSiteMetadata"
+import { useSiteMetadata } from "../hooks/useSiteMetadata"
 
 interface NavbarItemProps {
   name: string
