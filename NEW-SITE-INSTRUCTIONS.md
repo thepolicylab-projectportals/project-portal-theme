@@ -11,9 +11,9 @@ Each new site will require some infrastructure setup and configuration files.
 - Duplicate the [`example`](./project-portal-example) directory and rename to something like `project-portal-<site id>` where `<site id>` is a unique identifier for the government which wants the site. This directory is a yarn workspace.
 - Update the `./project-portal-<site id>/package.json` so that the "name" field exactly matches the directory name `project-portal-<site id>`.
 
-### Update `gatsby-config.js` file
+### Update `gatsby-config.ts` file
 
-The `./project-portal-<site id>/gatsby-config.js` file defines how to build the site and includes or loads all relevant metadata, configuration and static text. Update the `gatsby-config.js` as needed.
+The `./project-portal-<site id>/gatsby-config.ts` file defines how to build the site and includes or loads all relevant metadata, configuration and static text. Update the `gatsby-config.ts` as needed.
 
 ### Add scripts to `package.json`
 
