@@ -1,5 +1,4 @@
-import { resolve } from "path"
-
+const resolve = require("path").resolve
 const tableName = require("../consts").AIRTABLE_TABLE_PROJECTS
 
 interface PageInput {
