@@ -90,7 +90,7 @@ In each case, these pages are built by the `ProjectPage` (`src/components/Projec
 component. This component automatically takes the return from a graphql query which is
 filtered by the project type and then displays the projects as cards.
 
-Each individual project detail page is generated in the `gatsby-node.ts` file, though
+Each individual project detail page is generated in the `gatsby-node.js` file, though
 this is just a thin shell around the `createPages` hook `src/hooks/createPages.ts`.
 Note that the relevant graphql query is:
 
