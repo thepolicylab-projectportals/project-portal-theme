@@ -64,7 +64,7 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
             )
           ) : (
             <Link to={"/contact"}>
-              <button className="btn-white">Ask a question</button>
+              <button className="btn">Ask a question</button>
             </Link>
           )}
         </div>

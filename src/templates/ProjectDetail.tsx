@@ -151,7 +151,7 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
 
           <section className="mt-8">
             <div className="m-responsive">
-              <h2 className="text-h3">Project overview</h2>
+              <h2 className="text-h3">Project Overview</h2>
             </div>
             <div className="flex flex-col justify-between w-full py-4 lg:flex-row">
               <div className="m-responsive lg:w-3/5 xl:2/3">
