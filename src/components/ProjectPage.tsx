@@ -82,34 +82,33 @@ export const ProjectPage = ({
     }
   }
 
+  const projectStatus = new Map()
+  projectStatus.set("created", "Date Posted: ")
+  projectStatus.set("opportunityCloses", "Opportunity Closes: ")
+  projectStatus.set("startDate", "Project Started: ")
+  projectStatus.set("endDate", "Project Ended: ")
+
   var sortOptions = []
   var index = 1
+  var sortDirections = [
+    { direction: "Newest to Oldest", sortAscending: false },
+    { direction: "Oldest to Newest", sortAscending: true },
+  ]
   for (const sortOption of options) {
-    const project_status = projectStatus(
-      sortOption,
-      "Date Posted: ",
-      "Opportunity Closes: ",
-      "Project Started: ",
-      "Project Ended: "
-    )
-    const newToOldOption = {
-      value: index,
-      label: project_status + "Newest to Oldest",
-      field: sortOption,
-      sortAscending: false,
+    const project_status = projectStatus.get(sortOption)
+
+    for (const direction of sortDirections) {
+      const newSortOption = {
+        value: index,
+        label: project_status + direction.direction,
+        field: sortOption,
+        sortAscending: direction.sortAscending,
+      }
+      sortOptions.push(newSortOption)
+      index++
     }
-    index++
-    const oldToNewOption = {
-      value: index,
-      label: project_status + "Oldest to Newest",
-      field: sortOption,
-      sortAscending: true,
-    }
-    sortOptions.push(newToOldOption)
-    sortOptions.push(oldToNewOption)
-    index++
   }
-  console.log(sortOptions)
+
   const [sortDirection, setSortDirection] = useState(sortOptions[0])
 
   useEffect(() => {
