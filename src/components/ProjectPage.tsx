@@ -41,7 +41,7 @@ export interface ProjectPageProps {
   title: string
   lede: string
   pageName: string
-  options: []
+  sortOptions: []
   data: {
     items: {
       nodes: {
@@ -63,7 +63,7 @@ export const ProjectPage = ({
   data,
   lede,
   pageName,
-  options,
+  sortOptions,
 }: ProjectPageProps) => {
   const ITEMS_PER_PAGE = 6
   const allProjects = data.items.nodes
@@ -88,13 +88,13 @@ export const ProjectPage = ({
   projectStatus.set("startDate", "Project Started: ")
   projectStatus.set("endDate", "Project Ended: ")
 
-  var sortOptions = []
+  var sortingOptions = []
   var index = 1
   var sortDirections = [
     { direction: "Newest to Oldest", sortAscending: false },
     { direction: "Oldest to Newest", sortAscending: true },
   ]
-  for (const sortOption of options) {
+  for (const sortOption of sortOptions) {
     const project_status = projectStatus.get(sortOption)
 
     for (const direction of sortDirections) {
@@ -104,12 +104,12 @@ export const ProjectPage = ({
         field: sortOption,
         sortAscending: direction.sortAscending,
       }
-      sortOptions.push(newSortOption)
+      sortingOptions.push(newSortOption)
       index++
     }
   }
 
-  const [sortDirection, setSortDirection] = useState(sortOptions[0])
+  const [sortDirection, setSortDirection] = useState(sortingOptions[0])
 
   useEffect(() => {
     const sortedList = [...allProjects]
@@ -221,7 +221,7 @@ export const ProjectPage = ({
               name="sort-select"
               value={sortDirection}
               onChange={setSortDirection}
-              options={sortOptions}
+              options={sortingOptions}
               styles={selectStyle}
             />
           </div>

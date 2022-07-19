@@ -7,7 +7,7 @@ export default ({ data }: ProjectPageProps) =>
   ProjectPage({
     data,
     ...language.ongoing,
-    options: ["startDate", "created"],
+    sortOptions: ["startDate", "created"],
   })
 
 export const query = graphql`
