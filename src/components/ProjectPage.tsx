@@ -83,10 +83,10 @@ export const ProjectPage = ({
   }
 
   const projectStatus = new Map()
-  projectStatus.set("created", "Date Posted: ")
-  projectStatus.set("opportunityCloses", "Opportunity Closes: ")
-  projectStatus.set("startDate", "Project Started: ")
-  projectStatus.set("endDate", "Project Ended: ")
+  projectStatus.set("created", "Date Posted")
+  projectStatus.set("opportunityCloses", "Opportunity Closes")
+  projectStatus.set("startDate", "Project Started")
+  projectStatus.set("endDate", "Project Ended")
 
   var sortingOptions = []
   var index = 1
@@ -100,7 +100,7 @@ export const ProjectPage = ({
     for (const direction of sortDirections) {
       const newSortOption = {
         value: index,
-        label: project_status + direction.direction,
+        label: project_status + ": " + direction.direction,
         field: sortOption,
         sortAscending: direction.sortAscending,
       }
