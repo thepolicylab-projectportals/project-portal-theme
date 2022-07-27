@@ -28,7 +28,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
       {!meta.live && <DevelopmentBanner />}
       <SiteMetadata title={title} description={description} />
       <Navbar activePage={activePage} />
-      <div className="flex-1">{children}</div>
+      <div className="relative flex-1 z-0">{children}</div>
       <BottomBanner />
       <Footer />
     </div>

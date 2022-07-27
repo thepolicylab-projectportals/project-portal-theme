@@ -77,7 +77,7 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
       <nav
         id="nav-bar"
         className={
-          "sticky top-0 flex flex-wrap items-center justify-between w-full p-0 bg-navbar xl:relative xl:px-2 xl:py-6 overflow-hidden z-10"
+          "sticky top-0 flex flex-wrap items-center justify-between w-full p-0 bg-navbar xl:relative xl:px-2 xl:py-6 overflow-y-visible z-10"
         }
       >
         <div className="flex flex-wrap justify-between w-full px-0 xl:px-4">
@@ -102,9 +102,15 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
               {title}
             </Link>
           </div>
+
           <div
             className={
-              "fixed top-16 w-full md:w-2/3 xl:w-auto xl:relative xl:top-0 flex-grow items-center bg-primary xl:bg-transparent xl:flex xl:bg-navbar z-10 xl:z-0 transition-transform drop-shadow-lg filter xl:drop-shadow-none" +
+              // Defaults
+              "overflow-visible absolute top-16 w-full flex-grow items-center bg-primary z-10 transition-transform drop-shadow-lg filter" +
+              // medium to large – only 2/3 of the screen width
+              " md:w-2/3 " +
+              // XL – full screen width
+              " xl:w-auto xl:relative xl:top-0 xl:bg-transparent xl:flex xl:bg-navbar xl:drop-shadow-none xl:z-0" +
               (navbarOpen ? " flex" : " hidden")
             }
             id="example-navbar-danger"
