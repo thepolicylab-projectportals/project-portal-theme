@@ -1,0 +1,39 @@
+backend:
+  name: test-repo
+
+local_backend: true
+media_folder: static/assets
+public_folder: /assets
+
+collections:
+  - name: ExampleContent
+    label: Example Content
+    folder: ExampleContent
+    create: true
+    fields:
+      - { name: question, label: Question, widget: markdown}
+      - { name: partnerName, label: Partner Name, widget: "select", options: ["North Caroline", "San Antonio", "Example Content"], required: false}
+      - { name: slug, label: Slug, required: false }
+      - { name: status, label: Status, widget: "select", options: [ "ongoing", "open", "completed" ], required: false}
+      - { name: opportunityCloses, label: Opportunity Closes }
+      - { name: startDate, label: Start Date, required: false}
+      - { name: endDate, label: End Date, required: false}
+      - { name: agency, label: Agency, required: false}
+      - { name: topics, label: Topics, widget: "select", options: [ "Taxation", "Forms", "Collections", "Government Operations","Human Resources", "Crime and Law Enforcement", "Delinquency Prevention"] }
+      - { name: supportNeeded, label: Support Needed, required: false}
+      - { name: summary, label: Summary, widget: markdown }
+      - { name: deliverable, label: Deliverable, widget: markdown, required: false}
+      - { name: purpose, label: Purpose, widget: markdown, required: false}
+      - { name: expertise, label: Expertise, widget: markdown, required: false}
+      - { name: requirement, label: Requirement, widget: markdown, required: false}
+      - { name: keyDates, label: Key Dates, widget: markdown, required: false}
+      - { name: statusOfData, label: Status Of Data, required: false}
+      - { name: priorResearch, label: Prior Research, required: false}
+      - { name: fundingInfo, label: Funding Info, required: false}
+      - { name: emailContent, label: Email Content, widget: markdown, required: false}
+      - { name: contacts, label: Contacts, widget: "select", options: [ "NC Office of Strategic Partnership", "Duke University", "UNC Chapel Hill", "Kristin Siemek","Volcker Alliance", "Crime and Law Enforcement", "Behavioural Insights Team (BIT)" ] }
+      - { name: showMainContactOnProjectTeam, label: Show Main Contact On Project Team, required: false }
+      - { name: name (from contact), label: Name (from contact), required: false }
+      - { name: employer (from contact), label: Employer (from contact), required: false }
+      - { name: contactImage (from contact), label: Contact Image (from contact), required: false }
+      - { name: lastModified, label: Last Modified, widget: datetime}

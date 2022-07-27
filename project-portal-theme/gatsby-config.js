@@ -16,6 +16,7 @@ module.exports = (themeOptions) => {
       { name: "Completed projects", link: "/completed", show: true },
       { name: "About", link: "/about", show: true },
       { name: "Contact", link: "/contact", show: true },
+      { name: "Netlify", link: "/admin/", show: true },
     ],
     locale: "en",
     staticText: themeOptions.staticText,
@@ -23,6 +24,13 @@ module.exports = (themeOptions) => {
   return {
     siteMetadata: siteMetadata,
     plugins: [
+      {
+        resolve: `gatsby-plugin-netlify-cms`,
+        options: {
+          enableIdentityWidget: true,
+          publicPath: `admin`,
+        },
+      },
       {
         resolve: `gatsby-plugin-postcss`,
         options: {

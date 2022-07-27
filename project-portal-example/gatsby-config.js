@@ -28,7 +28,14 @@ module.exports = {
   siteMetadata: siteMetadata,
 
   plugins: [
-    {
+  {
+    resolve: `gatsby-plugin-netlify-cms`,
+    options: {
+      enableIdentityWidget: true,
+      publicPath: `admin`,
+    },
+  },
+{
       // Use the Project Portal Theme as the first plugin – this builds the website as a whole
       resolve: "@thepolicylab-projectportals/project-portal-theme",
       options: {
