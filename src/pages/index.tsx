@@ -7,7 +7,7 @@ export default ({ data }: ProjectPageProps) =>
   ProjectPage({
     data,
     ...language.open,
-    dateField: "opportunityCloses",
+    sortOptions: ["created", "opportunityCloses"],
   })
 
 export const query = graphql`
@@ -44,6 +44,7 @@ export const query = graphql`
           contactTitle
           contactEmail
           lastModified
+          created
         }
       }
     }
