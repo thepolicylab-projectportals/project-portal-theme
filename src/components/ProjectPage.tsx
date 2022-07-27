@@ -176,89 +176,93 @@ export const ProjectPage = ({
 
   return (
     <Layout activePage={pageName} title={title} description={lede}>
-      <HeaderWithImage
-        title={title}
-        imageSrc={data.bgImage.childImageSharp.resize.src}
-        lede={lede}
-      />
-      <div className="relative">
-        <div ref={scrollToRef} className="absolute -top-100px"></div>
-      </div>
-      <div className="pt-4 pb-10 md:mx-8 lg:mt-6 lg:pt-8 lg:pb-20 overflow-hidden px-2 xl:px-12 bg-white">
-        <div className="flex flex-wrap gap-4 mb-8 mx-3 xl:mx-6 bg-white">
-          <div className="flex-1 min-w-30ch">
-            <label id="sort-label" className="font-bold" htmlFor="sort">
-              Sort by
-            </label>
-            <Select
-              aria-labelledby="sort-label"
-              inputId="sort"
-              name="sort-select"
-              value={sortDirection}
-              onChange={setSortDirection}
-              options={sortOptions}
-              styles={selectStyle}
-            />
-          </div>
-          <div className="flex-1 min-w-30ch">
-            <label id="filter-label" className="font-bold" htmlFor="filter">
-              Filter by topic
-            </label>
-            <Select
-              aria-labelledby="filter-label"
-              inputId="filter"
-              name="filter-select"
-              isMulti={true}
-              value={selectedOptions}
-              onChange={setSelectedOptions}
-              options={projectTopics}
-              styles={selectStyle}
-            />
-          </div>
+      <main>
+        <header>
+          <HeaderWithImage
+            title={title}
+            imageSrc={data.bgImage.childImageSharp.resize.src}
+            lede={lede}
+          />
+        </header>
+        <div className="relative">
+          <div ref={scrollToRef} className="absolute -top-100px"></div>
         </div>
-        <Cards nodes={list} />
-      </div>
-      {!(isNA(hasPrev) && isNA(hasNext)) && (
-        <div className="flex items-center gap-4 justify-center flex-wrap">
-          <div className="flex-1 flex justify-end">
-            <button
-              className={`font-bold pr-4 ${
-                hasPrev ? "text-primary" : "text-gray-500 pointer-events-none"
-              }`}
-              onClick={handleLoadPrev}
-            >
-              <BackIcon /> Previous
-            </button>
+        <div className="pt-4 pb-10 md:mx-8 lg:mt-6 lg:pt-8 lg:pb-20 overflow-hidden px-2 xl:px-12 bg-white">
+          <div className="flex flex-wrap gap-4 mb-8 mx-3 xl:mx-6 bg-white">
+            <div className="flex-1 min-w-30ch">
+              <label id="sort-label" className="font-bold" htmlFor="sort">
+                Sort by
+              </label>
+              <Select
+                aria-labelledby="sort-label"
+                inputId="sort"
+                name="sort-select"
+                value={sortDirection}
+                onChange={setSortDirection}
+                options={sortOptions}
+                styles={selectStyle}
+              />
+            </div>
+            <div className="flex-1 min-w-30ch">
+              <label id="filter-label" className="font-bold" htmlFor="filter">
+                Filter by topic
+              </label>
+              <Select
+                aria-labelledby="filter-label"
+                inputId="filter"
+                name="filter-select"
+                isMulti={true}
+                value={selectedOptions}
+                onChange={setSelectedOptions}
+                options={projectTopics}
+                styles={selectStyle}
+              />
+            </div>
           </div>
-          <div className="flex items-center gap-4 justify-center">
-            {Array.from({ length: numPages }, (_, i) => {
-              return (
-                <button
-                  className={`${
-                    pageStart / ITEMS_PER_PAGE === i
-                      ? "btn pointer-events-none"
-                      : "btn-white"
-                  } min-w-3rem p-2 border-solid`}
-                  key={"Page" + i}
-                  onClick={() => handleLoadCustom(i)}
-                >
-                  {i + 1}
-                </button>
-              )
-            })}
-          </div>
-          <div className="flex-1 flex justify-start">
-            <button
-              className={`font-bold pl-4 ${
-                hasNext ? "text-primary" : "text-gray-500 pointer-events-none"
-              }`}
-              onClick={handleLoadNext}
-            >
-              Next <ForwardIcon />
-            </button>
-          </div>
+          <Cards nodes={list} />
         </div>
-      )}
+        {!(isNA(hasPrev) && isNA(hasNext)) && (
+          <div className="flex items-center gap-4 justify-center flex-wrap">
+            <div className="flex-1 flex justify-end">
+              <button
+                className={`font-bold pr-4 ${
+                  hasPrev ? "text-primary" : "text-gray-500 pointer-events-none"
+                }`}
+                onClick={handleLoadPrev}
+              >
+                <BackIcon /> Previous
+              </button>
+            </div>
+            <div className="flex items-center gap-4 justify-center">
+              {Array.from({ length: numPages }, (_, i) => {
+                return (
+                  <button
+                    className={`${
+                      pageStart / ITEMS_PER_PAGE === i
+                        ? "btn pointer-events-none"
+                        : "btn-white"
+                    } min-w-3rem p-2 border-solid`}
+                    key={"Page" + i}
+                    onClick={() => handleLoadCustom(i)}
+                  >
+                    {i + 1}
+                  </button>
+                )
+              })}
+            </div>
+            <div className="flex-1 flex justify-start">
+              <button
+                className={`font-bold pl-4 ${
+                  hasNext ? "text-primary" : "text-gray-500 pointer-events-none"
+                }`}
+                onClick={handleLoadNext}
+              >
+                Next <ForwardIcon />
+              </button>
+            </div>
+          </div>
+        )}
+      </main>
     </Layout>
   )
 }
