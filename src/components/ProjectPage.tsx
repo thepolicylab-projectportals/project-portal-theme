@@ -198,7 +198,6 @@ export const ProjectPage = ({
               onChange={setSortDirection}
               options={sortOptions}
               styles={selectStyle}
-              isSearchable={false}
             />
           </div>
           <div className="flex-1 min-w-30ch">
@@ -214,7 +213,6 @@ export const ProjectPage = ({
               onChange={setSelectedOptions}
               options={projectTopics}
               styles={selectStyle}
-              isSearchable={true}
             />
           </div>
         </div>
