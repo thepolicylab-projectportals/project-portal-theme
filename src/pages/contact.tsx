@@ -293,20 +293,24 @@ export default ({ data }: ContactProps) => {
       title={language.contact.title}
       description={language.contact.lede}
     >
-      <HeaderWithImage
-        title="Contact"
-        lede=""
-        imageSrc={data.bgImage.childImageSharp.resize.src}
-      />
+      <main>
+        <header>
+          <HeaderWithImage
+            title="Contact"
+            lede=""
+            imageSrc={data.bgImage.childImageSharp.resize.src}
+          />
+        </header>
 
-      <article className="w-full pt-5 px-8 lg:px-16 xl:px-24 lg:w-2/3">
-        <h2 className="my-4 text-h2 font-bold">{language.contact.title}</h2>
-        <MarkdownText
-          className="mb-10 leading-normal text-body lg:text-body"
-          text={language.contact.lede}
-        />
-        <ContactForm recaptcha={data.site.siteMetadata.recaptchaSiteKey} />
-      </article>
+        <article className="w-full pt-5 px-8 lg:px-16 xl:px-24 lg:w-2/3">
+          <h2 className="my-4 text-h2 font-bold">{language.contact.title}</h2>
+          <MarkdownText
+            className="mb-10 leading-normal text-body lg:text-body"
+            text={language.contact.lede}
+          />
+          <ContactForm recaptcha={data.site.siteMetadata.recaptchaSiteKey} />
+        </article>
+      </main>
     </Layout>
   )
 }
