@@ -7,7 +7,7 @@ export default ({ data }: ProjectPageProps) =>
   ProjectPage({
     data,
     ...language.ongoing,
-    dateField: "startDate",
+    sortOptions: ["startDate", "created"],
   })
 
 export const query = graphql`
@@ -42,6 +42,7 @@ export const query = graphql`
           fundingInfo
           collaborationType
           lastModified
+          created
         }
       }
     }
