@@ -102,15 +102,9 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
               {title}
             </Link>
           </div>
-
           <div
             className={
-              // Defaults
-              "overflow-visible absolute top-16 w-full flex-grow items-center bg-primary z-10 transition-transform drop-shadow-lg filter" +
-              // medium to large – only 2/3 of the screen width
-              " md:w-2/3 " +
-              // XL – full screen width
-              " xl:w-auto xl:relative xl:top-0 xl:bg-transparent xl:flex xl:bg-navbar xl:drop-shadow-none xl:z-0" +
+              "overflow-visible absolute top-16 w-full md:w-2/3 xl:w-auto xl:relative xl:top-0 flex-grow items-center bg-primary xl:bg-transparent xl:flex xl:bg-navbar z-10 xl:z-0 transition-transform drop-shadow-lg filter xl:drop-shadow-none" +
               (navbarOpen ? " flex" : " hidden")
             }
             id="example-navbar-danger"
