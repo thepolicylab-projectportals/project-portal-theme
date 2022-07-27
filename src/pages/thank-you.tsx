@@ -22,30 +22,34 @@ export default ({ data }: ThankYouProps) => {
       title="Thank you"
       description="Thank you for your interest in working with us!"
     >
-      <HeaderWithImage
-        title="Thank You"
-        lede=""
-        imageSrc={data.bgImage.childImageSharp.resize.src}
-      />
+      <main>
+        <header>
+          <HeaderWithImage
+            title="Thank You"
+            lede=""
+            imageSrc={data.bgImage.childImageSharp.resize.src}
+          />
+        </header>
 
-      <div className="container pt-6 overflow-hidden bg-white">
-        <div className="flex flex-wrap">
-          <div className="lg:w-2/3 sm:w-full">
-            <h2 className="mb-8 text-2xl font-bold leading-loose tracking-tight text-black dark:text-white lg:text-5xl">
-              Thank you for your interest!
-            </h2>
+        <div className="container pt-6 overflow-hidden bg-white">
+          <div className="flex flex-wrap">
+            <div className="lg:w-2/3 sm:w-full">
+              <h2 className="mb-8 text-2xl font-bold leading-loose tracking-tight text-black dark:text-white lg:text-5xl">
+                Thank you for your interest!
+              </h2>
 
-            <p className="leading-normal text-md lg:text-lg">
-              We'll get back to you as soon as possible. In the meantime,
-              continue checking out our{" "}
-              <Link to="/" className="underline">
-                open projects
-              </Link>
-              .
-            </p>
+              <p className="leading-normal text-md lg:text-lg">
+                We'll get back to you as soon as possible. In the meantime,
+                continue checking out our{" "}
+                <Link to="/" className="underline">
+                  open projects
+                </Link>
+                .
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      </main>
     </Layout>
   )
 }
