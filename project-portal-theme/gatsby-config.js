@@ -70,6 +70,14 @@ module.exports = (themeOptions) => {
           path: "./images",
         },
       },
+      {
+        resolve: `gatsby-source-filesystem`,
+        options: {
+          name: `ExampleContent`,
+          path: `${__dirname}/src/ExampleContent`,
+        },
+      },
+      `gatsby-transformer-remark`,
     ],
   }
 }

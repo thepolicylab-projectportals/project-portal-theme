@@ -3,7 +3,7 @@ import { Card, CardProps } from "."
 
 interface CardsProps {
   nodes: {
-    data: CardProps
+    frontmatter: CardProps
   }[]
 }
 
@@ -12,11 +12,11 @@ export const Cards: FunctionComponent<CardsProps> = ({ nodes }) => {
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-3 xl:mx-6 gap-4 justify-self-center">
       {nodes.map((item, i) => (
         <Card
-          key={"card_" + item.data.slug}
-          {...item.data}
+          key={"card_" + item.frontmatter.slug}
+          {...item.frontmatter}
           navigation={{
             current: i,
-            items: nodes.map((item) => `/${item.data.slug}`),
+            items: nodes.map((item) => `/${item.frontmatter.slug}`),
           }}
         />
       ))}

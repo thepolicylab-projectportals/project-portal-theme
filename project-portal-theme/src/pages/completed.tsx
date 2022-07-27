@@ -11,16 +11,10 @@ export default ({ data }: ProjectPageProps) =>
   })
 
 export const query = graphql`
-  query CompletedQuery($tableName: String!, $partnerName: String!) {
-    items: allAirtable(
-      filter: {
-        table: { eq: $tableName }
-        data: { status: { eq: "completed" }, partnerName: { eq: $partnerName } }
-      }
-      sort: { fields: [data___endDate], order: DESC }
-    ) {
+  query CompletedQuery{
+    items: allMarkdownRemark {
       nodes {
-        data {
+       frontmatter {
           question
           slug
           status
@@ -41,24 +35,6 @@ export const query = graphql`
           fundingInfo
           collaborationType
           lastModified
-        }
-      }
-    }
-    allImageSharp {
-      edges {
-        node {
-          ... on ImageSharp {
-            resize(width: 125, height: 125, rotate: 180) {
-              src
-            }
-          }
-        }
-      }
-    }
-    bgImage: file(relativePath: { regex: "/^completed.jpg$/" }) {
-      childImageSharp {
-        resize(width: 1536) {
-          src
         }
       }
     }

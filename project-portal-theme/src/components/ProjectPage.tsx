@@ -42,16 +42,16 @@ export interface ProjectPageProps {
   data: {
     items: {
       nodes: {
-        data: CardProps
+        frontmatter: CardProps
       }[]
     }
-    bgImage: {
-      childImageSharp: {
-        resize: {
-          src: string
-        }
-      }
-    }
+    // bgImage: {
+    //   childImageSharp: {
+    //     resize: {
+    //       src: string
+    //     }
+    //   }
+    // }
   }
 }
 
@@ -68,10 +68,10 @@ export const ProjectPage = ({
   const [displayProjects, setDisplayProjects] = useState(allProjects)
 
   const projectTopics = []
-
+  console.log(data)
   for (const project of allProjects) {
-    if (project.data.topics) {
-      for (const topic of project.data.topics) {
+    if (project.frontmatter.topics) {
+      for (const topic of project.frontmatter.topics) {
         if (!projectTopics.some(({ value }) => value === topic)) {
           projectTopics.push({ value: topic, label: topic })
         }
@@ -173,11 +173,11 @@ export const ProjectPage = ({
 
   return (
     <Layout activePage={pageName} title={title} description={lede}>
-      <HeaderWithImage
-        title={title}
-        imageSrc={data.bgImage.childImageSharp.resize.src}
-        lede={lede}
-      />
+      {/*<HeaderWithImage*/}
+      {/*  title={title}*/}
+      {/*  imageSrc={data.bgImage.childImageSharp.resize.src}*/}
+      {/*  lede={lede}*/}
+      {/*/>*/}
       <div className="relative">
         <div ref={scrollToRef} className="absolute -top-100px"></div>
       </div>

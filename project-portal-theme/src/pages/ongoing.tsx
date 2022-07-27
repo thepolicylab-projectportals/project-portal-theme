@@ -11,25 +11,18 @@ export default ({ data }: ProjectPageProps) =>
   })
 
 export const query = graphql`
-  query OngoingQuery($tableName: String!, $partnerName: String!) {
-    items: allAirtable(
-      filter: {
-        table: { eq: $tableName }
-        data: { status: { eq: "ongoing" }, partnerName: { eq: $partnerName } }
-      }
-      sort: { fields: [data___startDate], order: DESC }
-    ) {
+  query OngoingQuery{
+    items: allMarkdownRemark {
       nodes {
-        data {
+       frontmatter {
           question
-          partnerName
           slug
           status
           summary
           deliverable
           expertise
           keyDates
-          startDate
+          endDate
           agency
           topics
           commitment
@@ -42,13 +35,6 @@ export const query = graphql`
           fundingInfo
           collaborationType
           lastModified
-        }
-      }
-    }
-    bgImage: file(relativePath: { regex: "/^ongoing.jpg$/" }) {
-      childImageSharp {
-        resize(width: 1536) {
-          src
         }
       }
     }

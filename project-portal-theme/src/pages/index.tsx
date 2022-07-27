@@ -11,48 +11,31 @@ export default ({ data }: ProjectPageProps) =>
   })
 
 export const query = graphql`
-  query IndexQuery($tableName: String!, $partnerName: String!) {
-    items: allAirtable(
-      filter: {
-        table: { eq: $tableName }
-        data: { status: { eq: "open" }, partnerName: { eq: $partnerName } }
-      }
-      sort: { fields: [data___opportunityCloses], order: ASC }
-    ) {
+  query IndexQuery{
+    items: allMarkdownRemark {
       nodes {
-        data {
+       frontmatter {
           question
-          partnerName
           slug
-          summary
           status
-          opportunityCloses
-          startDate
+          summary
+          deliverable
+          expertise
+          keyDates
           endDate
           agency
           topics
-          deliverable
-          purpose
-          expertise
-          requirement
-          keyDates
-          priorResearch
-          statusOfData
-          fundingInfo
           commitment
           contactName
           contactTitle
           contactEmail
+          applicationProcess
+          statusOfData
+          priorResearch
+          fundingInfo
+          collaborationType
           lastModified
         }
       }
     }
-    bgImage: file(relativePath: { regex: "/^open.jpg$/" }) {
-      childImageSharp {
-        resize(width: 1536) {
-          src
-        }
-      }
-    }
-  }
-`
+  }`
