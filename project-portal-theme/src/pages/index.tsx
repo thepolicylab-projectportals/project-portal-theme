@@ -12,8 +12,8 @@ export default ({ data }: ProjectPageProps) =>
 
 export const query = graphql`
   query IndexQuery{
-    items: allMarkdownRemark {
-      nodes {
+    items: allMarkdownRemark(filter: {frontmatter: {status: {eq: "open"}}}) {
+    nodes {
        frontmatter {
           question
           slug

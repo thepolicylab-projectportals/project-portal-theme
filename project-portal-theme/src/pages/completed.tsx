@@ -12,8 +12,8 @@ export default ({ data }: ProjectPageProps) =>
 
 export const query = graphql`
   query CompletedQuery{
-    items: allMarkdownRemark {
-      nodes {
+    items:  allMarkdownRemark(filter: {frontmatter: {status: {eq: "completed"}}}) {
+    nodes {
        frontmatter {
           question
           slug

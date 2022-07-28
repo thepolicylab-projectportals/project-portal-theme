@@ -12,8 +12,8 @@ export default ({ data }: ProjectPageProps) =>
 
 export const query = graphql`
   query OngoingQuery{
-    items: allMarkdownRemark {
-      nodes {
+    items:  allMarkdownRemark(filter: {frontmatter: {status: {eq: "ongoing"}}}) {
+    nodes {
        frontmatter {
           question
           slug

@@ -1,14 +1,14 @@
 ---
 path: Project Contacts
-question: ghdfhgf
+question: How can NCDOR improve and simplify?
 partnerName: Example Content
-slug: non-payment-communication
-status: completed
+slug: workforce-diversity-recruiting
+status: ongoing
 opportunityCloses: 17/08/2021
 startDate: 16/07/1994
 endDate: 16/07/1994
 agency: test agency
-topics: Taxation
+topics: Human Resources
 supportNeeded: 
 summary: test summary 
 deliverable: test deliverable

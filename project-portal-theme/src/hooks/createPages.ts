@@ -72,3 +72,4 @@ export const onCreatePage = ({ page, actions }, themeOptions) => {
     },
   })
 }
+console.log()
