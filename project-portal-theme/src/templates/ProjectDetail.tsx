@@ -6,7 +6,7 @@ import BackIcon from "../components/BackIcon"
 
 import {
   Feature,
-  MainContact,
+  MainContact, ProjectPage, ProjectPageProps,
   SectionOfItem,
   ShareProject,
 } from "../components"
@@ -18,7 +18,7 @@ import { statusOutput, isNA, isEmpty } from "../utils"
 interface ProjectDetailProps {
   data: {
     item: {
-      data: {
+      frontmatter: {
         question: string
         partnerName: string
         slug: string
@@ -40,23 +40,15 @@ interface ProjectDetailProps {
         fundingInfo: string
         emailContent: string
         showMainContactOnProjectTeam: boolean
-        contacts: {
-          data: {
-            name: string
-            title: string
-            employer: string
-            email: string
-            contactImage: any
-          }
-        }[]
+        contacts: string[]
       }
     }
   }
   location: any
 }
-
 const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
   const { data } = props
+  console.log(data)
   const {
     question,
     summary,
@@ -78,18 +70,19 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
     showMainContactOnProjectTeam,
     contacts,
     emailContent,
-  } = data.item.data
+  } = data.item.frontmatter
 
   var mainContact = null
   var projectTeam = null
 
   if (contacts) {
-    mainContact = contacts[0].data
+    mainContact = contacts[0]
     projectTeam = contacts
     if (!showMainContactOnProjectTeam) {
       projectTeam = contacts.slice(1, contacts.length)
     }
   }
+
 
   return (
     <Layout title={question} description={summary}>
@@ -221,7 +214,7 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
           ) : (
             <ProjectTeam
               title="Project Team"
-              contacts={projectTeam.map((contact) => contact.data)}
+              contacts={projectTeam.map((contact) => contact)}
             />
           )}
           <section className="my-12">
@@ -242,8 +235,8 @@ export default ProjectDetail
 
 export const query = graphql`
   query ProjectDetailQuery($slug: String!) {
-    item: airtable(data: { slug: { eq: $slug } }) {
-      data {
+    item: markdownRemark(frontmatter: { slug: { eq: $slug } }) {
+      frontmatter {
         question
         partnerName
         slug
@@ -264,28 +257,9 @@ export const query = graphql`
         fundingInfo
         emailContent
         showMainContactOnProjectTeam
-        contacts {
-          data {
-            name
-            title
-            employer
-            email
-            contactImage {
-              localFiles {
-                id
-                childImageSharp {
-                  gatsbyImageData(
-                    width: 100
-                    height: 100
-                    placeholder: BLURRED
-                    layout: FIXED
-                  )
-                }
-              }
-            }
-          }
-        }
+        contacts
       }
     }
   }
 `
+console.log()

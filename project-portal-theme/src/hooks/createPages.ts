@@ -1,4 +1,4 @@
-const tableName = require("../consts").AIRTABLE_TABLE_PROJECTS
+const tableName = require("../consts").TABLE_PROJECTS
 
 interface PageInput {
   path: string
@@ -33,25 +33,20 @@ export const createPages: GatsbyCreatePages = async (
   const { createPage } = actions
   const allAirtable = await graphql(`
     {
-      allAirtable(
-        filter: {
-          table: { eq: "${tableName}" }
-          data: { partnerName: { eq: "${themeOptions.airtableSettings.airtablePartnerName}" } }
-        }
-      ) {
-        nodes {
-          data {
-            slug
-          }
-        }
+        allMarkdownRemark {
+    nodes {
+      frontmatter {
+        slug
       }
     }
+  }
+}
   `)
 
   const projectDetailComponentPath = require.resolve(
     "@thepolicylab-projectportals/project-portal-theme/src/templates/ProjectDetail.tsx"
   )
-  allAirtable.data.allAirtable.nodes.forEach(({ data: { slug } }) => {
+  allAirtable.data.allMarkdownRemark.nodes.forEach(({ frontmatter: { slug } }) => {
     createPage({
       path: `/project/${slug}`,
       component: projectDetailComponentPath,

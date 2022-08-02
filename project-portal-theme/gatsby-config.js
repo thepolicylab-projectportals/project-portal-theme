@@ -46,24 +46,6 @@ module.exports = (themeOptions) => {
       `gatsby-transformer-sharp`,
       `gatsby-plugin-sitemap`,
       {
-        resolve: `gatsby-source-airtable`,
-        options: {
-          apiKey: themeOptions.airtableSettings.airtableAPIKey,
-          tables: [
-            {
-              baseId: themeOptions.airtableSettings.airtableBaseID,
-              tableName: AIRTABLE_TABLE_PROJECTS,
-              tableLinks: ["contacts"],
-            },
-            {
-              baseId: themeOptions.airtableSettings.airtableBaseID,
-              tableName: AIRTABLE_TABLE_CONTACTS,
-              mapping: { contactImage: "fileNode" },
-            },
-          ],
-        },
-      },
-      {
         resolve: `gatsby-source-filesystem`,
         options: {
           name: `images`,
@@ -74,7 +56,7 @@ module.exports = (themeOptions) => {
         resolve: `gatsby-source-filesystem`,
         options: {
           name: `ExampleContent`,
-          path: `${__dirname}/src/ExampleContent`,
+          path: `${__dirname}/ExampleContent`,
         },
       },
       `gatsby-transformer-remark`,

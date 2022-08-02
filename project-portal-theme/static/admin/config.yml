@@ -1,13 +1,15 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: thepolicylab-projectportals/project-portal-theme
+  branch: netlify_cms_data
 local_backend: true
 media_folder: static/assets
 public_folder: /assets
 
 collections:
-  - name: ExampleContent
-    label: Example Content
-    folder: ExampleContent
+  - name: ProjectPageContent
+    label: Project Page Content
+    folder: page_content
     create: true
     fields:
       - { name: question, label: Question, widget: markdown}
@@ -34,5 +36,15 @@ collections:
       - { name: showMainContactOnProjectTeam, label: Show Main Contact On Project Team, required: false }
       - { name: name (from contact), label: Name (from contact), required: false }
       - { name: employer (from contact), label: Employer (from contact), required: false }
-      - { name: contactImage (from contact), label: Contact Image (from contact), required: false }
+      - { name: contactImage (from contact), label: Contact Image (from contact), widget: "image",required: false }
       - { name: lastModified, label: Last Modified, widget: datetime}
+  - name: ProjectContacts
+    label: Project Contacts
+    folder: project_contacts
+    create: true
+    fields:
+      - { name: name, label: Name}
+      - { name: title, label: title, required: false }
+      - { name: question, label: Question, widget: markdown }
+      - { name: partnerName, label: Partner Name, widget: "select", options: [ "North Caroline", "San Antonio", "Example Content" ], required: false }
+      - { name: slug, label: Slug, required: false }
