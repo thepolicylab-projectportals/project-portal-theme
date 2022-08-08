@@ -1,12 +1,11 @@
 import { graphql, Link, withPrefix } from "gatsby"
 import React, { FunctionComponent } from "react"
-import { StaticImage } from "gatsby-plugin-image"
 import moment from "moment"
 import BackIcon from "../components/BackIcon"
 
 import {
   Feature,
-  MainContact, ProjectPage, ProjectPageProps,
+  MainContact,
   SectionOfItem,
   ShareProject,
 } from "../components"
@@ -82,7 +81,6 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
       projectTeam = contacts.slice(1, contacts.length)
     }
   }
-
 
   return (
     <Layout title={question} description={summary}>
@@ -203,20 +201,20 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
 
           <hr className="my-8 border-gray-300 m-responsive" />
 
-          {status === "open" ? (
-            <CollaboratorDetails
-              {...{
-                expertise,
-                requirement,
-                keyDates,
-              }}
-            />
-          ) : (
-            <ProjectTeam
-              title="Project Team"
-              contacts={projectTeam.map((contact) => contact)}
-            />
-          )}
+          {/*{status === "open" ? (*/}
+          {/*  <CollaboratorDetails*/}
+          {/*    {...{*/}
+          {/*      expertise,*/}
+          {/*      requirement,*/}
+          {/*      keyDates,*/}
+          {/*    }}*/}
+          {/*  />*/}
+          {/*) : (*/}
+          {/*  <ProjectTeam*/}
+          {/*    title="Project Team"*/}
+          {/*    contacts={projectTeam.map((contact) => contact)}*/}
+          {/*  />*/}
+          {/*)}*/}
           <section className="my-12">
             <Link to={withPrefix(`/${status === "open" ? "" : status}`)}>
               <button className="btn m-responsive">

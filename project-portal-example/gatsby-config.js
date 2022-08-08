@@ -28,23 +28,19 @@ module.exports = {
   siteMetadata: siteMetadata,
 
   plugins: [
-  {
-    resolve: `gatsby-plugin-netlify-cms`,
-    options: {
-      enableIdentityWidget: true,
-      publicPath: `admin`,
+    {
+      resolve: `gatsby-plugin-netlify-cms`,
+      options: {
+        enableIdentityWidget: true,
+        publicPath: `admin`,
+      },
     },
-  },
-{
+    {
       // Use the Project Portal Theme as the first plugin – this builds the website as a whole
       resolve: "@thepolicylab-projectportals/project-portal-theme",
       options: {
-        // Settings for loading project and contact data from Airtable
-        airtableSettings: {
-          airtablePartnerName: "Example Content",
-          airtableBaseID: process.env.AIRTABLE_BASE_ID,
-          airtableAPIKey: process.env.AIRTABLE_API_KEY,
-        },
+        // Settings for loading project and contact data from markdown files
+        projectPath: `${__dirname}/projects`,
 
         // Use the styling configuration in the theme
         tailwindConfig: tailwindConfig,

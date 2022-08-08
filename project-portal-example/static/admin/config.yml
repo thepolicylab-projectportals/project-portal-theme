@@ -9,7 +9,7 @@ public_folder: /assets
 collections:
   - name: ProjectPageContent
     label: Project Page Content
-    folder: page_content
+    folder: projects
     create: true
     fields:
       - { name: question, label: Question, widget: markdown}

@@ -1,10 +1,3 @@
-require("ts-node").register(require("./tsconfig.json"))
-
-const {
-  AIRTABLE_TABLE_PROJECTS,
-  AIRTABLE_TABLE_CONTACTS,
-} = require("./src/consts.js")
-
 module.exports = (themeOptions) => {
   const siteMetadata = {
     siteTitle: "Project Portal Theme",
@@ -55,8 +48,8 @@ module.exports = (themeOptions) => {
       {
         resolve: `gatsby-source-filesystem`,
         options: {
-          name: `ExampleContent`,
-          path: `${__dirname}/ExampleContent`,
+          name: `projects`,
+          path: themeOptions.projectPath,
         },
       },
       `gatsby-transformer-remark`,
