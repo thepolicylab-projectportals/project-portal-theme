@@ -1,7 +1,5 @@
 backend:
-  name: github
-  repo: thepolicylab-projectportals/project-portal-theme
-  branch: netlify_cms_data
+  name: git-gateway
 local_backend: true
 media_folder: static/assets
 public_folder: /assets

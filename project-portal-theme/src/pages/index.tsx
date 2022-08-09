@@ -35,6 +35,7 @@ export const query = graphql`
           fundingInfo
           collaborationType
           lastModified
+          opportunityCloses
         }
       }
     }
