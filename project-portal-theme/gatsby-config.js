@@ -1,8 +1,8 @@
 require("ts-node").register(require("./tsconfig.json"))
 
 const {
-  AIRTABLE_TABLE_PROJECTS,
-  AIRTABLE_TABLE_CONTACTS,
+  TABLE_PROJECTS,
+  TABLE_CONTACTS,
 } = require("./src/consts.js")
 
 module.exports = (themeOptions) => {
@@ -41,10 +41,11 @@ module.exports = (themeOptions) => {
         },
       },
       `gatsby-plugin-react-helmet`,
-      `gatsby-plugin-image`,
+      // `gatsby-plugin-image`,
       `gatsby-plugin-sharp`,
       `gatsby-transformer-sharp`,
       `gatsby-plugin-sitemap`,
+      `@dream-bit-de/gatsby-plugin-better-page-tree`,
       {
         resolve: `gatsby-source-filesystem`,
         options: {
@@ -61,5 +62,8 @@ module.exports = (themeOptions) => {
       },
       `gatsby-transformer-remark`,
     ],
+    mapping: {
+      'MarkdownRemark.frontmatter.contacts': `MarkdownRemark.frontmatter.employer`,
+    }
   }
 }

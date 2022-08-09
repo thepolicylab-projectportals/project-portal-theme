@@ -1,4 +1,6 @@
 const tableName = require("../consts").TABLE_PROJECTS
+const PartnerName = require("../consts").PARTNER_NAME
+
 
 interface PageInput {
   path: string
@@ -63,7 +65,7 @@ export const onCreatePage = ({ page, actions }, themeOptions) => {
     context: {
       ...page.context,
       tableName,
-      partnerName: themeOptions.airtableSettings.airtablePartnerName,
+      partnerName: PartnerName,
     },
   })
 }

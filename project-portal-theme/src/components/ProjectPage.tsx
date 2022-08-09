@@ -9,9 +9,10 @@ import Select from "react-select"
 function customSort(dateField, sortDescending) {
   return function (a, b) {
     let sortValue = 0
-    const aValue = a.data[dateField]
-    const bValue = b.data[dateField]
-
+    console.log(a, b)
+    const aValue = a.frontmatter[dateField]
+    const bValue = b.frontmatter[dateField]
+    console.log(aValue, bValue)
     // equal items sort equally
     if (aValue === bValue) {
       sortValue = 0
@@ -87,6 +88,7 @@ export const ProjectPage = ({
 
   useEffect(() => {
     const sortedList = [...allProjects]
+    console.log(dateField, sortDirection.value)
     sortedList.sort(customSort(dateField, sortDirection.value))
     setSortedProjects(sortedList)
     setPageStart(0)
@@ -159,7 +161,7 @@ export const ProjectPage = ({
       const filteredTopics = selectedOptions.map(({ value }) => value)
       setDisplayProjects(
         sortedProjects.filter((project) =>
-          project.data.topics.some((topic) => filteredTopics.includes(topic))
+          project.frontmatter.topics.some((topic) => filteredTopics.includes(topic))
         )
       )
     }

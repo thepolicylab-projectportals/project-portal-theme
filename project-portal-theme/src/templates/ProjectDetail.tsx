@@ -40,7 +40,14 @@ interface ProjectDetailProps {
         fundingInfo: string
         emailContent: string
         showMainContactOnProjectTeam: boolean
-        contacts: string[]
+        contacts: {
+          frontmatter: {
+            name: string,
+            title: string,
+            employer: string,
+            email: string,
+          }
+        }
       }
     }
   }
@@ -67,7 +74,6 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
     priorResearch,
     statusOfData,
     fundingInfo,
-    showMainContactOnProjectTeam,
     contacts,
     emailContent,
   } = data.item.frontmatter
@@ -76,11 +82,12 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
   var projectTeam = null
 
   if (contacts) {
-    mainContact = contacts[0]
+    mainContact = contacts[0].frontmatter
     projectTeam = contacts
-    if (!showMainContactOnProjectTeam) {
-      projectTeam = contacts.slice(1, contacts.length)
-    }
+    console.log(projectTeam)
+    // if (!showMainContactOnProjectTeam) {
+    //   projectTeam = contacts.slice(1, contacts.length)
+    // }
   }
 
 
@@ -214,7 +221,7 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
           ) : (
             <ProjectTeam
               title="Project Team"
-              contacts={projectTeam.map((contact) => contact)}
+              contacts={projectTeam.map((contact) => contact.frontmatter)}
             />
           )}
           <section className="my-12">
@@ -235,7 +242,7 @@ export default ProjectDetail
 
 export const query = graphql`
   query ProjectDetailQuery($slug: String!) {
-    item: markdownRemark(frontmatter: { slug: { eq: $slug } }) {
+    item: markdownRemark(frontmatter: { slug: { eq: $slug }, path: {eq: "Project Page Content"}}) {
       frontmatter {
         question
         partnerName
@@ -256,10 +263,16 @@ export const query = graphql`
         statusOfData
         fundingInfo
         emailContent
-        showMainContactOnProjectTeam
-        contacts
+        contacts {
+        frontmatter {
+          name
+          title
+          employer
+          email
+        }
       }
     }
   }
+}
 `
 console.log()
