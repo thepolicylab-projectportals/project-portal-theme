@@ -1,0 +1,6 @@
+---
+Destinations: recmZAfJWjTZ7lVmJ
+contactImage: OrderedDict([('id', 'atti7jLVqMrj2Snya'), ('width', 500), ('height', 500), ('url', 'https://dl.airtable.com/.attachments/b4959091dcd5b085b6d2e320a7e13bd4/48c01a11/nhsd-icon2.png?ts=1660580972&userId=usr3dGtitKwSxUcGO&cs=0798a3983289ace2'), ('filename', 'nhsd-icon (2).png'), ('size', 60592), ('type', 'image/png'), ('thumbnails', OrderedDict([('small', OrderedDict([('url', 'https://dl.airtable.com/.attachmentThumbnails/033f0422cc60d8bd20e3a317631940fd/696de138?ts=1660580972&userId=usr3dGtitKwSxUcGO&cs=7729a9cf5cf4767c'), ('width', 36), ('height', 36)])), ('large', OrderedDict([('url', 'https://dl.airtable.com/.attachmentThumbnails/3fe77a5a83bcf55e48e64a21f931ad69/e57014ff?ts=1660580972&userId=usr3dGtitKwSxUcGO&cs=0691731511a25d7b'), ('width', 500), ('height', 500)])), ('full', OrderedDict([('url', 'https://dl.airtable.com/.attachmentThumbnails/827e051b55954a62b96891c765a459a8/fe916fb3?ts=1660580972&userId=usr3dGtitKwSxUcGO&cs=4e5eb4f02212a58c'), ('width', 3000), ('height', 3000)]))]))])
+name: City of San Antonio Neighborhood and Housing Services Department
+Last Modified: 2022-05-03T19:59:19.000Z
+---

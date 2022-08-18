@@ -1,5 +1,7 @@
 backend:
   name: git-gateway
+ # repo: thepolicylab-projectportals/project-portal-theme
+  branch: netlify_cms_data
 local_backend: true
 media_folder: static/assets
 public_folder: /assets
@@ -7,7 +9,7 @@ public_folder: /assets
 collections:
   - name: ProjectPageContent
     label: Project Page Content
-    folder: page_content
+    folder: output
     create: true
     fields:
       - { name: question, label: Question, widget: markdown}

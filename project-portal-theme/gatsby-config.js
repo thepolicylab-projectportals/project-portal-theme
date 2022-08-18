@@ -1,10 +1,5 @@
 require("ts-node").register(require("./tsconfig.json"))
 
-const {
-  TABLE_PROJECTS,
-  TABLE_CONTACTS,
-} = require("./src/consts.js")
-
 module.exports = (themeOptions) => {
   const siteMetadata = {
     siteTitle: "Project Portal Theme",
@@ -16,7 +11,7 @@ module.exports = (themeOptions) => {
       { name: "Completed projects", link: "/completed", show: true },
       { name: "About", link: "/about", show: true },
       { name: "Contact", link: "/contact", show: true },
-      { name: "Netlify", link: "/admin/", show: true },
+      { name: "Add Projects", link: "/admin/", show: true },
     ],
     locale: "en",
     staticText: themeOptions.staticText,
@@ -41,29 +36,22 @@ module.exports = (themeOptions) => {
         },
       },
       `gatsby-plugin-react-helmet`,
-      // `gatsby-plugin-image`,
       `gatsby-plugin-sharp`,
       `gatsby-transformer-sharp`,
       `gatsby-plugin-sitemap`,
+      `gatsby-plugin-image`,
       `@dream-bit-de/gatsby-plugin-better-page-tree`,
       {
         resolve: `gatsby-source-filesystem`,
         options: {
-          name: `images`,
-          path: "./images",
-        },
-      },
-      {
-        resolve: `gatsby-source-filesystem`,
-        options: {
-          name: `ExampleContent`,
-          path: `${__dirname}/ExampleContent`,
+          name: `content`,
+          path: themeOptions.contentPath,
         },
       },
       `gatsby-transformer-remark`,
     ],
     mapping: {
-      'MarkdownRemark.frontmatter.contacts': `MarkdownRemark.frontmatter.employer`,
+      'MarkdownRemark.frontmatter.contacts': `MarkdownRemark.frontmatter.id`,
     }
   }
 }

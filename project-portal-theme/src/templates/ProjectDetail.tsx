@@ -39,7 +39,7 @@ interface ProjectDetailProps {
         statusOfData: string
         fundingInfo: string
         emailContent: string
-        showMainContactOnProjectTeam: boolean
+        collaborationType: string
         contacts: {
           frontmatter: {
             name: string,
@@ -53,6 +53,7 @@ interface ProjectDetailProps {
   }
   location: any
 }
+
 const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
   const { data } = props
   console.log(data)
@@ -241,29 +242,31 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
 export default ProjectDetail
 
 export const query = graphql`
-  query ProjectDetailQuery($slug: String!) {
-    item: markdownRemark(frontmatter: { slug: { eq: $slug }, path: {eq: "Project Page Content"}}) {
+  query ProjectDetailQuery($slug: String) {
+    item: markdownRemark(fileAbsolutePath: {regex: "/projects/"}
+    frontmatter: { slug: { eq: $slug }}) {
       frontmatter {
-        question
-        partnerName
-        slug
-        summary
-        status
-        opportunityCloses
-        startDate
-        endDate
-        agency
-        topics
-        deliverable
-        purpose
-        expertise
-        requirement
-        keyDates
-        priorResearch
-        statusOfData
-        fundingInfo
-        emailContent
-        contacts {
+      question
+      partnerName
+      slug
+      summary
+      status
+      startDate
+      endDate
+      agency
+      topics
+      deliverable
+      purpose
+      opportunityCloses
+      supportNeeded
+      expertise
+      requirement
+      applicationProcess
+      priorResearch
+      fundingInfo
+      emailContent
+      collaborationType
+      contacts {
         frontmatter {
           name
           title

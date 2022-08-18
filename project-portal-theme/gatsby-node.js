@@ -6,3 +6,4 @@ const createPagesModule = require("./src/hooks/createPages")
 
 exports.createPages = createPagesModule.createPages
 exports.onCreatePage = createPagesModule.onCreatePage
+

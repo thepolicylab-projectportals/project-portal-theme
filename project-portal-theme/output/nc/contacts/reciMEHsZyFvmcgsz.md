@@ -1,0 +1,6 @@
+---
+Destinations: recYn23Vkw8DvdGUn
+contactImage: OrderedDict([('id', 'attr6KDAm3o2V53w9'), ('width', 378), ('height', 378), ('url', 'https://dl.airtable.com/.attachments/46678c5f5b4e9dbd6b102e97fbed2f91/9cf2d3b2/UNC-SOG_Logo_Large-round.png?ts=1660580971&userId=usr3dGtitKwSxUcGO&cs=4498e0a02a231c3d'), ('filename', 'UNC-SOG_Logo_Large-round.png'), ('size', 40688), ('type', 'image/png'), ('thumbnails', OrderedDict([('small', OrderedDict([('url', 'https://dl.airtable.com/.attachmentThumbnails/5c245410355fecf608616f45bfa19cf7/dbc2b9ee?ts=1660580971&userId=usr3dGtitKwSxUcGO&cs=adf28f4c298c6b73'), ('width', 36), ('height', 36)])), ('large', OrderedDict([('url', 'https://dl.airtable.com/.attachmentThumbnails/01cd92e6dae26d00701978d0ad8fbc03/4811acf6?ts=1660580971&userId=usr3dGtitKwSxUcGO&cs=dab79562db8a7ce4'), ('width', 378), ('height', 378)])), ('full', OrderedDict([('url', 'https://dl.airtable.com/.attachmentThumbnails/834d732367bb5343664c741ae858c093/e038e39b?ts=1660580971&userId=usr3dGtitKwSxUcGO&cs=92eebcb3b8f03339'), ('width', 3000), ('height', 3000)]))]))])
+name: The UNC School of Government/Lead for NC
+Last Modified: 2022-02-22T20:22:29.000Z
+---

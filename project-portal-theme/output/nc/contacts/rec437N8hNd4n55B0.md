@@ -1,0 +1,6 @@
+---
+Destinations: rec5mydQtll16xBiC
+contactImage: OrderedDict([('id', 'attQBc43U8thwcbBT'), ('width', 210), ('height', 210), ('url', 'https://dl.airtable.com/.attachments/5b32ec1ee21eb75bdddedab538c8cca9/6313427f/state-of-north-carolina-department-of-the-secretary-of-state-round.png?ts=1660580971&userId=usr3dGtitKwSxUcGO&cs=2f2ba1e186ac7a30'), ('filename', 'state-of-north-carolina-department-of-the-secretary-of-state-round.png'), ('size', 55289), ('type', 'image/png'), ('thumbnails', OrderedDict([('small', OrderedDict([('url', 'https://dl.airtable.com/.attachmentThumbnails/145f9c441789e0e4dc65534db21b5d86/afdbc770?ts=1660580971&userId=usr3dGtitKwSxUcGO&cs=59dac3156476b547'), ('width', 36), ('height', 36)])), ('large', OrderedDict([('url', 'https://dl.airtable.com/.attachmentThumbnails/195c92831788159bfdf50c6f451863ac/52505c0e?ts=1660580971&userId=usr3dGtitKwSxUcGO&cs=7ef1e098201709f2'), ('width', 210), ('height', 210)])), ('full', OrderedDict([('url', 'https://dl.airtable.com/.attachmentThumbnails/cbd8b5f52c6c9cc96c2062c74fd70605/34fcc51b?ts=1660580971&userId=usr3dGtitKwSxUcGO&cs=6d79f975be8ffc05'), ('width', 3000), ('height', 3000)]))]))])
+name: NC Secretary of State's Office
+Last Modified: 2022-02-21T20:14:25.000Z
+---
