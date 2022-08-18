@@ -7,6 +7,7 @@ import { Disclosure } from "@headlessui/react"
 import { FaPlus, FaMinus } from "react-icons/fa"
 import language from "site/language.json"
 import meta from "site/meta.json"
+import { isNA } from "../utils"
 
 interface AboutProps {
   data: {
@@ -86,7 +87,7 @@ export default ({ data }: AboutProps) => {
             ))}
           </section>
 
-          <section>
+          <section className="mb-20">
             <h2 className="text-h3 sm:text-h2 my-6">
               Frequently Asked Questions
             </h2>
@@ -98,6 +99,18 @@ export default ({ data }: AboutProps) => {
               />
             ))}
           </section>
+
+          {!isNA(language.about.accessibility) && (
+            <section>
+              <h2 className="text-h3 sm:text-h2 my-6">
+                Accessibility Statement
+              </h2>
+              <MarkdownText
+                className="mb-10 leading-normal text-body lg:text-body"
+                text={language.about.accessibility}
+              />
+            </section>
+          )}
         </article>
       </main>
     </Layout>
