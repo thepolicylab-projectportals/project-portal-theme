@@ -167,11 +167,11 @@ export default ({ data }: ContactProps) => {
       title={useSiteStaticText().contact.title}
       description={useSiteStaticText().contact.lede}
     >
-      <HeaderWithImage
-        title="Contact"
-        lede=""
-        imageSrc={data.bgImage.childImageSharp.resize.src}
-      />
+      {/*<HeaderWithImage*/}
+      {/*  title="Contact"*/}
+      {/*  lede=""*/}
+      {/*  imageSrc=''*/}
+      {/*/>*/}
 
       <article className="w-full pt-5 px-8 lg:px-16 xl:px-24 lg:w-2/3">
         <h1 className="mt-8 mb-2 text-h2 font-bold">
@@ -187,14 +187,14 @@ export default ({ data }: ContactProps) => {
   )
 }
 
-export const query = graphql`
-  query ContactQuery {
-    bgImage: file(relativePath: { regex: "/^contact.jpg$/" }) {
-      childImageSharp {
-        resize(width: 1536) {
-          src
-        }
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   query ContactQuery {
+//     bgImage: file(relativePath: { regex: "/^contact.jpg$/" }) {
+//       childImageSharp {
+//         resize(width: 1536) {
+//           src
+//         }
+//       }
+//     }
+//   }
+// `

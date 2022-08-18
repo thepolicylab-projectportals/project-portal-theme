@@ -67,7 +67,7 @@ export default ({ data }: AboutProps) => {
       <HeaderWithImage
         title="About"
         lede=""
-        imageSrc={data.bgImage.childImageSharp.resize.src}
+        imageSrc=''
       />
 
       <article className="w-full pt-5 px-8 lg:px-16 xl:px-24 lg:w-2/3">
@@ -95,14 +95,14 @@ export default ({ data }: AboutProps) => {
   )
 }
 
-export const query = graphql`
-  query AboutQuery {
-    bgImage: file(relativePath: { regex: "/^about.jpg$/" }) {
-      childImageSharp {
-        resize(width: 1536) {
-          src
-        }
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   query AboutQuery {
+//     bgImage: file(relativePath: { regex: "/^about.jpg$/" }) {
+//       childImageSharp {
+//         resize(width: 1536) {
+//           src
+//         }
+//       }
+//     }
+//   }
+// `

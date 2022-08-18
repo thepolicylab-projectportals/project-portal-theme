@@ -25,8 +25,8 @@ export default ({ data }: ThankYouProps) => {
       <HeaderWithImage
         title="Thank You"
         lede=""
-        imageSrc={data.bgImage.childImageSharp.resize.src}
-      />
+         imageSrc=''
+       />
 
       <div className="container pt-6 overflow-hidden bg-white">
         <div className="flex flex-wrap">

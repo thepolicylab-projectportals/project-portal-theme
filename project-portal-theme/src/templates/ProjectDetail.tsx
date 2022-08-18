@@ -1,6 +1,5 @@
 import { graphql, Link, withPrefix } from "gatsby"
 import React, { FunctionComponent } from "react"
-import { StaticImage } from "gatsby-plugin-image"
 import moment from "moment"
 import BackIcon from "../components/BackIcon"
 
@@ -242,9 +241,9 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
 export default ProjectDetail
 
 export const query = graphql`
-  query ProjectDetailQuery($slug: String) {
-    item: markdownRemark(fileAbsolutePath: {regex: "/projects/"}
-    frontmatter: { slug: { eq: $slug }}) {
+  query ProjectDetailQuery($slug: String!) {
+    item: markdownRemark(fileAbsolutePath: {regex: "/projects/"},
+     frontmatter: { slug: { eq: $slug }}) {
       frontmatter {
       question
       partnerName

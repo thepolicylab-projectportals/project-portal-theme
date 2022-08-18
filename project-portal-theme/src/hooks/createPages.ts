@@ -35,7 +35,7 @@ export const createPages: GatsbyCreatePages = async (
   const { createPage } = actions
   const allAirtable = await graphql(`
     {
-        allMarkdownRemark {
+        allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/projects/"}}) {
     nodes {
       frontmatter {
         slug
