@@ -101,7 +101,7 @@ export default ({ data }: AboutProps) => {
           </section>
 
           {!isNA(language.about.accessibility) && (
-            <section>
+            <section id="accessibility">
               <h2 className="text-h3 sm:text-h2 my-6">
                 Accessibility Statement
               </h2>
