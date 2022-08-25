@@ -1,6 +1,0 @@
----
-Destinations: recpj5HvEDZDjh1e2 rectILFwhfDqrOeED recwzhlNsqpz7bdMl
-contactImage: OrderedDict([('id', 'att95v52Eqhg3PTFO'), ('width', 502), ('height', 501), ('url', 'https://dl.airtable.com/.attachments/81c8050e21b036088890a75672b1e441/4014acba/NC-DORlogo-round.png?ts=1660580971&userId=usr3dGtitKwSxUcGO&cs=c4556faffecd38d2'), ('filename', 'NC-DOR logo-round.png'), ('size', 18395), ('type', 'image/png'), ('thumbnails', OrderedDict([('small', OrderedDict([('url', 'https://dl.airtable.com/.attachmentThumbnails/a97a8c18f17dc5ea64bedaff92fe4ff5/eefca7a4?ts=1660580971&userId=usr3dGtitKwSxUcGO&cs=fa4e3618a4e43246'), ('width', 36), ('height', 36)])), ('large', OrderedDict([('url', 'https://dl.airtable.com/.attachmentThumbnails/e80288d6d5cfb0bea52fed8b8d8cdc2b/598cfc13?ts=1660580971&userId=usr3dGtitKwSxUcGO&cs=373aed2c43190422'), ('width', 502), ('height', 501)])), ('full', OrderedDict([('url', 'https://dl.airtable.com/.attachmentThumbnails/86aa288981fc542ef97bb735917125fa/07484bf4?ts=1660580971&userId=usr3dGtitKwSxUcGO&cs=cef312f36dd16e5d'), ('width', 3000), ('height', 3000)]))]))])
-name: NC Department of Revenue
-Last Modified: 2022-07-11T13:06:29.000Z
----

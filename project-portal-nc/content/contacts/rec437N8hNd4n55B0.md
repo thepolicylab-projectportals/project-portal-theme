@@ -1,0 +1,6 @@
+---
+Destinations: rec5mydQtll16xBiC
+contactImage: OrderedDict([('id', 'attQBc43U8thwcbBT'), ('width', 210), ('height', 210), ('url', 'https://dl.airtable.com/.attachments/5b32ec1ee21eb75bdddedab538c8cca9/6313427f/state-of-north-carolina-department-of-the-secretary-of-state-round.png'), ('filename', 'state-of-north-carolina-department-of-the-secretary-of-state-round.png'), ('size', 55289), ('type', 'image/png'), ('thumbnails', OrderedDict([('small', OrderedDict([('url', 'https://dl.airtable.com/.attachmentThumbnails/145f9c441789e0e4dc65534db21b5d86/afdbc770'), ('width', 36), ('height', 36)])), ('large', OrderedDict([('url', 'https://dl.airtable.com/.attachmentThumbnails/195c92831788159bfdf50c6f451863ac/52505c0e'), ('width', 210), ('height', 210)])), ('full', OrderedDict([('url', 'https://dl.airtable.com/.attachmentThumbnails/cbd8b5f52c6c9cc96c2062c74fd70605/34fcc51b'), ('width', 3000), ('height', 3000)]))]))])
+name: NC Secretary of State's Office
+Last Modified: 2022-02-21T20:14:25.000Z
+---

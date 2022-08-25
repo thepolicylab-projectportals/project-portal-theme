@@ -1,6 +1,0 @@
----
-Destinations: rec85Z9WLqELpeOS9
-contactImage: OrderedDict([('id', 'attybT9QaEfcGKkIK'), ('width', 499), ('height', 500), ('url', 'https://dl.airtable.com/.attachments/21c7af65370161168b78e3d02d9eb8aa/3d0f1f0b/pw-icon1.png?ts=1660580972&userId=usr3dGtitKwSxUcGO&cs=5bff5933f7f37435'), ('filename', 'pw-icon (1).png'), ('size', 74488), ('type', 'image/png'), ('thumbnails', OrderedDict([('small', OrderedDict([('url', 'https://dl.airtable.com/.attachmentThumbnails/7b63612d89e91e97d607176d90ba2411/9a36eb76?ts=1660580972&userId=usr3dGtitKwSxUcGO&cs=0bee5de1768baaea'), ('width', 36), ('height', 36)])), ('large', OrderedDict([('url', 'https://dl.airtable.com/.attachmentThumbnails/7592a61db65ef2a92817e5b47c24eb92/7985e8c7?ts=1660580972&userId=usr3dGtitKwSxUcGO&cs=4d9b80b4de8f445b'), ('width', 499), ('height', 500)])), ('full', OrderedDict([('url', 'https://dl.airtable.com/.attachmentThumbnails/8fa9b9bb2d670d0cf6824ee8e77568fc/58cda6dc?ts=1660580972&userId=usr3dGtitKwSxUcGO&cs=bcbdbf224d11d9c5'), ('width', 3000), ('height', 3000)]))]))])
-name: City of San Antonio Public Works Department
-Last Modified: 2022-05-03T19:56:11.000Z
----

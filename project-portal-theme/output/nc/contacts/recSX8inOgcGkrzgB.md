@@ -1,6 +1,0 @@
----
-Destinations: recuqyxlEbfH9D3Xa
-contactImage: OrderedDict([('id', 'attdFqfShEd5DCenY'), ('width', 353), ('height', 353), ('url', 'https://dl.airtable.com/.attachments/48c107f719464b93d88d5f4579e3ede7/6cbf4de4/NC-policy-collaboratory-logo-round.png?ts=1660580971&userId=usr3dGtitKwSxUcGO&cs=bb79908bf6dadce6'), ('filename', 'NC-policy-collaboratory-logo-round.png'), ('size', 10774), ('type', 'image/png'), ('thumbnails', OrderedDict([('small', OrderedDict([('url', 'https://dl.airtable.com/.attachmentThumbnails/ae0b48d4cda2d51d59a35e1e339f0d3e/77535499?ts=1660580971&userId=usr3dGtitKwSxUcGO&cs=205f4bf3a757f2f3'), ('width', 36), ('height', 36)])), ('large', OrderedDict([('url', 'https://dl.airtable.com/.attachmentThumbnails/8ed0ad5b4f2f8c3cf0fe18ea2ee31d9b/02179667?ts=1660580971&userId=usr3dGtitKwSxUcGO&cs=6194a1da541ee890'), ('width', 353), ('height', 353)])), ('full', OrderedDict([('url', 'https://dl.airtable.com/.attachmentThumbnails/8c489c5a002081bd491b95a20aeae9d4/03318965?ts=1660580971&userId=usr3dGtitKwSxUcGO&cs=ea992c63af799ecb'), ('width', 3000), ('height', 3000)]))]))])
-name: The NC Policy Collaboratory
-Last Modified: 2022-02-21T20:05:17.000Z
----

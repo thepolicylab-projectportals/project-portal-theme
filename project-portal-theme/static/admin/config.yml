@@ -1,24 +1,26 @@
 backend:
   name: git-gateway
- # repo: thepolicylab-projectportals/project-portal-theme
   branch: netlify_cms_data
 local_backend: true
-media_folder: static/assets
-public_folder: /assets
-
+publish_mode: editorial_workflow
+media_folder: "project-portal-example/content/assets"
+public_folder: "/content/assets"
 collections:
-  - name: ProjectPageContent
-    label: Project Page Content
-    folder: output
+  - name: projects
+    label: Projects
+    folder: "project-portal-example/content/projects"
+    extension: markdown
+    format: frontmatter
     create: true
     fields:
+      - { name: path, label: Path, widget: "select", options: ['projects', 'contacts']}
       - { name: question, label: Question, widget: markdown}
-      - { name: partnerName, label: Partner Name, widget: "select", options: ["North Caroline", "San Antonio", "Example Content"], required: false}
-      - { name: slug, label: Slug, required: false }
+      - { name: partnerName, label: Partner Name, widget: "select", options: ["project-portal-satx", "project-portal-nc", "project-portal-example"], required: false}
+      - { name: slug, label: Slug }
       - { name: status, label: Status, widget: "select", options: [ "ongoing", "open", "completed" ], required: false}
-      - { name: opportunityCloses, label: Opportunity Closes }
-      - { name: startDate, label: Start Date, required: false}
-      - { name: endDate, label: End Date, required: false}
+      - { name: opportunityCloses, label: Opportunity Closes, widget: 'date'}
+      - { name: startDate, label: Start Date, required: false, widget: 'date'}
+      - { name: endDate, label: End Date, required: false, widget: 'date'}
       - { name: agency, label: Agency, required: false}
       - { name: topics, label: Topics, widget: "select", options: [ "Taxation", "Forms", "Collections", "Government Operations","Human Resources", "Crime and Law Enforcement", "Delinquency Prevention"] }
       - { name: supportNeeded, label: Support Needed, required: false}
@@ -33,18 +35,22 @@ collections:
       - { name: fundingInfo, label: Funding Info, required: false}
       - { name: emailContent, label: Email Content, widget: markdown, required: false}
       - { name: contacts, label: Contacts, widget: "select", options: [ "NC Office of Strategic Partnership", "Duke University", "UNC Chapel Hill", "Kristin Siemek","Volcker Alliance", "Crime and Law Enforcement", "Behavioural Insights Team (BIT)" ] }
-      - { name: showMainContactOnProjectTeam, label: Show Main Contact On Project Team, required: false }
-      - { name: name (from contact), label: Name (from contact), required: false }
-      - { name: employer (from contact), label: Employer (from contact), required: false }
-      - { name: contactImage (from contact), label: Contact Image (from contact), widget: "image",required: false }
+      - { name: contactEmail, label: Contact Email, required: false }
+      - { name: contactTitle, label: Contact Title, required: false }
+      - { name: contactName, label: Contact Name, required: false }
       - { name: lastModified, label: Last Modified, widget: datetime}
-  - name: ProjectContacts
+  - name: Contacts
     label: Project Contacts
-    folder: project_contacts
+    folder: "project-portal-example/content/contacts"
     create: true
+    extension: markdown
+    format: frontmatter
     fields:
+      - { name: path, label: Path }
       - { name: name, label: Name}
       - { name: title, label: title, required: false }
       - { name: question, label: Question, widget: markdown }
       - { name: partnerName, label: Partner Name, widget: "select", options: [ "North Caroline", "San Antonio", "Example Content" ], required: false }
       - { name: slug, label: Slug, required: false }
+      - { name: contactImage, label: Contact Image, widget: "image",required: false}
+

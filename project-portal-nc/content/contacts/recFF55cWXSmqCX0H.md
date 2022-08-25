@@ -1,0 +1,7 @@
+---
+Destinations: recYn23Vkw8DvdGUn recMISrsYYeQIit1z recgWoYqmnBBpKDB6 recmsy3kFZPFZVJfe recn8n4HPWiF4x829 rectILFwhfDqrOeED rec0b4zk9ZefwJedi recpj5HvEDZDjh1e2 recIhiuD0UtBdmigm recS2LMJ1tblbrocn recLux5BmjkeK4Qr8 recKA4xdAuwtKLxlf recZLJ522ciloR3JX recwzhlNsqpz7bdMl recRPlC4gL5Jfz1PD recIQ2ekHBc7MkV6b
+contactImage: OrderedDict([('id', 'attWinl31q2F3u2d0'), ('width', 947), ('height', 946), ('url', 'https://dl.airtable.com/.attachments/0611743913f677bb9b6ba85af4fc81ce/88351d30/OSP_Logo_airtable.png'), ('filename', 'OSP_Logo_airtable.png'), ('size', 146138), ('type', 'image/png'), ('thumbnails', OrderedDict([('small', OrderedDict([('url', 'https://dl.airtable.com/.attachmentThumbnails/4c1d7b089789cfd48652619a79a7b8d2/4a594fa8'), ('width', 36), ('height', 36)])), ('large', OrderedDict([('url', 'https://dl.airtable.com/.attachmentThumbnails/f30ed553f494a4e59c0d0a586e285109/42f3b1f2'), ('width', 513), ('height', 512)])), ('full', OrderedDict([('url', 'https://dl.airtable.com/.attachmentThumbnails/9307847f06142bc5dff1776bdb7adb3f/e06b0227'), ('width', 3000), ('height', 3000)]))]))])
+email: partnerships@osbm.nc.gov
+name: NC Office of Strategic Partnerships
+Last Modified: 2022-07-11T13:08:24.000Z
+---

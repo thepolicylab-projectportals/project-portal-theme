@@ -1,8 +1,0 @@
----
-Destinations: recuo75yPAYKuDp1u
-title: Chief Information Officer
-contactImage: OrderedDict([('id', 'attJq4OEgsY5joaor'), ('width', 500), ('height', 499), ('url', 'https://dl.airtable.com/.attachments/cbeba44ddd486ca00f6dc54a6375d9f2/7a883266/itsd-icon1.png?ts=1660580972&userId=usr3dGtitKwSxUcGO&cs=45ca5fb123b45630'), ('filename', 'itsd-icon (1).png'), ('size', 50063), ('type', 'image/png'), ('thumbnails', OrderedDict([('small', OrderedDict([('url', 'https://dl.airtable.com/.attachmentThumbnails/6df801777832500bc163cb3974cbe0eb/f4549570?ts=1660580972&userId=usr3dGtitKwSxUcGO&cs=59e07f8c45ddf9d4'), ('width', 36), ('height', 36)])), ('large', OrderedDict([('url', 'https://dl.airtable.com/.attachmentThumbnails/d687267f126d849b2a1639bbe9243890/516185fd?ts=1660580972&userId=usr3dGtitKwSxUcGO&cs=9d1f2efed096cd95'), ('width', 500), ('height', 499)])), ('full', OrderedDict([('url', 'https://dl.airtable.com/.attachmentThumbnails/722d3a59391b6af4cb590b7b1d9cd598/e2c28fbb?ts=1660580972&userId=usr3dGtitKwSxUcGO&cs=8a1707f0ed600e77'), ('width', 3000), ('height', 3000)]))]))])
-name: Craig Hopkins
-employer: ITSD, City of San Antonio
-Last Modified: 2022-05-27T14:15:14.000Z
----

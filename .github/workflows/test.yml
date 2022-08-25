@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        site: [satx, nc]
+        site: [content, nc]
 
     env:
       PP_CONFIG_BASE: ${{ format('sites/{0}/', matrix.site) }}

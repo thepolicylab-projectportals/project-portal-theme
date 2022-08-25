@@ -2,7 +2,7 @@
 id: recRPlC4gL5Jfz1PD
 opportunityCloses: 2022-09-30T13:07:26.000Z
 contacts: 
-- recFF55cWXSmqCX0H
+- NC Office of Strategic Partnerships
 partnerName: Example Content
 status: open
 agency: Example Department of Public Safety, Division of Juvenile Justice and Delinquency Prevention
@@ -19,15 +19,4 @@ expertise: Working knowledge of the North Carolina juvenile justice system and d
 summary: To better understand the use of [teen court programs](https://ncteencourts.org/), the [Division of Juvenile Justice and Delinquency Prevention](https://www.ncdps.gov/our-organization/juvenile-justice-and-delinquency-prevention) (DJJDP) at the [NC Department of Public Safety](https://www.ncdps.gov/) is exploring partnership opportunities for rigorous qualitative and quantitative research to focus on the fidelity of the traditional teen court model in North Carolina and to understand the local impacts the model produces.The following topics will inform this work. Implementation - Are teen court programs in North Carolina operated with fidelity to the [traditional teen court model?](http://www.wsipp.wa.gov/BenefitCost/Program/970). Impact. To which populations of juveniles is the traditional teen court model most effective for in North Carolina? For example - Older versus younger, first-time referrals versus repeat referrals, legal status, etc. Improvement - What strategies should be considered for continuation, expansion, and targeting of teen court programs?. Benefit-cost analysis Assess the benefit to cost ratio and chance benefits will exceed costs akin to analysis available for [NC traditional Teen Court](https://www.wsipp.wa.gov/BenefitCost/Program/970) and hybrid models. The NC Department of Public Safety, Division of Juvenile Justice and Delinquency Prevention (DJJDP) and the NC Office of Strategic Partnerships (OSP) hosted a research partnership meeting on Monday, June 6 to discuss this project. 
 lastModified: 2022-07-11T13:44:16.000Z
 Created: 2022-07-11T13:07:26.000Z
-deliverable: no
-supportNeeded: need
-requirement: test
-applicationProcess: long
-priorResearch: no
-fundingInfo: no
-contactEmail: email
-contactTitle: title
-contactName: name
-collaborationType: open
-commitment: low
 ---

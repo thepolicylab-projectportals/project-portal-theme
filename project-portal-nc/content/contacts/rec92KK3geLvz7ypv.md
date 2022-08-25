@@ -1,0 +1,6 @@
+---
+Destinations: recMISrsYYeQIit1z recgWoYqmnBBpKDB6 recrgKUbRjoNqW0OX recIQ2ekHBc7MkV6b
+contactImage: OrderedDict([('id', 'attQZdGYx6tKbMrBs'), ('width', 558), ('height', 558), ('url', 'https://dl.airtable.com/.attachments/068f270346ce94215be3706587f563ff/cecf7da7/NCofficeofstatehumanresources-logo-round.png'), ('filename', 'NC office of state human resources-logo-round.png'), ('size', 29967), ('type', 'image/png'), ('thumbnails', OrderedDict([('small', OrderedDict([('url', 'https://dl.airtable.com/.attachmentThumbnails/45b46dabd3056c8ee7adea5476599138/a5ecebdb'), ('width', 36), ('height', 36)])), ('large', OrderedDict([('url', 'https://dl.airtable.com/.attachmentThumbnails/e7e71d947ecef80191b0d8b0207ac099/d8f55ea9'), ('width', 512), ('height', 512)])), ('full', OrderedDict([('url', 'https://dl.airtable.com/.attachmentThumbnails/29a6344a1ab2034dd25330fe984b1afb/101ccecb'), ('width', 3000), ('height', 3000)]))]))])
+name: NC Office of State Human Resources
+Last Modified: 2022-07-11T13:08:24.000Z
+---

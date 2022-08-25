@@ -2,11 +2,10 @@
 id: recwzhlNsqpz7bdMl
 opportunityCloses: 2022-10-30T13:07:26.000Z
 contacts: 
-- recFF55cWXSmqCX0H 
-- recVXqfX2vzk6p79Q 
-- rechhgXLtjtkACBXl 
-- recWLlii2R9nKGmmu 
-- recYGs36hCqqipOhJ
+- NC Office of Strategic Partnerships
+- UNC Chapel Hill
+- The Policy Lab
+- NC Department of Revenue
 partnerName: Example Content
 status: ongoing
 agency: Example Department of Revenue
@@ -22,16 +21,4 @@ summary: When a person or business does not pay their taxes on time, they receiv
 lastModified: 2022-07-11T13:44:19.000Z
 statusOfData: not verified 
 Created: 2022-07-11T13:06:29.000Z
-supportNeeded: need
-expertise: no
-requirement: test
-applicationProcess: long
-priorResearch: no
-fundingInfo: no
-emailContent: email
-contactEmail: email
-contactTitle: title
-contactName: name
-collaborationType: open
-commitment: low
 ---

@@ -1,0 +1,9 @@
+---
+Destinations: rect3GIXTecvSSSY4 rec2RKFmr301uryJa recmZAfJWjTZ7lVmJ recuo75yPAYKuDp1u recCSF15P6XZPZVLp
+title: Interim R&D Administrator
+contactImage: OrderedDict([('id', 'attIv0kTwaTsK9CIw'), ('width', 4500), ('height', 4500), ('url', 'https://dl.airtable.com/.attachments/fdd6dc6e8f1ea85c3ba2a3dc094ee489/6359c84f/RDLOGOAnswertheCall.jpg'), ('filename', 'R&D LOGO Answer the Call.jpg'), ('size', 2295803), ('type', 'image/jpeg'), ('thumbnails', OrderedDict([('small', OrderedDict([('url', 'https://dl.airtable.com/.attachmentThumbnails/fec1c926cb8190d6e5045b89fa3b1901/37d76e91'), ('width', 36), ('height', 36)])), ('large', OrderedDict([('url', 'https://dl.airtable.com/.attachmentThumbnails/1fe88311a4acafd8fe36b220e9a369ce/2dfc511f'), ('width', 512), ('height', 512)])), ('full', OrderedDict([('url', 'https://dl.airtable.com/.attachmentThumbnails/89b63cc0eeb3195d68cf041aa2e516c3/35684d23'), ('width', 3000), ('height', 3000)]))]))])
+Project Page Content: Which communication channel will generate more interest in Train for Jobs SA?, Which messenger - City vs. San Antonio Food Bank - drives higher engagement with emails and surveys?, Do incentives like gift bags result in higher participation in workshops hosted by City departments?, "How can the City of San Antonio collect, explore, and evaluate solution-driven ideas from employees?", Can sensors on City vehicles identify and collect real-time data on the City’s infrastructure and areas of service needed?
+name: Thomas Davis
+employer: City of San Antonio Office of Innovation
+Last Modified: 2022-05-27T14:13:46.000Z
+---

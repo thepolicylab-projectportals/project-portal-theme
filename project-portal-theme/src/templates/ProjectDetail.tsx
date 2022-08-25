@@ -243,7 +243,7 @@ export default ProjectDetail
 export const query = graphql`
   query ProjectDetailQuery($slug: String!) {
     item: markdownRemark(fileAbsolutePath: {regex: "/projects/"},
-     frontmatter: { slug: { eq: $slug }}) {
+     frontmatter: { slug: { nin: "test", eq: $slug }}) {
       frontmatter {
       question
       partnerName

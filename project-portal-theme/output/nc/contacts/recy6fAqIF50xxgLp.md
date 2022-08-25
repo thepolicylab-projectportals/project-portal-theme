@@ -1,6 +1,0 @@
----
-Destinations: recgWoYqmnBBpKDB6 recIQ2ekHBc7MkV6b
-contactImage: OrderedDict([('id', 'attFxGJxuIulBtTTc'), ('width', 400), ('height', 400), ('url', 'https://dl.airtable.com/.attachments/c1e560a180aed4440547198975784fb8/09a47959/behavioural-insights-team.jpg?ts=1660580971&userId=usr3dGtitKwSxUcGO&cs=bba510887877ab94'), ('filename', 'behavioural-insights-team.jpg'), ('size', 9375), ('type', 'image/jpeg'), ('thumbnails', OrderedDict([('small', OrderedDict([('url', 'https://dl.airtable.com/.attachmentThumbnails/d981f97b249c8bbb629f518d5176cef1/288517c9?ts=1660580971&userId=usr3dGtitKwSxUcGO&cs=7d95dd9764cd85e4'), ('width', 36), ('height', 36)])), ('large', OrderedDict([('url', 'https://dl.airtable.com/.attachmentThumbnails/978c1d75497c30b7e4a0951fef91189d/969767cb?ts=1660580971&userId=usr3dGtitKwSxUcGO&cs=752688a9a8d0979d'), ('width', 400), ('height', 400)])), ('full', OrderedDict([('url', 'https://dl.airtable.com/.attachmentThumbnails/76e24a659db230722f8e9e7e16be3c91/d0c7aa44?ts=1660580971&userId=usr3dGtitKwSxUcGO&cs=b027434d7e074592'), ('width', 3000), ('height', 3000)]))]))])
-name: Behavioural Insights Team (BIT)
-Last Modified: 2022-07-11T13:08:24.000Z
----

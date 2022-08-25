@@ -1,6 +1,0 @@
----
-Destinations: reccg82RIvCXbSFJV
-contactImage: OrderedDict([('id', 'attgM4lEu0UobG6hC'), ('width', 400), ('height', 400), ('url', 'https://dl.airtable.com/.attachments/7de9da1b986d174137845a96d4a7f05d/6de825eb/NC-Department-of-Public-Safety-logo-400x400.jpg?ts=1660580971&userId=usr3dGtitKwSxUcGO&cs=14dc8bea08cc4db5'), ('filename', 'NC-Department-of-Public-Safety-logo-400x400.jpg'), ('size', 17473), ('type', 'image/jpeg'), ('thumbnails', OrderedDict([('small', OrderedDict([('url', 'https://dl.airtable.com/.attachmentThumbnails/06379bc3bd831b83d8e24e53dd8ed178/bfa15453?ts=1660580971&userId=usr3dGtitKwSxUcGO&cs=6876690b484671a8'), ('width', 36), ('height', 36)])), ('large', OrderedDict([('url', 'https://dl.airtable.com/.attachmentThumbnails/110e25f0e583bdce766175b56f85e589/3c4683eb?ts=1660580971&userId=usr3dGtitKwSxUcGO&cs=aa4d710892a69961'), ('width', 400), ('height', 400)])), ('full', OrderedDict([('url', 'https://dl.airtable.com/.attachmentThumbnails/c0c168e00835ace91eee8f4038438938/ce94fee1?ts=1660580971&userId=usr3dGtitKwSxUcGO&cs=9682b4c919746123'), ('width', 3000), ('height', 3000)]))]))])
-name: Governor’s Crime Commission
-Last Modified: 2022-02-21T20:04:27.000Z
----
