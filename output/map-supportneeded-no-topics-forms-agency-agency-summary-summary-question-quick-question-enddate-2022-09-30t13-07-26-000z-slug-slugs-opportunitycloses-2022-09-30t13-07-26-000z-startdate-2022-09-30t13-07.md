@@ -1,7 +1,7 @@
 ---
 question: quick question
 partnerName: Example Content
-slug: slugs
+slug: slugs_norm
 status: open
 opportunityCloses: 2022-09-30T13:07:26.000Z
 startDate: 2022-09-30T13:07:26.000Z
