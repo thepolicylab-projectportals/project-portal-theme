@@ -51,7 +51,7 @@ module.exports = (themeOptions) => {
       `gatsby-transformer-remark`,
     ],
     mapping: {
-      'MarkdownRemark.frontmatter.contacts': `MarkdownRemark.frontmatter.name`,
+      'MarkdownRemark.frontmatter.contacts': `MarkdownRemark.frontmatter.id`,
     }
   }
 }
