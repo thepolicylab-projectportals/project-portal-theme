@@ -13,7 +13,6 @@ collections:
     create: true
     identifier_field: slug
     fields:
-      - { name: path, label: Path}
       - { name: question, label: Question, widget: markdown}
       - { name: partnerName, label: Partner Name, widget: "select", options: ["project-portal-satx", "project-portal-nc", "project-portal-example"], required: false}
       - { name: slug, label: Slug }
@@ -45,7 +44,7 @@ collections:
     create: true
     extension: markdown
     format: frontmatter
-    identifier_field: id
+    identifier_field: name
     fields:
       - { name: id, label: ID }
       - { name: name, label: Name}
