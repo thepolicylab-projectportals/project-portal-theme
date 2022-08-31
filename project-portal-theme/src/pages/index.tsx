@@ -11,10 +11,12 @@ export default ({ data }: ProjectPageProps) =>
   })
 
 export const query = graphql`
-  query IndexQuery{
-    items: allMarkdownRemark(filter: {frontmatter: {status: {eq: "open"}}}) {
-    nodes {
-       frontmatter {
+  query IndexQuery {
+    items: allMarkdownRemark(
+      filter: { frontmatter: { status: { eq: "open" } } }
+    ) {
+      nodes {
+        frontmatter {
           question
           slug
           status
@@ -26,9 +28,6 @@ export const query = graphql`
           agency
           topics
           commitment
-          contactName
-          contactTitle
-          contactEmail
           applicationProcess
           statusOfData
           priorResearch
@@ -39,4 +38,5 @@ export const query = graphql`
         }
       }
     }
-  }`
+  }
+`

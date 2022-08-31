@@ -11,10 +11,12 @@ export default ({ data }: ProjectPageProps) =>
   })
 
 export const query = graphql`
-  query OngoingQuery{
-    items:  allMarkdownRemark(filter: {frontmatter: {status: {eq: "ongoing"}}}) {
-    nodes {
-       frontmatter {
+  query OngoingQuery {
+    items: allMarkdownRemark(
+      filter: { frontmatter: { status: { eq: "ongoing" } } }
+    ) {
+      nodes {
+        frontmatter {
           question
           slug
           status
@@ -26,9 +28,6 @@ export const query = graphql`
           agency
           topics
           commitment
-          contactName
-          contactTitle
-          contactEmail
           applicationProcess
           statusOfData
           priorResearch
