@@ -9,7 +9,6 @@ collections:
     label: Projects
     folder: "project-portal-example/content/projects"
     extension: markdown
-    format: frontmatter
     create: true
     identifier_field: slug
     fields:
@@ -43,7 +42,6 @@ collections:
     folder: "project-portal-example/content/contacts"
     create: true
     extension: markdown
-    format: frontmatter
     identifier_field: name
     fields:
       - { name: id, label: ID }
