@@ -3,12 +3,12 @@ backend:
   proxy_url: http://localhost:8081/api/v1
   branch: netlify_cms_data
 local_backend: true
-media_folder: "project-portal-example/content/assets"
+media_folder: "/content/assets"
 public_folder: "/content/assets"
 collections:
   - name: projects
     label: Projects
-    folder: "project-portal-example/content/projects"
+    folder: "content/projects"
     extension: markdown
     create: true
     identifier_field: slug
@@ -40,7 +40,7 @@ collections:
       - { name: lastModified, label: Last Modified, widget: datetime}
   - name: Contacts
     label: Project Contacts
-    folder: "project-portal-example/content/contacts"
+    folder: "content/contacts"
     create: true
     extension: markdown
     identifier_field: name
