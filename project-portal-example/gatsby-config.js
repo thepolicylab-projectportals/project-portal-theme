@@ -51,6 +51,8 @@ module.exports = {
 
         // Load the static text from the language file
         staticText: staticText,
+
+        // Specify the content directory
         contentPath: `${__dirname}/content`,
       },
     },
