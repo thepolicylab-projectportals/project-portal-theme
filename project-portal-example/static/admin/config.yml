@@ -1,5 +1,6 @@
 backend:
-  name: git-gateway
+  name: proxy
+  proxy_url: http://localhost:8081/api/v1
   branch: netlify_cms_data
 local_backend: true
 media_folder: "project-portal-example/content/assets"
