@@ -14,14 +14,14 @@ collections:
     create: true
     identifier_field: question
     fields:
-      - { name: question, label: Question}
+      - { name: question, label: Question, widget: "markdown"}
       - { name: partnerName, label: Partner Name, widget: "select", options: ["project-portal-satx", "project-portal-nc", "project-portal-example"], required: false}
       - { name: slug, label: Slug }
       - { name: status, label: Status, widget: "select", options: [ "ongoing", "open", "completed" ], required: false}
       - { name: opportunityCloses, label: Opportunity Closes, widget: 'date', default: ""}
       - { name: startDate, label: Start Date, required: false, widget: 'date', default: ""}
       - { name: endDate, label: End Date, required: false, widget: 'date', default: ""}
-      - { name: agency, label: Agency, required: false}
+      - { name: agency, label: Agency, required: false, widget: "markdown"}
       - { name: topics, label: Topics, widget: "select", options: [ "Taxation", "Forms", "Collections", "Government Operations","Human Resources", "Crime and Law Enforcement", "Delinquency Prevention"], multiple: true}
       - { name: supportNeeded, label: Support Needed, required: false, widget: markdown}
       - { name: summary, label: Summary, widget: markdown}
