@@ -1,6 +1,0 @@
----
-Destinations: recYn23Vkw8DvdGUn
-contactImage: OrderedDict([('id', 'attZWXfsxsKSoA2pc'), ('width', 650), ('height', 649), ('url', 'https://dl.airtable.com/.attachments/b54468f97200f4618f0b1ebb4aceb309/bf7ce71e/hometown-strong-logo-round.png'), ('filename', 'hometown-strong-logo-round.png'), ('size', 21593), ('type', 'image/png'), ('thumbnails', OrderedDict([('small', OrderedDict([('url', 'https://dl.airtable.com/.attachmentThumbnails/b6210a3c1c7e83a7907ed8af7e9e4b1b/bc9a1a68'), ('width', 36), ('height', 36)])), ('large', OrderedDict([('url', 'https://dl.airtable.com/.attachmentThumbnails/ecb534a8387f4c98852e4e1289ebdd02/cfbf984e'), ('width', 513), ('height', 512)])), ('full', OrderedDict([('url', 'https://dl.airtable.com/.attachmentThumbnails/9b7fe9e22151064d59c76f64a1aef75e/a4a752c2'), ('width', 3000), ('height', 3000)]))]))])
-name: Hometown Strong
-Last Modified: 2022-02-21T20:09:00.000Z
----

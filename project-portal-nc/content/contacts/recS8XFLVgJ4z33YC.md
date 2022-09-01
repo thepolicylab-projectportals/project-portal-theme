@@ -1,6 +1,0 @@
----
-Destinations: recYn23Vkw8DvdGUn
-contactImage: OrderedDict([('id', 'attPOTBlDaOyRbSws'), ('width', 1391), ('height', 1391), ('url', 'https://dl.airtable.com/.attachments/2c2275576e5684fe91bb63ac448b3e6a/390fa062/northcarolinaleagueofmunicipalities-logo-round.png'), ('filename', 'north carolina league of municipalities-logo-round.png'), ('size', 23093), ('type', 'image/png'), ('thumbnails', OrderedDict([('small', OrderedDict([('url', 'https://dl.airtable.com/.attachmentThumbnails/09bcc3d140da265a66bb8d497308f18b/466950ee'), ('width', 36), ('height', 36)])), ('large', OrderedDict([('url', 'https://dl.airtable.com/.attachmentThumbnails/b79645d9ceab72d26813232ee13e7c5d/21f9fcc5'), ('width', 512), ('height', 512)])), ('full', OrderedDict([('url', 'https://dl.airtable.com/.attachmentThumbnails/701d39a78cd8490e4669ab25fa9b6baf/7c118aab'), ('width', 3000), ('height', 3000)]))]))])
-name: NC League of Municipalities
-Last Modified: 2022-02-21T20:09:38.000Z
----
