@@ -41,6 +41,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       priorResearch: String
       fundingInfo: String
       emailContent: String
+      email: String
       lastModified: Date @dateformat
       opportunityCloses: Date @dateformat
       startDate: Date @dateformat
