@@ -47,7 +47,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       startDate: Date @dateformat
       endDate: Date @dateformat
       applicationProcess: String
-      collaborationType: String
+      collaborationType: [String]
       commitment: String
     }
   `
