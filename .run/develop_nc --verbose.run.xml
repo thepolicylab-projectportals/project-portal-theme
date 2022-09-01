@@ -5,7 +5,7 @@
     <scripts>
       <script value="develop:nc" />
     </scripts>
-    <arguments value="--verbose --port 8001 --inspect" />
+    <arguments value="--port 8001 --inspect" />
     <node-interpreter value="project" />
     <envs>
       <env name="DEBUG" value="gatsby*" />
@@ -20,6 +20,7 @@
         <node-interpreter value="project" />
         <envs />
       </option>
+      <option name="RunConfigurationTask" enabled="true" run_configuration_name="netlify-cms-proxy-server:nc" run_configuration_type="ShConfigurationType" />
     </method>
   </configuration>
 </component>
