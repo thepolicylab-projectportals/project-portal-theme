@@ -8,16 +8,7 @@ exports.createPages = createPagesModule.createPages
 exports.onCreatePage = createPagesModule.onCreatePage
 
 exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes, createFieldExtension } = actions
-
-  createFieldExtension({
-    name: "shout",
-    extend: () => ({
-      resolve(source, args, context, info) {
-        return String(source[info.fieldName]).toUpperCase()
-      },
-    }),
-  })
+  const { createTypes } = actions
 
   const typeDefs = `
     type MarkdownRemark implements Node {
