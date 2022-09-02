@@ -13,9 +13,7 @@ export default ({ data }: ProjectPageProps) =>
 export const query = graphql`
   query CompletedQuery {
     items: allMarkdownRemark(
-      filter: {
-        frontmatter: { status: { eq: "completed" }, slug: { nin: "test" } }
-      }
+      filter: { frontmatter: { status: { eq: "completed" } } }
     ) {
       nodes {
         frontmatter {
@@ -39,7 +37,7 @@ export const query = graphql`
         }
       }
     }
-        allImageSharp {
+    allImageSharp {
       edges {
         node {
           ... on ImageSharp {
@@ -59,4 +57,3 @@ export const query = graphql`
     }
   }
 `
-
