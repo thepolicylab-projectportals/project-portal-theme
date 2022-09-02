@@ -15,9 +15,15 @@ echo "Initialize the new site"
 rsync -av --progress $siteDir/. $testDir --exclude node_modules --exclude .cache --exclude public
 
 echo "Package the theme"
-packName=$(cd $themeDir && npm pack)
+packOutput=$(cd $themeDir && yarn pack)
+packName=$( echo $packOutput | grep "Wrote tarball to" | cut -d " " -f 5 | sed "s/\"//" | sed "s/\"\.//")
 echo "Theme name is: $packName"
 
 echo "Install the theme and then everything else"
-(cd $testDir && ln -s "node_modules/@thepolicylab-projectportals/project-portal-theme" themeDir) &
-(cd $testDir && npm install "../$themeDir/$packName" && npm install && npm run build && npm run serve --port=8111)
+(
+cd $testDir &&
+sed -i '' "s+\project-portal-theme\": \"^1.0.0\"+\project-portal-theme\": \"file:${packName}\"+" package.json &&
+yarn install &&
+yarn build &&
+yarn serve --port=8111
+)
