@@ -16,13 +16,17 @@ rsync -av --progress $siteDir/. $testDir --exclude node_modules --exclude .cache
 
 echo "Package the theme"
 packOutput=$(cd $themeDir && yarn pack)
-packName=$( echo $packOutput | grep "Wrote tarball to" | cut -d " " -f 5 | sed "s/\"//" | sed "s/\"\.//")
-echo "Theme name is: $packName"
+packPath=$( echo $packOutput | grep "Wrote tarball to" | cut -d " " -f 5 | sed "s/\"//" | sed "s/\"\.//")
+echo "Theme path is: $packPath"
 
-echo "Install the theme and then everything else"
+timestamp=$(date +%s)
+relabelledPackName="$themeDir/theme-${timestamp}.tgz"
+mv "$packPath" "$relabelledPackName"
+
+echo "Install packages and build site"
 (
 cd $testDir &&
-sed -i '' "s+\project-portal-theme\": \"^1.0.0\"+\project-portal-theme\": \"file:${packName}\"+" package.json &&
+sed -i '' "s+\project-portal-theme\": \"^1.0.0\"+\project-portal-theme\": \"../$relabelledPackName\"+" package.json &&
 yarn install &&
 yarn build &&
 yarn serve --port=8111
