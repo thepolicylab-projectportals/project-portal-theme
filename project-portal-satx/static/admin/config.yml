@@ -12,7 +12,7 @@ collections:
     folder: "content/projects"
     extension: markdown
     create: true
-    identifier_field: slug
+    identifier_field: question
     fields:
       - { name: question, label: Question, widget: markdown}
       - { name: partnerName, label: Partner Name, widget: "select", options: ["project-portal-satx", "project-portal-nc", "project-portal-example"], required: false}
