@@ -1,8 +1,8 @@
 backend:
-  name: proxy
-  proxy_url: http://localhost:8083/api/v1
+  name: git-gateway
   branch: netlify_cms_data
-local_backend: true
+local_backend:
+  url: http://localhost:8083/api/v1
 media_folder: "/content/assets"
 public_folder: "/content/assets"
 media_folder_relative: true

@@ -9,7 +9,6 @@
     <node-interpreter value="project" />
     <envs />
     <method v="2">
-      <option name="RunConfigurationTask" enabled="true" run_configuration_name="netlify-cms-proxy-server:satx" run_configuration_type="ShConfigurationType" />
       <option name="NpmBeforeRunTask" enabled="true">
         <package-json value="$PROJECT_DIR$/package.json" />
         <command value="run" />
