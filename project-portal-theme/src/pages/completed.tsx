@@ -49,7 +49,7 @@ export const query = graphql`
         }
       }
     }
-    bgImage: file(relativePath: { regex: "/assets/" }) {
+    bgImage: file(relativePath: { regex: "/^completed.jpg$/" }) {
       childImageSharp {
         resize(width: 1536) {
           src
