@@ -1,6 +1,6 @@
 ---
 id: rec6weLwf8UhT2VOX
-contactImage: /assets/Untitleddrawing2.jpg
+contactImage: ../assets/Untitleddrawing2.jpg
 email: collaboratory@unc.edu
 name: North Carolina Collaboratory
 employer: someone

@@ -25,8 +25,9 @@ export default ({ data }: ThankYouProps) => {
       <HeaderWithImage
         title="Thank You"
         lede=""
-         imageSrc=''
-       />
+         imageSrc={data.bgImage.childImageSharp.resize.src}
+
+      />
 
       <div className="container pt-6 overflow-hidden bg-white">
         <div className="flex flex-wrap">
@@ -52,7 +53,7 @@ export default ({ data }: ThankYouProps) => {
 
 export const query = graphql`
   query ThankYouQuery {
-    bgImage: file(relativePath: { regex: "/^contact.jpg$/" }) {
+    bgImage: file(relativePath: { regex: "/assets/" }) {
       childImageSharp {
         resize(width: 1536, height: 352) {
           src

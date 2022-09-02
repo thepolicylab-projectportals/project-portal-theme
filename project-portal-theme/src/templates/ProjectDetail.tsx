@@ -41,12 +41,13 @@ interface ProjectDetailProps {
         collaborationType: string
         contacts: {
           frontmatter: {
-            name: string,
-            title: string,
-            employer: string,
-            email: string,
+            name: string
+            title: string
+            employer: string
+            email: string
+            contactImage: any
           }
-        }
+        }[]
       }
     }
   }
@@ -271,6 +272,16 @@ export const query = graphql`
           title
           employer
           email
+          contactImage {
+                childImageSharp {
+                  gatsbyImageData(
+                    width: 100
+                    height: 100
+                    placeholder: BLURRED
+                    layout: FIXED
+                  )
+                }
+              }
         }
       }
     }
