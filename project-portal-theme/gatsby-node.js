@@ -9,7 +9,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // Query for markdown nodes to use in creating pages.
   const allAirtable = await graphql(`
     {
-      allMarkdownRemark {
+      allMarkdownRemark(filter: { frontmatter: { slug: { ne: null } } }) {
         nodes {
           frontmatter {
             slug
