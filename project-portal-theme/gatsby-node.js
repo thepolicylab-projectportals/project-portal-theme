@@ -30,7 +30,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       status: String
       agency: String
       topics: [String]
-      supportNeeded: String
+      supportNeeded: [String]
       summary: String
       deliverable: String
       purpose: String
