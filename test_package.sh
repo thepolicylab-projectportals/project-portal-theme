@@ -28,6 +28,7 @@ echo "Install packages and build site"
 cd $testDir &&
 sed -i '' "s+\project-portal-theme\": \"^1.0.0\"+\project-portal-theme\": \"../$relabelledPackName\"+" package.json &&
 yarn install &&
+ln -s "node_modules/@thepolicylab-projectportals/project-portal-theme" "theme" &&
 yarn build &&
 yarn serve --port=8111
 )
