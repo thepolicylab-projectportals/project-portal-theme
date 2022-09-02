@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="cms-proxy &amp; develop: nc" type="CompoundRunConfigurationType">
+    <toRun name="develop:nc --verbose" type="js.build_tools.npm" />
+    <toRun name="netlify-cms-proxy-server:nc" type="ShConfigurationType" />
+    <method v="2" />
+  </configuration>
+</component>

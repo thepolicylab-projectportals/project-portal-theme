@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="cms-proxy &amp; develop: all" type="CompoundRunConfigurationType">
+    <toRun name="cms-proxy &amp; develop: example" type="CompoundRunConfigurationType" />
+    <toRun name="cms-proxy &amp; develop: nc" type="CompoundRunConfigurationType" />
+    <toRun name="cms-proxy &amp; develop: satx" type="CompoundRunConfigurationType" />
+    <method v="2" />
+  </configuration>
+</component>
