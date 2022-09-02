@@ -1,0 +1,55 @@
+---
+id: rec0b4zk9ZefwJedi
+opportunityCloses: 2022-05-31
+contacts: 
+  - recFF55cWXSmqCX0H
+  - recVBq6uFJRAKS5Z2
+partnerName: North Carolina
+status: open
+agency: |+
+  NC Department of Commerce
+statusOfData: |+
+  OSP and the Data Economy Committee plan to work with researchers to determine the best way to share CTE pathway data for the visualization tool.
+endDate: 2022-12-31
+emailContent: |+
+  In your email to the project team, please include:
+
+  - Link to CV
+  - A brief summary of your interest in the project
+  - Any questions you have for the project team
+slug: data-literacy-pathways
+keyDates: |+
+  Anticipated project end date: December 2022
+topics: 
+  - Education
+  - Commerce
+  - Data Literacy
+  - Science, Technology, Innovation
+purpose: |+
+  The final tool is slated to be posted for public use and viewing by prospective entrepreneurs and corporations, as well as community and educational agencies needing to conduct research to facilitate equitable distribution of resources to prepare students for careers in the data economy.
+question: |+
+  What is the distribution of data literacy secondary school pathways and higher education certificate and degree programs by NC county and tier?
+expertise: |+
+  - Educational informatics, sociology, information systems, data visualization.
+  - Experience with usability engineering and interface design.
+
+startDate: 2022-05-31
+fundingInfo: |+
+  OSP, agency partners, and research partners work together to determine if a project has costs, what funding may be available, and possibilities for pursuing funding, if needed.
+deliverable: |+
+  - The intention is to make the tool available for public use by community and education agencies for research to facilitate equitable distribution of resources to prepare students for careers in the data economy. The final tool may also be of interest to prospective entrepreneurs and corporations.
+  - Functionality should include selection of data literacy assets by county, filtering by county type (Tier 1, 2 or 3, as defined by the [NC Department of Commerce](https://www.nccommerce.com/grants-incentives/county-distress-rankings-tiers)), and heat mapping by density of data literacy within counties and between counties.
+  - The tool should also allow pop-up data and allow ease-of-updating by updating the database that generates the interactive visualization.
+summary: |+
+  The Data Economy Committee of the [North Carolina Board of Science, Technology and Innovation](https://www.nccommerce.com/about-us/boards-commissions/board-science-technology-innovation#board-members) (BSTI) seeks to understand the distribution of data literacy pathways in Career and Technical Education (CTE) among high schools in North Carolina, as well as data-focused certificates and degree programs across community colleges, four-year colleges and universities in North Carolina. BSTI’s goal is to facilitate preparation of students in North Carolina to contribute to and thrive in the Data Economy.
+
+  The Data Economy is defined as a business ecosystem predicated on the digital transformation of operations, products, and services. Data literacy is defined as competencies associated with data collection, comprehension, analysis and interpretation. Economic Modeling Specialists International (EMSI) modeling has identified data-focused certificates and degrees at institutions of higher education, and these data need to be used as inputs for a visualization tool to display as data literacy assets in the state by region and county.
+
+  The data-focused secondary school CTE pathways are not discoverable through EMSI modeling. However, the Data Economy Committee has identified CTE pathways that are available to high schools and is completing a spreadsheet with North Carolina high schools and the number of pathways offered at each high school. These data also need to be used as design inputs for a visualization tool to display data literacy assets in counties. The purpose of the tool is to understand the distribution of data literacy assets in secondary and higher education institutions across North Carolina.
+
+  The NC Department of Commerce/North Carolina Board of Science, Technology, and Innovation (BSTI) and the NC Office of Strategic Partnerships (OSP) hosted a research partnership meeting on Thursday, March 31 to discuss this project. Click here for the [meeting recording](https://ncosbm.sharefile.com/share/view/sad0553fb50ec49e181cbbb1293e765e9) and [BSTI's presentation](https://ncosbm.sharefile.com/share/view/sff109a570da641f0912008257dc04468).
+
+  Project last updated 3/31/22.
+lastModified: 2022-05-27T20:50:19.000Z
+Created: 2022-02-17T16:27:57.000Z
+---
