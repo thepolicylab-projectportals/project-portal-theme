@@ -1,5 +1,3 @@
-require("ts-node").register(require("./tsconfig.json"))
-
 module.exports = (themeOptions) => {
   const siteMetadata = {
     siteTitle: "Project Portal Theme",
@@ -51,7 +49,7 @@ module.exports = (themeOptions) => {
       `gatsby-transformer-remark`,
     ],
     mapping: {
-      'MarkdownRemark.frontmatter.contacts': `MarkdownRemark.frontmatter.id`,
-    }
+      "MarkdownRemark.frontmatter.contacts": `MarkdownRemark.frontmatter.id`,
+    },
   }
 }
