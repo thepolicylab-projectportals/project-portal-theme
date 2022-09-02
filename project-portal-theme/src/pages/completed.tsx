@@ -39,5 +39,24 @@ export const query = graphql`
         }
       }
     }
+        allImageSharp {
+      edges {
+        node {
+          ... on ImageSharp {
+            resize(width: 125, height: 125, rotate: 180) {
+              src
+            }
+          }
+        }
+      }
+    }
+    bgImage: file(relativePath: { regex: "/assets/" }) {
+      childImageSharp {
+        resize(width: 1536) {
+          src
+        }
+      }
+    }
   }
 `
+

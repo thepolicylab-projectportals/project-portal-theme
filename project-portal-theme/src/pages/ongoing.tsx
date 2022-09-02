@@ -37,5 +37,12 @@ export const query = graphql`
         }
       }
     }
+     bgImage: file(relativePath: { regex: "/^ongoing.jpg$/" }) {
+      childImageSharp {
+        resize(width: 1536) {
+          src
+        }
+      }
+    }
   }
 `
