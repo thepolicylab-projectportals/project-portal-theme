@@ -3,8 +3,8 @@ backend:
   branch: netlify_cms_data
 local_backend:
   url: http://localhost:8083/api/v1
-media_folder: "/content/assets"
-public_folder: "/content/assets"
+media_folder: "/content/assets/"
+public_folder: "../assets/"
 media_folder_relative: true
 collections:
   - name: projects

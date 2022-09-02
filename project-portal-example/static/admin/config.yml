@@ -4,7 +4,7 @@ backend:
 local_backend:
     url: http://localhost:8081/api/v1
 media_folder: "/content/assets"
-public_folder: "/content/assets"
+public_folder: "../assets"
 media_folder_relative: true
 collections:
   - name: projects
