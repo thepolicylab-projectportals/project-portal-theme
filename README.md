@@ -163,7 +163,7 @@ In order to run the Netlify CMS locally, there are two steps required (rather th
 In order to do this in one command, use the one-liners listed below. These spawn two processes in parallel – the first is the proxy server, and the second is the development server. Both will stop together if the terminal window is sent the terminate signal. 
 - Example:
   ```shell
-  (export PORT=8081; cd project-portal-nc && npx netlify-cms-proxy-server) | yarn develop --port 8001
+  (export PORT=8081; cd project-portal-example && npx netlify-cms-proxy-server) | yarn develop --port 8001
   ```
 - NC:
   ```shell
