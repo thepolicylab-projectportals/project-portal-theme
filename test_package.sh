@@ -15,7 +15,7 @@ echo "Initialize the new site"
 rsync -av --progress $siteDir/. $testDir --exclude node_modules --exclude .cache --exclude public
 
 echo "Package the theme"
-packOutput=$(cd $themeDir && rm theme-*.tgz && yarn pack)
+packOutput=$(cd $themeDir && rm theme-*.tgz; yarn pack)
 packPath=$( echo $packOutput | grep "Wrote tarball to" | cut -d " " -f 5 | sed "s/\"//" | sed "s/\"\.//")
 echo "Theme path is: $packPath"
 
