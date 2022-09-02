@@ -19,7 +19,7 @@ packOutput=$(cd $themeDir && yarn pack)
 packPath=$( echo $packOutput | grep "Wrote tarball to" | cut -d " " -f 5 | sed "s/\"//" | sed "s/\"\.//")
 echo "Theme path is: $packPath"
 
-timestamp=$(date +%s)
+timestamp=$(date +"%Y-%m-%dT%H:%M:%S%z")
 relabelledPackName="$themeDir/theme-${timestamp}.tgz"
 mv "$packPath" "$relabelledPackName"
 
