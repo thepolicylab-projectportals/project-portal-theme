@@ -152,3 +152,32 @@ with the project using [Zapier](https://zapier.com/apps/airtable/integrations/ne
 
 We note that this Zapier automation piece shouldn't be necessary long term, but it's
 cheap for now and reduces engineering effort for v1.
+
+### Netlify CMS
+
+In order to run the Netlify CMS locally, there are two steps required (rather than just one without the CMS):
+
+1. Start the Netlify CMS proxy server. We use a different port number for each of the sites' proxies, so that all the sites can be run in parallel if required.
+2. Start the Gatsby Development site itself.
+
+In order to do this in one command, use the one-liners listed below. These spawn two processes in parallel – the first is the proxy server, and the second is the development server. Both will stop together if the terminal window is sent the terminate signal. 
+- Example:
+  ```shell
+  (export PORT=8081; cd project-portal-nc && npx netlify-cms-proxy-server) | yarn develop --port 8001
+  ```
+- NC:
+  ```shell
+  (export PORT=8082; cd project-portal-nc && npx netlify-cms-proxy-server) | yarn develop:nc --port 8002
+  ```
+- SATX: 
+  ```shell
+  (export PORT=8083; cd project-portal-satx && npx netlify-cms-proxy-server) | yarn develop:satx --port 8003
+  ```
+
+In order to do this using the WebStorm run-configurations, you need to run two consecutive configurations: 
+1. Start the proxy server, e.g. `netlify-cms-proxy-server:example`
+2. Start the development server, e.g. `netlify-cms-proxy-server:example`
+
+There are also Compound configurations to run these pairs of commands, e.g., `cms-proxy & develop: example`.
+
+A run configuration to start all required proxy servers and the run the sites is included as `cms-proxy & develop: all`.

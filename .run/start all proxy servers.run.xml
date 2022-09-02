@@ -1,8 +1,0 @@
-<component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="start all proxy servers" type="CompoundRunConfigurationType">
-    <toRun name="netlify-cms-proxy-server:example" type="ShConfigurationType" />
-    <toRun name="netlify-cms-proxy-server:nc" type="ShConfigurationType" />
-    <toRun name="netlify-cms-proxy-server:satx" type="ShConfigurationType" />
-    <method v="2" />
-  </configuration>
-</component>

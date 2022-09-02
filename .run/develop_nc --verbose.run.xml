@@ -5,7 +5,7 @@
     <scripts>
       <script value="develop:nc" />
     </scripts>
-    <arguments value="--port 8001 --inspect" />
+    <arguments value="--port 8002 --inspect" />
     <node-interpreter value="project" />
     <envs />
     <method v="2">

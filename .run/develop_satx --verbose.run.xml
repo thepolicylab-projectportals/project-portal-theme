@@ -5,7 +5,7 @@
     <scripts>
       <script value="develop:satx" />
     </scripts>
-    <arguments value="--port 8002 --inspect" />
+    <arguments value="--port 8003 --inspect" />
     <node-interpreter value="project" />
     <envs />
     <method v="2">
