@@ -4,6 +4,7 @@ on:
   schedule:
     # Every six hours
     - cron: "0 */6 * * *"
+  workflow_dispatch:
 
 jobs:
   content_check:
