@@ -25,16 +25,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:packages/example"\
       },\
       {\
-        "name": "gatsby-theme-minimal",\
+        "name": "@hollandjg/gatsby-theme-minimal",\
         "reference": "workspace:packages/gatsby-theme-minimal"\
       }\
     ],\
     "enableTopLevelFallback": true,\
     "ignorePatternData": "(^(?:\\\\.yarn\\\\/sdks(?:\\\\/(?!\\\\.{1,2}(?:\\\\/|$))(?:(?:(?!(?:^|\\\\/)\\\\.{1,2}(?:\\\\/|$)).)*?)|$))$)",\
     "fallbackExclusionList": [\
+      ["@hollandjg/gatsby-theme-minimal", ["virtual:0f582dce106adea8a36c1b47cdf139a9f3b829e6f9f0e7abe55d280edb02ebeb0346b97ace0f022e744e8d1d612628f6a3678aa1f9693c8d73c63fcb9908fd80#workspace:packages/gatsby-theme-minimal", "workspace:packages/gatsby-theme-minimal"]],\
       ["example", ["workspace:packages/example"]],\
-      ["gatsby-starter-theme-workspace", ["workspace:."]],\
-      ["gatsby-theme-minimal", ["virtual:0f582dce106adea8a36c1b47cdf139a9f3b829e6f9f0e7abe55d280edb02ebeb0346b97ace0f022e744e8d1d612628f6a3678aa1f9693c8d73c63fcb9908fd80#workspace:packages/gatsby-theme-minimal", "workspace:packages/gatsby-theme-minimal"]]\
+      ["gatsby-starter-theme-workspace", ["workspace:."]]\
     ],\
     "fallbackPool": [\
     ],\
@@ -3075,6 +3075,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@hapi/hoek", "npm:9.3.0"]\
           ],\
           "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@hollandjg/gatsby-theme-minimal", [\
+        ["virtual:0f582dce106adea8a36c1b47cdf139a9f3b829e6f9f0e7abe55d280edb02ebeb0346b97ace0f022e744e8d1d612628f6a3678aa1f9693c8d73c63fcb9908fd80#workspace:packages/gatsby-theme-minimal", {\
+          "packageLocation": "./.yarn/__virtual__/@hollandjg-gatsby-theme-minimal-virtual-3717344818/1/packages/gatsby-theme-minimal/",\
+          "packageDependencies": [\
+            ["@hollandjg/gatsby-theme-minimal", "virtual:0f582dce106adea8a36c1b47cdf139a9f3b829e6f9f0e7abe55d280edb02ebeb0346b97ace0f022e744e8d1d612628f6a3678aa1f9693c8d73c63fcb9908fd80#workspace:packages/gatsby-theme-minimal"],\
+            ["@types/gatsby", null],\
+            ["gatsby", "virtual:0f582dce106adea8a36c1b47cdf139a9f3b829e6f9f0e7abe55d280edb02ebeb0346b97ace0f022e744e8d1d612628f6a3678aa1f9693c8d73c63fcb9908fd80#npm:4.22.1"]\
+          ],\
+          "packagePeers": [\
+            "@types/gatsby",\
+            "gatsby"\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["workspace:packages/gatsby-theme-minimal", {\
+          "packageLocation": "./packages/gatsby-theme-minimal/",\
+          "packageDependencies": [\
+            ["@hollandjg/gatsby-theme-minimal", "workspace:packages/gatsby-theme-minimal"]\
+          ],\
+          "linkType": "SOFT"\
         }]\
       ]],\
       ["@humanwhocodes/config-array", [\
@@ -8446,8 +8468,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/example/",\
           "packageDependencies": [\
             ["example", "workspace:packages/example"],\
+            ["@hollandjg/gatsby-theme-minimal", "virtual:0f582dce106adea8a36c1b47cdf139a9f3b829e6f9f0e7abe55d280edb02ebeb0346b97ace0f022e744e8d1d612628f6a3678aa1f9693c8d73c63fcb9908fd80#workspace:packages/gatsby-theme-minimal"],\
             ["gatsby", "virtual:0f582dce106adea8a36c1b47cdf139a9f3b829e6f9f0e7abe55d280edb02ebeb0346b97ace0f022e744e8d1d612628f6a3678aa1f9693c8d73c63fcb9908fd80#npm:4.22.1"],\
-            ["gatsby-theme-minimal", "virtual:0f582dce106adea8a36c1b47cdf139a9f3b829e6f9f0e7abe55d280edb02ebeb0346b97ace0f022e744e8d1d612628f6a3678aa1f9693c8d73c63fcb9908fd80#workspace:packages/gatsby-theme-minimal"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:0f582dce106adea8a36c1b47cdf139a9f3b829e6f9f0e7abe55d280edb02ebeb0346b97ace0f022e744e8d1d612628f6a3678aa1f9693c8d73c63fcb9908fd80#npm:18.2.0"]\
           ],\
@@ -9690,28 +9712,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["node-fetch", "virtual:cbfd090a67ebeb090e153057851c147158b6c00bf0a0fc28b6d0f219819ef4effed86d3fd2b15882d722befb056ae65bbfe67623c6dbd65b36c41cfd65594f57#npm:2.6.7"]\
           ],\
           "linkType": "HARD"\
-        }]\
-      ]],\
-      ["gatsby-theme-minimal", [\
-        ["virtual:0f582dce106adea8a36c1b47cdf139a9f3b829e6f9f0e7abe55d280edb02ebeb0346b97ace0f022e744e8d1d612628f6a3678aa1f9693c8d73c63fcb9908fd80#workspace:packages/gatsby-theme-minimal", {\
-          "packageLocation": "./.yarn/__virtual__/gatsby-theme-minimal-virtual-fa89205117/1/packages/gatsby-theme-minimal/",\
-          "packageDependencies": [\
-            ["gatsby-theme-minimal", "virtual:0f582dce106adea8a36c1b47cdf139a9f3b829e6f9f0e7abe55d280edb02ebeb0346b97ace0f022e744e8d1d612628f6a3678aa1f9693c8d73c63fcb9908fd80#workspace:packages/gatsby-theme-minimal"],\
-            ["@types/gatsby", null],\
-            ["gatsby", "virtual:0f582dce106adea8a36c1b47cdf139a9f3b829e6f9f0e7abe55d280edb02ebeb0346b97ace0f022e744e8d1d612628f6a3678aa1f9693c8d73c63fcb9908fd80#npm:4.22.1"]\
-          ],\
-          "packagePeers": [\
-            "@types/gatsby",\
-            "gatsby"\
-          ],\
-          "linkType": "SOFT"\
-        }],\
-        ["workspace:packages/gatsby-theme-minimal", {\
-          "packageLocation": "./packages/gatsby-theme-minimal/",\
-          "packageDependencies": [\
-            ["gatsby-theme-minimal", "workspace:packages/gatsby-theme-minimal"]\
-          ],\
-          "linkType": "SOFT"\
         }]\
       ]],\
       ["gatsby-worker", [\

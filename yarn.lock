@@ -1773,6 +1773,14 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@hollandjg/gatsby-theme-minimal@^1.0.0, @hollandjg/gatsby-theme-minimal@workspace:packages/gatsby-theme-minimal":
+  version: 0.0.0-use.local
+  resolution: "@hollandjg/gatsby-theme-minimal@workspace:packages/gatsby-theme-minimal"
+  peerDependencies:
+    gatsby: ^4.0.0
+  languageName: unknown
+  linkType: soft
+
 "@humanwhocodes/config-array@npm:^0.5.0":
   version: 0.5.0
   resolution: "@humanwhocodes/config-array@npm:0.5.0"
@@ -6049,8 +6057,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "example@workspace:packages/example"
   dependencies:
+    "@hollandjg/gatsby-theme-minimal": ^1.0.0
     gatsby: ^4.22.1
-    gatsby-theme-minimal: ^1.0.0
     react: ^18.1.0
     react-dom: ^18.1.0
   languageName: unknown
@@ -6862,14 +6870,6 @@ __metadata:
   checksum: 088e0eb52e9029c9ece664dc2fe89b2c4585971da021462c8939e047dda7ca5f9133f8d133dcdcbe8d0cb43539f6af042198cc5630e838d14590d62b595f9489
   languageName: node
   linkType: hard
-
-"gatsby-theme-minimal@^1.0.0, gatsby-theme-minimal@workspace:packages/gatsby-theme-minimal":
-  version: 0.0.0-use.local
-  resolution: "gatsby-theme-minimal@workspace:packages/gatsby-theme-minimal"
-  peerDependencies:
-    gatsby: ^4.0.0
-  languageName: unknown
-  linkType: soft
 
 "gatsby-worker@npm:^1.22.0":
   version: 1.22.0

@@ -1,10 +1,17 @@
 {
-  "name": "gatsby-theme-minimal",
+  "name": "@hollandjg/gatsby-theme-minimal",
   "version": "1.0.0",
   "main": "index.js",
-  "author": "christopherbiscardi <chris@christopherbiscardi.com> (@chrisbiscardi)",
+  "author": "John Gerrard Holland <john_holland1@brown.edu>",
   "license": "MIT",
   "peerDependencies": {
     "gatsby": "^4.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hollandjg/gatsby-starter-theme-workspace.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   }
 }
