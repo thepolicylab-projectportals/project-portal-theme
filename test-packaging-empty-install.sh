@@ -8,7 +8,7 @@ themeName="@thepolicylab-projectportals/gatsby-theme-project-portal"
 testDir=$(mktemp -d || die "Failed to create new temporary directory.")
 echo "new temporary directory: $testDir"
 
-#publishTheme "$themeName"
+publishTheme "$themeName"
 
 # Add files we need to ensure the installer looks in the right place for the package
 cp ./packages/gatsby-theme-project-portal/{.npmrc,.yarnrc.yml} "$testDir"
