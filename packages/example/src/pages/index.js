@@ -1,5 +1,2 @@
-import React from "react"
-
-export default function Home() {
-  return <div><h1>Project Portal Theme</h1></div>
-}
+import Home from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components/Home"
+export default Home
