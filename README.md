@@ -68,3 +68,14 @@ yarn workspace example develop
 Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
 
 [<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-theme-workspace)
+
+## Additional settings
+
+- Yarn 3.2.3 (installed using `brew install corepack`)
+- Node 18 (installed using `brew install node@18`)
+
+## Publishing theme
+
+```shell
+yarn workspace gatsby-theme-minimal publish
+```
