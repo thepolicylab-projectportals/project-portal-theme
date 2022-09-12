@@ -9,7 +9,7 @@
     "serve": "gatsby serve"
   },
   "dependencies": {
-    "@hollandjg/gatsby-theme-project-portal": "^1.0.7",
+    "@hollandjg/gatsby-theme-project-portal": "^1.0.8",
     "gatsby": "^4.22.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"

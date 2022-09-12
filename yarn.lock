@@ -1773,7 +1773,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hollandjg/gatsby-theme-project-portal@^1.0.7, @hollandjg/gatsby-theme-project-portal@workspace:packages/gatsby-theme-project-portal":
+"@hollandjg/gatsby-theme-project-portal@^1.0.8, @hollandjg/gatsby-theme-project-portal@workspace:packages/gatsby-theme-project-portal":
   version: 0.0.0-use.local
   resolution: "@hollandjg/gatsby-theme-project-portal@workspace:packages/gatsby-theme-project-portal"
   peerDependencies:
@@ -6057,7 +6057,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "example@workspace:packages/example"
   dependencies:
-    "@hollandjg/gatsby-theme-project-portal": ^1.0.7
+    "@hollandjg/gatsby-theme-project-portal": ^1.0.8
     gatsby: ^4.22.1
     react: ^18.1.0
     react-dom: ^18.1.0
