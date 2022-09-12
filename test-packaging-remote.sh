@@ -27,3 +27,4 @@ cp ./packages/gatsby-theme-minimal/{.npmrc,.yarnrc.yml} "$testDir"
 cd "$testDir" || die "changing to testDir $testDir failed."
 yarn install || die "failed to install all dependencies."
 yarn build
+yarn serve

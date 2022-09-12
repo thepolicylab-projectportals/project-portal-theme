@@ -26,4 +26,5 @@ cd "$testDir" || die "changing to testDir $testDir failed."
 yarn add $packPath || die "failed to install dependency $packPath."
 yarn install || die "failed to install all dependencies"
 yarn build
+yarn serve
 
