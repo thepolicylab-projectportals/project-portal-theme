@@ -77,10 +77,10 @@ Use the following tools:
 
 ## Publishing the theme
 
-First login to the npm github repository:
+First login to the npm GitHub repository:
 
 ```shell
-yarn workspace @hollandjg/gatsby-theme-project-portal npm login --publish
+yarn workspace @thepolicylab-projectportals/gatsby-theme-project-portal npm login --publish
 ```
 
 Use the username `__token__`.
@@ -89,7 +89,7 @@ The scopes required are shown on screen. Paste in a valid token from your GitHub
 
 Then publish the package:
 ```shell
-yarn workspace @hollandjg/gatsby-theme-project-portal npm publish
+yarn workspace @thepolicylab-projectportals/gatsby-theme-project-portal npm publish
 ```
 
 ## Testing

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/gatsby-starter-theme-workspace.iml" filepath="$PROJECT_DIR$/.idea/gatsby-starter-theme-workspace.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/project-portal-theme.iml" filepath="$PROJECT_DIR$/.idea/project-portal-theme.iml" />
     </modules>
   </component>
 </project>

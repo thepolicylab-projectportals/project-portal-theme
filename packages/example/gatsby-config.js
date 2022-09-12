@@ -1,3 +1,3 @@
 module.exports = {
-  plugins: [{ resolve: `@hollandjg/gatsby-theme-project-portal`, options: {} }],
+  plugins: [{ resolve: `@thepolicylab-projectportals/gatsby-theme-project-portal`, options: {} }],
 }

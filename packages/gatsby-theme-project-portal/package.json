@@ -1,6 +1,6 @@
 {
-  "name": "@hollandjg/gatsby-theme-project-portal",
-  "version": "1.0.8",
+  "name": "@thepolicylab-projectportals/gatsby-theme-project-portal",
+  "version": "2.0.0",
   "main": "index.js",
   "author": "John Gerrard Holland <john_holland1@brown.edu>",
   "license": "MIT",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/hollandjg/gatsby-starter-theme-workspace.git"
+    "url": "https://github.com/thepolicylab-projectportals/project-portal-theme.git"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
