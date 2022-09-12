@@ -9,7 +9,7 @@
     "serve": "gatsby serve"
   },
   "dependencies": {
-    "@hollandjg/gatsby-theme-minimal": "^1.0.0",
+    "@hollandjg/gatsby-theme-minimal": "^1.0.4",
     "gatsby": "^4.22.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0"

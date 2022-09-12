@@ -1,6 +1,6 @@
 {
   "name": "@hollandjg/gatsby-theme-minimal",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "main": "index.js",
   "author": "John Gerrard Holland <john_holland1@brown.edu>",
   "license": "MIT",
