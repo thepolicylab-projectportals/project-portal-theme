@@ -1773,7 +1773,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hollandjg/gatsby-theme-minimal@^1.0.4, @hollandjg/gatsby-theme-minimal@workspace:packages/gatsby-theme-minimal":
+"@hollandjg/gatsby-theme-minimal@^1.0.6, @hollandjg/gatsby-theme-minimal@workspace:packages/gatsby-theme-minimal":
   version: 0.0.0-use.local
   resolution: "@hollandjg/gatsby-theme-minimal@workspace:packages/gatsby-theme-minimal"
   peerDependencies:
@@ -6057,7 +6057,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "example@workspace:packages/example"
   dependencies:
-    "@hollandjg/gatsby-theme-minimal": ^1.0.4
+    "@hollandjg/gatsby-theme-minimal": ^1.0.6
     gatsby: ^4.22.1
     react: ^18.1.0
     react-dom: ^18.1.0

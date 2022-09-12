@@ -1,9 +1,9 @@
-<p align="center">
+<p>
   <a href="https://www.gatsbyjs.com">
     <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
   </a>
 </p>
-<h1 align="center">
+<h1>
   Starter for creating a Gatsby Theme workspace
 </h1>
 
@@ -91,3 +91,8 @@ Then publish the package:
 ```shell
 yarn workspace @hollandjg/gatsby-theme-minimal npm publish
 ```
+
+## Testing
+There are two scripts included to test the packaging and build steps. 
+- `test-packaging-local.sh` creates a pack of the theme locally (in the `artifacts/` directory) and uses `yarn` to install this into a new site outside the workspace tree.
+- `test-packaging-remote.sh` publishes the theme to the GitHub repository and uses `yarn` to install this new version into a new site outside the working tree. 
