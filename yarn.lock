@@ -2604,8 +2604,14 @@ __metadata:
 "@thepolicylab-projectportals/gatsby-theme-project-portal@^2.0.26, @thepolicylab-projectportals/gatsby-theme-project-portal@workspace:packages/gatsby-theme-project-portal":
   version: 0.0.0-use.local
   resolution: "@thepolicylab-projectportals/gatsby-theme-project-portal@workspace:packages/gatsby-theme-project-portal"
+  dependencies:
+    gatsby: ^4.0.0
+    react: ^18.2.0
+    react-dom: ^18.2.0
   peerDependencies:
     gatsby: ^4.0.0
+    react: ^18.2.0
+    react-dom: ^18.2.0
   languageName: unknown
   linkType: soft
 
@@ -6886,7 +6892,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby@npm:^4.22.1":
+"gatsby@npm:^4.0.0, gatsby@npm:^4.22.1":
   version: 4.22.1
   resolution: "gatsby@npm:4.22.1"
   dependencies:
@@ -10752,7 +10758,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^18.1.0":
+"react-dom@npm:^18.1.0, react-dom@npm:^18.2.0":
   version: 18.2.0
   resolution: "react-dom@npm:18.2.0"
   dependencies:
@@ -10799,7 +10805,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:^18.1.0":
+"react@npm:^18.1.0, react@npm:^18.2.0":
   version: 18.2.0
   resolution: "react@npm:18.2.0"
   dependencies:
