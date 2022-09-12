@@ -13,7 +13,7 @@ testDir=$(mktemp -d || die "Failed to create new temporary directory.")
 echo "new temporary directory: $testDir"
 
 artifactDir="$(pwd)/artifacts"
-packPath="$artifactDir/theme-$(git rev-parse --short HEAD)-$(date '+%s').tgz"
+packPath="$artifactDir/theme-$(date '+%s')-$(git rev-parse --short HEAD).tgz"
 yarn workspace "$themeName" pack --out "$packPath"
 
 # Add the basic site content
