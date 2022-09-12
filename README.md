@@ -71,11 +71,23 @@ Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cl
 
 ## Additional settings
 
-- Yarn 3.2.3 (installed using `brew install corepack`)
+Use the following tools:
 - Node 18 (installed using `brew install node@18`)
+- Yarn 3.2.3 (installed using `brew install corepack` after installing `node@18`)
 
-## Publishing theme
+## Publishing the theme
+
+First login to the npm github repository:
 
 ```shell
-yarn workspace gatsby-theme-minimal publish
+yarn workspace @hollandjg/gatsby-theme-minimal npm login --publish
+```
+
+Use the username `__token__`.
+
+The scopes required are shown on screen. Paste in a valid token from your GitHub account.
+
+Then publish the package:
+```shell
+yarn workspace @hollandjg/gatsby-theme-minimal npm publish
 ```
