@@ -9,14 +9,13 @@ die() {
 siteDir="packages/example/"
 themeName="@thepolicylab-projectportals/gatsby-theme-project-portal"
 
-testDir=$(mktemp -d || die "Failed to create new temporary directory.")
-echo "new temporary directory: $testDir"
-
 artifactDir="$(pwd)/artifacts"
 packPath="$artifactDir/theme-$(date '+%s')-$(git rev-parse --short HEAD).tgz"
 yarn workspace "$themeName" pack --out "$packPath"
 
-# Add the basic site content
+# Add the basic site content to a test directory
+testDir=$(mktemp -d || die "Failed to create new temporary directory.")
+echo "new temporary directory: $testDir"
 rsync -av --progress "$siteDir/." "$testDir" --exclude node_modules --exclude .cache --exclude public
 
 # Add files we need to ensure the installer looks in the right place for the package
