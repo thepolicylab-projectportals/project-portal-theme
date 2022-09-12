@@ -1,3 +1,3 @@
 module.exports = {
-  plugins: [{ resolve: `@hollandjg/gatsby-theme-minimal`, options: {} }],
+  plugins: [{ resolve: `@hollandjg/gatsby-theme-project-portal`, options: {} }],
 }

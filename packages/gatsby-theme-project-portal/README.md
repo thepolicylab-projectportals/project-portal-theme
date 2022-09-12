@@ -6,8 +6,8 @@
 mkdir my-site
 cd my-site
 yarn init
-# install gatsby-theme-minimal and its dependencies
-yarn add gatsby react react-dom gatsby-theme-minimal
+# install gatsby-theme-project-portal and its dependencies
+yarn add gatsby react react-dom gatsby-theme-project-portal
 ```
 
 Then add the theme to your `gatsby-config.js`. We'll use the long-form
@@ -17,7 +17,7 @@ here for educational purposes.
 module.exports = {
   plugins: [
     {
-      resolve: "gatsby-theme-minimal",
+      resolve: "gatsby-theme-project-portal",
       options: {},
     },
   ],

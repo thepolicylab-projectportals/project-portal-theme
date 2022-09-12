@@ -7,7 +7,7 @@ die() {
 }
 
 siteDir="packages/example/"
-themeName="@hollandjg/gatsby-theme-minimal"
+themeName="@hollandjg/gatsby-theme-project-portal"
 
 testDir=$(mktemp -d || die "Failed to create new temporary directory.")
 echo "new temporary directory: $testDir"
@@ -20,7 +20,7 @@ yarn workspace "$themeName" pack --out "$packPath"
 rsync -av --progress "$siteDir/." "$testDir" --exclude node_modules --exclude .cache --exclude public
 
 # Add files we need to ensure the installer looks in the right place for the package
-cp ./packages/gatsby-theme-minimal/{.npmrc,.yarnrc.yml} "$testDir"
+cp ./packages/gatsby-theme-project-portal/{.npmrc,.yarnrc.yml} "$testDir"
 
 cd "$testDir" || die "changing to testDir $testDir failed."
 yarn add $packPath || die "failed to install dependency $packPath."

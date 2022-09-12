@@ -25,14 +25,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:packages/example"\
       },\
       {\
-        "name": "@hollandjg/gatsby-theme-minimal",\
-        "reference": "workspace:packages/gatsby-theme-minimal"\
+        "name": "@hollandjg/gatsby-theme-project-portal",\
+        "reference": "workspace:packages/gatsby-theme-project-portal"\
       }\
     ],\
     "enableTopLevelFallback": true,\
     "ignorePatternData": "(^(?:\\\\.yarn\\\\/sdks(?:\\\\/(?!\\\\.{1,2}(?:\\\\/|$))(?:(?:(?!(?:^|\\\\/)\\\\.{1,2}(?:\\\\/|$)).)*?)|$))$)",\
     "fallbackExclusionList": [\
-      ["@hollandjg/gatsby-theme-minimal", ["virtual:0f582dce106adea8a36c1b47cdf139a9f3b829e6f9f0e7abe55d280edb02ebeb0346b97ace0f022e744e8d1d612628f6a3678aa1f9693c8d73c63fcb9908fd80#workspace:packages/gatsby-theme-minimal", "workspace:packages/gatsby-theme-minimal"]],\
+      ["@hollandjg/gatsby-theme-project-portal", ["virtual:0f582dce106adea8a36c1b47cdf139a9f3b829e6f9f0e7abe55d280edb02ebeb0346b97ace0f022e744e8d1d612628f6a3678aa1f9693c8d73c63fcb9908fd80#workspace:packages/gatsby-theme-project-portal", "workspace:packages/gatsby-theme-project-portal"]],\
       ["example", ["workspace:packages/example"]],\
       ["gatsby-starter-theme-workspace", ["workspace:."]]\
     ],\
@@ -3077,11 +3077,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
-      ["@hollandjg/gatsby-theme-minimal", [\
-        ["virtual:0f582dce106adea8a36c1b47cdf139a9f3b829e6f9f0e7abe55d280edb02ebeb0346b97ace0f022e744e8d1d612628f6a3678aa1f9693c8d73c63fcb9908fd80#workspace:packages/gatsby-theme-minimal", {\
-          "packageLocation": "./.yarn/__virtual__/@hollandjg-gatsby-theme-minimal-virtual-3717344818/1/packages/gatsby-theme-minimal/",\
+      ["@hollandjg/gatsby-theme-project-portal", [\
+        ["virtual:0f582dce106adea8a36c1b47cdf139a9f3b829e6f9f0e7abe55d280edb02ebeb0346b97ace0f022e744e8d1d612628f6a3678aa1f9693c8d73c63fcb9908fd80#workspace:packages/gatsby-theme-project-portal", {\
+          "packageLocation": "./.yarn/__virtual__/@hollandjg-gatsby-theme-project-portal-virtual-ceff4c5a80/1/packages/gatsby-theme-project-portal/",\
           "packageDependencies": [\
-            ["@hollandjg/gatsby-theme-minimal", "virtual:0f582dce106adea8a36c1b47cdf139a9f3b829e6f9f0e7abe55d280edb02ebeb0346b97ace0f022e744e8d1d612628f6a3678aa1f9693c8d73c63fcb9908fd80#workspace:packages/gatsby-theme-minimal"],\
+            ["@hollandjg/gatsby-theme-project-portal", "virtual:0f582dce106adea8a36c1b47cdf139a9f3b829e6f9f0e7abe55d280edb02ebeb0346b97ace0f022e744e8d1d612628f6a3678aa1f9693c8d73c63fcb9908fd80#workspace:packages/gatsby-theme-project-portal"],\
             ["@types/gatsby", null],\
             ["gatsby", "virtual:0f582dce106adea8a36c1b47cdf139a9f3b829e6f9f0e7abe55d280edb02ebeb0346b97ace0f022e744e8d1d612628f6a3678aa1f9693c8d73c63fcb9908fd80#npm:4.22.1"]\
           ],\
@@ -3091,10 +3091,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["workspace:packages/gatsby-theme-minimal", {\
-          "packageLocation": "./packages/gatsby-theme-minimal/",\
+        ["workspace:packages/gatsby-theme-project-portal", {\
+          "packageLocation": "./packages/gatsby-theme-project-portal/",\
           "packageDependencies": [\
-            ["@hollandjg/gatsby-theme-minimal", "workspace:packages/gatsby-theme-minimal"]\
+            ["@hollandjg/gatsby-theme-project-portal", "workspace:packages/gatsby-theme-project-portal"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -8468,7 +8468,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/example/",\
           "packageDependencies": [\
             ["example", "workspace:packages/example"],\
-            ["@hollandjg/gatsby-theme-minimal", "virtual:0f582dce106adea8a36c1b47cdf139a9f3b829e6f9f0e7abe55d280edb02ebeb0346b97ace0f022e744e8d1d612628f6a3678aa1f9693c8d73c63fcb9908fd80#workspace:packages/gatsby-theme-minimal"],\
+            ["@hollandjg/gatsby-theme-project-portal", "virtual:0f582dce106adea8a36c1b47cdf139a9f3b829e6f9f0e7abe55d280edb02ebeb0346b97ace0f022e744e8d1d612628f6a3678aa1f9693c8d73c63fcb9908fd80#workspace:packages/gatsby-theme-project-portal"],\
             ["gatsby", "virtual:0f582dce106adea8a36c1b47cdf139a9f3b829e6f9f0e7abe55d280edb02ebeb0346b97ace0f022e744e8d1d612628f6a3678aa1f9693c8d73c63fcb9908fd80#npm:4.22.1"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:0f582dce106adea8a36c1b47cdf139a9f3b829e6f9f0e7abe55d280edb02ebeb0346b97ace0f022e744e8d1d612628f6a3678aa1f9693c8d73c63fcb9908fd80#npm:18.2.0"]\
