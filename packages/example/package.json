@@ -1,7 +1,7 @@
 {
   "name": "example",
   "version": "1.0.0",
-  "author": "christopherbiscardi <chris@christopherbiscardi.com> (@chrisbiscardi)",
+  "author": "John Gerrard Holland <john_holland1@brown.edu>",
   "license": "MIT",
   "scripts": {
     "develop": "gatsby develop",
