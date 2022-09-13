@@ -1,4 +1,4 @@
 #!/usr/bin/env zsh
 
 source "./test-packaging.sh"
-package-and-install -m pack -t "packages/defaults/"
+package-and-install -m pack -i template -t "packages/defaults/"
