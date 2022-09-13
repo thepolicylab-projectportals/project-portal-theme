@@ -82,7 +82,7 @@ package-and-install () {
   echo "new temporary directory: $testDir"
 
   # Add files we need to ensure the installer looks in the right place for the package
-  cp ./packages/gatsby-theme-project-portal/{.npmrc,.yarnrc.yml} "$testDir"
+  cp ./packages/gatsby-theme-project-portal/{.npmrc,.yarnrc.yml} "$testDir" || die "couldn't copy rc-files"
 
   case "${initMethod}" in
     empty) {
@@ -127,9 +127,17 @@ package-and-install () {
 alias test-pack-empty="package-and-install -m pack"
 alias test-pack-template-defaults="package-and-install -m pack -t packages/defaults/"
 alias test-pack-template-example="package-and-install -m pack -t packages/example/"
-
 alias test-newest-empty="package-and-install -m newest"
 alias test-newest-template-defaults="package-and-install -m newest -t packages/defaults/"
 alias test-newest-template-example="package-and-install -m newest -t packages/example/"
-
 alias test-publish-template-example="package-and-install -m publish -t packages/example/"
+
+run-all-packaging-tests () {
+  test-pack-empty  || die "packaging failed: 'test-pack-empty'"
+  test-pack-template-defaults  || die "packaging failed: 'test-pack-template-defaults'"
+  test-pack-template-example  || die "packaging failed: 'test-pack-template-example'"
+  test-publish-template-example  || die "packaging failed: 'test-publish-template-example'"
+  test-newest-empty  || die "packaging failed: 'test-newest-empty'"
+  test-newest-template-defaults  || die "packaging failed: 'test-newest-template-defaults'"
+  test-newest-template-example  || die "packaging failed: 'test-newest-template-example'"
+}
