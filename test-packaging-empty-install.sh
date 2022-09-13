@@ -1,8 +1,10 @@
 #!/usr/bin/env zsh
 
-source "./shell-utils.sh"
+source "./test-packaging.sh"
 
-templateDir="packages/example/"
+package-and-install -t "packages/defaults/"
+
+templateDir=
 themeName="@thepolicylab-projectportals/gatsby-theme-project-portal"
 
 testDir=$(mktemp -d || die "Failed to create new temporary directory.")
