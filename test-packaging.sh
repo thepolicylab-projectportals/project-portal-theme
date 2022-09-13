@@ -18,12 +18,15 @@ package-and-install () {
 
   # Specify how the site will be created
   # Options are
-  # empty – create an empty site and add the minimum code using the package manager
-  # template (default) – create a site based on an existing directory
-  initMethod="template"
+  # empty (default) – create an empty site and add the minimum code using the package manager
+  # template – create a site based on an existing directory
+  initMethod="empty"
 
   # Specify the templateDir (must be a gatsby site)
-  templateDir="packages/example/"
+  # Examples:
+  # packages/example/
+  # packages/defaults/
+  templateDir=""
 
   # Specify the theme name (must be a workspace)
   themeName="@thepolicylab-projectportals/gatsby-theme-project-portal"
@@ -34,14 +37,16 @@ package-and-install () {
   # Specify if we serve the site at the end. Default: no.
   serve=0
 
-  while getopts st:n:a:m:i: flag
+  while getopts st:n:a:m: flag
   do
       case "${flag}" in
-          t) templateDir=${OPTARG};;
+          t) {
+            templateDir=${OPTARG}
+            initMethod="template"
+            };;
           n) themeName=${OPTARG};;
           a) artifactDir=${OPTARG};;
           m) packageMethod=${OPTARG};;
-          i) initMethod=${OPTARG};;
           s) serve=1;;
           *) echo "flag ${flag} not recognized" ; return 1
       esac
@@ -52,7 +57,8 @@ package-and-install () {
   case "${packageMethod}" in
     pack) {
       # Get the path where the pack-file will be created
-      export packPath="$artifactDir/theme-$(date '+%s')-$(git rev-parse --short HEAD).tgz"
+      packPath="$artifactDir/theme-$(date '+%s')-$(git rev-parse --short HEAD).tgz"
+      export packPath
 
       # Create the pack file itself
       yarn workspace "$themeName" pack --out "$packPath" || die "couldn't create pack-file directory"
@@ -76,7 +82,6 @@ package-and-install () {
   echo "new temporary directory: $testDir"
 
   # Add files we need to ensure the installer looks in the right place for the package
-  echo $(pwd)
   cp ./packages/gatsby-theme-project-portal/{.npmrc,.yarnrc.yml} "$testDir"
 
   case "${initMethod}" in
@@ -119,10 +124,12 @@ package-and-install () {
   echo "(cd $testDir && yarn gatsby serve)"
 }
 
-alias test-pack-empty="package-and-install -m pack -i empty"
-alias test-pack-template-defaults="package-and-install -m pack -i template -t packages/defaults/"
-alias test-pack-template-example="package-and-install -m pack -i template -t packages/example/"
-alias test-publish-template-example="package-and-install -m publish -i template -t packages/example/"
-alias test-newest-empty="package-and-install -m newest -i empty"
-alias test-newest-template-defaults="package-and-install -m newest -i template -t packages/defaults/"
-alias test-newest-template-example="package-and-install -m newest -i template -t packages/example/"
+alias test-pack-empty="package-and-install -m pack"
+alias test-pack-template-defaults="package-and-install -m pack -t packages/defaults/"
+alias test-pack-template-example="package-and-install -m pack -t packages/example/"
+
+alias test-newest-empty="package-and-install -m newest"
+alias test-newest-template-defaults="package-and-install -m newest -t packages/defaults/"
+alias test-newest-template-example="package-and-install -m newest -t packages/example/"
+
+alias test-publish-template-example="package-and-install -m publish -t packages/example/"
