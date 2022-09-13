@@ -124,6 +124,10 @@ package-and-install () {
   echo "(cd $testDir && yarn gatsby serve)"
 }
 
+# Define some standard cases as aliases.
+# Each can be run independently, or run as a group using the run-all-packaging-tests function.
+# Add the flag -s on the end of the aliased command to serve the site as well
+
 alias test-pack-empty="package-and-install -m pack"
 alias test-pack-template-defaults="package-and-install -m pack -t packages/defaults/"
 alias test-pack-template-example="package-and-install -m pack -t packages/example/"
@@ -133,11 +137,11 @@ alias test-newest-template-example="package-and-install -m newest -t packages/ex
 alias test-publish-template-example="package-and-install -m publish -t packages/example/"
 
 run-all-packaging-tests () {
-  test-pack-empty  || die "packaging failed: 'test-pack-empty'"
-  test-pack-template-defaults  || die "packaging failed: 'test-pack-template-defaults'"
-  test-pack-template-example  || die "packaging failed: 'test-pack-template-example'"
-  test-publish-template-example  || die "packaging failed: 'test-publish-template-example'"
-  test-newest-empty  || die "packaging failed: 'test-newest-empty'"
-  test-newest-template-defaults  || die "packaging failed: 'test-newest-template-defaults'"
-  test-newest-template-example  || die "packaging failed: 'test-newest-template-example'"
+  test-pack-empty  || { echo "packaging failed: 'test-pack-empty'" ; return 1; }
+  test-pack-template-defaults || { echo "packaging failed: 'test-pack-template-defaults'" ; return 1; }
+  test-pack-template-example  || { echo "packaging failed: 'test-pack-template-example'" ; return 1; }
+  test-publish-template-example  || { echo "packaging failed: 'test-publish-template-example'" ; return 1; }
+  test-newest-empty  || { echo "packaging failed: 'test-newest-empty'" ; return 1; }
+  test-newest-template-defaults  || { echo "packaging failed: 'test-newest-template-defaults'" ; return 1; }
+  test-newest-template-example  || { echo "packaging failed: 'test-newest-template-example'" ; return 1; }
 }
