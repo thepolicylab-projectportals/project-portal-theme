@@ -162,11 +162,11 @@ package-and-install () {
     case "${initMethod}" in
       empty) {
         (
-          cd $testDir || die "Failed to cd to testDir '$testDir'"
+          cd "$testDir" || die "Failed to cd to testDir '$testDir'"
           yarn init -y || die "Failed to init new site"
           case "${packageMethod}" in
             pack) yarn add "$packPath" react react-dom gatsby || die "failed to install dependencies including $packPath.";;
-            *) yarn add react react-dom gatsby "$themeName@$publishTag" || die "Failed to add dependencies";
+            *) yarn add react react-dom gatsby "$themeName@$publishTag" || die "Failed to add dependencies";;
           esac
           echo "module.exports = { plugins: [\`@thepolicylab-projectportals/gatsby-theme-project-portal\`] }" > "$testDir/gatsby-config.js"
         )
@@ -174,6 +174,12 @@ package-and-install () {
       template) {
         # Sync content from the template site to the testDir
         rsync -av --progress "$templateDir/." "$testDir" --exclude node_modules --exclude .cache --exclude public
+        ( cd "$testDir" || die "Failed to cd to testDir '$testDir'"
+          case "${packageMethod}" in
+            pack) yarn add "$packPath" || die "failed to add dependency $packPath.";;
+            *) yarn add "$themeName@$publishTag" || die "failed to specify theme version $themeName@$publishTag" ;;
+          esac
+        )
       };;
     esac
 
