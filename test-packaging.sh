@@ -162,11 +162,11 @@ package-and-install () {
     case "${initMethod}" in
       empty) {
         (
-          cd $testDir || die "Failed to cd to testDir '$testDir'"
+          cd "$testDir" || die "Failed to cd to testDir '$testDir'"
           yarn init -y || die "Failed to init new site"
           case "${packageMethod}" in
             pack) yarn add "$packPath" react react-dom gatsby || die "failed to install dependencies including $packPath.";;
-            *) yarn add react react-dom gatsby "$themeName@$publishTag" || die "Failed to add dependencies";
+            *) yarn add react react-dom gatsby "$themeName@$publishTag" || die "Failed to add dependencies";;
           esac
           echo "module.exports = { plugins: [\`@thepolicylab-projectportals/gatsby-theme-project-portal\`] }" > "$testDir/gatsby-config.js"
         )
@@ -174,6 +174,12 @@ package-and-install () {
       template) {
         # Sync content from the template site to the testDir
         rsync -av --progress "$templateDir/." "$testDir" --exclude node_modules --exclude .cache --exclude public
+        ( cd "$testDir" || die "Failed to cd to testDir '$testDir'"
+          case "${packageMethod}" in
+            pack) yarn add "$packPath" || die "failed to add dependency $packPath.";;
+            *) yarn add "$themeName@$publishTag" || die "failed to specify theme version $themeName@$publishTag" ;;
+          esac
+        )
       };;
     esac
 
@@ -201,26 +207,20 @@ package-and-install () {
   )
 }
 
-# Define some standard cases as aliases.
-# Each can be run independently, or run as a group using the run-all-packaging-tests function.
-# Add the flag -s on the end of the aliased command to serve the site as well
-
-alias test-pack-empty="package-and-install -m pack"
-alias test-pack-template-defaults="package-and-install -m pack -t packages/defaults/"
-alias test-pack-template-example="package-and-install -m pack -t packages/example/"
-alias test-newest-empty="package-and-install -m newest -p latest"
-alias test-newest-template-defaults="package-and-install -m newest -p latest -t packages/defaults/"
-alias test-newest-template-example="package-and-install -m newest -p latest -t packages/example/"
-
+# Define some standard test sets
 run-all-local-packaging-tests () {
   (
-    test-pack-empty || die "packaging failed: 'test-pack-empty'"
-    test-pack-template-defaults || die "packaging failed: 'test-pack-template-defaults'"
-    test-pack-template-example  || die "packaging failed: 'test-pack-template-example'"
-    test-newest-empty  || die "packaging failed: 'test-newest-empty'"
-    test-newest-template-defaults  || die "packaging failed: 'test-newest-template-defaults'"
-    test-newest-template-example  || die "packaging failed: 'test-newest-template-example'"
+    package-and-install -m pack || die "packaging failed: package-and-install -m pack"
+    package-and-install -m pack -t packages/defaults/ || die "packaging failed: package-and-install -m pack -t packages/defaults/"
+    package-and-install -m pack -t packages/example/  || die "packaging failed: package-and-install -m pack -t packages/example/"
   )
 }
 
-alias test-publish-template-example="package-and-install -m publish -p testPackage -t packages/example/"
+run-all-publish-packaging-tests () {
+  (
+    package-and-install -m publish -p testPackage -t packages/example/  || die "packaging failed: package-and-install -m publish -p testPackage -t packages/example/"
+    package-and-install -m newest -p testPackage  || die "packaging failed: package-and-install -m newest -p testPackage"
+    package-and-install -m newest -p testPackage -t packages/defaults/  || die "packaging failed: package-and-install -m newest -p testPackage -t packages/defaults/"
+    package-and-install -m newest -p testPackage -t packages/example/  || die "packaging failed: package-and-install -m newest -p testPackage -t packages/example/"
+  )
+}

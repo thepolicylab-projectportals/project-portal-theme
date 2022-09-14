@@ -9,5 +9,8 @@
   },
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "devDependencies": {
+    "prettier": "^2.7.1"
+  }
 }
