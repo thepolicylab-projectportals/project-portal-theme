@@ -7,18 +7,84 @@ die() {
   exit 1
 }
 
+read -r -d '' USAGE << EOM
+NAME
+  package-and-install – package a gatsby theme and build a new site using the package
+
+SYNOPSIS
+  package-and-install [-m {pack,newest,publish}] [-a artifactDir] [-t templateDir] [-s] [-n themeName] [-p publishTag] [-h]
+
+DESCRIPTION
+  The package-and-install tool:
+  1) creates a new package based on a gatsby theme in the current workspace,
+  2) adds it as a dependency to a Gatsby site,
+  3) builds the site,
+  4) (optionally) serves the site on the localhost.
+
+  The options are as follows:
+
+  -n themeName
+    The theme name. It should be identical to the "name" parameter in the theme's package.json file.
+    Examples:
+      -n "@thepolicylab-projectportals/gatsby-theme-project-portal"
+
+  -m {pack,newest,publish}
+    Packaging method:
+      - pack (default) – create and install a new pack-file,
+      - newest – use the newest released version
+      - publish – create and install a new release
+
+  -a artifactDir
+    The location where the packed theme is stored. Default: ./artifacts
+
+  -p publishTag
+    A tag to be used on the GitHub package. Used if "-m publish" or "-m latest" is selected.Default: "latest"
+
+  -t templateDir
+    A template directory to duplicate for the Gatsby site. If unset, an empty site is created.
+
+  -s
+    Serve the site once it has been built.
+
+  -h
+    Show this help message and exit
+
+EXAMPLES
+
+  Create an empty site using the current local version (minimum example):
+    % package-and-install -m pack
+
+  Create a new duplicate of the "defaults" site:
+    % package-and-install -t "packages/defaults/"
+
+  Create a new duplicate of the "example" site:
+    % package-and-install -t "packages/example/"
+
+  Install the newest productive version on the GitHub registry:
+    % package-and-install -m "newest"
+
+  Create and install a new test version of the theme,
+    but mark it as a test version rather than for productive use:
+    % package-and-install -m "publish" -p "packageTest"
+
+  Install the newest test version from the GitHub registry to a minimum site:
+    (usually after running "package-and-install -m publish -p packageTest"):
+    % package-and-install -m "newest" -p "packageTest"
+
+  Install the newest test version from the GitHub registry to the example site:
+    (usually after running "package-and-install -m publish -p packageTest"):
+    % package-and-install -m "newest" -p "packageTest" -t "packages/example/"
+
+
+EOM
+
 # Specify the template site
 package-and-install () {
 
   # Specify how the package will be created
-  # Options are
-  # pack (default) – create and install a new pack-file,
-  # newest – use the newest released version
-  # publish – create and install a new release
   packageMethod="pack"
 
-  # Specify how the site will be created
-  # Options are
+  # Specify how the site will be created. This is implicitly set if a template is defined.
   # empty (default) – create an empty site and add the minimum code using the package manager
   # template – create a site based on an existing directory
   initMethod="empty"
@@ -35,12 +101,12 @@ package-and-install () {
   # Specify where the pack file is stored
   artifactDir="$(pwd)/artifacts"
 
-  publishTag="packageTest"
+  publishTag="latest"
 
   # Specify if we serve the site at the end. Default: no.
   serve=0
 
-  while getopts st:n:a:m:p: flag
+  while getopts sht:n:a:m:p: flag
   do
       case "${flag}" in
           t) {
@@ -52,6 +118,8 @@ package-and-install () {
           m) packageMethod=${OPTARG};;
           s) serve=1;;
           p) publishTag=${OPTARG};;
+          h) echo "$USAGE" | more; return 1;;
+
           *) echo "flag ${flag} not recognized" ; return 1
       esac
   done
@@ -140,9 +208,9 @@ package-and-install () {
 alias test-pack-empty="package-and-install -m pack"
 alias test-pack-template-defaults="package-and-install -m pack -t packages/defaults/"
 alias test-pack-template-example="package-and-install -m pack -t packages/example/"
-alias test-newest-empty="package-and-install -m newest"
-alias test-newest-template-defaults="package-and-install -m newest -t packages/defaults/"
-alias test-newest-template-example="package-and-install -m newest -t packages/example/"
+alias test-newest-empty="package-and-install -m newest -p latest"
+alias test-newest-template-defaults="package-and-install -m newest -p latest -t packages/defaults/"
+alias test-newest-template-example="package-and-install -m newest -p latest -t packages/example/"
 
 run-all-local-packaging-tests () {
   (
@@ -155,4 +223,4 @@ run-all-local-packaging-tests () {
   )
 }
 
-alias test-publish-template-example="package-and-install -m publish -t packages/example/"
+alias test-publish-template-example="package-and-install -m publish -p testPackage -t packages/example/"

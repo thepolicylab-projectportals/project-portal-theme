@@ -79,6 +79,12 @@ The tests include the following site setups:
 
 ... and then building the site.
 
+For more control over which tests are run, you can use the `package-and-install` command directly. To see the options, run:
+```zsh
+source test-packaging.sh
+package-and-install -h
+```
+
 #### Danger Zone: Publishing
 
 There is an additional script, 
@@ -135,8 +141,3 @@ To publish a new version of the theme:
 ```zsh
 yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" npm publish
 ```
-
-## Testing
-There are two scripts included to test the packaging and build steps. 
-- `test-packaging-local.sh` creates a pack of the theme locally (in the `artifacts/` directory) and uses `yarn` to install this into a new site outside the workspace tree.
-- `test-packaging-remote.sh` publishes the theme to the GitHub repository and uses `yarn` to install this new version into a new site outside the working tree. 
