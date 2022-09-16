@@ -2606,6 +2606,7 @@ __metadata:
   resolution: "@thepolicylab-projectportals/gatsby-theme-project-portal@workspace:packages/gatsby-theme-project-portal"
   dependencies:
     gatsby: ^4.0.0
+    markdown-to-jsx: ^7.1.7
     react: ^18.2.0
     react-dom: ^18.2.0
     react-icons: ^4.4.0
@@ -8831,6 +8832,15 @@ __metadata:
   version: 0.2.2
   resolution: "map-cache@npm:0.2.2"
   checksum: 3067cea54285c43848bb4539f978a15dedc63c03022abeec6ef05c8cb6829f920f13b94bcaf04142fc6a088318e564c4785704072910d120d55dbc2e0c421969
+  languageName: node
+  linkType: hard
+
+"markdown-to-jsx@npm:^7.1.7":
+  version: 7.1.7
+  resolution: "markdown-to-jsx@npm:7.1.7"
+  peerDependencies:
+    react: ">= 0.14.0"
+  checksum: b2c0ea7d0988fad0c709989b3b1b3a5600d1e80b60266f9618386f7afead4a6b5eba9ee1a3943df6a3dcb1599ea89e58467d1b17b6dd3af3c60984c60a85d06d
   languageName: node
   linkType: hard
 
