@@ -4157,7 +4157,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react-dom", null],\
             ["gatsby", "virtual:69a1d85123071b3dfb48909d635e6172a302c78b3751d638be30b1ab6716295489db087516bfe237a2182c28f3a40cf114abcf493499a02467d636408f8fbc66#npm:4.22.1"],\
             ["react", "npm:18.2.0"],\
-            ["react-dom", "virtual:69a1d85123071b3dfb48909d635e6172a302c78b3751d638be30b1ab6716295489db087516bfe237a2182c28f3a40cf114abcf493499a02467d636408f8fbc66#npm:18.2.0"]\
+            ["react-dom", "virtual:69a1d85123071b3dfb48909d635e6172a302c78b3751d638be30b1ab6716295489db087516bfe237a2182c28f3a40cf114abcf493499a02467d636408f8fbc66#npm:18.2.0"],\
+            ["react-icons", "virtual:36e8437cd922e5f7a466cae3e26f36531f7d619f7fe2303ce92f0908a49ef0ca1f2ae295ff90b37342ad78bf12206af9f35912a02bb4e09721d659f8e4677246#npm:4.4.0"]\
           ],\
           "packagePeers": [\
             "@types/gatsby",\
@@ -4175,7 +4176,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@thepolicylab-projectportals/gatsby-theme-project-portal", "workspace:packages/gatsby-theme-project-portal"],\
             ["gatsby", "virtual:69a1d85123071b3dfb48909d635e6172a302c78b3751d638be30b1ab6716295489db087516bfe237a2182c28f3a40cf114abcf493499a02467d636408f8fbc66#npm:4.22.1"],\
             ["react", "npm:18.2.0"],\
-            ["react-dom", "virtual:69a1d85123071b3dfb48909d635e6172a302c78b3751d638be30b1ab6716295489db087516bfe237a2182c28f3a40cf114abcf493499a02467d636408f8fbc66#npm:18.2.0"]\
+            ["react-dom", "virtual:69a1d85123071b3dfb48909d635e6172a302c78b3751d638be30b1ab6716295489db087516bfe237a2182c28f3a40cf114abcf493499a02467d636408f8fbc66#npm:18.2.0"],\
+            ["react-icons", "virtual:36e8437cd922e5f7a466cae3e26f36531f7d619f7fe2303ce92f0908a49ef0ca1f2ae295ff90b37342ad78bf12206af9f35912a02bb4e09721d659f8e4677246#npm:4.4.0"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -14401,6 +14403,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/react-error-overlay-npm-6.0.9-96e7e1e53a-695853bc88.zip/node_modules/react-error-overlay/",\
           "packageDependencies": [\
             ["react-error-overlay", "npm:6.0.9"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["react-icons", [\
+        ["npm:4.4.0", {\
+          "packageLocation": "./.yarn/cache/react-icons-npm-4.4.0-a6c91164a4-dd93a1dcc8.zip/node_modules/react-icons/",\
+          "packageDependencies": [\
+            ["react-icons", "npm:4.4.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:36e8437cd922e5f7a466cae3e26f36531f7d619f7fe2303ce92f0908a49ef0ca1f2ae295ff90b37342ad78bf12206af9f35912a02bb4e09721d659f8e4677246#npm:4.4.0", {\
+          "packageLocation": "./.yarn/__virtual__/react-icons-virtual-ea6c39df29/0/cache/react-icons-npm-4.4.0-a6c91164a4-dd93a1dcc8.zip/node_modules/react-icons/",\
+          "packageDependencies": [\
+            ["react-icons", "virtual:36e8437cd922e5f7a466cae3e26f36531f7d619f7fe2303ce92f0908a49ef0ca1f2ae295ff90b37342ad78bf12206af9f35912a02bb4e09721d659f8e4677246#npm:4.4.0"],\
+            ["@types/react", null],\
+            ["react", "npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react",\
+            "react"\
           ],\
           "linkType": "HARD"\
         }]\
