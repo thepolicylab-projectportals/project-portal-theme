@@ -55,7 +55,7 @@ Run the packaging, build the example site, and serve it locally:
 package-and-install -m pack -t packages/example/ -s
 ```
 
-Please note yarn version shoud be 3.2.3. if you encounter error running the script above indicating that the process is using yarn v1.22.19, run the following command in the global shell.  
+Please note `yarn` version shoud be 3.2.3. if you encounter error running the script above indicating that the process is using `yarn v1.22.19`, run the following command in the global shell.  
 
 ```
 yarn set version berry
