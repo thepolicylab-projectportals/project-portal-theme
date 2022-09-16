@@ -10,6 +10,7 @@
     "react-dom": "^18.2.0"
   },
   "dependencies": {
+    "markdown-to-jsx": "^7.1.7",
     "react-icons": "^4.4.0"
   },
   "devDependencies": {

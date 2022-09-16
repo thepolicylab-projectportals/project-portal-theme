@@ -4156,6 +4156,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react", null],\
             ["@types/react-dom", null],\
             ["gatsby", "virtual:69a1d85123071b3dfb48909d635e6172a302c78b3751d638be30b1ab6716295489db087516bfe237a2182c28f3a40cf114abcf493499a02467d636408f8fbc66#npm:4.22.1"],\
+            ["markdown-to-jsx", "virtual:36e8437cd922e5f7a466cae3e26f36531f7d619f7fe2303ce92f0908a49ef0ca1f2ae295ff90b37342ad78bf12206af9f35912a02bb4e09721d659f8e4677246#npm:7.1.7"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:69a1d85123071b3dfb48909d635e6172a302c78b3751d638be30b1ab6716295489db087516bfe237a2182c28f3a40cf114abcf493499a02467d636408f8fbc66#npm:18.2.0"],\
             ["react-icons", "virtual:36e8437cd922e5f7a466cae3e26f36531f7d619f7fe2303ce92f0908a49ef0ca1f2ae295ff90b37342ad78bf12206af9f35912a02bb4e09721d659f8e4677246#npm:4.4.0"]\
@@ -4175,6 +4176,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@thepolicylab-projectportals/gatsby-theme-project-portal", "workspace:packages/gatsby-theme-project-portal"],\
             ["gatsby", "virtual:69a1d85123071b3dfb48909d635e6172a302c78b3751d638be30b1ab6716295489db087516bfe237a2182c28f3a40cf114abcf493499a02467d636408f8fbc66#npm:4.22.1"],\
+            ["markdown-to-jsx", "virtual:36e8437cd922e5f7a466cae3e26f36531f7d619f7fe2303ce92f0908a49ef0ca1f2ae295ff90b37342ad78bf12206af9f35912a02bb4e09721d659f8e4677246#npm:7.1.7"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:69a1d85123071b3dfb48909d635e6172a302c78b3751d638be30b1ab6716295489db087516bfe237a2182c28f3a40cf114abcf493499a02467d636408f8fbc66#npm:18.2.0"],\
             ["react-icons", "virtual:36e8437cd922e5f7a466cae3e26f36531f7d619f7fe2303ce92f0908a49ef0ca1f2ae295ff90b37342ad78bf12206af9f35912a02bb4e09721d659f8e4677246#npm:4.4.0"]\
@@ -11781,6 +11783,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/map-cache-npm-0.2.2-1620199b05-3067cea542.zip/node_modules/map-cache/",\
           "packageDependencies": [\
             ["map-cache", "npm:0.2.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["markdown-to-jsx", [\
+        ["npm:7.1.7", {\
+          "packageLocation": "./.yarn/cache/markdown-to-jsx-npm-7.1.7-2cb4f4a90f-b2c0ea7d09.zip/node_modules/markdown-to-jsx/",\
+          "packageDependencies": [\
+            ["markdown-to-jsx", "npm:7.1.7"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:36e8437cd922e5f7a466cae3e26f36531f7d619f7fe2303ce92f0908a49ef0ca1f2ae295ff90b37342ad78bf12206af9f35912a02bb4e09721d659f8e4677246#npm:7.1.7", {\
+          "packageLocation": "./.yarn/__virtual__/markdown-to-jsx-virtual-bce2761359/0/cache/markdown-to-jsx-npm-7.1.7-2cb4f4a90f-b2c0ea7d09.zip/node_modules/markdown-to-jsx/",\
+          "packageDependencies": [\
+            ["markdown-to-jsx", "virtual:36e8437cd922e5f7a466cae3e26f36531f7d619f7fe2303ce92f0908a49ef0ca1f2ae295ff90b37342ad78bf12206af9f35912a02bb4e09721d659f8e4677246#npm:7.1.7"],\
+            ["@types/react", null],\
+            ["react", "npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react",\
+            "react"\
           ],\
           "linkType": "HARD"\
         }]\
