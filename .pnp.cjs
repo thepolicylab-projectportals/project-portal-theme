@@ -4153,18 +4153,29 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@thepolicylab-projectportals/gatsby-theme-project-portal", "virtual:69a1d85123071b3dfb48909d635e6172a302c78b3751d638be30b1ab6716295489db087516bfe237a2182c28f3a40cf114abcf493499a02467d636408f8fbc66#workspace:packages/gatsby-theme-project-portal"],\
             ["@types/gatsby", null],\
-            ["gatsby", "virtual:69a1d85123071b3dfb48909d635e6172a302c78b3751d638be30b1ab6716295489db087516bfe237a2182c28f3a40cf114abcf493499a02467d636408f8fbc66#npm:4.22.1"]\
+            ["@types/react", null],\
+            ["@types/react-dom", null],\
+            ["gatsby", "virtual:69a1d85123071b3dfb48909d635e6172a302c78b3751d638be30b1ab6716295489db087516bfe237a2182c28f3a40cf114abcf493499a02467d636408f8fbc66#npm:4.22.1"],\
+            ["react", "npm:18.2.0"],\
+            ["react-dom", "virtual:69a1d85123071b3dfb48909d635e6172a302c78b3751d638be30b1ab6716295489db087516bfe237a2182c28f3a40cf114abcf493499a02467d636408f8fbc66#npm:18.2.0"]\
           ],\
           "packagePeers": [\
             "@types/gatsby",\
-            "gatsby"\
+            "@types/react-dom",\
+            "@types/react",\
+            "gatsby",\
+            "react-dom",\
+            "react"\
           ],\
           "linkType": "SOFT"\
         }],\
         ["workspace:packages/gatsby-theme-project-portal", {\
           "packageLocation": "./packages/gatsby-theme-project-portal/",\
           "packageDependencies": [\
-            ["@thepolicylab-projectportals/gatsby-theme-project-portal", "workspace:packages/gatsby-theme-project-portal"]\
+            ["@thepolicylab-projectportals/gatsby-theme-project-portal", "workspace:packages/gatsby-theme-project-portal"],\
+            ["gatsby", "virtual:69a1d85123071b3dfb48909d635e6172a302c78b3751d638be30b1ab6716295489db087516bfe237a2182c28f3a40cf114abcf493499a02467d636408f8fbc66#npm:4.22.1"],\
+            ["react", "npm:18.2.0"],\
+            ["react-dom", "virtual:69a1d85123071b3dfb48909d635e6172a302c78b3751d638be30b1ab6716295489db087516bfe237a2182c28f3a40cf114abcf493499a02467d636408f8fbc66#npm:18.2.0"]\
           ],\
           "linkType": "SOFT"\
         }]\
