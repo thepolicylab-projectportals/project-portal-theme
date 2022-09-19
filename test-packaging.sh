@@ -132,6 +132,7 @@ package-and-install () {
     case "${packageMethod}" in
       pack) {
         # Get the path where the pack-file will be created
+        mkdir -p "$artifactDir"
         packPath="$artifactDir/theme-$(date '+%s')-$(git rev-parse --short HEAD).tgz"
         export packPath
 
@@ -176,7 +177,9 @@ package-and-install () {
         rsync -av --progress "$templateDir/." "$testDir" --exclude node_modules --exclude .cache --exclude public
         ( cd "$testDir" || die "Failed to cd to testDir '$testDir'"
           case "${packageMethod}" in
-            pack) yarn add "$packPath" || die "failed to add dependency $packPath.";;
+            pack) {
+            echo $(which yarn); yarn add "$packPath" || die "failed to add dependency $packPath."
+            };;
             *) yarn add "$themeName@$publishTag" || die "failed to specify theme version $themeName@$publishTag" ;;
           esac
         )
