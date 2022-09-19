@@ -30,7 +30,7 @@ var sample_card = [
     data: {
       question:
         "How can we encourage residents to follow safety and etiquette rules when using trails and parks?",
-      partnerName: "San Antonio",
+      partnerName: "Example",
       slug: "trail-etiquette",
       summary:
         "We want to find out the best way to deliver information about trail etiquette and safe use rules for San Antonio parks and trails. We are interested in exploring marketing techniques to replace our current long list of park use rules, and to test the best ways to reach residents of all demographic groups (age, gender, culture).\n",
