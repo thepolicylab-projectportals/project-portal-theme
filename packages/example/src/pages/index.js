@@ -6,6 +6,7 @@ import {
   ProjectStatus,
   MarkdownText,
   Feature,
+  ShareProject,
   SectionOfItem,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
 
@@ -34,6 +35,7 @@ const Index = () => {
       <ProjectStatus status="completed" />
       <MarkdownText text={markdownContent} />
       <Feature label="Test" className="test" value={["test"]} />
+      <ShareProject />
       <SectionOfItem label="Section of Items" value={markdownContent} />
     </>
   )
