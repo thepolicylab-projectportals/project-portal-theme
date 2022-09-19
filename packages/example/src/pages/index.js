@@ -5,6 +5,7 @@ import {
   DevelopmentBanner,
   ProjectStatus,
   MarkdownText,
+  Feature,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
 
 var markdownContent = `
@@ -31,6 +32,7 @@ const Index = () => {
       <ProjectStatus status="ongoing" />
       <ProjectStatus status="completed" />
       <MarkdownText text={markdownContent} />
+      <Feature label="Test" className="test" value={["test"]} />
     </>
   )
 }
