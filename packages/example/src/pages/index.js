@@ -8,7 +8,12 @@ import {
   Feature,
   ShareProject,
   SectionOfItem,
+  SiteMetadata,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
+
+var description = "desctiption"
+
+var title = "title"
 
 var markdownContent = `
 # Example Markdown Content
@@ -37,6 +42,7 @@ const Index = () => {
       <Feature label="Test" className="test" value={["test"]} />
       <ShareProject />
       <SectionOfItem label="Section of Items" value={markdownContent} />
+      <SiteMetadata description={description} title={title} />
     </>
   )
 }
