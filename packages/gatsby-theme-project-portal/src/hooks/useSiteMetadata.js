@@ -6,9 +6,7 @@ export const useSiteMetadata = () => {
       site {
         siteMetadata {
           siteTitle
-          short_name
           siteUrl
-          projectInterestLink
           live
           locale
         }

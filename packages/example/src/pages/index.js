@@ -10,10 +10,7 @@ import {
   SectionOfItem,
   SiteMetadata,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
-
-var description = "desctiption"
-
-var title = "title"
+import { useSiteMetadata } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/hooks"
 
 var markdownContent = `
 # Example Markdown Content
@@ -30,6 +27,7 @@ Maecenas eget facilisis risus. Nunc dignissim ante nec mauris sollicitudin, ac a
 `
 
 const Index = () => {
+  const meta = useSiteMetadata()
   return (
     <>
       <DevelopmentBanner />
@@ -42,7 +40,7 @@ const Index = () => {
       <Feature label="Test" className="test" value={["test"]} />
       <ShareProject />
       <SectionOfItem label="Section of Items" value={markdownContent} />
-      <SiteMetadata description={description} title={title} />
+      <SiteMetadata description={markdownContent} title={meta.title} />
     </>
   )
 }
