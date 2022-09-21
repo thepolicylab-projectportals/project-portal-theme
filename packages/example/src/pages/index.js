@@ -28,33 +28,26 @@ Maecenas eget facilisis risus. Nunc dignissim ante nec mauris sollicitudin, ac a
 var sample_card = [
   {
     data: {
-      question:
-        "How can we encourage residents to follow safety and etiquette rules when using trails and parks?",
+      question: "Test Question?",
       partnerName: "Example",
-      slug: "trail-etiquette",
-      summary:
-        "We want to find out the best way to deliver information about trail etiquette and safe use rules for San Antonio parks and trails. We are interested in exploring marketing techniques to replace our current long list of park use rules, and to test the best ways to reach residents of all demographic groups (age, gender, culture).\n",
+      slug: "test-project",
+      summary: "Test Summary\n",
       status: "open",
-      opportunityCloses: "2022-06-01",
+      opportunityCloses: "2022-03-04",
       startDate: "2022-01-03",
       endDate: "2022-03-04",
-      agency: "Parks and Recreation",
-      topics: ["Parks"],
-      deliverable:
-        "- Proposed approaches for setting and communicating rules and trail etiquette for residents.\n- Proposed solution for communicating with current trail users.\n- Proposed solution for communicating with residents who are currently not using parks and trails.\n",
-      purpose:
-        "- Results will be used to inform how we deliver park and trail outreach, education, and programming.",
-      expertise:
-        "- Experience with marketing techniques.\n- Experience testing effectiveness of communication materials and strategies.\n",
+      agency: "Sample Agency",
+      topics: ["Test"],
+      deliverable: "- Test.\n- Test.\n- Test.\n",
+      purpose: "- Sample.",
+      expertise: "- Testing.\n- Testing.\n",
       requirement: "None\n",
       keyDates:
         "We are ready to begin the project as soon as we identify a collaborator.\n",
       priorResearch:
         "None, but we will share project background with our selected collaborator.\n",
-      statusOfData:
-        "We are seeking data from the Trust for Public Lands report, a report ranking cities and their park systems, in order to compare San Antonio to other cities and improve our approach.\n",
-      fundingInfo:
-        "- There is funding available for new flyers and signage.\n- Full-time and temporary staff are available to work on the project.\n",
+      statusOfData: "Testing\n",
+      fundingInfo: "- Test.\n- Test.\n",
       commitment: "10 hours a week",
       contactName: "Sue DeNym",
       contactTitle: "The Boss",
