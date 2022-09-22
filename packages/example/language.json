@@ -1,0 +1,54 @@
+{
+  "about": {
+    "header": "",
+    "aims": [
+      {
+        "text": "The Project Portal is intended to be a platform for state agencies to communicate about their projects. These might be proposed projects looking for partners or funding, ongoing-projects, or completed projects."
+      }
+    ],
+    "faq": [
+      {
+        "title": "Can we set up our own Project Portal?",
+        "text": "Absolutely. Get in touch with The Policy Lab to find out how, [via the contact page!](/contact)"
+      },
+      {
+        "title": "Are there project portals which are already live?",
+        "text": "Yes. North Carolina has a project portal here: [https://projectportal.nc.gov](https://projectportal.nc.gov)."
+      }
+    ]
+  },
+  "contact": {
+    "title": "How do I connect with The Policy Lab to find out more about setting up a Project Portal for my agency?",
+    "lede": "If you have questions or feedback about the Project Portal, please use the form below. Your submission will go to OSP and The Policy Lab at Brown University, which is collaborating with agencies on Project Portals."
+  },
+  "open": {
+    "title": "Open partnership opportunities",
+    "pageName": "Open opportunities",
+    "lede": "State agencies are increasingly interested in collaborating with external partners to answer questions that inform decision making and improve policy and programmatic functions. Learn more below about some open opportunities. Have a question about partnerships? Visit our [FAQ](/about) page."
+  },
+  "completed": {
+    "title": "Completed projects",
+    "pageName": "Completed projects",
+    "lede": "State agencies collaborate with external partners to answer important research, policy, and programmatic questions. Learn more below about some completed projects. Have a question about partnerships? Visit our [FAQ](/about) page."
+  },
+  "ongoing": {
+    "title": "In-progress projects",
+    "pageName": "In-progress projects",
+    "lede": "State agencies collaborate with external partners to answer important research, policy, and programmatic questions. Learn more about in-progress projects here. Have a question about partnerships? Visit our [FAQ](/about) page."
+  },
+  "footer": {
+    "heading": {
+      "title": "THE POLICY LAB",
+      "link": "https://thepolicylab.brown.edu"
+    },
+    "links": [
+      {
+        "title": "Center for Computation and Visualization",
+        "link": "https://ccv.brown.edu"
+      }
+    ]
+  },
+  "bottom_banner": {
+    "text": "This project portal example content was developed by the The Policy Lab and the Center for Computation and Visualization at Brown University. If you have ideas for how to improve it, please [let us know!](/contact)"
+  }
+}

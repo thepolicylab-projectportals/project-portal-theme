@@ -1,3 +1,5 @@
+const staticText = require("./language.json")
+
 // General metadata for the site
 const siteMetadata = {
   siteTitle: "Example Project Portal Content",
@@ -15,6 +17,7 @@ module.exports = {
     {
       resolve: `@thepolicylab-projectportals/gatsby-theme-project-portal`,
       options: {
+        staticText: staticText,
         contentPath: `${__dirname}/content`,
       },
     },
