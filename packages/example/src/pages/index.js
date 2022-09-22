@@ -8,8 +8,10 @@ import {
   Feature,
   ShareProject,
   SectionOfItem,
+  SiteMetadata,
   Cards,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
+import { useSiteMetadata } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/hooks"
 
 var markdownContent = `
 # Example Markdown Content
@@ -59,6 +61,7 @@ var sample_card = [
 ]
 
 const Index = () => {
+  const meta = useSiteMetadata()
   return (
     <>
       <DevelopmentBanner />
@@ -71,6 +74,7 @@ const Index = () => {
       <Feature label="Test" className="test" value={["test"]} />
       <ShareProject />
       <SectionOfItem label="Section of Items" value={markdownContent} />
+      <SiteMetadata description={markdownContent} title={meta.title} />
       <Cards nodes={sample_card} />
     </>
   )
