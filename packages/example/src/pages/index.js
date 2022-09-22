@@ -8,8 +8,9 @@ import {
   Feature,
   ShareProject,
   SectionOfItem,
-  Cards,
+  SiteMetadata,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
+import { useSiteMetadata } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/hooks"
 
 var markdownContent = `
 # Example Markdown Content
@@ -25,40 +26,8 @@ In tristique dolor porttitor magna tincidunt blandit. Suspendisse vel orci ut ni
 Maecenas eget facilisis risus. Nunc dignissim ante nec mauris sollicitudin, ac aliquam turpis ullamcorper. 
 `
 
-var sample_card = [
-  {
-    data: {
-      question: "Test Question?",
-      partnerName: "Example",
-      slug: "test-project",
-      summary: "Test Summary\n",
-      status: "open",
-      opportunityCloses: "2022-03-04",
-      startDate: "2022-01-03",
-      endDate: "2022-03-04",
-      agency: "Sample Agency",
-      topics: ["Test"],
-      deliverable: "- Test.\n- Test.\n- Test.\n",
-      purpose: "- Sample.",
-      expertise: "- Testing.\n- Testing.\n",
-      requirement: "None\n",
-      keyDates:
-        "We are ready to begin the project as soon as we identify a collaborator.\n",
-      priorResearch:
-        "None, but we will share project background with our selected collaborator.\n",
-      statusOfData: "Testing\n",
-      fundingInfo: "- Test.\n- Test.\n",
-      commitment: "10 hours a week",
-      contactName: "Sue DeNym",
-      contactTitle: "The Boss",
-      contactEmail: "me@me.com",
-      lastModified: "2022-05-27T16:34:04.000Z",
-      created: "2021-11-04T15:49:30.000Z",
-    },
-  },
-]
-
 const Index = () => {
+  const meta = useSiteMetadata()
   return (
     <>
       <DevelopmentBanner />
@@ -71,7 +40,7 @@ const Index = () => {
       <Feature label="Test" className="test" value={["test"]} />
       <ShareProject />
       <SectionOfItem label="Section of Items" value={markdownContent} />
-      <Cards nodes={sample_card} />
+      <SiteMetadata description={markdownContent} title={meta.title} />
     </>
   )
 }

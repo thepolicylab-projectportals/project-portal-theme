@@ -1,6 +1,6 @@
 {
   "name": "@thepolicylab-projectportals/gatsby-theme-project-portal",
-  "version": "2.0.26",
+  "version": "2.0.30",
   "main": "index.js",
   "author": "John Gerrard Holland <john_holland1@brown.edu>",
   "license": "MIT",
@@ -10,17 +10,18 @@
     "react-dom": "^18.2.0"
   },
   "dependencies": {
-    "gatsby-plugin-image": "^2.21.0",
+    "gatsby-plugin-postcss": "^5.1.0",
     "gatsby-source-filesystem": "^4.1.0",
     "markdown-to-jsx": "^7.1.7",
-    "moment": "^2.29.4",
+    "prop-types": "^15.7.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
     "react-icons": "^4.4.0",
     "react-share": "^4.4.0"
   },
   "devDependencies": {
-    "gatsby": "^4.0.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "gatsby": "^4.0.0"
   },
   "repository": {
     "type": "git",
