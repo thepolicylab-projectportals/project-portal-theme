@@ -15,7 +15,6 @@
     "gatsby-plugin-postcss": "^5.1.0",
     "gatsby-plugin-sharp": "^4.20.0",
     "gatsby-source-filesystem": "^4.1.0",
-    "gatsby-transformer-sharp": "^4.20.0",
     "markdown-to-jsx": "^7.1.7",
     "prop-types": "^15.7.2",
     "react": "^18.2.0",

@@ -74,11 +74,8 @@ const Index = () => {
       <Feature label="Test" className="test" value={["test"]} />
       <ShareProject />
       <SectionOfItem label="Section of Items" value={markdownContent} />
-<<<<<<<<< Temporary merge branch 1
       <Cards nodes={sample_card} />
-=========
       <SiteMetadata description={markdownContent} title={meta.title} />
->>>>>>>>> Temporary merge branch 2
     </>
   )
 }
