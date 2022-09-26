@@ -13,11 +13,11 @@
     "gatsby-plugin-postcss": "^5.1.0",
     "gatsby-source-filesystem": "^4.1.0",
     "markdown-to-jsx": "^7.1.7",
+    "moment": "^2.29.4",
     "prop-types": "^15.7.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
-    "moment": "^2.29.4",
     "react-icons": "^4.4.0",
     "react-share": "^4.4.0"
   },
