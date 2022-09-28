@@ -10,6 +10,7 @@ import {
   SectionOfItem,
   Cards,
   SiteMetadata,
+  BottomBanner,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
 import { useSiteMetadata } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/hooks"
 
@@ -76,6 +77,7 @@ const Index = () => {
       <SectionOfItem label="Section of Items" value={markdownContent} />
       <Cards nodes={sample_card} />
       <SiteMetadata description={markdownContent} title={meta.title} />
+      <BottomBanner />
     </>
   )
 }

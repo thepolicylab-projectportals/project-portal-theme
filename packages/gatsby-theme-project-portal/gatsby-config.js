@@ -24,6 +24,17 @@ module.exports = (themeOptions) => {
           path: themeOptions.contentPath,
         },
       },
+      {
+        resolve: `gatsby-source-filesystem`,
+        options: {
+          name: `images`,
+          path: themeOptions.imagePath,
+        },
+      },
+      `gatsby-plugin-image`,
+      `gatsby-plugin-sharp`,
+      `gatsby-transformer-sharp`,
+      `gatsby-transformer-remark`,
     ],
   }
 }

@@ -8,7 +8,7 @@ import { useSiteStaticText } from "../hooks/useSiteStaticText"
 export const BottomBanner = () => {
   const { logo } = useStaticQuery(graphql`
     query {
-      logo: file(relativePath: { regex: "/^rd_logo.png$/" }) {
+      logo: file(relativePath: { regex: "/rd_logo.png/" }) {
         childImageSharp {
           gatsbyImageData(width: 160)
         }

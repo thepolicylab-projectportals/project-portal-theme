@@ -12,9 +12,5 @@
   ],
   "devDependencies": {
     "prettier": "^2.7.1"
-  },
-  "dependencies": {
-    "gatsby-plugin-image": "^2.23.1",
-    "gatsby-source-filesystem": "^4.23.0"
   }
 }
