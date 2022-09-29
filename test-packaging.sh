@@ -158,7 +158,7 @@ package-and-install () {
     echo "new temporary directory: $testDir"
 
     # Add files we need to ensure the installer looks in the right place for the package
-    cp ./packages/gatsby-theme-project-portal/{.npmrc,.yarnrc.yml} "$testDir" || die "couldn't copy rc-files"
+    cp ./packages/gatsby-theme-project-portal/.npmrc "$testDir" || die "couldn't copy rc-files"
 
     case "${initMethod}" in
       empty) {
