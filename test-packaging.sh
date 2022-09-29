@@ -145,7 +145,7 @@ package-and-install () {
       };;
       publish) {
         # Publish the theme as a new version which will automatically be installed
-         yarn workspace "$themeName" version --patch || die "If this fails, install 'yarn plugin import version' and rerun."
+         yarn workspace "$themeName" version --prepatch || die "If this fails, install 'yarn plugin import version' and rerun."
 
         # Publish the theme
         yarn workspace "$themeName" npm publish --tag "$publishTag" || die "If this fails, install 'yarn workspace $themeName npm login --publish' and rerun."
