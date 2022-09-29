@@ -55,7 +55,7 @@ const sample_card = {
   created: "2021-11-04T15:49:30.000Z",
 }
 
-var sample_cards = [
+const sample_cards = [
   {
     data: sample_card,
   },
