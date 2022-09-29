@@ -6,15 +6,15 @@
   - [📁`defaults`](./packages/defaults) is a completely empty Gatsby site which imports the theme and builds successfully, but does nothing else. It shows the Gatsby 404 page when you load the site. (This is intentional.)
   - [📁`example`](./packages/example) is a site which uses the components and queries from the theme, and should grow to reflect a minimum working site.
   - [📁`gatsby-theme-project-portal`](./packages/gatsby-theme-project-portal) is the theme and incorporates all the shared components, layouts, templates, reused queries, and styling. It should be imported into the site as a `theme`.
-- [📄`.pnp.cjs`](.pnp.cjs) and [📄`.pnp.loader.mjs`](.pnp.loader.mjs) are files created by `yarn` and should be modified only by `yarn`.
 - [📄`.prettierrc`](.prettierrc) is a configuration file for the `prettier` JavaScript formatter.
 - [📄`package.json`](package.json) is the config file for the `yarn` workspaces we use when developing the theme.
 - [📄`test-packaging.sh`](test-packaging.sh) contains `zsh` functions used for testing the packaging, publishing, and building of the sites without using `yarn` workspaces (which was the main problem with the first implementation of the theme).
 - [📄`yarn.lock`](yarn.lock) lists all the current package version used when setting up the workspaces.
-- [📁`.yarn`](./.yarn) has the settings and node modules for the yarn workspaces.
-  - [📁`cache`](./.yarn/cache) contains current versions of the node modules being used in the workspaces. When you run `yarn install`, these are unpacked *à la* `node modules` into the `unplugged` directory.
-  - [📁`unplugged`](./.yarn/unplugged) contains unpacked node packages, and replaces the `node_modules` directory of `npm`.
+- [📁`.yarn`](./.yarn) has the settings and node packages for the yarn workspaces.
+  - [📁`releases`](./.yarn/releases) contains the current version of `yarn` used in the project.
   - [📁`plugins`](./.yarn/plugins) contains current versions of the yarn plugins being used in the workspaces.
+  - [📁`cache`](./.yarn/cache) contains current versions of the node modules being used in the workspaces.
+- [📁`node_modules`](./node_modules) When you run `yarn install`, the packages from `./.yarn/cache` are unpacked here.
 - [📁`artifacts`](./artifacts) is not checked in to the repository, but is where the `yarn pack` command in the test scripts outputs the `.tgz` file containing the theme.
 
 ## Getting Started with Development
@@ -26,7 +26,7 @@
 
 ### Install Dependencies
 
-You can install the dependencies (including `node` 18 and `yarn` 3) by running:
+You can install the dependencies (including `node` 18 and `yarn` 1) by running:
 ```zsh
 brew bundle
 ```
@@ -55,10 +55,10 @@ Run the packaging, build the example site, and serve it locally:
 package-and-install -m pack -t packages/example/ -s
 ```
 
-Please note `yarn` version shoud be 3.2.3. if you encounter error running the script above indicating that the process is using `yarn v1.22.19`, run the following command in the global shell.  
+Please note `yarn` version should be `v1.22.19`. Check it using: 
 
 ```
-yarn set version berry
+yarn -v
 ```
 
 ### Testing
