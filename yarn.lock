@@ -2601,11 +2601,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@thepolicylab-projectportals/gatsby-theme-project-portal@^2.0.26, @thepolicylab-projectportals/gatsby-theme-project-portal@workspace:packages/gatsby-theme-project-portal":
+"@thepolicylab-projectportals/gatsby-theme-project-portal@^2.0.30, @thepolicylab-projectportals/gatsby-theme-project-portal@workspace:packages/gatsby-theme-project-portal":
   version: 0.0.0-use.local
   resolution: "@thepolicylab-projectportals/gatsby-theme-project-portal@workspace:packages/gatsby-theme-project-portal"
   dependencies:
     gatsby: ^4.0.0
+    gatsby-source-filesystem: ^4.1.0
     markdown-to-jsx: ^7.1.7
     moment: ^2.29.4
     react: ^18.2.0
@@ -5132,7 +5133,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "defaults@workspace:packages/defaults"
   dependencies:
-    "@thepolicylab-projectportals/gatsby-theme-project-portal": ^2.0.26
+    "@thepolicylab-projectportals/gatsby-theme-project-portal": ^2.0.30
     gatsby: ^4.22.1
     react: ^18.1.0
     react-dom: ^18.1.0
@@ -6085,8 +6086,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "example@workspace:packages/example"
   dependencies:
-    "@thepolicylab-projectportals/gatsby-theme-project-portal": ^2.0.26
+    "@thepolicylab-projectportals/gatsby-theme-project-portal": ^2.0.30
     gatsby: ^4.22.1
+    gatsby-source-filesystem: ^4.1.0
     react: ^18.1.0
     react-dom: ^18.1.0
   languageName: unknown
@@ -6333,7 +6335,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"file-type@npm:^16.5.3":
+"file-type@npm:^16.5.3, file-type@npm:^16.5.4":
   version: 16.5.4
   resolution: "file-type@npm:16.5.4"
   dependencies:
@@ -6699,6 +6701,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+"gatsby-core-utils@npm:^3.24.0":
+  version: 3.24.0
+  resolution: "gatsby-core-utils@npm:3.24.0"
+  dependencies:
+    "@babel/runtime": ^7.15.4
+    ci-info: 2.0.0
+    configstore: ^5.0.1
+    fastq: ^1.13.0
+    file-type: ^16.5.3
+    fs-extra: ^10.1.0
+    got: ^11.8.5
+    import-from: ^4.0.0
+    lmdb: 2.5.3
+    lock: ^1.1.0
+    node-object-hash: ^2.3.10
+    proper-lockfile: ^4.1.2
+    resolve-from: ^5.0.0
+    tmp: ^0.2.1
+    xdg-basedir: ^4.0.0
+  checksum: 1dfd7bc4b01a99693215bbbd88088f842d6a32228ef2122c1602f9d458c2d04054af467c6c0e5f093986d6271740573b5903ae6bcb2d5b6b0d11ea9c56d4dc8d
+  languageName: node
+  linkType: hard
+
 "gatsby-graphiql-explorer@npm:^2.22.0":
   version: 2.22.0
   resolution: "gatsby-graphiql-explorer@npm:2.22.0"
@@ -6870,6 +6895,26 @@ __metadata:
     "@types/sharp": ^0.30.5
     sharp: ^0.30.7
   checksum: 9333008ea3ce13c10529d4ce4448d18d1f98466d469d146c65a8e8aeff2404be7a34e88345b6e900b603501dd164c0cd2ef291727dbee60b13f4f9723a947433
+  languageName: node
+  linkType: hard
+
+"gatsby-source-filesystem@npm:^4.1.0":
+  version: 4.24.0
+  resolution: "gatsby-source-filesystem@npm:4.24.0"
+  dependencies:
+    "@babel/runtime": ^7.15.4
+    chokidar: ^3.5.3
+    file-type: ^16.5.4
+    fs-extra: ^10.1.0
+    gatsby-core-utils: ^3.24.0
+    md5-file: ^5.0.0
+    mime: ^2.5.2
+    pretty-bytes: ^5.4.1
+    valid-url: ^1.0.9
+    xstate: 4.32.1
+  peerDependencies:
+    gatsby: ^4.0.0-next
+  checksum: 6e45cf46db2862b411db57733276dcecabc869b52b24b43d3643a5132d2b4d682fec589ab9fae7fdf341abcfac995d5849fd98c870070a6d3fcf1f096439e607
   languageName: node
   linkType: hard
 
@@ -10537,6 +10582,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"pretty-bytes@npm:^5.4.1":
+  version: 5.6.0
+  resolution: "pretty-bytes@npm:5.6.0"
+  checksum: 9c082500d1e93434b5b291bd651662936b8bd6204ec9fa17d563116a192d6d86b98f6d328526b4e8d783c07d5499e2614a807520249692da9ec81564b2f439cd
+  languageName: node
+  linkType: hard
+
 "pretty-error@npm:^2.1.2":
   version: 2.1.2
   resolution: "pretty-error@npm:2.1.2"
@@ -12691,6 +12743,13 @@ __metadata:
   version: 2.3.0
   resolution: "v8-compile-cache@npm:2.3.0"
   checksum: adb0a271eaa2297f2f4c536acbfee872d0dd26ec2d76f66921aa7fc437319132773483344207bdbeee169225f4739016d8d2dbf0553913a52bb34da6d0334f8e
+  languageName: node
+  linkType: hard
+
+"valid-url@npm:^1.0.9":
+  version: 1.0.9
+  resolution: "valid-url@npm:1.0.9"
+  checksum: 3ecb030559404441c2cf104cbabab8770efb0f36d117db03d1081052ef133015a68806148ce954bb4dd0b5c42c14b709a88783c93d66b0916cb67ba771c98702
   languageName: node
   linkType: hard
 
