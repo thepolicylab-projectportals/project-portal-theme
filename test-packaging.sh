@@ -137,7 +137,7 @@ package-and-install () {
         export packPath
 
         # Create the pack file itself
-        yarn workspace "$themeName" pack --out "$packPath" || die "couldn't create pack-file directory"
+        yarn workspace "$themeName" pack --filename "$packPath" || die "couldn't create pack-file directory"
       };;
       newest) {
         # this doesn't do anything special – we just install as usual
@@ -178,7 +178,7 @@ package-and-install () {
         ( cd "$testDir" || die "Failed to cd to testDir '$testDir'"
           case "${packageMethod}" in
             pack) {
-            echo $(which yarn); yarn add "$packPath" || die "failed to add dependency $packPath."
+            yarn add "$packPath" || die "failed to add dependency $packPath."
             };;
             *) yarn add "$themeName@$publishTag" || die "failed to specify theme version $themeName@$publishTag" ;;
           esac
