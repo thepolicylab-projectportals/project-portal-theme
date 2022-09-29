@@ -1,0 +1,15 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="yarn workspace example develop" type="js.build_tools.npm">
+    <package-json value="$PROJECT_DIR$/packages/example/package.json" />
+    <command value="run" />
+    <scripts>
+      <script value="develop" />
+    </scripts>
+    <arguments value="--verbose" />
+    <node-interpreter value="project" />
+    <envs>
+      <env name="PORT" value="8000" />
+    </envs>
+    <method v="2" />
+  </configuration>
+</component>
