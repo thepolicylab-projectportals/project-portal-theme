@@ -8,16 +8,16 @@ import {
   Feature,
   ShareProject,
   SectionOfItem,
-  SiteMetadata,
+  Card,
   Cards,
   Navbar,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
-import { useSiteMetadata } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/hooks"
 
 import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 var markdownContent = `
+
 # Example Markdown Content
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit ac nunc et aliquet. 
@@ -31,36 +31,44 @@ In tristique dolor porttitor magna tincidunt blandit. Suspendisse vel orci ut ni
 Maecenas eget facilisis risus. Nunc dignissim ante nec mauris sollicitudin, ac aliquam turpis ullamcorper. 
 `
 
-var sample_card = [
+const sample_card = {
+  question: "Test Question?",
+  partnerName: "Example",
+  slug: "test-project",
+  summary: "Test Summary\n",
+  status: "open",
+  opportunityCloses: "2022-03-04",
+  startDate: "2022-01-03",
+  endDate: "2022-03-04",
+  agency: "Sample Agency",
+  topics: ["Test"],
+  deliverable: "- Test.\n- Test.\n- Test.\n",
+  purpose: "- Sample.",
+  expertise: "- Testing.\n- Testing.\n",
+  requirement: "None\n",
+  keyDates:
+    "We are ready to begin the project as soon as we identify a collaborator.\n",
+  priorResearch:
+    "None, but we will share project background with our selected collaborator.\n",
+  statusOfData: "Testing\n",
+  fundingInfo: "- Test.\n- Test.\n",
+  commitment: "10 hours a week",
+  contactName: "Sue DeNym",
+  contactTitle: "The Boss",
+  contactEmail: "me@me.com",
+  lastModified: "2022-05-27T16:34:04.000Z",
+  created: "2021-11-04T15:49:30.000Z",
+}
+
+const sample_cards = [
   {
-    data: {
-      question: "Test Question?",
-      partnerName: "Example",
-      slug: "test-project",
-      summary: "Test Summary\n",
-      status: "open",
-      opportunityCloses: "2022-03-04",
-      startDate: "2022-01-03",
-      endDate: "2022-03-04",
-      agency: "Sample Agency",
-      topics: ["Test"],
-      deliverable: "- Test.\n- Test.\n- Test.\n",
-      purpose: "- Sample.",
-      expertise: "- Testing.\n- Testing.\n",
-      requirement: "None\n",
-      keyDates:
-        "We are ready to begin the project as soon as we identify a collaborator.\n",
-      priorResearch:
-        "None, but we will share project background with our selected collaborator.\n",
-      statusOfData: "Testing\n",
-      fundingInfo: "- Test.\n- Test.\n",
-      commitment: "10 hours a week",
-      contactName: "Sue DeNym",
-      contactTitle: "The Boss",
-      contactEmail: "me@me.com",
-      lastModified: "2022-05-27T16:34:04.000Z",
-      created: "2021-11-04T15:49:30.000Z",
-    },
+    data: sample_card,
+  },
+  {
+    data: sample_card,
+  },
+  {
+    data: sample_card,
   },
 ]
 
@@ -114,8 +122,8 @@ const Index = () => {
       <Feature label="Test" className="test" value={["test"]} />
       <ShareProject />
       <SectionOfItem label="Section of Items" value={markdownContent} />
-      <SiteMetadata description={markdownContent} title={meta.title} />
-      <Cards nodes={sample_card} />
+      <Card {...sample_card} />
+      <Cards nodes={sample_cards} />
     </>
   )
 }
