@@ -12,7 +12,6 @@
 - [📄`yarn.lock`](yarn.lock) lists all the current package version used when setting up the workspaces.
 - [📁`.yarn`](./.yarn) has the settings and node packages for the yarn workspaces.
   - [📁`releases`](./.yarn/releases) contains the current version of `yarn` used in the project.
-  - [📁`plugins`](./.yarn/plugins) contains current versions of the yarn plugins being used in the workspaces.
   - [📁`cache`](./.yarn/cache) contains current versions of the node modules being used in the workspaces.
 - [📁`node_modules`](./node_modules) When you run `yarn install`, the packages from `./.yarn/cache` are unpacked here.
 - [📁`artifacts`](./artifacts) is not checked in to the repository, but is where the `yarn pack` command in the test scripts outputs the `.tgz` file containing the theme.
