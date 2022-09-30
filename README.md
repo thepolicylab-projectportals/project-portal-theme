@@ -114,21 +114,53 @@ Process:
 
 #### Update Version Number
 
-> **⚠️ Warning**: these commands automatically create a new local commit with the new version number.
+The process for updating the theme version number is as follows:
+1. Update the theme version number.
+2. Update the example sites' version numbers to match.
+3. Commit the code.
+
+You can manually update the theme version to the next pre-release version `#.#.#-ɑ`:
+```zsh
+yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" version --prerelease --no-git-tag-version
+```
 
 You can manually update the theme version to the next patch version `#.#.z`:
 ```zsh
-yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" version --patch
+yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" version --patch --no-git-tag-version
 ```
 
 Manually update the theme version to the next minor version `#.y.0`:
 ```zsh
-yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" version --minor
+yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" version --minor --no-git-tag-version 
 ```
 
 Manually update the theme version to the next major version `x.0.0`:
 ```zsh
-yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" version --major
+yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" version --major --no-git-tag-version 
+```
+
+**Important:** if you update the theme version number, you may also need to update the referenced version number in the sites. Do that by modifying the sites' `package.json` files. 
+
+Check that this is done by ensuring that all the version numbers listed by the following command are consistent:
+
+```zsh
+{
+  theme_package_json="packages/gatsby-theme-project-portal/package.json"
+  echo "file line tag version_number"
+  echo "$theme_package_json " $(sed -n '/.*"version": "\([^"]*\)",.*$/{=;p;}' "$theme_package_json");
+  for package_json in packages/{example,defaults}/package.json
+  do
+    echo "$package_json " $(sed -n '/gatsby-theme-project-portal/{=;p;}' "$package_json");
+  done
+} | column -t
+```
+
+```zsh
+version=$(sed -n 's/.*"version": "\([^"]*\)",.*$/\1/p' "packages/gatsby-theme-project-portal/package.json")
+echo $version
+for package_json in packages/package.json
+do
+  sed -n -i 's/"@thepolicylab-projectportals/gatsby-theme-project-portal": "\([^"]*\)",.*$//' "$package_json"
 ```
 
 #### Login to GitHub NPM Repository
