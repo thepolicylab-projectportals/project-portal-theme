@@ -10,6 +10,7 @@ import {
   SectionOfItem,
   Card,
   Cards,
+  Contact
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
 
 const markdownContent = `
@@ -82,6 +83,7 @@ const Index = () => {
       <SectionOfItem label="Section of Items" value={markdownContent} />
       <Card {...sample_card} />
       <Cards nodes={sample_cards} />
+      <Contact
     </>
   )
 }
