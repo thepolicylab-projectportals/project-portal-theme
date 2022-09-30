@@ -93,60 +93,64 @@ package-and-install -h
 
 #### Danger Zone: Publishing
 
+> **⚠️ Danger**: This will genuinely create a new version of the package on the NPM Repository and use this to build the example site.
+
+
 There is an additional script, 
 ```zsh
-package-and-install -m publish -t packages/example/ -s
+package-and-install -m publish -p testPackage -t packages/example/ -s
 ```
 ... which runs the full publish cycle on GitHub and builds a new site using that package. 
-
-**Beware**: This will genuinely create a new version of the package on the NPM Repository and use this to build the example site.
+It will be tagged as a pre-release version.
 
 ### Create a New Package Version (GitHub)
 
 Process:
-- First update the version number (patch, minor or major version).
-- Then, publish the package
+- Update the version number (patch, minor or major version).
+- Publish the package
 
 #### Update Version Number
 
-Manually update the theme version to the next patch version `#.#.z`:
+> **⚠️ Danger**: these commands automatically create a new commit with the new version number.
+
+You can manually update the theme version to the next patch version `#.#.z`:
 ```zsh
-yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" version patch
+yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" version --patch
 ```
 
 Manually update the theme version to the next minor version `#.y.0`:
 ```zsh
-yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" version minor
+yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" version --minor
 ```
 
 Manually update the theme version to the next major version `x.0.0`:
 ```zsh
-yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" version major
+yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" version --major
 ```
-
-**Note**: 
-- If these commands fail, run
-  ```zsh
-  yarn plugin import version
-  ```
-  and then rerun.
-- These commands also update the version numbers in the site workspaces.
 
 #### Login to GitHub NPM Repository
 
-Before you publish the theme, you'll need to log in to the GitHub Package Repository:
+Before you publish the theme, you'll need to store a token for the GitHub package repository.
+Do this by adding a file in your home directory called `.npmrc`, and which should look like this:
 ```zsh
-yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" npm login --publish
+//npm.pkg.github.com/:_authToken=ghp_abcdef123456abcdef123456bcdef123456a
 ``` 
-
-- Use the username `__token__`.
-- The scopes required are shown on screen. Paste in a valid token from your GitHub account.
+... where the authentication token after the `=` comes from your [GitHub > Settings > Developer settings > Personal access tokens](https://github.com/settings/tokens). The token should have the following scopes:
+- repo (all)
+- write:packages, 
+- read:packages, 
+- delete:packages
 
 #### Publish the theme
-To publish a new version of the theme:
+
+> **⚠️ Danger**: this command automatically creates a new published version of the theme.
+
+To publish a new version of the theme, execute:
 ```zsh
-yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" npm publish
+yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" publish
 ```
+
+
 
 ### Use Prettier Code Formatter in WebStorm
 
