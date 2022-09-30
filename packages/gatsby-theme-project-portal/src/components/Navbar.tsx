@@ -36,6 +36,7 @@ const NavbarItem: FunctionComponent<NavbarItemProps> = ({
 }
 
 interface NavbarProps {
+  title: string
   activePage?: string
   image: object
   pages: {
@@ -46,6 +47,7 @@ interface NavbarProps {
 }
 
 export const Navbar: FunctionComponent<NavbarProps> = ({
+  title,
   activePage,
   image,
   pages,
@@ -105,7 +107,7 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
             >
               <>
                 {image}
-                {"SAMPLE TITLE"}
+                {title}
               </>
             </Link>
           </div>
