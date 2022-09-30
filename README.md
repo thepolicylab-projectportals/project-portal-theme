@@ -156,8 +156,6 @@ To publish a new version of the theme, execute:
 yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" publish
 ```
 
-
-
 ### Use Prettier Code Formatter in WebStorm
 
 To set up the prettier code formatter, first install the dependencies (`yarn install`) and then ensure that `prettier` is activated in the dialog box: WebStorm > Preferences > Languages and Frameworks > JavaScript > Prettier. 
