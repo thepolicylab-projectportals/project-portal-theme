@@ -72,7 +72,7 @@ const sample_cards = [
   },
 ]
 
-var pages = [
+const pages = [
   {
     name: "First Nav",
     link: "/",
@@ -86,7 +86,6 @@ var pages = [
 ]
 
 const Index = () => {
-  const meta = useSiteMetadata()
   const { logo } = useStaticQuery(graphql`
     query {
       logo: file(relativePath: { regex: "/^logo.png$/" }) {
@@ -96,7 +95,6 @@ const Index = () => {
       }
     }
   `)
-
   const image = getImage(logo)
 
   return (
