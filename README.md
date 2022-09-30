@@ -12,8 +12,7 @@
 - [📄`yarn.lock`](yarn.lock) lists all the current package version used when setting up the workspaces.
 - [📄`Brewfile`](Brewfile) can be used by the macOS homebrew package manager to install project dependencies. For more info, run `brew bundle --help` or visit [https://brew.sh](https://brew.sh).
 - [📁`.yarn`](./.yarn) has the settings and node packages for the yarn workspaces.
-  - [📁`releases`](./.yarn/releases) contains the current version of `yarn` used in the project.
-  - [📁`cache`](./.yarn/cache) contains current versions of the node modules being used in the workspaces.
+    - [📁`cache`](./.yarn/cache) contains current versions of the node modules being used in the workspaces.
 - [📁`node_modules`](./node_modules) When you run `yarn install`, the packages from `./.yarn/cache` are unpacked here.
 - [📁`artifacts`](./artifacts) is not checked in to the repository, but is where the `yarn pack` command in the test scripts outputs the `.tgz` file containing the theme.
 
@@ -94,9 +93,7 @@ package-and-install -h
 
 > **Warning**:
 >
-> These commands automatically create:
-> - a commit for each new version number
-> - a published package on the GitHub NPM Repository.
+> These commands automatically create a published package on the GitHub NPM Repository.
 
 To update the package version to a new pre-release patch version, then run the full publish cycle on GitHub and build the example site using that package, execute: 
 ```zsh
@@ -117,22 +114,48 @@ Process:
 
 #### Update Version Number
 
-> **⚠️ Warning**: these commands automatically create a new local commit with the new version number.
+The process for updating the theme version number is as follows:
+1. Update the theme version number.
+2. Update the example sites' version numbers to match.
+3. Commit the code.
+
+You can manually update the theme version to the next pre-release version `#.#.#-ɑ`:
+```zsh
+yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" version --prerelease --no-git-tag-version
+```
 
 You can manually update the theme version to the next patch version `#.#.z`:
 ```zsh
-yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" version --patch
+yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" version --patch --no-git-tag-version
 ```
 
 Manually update the theme version to the next minor version `#.y.0`:
 ```zsh
-yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" version --minor
+yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" version --minor --no-git-tag-version 
 ```
 
 Manually update the theme version to the next major version `x.0.0`:
 ```zsh
-yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" version --major
+yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" version --major --no-git-tag-version 
 ```
+
+**Important:** if you update the theme version number, you may also need to update the referenced version number in the sites. Do that by modifying the sites' `package.json` files. 
+
+Check that this is done by ensuring that all the version numbers listed by the following command are consistent:
+
+```zsh
+{
+  theme_package_json="packages/gatsby-theme-project-portal/package.json"
+  echo "file line tag version_number"
+  echo "$theme_package_json " $(sed -n '/.*"version": "\([^"]*\)",.*$/{=;p;}' "$theme_package_json");
+  for package_json in packages/{example,defaults}/package.json
+  do
+    echo "$package_json " $(sed -n '/gatsby-theme-project-portal/{=;p;}' "$package_json");
+  done
+} | column -t
+```
+
+Once you have done this, commit the updated version of all the `package.json` files.
 
 #### Login to GitHub NPM Repository
 
