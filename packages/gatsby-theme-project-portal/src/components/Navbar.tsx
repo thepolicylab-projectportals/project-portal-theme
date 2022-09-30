@@ -103,8 +103,10 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
               className="block mx-4 my-auto overflow-hidden text-h4 text-black flex gap-4 items-center whitespace-nowrap"
               to="/"
             >
-              {image}
-              {"SAMPLE TITLE"}
+              <>
+                {image}
+                {"SAMPLE TITLE"}
+              </>
             </Link>
           </div>
           <div
