@@ -101,21 +101,31 @@ const Index = () => {
     }
   `)
   const image = getImage(logo)
+  const nav_image = (
+    <GatsbyImage
+      className="hidden xl:inline-block"
+      image={image}
+      alt={"nav_logo"}
+    />
+  )
 
   return (
     <>
       <DevelopmentBanner />
+      {/*Normal Navbar:*/}
       <NavbarLayout
         title="Example Site"
         label="test"
-        image={
-          <GatsbyImage
-            className="hidden xl:inline-block"
-            image={image}
-            alt={"nav_logo"}
-          />
-        }
+        image={nav_image}
         pages={pages}
+      />
+      {/*Navbar with Active Page:*/}
+      <NavbarLayout
+        title="Example Site"
+        label="test"
+        image={nav_image}
+        pages={pages}
+        activePage="First Nav"
       />
       <BackIcon />
       <ForwardIcon />
