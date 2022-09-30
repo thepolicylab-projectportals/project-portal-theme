@@ -83,6 +83,11 @@ const pages = [
     link: "/ongoing",
     show: true,
   },
+  {
+    name: "Not-Shown Nav",
+    link: "/missing",
+    show: false,
+  },
 ]
 
 const Index = () => {
