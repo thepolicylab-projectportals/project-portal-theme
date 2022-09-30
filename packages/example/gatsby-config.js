@@ -1,9 +1,13 @@
 module.exports = {
   plugins: [
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
-      resolve: `@thepolicylab-projectportals/gatsby-theme-project-portal`,
+      resolve: `gatsby-source-filesystem`,
       options: {
-        contentPath: `${__dirname}/content`,
+        name: `images`,
+        path: `${__dirname}/src/images`,
       },
     },
   ],

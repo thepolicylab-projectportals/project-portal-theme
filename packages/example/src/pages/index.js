@@ -13,6 +13,9 @@ import {
   BottomBanner,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
 
+import { useStaticQuery, graphql } from "gatsby"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
+
 var markdownContent = `
 # Example Markdown Content
 
@@ -59,10 +62,32 @@ var sample_card = [
     },
   },
 ]
+var staticText = "staticText"
 
 const Index = () => {
+  const { logo } = useStaticQuery(graphql`
+    query {
+      logo: file(relativePath: { regex: "/rd_logo.png/" }) {
+        childImageSharp {
+          gatsbyImageData(width: 160)
+        }
+      }
+    }
+  `)
+  const logoImage = getImage(logo)
+
   return (
     <>
+      <BottomBanner
+        logoimage={
+          <GatsbyImage
+            className="inline-block"
+            image={logoImage}
+            alt="R+D logo"
+          />
+        }
+        text={staticText}
+      />
       <DevelopmentBanner />
       <BackIcon />
       <ForwardIcon />
