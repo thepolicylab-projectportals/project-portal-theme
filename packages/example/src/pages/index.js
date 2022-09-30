@@ -60,10 +60,10 @@ const sample_cards = [
     data: sample_card,
   },
   {
-    data: sample_card,
+    data: { ...sample_card, ...{ status: "ongoing" } },
   },
   {
-    data: sample_card,
+    data: { ...sample_card, ...{ status: "completed" } },
   },
 ]
 
