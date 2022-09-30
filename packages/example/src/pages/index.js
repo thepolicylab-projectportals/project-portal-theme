@@ -10,7 +10,7 @@ import {
   SectionOfItem,
   Card,
   Cards,
-  Navbar,
+  NavbarLayout,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
 
 import { useStaticQuery, graphql } from "gatsby"
@@ -100,7 +100,8 @@ const Index = () => {
   return (
     <>
       <DevelopmentBanner />
-      <Navbar
+      <NavbarLayout
+        title="Example Site"
         label="test"
         image={
           <GatsbyImage

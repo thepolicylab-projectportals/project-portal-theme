@@ -1,9 +1,6 @@
 import React, { FunctionComponent } from "react"
-import { Link, withPrefix, useStaticQuery, graphql } from "gatsby"
+import { Link } from "gatsby"
 import { FaBars, FaTimes } from "react-icons/fa"
-//import { GatsbyImage, getImage } from "gatsby-plugin-image"
-
-//import { useSiteMetadata } from "../hooks/useSiteMetadata"
 
 interface NavbarItemProps {
   name: string
@@ -46,43 +43,13 @@ interface NavbarProps {
   }[]
 }
 
-export const Navbar: FunctionComponent<NavbarProps> = ({
+export const NavbarLayout: FunctionComponent<NavbarProps> = ({
   title,
   activePage,
   image,
   pages,
 }: NavbarProps) => {
   const [navbarOpen, setNavbarOpen] = React.useState(false)
-  /**
-  const {
-    site: {
-      siteMetadata: { title, pages },
-    },
-    logo,
-  } = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-          pages {
-            name
-            link
-            show
-          }
-        }
-      }
-      logo: file(relativePath: { regex: "/^logo.png$/" }) {
-        childImageSharp {
-          gatsbyImageData(width: 64)
-        }
-      }
-    }
-  `)
- const image = getImage(logo)
-
- const meta = useSiteMetadata()
-
-   */
   return (
     <>
       <nav
@@ -138,3 +105,41 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
     </>
   )
 }
+
+// export const Navbar: FunctionComponent<NavbarProps> = ({
+//   activePage,
+// }: NavbarProps) => {
+//   const {
+//     site: {
+//       siteMetadata: { title, pages },
+//     },
+//     logo,
+//   } = useStaticQuery(graphql`
+//     query {
+//       site {
+//         siteMetadata {
+//           title
+//           pages {
+//             name
+//             link
+//             show
+//           }
+//         }
+//       }
+//       logo: file(relativePath: { regex: "/^logo.png$/" }) {
+//         childImageSharp {
+//           gatsbyImageData(width: 64)
+//         }
+//       }
+//     }
+//   `)
+//   const image = getImage(logo)
+//   return (
+//     <NavbarLayout
+//       activePage={activePage}
+//       title={title}
+//       pages={pages}
+//       image={image}
+//     />
+//   )
+// }
