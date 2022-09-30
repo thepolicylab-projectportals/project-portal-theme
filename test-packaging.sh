@@ -145,7 +145,7 @@ package-and-install () {
       };;
       publish) {
         # Publish the theme as a new pre-release version
-        yarn workspace "$themeName" publish --tag "$publishTag" --prerelease || die "If this fails, check your ~/.npmrc file. It should look like this: //npm.pkg.github.com/:_authToken={your token here} ."
+        yarn workspace "$themeName" publish --tag "$publishTag" --prerelease --no-git-tag-version  || die "If this fails, check your ~/.npmrc file. It should look like this: //npm.pkg.github.com/:_authToken={your token here} ."
       };;
 
     esac

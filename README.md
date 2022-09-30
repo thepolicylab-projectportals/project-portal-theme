@@ -93,9 +93,7 @@ package-and-install -h
 
 > **Warning**:
 >
-> These commands automatically create:
-> - a commit for each new version number
-> - a published package on the GitHub NPM Repository.
+> These commands automatically create a published package on the GitHub NPM Repository.
 
 To update the package version to a new pre-release patch version, then run the full publish cycle on GitHub and build the example site using that package, execute: 
 ```zsh
