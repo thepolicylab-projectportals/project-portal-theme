@@ -6,15 +6,14 @@
   - [📁`defaults`](./packages/defaults) is a completely empty Gatsby site which imports the theme and builds successfully, but does nothing else. It shows the Gatsby 404 page when you load the site. (This is intentional.)
   - [📁`example`](./packages/example) is a site which uses the components and queries from the theme, and should grow to reflect a minimum working site.
   - [📁`gatsby-theme-project-portal`](./packages/gatsby-theme-project-portal) is the theme and incorporates all the shared components, layouts, templates, reused queries, and styling. It should be imported into the site as a `theme`.
-- [📄`.pnp.cjs`](.pnp.cjs) and [📄`.pnp.loader.mjs`](.pnp.loader.mjs) are files created by `yarn` and should be modified only by `yarn`.
 - [📄`.prettierrc`](.prettierrc) is a configuration file for the `prettier` JavaScript formatter.
 - [📄`package.json`](package.json) is the config file for the `yarn` workspaces we use when developing the theme.
 - [📄`test-packaging.sh`](test-packaging.sh) contains `zsh` functions used for testing the packaging, publishing, and building of the sites without using `yarn` workspaces (which was the main problem with the first implementation of the theme).
 - [📄`yarn.lock`](yarn.lock) lists all the current package version used when setting up the workspaces.
-- [📁`.yarn`](./.yarn) has the settings and node modules for the yarn workspaces.
-  - [📁`cache`](./.yarn/cache) contains current versions of the node modules being used in the workspaces. When you run `yarn install`, these are unpacked *à la* `node modules` into the `unplugged` directory.
-  - [📁`unplugged`](./.yarn/unplugged) contains unpacked node packages, and replaces the `node_modules` directory of `npm`.
-  - [📁`plugins`](./.yarn/plugins) contains current versions of the yarn plugins being used in the workspaces.
+- [📄`Brewfile`](Brewfile) can be used by the macOS homebrew package manager to install project dependencies. For more info, run `brew bundle --help` or visit [https://brew.sh](https://brew.sh).
+- [📁`.yarn`](./.yarn) has the settings and node packages for the yarn workspaces.
+    - [📁`cache`](./.yarn/cache) contains current versions of the node modules being used in the workspaces.
+- [📁`node_modules`](./node_modules) When you run `yarn install`, the packages from `./.yarn/cache` are unpacked here.
 - [📁`artifacts`](./artifacts) is not checked in to the repository, but is where the `yarn pack` command in the test scripts outputs the `.tgz` file containing the theme.
 
 ## Getting Started with Development
@@ -26,7 +25,7 @@
 
 ### Install Dependencies
 
-You can install the dependencies (including `node` 18 and `yarn` 3) by running:
+You can install the dependencies (including `node 18` and `yarn classic`) by running:
 ```zsh
 brew bundle
 ```
@@ -55,10 +54,10 @@ Run the packaging, build the example site, and serve it locally:
 package-and-install -m pack -t packages/example/ -s
 ```
 
-Please note `yarn` version shoud be 3.2.3. if you encounter error running the script above indicating that the process is using `yarn v1.22.19`, run the following command in the global shell.  
+Please note `yarn` version should be `v1.22.19`. Check it using: 
 
 ```
-yarn set version berry
+yarn -v
 ```
 
 ### Testing
@@ -76,12 +75,11 @@ run-all-local-packaging-tests
 ```
 The tests include the following site setups: 
 - Setting up an empty Gatsby site,
-- Duplicating the `packages/defaults` site,
-- Duplicating the `packages/example`,
+- Duplicating `packages/defaults`,
+- Duplicating `packages/example`,
 
-... using the theme from:
+using the theme from 
 - a local pack file (created new each time)
-- the newest version of the theme available on the GitHub registry,
 
 ... and then building the site.
 
@@ -91,61 +89,94 @@ source test-packaging.sh
 package-and-install -h
 ```
 
-#### Danger Zone: Publishing
+#### ⚠️ Danger Zone: Publishing
 
-There is an additional script, 
+> **Warning**:
+>
+> These commands automatically create a published package on the GitHub NPM Repository.
+
+To update the package version to a new pre-release patch version, then run the full publish cycle on GitHub and build the example site using that package, execute: 
 ```zsh
-package-and-install -m publish -t packages/example/ -s
+package-and-install -m publish -p testPackage -t packages/example/ -s
 ```
-... which runs the full publish cycle on GitHub and builds a new site using that package. 
 
-**Beware**: This will genuinely create a new version of the package on the NPM Repository and use this to build the example site.
+To test all the example sites (defaults, example and the empty site) with the full publishing workflow, you can run:
+```zsh
+source test-packaging.sh
+run-all-publish-packaging-tests
+```
 
 ### Create a New Package Version (GitHub)
 
 Process:
-- First update the version number (patch, minor or major version).
-- Then, publish the package
+- Update the version number (patch, minor or major version).
+- Publish the package
 
 #### Update Version Number
 
-Manually update the theme version to the next patch version `#.#.z`:
+The process for updating the theme version number is as follows:
+1. Update the theme version number.
+2. Update the example sites' version numbers to match.
+3. Commit the code.
+
+You can manually update the theme version to the next pre-release version `#.#.#-ɑ`:
 ```zsh
-yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" version patch
+yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" version --prerelease --no-git-tag-version
+```
+
+You can manually update the theme version to the next patch version `#.#.z`:
+```zsh
+yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" version --patch --no-git-tag-version
 ```
 
 Manually update the theme version to the next minor version `#.y.0`:
 ```zsh
-yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" version minor
+yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" version --minor --no-git-tag-version 
 ```
 
 Manually update the theme version to the next major version `x.0.0`:
 ```zsh
-yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" version major
+yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" version --major --no-git-tag-version 
 ```
 
-**Note**: 
-- If these commands fail, run
-  ```zsh
-  yarn plugin import version
-  ```
-  and then rerun.
-- These commands also update the version numbers in the site workspaces.
+**Important:** if you update the theme version number, you may also need to update the referenced version number in the sites. Do that by modifying the sites' `package.json` files. 
+
+Check that this is done by ensuring that all the version numbers listed by the following command are consistent:
+
+```zsh
+{
+  theme_package_json="packages/gatsby-theme-project-portal/package.json"
+  echo "file line tag version_number"
+  echo "$theme_package_json " $(sed -n '/.*"version": "\([^"]*\)",.*$/{=;p;}' "$theme_package_json");
+  for package_json in packages/{example,defaults}/package.json
+  do
+    echo "$package_json " $(sed -n '/gatsby-theme-project-portal/{=;p;}' "$package_json");
+  done
+} | column -t
+```
+
+Once you have done this, commit the updated version of all the `package.json` files.
 
 #### Login to GitHub NPM Repository
 
-Before you publish the theme, you'll need to log in to the GitHub Package Repository:
+Before you publish the theme, you'll need to store a token for the GitHub package repository.
+Do this by adding a file in your home directory called `.npmrc`, and which should look like this:
 ```zsh
-yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" npm login --publish
+//npm.pkg.github.com/:_authToken=ghp_abcdef123456abcdef123456bcdef123456a
 ``` 
-
-- Use the username `__token__`.
-- The scopes required are shown on screen. Paste in a valid token from your GitHub account.
+... where the authentication token after the `=` comes from your [GitHub > Settings > Developer settings > Personal access tokens](https://github.com/settings/tokens). The token should have the following scopes:
+- repo (all)
+- write:packages, 
+- read:packages, 
+- delete:packages
 
 #### Publish the theme
-To publish a new version of the theme:
+
+> **⚠️ Danger**: this command automatically creates a new published version of the theme.
+
+To publish a new version of the theme, execute:
 ```zsh
-yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" npm publish
+yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" publish
 ```
 
 ### Use Prettier Code Formatter in WebStorm

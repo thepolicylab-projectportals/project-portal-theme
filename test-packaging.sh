@@ -137,18 +137,15 @@ package-and-install () {
         export packPath
 
         # Create the pack file itself
-        yarn workspace "$themeName" pack --out "$packPath" || die "couldn't create pack-file directory"
+        yarn workspace "$themeName" pack --filename "$packPath" || die "couldn't create pack-file directory"
       };;
       newest) {
         # this doesn't do anything special – we just install as usual
         echo "installing from remote"
       };;
       publish) {
-        # Publish the theme as a new version which will automatically be installed
-         yarn workspace "$themeName" version patch || die "If this fails, install 'yarn plugin import version' and rerun."
-
-        # Publish the theme
-        yarn workspace "$themeName" npm publish --tag "$publishTag" || die "If this fails, install 'yarn workspace $themeName npm login --publish' and rerun."
+        # Publish the theme as a new pre-release version
+        yarn workspace "$themeName" publish --tag "$publishTag" --prerelease --no-git-tag-version  || die "If this fails, check your ~/.npmrc file. It should look like this: //npm.pkg.github.com/:_authToken={your token here} ."
       };;
 
     esac
@@ -158,7 +155,7 @@ package-and-install () {
     echo "new temporary directory: $testDir"
 
     # Add files we need to ensure the installer looks in the right place for the package
-    cp ./packages/gatsby-theme-project-portal/{.npmrc,.yarnrc.yml} "$testDir" || die "couldn't copy rc-files"
+    cp ./packages/gatsby-theme-project-portal/.npmrc "$testDir" || die "couldn't copy rc-files"
 
     case "${initMethod}" in
       empty) {
@@ -178,7 +175,7 @@ package-and-install () {
         ( cd "$testDir" || die "Failed to cd to testDir '$testDir'"
           case "${packageMethod}" in
             pack) {
-            echo $(which yarn); yarn add "$packPath" || die "failed to add dependency $packPath."
+            yarn add "$packPath" || die "failed to add dependency $packPath."
             };;
             *) yarn add "$themeName@$publishTag" || die "failed to specify theme version $themeName@$publishTag" ;;
           esac
@@ -187,9 +184,12 @@ package-and-install () {
     esac
 
 
-    # Navigate to the test directory
     (
+      # Navigate to the test directory
       cd $testDir || die "couldn't cd to testDir '$testDir'"
+
+      # Show the current version of the package.json
+      cat package.json
 
       # Install the rest of the dependencies
       yarn install || die "failed to install all dependencies"
@@ -221,7 +221,8 @@ run-all-local-packaging-tests () {
 
 run-all-publish-packaging-tests () {
   (
-    package-and-install -m publish -p testPackage -t packages/example/  || die "packaging failed: package-and-install -m publish -p testPackage -t packages/example/"
+    package-and-install -m publish -p testPackage  || die "packaging failed: package-and-install -m publish -p testPackage -t packages/example/"
+
     package-and-install -m newest -p testPackage  || die "packaging failed: package-and-install -m newest -p testPackage"
     package-and-install -m newest -p testPackage -t packages/defaults/  || die "packaging failed: package-and-install -m newest -p testPackage -t packages/defaults/"
     package-and-install -m newest -p testPackage -t packages/example/  || die "packaging failed: package-and-install -m newest -p testPackage -t packages/example/"
