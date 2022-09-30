@@ -144,11 +144,8 @@ package-and-install () {
         echo "installing from remote"
       };;
       publish) {
-        # Publish the theme as a new version which will automatically be installed
-         yarn workspace "$themeName" version --prepatch || die "If this fails, install 'yarn plugin import version' and rerun."
-
-        # Publish the theme
-        yarn workspace "$themeName" npm publish --tag "$publishTag" || die "If this fails, install 'yarn workspace $themeName npm login --publish' and rerun."
+        # Publish the theme as a new pre-release version
+        yarn workspace "$themeName" publish --tag "$publishTag" --prerelease || die "If this fails, check your ~/.npmrc file. It should look like this: //npm.pkg.github.com/:_authToken={your token here} ."
       };;
 
     esac
@@ -187,9 +184,12 @@ package-and-install () {
     esac
 
 
-    # Navigate to the test directory
     (
+      # Navigate to the test directory
       cd $testDir || die "couldn't cd to testDir '$testDir'"
+
+      # Show the current version of the package.json
+      cat package.json
 
       # Install the rest of the dependencies
       yarn install || die "failed to install all dependencies"
@@ -221,7 +221,8 @@ run-all-local-packaging-tests () {
 
 run-all-publish-packaging-tests () {
   (
-    package-and-install -m publish -p testPackage -t packages/example/  || die "packaging failed: package-and-install -m publish -p testPackage -t packages/example/"
+    package-and-install -m publish -p testPackage  || die "packaging failed: package-and-install -m publish -p testPackage -t packages/example/"
+
     package-and-install -m newest -p testPackage  || die "packaging failed: package-and-install -m newest -p testPackage"
     package-and-install -m newest -p testPackage -t packages/defaults/  || die "packaging failed: package-and-install -m newest -p testPackage -t packages/defaults/"
     package-and-install -m newest -p testPackage -t packages/example/  || die "packaging failed: package-and-install -m newest -p testPackage -t packages/example/"
