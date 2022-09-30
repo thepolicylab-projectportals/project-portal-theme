@@ -155,13 +155,7 @@ Check that this is done by ensuring that all the version numbers listed by the f
 } | column -t
 ```
 
-```zsh
-version=$(sed -n 's/.*"version": "\([^"]*\)",.*$/\1/p' "packages/gatsby-theme-project-portal/package.json")
-echo $version
-for package_json in packages/package.json
-do
-  sed -n -i 's/"@thepolicylab-projectportals/gatsby-theme-project-portal": "\([^"]*\)",.*$//' "$package_json"
-```
+Once you have done this, commit the updated version of all the `package.json` files.
 
 #### Login to GitHub NPM Repository
 
