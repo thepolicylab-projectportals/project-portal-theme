@@ -1,9 +1,6 @@
 import React, { FunctionComponent } from "react"
-import { Link, withPrefix, useStaticQuery, graphql } from "gatsby"
+import { Link } from "gatsby"
 import { FaBars, FaTimes } from "react-icons/fa"
-//import { GatsbyImage, getImage } from "gatsby-plugin-image"
-
-//import { useSiteMetadata } from "../hooks/useSiteMetadata"
 
 interface NavbarItemProps {
   name: string
@@ -36,47 +33,23 @@ const NavbarItem: FunctionComponent<NavbarItemProps> = ({
 }
 
 interface NavbarProps {
+  title: string
   activePage?: string
   image: object
-  pages: []
+  pages: {
+    name: string
+    link: string
+    show: boolean
+  }[]
 }
 
-export const Navbar: FunctionComponent<NavbarProps> = ({
+export const NavbarLayout: FunctionComponent<NavbarProps> = ({
+  title,
   activePage,
   image,
   pages,
 }: NavbarProps) => {
   const [navbarOpen, setNavbarOpen] = React.useState(false)
-  /**
-  const {
-    site: {
-      siteMetadata: { title, pages },
-    },
-    logo,
-  } = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-          pages {
-            name
-            link
-            show
-          }
-        }
-      }
-      logo: file(relativePath: { regex: "/^logo.png$/" }) {
-        childImageSharp {
-          gatsbyImageData(width: 64)
-        }
-      }
-    }
-  `)
- const image = getImage(logo)
-
- const meta = useSiteMetadata()
-
-   */
   return (
     <>
       <nav
@@ -99,8 +72,10 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
               className="block mx-4 my-auto overflow-hidden text-h4 text-black flex gap-4 items-center whitespace-nowrap"
               to="/"
             >
-              {image}
-              {"SAMPLE TITLE"}
+              <>
+                {image}
+                {title}
+              </>
             </Link>
           </div>
           <div
@@ -130,3 +105,41 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
     </>
   )
 }
+
+// export const Navbar: FunctionComponent<NavbarProps> = ({
+//   activePage,
+// }: NavbarProps) => {
+//   const {
+//     site: {
+//       siteMetadata: { title, pages },
+//     },
+//     logo,
+//   } = useStaticQuery(graphql`
+//     query {
+//       site {
+//         siteMetadata {
+//           title
+//           pages {
+//             name
+//             link
+//             show
+//           }
+//         }
+//       }
+//       logo: file(relativePath: { regex: "/^logo.png$/" }) {
+//         childImageSharp {
+//           gatsbyImageData(width: 64)
+//         }
+//       }
+//     }
+//   `)
+//   const image = getImage(logo)
+//   return (
+//     <NavbarLayout
+//       activePage={activePage}
+//       title={title}
+//       pages={pages}
+//       image={image}
+//     />
+//   )
+// }

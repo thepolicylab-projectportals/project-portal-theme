@@ -10,7 +10,7 @@ import {
   SectionOfItem,
   Card,
   Cards,
-  Navbar,
+  NavbarLayout,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
 
 import { useStaticQuery, graphql } from "gatsby"
@@ -83,6 +83,11 @@ const pages = [
     link: "/ongoing",
     show: true,
   },
+  {
+    name: "Not-Shown Nav",
+    link: "/missing",
+    show: false,
+  },
 ]
 
 const Index = () => {
@@ -96,20 +101,31 @@ const Index = () => {
     }
   `)
   const image = getImage(logo)
+  const nav_image = (
+    <GatsbyImage
+      className="hidden xl:inline-block"
+      image={image}
+      alt={"nav_logo"}
+    />
+  )
 
   return (
     <>
       <DevelopmentBanner />
-      <Navbar
+      {/*Normal Navbar:*/}
+      <NavbarLayout
+        title="Example Site"
         label="test"
-        image={
-          <GatsbyImage
-            className="hidden xl:inline-block"
-            image={image}
-            alt={"nav_logo"}
-          />
-        }
+        image={nav_image}
         pages={pages}
+      />
+      {/*Navbar with Active Page:*/}
+      <NavbarLayout
+        title="Example Site"
+        label="test"
+        image={nav_image}
+        pages={pages}
+        activePage="First Nav"
       />
       <BackIcon />
       <ForwardIcon />
