@@ -1,0 +1,1 @@
+export { useSiteStaticText } from "./useSiteStaticText"
