@@ -10,8 +10,8 @@
   },
   "dependencies": {
     "@thepolicylab-projectportals/gatsby-theme-project-portal": "^2.1.0-0",
-    "gatsby": "^4.22.1",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "gatsby": "^4.24.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }
