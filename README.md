@@ -10,6 +10,7 @@
 - [📄`package.json`](package.json) is the config file for the `yarn` workspaces we use when developing the theme.
 - [📄`test-packaging.sh`](test-packaging.sh) contains `zsh` functions used for testing the packaging, publishing, and building of the sites without using `yarn` workspaces (which was the main problem with the first implementation of the theme).
 - [📄`yarn.lock`](yarn.lock) lists all the current package version used when setting up the workspaces.
+- [📄`Brewfile`](Brewfile) can be used by the macOS homebrew package manager to install project dependencies. For more info, run `brew bundle --help` or visit [https://brew.sh](https://brew.sh).
 - [📁`.yarn`](./.yarn) has the settings and node packages for the yarn workspaces.
   - [📁`releases`](./.yarn/releases) contains the current version of `yarn` used in the project.
   - [📁`cache`](./.yarn/cache) contains current versions of the node modules being used in the workspaces.
@@ -25,7 +26,7 @@
 
 ### Install Dependencies
 
-You can install the dependencies (including `node` 18 and `yarn` 1) by running:
+You can install the dependencies (including `node 18` and `yarn classic`) by running:
 ```zsh
 brew bundle
 ```
@@ -75,12 +76,11 @@ run-all-local-packaging-tests
 ```
 The tests include the following site setups: 
 - Setting up an empty Gatsby site,
-- Duplicating the `packages/defaults` site,
-- Duplicating the `packages/example`,
+- Duplicating `packages/defaults`,
+- Duplicating `packages/example`,
 
-... using the theme from:
+using the theme from 
 - a local pack file (created new each time)
-- the newest version of the theme available on the GitHub registry,
 
 ... and then building the site.
 
@@ -90,17 +90,24 @@ source test-packaging.sh
 package-and-install -h
 ```
 
-#### Danger Zone: Publishing
+#### ⚠️ Danger Zone: Publishing
 
-> **⚠️ Danger**: This will genuinely create a new version of the package on the NPM Repository and use this to build the example site.
+> **Warning**:
+>
+> These commands automatically create:
+> - a commit for each new version number
+> - a published package on the GitHub NPM Repository.
 
-
-There is an additional script, 
+To update the package version to a new pre-release patch version, then run the full publish cycle on GitHub and build the example site using that package, execute: 
 ```zsh
 package-and-install -m publish -p testPackage -t packages/example/ -s
 ```
-... which runs the full publish cycle on GitHub and builds a new site using that package. 
-It will be tagged as a pre-release version.
+
+To test all the example sites (defaults, example and the empty site) with the full publishing workflow, you can run:
+```zsh
+source test-packaging.sh
+run-all-publish-packaging-tests
+```
 
 ### Create a New Package Version (GitHub)
 
@@ -110,7 +117,7 @@ Process:
 
 #### Update Version Number
 
-> **⚠️ Danger**: these commands automatically create a new commit with the new version number.
+> **⚠️ Warning**: these commands automatically create a new local commit with the new version number.
 
 You can manually update the theme version to the next patch version `#.#.z`:
 ```zsh
