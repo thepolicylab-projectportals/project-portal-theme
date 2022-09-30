@@ -78,17 +78,17 @@ const Index = () => {
 
   return (
     <>
+      <DevelopmentBanner />
       <BottomBanner
         logoimage={
           <GatsbyImage
             className="inline-block"
-            image={logoImage}
+            logoImage={logoImage}
             alt="R+D logo"
           />
         }
         text={staticText}
       />
-      <DevelopmentBanner />
       <BackIcon />
       <ForwardIcon />
       <ProjectStatus status="open" />
