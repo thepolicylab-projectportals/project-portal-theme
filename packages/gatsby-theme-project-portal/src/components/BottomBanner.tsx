@@ -1,12 +1,13 @@
 import React from "react"
 import { MarkdownText } from "../components"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
-export const BottomBanner = ({ logoImage, text }) => {
+export const BottomBanner = ({ image, text }) => {
   return (
     <div className="py-6 mt-12 overflow-hidden bg-rd p-responsive">
       <div className="m-responsive">
         <div className="w-full flex gap-4 sm:gap-8 items-center justify-center flex-wrap">
-          {logoImage && logoImage}
+          {image && image}
           <div className="inline-block text-body flex-4 min-w-20ch">
             <MarkdownText text={text} />
           </div>
