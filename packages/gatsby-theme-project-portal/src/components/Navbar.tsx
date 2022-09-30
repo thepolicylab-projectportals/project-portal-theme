@@ -38,7 +38,11 @@ const NavbarItem: FunctionComponent<NavbarItemProps> = ({
 interface NavbarProps {
   activePage?: string
   image: object
-  pages: []
+  pages: {
+    name: string
+    link: string
+    show: boolean
+  }[]
 }
 
 export const Navbar: FunctionComponent<NavbarProps> = ({
