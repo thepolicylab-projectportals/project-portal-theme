@@ -10,8 +10,12 @@ import {
   SectionOfItem,
   SiteMetadata,
   Cards,
+  Navbar,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
 import { useSiteMetadata } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/hooks"
+
+import { useStaticQuery, graphql } from "gatsby"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 var markdownContent = `
 # Example Markdown Content
@@ -60,11 +64,47 @@ var sample_card = [
   },
 ]
 
+var pages = [
+  {
+    name: "First Nav",
+    link: "/",
+    show: true,
+  },
+  {
+    name: "Second Nav",
+    link: "/ongoing",
+    show: true,
+  },
+]
+
 const Index = () => {
   const meta = useSiteMetadata()
+  const { logo } = useStaticQuery(graphql`
+    query {
+      logo: file(relativePath: { regex: "/^logo.png$/" }) {
+        childImageSharp {
+          gatsbyImageData(width: 64)
+        }
+      }
+    }
+  `)
+
+  const image = getImage(logo)
+
   return (
     <>
       <DevelopmentBanner />
+      <Navbar
+        label="test"
+        image={
+          <GatsbyImage
+            className="hidden xl:inline-block"
+            image={image}
+            alt={"nav_logo"}
+          />
+        }
+        pages={pages}
+      />
       <BackIcon />
       <ForwardIcon />
       <ProjectStatus status="open" />
