@@ -33,6 +33,7 @@ export const Feature: FunctionComponent<FeatureProps> = ({
 }
 
 interface TagProps {
+  className: string
   children: string
 }
 
