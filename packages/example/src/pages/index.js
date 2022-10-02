@@ -11,6 +11,7 @@ import {
   Card,
   Cards,
   NavbarLayout,
+  BottomBanner,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
 
 import { useStaticQuery, graphql } from "gatsby"
@@ -91,24 +92,36 @@ const pages = [
 ]
 
 const Index = () => {
-  const { logo } = useStaticQuery(graphql`
+  const query = useStaticQuery(graphql`
     query {
       logo: file(relativePath: { regex: "/^logo.png$/" }) {
         childImageSharp {
           gatsbyImageData(width: 64)
         }
       }
+      bannerLogo: file(relativePath: { regex: "/^rd_logo.png$/" }) {
+        childImageSharp {
+          gatsbyImageData(width: 160)
+        }
+      }
     }
   `)
-  const image = getImage(logo)
+  const navbarLogoImage = getImage(query.logo)
+  const bannerLogoImage = getImage(query.bannerLogo)
   const nav_image = (
     <GatsbyImage
       className="hidden xl:inline-block"
-      image={image}
+      image={navbarLogoImage}
       alt={"nav_logo"}
     />
   )
-
+  const banner_image = (
+    <GatsbyImage
+      className="hidden xl:inline-block"
+      image={bannerLogoImage}
+      alt={"nav_logo"}
+    />
+  )
   return (
     <>
       <DevelopmentBanner />
@@ -127,6 +140,7 @@ const Index = () => {
         pages={pages}
         activePage="First Nav"
       />
+      <BottomBanner image={banner_image} text="Sample text" />
       <BackIcon />
       <ForwardIcon />
       <ProjectStatus status="open" />

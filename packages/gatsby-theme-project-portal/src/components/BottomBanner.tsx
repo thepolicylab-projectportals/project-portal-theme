@@ -1,6 +1,5 @@
 import React from "react"
 import { MarkdownText } from "../components"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 export const BottomBanner = ({ image, text }) => {
   return (
