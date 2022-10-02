@@ -12,6 +12,7 @@ import {
   Cards,
   NavbarLayout,
   BottomBanner,
+  SiteMetadata,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
 
 import { useStaticQuery, graphql } from "gatsby"
@@ -104,10 +105,21 @@ const Index = () => {
           gatsbyImageData(width: 160)
         }
       }
+      useSiteMetadata: site {
+        siteMetadata {
+          siteTitle
+          short_name
+          siteUrl
+          projectInterestLink
+          live
+          locale
+        }
+      }
     }
   `)
   const navbarLogoImage = getImage(query.logo)
   const bannerLogoImage = getImage(query.bannerLogo)
+  const useSiteMetadata = query.useSiteMetadata.siteMetadata
   const nav_image = (
     <GatsbyImage
       className="hidden xl:inline-block"
@@ -126,6 +138,11 @@ const Index = () => {
     <>
       <DevelopmentBanner />
       {/*Normal Navbar:*/}
+      <SiteMetadata
+        description="sample description"
+        title="some title"
+        useSiteMetadata={useSiteMetadata}
+      />
       <NavbarLayout
         title="Example Site"
         label="test"
