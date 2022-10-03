@@ -11,10 +11,11 @@ import {
   Card,
   Cards,
   NavbarLayout,
+  Navbar,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
 
 import { useStaticQuery, graphql } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { getImage } from "gatsby-plugin-image"
 
 var markdownContent = `
 
@@ -100,14 +101,7 @@ const Index = () => {
       }
     }
   `)
-  const image = getImage(logo)
-  const nav_image = (
-    <GatsbyImage
-      className="hidden xl:inline-block"
-      image={image}
-      alt={"nav_logo"}
-    />
-  )
+  const nav_image = getImage(logo)
 
   return (
     <>
@@ -119,6 +113,7 @@ const Index = () => {
         image={nav_image}
         pages={pages}
       />
+
       {/*Navbar with Active Page:*/}
       <NavbarLayout
         title="Example Site"
@@ -127,6 +122,10 @@ const Index = () => {
         pages={pages}
         activePage="First Nav"
       />
+      {/*Navbar From Query*/}
+      <Navbar activePage="Open opportunities" />
+      <Navbar />
+
       <BackIcon />
       <ForwardIcon />
       <ProjectStatus status="open" />

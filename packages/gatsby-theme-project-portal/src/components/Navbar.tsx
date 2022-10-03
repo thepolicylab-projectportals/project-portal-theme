@@ -1,6 +1,8 @@
 import React, { FunctionComponent } from "react"
 import { Link } from "gatsby"
 import { FaBars, FaTimes } from "react-icons/fa"
+import { useStaticQuery, graphql } from "gatsby"
+import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image"
 
 interface NavbarItemProps {
   name: string
@@ -32,10 +34,10 @@ const NavbarItem: FunctionComponent<NavbarItemProps> = ({
   )
 }
 
-interface NavbarProps {
+interface NavbarLayoutProps {
   title: string
   activePage?: string
-  image: object
+  image?: IGatsbyImageData
   pages: {
     name: string
     link: string
@@ -43,12 +45,12 @@ interface NavbarProps {
   }[]
 }
 
-export const NavbarLayout: FunctionComponent<NavbarProps> = ({
+export const NavbarLayout: FunctionComponent<NavbarLayoutProps> = ({
   title,
   activePage,
   image,
   pages,
-}: NavbarProps) => {
+}: NavbarLayoutProps) => {
   const [navbarOpen, setNavbarOpen] = React.useState(false)
   return (
     <>
@@ -73,7 +75,11 @@ export const NavbarLayout: FunctionComponent<NavbarProps> = ({
               to="/"
             >
               <>
-                {image}
+                <GatsbyImage
+                  image={image}
+                  className="inline-block"
+                  alt={"nav_logo"}
+                />
                 {title}
               </>
             </Link>
@@ -106,40 +112,44 @@ export const NavbarLayout: FunctionComponent<NavbarProps> = ({
   )
 }
 
-// export const Navbar: FunctionComponent<NavbarProps> = ({
-//   activePage,
-// }: NavbarProps) => {
-//   const {
-//     site: {
-//       siteMetadata: { title, pages },
-//     },
-//     logo,
-//   } = useStaticQuery(graphql`
-//     query {
-//       site {
-//         siteMetadata {
-//           title
-//           pages {
-//             name
-//             link
-//             show
-//           }
-//         }
-//       }
-//       logo: file(relativePath: { regex: "/^logo.png$/" }) {
-//         childImageSharp {
-//           gatsbyImageData(width: 64)
-//         }
-//       }
-//     }
-//   `)
-//   const image = getImage(logo)
-//   return (
-//     <NavbarLayout
-//       activePage={activePage}
-//       title={title}
-//       pages={pages}
-//       image={image}
-//     />
-//   )
-// }
+interface NavbarProps {
+  activePage?: string
+}
+
+export const Navbar: FunctionComponent<NavbarProps> = ({
+  activePage,
+}: NavbarProps) => {
+  const {
+    site: {
+      siteMetadata: { title, pages },
+    },
+    logo,
+  } = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+          pages {
+            name
+            link
+            show
+          }
+        }
+      }
+      logo: file(relativePath: { regex: "/^logo.png$/" }) {
+        childImageSharp {
+          gatsbyImageData(width: 64)
+        }
+      }
+    }
+  `)
+  const image = getImage(logo)
+  return (
+    <NavbarLayout
+      activePage={activePage}
+      title={title}
+      pages={pages}
+      image={image}
+    />
+  )
+}
