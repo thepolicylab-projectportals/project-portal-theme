@@ -139,6 +139,24 @@ const Index = () => {
       <SectionOfItem label="Section of Items" value={markdownContent} />
       <Card {...sample_card} />
       <Cards nodes={sample_cards} />
+      {/*Contact with Show Email*/}
+      <Contact
+        employer={"testEmployer"}
+        title={"contact1Title"}
+        email={"user1@example.com"}
+        name={"contact1"}
+        contactImage={logo}
+        showEmail={true}
+      />
+      {/*Contact with Hide Email*/}
+      <Contact
+        employer={"testEmployer"}
+        title={"contact2Title"}
+        email={"user2@example.com"}
+        name={"contact2"}
+        contactImage={logo}
+        showEmail={false}
+      />
     </>
   )
 }
