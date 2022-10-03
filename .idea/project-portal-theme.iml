@@ -5,6 +5,11 @@
       <excludeFolder url="file://$MODULE_DIR$/temp" />
       <excludeFolder url="file://$MODULE_DIR$/.tmp" />
       <excludeFolder url="file://$MODULE_DIR$/tmp" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/defaults/.cache" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/defaults/public" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/example/.cache" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/example/public" />
+      <excludeFolder url="file://$MODULE_DIR$/artifacts" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
