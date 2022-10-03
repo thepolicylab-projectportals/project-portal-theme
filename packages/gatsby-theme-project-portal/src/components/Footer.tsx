@@ -6,9 +6,9 @@ import { useSiteMetadata } from "../hooks/useSiteMetadata"
 import { useSiteStaticText } from "../hooks/useSiteStaticText"
 
 export const Footer = ({ image, useSiteMetadata, useSiteStaticText }) => {
-  const meta = useSiteMetadata
+  const meta = useSiteMetadata()
   //
-  const staticText = useSiteStaticText
+  const staticText = useSiteStaticText()
 
   // use of GatsbyImage for the logo causs pa11y error as it doesn't register as an image
   return (
