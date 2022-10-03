@@ -6,7 +6,7 @@ export interface ContactType {
   title: string
   employer: string
   email: string
-  contactImage: any
+  contactImage?: any
 }
 
 interface ContactProps extends ContactType {

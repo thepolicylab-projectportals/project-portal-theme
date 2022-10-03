@@ -92,9 +92,14 @@ const pages = [
 ]
 
 const Index = () => {
-  const { logo } = useStaticQuery(graphql`
+  const { logo, contactImage } = useStaticQuery(graphql`
     query {
       logo: file(relativePath: { regex: "/^logo.png$/" }) {
+        childImageSharp {
+          gatsbyImageData(width: 64)
+        }
+      }
+      contactImage: file(relativePath: { regex: "/^contactImage.png$/" }) {
         childImageSharp {
           gatsbyImageData(width: 64)
         }
@@ -154,8 +159,16 @@ const Index = () => {
         title={"contact2Title"}
         email={"user2@example.com"}
         name={"contact2"}
-        contactImage={logo}
+        contactImage={contactImage}
         showEmail={false}
+      />
+      {/*Contact with Hide Email*/}
+      <Contact
+        employer={"testEmployer"}
+        title={"noImageContact"}
+        email={"user3@example.com"}
+        name={"contact3"}
+        showEmail={true}
       />
     </>
   )
