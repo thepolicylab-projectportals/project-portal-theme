@@ -100,9 +100,14 @@ const collaborator_details = {
 }
 
 const Index = () => {
-  const { logo } = useStaticQuery(graphql`
+  const { logo, contact } = useStaticQuery(graphql`
     query {
       logo: file(relativePath: { regex: "/^logo.png$/" }) {
+        childImageSharp {
+          gatsbyImageData(width: 64)
+        }
+      }
+      contact: file(relativePath: { regex: "/^contactImage.png$/" }) {
         childImageSharp {
           gatsbyImageData(width: 64)
         }
@@ -162,7 +167,7 @@ const Index = () => {
         title={"contact2Title"}
         email={"user2@example.com"}
         name={"contact2"}
-        contactImage={logo}
+        contactImage={contact}
         showEmail={false}
       />
       {/*Contact with Hide Email*/}
