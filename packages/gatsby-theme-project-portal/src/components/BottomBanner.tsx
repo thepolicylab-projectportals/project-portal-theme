@@ -1,5 +1,6 @@
 import React from "react"
 import { MarkdownText } from "../components"
+import { graphql, useStaticQuery } from "gatsby"
 
 export const BottomBanner = ({ image, text }) => {
   return (
@@ -15,3 +16,24 @@ export const BottomBanner = ({ image, text }) => {
     </div>
   )
 }
+
+// export const Banner = () => {
+//   const query = useStaticQuery(graphql`
+//     query {
+//       bannerLogo: file(relativePath: { regex: "/^rd_logo.png$/" }) {
+//         childImageSharp {
+//           gatsbyImageData(width: 160)
+//         }
+//       }
+//     }
+//   `)
+//   const bannerLogoImage = getImage(query.bannerLogo)
+//   const banner_image = (
+//       <GatsbyImage
+//           className="hidden xl:inline-block"
+//           image={bannerLogoImage}
+//           alt={"nav_logo"}
+//       />
+//   )
+//   return <BottomBanner image={banner_image} text="Sample text" />
+// }
