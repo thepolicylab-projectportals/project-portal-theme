@@ -11,9 +11,14 @@ import {
   Card,
   Cards,
   Contact,
+  NavbarLayout,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
 
-const markdownContent = `
+import { useStaticQuery, graphql } from "gatsby"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
+
+var markdownContent = `
+
 # Example Markdown Content
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit ac nunc et aliquet. 
@@ -68,10 +73,61 @@ const sample_cards = [
   },
 ]
 
+const pages = [
+  {
+    name: "First Nav",
+    link: "/",
+    show: true,
+  },
+  {
+    name: "Second Nav",
+    link: "/ongoing",
+    show: true,
+  },
+  {
+    name: "Not-Shown Nav",
+    link: "/missing",
+    show: false,
+  },
+]
+
 const Index = () => {
+  const { logo } = useStaticQuery(graphql`
+    query {
+      logo: file(relativePath: { regex: "/^logo.png$/" }) {
+        childImageSharp {
+          gatsbyImageData(width: 64)
+        }
+      }
+    }
+  `)
+  const image = getImage(logo)
+  const nav_image = (
+    <GatsbyImage
+      className="hidden xl:inline-block"
+      image={image}
+      alt={"nav_logo"}
+    />
+  )
+
   return (
     <>
       <DevelopmentBanner />
+      {/*Normal Navbar:*/}
+      <NavbarLayout
+        title="Example Site"
+        label="test"
+        image={nav_image}
+        pages={pages}
+      />
+      {/*Navbar with Active Page:*/}
+      <NavbarLayout
+        title="Example Site"
+        label="test"
+        image={nav_image}
+        pages={pages}
+        activePage="First Nav"
+      />
       <BackIcon />
       <ForwardIcon />
       <ProjectStatus status="open" />
