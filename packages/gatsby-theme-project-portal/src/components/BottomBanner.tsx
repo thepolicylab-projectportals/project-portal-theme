@@ -1,6 +1,6 @@
 import React from "react"
 import { MarkdownText } from "../components"
-import { graphql, useStaticQuery } from "gatsby"
+// import { graphql, useStaticQuery } from "gatsby"
 
 export const BottomBanner = ({ image, text }) => {
   return (
