@@ -10,8 +10,8 @@ import {
   SectionOfItem,
   Card,
   Cards,
-  CollaboratorDetails,
   Contact,
+  CollaboratorDetails,
   NavbarLayout,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
 
@@ -100,14 +100,9 @@ const collaborator_details = {
 }
 
 const Index = () => {
-  const { logo, contactImage } = useStaticQuery(graphql`
+  const { logo } = useStaticQuery(graphql`
     query {
       logo: file(relativePath: { regex: "/^logo.png$/" }) {
-        childImageSharp {
-          gatsbyImageData(width: 64)
-        }
-      }
-      contactImage: file(relativePath: { regex: "/^contactImage.png$/" }) {
         childImageSharp {
           gatsbyImageData(width: 64)
         }
@@ -167,7 +162,7 @@ const Index = () => {
         title={"contact2Title"}
         email={"user2@example.com"}
         name={"contact2"}
-        contactImage={contactImage}
+        contactImage={logo}
         showEmail={false}
       />
       {/*Contact with Hide Email*/}
