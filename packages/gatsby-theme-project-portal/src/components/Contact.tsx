@@ -1,5 +1,5 @@
 import React from "react"
-//import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image"
+import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image"
 
 export interface ContactType {
   name: string
@@ -7,7 +7,6 @@ export interface ContactType {
   employer: string
   email: string
   contactImage: any
-  staticImage: any
 }
 
 interface ContactProps extends ContactType {
@@ -21,7 +20,6 @@ export const Contact: React.FC<ContactProps> = ({
   email,
   contactImage,
   showEmail,
-  staticImage,
 }) => {
   return (
     <div className="flex items-start gap-4 overflow-hidden flex-nowrap justify-left">
@@ -32,7 +30,26 @@ export const Contact: React.FC<ContactProps> = ({
           height: "100px",
         }}
       >
-        {contactImage ? { contactImage } : { staticImage }}
+        {contactImage ? (
+          <GatsbyImage
+            className="relative rounded-full"
+            alt={name}
+            image={getImage(contactImage)}
+            style={{
+              transform: "translateZ(0)",
+            }}
+          />
+        ) : (
+          <StaticImage
+            className="rounded-full"
+            alt={name}
+            src="../images/narwhal.jpg"
+            width={100}
+            height={100}
+            placeholder="blurred"
+            layout="fixed"
+          />
+        )}
       </div>
       <div className="pl-2 pr-2 pb-2">
         <p className="font-bold text-black text-body">{name}</p>
