@@ -12,6 +12,7 @@ import {
   Cards,
   NavbarLayout,
   BottomBanner,
+  Footer,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
 
 import { useStaticQuery, graphql } from "gatsby"
@@ -122,6 +123,7 @@ const Index = () => {
       alt={"nav_logo"}
     />
   )
+
   return (
     <>
       <DevelopmentBanner />
