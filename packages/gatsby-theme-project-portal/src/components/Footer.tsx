@@ -34,7 +34,7 @@ export const Footer = ({ image, meta, language }) => {
         >
           {image && (
             <img
-              srcSet={image.images.fallback.srcSet}
+              srcSet={image.images.sources[0].srcSet}
               alt={meta.title + " logo"}
               height={image.height}
               width={image.width}
