@@ -11,6 +11,7 @@ import {
   Card,
   Cards,
   NavbarLayout,
+  SiteMetadata,
   Footer,
   BottomBannerLayout,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
@@ -105,10 +106,21 @@ const Index = () => {
           gatsbyImageData(width: 160)
         }
       }
+      useSiteMetadata: site {
+        siteMetadata {
+          siteTitle
+          short_name
+          siteUrl
+          projectInterestLink
+          live
+          locale
+        }
+      }
     }
   `)
   const link = "https://www.nc.gov/terms"
   const navbarLogoImage = getImage(query.logo)
+  const useSiteMetadata = query.useSiteMetadata.siteMetadata
   const bannerLogoImage = getImage(query.BottomBanner)
   const nav_image = (
     <GatsbyImage
@@ -128,6 +140,11 @@ const Index = () => {
     <>
       <DevelopmentBanner />
       {/*Normal Navbar:*/}
+      <SiteMetadata
+        description="sample description"
+        title="some title"
+        useSiteMetadata={useSiteMetadata}
+      />
       <NavbarLayout
         title="Example Site"
         label="test"
