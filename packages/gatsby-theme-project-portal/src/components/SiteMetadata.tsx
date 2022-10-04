@@ -13,7 +13,7 @@ export const SiteMetadata = ({
   return (
     <Helmet
       defer={false}
-      defaultTitle={siteTitle}
+      defaultTitle={title}
       title={title}
       titleTemplate={`${siteTitle}`}
     >

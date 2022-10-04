@@ -92,10 +92,39 @@ const pages = [
     show: false,
   },
 ]
+const link = "https://www.nc.gov/terms"
+const language = {
+  footer: {
+    heading: {
+      link: "https://www.google.com/",
+      title: "Language title",
+    },
+    links: [
+      {
+        title: "Office 1",
+        link: "http://www.google.com",
+      },
+      {
+        title: "Office 2",
+        link: "http://www.google.com",
+      },
+    ],
+  },
+}
 
 const Index = () => {
   const query = useStaticQuery(graphql`
     query {
+      useSiteMetadata: site {
+        siteMetadata {
+          title
+          short_name
+          siteUrl
+          projectInterestLink
+          live
+          locale
+        }
+      }
       logo: file(relativePath: { regex: "/^logo.png$/" }) {
         childImageSharp {
           gatsbyImageData(width: 64)
@@ -106,22 +135,18 @@ const Index = () => {
           gatsbyImageData(width: 160)
         }
       }
-      useSiteMetadata: site {
-        siteMetadata {
-          siteTitle
-          short_name
-          siteUrl
-          projectInterestLink
-          live
-          locale
+      FooterImage: file(relativePath: { regex: "/^footer.png$/" }) {
+        childImageSharp {
+          gatsbyImageData(height: 64)
         }
       }
     }
   `)
-  const link = "https://www.nc.gov/terms"
+  const meta = query.useSiteMetadata.siteMetadata
   const navbarLogoImage = getImage(query.logo)
-  const useSiteMetadata = query.useSiteMetadata.siteMetadata
   const bannerLogoImage = getImage(query.BottomBanner)
+  const FooterLogoImage = getImage(query.FooterImage)
+  console.log(FooterLogoImage)
   const nav_image = (
     <GatsbyImage
       className="hidden xl:inline-block"
@@ -136,14 +161,16 @@ const Index = () => {
       alt={"nav_logo"}
     />
   )
+
   return (
     <>
       <DevelopmentBanner />
       {/*Normal Navbar:*/}
+      <Footer image={FooterLogoImage} meta={meta} language={language} />
       <SiteMetadata
         description="sample description"
         title="some title"
-        useSiteMetadata={useSiteMetadata}
+        useSiteMetadata={meta}
       />
       <NavbarLayout
         title="Example Site"

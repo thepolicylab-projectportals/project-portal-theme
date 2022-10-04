@@ -1,21 +1,26 @@
-import React from "react"
-import { Link, graphql, useStaticQuery } from "gatsby"
-import { getImage } from "gatsby-plugin-image"
+import React, { FunctionComponent } from "react"
+import { graphql, useStaticQuery } from "gatsby"
+// import { Link, graphql, useStaticQuery } from "gatsby"
+// import { getImage } from "gatsby-plugin-image"
+//
+// import meta from "site/meta.json"
+// import language from "site/language.json"
 
-import { useSiteMetadata } from "../hooks/useSiteMetadata"
-import { useSiteStaticText } from "../hooks/useSiteStaticText"
-
-export const Footer = ({ image, useSiteMetadata, useSiteStaticText }) => {
-  const meta = useSiteMetadata()
-  //
-  const staticText = useSiteStaticText()
-
+export const Footer = ({ image, meta, language }) => {
   // use of GatsbyImage for the logo causs pa11y error as it doesn't register as an image
   return (
     <footer className="w-full px-2 py-8 bg-footer xl:container xl:px-12">
       <div className="flex items-center justify-center mt-6 lg:my-auto">
+        <div className="text-nav text-footertext">
+          {language.footer.copyright}
+        </div>
+      </div>
+      <div
+        className="flex it
+      ems-center justify-center mt-6 lg:my-auto"
+      >
         <ul className="text-nav text-footertext list-none">
-          {staticText.footer.links.map(({ title, link }, i) => (
+          {language.footer.links.map(({ title, link }, i) => (
             <ListItem key={"link_" + i} target={link}>
               {title}
             </ListItem>
@@ -25,18 +30,18 @@ export const Footer = ({ image, useSiteMetadata, useSiteStaticText }) => {
       <div className="block w-full lg:w-auto mt-5">
         <a
           className="flex items-center gap-4 justify-center flex-wrap"
-          href={staticText.footer.heading.link}
+          href={language.footer.heading.link}
         >
           {image && (
             <img
-              srcSet={image.images.sources[0].srcSet}
+              srcSet={image.images.fallback.srcSet}
               alt={meta.title + " logo"}
               height={image.height}
               width={image.width}
             />
           )}
           <p className="text-center inline-block text-h4 font-bold text-footertext">
-            {staticText.footer.heading.title}
+            {language.footer.heading.title}
           </p>
         </a>
       </div>
@@ -51,3 +56,17 @@ const ListItem = ({ target, children }) => {
     </li>
   )
 }
+
+// const FooterImage = () => {
+//     const query = useStaticQuery(graphql`
+//     query {
+//      Footer: file(relativePath: { regex: "/^footer.png$/" }) {
+//         childImageSharp {
+//           gatsbyImageData(height: 64)
+//         }
+//       }
+//     }
+//  `)
+//  const FooterImage = getImage(query.Footer)
+//  return FooterImage
+// }

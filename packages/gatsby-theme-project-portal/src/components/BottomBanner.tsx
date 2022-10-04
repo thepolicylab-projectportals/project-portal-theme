@@ -42,5 +42,5 @@ export const BottomBannerLayout = ({ image, text, link }) => {
 //           alt={"nav_logo"}
 //       />
 //   )
-//   return <BottomBanner image={banner_image} text="Sample text" />
+//   return <BottomBanner image={banner_image} />
 // }

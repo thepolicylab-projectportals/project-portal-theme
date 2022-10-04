@@ -1,6 +1,6 @@
 // General metadata for the site
 const siteMetadata = {
-  siteTitle: "Research Partnerships Portal",
+  title: "Research Partnerships Portal",
   short_name: "Project Portal",
   siteUrl: process.env.CI
     ? "http://localhost:9000"
