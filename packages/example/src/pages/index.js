@@ -146,7 +146,6 @@ const Index = () => {
   const navbarLogoImage = getImage(query.logo)
   const bannerLogoImage = getImage(query.BottomBanner)
   const FooterLogoImage = getImage(query.FooterImage)
-  console.log(FooterLogoImage)
   const nav_image = (
     <GatsbyImage
       className="hidden xl:inline-block"
