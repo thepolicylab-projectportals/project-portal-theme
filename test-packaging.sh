@@ -38,10 +38,13 @@ DESCRIPTION
     The location where the packed theme is stored. Default: ./artifacts
 
   -p publishTag
-    A tag to be used on the GitHub package. Used if "-m publish" or "-m latest" is selected.Default: "latest"
+    A tag to be used on the GitHub package. Used if "-m publish" or "-m latest" is selected. Default: "latest"
 
   -t templateDir
     A template directory to duplicate for the Gatsby site. If unset, an empty site is created.
+
+  -i {yarn,npm}
+    The package manager to use for the installation in the target directory. Default: yarn
 
   -s
     Serve the site once it has been built.
@@ -56,6 +59,9 @@ EXAMPLES
 
   Create a new duplicate of the "defaults" site:
     % package-and-install -t "packages/defaults/"
+
+  Create a new duplicate of the "defaults" site, using npm to install the node_modules:
+      % package-and-install -t "packages/defaults/" -i npm
 
   Create a new duplicate of the "example" site:
     % package-and-install -t "packages/example/"
@@ -106,7 +112,10 @@ package-and-install () {
   # Specify if we serve the site at the end. Default: no.
   serve=0
 
-  while getopts sht:n:a:m:p: flag
+  # Specify which package manager to use
+  packageManager="yarn"
+
+  while getopts sht:n:a:m:p:i: flag
   do
       case "${flag}" in
           t) {
@@ -116,6 +125,7 @@ package-and-install () {
           n) themeName=${OPTARG};;
           a) artifactDir=${OPTARG};;
           m) packageMethod=${OPTARG};;
+          i) packageManager=${OPTARG};;
           s) serve=1;;
           p) publishTag=${OPTARG};;
           h) echo "$USAGE" | more; return 1;;
@@ -161,10 +171,10 @@ package-and-install () {
       empty) {
         (
           cd "$testDir" || die "Failed to cd to testDir '$testDir'"
-          yarn init -y || die "Failed to init new site"
+          ${packageManager} init -y || die "Failed to init new site"
           case "${packageMethod}" in
-            pack) yarn add "$packPath" react react-dom gatsby || die "failed to install dependencies including $packPath.";;
-            *) yarn add react react-dom gatsby "$themeName@$publishTag" || die "Failed to add dependencies";;
+            pack) ${packageManager} add "$packPath" react@^16.14.0 react-dom@^16.14.0 gatsby@^4.24.0 || die "failed to install dependencies including $packPath.";;
+            *) ${packageManager} add react@^16.14.0 react-dom@^16.14.0 gatsby@^4.24.0 "$themeName@$publishTag" || die "Failed to add dependencies";;
           esac
           echo "module.exports = { plugins: [\`@thepolicylab-projectportals/gatsby-theme-project-portal\`] }" > "$testDir/gatsby-config.js"
         )
@@ -175,9 +185,9 @@ package-and-install () {
         ( cd "$testDir" || die "Failed to cd to testDir '$testDir'"
           case "${packageMethod}" in
             pack) {
-            yarn add "$packPath" || die "failed to add dependency $packPath."
+            ${packageManager} add "$packPath" || die "failed to add dependency $packPath."
             };;
-            *) yarn add "$themeName@$publishTag" || die "failed to specify theme version $themeName@$publishTag" ;;
+            *) ${packageManager} add "$themeName@$publishTag" || die "failed to specify theme version $themeName@$publishTag" ;;
           esac
         )
       };;
@@ -186,26 +196,56 @@ package-and-install () {
 
     (
       # Navigate to the test directory
-      cd $testDir || die "couldn't cd to testDir '$testDir'"
+      cd "$testDir" || die "couldn't cd to testDir '$testDir'"
 
       # Show the current version of the package.json
       cat package.json
 
-      # Install the rest of the dependencies
-      yarn install || die "failed to install all dependencies"
+      # Delete node modules before we continue
+      rm -r node_modules/
 
-      # Build the site
-      yarn gatsby build || die "failed to build site"
+      case "${packageManager}" in
+        yarn) {
+          # Install the rest of the dependencies
+          yarn install || die "failed to install all dependencies"
 
-      echo ""
-      echo "Site built successfully. To serve run:"
-      echo "(cd $testDir && yarn gatsby serve)"
+          # Build the site
+          yarn gatsby build || die "failed to build site"
+        } ;;
+        npm) {
+          # Install the rest of the dependencies
+          npm install || die "failed to install all dependencies"
+
+          # Build the site
+          npm run env -- gatsby build || die "failed to build site"
+        } ;;
+        *) die "package manager ${packageManager} unknown, can't install & build.";;
+      esac
 
       # Serve the site
-      if [[ ${serve} -eq 1 ]]
-      then
-        yarn gatsby serve
-      fi
+      case "${packageManager}" in
+        yarn) {
+          if [[ ${serve} -eq 1 ]]
+                then
+                  yarn gatsby serve
+                else
+                  echo "Site built successfully. To serve run:"
+                  echo "(cd $testDir && yarn gatsby serve)"
+                fi
+          };;
+        npm) {
+          if [[ ${serve} -eq 1 ]]
+          then
+            npm run env -- gatsby serve
+          else
+            echo "Site built successfully. To serve run:"
+            echo "(cd $testDir && npm run env -- gatsby serve)"
+          fi
+        };;
+        *) die "package manager ${packageManager} unknown, can't install.";;
+      esac
+
+
     )
   )
 }
@@ -213,18 +253,18 @@ package-and-install () {
 # Define some standard test sets
 run-all-local-packaging-tests () {
   (
-    package-and-install -m pack || die "packaging failed: package-and-install -m pack"
-    package-and-install -m pack -t packages/defaults/ || die "packaging failed: package-and-install -m pack -t packages/defaults/"
-    package-and-install -m pack -t packages/example/  || die "packaging failed: package-and-install -m pack -t packages/example/"
+    package-and-install -m pack -i npm || die "packaging failed: package-and-install -m pack -i npm"
+    package-and-install -m pack -t packages/defaults/ -i npm || die "packaging failed: package-and-install -m pack -t packages/defaults/" -i npm
+    package-and-install -m pack -t packages/example/ -i npm  || die "packaging failed: package-and-install -m pack -t packages/example/" -i npm
   )
 }
 
 run-all-publish-packaging-tests () {
   (
-    package-and-install -m publish -p testPackage  || die "packaging failed: package-and-install -m publish -p testPackage -t packages/example/"
+    package-and-install -m publish -p testPackage -i npm  || die "packaging failed: package-and-install -m publish -p testPackage -i npm"
 
-    package-and-install -m newest -p testPackage  || die "packaging failed: package-and-install -m newest -p testPackage"
-    package-and-install -m newest -p testPackage -t packages/defaults/  || die "packaging failed: package-and-install -m newest -p testPackage -t packages/defaults/"
-    package-and-install -m newest -p testPackage -t packages/example/  || die "packaging failed: package-and-install -m newest -p testPackage -t packages/example/"
+    package-and-install -m newest -p testPackage -i npm || die "packaging failed: package-and-install -m newest -p testPackage -i npm"
+    package-and-install -m newest -p testPackage -t packages/defaults/ -i npm  || die "packaging failed: package-and-install -m newest -p testPackage -t packages/defaults/ -i npm"
+    package-and-install -m newest -p testPackage -t packages/example/ -i npm || die "packaging failed: package-and-install -m newest -p testPackage -t packages/example/ -i npm"
   )
 }
