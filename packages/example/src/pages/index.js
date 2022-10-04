@@ -11,8 +11,8 @@ import {
   Card,
   Cards,
   NavbarLayout,
-  BottomBanner,
   Footer,
+  BottomBannerLayout,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
 
 import { useStaticQuery, graphql } from "gatsby"
@@ -100,15 +100,16 @@ const Index = () => {
           gatsbyImageData(width: 64)
         }
       }
-      bannerLogo: file(relativePath: { regex: "/^rd_logo.png$/" }) {
+      BottomBanner: file(relativePath: { regex: "/^rd_logo.png$/" }) {
         childImageSharp {
           gatsbyImageData(width: 160)
         }
       }
     }
   `)
+  const link = "https://www.nc.gov/terms"
   const navbarLogoImage = getImage(query.logo)
-  const bannerLogoImage = getImage(query.bannerLogo)
+  const bannerLogoImage = getImage(query.BottomBanner)
   const nav_image = (
     <GatsbyImage
       className="hidden xl:inline-block"
@@ -123,7 +124,6 @@ const Index = () => {
       alt={"nav_logo"}
     />
   )
-
   return (
     <>
       <DevelopmentBanner />
@@ -142,7 +142,8 @@ const Index = () => {
         pages={pages}
         activePage="First Nav"
       />
-      <BottomBanner image={banner_image} text="Sample text" />
+      <BottomBannerLayout image={banner_image} text="Sample text" link={link} />
+      <BottomBannerLayout image={banner_image} text="Sample text" />
       <BackIcon />
       <ForwardIcon />
       <ProjectStatus status="open" />
