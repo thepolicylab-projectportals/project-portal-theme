@@ -10,12 +10,12 @@
   },
   "dependencies": {
     "@thepolicylab-projectportals/gatsby-theme-project-portal": "^2.1.0-0",
-    "gatsby": "^4.22.1",
+    "gatsby": "^4.24.0",
     "gatsby-plugin-image": "^2.24.0",
     "gatsby-plugin-sharp": "^4.24.0",
     "gatsby-source-filesystem": "^4.1.0",
     "gatsby-transformer-sharp": "^4.24.0",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
   }
 }
