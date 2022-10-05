@@ -30,10 +30,11 @@ export const Footer = ({ image, useSiteStaticText }) => {
           href={useSiteStaticText.footer.heading.link}
         >
           {image && (
-            <GatsbyImage
-              className="inline-block"
-              image={image}
-              alt={meta.title + " logo"}
+            <img
+              srcSet={image.images.sources[0].srcSet}
+              alt={meta.siteTitle + " logo"}
+              height={image.height}
+              width={image.width}
             />
           )}
           <p className="text-center inline-block text-h4 font-bold text-footertext">

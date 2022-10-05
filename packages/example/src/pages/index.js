@@ -151,6 +151,7 @@ const Index = () => {
   const navbarLogoImage = getImage(logo)
   const bannerImage = getImage(BottomBanner)
   const footerImage = getImage(FooterImage)
+  console.log(footerImage)
   const nav_image = (
     <GatsbyImage
       className="hidden xl:inline-block"
