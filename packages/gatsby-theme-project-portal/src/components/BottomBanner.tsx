@@ -23,7 +23,7 @@ export const BottomBannerLayout = ({
               />
             </Link>
           )}
-          {isNA(link) && image && (
+          {isNA(link) && {image} && (
             <GatsbyImage
               className="inline-block"
               image={image}
