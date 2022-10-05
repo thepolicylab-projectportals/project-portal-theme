@@ -7,7 +7,6 @@ import { GatsbyImage } from "gatsby-plugin-image"
 // import language from "site/language.json"
 
 export const Footer = ({ image, meta, language }) => {
-  // use of GatsbyImage for the logo causs pa11y error as it doesn't register as an image
   return (
     <footer className="w-full px-2 py-8 bg-footer xl:container xl:px-12">
       <div className="flex items-center justify-center mt-6 lg:my-auto">
