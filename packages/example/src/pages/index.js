@@ -99,6 +99,9 @@ const collaborator_details = {
     "We are ready to begin the project as soon as we identify a collaborator.\n",
 }
 
+const link = "https://www.nc.gov/terms"
+const bottomBannerImageLink = "R+D link"
+
 const Index = () => {
   const { logo, BottomBanner } = useStaticQuery(graphql`
     query {
@@ -114,7 +117,7 @@ const Index = () => {
       }
     }
   `)
-  const link = "https://www.nc.gov/terms"
+
   const navbarLogoImage = getImage(logo)
   const bannerImage = getImage(BottomBanner)
   const nav_image = (
@@ -142,8 +145,22 @@ const Index = () => {
         pages={pages}
         activePage="First Nav"
       />
-      <BottomBannerLayout image={bannerImage} text="Sample text" link={link} />
-      <BottomBannerLayout image={bannerImage} text="Sample text" />
+      <BottomBannerLayout
+        image={bannerImage}
+        text="Sample text"
+        link={link}
+        bottomBannerImageLink={bottomBannerImageLink}
+      />
+      <BottomBannerLayout
+        image={bannerImage}
+        text="Sample text"
+        bottomBannerImageLink={bottomBannerImageLink}
+      />
+      <BottomBannerLayout
+        text="Sample text"
+        link={link}
+        bottomBannerImageLink={bottomBannerImageLink}
+      />
       <BackIcon />
       <ForwardIcon />
       <ProjectStatus status="open" />
