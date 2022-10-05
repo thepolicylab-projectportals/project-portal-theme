@@ -104,7 +104,7 @@ const link = "https://www.nc.gov/terms"
 const bottomBannerImageLink = "R+D link"
 
 const Index = () => {
-  const { logo, BottomBanner, useSiteMetadata } = useStaticQuery(graphql`
+  const { logo, BottomBanner } = useStaticQuery(graphql`
     query {
       logo: file(relativePath: { regex: "/^logo.png$/" }) {
         childImageSharp {
@@ -116,22 +116,11 @@ const Index = () => {
           gatsbyImageData(width: 160)
         }
       }
-      useSiteMetadata: site {
-        siteMetadata {
-          siteTitle
-          short_name
-          siteUrl
-          projectInterestLink
-          live
-          locale
-        }
-      }
     }
   `)
 
   const navbarLogoImage = getImage(logo)
   const bannerImage = getImage(BottomBanner)
-  const meta = useSiteMetadata.siteMetadata
   const nav_image = (
     <GatsbyImage
       className="hidden xl:inline-block"
@@ -143,11 +132,7 @@ const Index = () => {
     <>
       <DevelopmentBanner />
       {/*Normal Navbar:*/}
-      <SiteMetadata
-        description="sample description"
-        title="some title"
-        useSiteMetadata={meta}
-      />
+      <SiteMetadata description="sample description" title="some title" />
       <NavbarLayout
         title="Example Site"
         label="test"
