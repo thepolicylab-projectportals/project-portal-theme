@@ -10,9 +10,10 @@ import {
   SectionOfItem,
   Card,
   Cards,
+  CollaboratorDetails,
   NavbarLayout,
-  BottomBanner,
   SiteMetadata,
+  BottomBannerLayout,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
 
 import { useStaticQuery, graphql } from "gatsby"
@@ -67,10 +68,10 @@ const sample_cards = [
     data: sample_card,
   },
   {
-    data: sample_card,
+    data: { ...sample_card, ...{ status: "ongoing" } },
   },
   {
-    data: sample_card,
+    data: { ...sample_card, ...{ status: "completed" } },
   },
 ]
 
@@ -92,15 +93,22 @@ const pages = [
   },
 ]
 
+const collaborator_details = {
+  expertise: "- Collaborator.\n- Details.\n- Expertise.\n",
+  requirement: "Must be a collaborator\n",
+  keyDates:
+    "We are ready to begin the project as soon as we identify a collaborator.\n",
+}
+
 const Index = () => {
-  const query = useStaticQuery(graphql`
+  const { logo, BottomBanner } = useStaticQuery(graphql`
     query {
       logo: file(relativePath: { regex: "/^logo.png$/" }) {
         childImageSharp {
           gatsbyImageData(width: 64)
         }
       }
-      bannerLogo: file(relativePath: { regex: "/^rd_logo.png$/" }) {
+      BottomBanner: file(relativePath: { regex: "/^rd_logo.png$/" }) {
         childImageSharp {
           gatsbyImageData(width: 160)
         }
@@ -117,8 +125,9 @@ const Index = () => {
       }
     }
   `)
-  const navbarLogoImage = getImage(query.logo)
-  const bannerLogoImage = getImage(query.bannerLogo)
+  const link = "https://www.nc.gov/terms"
+  const navbarLogoImage = getImage(logo)
+  const bannerImage = getImage(BottomBanner)
   const useSiteMetadata = query.useSiteMetadata.siteMetadata
   const nav_image = (
     <GatsbyImage
@@ -157,7 +166,8 @@ const Index = () => {
         pages={pages}
         activePage="First Nav"
       />
-      <BottomBanner image={banner_image} text="Sample text" />
+      <BottomBannerLayout image={bannerImage} text="Sample text" link={link} />
+      <BottomBannerLayout image={bannerImage} text="Sample text" />
       <BackIcon />
       <ForwardIcon />
       <ProjectStatus status="open" />
@@ -169,6 +179,14 @@ const Index = () => {
       <SectionOfItem label="Section of Items" value={markdownContent} />
       <Card {...sample_card} />
       <Cards nodes={sample_cards} />
+      {/*Normal Case for Collaborator Details*/}
+      <CollaboratorDetails {...collaborator_details} />
+      {/*No Collaborator Details*/}
+      <CollaboratorDetails />
+      {/*Minimal data – one field only*/}
+      <CollaboratorDetails expertise={"Expertise only"} />
+      <CollaboratorDetails requirement={"Requirement only"} />
+      <CollaboratorDetails keyDates={"Key dates only"} />
     </>
   )
 }
