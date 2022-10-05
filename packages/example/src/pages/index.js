@@ -10,6 +10,7 @@ import {
   SectionOfItem,
   Card,
   Cards,
+  CollaboratorDetails,
   NavbarLayout,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
 
@@ -90,6 +91,13 @@ const pages = [
   },
 ]
 
+const collaborator_details = {
+  expertise: "- Collaborator.\n- Details.\n- Expertise.\n",
+  requirement: "Must be a collaborator\n",
+  keyDates:
+    "We are ready to begin the project as soon as we identify a collaborator.\n",
+}
+
 const Index = () => {
   const { logo } = useStaticQuery(graphql`
     query {
@@ -138,6 +146,14 @@ const Index = () => {
       <SectionOfItem label="Section of Items" value={markdownContent} />
       <Card {...sample_card} />
       <Cards nodes={sample_cards} />
+      {/*Normal Case for Collaborator Details*/}
+      <CollaboratorDetails {...collaborator_details} />
+      {/*No Collaborator Details*/}
+      <CollaboratorDetails />
+      {/*Minimal data – one field only*/}
+      <CollaboratorDetails expertise={"Expertise only"} />
+      <CollaboratorDetails requirement={"Requirement only"} />
+      <CollaboratorDetails keyDates={"Key dates only"} />
     </>
   )
 }

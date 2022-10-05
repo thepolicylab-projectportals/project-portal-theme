@@ -1,4 +1,5 @@
 export { BackIcon } from "./BackIcon"
+export { CollaboratorDetails } from "./CollaboratorDetails"
 export { ForwardIcon } from "./ForwardIcon"
 export { DevelopmentBanner } from "./DevelopmentBanner"
 export { ProjectStatus } from "./ProjectStatus"
