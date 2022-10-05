@@ -1,14 +1,10 @@
 import React from "react"
 import { Helmet } from "react-helmet"
 import PropTypes from "prop-types"
+import { useSiteMetadata } from "../hooks/useSiteMetadata"
 
-export const SiteMetadata = ({
-  description,
-  image,
-  title,
-  useSiteMetadata,
-}) => {
-  const { siteTitle, locale } = useSiteMetadata
+export const SiteMetadata = ({ description, image, title }) => {
+  const { siteTitle, locale } = useSiteMetadata()
 
   return (
     <Helmet

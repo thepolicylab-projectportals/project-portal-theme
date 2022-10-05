@@ -136,16 +136,6 @@ const Index = () => {
             gatsbyImageData(width: 160)
           }
         }
-        useSiteMetadata: site {
-          siteMetadata {
-            siteTitle
-            short_name
-            siteUrl
-            projectInterestLink
-            live
-            locale
-          }
-        }
         logo: file(relativePath: { regex: "/^logo.png$/" }) {
           childImageSharp {
             gatsbyImageData(width: 64)
@@ -166,8 +156,6 @@ const Index = () => {
 
   const navbarLogoImage = getImage(logo)
   const bannerImage = getImage(BottomBanner)
-  const footerImage = getImage(FooterImage)
-  const meta = useSiteMetadata.siteMetadata
   const nav_image = (
     <GatsbyImage
       className="hidden xl:inline-block"
@@ -179,11 +167,7 @@ const Index = () => {
     <>
       <DevelopmentBanner />
       {/*Normal Navbar:*/}
-      <SiteMetadata
-        description="sample description"
-        title="some title"
-        useSiteMetadata={meta}
-      />
+      <SiteMetadata description="sample description" title="some title" />
       <NavbarLayout
         title="Example Site"
         label="test"
