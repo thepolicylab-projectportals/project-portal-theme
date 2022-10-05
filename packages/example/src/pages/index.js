@@ -100,6 +100,9 @@ const collaborator_details = {
     "We are ready to begin the project as soon as we identify a collaborator.\n",
 }
 
+const link = "https://www.nc.gov/terms"
+const bottomBannerImageLink = "R+D link"
+
 const Index = () => {
   const { logo, BottomBanner, useSiteMetadata } = useStaticQuery(graphql`
     query {
@@ -108,7 +111,7 @@ const Index = () => {
           gatsbyImageData(width: 64)
         }
       }
-      BottomBanner: file(relativePath: { regex: "/^rd_logo.png$/" }) {
+      BottomBanner: file(relativePath: { regex: "/^bottom_banner.png$/" }) {
         childImageSharp {
           gatsbyImageData(width: 160)
         }
@@ -125,7 +128,7 @@ const Index = () => {
       }
     }
   `)
-  const link = "https://www.nc.gov/terms"
+
   const navbarLogoImage = getImage(logo)
   const bannerImage = getImage(BottomBanner)
   const meta = useSiteMetadata.siteMetadata
@@ -159,8 +162,26 @@ const Index = () => {
         pages={pages}
         activePage="First Nav"
       />
-      <BottomBannerLayout image={bannerImage} text="Sample text" link={link} />
-      <BottomBannerLayout image={bannerImage} text="Sample text" />
+      <BottomBannerLayout
+        image={bannerImage}
+        text="Sample text"
+        link={link}
+        bottomBannerImageLink={bottomBannerImageLink}
+      />
+      <BottomBannerLayout
+        image={bannerImage}
+        text="Sample text"
+        bottomBannerImageLink={bottomBannerImageLink}
+      />
+      <BottomBannerLayout
+        text="Sample text"
+        link={link}
+        bottomBannerImageLink={bottomBannerImageLink}
+      />
+      <BottomBannerLayout
+        text="Sample text"
+        bottomBannerImageLink={bottomBannerImageLink}
+      />
       <BackIcon />
       <ForwardIcon />
       <ProjectStatus status="open" />

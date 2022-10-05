@@ -4,21 +4,26 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import { MarkdownText } from "../components"
 import { isNA } from "../utils"
 
-export const BottomBannerLayout = ({ image, text, link }) => {
+export const BottomBannerLayout = ({
+  image,
+  text,
+  link,
+  bottomBannerImageLink,
+}) => {
   return (
     <div className="py-6 mt-12 overflow-hidden bg-rd p-responsive">
       <div className="m-responsive">
         <div className="w-full flex gap-4 sm:gap-8 items-center justify-center flex-wrap">
           {!isNA(link) && image && (
-            <Link id="R+D link" to={link}>
+            <Link id={bottomBannerImageLink} to={link}>
               <GatsbyImage
                 className="inline-block"
                 image={image}
-                alt="R+D logo"
+                alt="Bottom Banner logo"
               />
             </Link>
           )}
-          {isNA(link) && image && (
+          {isNA(link) && {image} && (
             <GatsbyImage
               className="inline-block"
               image={image}
@@ -37,7 +42,7 @@ export const BottomBannerLayout = ({ image, text, link }) => {
 // export const BottomBanner = () => {
 //   const { BottomBanner } = useStaticQuery(graphql`
 //     query {
-//       BottomBanner: file(relativePath: { regex: "/^rd_logo.png$/" }) {
+//       BottomBanner: file(relativePath: { regex: "/^bottom_banner.png$/" }) {
 //         childImageSharp {
 //           gatsbyImageData(width: 160)
 //         }
