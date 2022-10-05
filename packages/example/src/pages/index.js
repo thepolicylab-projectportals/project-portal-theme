@@ -92,7 +92,7 @@ const pages = [
 ]
 
 const Index = () => {
-  const query = useStaticQuery(graphql`
+  const { logo, BottomBanner } = useStaticQuery(graphql`
     query {
       logo: file(relativePath: { regex: "/^logo.png$/" }) {
         childImageSharp {
@@ -107,8 +107,8 @@ const Index = () => {
     }
   `)
   const link = "https://www.nc.gov/terms"
-  const navbarLogoImage = getImage(query.logo)
-  const bannerLogoImage = getImage(query.BottomBanner)
+  const navbarLogoImage = getImage(logo)
+  const bannerLogoImage = getImage(BottomBanner)
   const nav_image = (
     <GatsbyImage
       className="hidden xl:inline-block"
