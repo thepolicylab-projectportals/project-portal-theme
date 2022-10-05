@@ -12,6 +12,7 @@ import {
   Cards,
   CollaboratorDetails,
   NavbarLayout,
+  BottomBannerLayout,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
 
 import { useStaticQuery, graphql } from "gatsby"
@@ -98,25 +99,34 @@ const collaborator_details = {
     "We are ready to begin the project as soon as we identify a collaborator.\n",
 }
 
+const link = "https://www.nc.gov/terms"
+const bottomBannerImageLink = "R+D link"
+
 const Index = () => {
-  const { logo } = useStaticQuery(graphql`
+  const { logo, BottomBanner } = useStaticQuery(graphql`
     query {
       logo: file(relativePath: { regex: "/^logo.png$/" }) {
         childImageSharp {
           gatsbyImageData(width: 64)
         }
       }
+      BottomBanner: file(relativePath: { regex: "/^bottom_banner.png$/" }) {
+        childImageSharp {
+          gatsbyImageData(width: 160)
+        }
+      }
     }
   `)
-  const image = getImage(logo)
+
+  const navbarLogoImage = getImage(logo)
+  const bannerImage = getImage(BottomBanner)
   const nav_image = (
     <GatsbyImage
       className="hidden xl:inline-block"
-      image={image}
+      image={navbarLogoImage}
       alt={"nav_logo"}
     />
   )
-
   return (
     <>
       <DevelopmentBanner />
@@ -134,6 +144,26 @@ const Index = () => {
         image={nav_image}
         pages={pages}
         activePage="First Nav"
+      />
+      <BottomBannerLayout
+        image={bannerImage}
+        text="Sample text"
+        link={link}
+        bottomBannerImageLink={bottomBannerImageLink}
+      />
+      <BottomBannerLayout
+        image={bannerImage}
+        text="Sample text"
+        bottomBannerImageLink={bottomBannerImageLink}
+      />
+      <BottomBannerLayout
+        text="Sample text"
+        link={link}
+        bottomBannerImageLink={bottomBannerImageLink}
+      />
+      <BottomBannerLayout
+        text="Sample text"
+        bottomBannerImageLink={bottomBannerImageLink}
       />
       <BackIcon />
       <ForwardIcon />
