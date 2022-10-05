@@ -116,18 +116,11 @@ const Index = () => {
   `)
   const link = "https://www.nc.gov/terms"
   const navbarLogoImage = getImage(logo)
-  const bannerLogoImage = getImage(BottomBanner)
+  const bannerImage = getImage(BottomBanner)
   const nav_image = (
     <GatsbyImage
       className="hidden xl:inline-block"
       image={navbarLogoImage}
-      alt={"nav_logo"}
-    />
-  )
-  const banner_image = (
-    <GatsbyImage
-      className="hidden xl:inline-block"
-      image={bannerLogoImage}
       alt={"nav_logo"}
     />
   )
@@ -149,8 +142,8 @@ const Index = () => {
         pages={pages}
         activePage="First Nav"
       />
-      <BottomBannerLayout image={banner_image} text="Sample text" link={link} />
-      <BottomBannerLayout image={banner_image} text="Sample text" />
+      <BottomBannerLayout image={bannerImage} text="Sample text" link={link} />
+      <BottomBannerLayout image={bannerImage} text="Sample text" />
       <BackIcon />
       <ForwardIcon />
       <ProjectStatus status="open" />

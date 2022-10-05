@@ -1,8 +1,8 @@
-import React from "react"
-import { MarkdownText } from "../components"
 import { Link } from "gatsby"
+import React from "react"
+import { GatsbyImage } from "gatsby-plugin-image"
+import { MarkdownText } from "../components"
 import { isNA } from "../utils"
-//import { graphql, useStaticQuery } from "gatsby"
 
 export const BottomBannerLayout = ({ image, text, link }) => {
   return (
@@ -11,10 +11,20 @@ export const BottomBannerLayout = ({ image, text, link }) => {
         <div className="w-full flex gap-4 sm:gap-8 items-center justify-center flex-wrap">
           {!isNA(link) && image && (
             <Link id="R+D link" to={link}>
-              image
+              <GatsbyImage
+                className="inline-block"
+                image={image}
+                alt="R+D logo"
+              />
             </Link>
           )}
-          {isNA(link) && image && image}
+          {isNA(link) && image && (
+            <GatsbyImage
+              className="inline-block"
+              image={image}
+              alt="R+D logo"
+            />
+          )}
           <div className="inline-block text-body flex-4 min-w-20ch">
             <MarkdownText text={text} />
           </div>
@@ -25,7 +35,7 @@ export const BottomBannerLayout = ({ image, text, link }) => {
 }
 
 // export const BottomBanner = () => {
-//   const query = useStaticQuery(graphql`
+//   const { BottomBanner } = useStaticQuery(graphql`
 //     query {
 //       BottomBanner: file(relativePath: { regex: "/^rd_logo.png$/" }) {
 //         childImageSharp {
@@ -34,13 +44,6 @@ export const BottomBannerLayout = ({ image, text, link }) => {
 //       }
 //     }
 //   `)
-//   const bannerLogoImage = getImage(query.BottomBanner)
-//   const banner_image = (
-//       <GatsbyImage
-//           className="hidden xl:inline-block"
-//           image={bannerLogoImage}
-//           alt={"nav_logo"}
-//       />
-//   )
-//   return <BottomBanner image={banner_image} text="Sample text" />
+//   const bannerLogoImage = getImage(BottomBanner)
+//   return <BottomBanner image={bannerImage} text="Sample text" />
 // }
