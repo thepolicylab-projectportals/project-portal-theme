@@ -29,7 +29,13 @@ export const Footer = ({ image, useSiteStaticText }) => {
           className="flex items-center gap-4 justify-center flex-wrap"
           href={useSiteStaticText.footer.heading.link}
         >
-          {image && <GatsbyImage image={image} alt={meta.title + " logo"} />}
+          {image && (
+            <GatsbyImage
+              className="inline-block"
+              image={image}
+              alt={meta.title + " logo"}
+            />
+          )}
           <p className="text-center inline-block text-h4 font-bold text-footertext">
             {useSiteStaticText.footer.heading.title}
           </p>
