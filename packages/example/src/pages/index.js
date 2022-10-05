@@ -126,6 +126,7 @@ const Index = () => {
 
   const navbarLogoImage = getImage(logo)
   const bannerImage = getImage(BottomBanner)
+  const contactImage = getImage(contact)
   const nav_image = (
     <GatsbyImage
       className="hidden xl:inline-block"
@@ -188,7 +189,7 @@ const Index = () => {
         title={"contact1Title"}
         email={"user1@example.com"}
         name={"contact1"}
-        contactImage={logo}
+        contactImage={bannerImage}
         showEmail={true}
       />
       {/*Contact with Hide Email*/}
@@ -197,7 +198,7 @@ const Index = () => {
         title={"contact2Title"}
         email={"user2@example.com"}
         name={"contact2"}
-        contactImage={contact}
+        contactImage={contactImage}
         showEmail={false}
       />
       {/*Contact with Hide Email*/}
