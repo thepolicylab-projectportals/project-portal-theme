@@ -1,9 +1,9 @@
 import React from "react"
-import { GatsbyImage } from "gatsby-plugin-image"
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
 
 export const Footer = ({ image, useSiteStaticText }) => {
   const meta = useSiteMetadata()
+  // use of GatsbyImage for the logo causs pa11y error as it doesn't register as an image
 
   return (
     <footer className="w-full px-2 py-8 bg-footer xl:container xl:px-12">
