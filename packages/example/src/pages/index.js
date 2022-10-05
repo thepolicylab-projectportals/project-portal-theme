@@ -161,6 +161,10 @@ const Index = () => {
         link={link}
         bottomBannerImageLink={bottomBannerImageLink}
       />
+      <BottomBannerLayout
+        text="Sample text"
+        bottomBannerImageLink={bottomBannerImageLink}
+      />
       <BackIcon />
       <ForwardIcon />
       <ProjectStatus status="open" />
