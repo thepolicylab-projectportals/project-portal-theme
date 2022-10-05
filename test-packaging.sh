@@ -143,7 +143,7 @@ package-and-install () {
       pack) {
         # Get the path where the pack-file will be created
         mkdir -p "$artifactDir"
-        packPath="$artifactDir/theme-$(date '+%s')-$(git rev-parse --short HEAD).tgz"
+        packPath="$artifactDir/theme-$(date '+%s')-$(git rev-parse --short HEAD)-$(base64 < "/dev/urandom" | tr -dc '0-9a-zA-Z' | head -c3 ).tgz"
         export packPath
 
         # Create the pack file itself
