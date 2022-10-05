@@ -37,7 +37,7 @@ export const BottomBannerLayout = ({ image, text, link }) => {
 // export const BottomBanner = () => {
 //   const { BottomBanner } = useStaticQuery(graphql`
 //     query {
-//       BottomBanner: file(relativePath: { regex: "/^rd_logo.png$/" }) {
+//       BottomBanner: file(relativePath: { regex: "/^bottom_banner.png$/" }) {
 //         childImageSharp {
 //           gatsbyImageData(width: 160)
 //         }

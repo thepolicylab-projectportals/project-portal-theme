@@ -107,7 +107,7 @@ const Index = () => {
           gatsbyImageData(width: 64)
         }
       }
-      BottomBanner: file(relativePath: { regex: "/^rd_logo.png$/" }) {
+      BottomBanner: file(relativePath: { regex: "/^bottom_banner.png$/" }) {
         childImageSharp {
           gatsbyImageData(width: 160)
         }
