@@ -1,17 +1,15 @@
 import React from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
-//import { graphql, useStaticQuery } from "gatsby"
-// import { getImage } from "gatsby-plugin-image"
-//
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
-// import language from "site/language.json"
 
-export const Footer = ({ image, useSiteMetadata, language }) => {
+export const Footer = ({ image, useSiteStaticText }) => {
+  const meta = useSiteMetadata()
+
   return (
     <footer className="w-full px-2 py-8 bg-footer xl:container xl:px-12">
       <div className="flex items-center justify-center mt-6 lg:my-auto">
         <div className="text-nav text-footertext">
-          {language.footer.copyright}
+          {useSiteStaticText.footer.copyright}
         </div>
       </div>
       <div
@@ -19,7 +17,7 @@ export const Footer = ({ image, useSiteMetadata, language }) => {
       ems-center justify-center mt-6 lg:my-auto"
       >
         <ul className="text-nav text-footertext list-none">
-          {language.footer.links.map(({ title, link }, i) => (
+          {useSiteStaticText.footer.links.map(({ title, link }, i) => (
             <ListItem key={"link_" + i} target={link}>
               {title}
             </ListItem>
@@ -29,11 +27,11 @@ export const Footer = ({ image, useSiteMetadata, language }) => {
       <div className="block w-full lg:w-auto mt-5">
         <a
           className="flex items-center gap-4 justify-center flex-wrap"
-          href={language.footer.heading.link}
+          href={useSiteStaticText.footer.heading.link}
         >
           {image && <GatsbyImage image={image} alt={meta.title + " logo"} />}
           <p className="text-center inline-block text-h4 font-bold text-footertext">
-            {language.footer.heading.title}
+            {useSiteStaticText.footer.heading.title}
           </p>
         </a>
       </div>
@@ -49,7 +47,7 @@ const ListItem = ({ target, children }) => {
   )
 }
 
-// const FooterImage = () => {
+// const FooterImage = (Footer) => {
 //     const query = useStaticQuery(graphql`
 //     query {
 //      Footer: file(relativePath: { regex: "/^footer.png$/" }) {
@@ -59,6 +57,6 @@ const ListItem = ({ target, children }) => {
 //       }
 //     }
 //  `)
-//  const FooterImage = getImage(query.Footer)
+//  const FooterImage = getImage(Footer)
 //  return FooterImage
 // }
