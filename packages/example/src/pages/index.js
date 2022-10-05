@@ -10,6 +10,7 @@ import {
   SectionOfItem,
   Card,
   Cards,
+  CollaboratorDetails,
   NavbarLayout,
   SiteMetadata,
   Footer,
@@ -68,10 +69,10 @@ const sample_cards = [
     data: sample_card,
   },
   {
-    data: sample_card,
+    data: { ...sample_card, ...{ status: "ongoing" } },
   },
   {
-    data: sample_card,
+    data: { ...sample_card, ...{ status: "completed" } },
   },
 ]
 
@@ -92,7 +93,6 @@ const pages = [
     show: false,
   },
 ]
-const link = "https://www.nc.gov/terms"
 const language = {
   footer: {
     heading: {
@@ -112,12 +112,32 @@ const language = {
   },
 }
 
+const collaborator_details = {
+  expertise: "- Collaborator.\n- Details.\n- Expertise.\n",
+  requirement: "Must be a collaborator\n",
+  keyDates:
+    "We are ready to begin the project as soon as we identify a collaborator.\n",
+}
+
+const link = "https://www.nc.gov/terms"
+const bottomBannerImageLink = "R+D link"
+
 const Index = () => {
-  const query = useStaticQuery(graphql`
+  const { logo, BottomBanner, useSiteMetadata } = useStaticQuery(graphql`
     query {
+      logo: file(relativePath: { regex: "/^logo.png$/" }) {
+        childImageSharp {
+          gatsbyImageData(width: 64)
+        }
+      }
+      BottomBanner: file(relativePath: { regex: "/^rd_logo.png$/" }) {
+        childImageSharp {
+          gatsbyImageData(width: 160)
+        }
+      }
       useSiteMetadata: site {
         siteMetadata {
-          title
+          siteTitle
           short_name
           siteUrl
           projectInterestLink
@@ -142,10 +162,10 @@ const Index = () => {
       }
     }
   `)
-  const meta = query.useSiteMetadata.siteMetadata
-  const navbarLogoImage = getImage(query.logo)
-  const bannerLogoImage = getImage(query.BottomBanner)
-  const FooterLogoImage = getImage(query.FooterImage)
+
+  const navbarLogoImage = getImage(logo)
+  const bannerImage = getImage(BottomBanner)
+  const meta = useSiteMetadata.siteMetadata
   const nav_image = (
     <GatsbyImage
       className="hidden xl:inline-block"
@@ -160,12 +180,10 @@ const Index = () => {
       alt={"nav_logo"}
     />
   )
-
   return (
     <>
       <DevelopmentBanner />
       {/*Normal Navbar:*/}
-      <Footer image={FooterLogoImage} meta={meta} language={language} />
       <SiteMetadata
         description="sample description"
         title="some title"
@@ -185,8 +203,26 @@ const Index = () => {
         pages={pages}
         activePage="First Nav"
       />
-      <BottomBannerLayout image={banner_image} text="Sample text" link={link} />
-      <BottomBannerLayout image={banner_image} text="Sample text" />
+      <BottomBannerLayout
+        image={bannerImage}
+        text="Sample text"
+        link={link}
+        bottomBannerImageLink={bottomBannerImageLink}
+      />
+      <BottomBannerLayout
+        image={bannerImage}
+        text="Sample text"
+        bottomBannerImageLink={bottomBannerImageLink}
+      />
+      <BottomBannerLayout
+        text="Sample text"
+        link={link}
+        bottomBannerImageLink={bottomBannerImageLink}
+      />
+      <BottomBannerLayout
+        text="Sample text"
+        bottomBannerImageLink={bottomBannerImageLink}
+      />
       <BackIcon />
       <ForwardIcon />
       <ProjectStatus status="open" />
@@ -198,6 +234,14 @@ const Index = () => {
       <SectionOfItem label="Section of Items" value={markdownContent} />
       <Card {...sample_card} />
       <Cards nodes={sample_cards} />
+      {/*Normal Case for Collaborator Details*/}
+      <CollaboratorDetails {...collaborator_details} />
+      {/*No Collaborator Details*/}
+      <CollaboratorDetails />
+      {/*Minimal data – one field only*/}
+      <CollaboratorDetails expertise={"Expertise only"} />
+      <CollaboratorDetails requirement={"Requirement only"} />
+      <CollaboratorDetails keyDates={"Key dates only"} />
     </>
   )
 }
