@@ -1,7 +1,0 @@
-<component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="all local build and packaging checks" type="CompoundRunConfigurationType">
-    <toRun name="test-packaging.sh (all local)" type="CompoundRunConfigurationType" />
-    <toRun name="yarn workspace * build" type="CompoundRunConfigurationType" />
-    <method v="2" />
-  </configuration>
-</component>

@@ -1,8 +1,0 @@
-<component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="test-packaging.sh (all local)" type="CompoundRunConfigurationType">
-    <toRun name="test-packaging.sh (local: basic)" type="ShConfigurationType" />
-    <toRun name="test-packaging.sh (local: defaults)" type="ShConfigurationType" />
-    <toRun name="test-packaging.sh (local: example)" type="ShConfigurationType" />
-    <method v="2" />
-  </configuration>
-</component>
