@@ -3,10 +3,10 @@ import { GatsbyImage } from "gatsby-plugin-image"
 //import { graphql, useStaticQuery } from "gatsby"
 // import { getImage } from "gatsby-plugin-image"
 //
-// import meta from "site/meta.json"
+import { useSiteMetadata } from "../hooks/useSiteMetadata"
 // import language from "site/language.json"
 
-export const Footer = ({ image, meta, language }) => {
+export const Footer = ({ image, useSiteMetadata, language }) => {
   return (
     <footer className="w-full px-2 py-8 bg-footer xl:container xl:px-12">
       <div className="flex items-center justify-center mt-6 lg:my-auto">
