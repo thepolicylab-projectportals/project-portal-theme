@@ -101,7 +101,7 @@ const collaborator_details = {
 }
 
 const Index = () => {
-  const { logo, BottomBanner } = useStaticQuery(graphql`
+  const { logo, BottomBanner, useSiteMetadata } = useStaticQuery(graphql`
     query {
       logo: file(relativePath: { regex: "/^logo.png$/" }) {
         childImageSharp {
@@ -128,18 +128,11 @@ const Index = () => {
   const link = "https://www.nc.gov/terms"
   const navbarLogoImage = getImage(logo)
   const bannerImage = getImage(BottomBanner)
-  const useSiteMetadata = query.useSiteMetadata.siteMetadata
+  const meta = useSiteMetadata.siteMetadata
   const nav_image = (
     <GatsbyImage
       className="hidden xl:inline-block"
       image={navbarLogoImage}
-      alt={"nav_logo"}
-    />
-  )
-  const banner_image = (
-    <GatsbyImage
-      className="hidden xl:inline-block"
-      image={bannerLogoImage}
       alt={"nav_logo"}
     />
   )
@@ -150,7 +143,7 @@ const Index = () => {
       <SiteMetadata
         description="sample description"
         title="some title"
-        useSiteMetadata={useSiteMetadata}
+        useSiteMetadata={meta}
       />
       <NavbarLayout
         title="Example Site"
