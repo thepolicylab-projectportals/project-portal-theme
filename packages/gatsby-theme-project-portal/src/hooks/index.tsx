@@ -1,0 +1,1 @@
+export { useSiteMetadata } from "./useSiteMetadata"
