@@ -1,4 +1,5 @@
 import React from "react"
+import { GatsbyImage } from "gatsby-plugin-image"
 //import { graphql, useStaticQuery } from "gatsby"
 // import { getImage } from "gatsby-plugin-image"
 //
@@ -31,14 +32,7 @@ export const Footer = ({ image, meta, language }) => {
           className="flex items-center gap-4 justify-center flex-wrap"
           href={language.footer.heading.link}
         >
-          {image && (
-            <img
-              srcSet={image.images.sources[0].srcSet}
-              alt={meta.title + " logo"}
-              height={image.height}
-              width={image.width}
-            />
-          )}
+          {image && <GatsbyImage image={image} alt={meta.title + " logo"} />}
           <p className="text-center inline-block text-h4 font-bold text-footertext">
             {language.footer.heading.title}
           </p>
