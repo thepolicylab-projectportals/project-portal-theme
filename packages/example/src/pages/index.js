@@ -123,60 +123,55 @@ const link = "https://www.nc.gov/terms"
 const bottomBannerImageLink = "R+D link"
 
 const Index = () => {
-  const { logo, BottomBanner, useSiteMetadata } = useStaticQuery(graphql`
-    query {
-      logo: file(relativePath: { regex: "/^logo.png$/" }) {
-        childImageSharp {
-          gatsbyImageData(width: 64)
+  const { logo, BottomBanner, useSiteMetadata, FooterImage } =
+    useStaticQuery(graphql`
+      query {
+        logo: file(relativePath: { regex: "/^logo.png$/" }) {
+          childImageSharp {
+            gatsbyImageData(width: 64)
+          }
+        }
+        BottomBanner: file(relativePath: { regex: "/^rd_logo.png$/" }) {
+          childImageSharp {
+            gatsbyImageData(width: 160)
+          }
+        }
+        useSiteMetadata: site {
+          siteMetadata {
+            siteTitle
+            short_name
+            siteUrl
+            projectInterestLink
+            live
+            locale
+          }
+        }
+        logo: file(relativePath: { regex: "/^logo.png$/" }) {
+          childImageSharp {
+            gatsbyImageData(width: 64)
+          }
+        }
+        BottomBanner: file(relativePath: { regex: "/^rd_logo.png$/" }) {
+          childImageSharp {
+            gatsbyImageData(width: 160)
+          }
+        }
+        FooterImage: file(relativePath: { regex: "/^footer.png$/" }) {
+          childImageSharp {
+            gatsbyImageData(height: 64)
+          }
         }
       }
-      BottomBanner: file(relativePath: { regex: "/^rd_logo.png$/" }) {
-        childImageSharp {
-          gatsbyImageData(width: 160)
-        }
-      }
-      useSiteMetadata: site {
-        siteMetadata {
-          siteTitle
-          short_name
-          siteUrl
-          projectInterestLink
-          live
-          locale
-        }
-      }
-      logo: file(relativePath: { regex: "/^logo.png$/" }) {
-        childImageSharp {
-          gatsbyImageData(width: 64)
-        }
-      }
-      BottomBanner: file(relativePath: { regex: "/^rd_logo.png$/" }) {
-        childImageSharp {
-          gatsbyImageData(width: 160)
-        }
-      }
-      FooterImage: file(relativePath: { regex: "/^footer.png$/" }) {
-        childImageSharp {
-          gatsbyImageData(height: 64)
-        }
-      }
-    }
-  `)
+    `)
 
   const navbarLogoImage = getImage(logo)
   const bannerImage = getImage(BottomBanner)
+  const footerImage = getImage(FooterImage)
   const meta = useSiteMetadata.siteMetadata
   const nav_image = (
     <GatsbyImage
       className="hidden xl:inline-block"
       image={navbarLogoImage}
-      alt={"nav_logo"}
-    />
-  )
-  const banner_image = (
-    <GatsbyImage
-      className="hidden xl:inline-block"
-      image={bannerLogoImage}
       alt={"nav_logo"}
     />
   )
@@ -242,6 +237,7 @@ const Index = () => {
       <CollaboratorDetails expertise={"Expertise only"} />
       <CollaboratorDetails requirement={"Requirement only"} />
       <CollaboratorDetails keyDates={"Key dates only"} />
+      <Footer image={footerImage} meta={meta} language={language} />
     </>
   )
 }

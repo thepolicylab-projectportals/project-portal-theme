@@ -1,6 +1,5 @@
-import React, { FunctionComponent } from "react"
-import { graphql, useStaticQuery } from "gatsby"
-// import { Link, graphql, useStaticQuery } from "gatsby"
+import React from "react"
+//import { graphql, useStaticQuery } from "gatsby"
 // import { getImage } from "gatsby-plugin-image"
 //
 // import meta from "site/meta.json"
