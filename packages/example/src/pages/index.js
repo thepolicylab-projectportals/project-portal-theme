@@ -217,7 +217,9 @@ const Index = () => {
       <CollaboratorDetails expertise={"Expertise only"} />
       <CollaboratorDetails requirement={"Requirement only"} />
       <CollaboratorDetails keyDates={"Key dates only"} />
-      <Footer image={footerImage} useSiteStaticText={useSiteStaticText} />
+      <div style={{ backgroundColor: "black" }}>
+        <Footer image={footerImage} useSiteStaticText={useSiteStaticText} />
+      </div>
     </>
   )
 }
