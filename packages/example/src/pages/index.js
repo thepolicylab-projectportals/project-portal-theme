@@ -132,7 +132,6 @@ const Index = () => {
     <>
       <DevelopmentBanner />
       {/*Normal Navbar:*/}
-      <SiteMetadata description="sample description" title="some title" />
       <NavbarLayout
         title="Example Site"
         label="test"
@@ -186,6 +185,7 @@ const Index = () => {
       <CollaboratorDetails expertise={"Expertise only"} />
       <CollaboratorDetails requirement={"Requirement only"} />
       <CollaboratorDetails keyDates={"Key dates only"} />
+      <SiteMetadata description="sample description" title="some title" />
     </>
   )
 }
