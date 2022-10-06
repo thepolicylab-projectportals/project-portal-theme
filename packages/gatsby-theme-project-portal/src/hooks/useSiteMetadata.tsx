@@ -15,7 +15,7 @@ export const useSiteMetadata: FunctionComponent<SiteMetadataProps> = ({
   siteUrl,
   live,
   locale,
-}) => {
+}: SiteMetadataProps) => {
   const data = useStaticQuery(graphql`
     {
       site {
