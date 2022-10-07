@@ -1,5 +1,6 @@
 module.exports = {
   plugins: [
+    `@thepolicylab-projectportals/gatsby-theme-project-portal`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
