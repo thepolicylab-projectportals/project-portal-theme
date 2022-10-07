@@ -1,5 +1,3 @@
-module.exports = ({
-  live= false
-}) => {
-  console.log("live value default: ", {live})
+module.exports = (themeOptions) => {
+  console.log("theme options: ", themeOptions)
 }
