@@ -29,8 +29,8 @@ export const Layout: FunctionComponent<LayoutProps> = ({
   activePage,
   title,
   description,
-  children,
   showDevBanner,
+  children,
 }) => {
   const coalescedShowDevBanner = getShowDevBannerSetting(showDevBanner)
 
