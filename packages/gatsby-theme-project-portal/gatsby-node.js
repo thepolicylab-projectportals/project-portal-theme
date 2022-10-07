@@ -1,37 +1,39 @@
-exports.onPreInit = () => console.log("Loaded gatsby-theme-project-portal")
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions
 
-// constants for your GraphQL Post and Author types
-const POST_NODE_TYPE = `Post`
+  createTypes(`
+    type ProjectPortalConfig implements Node {
+      contrastGuidelines: String
+      CMYK: Boolean
+      codeExample: Boolean
+      rootFontSize: Int
+    }
+  `)
+}
 
-exports.sourceNodes = async ({
-                               actions,
-                               createContentDigest,
-                               createNodeId,
-                               getNodesByType,
-                             }, themeOptions) => {
-  console.log(themeOptions)
+exports.sourceNodes = (
+  { actions, createContentDigest },
+  { contrastGuidelines = `AA`, CMYK = true, codeExample = true, rootFontSize = 16 }
+) => {
   const { createNode } = actions
 
-  const data = {
-    posts: [
-      { id: 1, description: `Hello world!` },
-      { id: 2, description: `Second post!` },
-    ],
+  const specimensConfig = {
+    contrastGuidelines,
+    CMYK,
+    codeExample,
+    rootFontSize,
   }
 
-  // loop through data and create Gatsby nodes
-  data.posts.forEach(post =>
-    createNode({
-      ...post,
-      id: createNodeId(`${POST_NODE_TYPE}-${post.id}`),
-      parent: null,
-      children: [],
-      internal: {
-        type: POST_NODE_TYPE,
-        contentDigest: createContentDigest(post),
-      },
-    })
-  )
-
-  return
+  createNode({
+    ...specimensConfig,
+    id: `@thepolicylab-projectportals/gatsby-theme-project-portal`,
+    parent: null,
+    children: [],
+    internal: {
+      type: `ProjectPortalConfig`,
+      contentDigest: createContentDigest(specimensConfig),
+      content: JSON.stringify(specimensConfig),
+      description: `Options for @thepolicylab-projectportals/gatsby-theme-project-portal`,
+    },
+  })
 }
