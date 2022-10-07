@@ -1,3 +1,5 @@
+const { withDefaults } = require(`./utils/default-options`)
+
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
 
@@ -10,13 +12,11 @@ exports.createSchemaCustomization = ({ actions }) => {
 
 exports.sourceNodes = (
   { actions, createContentDigest },
-  { siteTitle = "Project Portal Theme" }
+  themeOptions
 ) => {
   const { createNode } = actions
 
-  const projectPortalConfig = {
-    siteTitle,
-  }
+  const projectPortalConfig = withDefaults(themeOptions)
 
   createNode({
     ...projectPortalConfig,
