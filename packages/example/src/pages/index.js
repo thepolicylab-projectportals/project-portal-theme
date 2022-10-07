@@ -13,7 +13,7 @@ import {
   CollaboratorDetails,
   NavbarLayout,
   BottomBannerLayout,
-  ThemeOptions
+  getThemeOptions
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
 
 import { useStaticQuery, graphql } from "gatsby"
@@ -185,7 +185,7 @@ const Index = () => {
       <CollaboratorDetails expertise={"Expertise only"} />
       <CollaboratorDetails requirement={"Requirement only"} />
       <CollaboratorDetails keyDates={"Key dates only"} />
-      <ThemeOptions />
+      {getThemeOptions()}
     </>
   )
 }
