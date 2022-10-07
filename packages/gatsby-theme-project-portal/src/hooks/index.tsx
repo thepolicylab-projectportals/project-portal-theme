@@ -1,1 +1,1 @@
-export { useThemeOptions } from "./useThemeOptions"
+export { useProjectPortalConfig } from "./useProjectPortalConfig"

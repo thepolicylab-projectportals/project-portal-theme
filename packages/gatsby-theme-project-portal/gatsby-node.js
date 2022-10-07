@@ -6,14 +6,12 @@ exports.createSchemaCustomization = ({ actions }) => {
   createTypes(`
     type ProjectPortalConfig implements Node {
       siteTitle: String
+      showDevBanner: Boolean
     }
   `)
 }
 
-exports.sourceNodes = (
-  { actions, createContentDigest },
-  themeOptions
-) => {
+exports.sourceNodes = ({ actions, createContentDigest }, themeOptions) => {
   const { createNode } = actions
 
   const projectPortalConfig = withDefaults(themeOptions)
