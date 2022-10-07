@@ -19,6 +19,11 @@
     "react-icons": "^4.4.0",
     "react-share": "^4.4.0"
   },
+  "devDependencies": {
+    "gatsby": "^4.0.0",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/thepolicylab-projectportals/project-portal-theme.git"
