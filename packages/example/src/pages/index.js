@@ -12,7 +12,7 @@ import {
   Cards,
   CollaboratorDetails,
   NavbarLayout,
-  BottomBannerLayout
+  BottomBannerLayout,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
 
 import { useStaticQuery, graphql } from "gatsby"
