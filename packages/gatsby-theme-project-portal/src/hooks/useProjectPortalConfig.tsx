@@ -1,13 +1,14 @@
 import { graphql, useStaticQuery } from "gatsby"
 
-export const useThemeOptions = () => {
+export const useProjectPortalConfig = () => {
   const data = useStaticQuery(graphql`
     {
-      themeOptions {
+      projectPortalConfig {
         siteTitle
+        showDevBanner
       }
     }
   `)
 
-  return data.themeOptions
+  return data.projectPortalConfig
 }
