@@ -10,6 +10,7 @@ import {
   SectionOfItem,
   Card,
   Cards,
+  Contact,
   CollaboratorDetails,
   NavbarLayout,
   BottomBannerLayout,
@@ -103,9 +104,14 @@ const link = "https://www.nc.gov/terms"
 const bottomBannerImageLink = "R+D link"
 
 const Index = () => {
-  const { logo, BottomBanner } = useStaticQuery(graphql`
+  const { logo, BottomBanner, contact } = useStaticQuery(graphql`
     query {
       logo: file(relativePath: { regex: "/^logo.png$/" }) {
+        childImageSharp {
+          gatsbyImageData(width: 64)
+        }
+      }
+      contact: file(relativePath: { regex: "/^contactImage.png$/" }) {
         childImageSharp {
           gatsbyImageData(width: 64)
         }
@@ -176,6 +182,32 @@ const Index = () => {
       <SectionOfItem label="Section of Items" value={markdownContent} />
       <Card {...sample_card} />
       <Cards nodes={sample_cards} />
+      {/*Contact with Show Email*/}
+      <Contact
+        employer={"testEmployer"}
+        title={"contact1Title"}
+        email={"user1@example.com"}
+        name={"contact1"}
+        contactImage={BottomBanner}
+        showEmail={true}
+      />
+      {/*Contact with Hide Email*/}
+      <Contact
+        employer={"testEmployer"}
+        title={"contact2Title"}
+        email={"user2@example.com"}
+        name={"contact2"}
+        contactImage={contact}
+        showEmail={false}
+      />
+      {/*Contact with Hide Email*/}
+      <Contact
+        employer={"testEmployer"}
+        title={"noImageContact"}
+        email={"user3@example.com"}
+        name={"contact3"}
+        showEmail={true}
+      />
       {/*Normal Case for Collaborator Details*/}
       <CollaboratorDetails {...collaborator_details} />
       {/*No Collaborator Details*/}
