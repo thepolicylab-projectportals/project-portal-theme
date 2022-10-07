@@ -3,36 +3,30 @@ exports.createSchemaCustomization = ({ actions }) => {
 
   createTypes(`
     type ProjectPortalConfig implements Node {
-      contrastGuidelines: String
-      CMYK: Boolean
-      codeExample: Boolean
-      rootFontSize: Int
+      siteTitle: String
     }
   `)
 }
 
 exports.sourceNodes = (
   { actions, createContentDigest },
-  { contrastGuidelines = `AA`, CMYK = true, codeExample = true, rootFontSize = 16 }
+  { siteTitle = "Project Portal Theme" }
 ) => {
   const { createNode } = actions
 
-  const specimensConfig = {
-    contrastGuidelines,
-    CMYK,
-    codeExample,
-    rootFontSize,
+  const projectPortalConfig = {
+    siteTitle,
   }
 
   createNode({
-    ...specimensConfig,
+    ...projectPortalConfig,
     id: `@thepolicylab-projectportals/gatsby-theme-project-portal`,
     parent: null,
     children: [],
     internal: {
       type: `ProjectPortalConfig`,
-      contentDigest: createContentDigest(specimensConfig),
-      content: JSON.stringify(specimensConfig),
+      contentDigest: createContentDigest(projectPortalConfig),
+      content: JSON.stringify(projectPortalConfig),
       description: `Options for @thepolicylab-projectportals/gatsby-theme-project-portal`,
     },
   })
