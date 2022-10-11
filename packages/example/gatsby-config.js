@@ -6,6 +6,7 @@ const siteMetadata = {
   live: false,
   locale: "en",
   pages: [{ name: "Home", link: "/", show: true }],
+  projectInterestLink: "",
 }
 
 module.exports = {

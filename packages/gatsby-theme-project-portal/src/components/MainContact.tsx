@@ -2,6 +2,7 @@ import React, { FunctionComponent } from "react"
 import { Link } from "gatsby"
 import { Contact, MarkdownText } from "../components"
 import { statusOutput } from "../utils"
+import { useSiteMetadata } from "../hooks/useSiteMetadata"
 
 interface ProjectContactProps {
   name: string
@@ -22,7 +23,6 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
   contactImage,
   status,
   emailContent,
-  useSiteMetadata,
 }) => {
   const ongoingText =
     "We plan to post results and deliverables when the project is complete. In the meantime, we welcome questions about the project."
