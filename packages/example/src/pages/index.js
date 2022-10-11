@@ -10,7 +10,12 @@ import {
   SectionOfItem,
   Card,
   Cards,
+  Contact,
+  CollaboratorDetails,
   NavbarLayout,
+  SiteMetadata,
+  Footer,
+  BottomBannerLayout,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
 
 import { useStaticQuery, graphql } from "gatsby"
@@ -65,10 +70,10 @@ const sample_cards = [
     data: sample_card,
   },
   {
-    data: sample_card,
+    data: { ...sample_card, ...{ status: "ongoing" } },
   },
   {
-    data: sample_card,
+    data: { ...sample_card, ...{ status: "completed" } },
   },
 ]
 
@@ -89,26 +94,72 @@ const pages = [
     show: false,
   },
 ]
+const useSiteStaticText = {
+  footer: {
+    heading: {
+      link: "https://www.google.com/",
+      title: "Language title",
+    },
+    links: [
+      {
+        title: "Office 1",
+        link: "http://www.google.com",
+      },
+      {
+        title: "Office 2",
+        link: "http://www.google.com",
+      },
+    ],
+  },
+}
+
+const collaborator_details = {
+  expertise: "- Collaborator.\n- Details.\n- Expertise.\n",
+  requirement: "Must be a collaborator\n",
+  keyDates:
+    "We are ready to begin the project as soon as we identify a collaborator.\n",
+}
+
+const link = "https://www.nc.gov/terms"
+const bottomBannerImageLink = "R+D link"
 
 const Index = () => {
-  const { logo } = useStaticQuery(graphql`
+  const { logo, BottomBanner, FooterImage, contact } = useStaticQuery(graphql`
     query {
       logo: file(relativePath: { regex: "/^logo.png$/" }) {
         childImageSharp {
           gatsbyImageData(width: 64)
         }
       }
+      contact: file(relativePath: { regex: "/^contactImage.png$/" }) {
+        childImageSharp {
+          gatsbyImageData(width: 64)
+        }
+      }
+      BottomBanner: file(relativePath: { regex: "/^bottom_banner.png$/" }) {
+        childImageSharp {
+          gatsbyImageData(width: 160)
+        }
+      }
+      FooterImage: file(relativePath: { regex: "/^footer.png$/" }) {
+        childImageSharp {
+          gatsbyImageData(height: 64)
+        }
+      }
     }
   `)
-  const image = getImage(logo)
+
+  const navbarLogoImage = getImage(logo)
+  const bannerImage = getImage(BottomBanner)
+  const footerImage = getImage(FooterImage)
+  console.log(footerImage)
   const nav_image = (
     <GatsbyImage
       className="hidden xl:inline-block"
-      image={image}
+      image={navbarLogoImage}
       alt={"nav_logo"}
     />
   )
-
   return (
     <>
       <DevelopmentBanner />
@@ -127,6 +178,26 @@ const Index = () => {
         pages={pages}
         activePage="First Nav"
       />
+      <BottomBannerLayout
+        image={bannerImage}
+        text="Sample text"
+        link={link}
+        bottomBannerImageLink={bottomBannerImageLink}
+      />
+      <BottomBannerLayout
+        image={bannerImage}
+        text="Sample text"
+        bottomBannerImageLink={bottomBannerImageLink}
+      />
+      <BottomBannerLayout
+        text="Sample text"
+        link={link}
+        bottomBannerImageLink={bottomBannerImageLink}
+      />
+      <BottomBannerLayout
+        text="Sample text"
+        bottomBannerImageLink={bottomBannerImageLink}
+      />
       <BackIcon />
       <ForwardIcon />
       <ProjectStatus status="open" />
@@ -138,6 +209,44 @@ const Index = () => {
       <SectionOfItem label="Section of Items" value={markdownContent} />
       <Card {...sample_card} />
       <Cards nodes={sample_cards} />
+      {/*Contact with Show Email*/}
+      <Contact
+        employer={"testEmployer"}
+        title={"contact1Title"}
+        email={"user1@example.com"}
+        name={"contact1"}
+        contactImage={BottomBanner}
+        showEmail={true}
+      />
+      {/*Contact with Hide Email*/}
+      <Contact
+        employer={"testEmployer"}
+        title={"contact2Title"}
+        email={"user2@example.com"}
+        name={"contact2"}
+        contactImage={contact}
+        showEmail={false}
+      />
+      {/*Contact with Hide Email*/}
+      <Contact
+        employer={"testEmployer"}
+        title={"noImageContact"}
+        email={"user3@example.com"}
+        name={"contact3"}
+        showEmail={true}
+      />
+      {/*Normal Case for Collaborator Details*/}
+      <CollaboratorDetails {...collaborator_details} />
+      {/*No Collaborator Details*/}
+      <CollaboratorDetails />
+      {/*Minimal data – one field only*/}
+      <CollaboratorDetails expertise={"Expertise only"} />
+      <CollaboratorDetails requirement={"Requirement only"} />
+      <CollaboratorDetails keyDates={"Key dates only"} />
+      <div style={{ backgroundColor: "black" }}>
+        <Footer image={footerImage} useSiteStaticText={useSiteStaticText} />
+      </div>
+      <SiteMetadata description="sample description" title="some title" />
     </>
   )
 }
