@@ -39,16 +39,21 @@ export const BottomBannerLayout = ({
   )
 }
 
-// export const BottomBanner = () => {
-//   const { BottomBanner } = useStaticQuery(graphql`
-//     query {
-//       BottomBanner: file(relativePath: { regex: "/^bottom_banner.png$/" }) {
-//         childImageSharp {
-//           gatsbyImageData(width: 160)
-//         }
-//       }
-//     }
-//   `)
-//   const bannerLogoImage = getImage(BottomBanner)
-//   return <BottomBanner image={bannerImage} text="Sample text" />
-// }
+export const BottomBanner = () => {
+  //   const { BottomBanner } = useStaticQuery(graphql`
+  //     query {
+  //       BottomBanner: file(relativePath: { regex: "/^bottom_banner.png$/" }) {
+  //         childImageSharp {
+  //           gatsbyImageData(width: 160)
+  //         }
+  //       }
+  //     }
+  //   `)
+  //   const bannerLogoImage = getImage(BottomBanner)
+
+  const {
+    bottom_banner: { text: bottomBannerText },
+  } = useStaticText()
+
+  return <BottomBannerLayout text={bottomBannerText} />
+}
