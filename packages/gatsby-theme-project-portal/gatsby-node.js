@@ -5,7 +5,6 @@ exports.createSchemaCustomization = ({ actions }) => {
 
   createTypes(`
     type ProjectPortalConfig implements Node {
-      siteTitle: String
       showDevBanner: Boolean
     }
   `)
