@@ -1,13 +1,17 @@
 const { withDefaults } = require(`./utils/default-options`)
 
+const {
+  projectTypeDefs,
+  projectPortalConfigTypeDefs,
+} = require(`./utils/types`)
+
+console.log("project type defs:", projectTypeDefs)
+
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
 
-  createTypes(`
-    type ProjectPortalConfig implements Node {
-      showDevBanner: Boolean
-    }
-  `)
+  createTypes(projectPortalConfigTypeDefs)
+  createTypes(projectTypeDefs)
 }
 
 exports.sourceNodes = ({ actions, createContentDigest }, themeOptions) => {

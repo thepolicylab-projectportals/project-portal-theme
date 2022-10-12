@@ -1,36 +1,7 @@
-// constants for your GraphQL Project and Contact types
-const PROJECT_NODE_TYPE = `Project`
-const projectTypeDefs = `
-    type ${PROJECT_NODE_TYPE} implements Node {
-      slug: String!
-      
-      question: String
-      partnerName: String
-      status: String
-      
-      opportunityCloses: Date @dateformat
-      startDate: Date @dateformat
-      endDate: Date @dateformat
-  
-      agency: String
-      topics: [String]
-      supportNeeded: [String]
-      
-      summary: String
-      deliverable: String
-      purpose: String
-      expertise: String
-      requirement: String
-      keyDates: String
-      statusOfData: String
-      priorResearch: String
-      fundingInfo: String
-      emailContent: String
-      
-      lastModified: Date @dateformat(formatString: "YYYY-MM-DDTHH:mm:ss.SSSZ")
-      
-    }
-  `
+const {
+  PROJECT_NODE_TYPE,
+} = require("@thepolicylab-projectportals/gatsby-theme-project-portal/utils/types")
+
 exports.sourceNodes = async ({
   actions,
   createContentDigest,
@@ -65,10 +36,4 @@ exports.sourceNodes = async ({
       },
     })
   )
-}
-
-exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes } = actions
-
-  createTypes(projectTypeDefs)
 }
