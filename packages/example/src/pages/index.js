@@ -14,7 +14,7 @@ import {
   CollaboratorDetails,
   NavbarLayout,
   SiteMetadata,
-  Footer,
+  FooterLayout,
   BottomBannerLayout,
   MainContact,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
@@ -274,9 +274,13 @@ const Index = () => {
       <CollaboratorDetails requirement={"Requirement only"} />
       <CollaboratorDetails keyDates={"Key dates only"} />
       <div style={{ backgroundColor: "black" }}>
-        <Footer image={footerImage} useSiteStaticText={useSiteStaticText} />
+        <FooterLayout
+          image={footerImage}
+          useSiteStaticText={useSiteStaticText}
+        />
       </div>
       <SiteMetadata description="sample description" title="some title" />
+      <SiteMetadata />
     </>
   )
 }
