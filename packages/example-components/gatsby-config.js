@@ -1,7 +1,7 @@
 // General metadata for the site
 module.exports = {
   siteMetadata: {
-    title: "Project Portal Example (Test Data)",
+    title: "Project Portal Example (Individual Components)",
   },
   plugins: [
     `@thepolicylab-projectportals/gatsby-theme-project-portal`,
