@@ -4,7 +4,8 @@
 
 - [📁`packages`](./packages) has the example sites and theme itself:
   - [📁`defaults`](./packages/defaults) is a completely empty Gatsby site which imports the theme and builds successfully, but does nothing else. It shows the Gatsby 404 page when you load the site. (This is intentional.)
-  - [📁`example`](./packages/example) is a site which uses the components and queries from the theme, and should grow to reflect a minimum working site.
+  - [📁`example-components`](./packages/example-components) is a collection of pages showing individual components and their usage.
+  - [📁`example-site`](./packages/example-site) uses the components and queries from the theme, and should grow to reflect a minimum working site.
   - [📁`gatsby-theme-project-portal`](./packages/gatsby-theme-project-portal) is the theme and incorporates all the shared components, layouts, templates, reused queries, and styling. It should be imported into the site as a `theme`.
 - [📄`.prettierrc`](.prettierrc) is a configuration file for the `prettier` JavaScript formatter.
 - [📄`package.json`](package.json) is the config file for the `yarn` workspaces we use when developing the theme.
