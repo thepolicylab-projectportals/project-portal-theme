@@ -3,5 +3,16 @@ module.exports = {
   siteMetadata: {
     title: "Project Portal Example (Site with Queries)",
   },
-  plugins: [`@thepolicylab-projectportals/gatsby-theme-project-portal`],
+  plugins: [
+    {
+      resolve: `@thepolicylab-projectportals/gatsby-theme-project-portal`,
+      options: {
+        staticText: {
+          bottom_banner: {
+            text: "This is the Project Portal site footer text.",
+          },
+        },
+      },
+    },
+  ],
 }
