@@ -13,6 +13,7 @@ import {
   Contact,
   CollaboratorDetails,
   NavbarLayout,
+  SiteMetadata,
   BottomBannerLayout,
   ProjectTeam,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
@@ -242,6 +243,7 @@ const Index = () => {
         title="all the project team are here today"
         contacts={projectContacts}
       />
+      <SiteMetadata />
     </>
   )
 }
