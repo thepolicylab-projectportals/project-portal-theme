@@ -1,21 +1,30 @@
 import { Link } from "gatsby"
-import React from "react"
-import { GatsbyImage } from "gatsby-plugin-image"
+import React, { FunctionComponent } from "react"
+import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
 import { MarkdownText } from "../components"
 import { isNA } from "../utils"
+import { useStaticText } from "../hooks"
 
-export const BottomBannerLayout = ({
+interface BottomBannerProps {
+  text: string
+  image?: IGatsbyImageData
+  link?: string
+  linkId?: string
+}
+
+export const BottomBannerLayout: FunctionComponent<BottomBannerProps> = ({
   image,
   text,
   link,
-  bottomBannerImageLink,
+  linkId,
 }) => {
+  linkId = linkId ?? "bottom-banner-image-link-id"
   return (
     <div className="py-6 mt-12 overflow-hidden bg-rd p-responsive">
       <div className="m-responsive">
         <div className="w-full flex gap-4 sm:gap-8 items-center justify-center flex-wrap">
           {!isNA(link) && image && (
-            <Link id={bottomBannerImageLink} to={link}>
+            <Link id={linkId} to={link}>
               <GatsbyImage
                 className="inline-block"
                 image={image}
@@ -23,7 +32,7 @@ export const BottomBannerLayout = ({
               />
             </Link>
           )}
-          {isNA(link) && {image} && (
+          {isNA(link) && { image } && (
             <GatsbyImage
               className="inline-block"
               image={image}
