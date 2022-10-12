@@ -11,8 +11,8 @@ exports.sourceNodes = async ({
 
   const data = {
     projects: [
-      { id: 1, description: `Hello world!` },
-      { id: 2, description: `Second post!` },
+      { slug: "hello-world-project", description: `Hello world!` },
+      { slug: "second-project", description: `Second post!` },
     ],
   }
 
@@ -20,7 +20,7 @@ exports.sourceNodes = async ({
   data.projects.forEach((project) =>
     createNode({
       ...project,
-      id: createNodeId(`${PROJECT_NODE_TYPE}-${project.id}`),
+      id: createNodeId(`${PROJECT_NODE_TYPE}-${project.slug}`),
       parent: null,
       children: [],
       internal: {
