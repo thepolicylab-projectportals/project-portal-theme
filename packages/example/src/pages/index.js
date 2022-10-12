@@ -16,6 +16,7 @@ import {
   SiteMetadata,
   BottomBannerLayout,
   BottomBanner,
+  ProjectTeam,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
 
 import { useStaticQuery, graphql } from "gatsby"
@@ -101,6 +102,25 @@ const collaborator_details = {
   keyDates:
     "We are ready to begin the project as soon as we identify a collaborator.\n",
 }
+
+const contact1 = {
+  employer: "Brown University",
+  title: "Assistant Head of Gatsby",
+  email: "gatsby@brown.edu",
+  name: "Herbert Mumphrey III",
+  contactImage: null,
+  showEmail: false,
+}
+
+const projectContacts = [
+  contact1,
+  {
+    ...contact1,
+    name: "Borissia Hepplethwaite",
+    title: "Head of Gatsby",
+  },
+  { ...contact1, name: "Alyssia Allessandro", title: "Head of Graphing" },
+]
 
 const link = "https://www.nc.gov/terms"
 const bottomBannerImageLink = "R+D link"
@@ -193,6 +213,7 @@ const Index = () => {
       <Card {...sample_card} />
       <Cards nodes={sample_cards} />
       {/*Contact with Show Email*/}
+
       <Contact
         employer={"testEmployer"}
         title={"contact1Title"}
@@ -226,6 +247,11 @@ const Index = () => {
       <CollaboratorDetails expertise={"Expertise only"} />
       <CollaboratorDetails requirement={"Requirement only"} />
       <CollaboratorDetails keyDates={"Key dates only"} />
+      <Contact {...contact1} />
+      <ProjectTeam
+        title="all the project team are here today"
+        contacts={projectContacts}
+      />
       <SiteMetadata />
     </>
   )
