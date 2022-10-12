@@ -247,6 +247,7 @@ const Index = () => {
         <Footer image={footerImage} useSiteStaticText={useSiteStaticText} />
       </div>
       <SiteMetadata description="sample description" title="some title" />
+      <SiteMetadata />
     </>
   )
 }
