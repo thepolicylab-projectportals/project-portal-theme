@@ -217,7 +217,7 @@ const Index = () => {
       <CollaboratorDetails expertise={"Expertise only"} />
       <CollaboratorDetails requirement={"Requirement only"} />
       <CollaboratorDetails keyDates={"Key dates only"} />
-      <SiteMetadata description="sample description" title="some title" />
+      <SiteMetadata />
     </>
   )
 }

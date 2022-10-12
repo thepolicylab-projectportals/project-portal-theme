@@ -1,16 +1,10 @@
 // General metadata for the site
-const siteMetadata = {
-  siteTitle: "Gatsby Theme Project Portal",
-  short_name: "Project Portal",
-  siteUrl: process.env.CI ? "http://localhost:9000" : "https://localhost",
-  live: false,
-  locale: "en",
-  pages: [{ name: "Home", link: "/", show: true }],
-}
-
 module.exports = {
-  siteMetadata: siteMetadata,
+  siteMetadata: {
+    title: "Project Portal Example (Test Data)",
+  },
   plugins: [
+    `@thepolicylab-projectportals/gatsby-theme-project-portal`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
