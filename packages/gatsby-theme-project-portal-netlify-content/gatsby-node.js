@@ -1,5 +1,11 @@
 // constants for your GraphQL Project and Contact types
 const PROJECT_NODE_TYPE = `Project`
+const projectTypeDefs = `
+    type ${PROJECT_NODE_TYPE} implements Node {
+      slug: String!
+      description: String
+    }
+  `
 
 exports.sourceNodes = async ({
   actions,
@@ -34,11 +40,6 @@ exports.sourceNodes = async ({
 
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
-  const typeDefs = `
-    type ${PROJECT_NODE_TYPE} implements Node {
-      slug: String!
-      description: String
-    }
-  `
-  createTypes(typeDefs)
+
+  createTypes(projectTypeDefs)
 }
