@@ -1,0 +1,1 @@
+export { useProjectPortalConfig } from "./useProjectPortalConfig"
