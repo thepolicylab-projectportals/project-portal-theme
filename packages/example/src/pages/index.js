@@ -13,6 +13,7 @@ import {
   Contact,
   CollaboratorDetails,
   NavbarLayout,
+  SiteMetadata,
   BottomBannerLayout,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
 
@@ -210,6 +211,7 @@ const Index = () => {
       <CollaboratorDetails expertise={"Expertise only"} />
       <CollaboratorDetails requirement={"Requirement only"} />
       <CollaboratorDetails keyDates={"Key dates only"} />
+      <SiteMetadata />
     </>
   )
 }
