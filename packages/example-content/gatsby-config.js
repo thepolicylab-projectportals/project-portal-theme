@@ -1,3 +1,6 @@
 module.exports = {
-  plugins: [`@thepolicylab-projectportals/project-portal-content-netlify`],
+  plugins: [
+    `@thepolicylab-projectportals/gatsby-theme-project-portal`,
+    `@thepolicylab-projectportals/project-portal-content-netlify`,
+  ],
 }
