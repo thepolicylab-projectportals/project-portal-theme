@@ -15,6 +15,7 @@ import {
   NavbarLayout,
   SiteMetadata,
   BottomBannerLayout,
+  BottomBanner,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
 
 import { useStaticQuery, graphql } from "gatsby"
@@ -105,7 +106,11 @@ const link = "https://www.nc.gov/terms"
 const bottomBannerImageLink = "R+D link"
 
 const Index = () => {
-  const { logo, BottomBanner, contact } = useStaticQuery(graphql`
+  const {
+    logo,
+    BottomBanner: bottomBannerImageQuery,
+    contact,
+  } = useStaticQuery(graphql`
     query {
       logo: file(relativePath: { regex: "/^logo.png$/" }) {
         childImageSharp {
@@ -126,7 +131,7 @@ const Index = () => {
   `)
 
   const navbarLogoImage = getImage(logo)
-  const bannerImage = getImage(BottomBanner)
+  const bottomBannerImage = getImage(bottomBannerImageQuery)
   const nav_image = (
     <GatsbyImage
       className="hidden xl:inline-block"
@@ -152,26 +157,30 @@ const Index = () => {
         pages={pages}
         activePage="First Nav"
       />
+      {/*Bottom banner image, text and link:*/}
       <BottomBannerLayout
-        image={bannerImage}
+        image={bottomBannerImage}
+        text="Sample text"
+        link={link}
+        bottomBannerImageLink={bottomBannerImageLink}
+      />
+      {/*Bottom banner image, text:*/}
+      <BottomBannerLayout
+        image={bottomBannerImage}
+        text="Sample text"
+        bottomBannerImageLink={bottomBannerImageLink}
+      />
+      <BottomBannerLayout
         text="Sample text"
         link={link}
         bottomBannerImageLink={bottomBannerImageLink}
       />
       <BottomBannerLayout
-        image={bannerImage}
         text="Sample text"
         bottomBannerImageLink={bottomBannerImageLink}
       />
-      <BottomBannerLayout
-        text="Sample text"
-        link={link}
-        bottomBannerImageLink={bottomBannerImageLink}
-      />
-      <BottomBannerLayout
-        text="Sample text"
-        bottomBannerImageLink={bottomBannerImageLink}
-      />
+      {/*Bottom banner using staticText:*/}
+      <BottomBanner />
       <BackIcon />
       <ForwardIcon />
       <ProjectStatus status="open" />
@@ -189,7 +198,7 @@ const Index = () => {
         title={"contact1Title"}
         email={"user1@example.com"}
         name={"contact1"}
-        contactImage={BottomBanner}
+        contactImage={bottomBannerImage}
         showEmail={true}
       />
       {/*Contact with Hide Email*/}
