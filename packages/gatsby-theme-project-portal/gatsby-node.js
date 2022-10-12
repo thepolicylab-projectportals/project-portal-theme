@@ -5,8 +5,6 @@ const {
   projectPortalConfigTypeDefs,
 } = require(`./utils/types`)
 
-console.log("project type defs:", projectTypeDefs)
-
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
 
