@@ -1,7 +1,8 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="yarn workspace * build" type="CompoundRunConfigurationType">
     <toRun name="yarn workspace defaults build" type="js.build_tools.npm" />
-    <toRun name="yarn workspace example build" type="js.build_tools.npm" />
+    <toRun name="yarn workspace example-components build" type="js.build_tools.npm" />
+    <toRun name="yarn workspace example-site build" type="js.build_tools.npm" />
     <method v="2" />
   </configuration>
 </component>
