@@ -12,7 +12,8 @@ exports.sourceNodes = async ({
   const data = {
     projects: [
       { slug: "hello-world-project", description: `Hello world!` },
-      { slug: "second-project", description: `Second post!` },
+      { slug: "second-project", description: `Second project!` },
+      { slug: "third-project" },
     ],
   }
 
@@ -29,4 +30,15 @@ exports.sourceNodes = async ({
       },
     })
   )
+}
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions
+  const typeDefs = `
+    type ${PROJECT_NODE_TYPE} implements Node {
+      slug: String!
+      description: String
+    }
+  `
+  createTypes(typeDefs)
 }
