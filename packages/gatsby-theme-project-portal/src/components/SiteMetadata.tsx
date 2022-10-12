@@ -40,9 +40,6 @@ export const SiteMetadata = ({ description, image, title, pathname }) => {
   return (
     <Helmet
       defer={false}
-      defaultTitle={title}
-      title={title}
-      titleTemplate={`${siteTitle}`}
       defaultTitle={defaultTitle}
       title={seo.title}
       titleTemplate={`${seo.title}`}
