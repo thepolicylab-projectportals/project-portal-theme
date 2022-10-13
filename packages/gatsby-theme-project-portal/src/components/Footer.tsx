@@ -1,25 +1,40 @@
-import React from "react"
-import { useSiteMetadata } from "../hooks/useSiteMetadata"
+import React, { FunctionComponent } from "react"
+import { IGatsbyImageData } from "gatsby-plugin-image"
 
-export const FooterLayout = ({ image, useSiteStaticText }) => {
-  const meta = useSiteMetadata()
-  // use of GatsbyImage for the logo causs pa11y error as it doesn't register as an image
+interface FooterProps {
+  title: {
+    name: String
+    link: string
+  }
+  copyright: String
+  links: {
+    name: String
+    link: String
+  }[]
+  siteTitle: String
+  image?: IGatsbyImageData
+}
 
+export const FooterLayout: FunctionComponent<FooterProps> = ({
+  title,
+  copyright,
+  links,
+  siteTitle,
+  image,
+}) => {
   return (
     <footer className="w-full px-2 py-8 bg-footer xl:container xl:px-12">
       <div className="flex items-center justify-center mt-6 lg:my-auto">
-        <div className="text-nav text-footertext">
-          {useSiteStaticText.footer.copyright}
-        </div>
+        <div className="text-nav text-footertext">{copyright}</div>
       </div>
       <div
         className="flex it
       ems-center justify-center mt-6 lg:my-auto"
       >
         <ul className="text-nav text-footertext list-none">
-          {useSiteStaticText.footer.links.map(({ title, link }, i) => (
+          {links.map(({ name, link }, i) => (
             <ListItem key={"link_" + i} target={link}>
-              {title}
+              {name}
             </ListItem>
           ))}
         </ul>
@@ -27,18 +42,19 @@ export const FooterLayout = ({ image, useSiteStaticText }) => {
       <div className="block w-full lg:w-auto mt-5">
         <a
           className="flex items-center gap-4 justify-center flex-wrap"
-          href={useSiteStaticText.footer.heading.link}
+          href={title.link}
         >
           {image && (
+            // use of GatsbyImage for the logo because pa11y error as it doesn't register as an image
             <img
               srcSet={image.images.sources[0].srcSet}
-              alt={meta.siteTitle + " logo"}
+              alt={siteTitle + " logo"}
               height={image.height}
               width={image.width}
             />
           )}
           <p className="text-center inline-block text-h4 font-bold text-footertext">
-            {useSiteStaticText.footer.heading.title}
+            {title.name}
           </p>
         </a>
       </div>

@@ -96,23 +96,22 @@ const pages = [
     show: false,
   },
 ]
-const useSiteStaticText = {
-  footer: {
-    heading: {
-      link: "https://www.google.com/",
-      title: "Language title",
-    },
-    links: [
-      {
-        title: "Office 1",
-        link: "http://www.google.com",
-      },
-      {
-        title: "Office 2",
-        link: "http://www.google.com",
-      },
-    ],
+const footerProps = {
+  title: {
+    name: "footer:title:name",
+    link: "https://www.google.com/",
   },
+  copyright: "footer copyright",
+  links: [
+    {
+      name: "Office 1",
+      link: "http://www.google.com",
+    },
+    {
+      name: "Office 2",
+      link: "http://www.google.com",
+    },
+  ],
 }
 
 const collaborator_details = {
@@ -261,11 +260,18 @@ const Index = () => {
       <CollaboratorDetails requirement={"Requirement only"} />
       <CollaboratorDetails keyDates={"Key dates only"} />
       <div style={{ backgroundColor: "black" }}>
-        <FooterLayout
-          image={footerImage}
-          useSiteStaticText={useSiteStaticText}
-        />
+        <FooterLayout image={footerImage} {...footerProps} />
       </div>
+
+      <FooterLayout {...footerProps} />
+
+      <FooterLayout
+        siteTitle="CCV Project Portal"
+        title="CCV Project Portal"
+        copyright="© 2022 Brown University"
+        links={[]}
+      />
+
       <Contact {...contact1} />
       <ProjectTeam
         title="all the project team are here today"
