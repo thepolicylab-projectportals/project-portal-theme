@@ -20,7 +20,7 @@ import {
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
 
 import { useStaticQuery, graphql } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { getImage } from "gatsby-plugin-image"
 
 var markdownContent = `
 
@@ -152,13 +152,7 @@ const Index = () => {
 
   const navbarLogoImage = getImage(logo)
   const bottomBannerImage = getImage(bottomBannerImageQuery)
-  const nav_image = (
-    <GatsbyImage
-      className="hidden xl:inline-block"
-      image={navbarLogoImage}
-      alt={"nav_logo"}
-    />
-  )
+
   return (
     <>
       <DevelopmentBanner />
@@ -166,14 +160,14 @@ const Index = () => {
       <NavbarLayout
         title="Example Site"
         label="test"
-        image={nav_image}
+        image={navbarLogoImage}
         pages={pages}
       />
       {/*Navbar with Active Page:*/}
       <NavbarLayout
         title="Example Site"
         label="test"
-        image={nav_image}
+        image={navbarLogoImage}
         pages={pages}
         activePage="First Nav"
       />
