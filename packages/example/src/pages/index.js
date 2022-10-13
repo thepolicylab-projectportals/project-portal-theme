@@ -15,6 +15,7 @@ import {
   NavbarLayout,
   SiteMetadata,
   BottomBannerLayout,
+  BottomBanner,
   ProjectTeam,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
 
@@ -122,10 +123,14 @@ const projectContacts = [
 ]
 
 const link = "https://www.nc.gov/terms"
-const bottomBannerImageLink = "R+D link"
+const linkId = "r-and-d-link"
 
 const Index = () => {
-  const { logo, BottomBanner, contact } = useStaticQuery(graphql`
+  const {
+    logo,
+    BottomBanner: bottomBannerImageQuery,
+    contact,
+  } = useStaticQuery(graphql`
     query {
       logo: file(relativePath: { regex: "/^logo.png$/" }) {
         childImageSharp {
@@ -146,7 +151,7 @@ const Index = () => {
   `)
 
   const navbarLogoImage = getImage(logo)
-  const bannerImage = getImage(BottomBanner)
+  const bottomBannerImage = getImage(bottomBannerImageQuery)
 
   return (
     <>
@@ -166,26 +171,23 @@ const Index = () => {
         pages={pages}
         activePage="First Nav"
       />
+      {/*Bottom banner image, text and link:*/}
       <BottomBannerLayout
-        image={bannerImage}
+        image={bottomBannerImage}
         text="Sample text"
         link={link}
-        bottomBannerImageLink={bottomBannerImageLink}
+        linkId={linkId}
       />
+      {/*Bottom banner image, text:*/}
       <BottomBannerLayout
-        image={bannerImage}
+        image={bottomBannerImage}
         text="Sample text"
-        bottomBannerImageLink={bottomBannerImageLink}
+        linkId={linkId}
       />
-      <BottomBannerLayout
-        text="Sample text"
-        link={link}
-        bottomBannerImageLink={bottomBannerImageLink}
-      />
-      <BottomBannerLayout
-        text="Sample text"
-        bottomBannerImageLink={bottomBannerImageLink}
-      />
+      <BottomBannerLayout text="Sample text" link={link} linkId={linkId} />
+      <BottomBannerLayout text="Sample text" linkId={linkId} />
+      {/*Bottom banner using staticText:*/}
+      <BottomBanner />
       <BackIcon />
       <ForwardIcon />
       <ProjectStatus status="open" />
@@ -204,7 +206,7 @@ const Index = () => {
         title={"contact1Title"}
         email={"user1@example.com"}
         name={"contact1"}
-        contactImage={BottomBanner}
+        contactImage={bottomBannerImage}
         showEmail={true}
       />
       {/*Contact with Hide Email*/}
