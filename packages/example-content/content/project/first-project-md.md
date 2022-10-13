@@ -1,4 +1,4 @@
 ---
 slug: first-project-md
-description: `Hello world (from md)!`
+title: "Hello world (from md)!"
 ---
