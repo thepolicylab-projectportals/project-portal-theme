@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react"
 import { IGatsbyImageData } from "gatsby-plugin-image"
 
 interface FooterProps {
-  header: {
+  heading: {
     title: String
     link: string
   }
@@ -16,7 +16,7 @@ interface FooterProps {
 }
 
 export const FooterLayout: FunctionComponent<FooterProps> = ({
-  header,
+  heading,
   copyright,
   links,
   image,
@@ -41,7 +41,7 @@ export const FooterLayout: FunctionComponent<FooterProps> = ({
       <div className="block w-full lg:w-auto mt-5">
         <a
           className="flex items-center gap-4 justify-center flex-wrap"
-          href={header.link}
+          href={heading.link}
         >
           {image && (
             // use of GatsbyImage for the logo because pa11y error as it doesn't register as an image
@@ -53,7 +53,7 @@ export const FooterLayout: FunctionComponent<FooterProps> = ({
             />
           )}
           <p className="text-center inline-block text-h4 font-bold text-footertext">
-            {header.title}
+            {heading.title}
           </p>
         </a>
       </div>
