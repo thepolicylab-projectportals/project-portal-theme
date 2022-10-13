@@ -1,6 +1,6 @@
 const { withDefaults } = require("./utils/default-options")
 module.exports = (pluginOptions) => {
-  pluginOptionsWithDefaults = withDefaults(pluginOptions)
+  const pluginOptionsWithDefaults = withDefaults(pluginOptions)
   return {
     plugins: [
       `gatsby-transformer-json`,
