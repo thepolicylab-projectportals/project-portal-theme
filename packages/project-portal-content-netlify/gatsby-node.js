@@ -2,14 +2,15 @@ const fs = require("fs")
 
 const {
   PROJECT_NODE_TYPE,
+  CONTACT_NODE_TYPE,
 } = require("@thepolicylab-projectportals/gatsby-theme-project-portal/utils/types")
 const { withDefaults } = require("./utils/default-options")
 
-// This parameter must match the type which gatsby-transformer-json _implicitly_
-// creates for the "Project" type.
+// These parameters must match the types which gatsby-transformer-json _implicitly_
+// creates for the "Project" and "Contact" types.
 // If in doubt, check the GraphQL and look at the internal.type field of the
-// nodes created by the gatsby-transformer-json. Modify this parameter
-// to match
+// nodes created by the gatsby-transformer-json. Modify these parameters
+// to match.
 const PROJECT_JSON_TYPE = `ProjectJson`
 const CONTACT_JSON_TYPE = `ContactJson`
 
@@ -44,6 +45,7 @@ exports.createSchemaCustomization = ({ actions }) => {
 
   const contactJsonTypeDefs = `
     type ${CONTACT_JSON_TYPE} implements Node {
+      key: String!
       name: String
     }
   `
@@ -58,6 +60,7 @@ exports.sourceNodes = async ({
 }) => {
   const { createNode } = actions
   const projectJSONNodes = getNodesByType(`${PROJECT_JSON_TYPE}`)
+  const contactJSONNodes = getNodesByType(`${CONTACT_JSON_TYPE}`)
 
   // loop through projectJSONNodes and create Project nodes
   projectJSONNodes.forEach((project) =>
@@ -69,6 +72,19 @@ exports.sourceNodes = async ({
       internal: {
         type: `${PROJECT_NODE_TYPE}`,
         contentDigest: createContentDigest(project),
+      },
+    })
+  )
+
+  contactJSONNodes.forEach((contact) =>
+    createNode({
+      ...contact,
+      id: createNodeId(`${CONTACT_NODE_TYPE}-${contact.key}`),
+      parent: null,
+      children: [],
+      internal: {
+        type: `${CONTACT_NODE_TYPE}`,
+        contentDigest: createContentDigest(contact),
       },
     })
   )
