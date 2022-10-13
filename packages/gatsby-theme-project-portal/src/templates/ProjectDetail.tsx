@@ -54,33 +54,29 @@ interface ProjectDetailProps {
   location: any
 }
 
-const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
-  const { data } = props
-  console.log(data)
-  const {
-    question,
-    summary,
-    status,
-    opportunityCloses,
-    startDate,
-    endDate,
-    lastModified,
-    agency,
-    topics,
-    deliverable,
-    purpose,
-    expertise,
-    requirement,
-    keyDates,
-    priorResearch,
-    statusOfData,
-    fundingInfo,
-    contacts,
-    emailContent,
-  } = data.item.frontmatter
-
-  var mainContact = null
-  var projectTeam = null
+export const ProjectDetailLayout = ({
+  question,
+  summary,
+  status,
+  opportunityCloses,
+  startDate,
+  endDate,
+  lastModified,
+  agency,
+  topics,
+  deliverable,
+  purpose,
+  expertise,
+  requirement,
+  keyDates,
+  priorResearch,
+  statusOfData,
+  fundingInfo,
+  contacts,
+  emailContent,
+}) => {
+  let mainContact = null
+  let projectTeam = null
 
   if (contacts) {
     mainContact = contacts[0].frontmatter
@@ -90,9 +86,7 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
     //   projectTeam = contacts.slice(1, contacts.length)
     // }
   }
-
   return (
-    /*<Layout title={question} description={summary}>*/
     <article>
       <header className="py-16 p-responsive bg-primary">
         <div className="flex flex-col justify-between m-responsive lg:flex-row">
@@ -231,11 +225,74 @@ const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
         </section>
       </main>
     </article>
-    /*    </Layout>*/
   )
 }
+//
+// const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
+//   const { data } = props
+//   console.log(data)
+//   const {
+//     question,
+//     summary,
+//     status,
+//     opportunityCloses,
+//     startDate,
+//     endDate,
+//     lastModified,
+//     agency,
+//     topics,
+//     deliverable,
+//     purpose,
+//     expertise,
+//     requirement,
+//     keyDates,
+//     priorResearch,
+//     statusOfData,
+//     fundingInfo,
+//     contacts,
+//     emailContent,
+//   } = data.item.frontmatter
+//
+//   let mainContact = null
+//   let projectTeam = null
+//
+//   if (contacts) {
+//     mainContact = contacts[0].frontmatter
+//     projectTeam = contacts
+//     console.log(projectTeam)
+//     // if (!showMainContactOnProjectTeam) {
+//     //   projectTeam = contacts.slice(1, contacts.length)
+//     // }
+//   }
+//
+//   return (
+//     <Layout title={question} description={summary}>
+//       <ProjectDetailLayout
+//         question={question}
+//         summary={summary}
+//         status={status}
+//         opportunityCloses={opportunityCloses}
+//         startDate={startDate}
+//         endDate={endDate}
+//         lastModified={lastModified}
+//         agency={agency}
+//         topics={topics}
+//         deliverable={deliverable}
+//         purpose={purpose}
+//         expertise={expertise}
+//         requirement={requirement}
+//         keyDates={keyDates}
+//         priorResearch={priorResearch}
+//         statusOfData={statusOfData}
+//         fundingInfo={fundingInfo}
+//         contacts={contacts}
+//         emailContent={emailContent}
+//       />
+//     </Layout>
+//   )
+// }
 
-export default ProjectDetail
+//export default ProjectDetail
 
 // export const query = graphql`
 //   query ProjectDetailQuery($slug: String!) {
