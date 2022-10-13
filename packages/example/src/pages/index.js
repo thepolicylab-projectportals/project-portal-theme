@@ -97,18 +97,18 @@ const pages = [
   },
 ]
 const footerProps = {
-  title: {
-    name: "footer:title:name",
+  header: {
+    title: "footer:title:name",
     link: "https://www.google.com/",
   },
   copyright: "footer copyright",
   links: [
     {
-      name: "Office 1",
+      title: "Office 1",
       link: "http://www.google.com",
     },
     {
-      name: "Office 2",
+      title: "Office 2",
       link: "http://www.google.com",
     },
   ],
@@ -260,14 +260,20 @@ const Index = () => {
       <CollaboratorDetails requirement={"Requirement only"} />
       <CollaboratorDetails keyDates={"Key dates only"} />
       <div style={{ backgroundColor: "black" }}>
-        <FooterLayout image={footerImage} {...footerProps} />
+        <FooterLayout
+          image={{ image: footerImage, altText: "San Antonio Logo" }}
+          {...footerProps}
+        />
       </div>
 
       <FooterLayout {...footerProps} />
 
       <FooterLayout
         siteTitle="CCV Project Portal"
-        title="CCV Project Portal"
+        header={{
+          title: "CCV Project Portal",
+          link: "https://thepolicylab.brown.edu",
+        }}
         copyright="© 2022 Brown University"
         links={[]}
       />

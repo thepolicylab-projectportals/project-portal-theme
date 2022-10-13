@@ -2,24 +2,23 @@ import React, { FunctionComponent } from "react"
 import { IGatsbyImageData } from "gatsby-plugin-image"
 
 interface FooterProps {
-  title: {
-    name: String
+  header: {
+    title: String
     link: string
   }
   copyright: String
   links: {
-    name: String
+    title: String
     link: String
   }[]
   siteTitle: String
-  image?: IGatsbyImageData
+  image?: { image: IGatsbyImageData; altText: string }
 }
 
 export const FooterLayout: FunctionComponent<FooterProps> = ({
-  title,
+  header,
   copyright,
   links,
-  siteTitle,
   image,
 }) => {
   return (
@@ -32,9 +31,9 @@ export const FooterLayout: FunctionComponent<FooterProps> = ({
       ems-center justify-center mt-6 lg:my-auto"
       >
         <ul className="text-nav text-footertext list-none">
-          {links.map(({ name, link }, i) => (
+          {links.map(({ title, link }, i) => (
             <ListItem key={"link_" + i} target={link}>
-              {name}
+              {title}
             </ListItem>
           ))}
         </ul>
@@ -42,19 +41,19 @@ export const FooterLayout: FunctionComponent<FooterProps> = ({
       <div className="block w-full lg:w-auto mt-5">
         <a
           className="flex items-center gap-4 justify-center flex-wrap"
-          href={title.link}
+          href={header.link}
         >
           {image && (
             // use of GatsbyImage for the logo because pa11y error as it doesn't register as an image
             <img
-              srcSet={image.images.sources[0].srcSet}
-              alt={siteTitle + " logo"}
-              height={image.height}
-              width={image.width}
+              srcSet={image.image.images.sources[0].srcSet}
+              alt={image.altText}
+              height={image.image.height}
+              width={image.image.width}
             />
           )}
           <p className="text-center inline-block text-h4 font-bold text-footertext">
-            {title.name}
+            {header.title}
           </p>
         </a>
       </div>
