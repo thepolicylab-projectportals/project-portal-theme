@@ -11,6 +11,7 @@ const { withDefaults } = require("./utils/default-options")
 // nodes created by the gatsby-transformer-json. Modify this parameter
 // to match
 const PROJECT_JSON_TYPE = `ProjectJson`
+const CONTACT_JSON_TYPE = `ContactJson`
 
 exports.onPreBootstrap = ({ reporter }, pluginOptions) => {
   console.log(withDefaults(pluginOptions))
@@ -40,6 +41,13 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
   `
   createTypes(projectJsonTypeDefs)
+
+  const contactJsonTypeDefs = `
+    type ${CONTACT_JSON_TYPE} implements Node {
+      name: String
+    }
+  `
+  createTypes(contactJsonTypeDefs)
 }
 
 exports.sourceNodes = async ({
