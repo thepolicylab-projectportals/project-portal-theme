@@ -35,6 +35,7 @@ exports.createSchemaCustomization = ({ actions }) => {
   // Project nodes
   const projectJsonTypeDefs = `
     type ${PROJECT_JSON_TYPE} implements Node {
+      slug: String
       opportunityCloses: Date @dateformat(formatString: "YYYY-MM-DD")
       startDate: Date @dateformat(formatString: "YYYY-MM-DD")
       endDate: Date @dateformat(formatString: "YYYY-MM-DD")
