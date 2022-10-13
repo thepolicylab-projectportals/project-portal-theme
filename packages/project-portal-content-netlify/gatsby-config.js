@@ -11,6 +11,13 @@ module.exports = (pluginOptions) => {
           path: pluginOptionsWithDefaults.projectPath,
         },
       },
+      {
+        resolve: `gatsby-source-filesystem`,
+        options: {
+          name: `contact`,
+          path: pluginOptionsWithDefaults.contactPath,
+        },
+      },
     ],
   }
 }
