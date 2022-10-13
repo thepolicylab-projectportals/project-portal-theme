@@ -10,6 +10,7 @@ module.exports = (pluginOptions) => {
           path: pluginOptionsWithDefaults.projectPath,
         },
       },
+      `gatsby-transformer-remark`,
     ],
   }
 }
