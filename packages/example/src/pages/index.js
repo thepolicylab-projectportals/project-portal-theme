@@ -145,7 +145,12 @@ const link = "https://www.nc.gov/terms"
 const linkId = "r-and-d-link"
 
 const Index = () => {
-  const { logo, BottomBanner, FooterImage, contact } = useStaticQuery(graphql`
+  const {
+    logo,
+    BottomBanner: bottomBannerImageQuery,
+    FooterImage,
+    contact,
+  } = useStaticQuery(graphql`
     query {
       logo: file(relativePath: { regex: "/^logo.png$/" }) {
         childImageSharp {
@@ -171,10 +176,9 @@ const Index = () => {
   `)
 
   const navbarLogoImage = getImage(logo)
-  const bannerImage = getImage(BottomBanner)
-  const footerImage = getImage(FooterImage)
-  console.log(footerImage)
   const bottomBannerImage = getImage(bottomBannerImageQuery)
+  const footerImage = getImage(FooterImage)
+
   return (
     <>
       <DevelopmentBanner />
