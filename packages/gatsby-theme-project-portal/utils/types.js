@@ -41,9 +41,12 @@ const projectTypeDefs = `
     }
   `
 
+const CONTACT_NODE_TYPE = `Contact`
+
 module.exports = {
   CONFIG_NODE_TYPE,
   projectPortalConfigTypeDefs,
   PROJECT_NODE_TYPE,
   projectTypeDefs,
+  CONTACT_NODE_TYPE,
 }
