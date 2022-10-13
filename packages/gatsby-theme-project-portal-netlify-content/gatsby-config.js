@@ -3,6 +3,7 @@ module.exports = (pluginOptions) => {
   pluginOptionsWithDefaults = withDefaults(pluginOptions)
   return {
     plugins: [
+      `gatsby-transformer-json`,
       {
         resolve: `gatsby-source-filesystem`,
         options: {
@@ -10,7 +11,6 @@ module.exports = (pluginOptions) => {
           path: pluginOptionsWithDefaults.projectPath,
         },
       },
-      `gatsby-transformer-remark`,
     ],
   }
 }
