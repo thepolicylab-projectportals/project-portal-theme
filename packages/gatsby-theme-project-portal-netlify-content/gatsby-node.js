@@ -31,7 +31,7 @@ exports.sourceNodes = async ({
       parent: null,
       children: [],
       internal: {
-        type: PROJECT_NODE_TYPE,
+        type: `${PROJECT_NODE_TYPE}`,
         contentDigest: createContentDigest(project),
       },
     })
