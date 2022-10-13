@@ -97,7 +97,7 @@ const pages = [
   },
 ]
 const footerProps = {
-  header: {
+  heading: {
     title: "footer:title:name",
     link: "https://www.google.com/",
   },
@@ -269,8 +269,7 @@ const Index = () => {
       <FooterLayout {...footerProps} />
 
       <FooterLayout
-        siteTitle="CCV Project Portal"
-        header={{
+        heading={{
           title: "CCV Project Portal",
           link: "https://thepolicylab.brown.edu",
         }}

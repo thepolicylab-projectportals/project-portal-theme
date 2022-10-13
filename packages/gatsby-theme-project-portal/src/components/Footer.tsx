@@ -12,7 +12,6 @@ interface FooterProps {
     title: String
     link: String
   }[]
-  siteTitle: String
   image?: { image: IGatsbyImageData; altText: string }
 }
 
