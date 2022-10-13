@@ -13,11 +13,13 @@ import {
   Contact,
   CollaboratorDetails,
   NavbarLayout,
+  SiteMetadata,
   BottomBannerLayout,
+  ProjectTeam,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
 
 import { useStaticQuery, graphql } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { getImage } from "gatsby-plugin-image"
 
 var markdownContent = `
 
@@ -100,6 +102,25 @@ const collaborator_details = {
     "We are ready to begin the project as soon as we identify a collaborator.\n",
 }
 
+const contact1 = {
+  employer: "Brown University",
+  title: "Assistant Head of Gatsby",
+  email: "gatsby@brown.edu",
+  name: "Herbert Mumphrey III",
+  contactImage: null,
+  showEmail: false,
+}
+
+const projectContacts = [
+  contact1,
+  {
+    ...contact1,
+    name: "Borissia Hepplethwaite",
+    title: "Head of Gatsby",
+  },
+  { ...contact1, name: "Alyssia Allessandro", title: "Head of Graphing" },
+]
+
 const link = "https://www.nc.gov/terms"
 const bottomBannerImageLink = "R+D link"
 
@@ -126,13 +147,7 @@ const Index = () => {
 
   const navbarLogoImage = getImage(logo)
   const bannerImage = getImage(BottomBanner)
-  const nav_image = (
-    <GatsbyImage
-      className="hidden xl:inline-block"
-      image={navbarLogoImage}
-      alt={"nav_logo"}
-    />
-  )
+
   return (
     <>
       <DevelopmentBanner />
@@ -140,14 +155,14 @@ const Index = () => {
       <NavbarLayout
         title="Example Site"
         label="test"
-        image={nav_image}
+        image={navbarLogoImage}
         pages={pages}
       />
       {/*Navbar with Active Page:*/}
       <NavbarLayout
         title="Example Site"
         label="test"
-        image={nav_image}
+        image={navbarLogoImage}
         pages={pages}
         activePage="First Nav"
       />
@@ -183,6 +198,7 @@ const Index = () => {
       <Card {...sample_card} />
       <Cards nodes={sample_cards} />
       {/*Contact with Show Email*/}
+
       <Contact
         employer={"testEmployer"}
         title={"contact1Title"}
@@ -216,6 +232,12 @@ const Index = () => {
       <CollaboratorDetails expertise={"Expertise only"} />
       <CollaboratorDetails requirement={"Requirement only"} />
       <CollaboratorDetails keyDates={"Key dates only"} />
+      <Contact {...contact1} />
+      <ProjectTeam
+        title="all the project team are here today"
+        contacts={projectContacts}
+      />
+      <SiteMetadata />
     </>
   )
 }
