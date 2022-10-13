@@ -15,6 +15,22 @@ exports.onPreBootstrap = ({ reporter }, pluginOptions) => {
   }
 }
 
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions
+  // We specify the date-types for the ProjectJson
+  // to ensure we load the correct format for the
+  // Project nodes
+  const projectJsonTypeDefs = `
+    type ProjectJson implements Node {
+      opportunityCloses: Date @dateformat(formatString: "YYYY-MM-DD")
+      startDate: Date @dateformat(formatString: "YYYY-MM-DD")
+      endDate: Date @dateformat(formatString: "YYYY-MM-DD")
+      lastModified: Date @dateformat(formatString: "YYYY-MM-DDTHH:mm:ss.SSSZ")
+    }
+  `
+  createTypes(projectJsonTypeDefs)
+}
+
 exports.sourceNodes = async ({
   actions,
   createContentDigest,
