@@ -17,10 +17,12 @@ import {
   FooterLayout,
   BottomBannerLayout,
   MainContact,
+  BottomBanner,
+  ProjectTeam,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
 
 import { useStaticQuery, graphql } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { getImage } from "gatsby-plugin-image"
 
 var markdownContent = `
 
@@ -121,11 +123,35 @@ const collaborator_details = {
     "We are ready to begin the project as soon as we identify a collaborator.\n",
 }
 
+const contact1 = {
+  employer: "Brown University",
+  title: "Assistant Head of Gatsby",
+  email: "gatsby@brown.edu",
+  name: "Herbert Mumphrey III",
+  contactImage: null,
+  showEmail: false,
+}
+
+const projectContacts = [
+  contact1,
+  {
+    ...contact1,
+    name: "Borissia Hepplethwaite",
+    title: "Head of Gatsby",
+  },
+  { ...contact1, name: "Alyssia Allessandro", title: "Head of Graphing" },
+]
+
 const link = "https://www.nc.gov/terms"
-const bottomBannerImageLink = "R+D link"
+const linkId = "r-and-d-link"
 
 const Index = () => {
-  const { logo, BottomBanner, FooterImage, contact } = useStaticQuery(graphql`
+  const {
+    logo,
+    BottomBanner: bottomBannerImageQuery,
+    FooterImage,
+    contact,
+  } = useStaticQuery(graphql`
     query {
       logo: file(relativePath: { regex: "/^logo.png$/" }) {
         childImageSharp {
@@ -151,16 +177,9 @@ const Index = () => {
   `)
 
   const navbarLogoImage = getImage(logo)
-  const bannerImage = getImage(BottomBanner)
+  const bottomBannerImage = getImage(bottomBannerImageQuery)
   const footerImage = getImage(FooterImage)
-  console.log(footerImage)
-  const nav_image = (
-    <GatsbyImage
-      className="hidden xl:inline-block"
-      image={navbarLogoImage}
-      alt={"nav_logo"}
-    />
-  )
+
   return (
     <>
       <DevelopmentBanner />
@@ -168,37 +187,34 @@ const Index = () => {
       <NavbarLayout
         title="Example Site"
         label="test"
-        image={nav_image}
+        image={navbarLogoImage}
         pages={pages}
       />
       {/*Navbar with Active Page:*/}
       <NavbarLayout
         title="Example Site"
         label="test"
-        image={nav_image}
+        image={navbarLogoImage}
         pages={pages}
         activePage="First Nav"
       />
+      {/*Bottom banner image, text and link:*/}
       <BottomBannerLayout
-        image={bannerImage}
+        image={bottomBannerImage}
         text="Sample text"
         link={link}
-        bottomBannerImageLink={bottomBannerImageLink}
+        linkId={linkId}
       />
+      {/*Bottom banner image, text:*/}
       <BottomBannerLayout
-        image={bannerImage}
+        image={bottomBannerImage}
         text="Sample text"
-        bottomBannerImageLink={bottomBannerImageLink}
+        linkId={linkId}
       />
-      <BottomBannerLayout
-        text="Sample text"
-        link={link}
-        bottomBannerImageLink={bottomBannerImageLink}
-      />
-      <BottomBannerLayout
-        text="Sample text"
-        bottomBannerImageLink={bottomBannerImageLink}
-      />
+      <BottomBannerLayout text="Sample text" link={link} linkId={linkId} />
+      <BottomBannerLayout text="Sample text" linkId={linkId} />
+      {/*Bottom banner using staticText:*/}
+      <BottomBanner />
       <BackIcon />
       <ForwardIcon />
       <ProjectStatus status="open" />
@@ -211,12 +227,13 @@ const Index = () => {
       <Card {...sample_card} />
       <Cards nodes={sample_cards} />
       {/*Contact with Show Email*/}
+
       <Contact
         employer={"testEmployer"}
         title={"contact1Title"}
         email={"user1@example.com"}
         name={"contact1"}
-        contactImage={BottomBanner}
+        contactImage={bottomBannerImage}
         showEmail={true}
       />
       {/*Contact with Hide Email*/}
@@ -279,7 +296,11 @@ const Index = () => {
           useSiteStaticText={useSiteStaticText}
         />
       </div>
-      <SiteMetadata description="sample description" title="some title" />
+      <Contact {...contact1} />
+      <ProjectTeam
+        title="all the project team are here today"
+        contacts={projectContacts}
+      />
       <SiteMetadata />
     </>
   )

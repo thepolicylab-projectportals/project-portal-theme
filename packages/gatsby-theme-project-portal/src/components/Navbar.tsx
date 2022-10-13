@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react"
 import { Link } from "gatsby"
 import { FaBars, FaTimes } from "react-icons/fa"
+import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
 
 interface NavbarItemProps {
   name: string
@@ -35,7 +36,7 @@ const NavbarItem: FunctionComponent<NavbarItemProps> = ({
 interface NavbarProps {
   title: string
   activePage?: string
-  image: object
+  image: IGatsbyImageData
   pages: {
     name: string
     link: string
@@ -73,7 +74,11 @@ export const NavbarLayout: FunctionComponent<NavbarProps> = ({
               to="/"
             >
               <>
-                {image}
+                <GatsbyImage
+                  className="hidden xl:inline-block"
+                  image={image}
+                  alt={"nav_logo"}
+                />
                 {title}
               </>
             </Link>

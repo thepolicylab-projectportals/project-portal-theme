@@ -3,6 +3,7 @@
     <toRun name="test-packaging.sh (local: defaults, with yarn)" type="ShConfigurationType" />
     <toRun name="test-packaging.sh (local: empty, with yarn)" type="ShConfigurationType" />
     <toRun name="test-packaging.sh (local: example, with yarn)" type="ShConfigurationType" />
+    <toRun name="test-packaging.sh (local: example-site, with yarn)" type="ShConfigurationType" />
     <method v="2" />
   </configuration>
 </component>
