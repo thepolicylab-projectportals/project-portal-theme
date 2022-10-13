@@ -22,6 +22,8 @@ exports.sourceNodes = async ({
   getNodesByType,
 }) => {
   const { createNode } = actions
+  const projectJSONNodes = getNodesByType("ProjectJson")
+  console.log(projectJSONNodes)
 
   const data = {
     projects: [
