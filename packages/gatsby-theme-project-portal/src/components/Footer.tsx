@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from "react"
 import { IGatsbyImageData } from "gatsby-plugin-image"
+import { useStaticText } from "../hooks"
 
 interface FooterProps {
   heading: {
@@ -69,16 +70,16 @@ const ListItem = ({ target, children }) => {
   )
 }
 
-// const FooterImage = (FooterLayout) => {
-//     const query = useStaticQuery(graphql`
-//     query {
-//      Footer: file(relativePath: { regex: "/^footer.png$/" }) {
-//         childImageSharp {
-//           gatsbyImageData(height: 64)
-//         }
-//       }
-//     }
-//  `)
-//  const FooterImage = getImage(Footer)
-//  return  <FooterLayout image={FooterImage} useSiteStaticText={useSiteStaticText} />
-// }
+export const Footer = () => {
+  // const query = useStaticQuery(graphql`
+  //   query {
+  //     Footer: file(relativePath: { regex: "/^footer.png$/" }) {
+  //       childImageSharp {
+  //         gatsbyImageData(height: 64)
+  //       }
+  //     }
+  //   }
+  // `)
+  const { footer: footerProps } = useStaticText()
+  return <FooterLayout {...footerProps} />
+}
