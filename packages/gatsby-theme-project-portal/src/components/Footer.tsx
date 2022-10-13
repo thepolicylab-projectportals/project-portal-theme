@@ -2,6 +2,8 @@ import React, { FunctionComponent } from "react"
 import { IGatsbyImageData } from "gatsby-plugin-image"
 import { useStaticText } from "../hooks"
 
+// This is the same structure as the "footer" part of the useStaticText query,
+// so that we can pass the staticText.footer unchanged into the code
 interface FooterProps {
   heading: {
     title: String
@@ -44,7 +46,7 @@ export const FooterLayout: FunctionComponent<FooterProps> = ({
           href={heading.link}
         >
           {image && (
-            // use of GatsbyImage for the logo because pa11y error as it doesn't register as an image
+            // use of <img /> for the logo because <GatsbyImage /> leads to pa11y error
             <img
               srcSet={image.image.images.sources[0].srcSet}
               alt={image.altText}
@@ -70,15 +72,18 @@ const ListItem = ({ target, children }) => {
 }
 
 export const Footer = () => {
-  // const query = useStaticQuery(graphql`
+  // const { imageQuery } = useStaticQuery(graphql`
   //   query {
-  //     Footer: file(relativePath: { regex: "/^footer.png$/" }) {
+  //     imageQuery: file(relativePath: { regex: "/^footer.png$/" }) {
   //       childImageSharp {
   //         gatsbyImageData(height: 64)
   //       }
   //     }
   //   }
   // `)
+  // const { title: siteTitle } = useSiteMetadata()
+  // const image = { image: getImage(imageQuery), altText: `${siteTitle} logo` }
+  // console.log(image)
   const { footer: footerProps } = useStaticText()
   return <FooterLayout {...footerProps} />
 }
