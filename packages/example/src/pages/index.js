@@ -15,6 +15,7 @@ import {
   NavbarLayout,
   SiteMetadata,
   FooterLayout,
+  Footer,
   BottomBannerLayout,
   BottomBanner,
   ProjectTeam,
@@ -283,6 +284,7 @@ const Index = () => {
         contacts={projectContacts}
       />
       <SiteMetadata />
+      <Footer />
     </>
   )
 }
