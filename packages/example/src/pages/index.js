@@ -262,7 +262,7 @@ const Index = () => {
       <CollaboratorDetails keyDates={"Key dates only"} />
       <div style={{ backgroundColor: "black" }}>
         <FooterLayout
-          image={{ image: footerImage, altText: "San Antonio Logo" }}
+          image={{ imageData: footerImage, altText: "San Antonio Logo" }}
           {...footerProps}
         />
       </div>

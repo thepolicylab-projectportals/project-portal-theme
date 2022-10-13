@@ -14,7 +14,7 @@ interface FooterProps {
     title: String
     link: String
   }[]
-  image?: { image: IGatsbyImageData; altText: string }
+  image?: { imageData: IGatsbyImageData; altText: string }
 }
 
 export const FooterLayout: FunctionComponent<FooterProps> = ({
@@ -48,10 +48,10 @@ export const FooterLayout: FunctionComponent<FooterProps> = ({
           {image && (
             // use of <img /> for the logo because <GatsbyImage /> leads to pa11y error
             <img
-              srcSet={image.image.images.sources[0].srcSet}
+              srcSet={image.imageData.images.sources[0].srcSet}
               alt={image.altText}
-              height={image.image.height}
-              width={image.image.width}
+              height={image.imageData.height}
+              width={image.imageData.width}
             />
           )}
           <p className="text-center inline-block text-h4 font-bold text-footertext">
@@ -82,8 +82,7 @@ export const Footer = () => {
   //   }
   // `)
   // const { title: siteTitle } = useSiteMetadata()
-  // const image = { image: getImage(imageQuery), altText: `${siteTitle} logo` }
-  // console.log(image)
+  // const image = { imageData: getImage(imageQuery), altText: `${siteTitle} logo` }
   const { footer: footerProps } = useStaticText()
   return <FooterLayout {...footerProps} />
 }
