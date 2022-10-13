@@ -5,6 +5,13 @@ const {
 } = require("@thepolicylab-projectportals/gatsby-theme-project-portal/utils/types")
 const { withDefaults } = require("./utils/default-options")
 
+// This parameter must match the type which gatsby-transformer-json _implicitly_
+// creates for the "Project" type.
+// If in doubt, check the GraphQL and look at the internal.type field of the
+// nodes created by the gatsby-transformer-json. Modify this parameter
+// to match
+const PROJECT_JSON_TYPE = `ProjectJson`
+
 exports.onPreBootstrap = ({ reporter }, pluginOptions) => {
   console.log(withDefaults(pluginOptions))
   const { projectPath } = withDefaults(pluginOptions)
@@ -21,7 +28,7 @@ exports.createSchemaCustomization = ({ actions }) => {
   // to ensure we load the correct format for the
   // Project nodes
   const projectJsonTypeDefs = `
-    type ProjectJson implements Node {
+    type ${PROJECT_JSON_TYPE} implements Node {
       opportunityCloses: Date @dateformat(formatString: "YYYY-MM-DD")
       startDate: Date @dateformat(formatString: "YYYY-MM-DD")
       endDate: Date @dateformat(formatString: "YYYY-MM-DD")
@@ -38,7 +45,7 @@ exports.sourceNodes = async ({
   getNodesByType,
 }) => {
   const { createNode } = actions
-  const projectJSONNodes = getNodesByType("ProjectJson")
+  const projectJSONNodes = getNodesByType(`${PROJECT_JSON_TYPE}`)
 
   // loop through projectJSONNodes and create Project nodes
   projectJSONNodes.forEach((project) =>
