@@ -23,23 +23,9 @@ exports.sourceNodes = async ({
 }) => {
   const { createNode } = actions
   const projectJSONNodes = getNodesByType("ProjectJson")
-  console.log(projectJSONNodes)
 
-  const data = {
-    projects: [
-      { slug: "hello-world-project", description: `Hello world!` },
-      { slug: "second-project", description: `Second project!` },
-      { slug: "third-project" },
-      {
-        slug: "fourth-project",
-        lastModified: "2022-10-12",
-        startDate: "2022-10-13",
-      },
-    ],
-  }
-
-  // loop through data and create Gatsby nodes
-  data.projects.forEach((project) =>
+  // loop through projectJSONNodes and create Project nodes
+  projectJSONNodes.forEach((project) =>
     createNode({
       ...project,
       id: createNodeId(`${PROJECT_NODE_TYPE}-${project.slug}`),
