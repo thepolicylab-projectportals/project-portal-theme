@@ -14,12 +14,16 @@ const PROJECT_JSON_TYPE = `ProjectJson`
 
 exports.onPreBootstrap = ({ reporter }, pluginOptions) => {
   console.log(withDefaults(pluginOptions))
-  const { projectPath } = withDefaults(pluginOptions)
 
-  if (!fs.existsSync(projectPath)) {
-    reporter.info(`creating the ${projectPath} directory`)
-    fs.mkdirSync(projectPath, { recursive: true })
-  }
+  const { projectPath, contactPath } = withDefaults(pluginOptions)
+  const paths = [projectPath, contactPath]
+
+  paths.forEach((path) => {
+    if (!fs.existsSync(path)) {
+      reporter.info(`creating the ${path} directory`)
+      fs.mkdirSync(path, { recursive: true })
+    }
+  })
 }
 
 exports.createSchemaCustomization = ({ actions }) => {
