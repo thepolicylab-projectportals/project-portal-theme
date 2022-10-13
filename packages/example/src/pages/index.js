@@ -123,7 +123,7 @@ const projectContacts = [
 ]
 
 const link = "https://www.nc.gov/terms"
-const bottomBannerImageLink = "R+D link"
+const linkId = "r-and-d-link"
 
 const Index = () => {
   const {
@@ -176,23 +176,16 @@ const Index = () => {
         image={bottomBannerImage}
         text="Sample text"
         link={link}
-        bottomBannerImageLink={bottomBannerImageLink}
+        linkId={linkId}
       />
       {/*Bottom banner image, text:*/}
       <BottomBannerLayout
         image={bottomBannerImage}
         text="Sample text"
-        bottomBannerImageLink={bottomBannerImageLink}
+        linkId={linkId}
       />
-      <BottomBannerLayout
-        text="Sample text"
-        link={link}
-        bottomBannerImageLink={bottomBannerImageLink}
-      />
-      <BottomBannerLayout
-        text="Sample text"
-        bottomBannerImageLink={bottomBannerImageLink}
-      />
+      <BottomBannerLayout text="Sample text" link={link} linkId={linkId} />
+      <BottomBannerLayout text="Sample text" linkId={linkId} />
       {/*Bottom banner using staticText:*/}
       <BottomBanner />
       <BackIcon />
