@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react"
 import { Link } from "gatsby"
 import { Contact, MarkdownText } from "../components"
 import { statusOutput } from "../utils"
-import { useSiteMetadata } from "../hooks/useSiteMetadata"
+import { useProjectPortalConfig } from "../hooks/useProjectPortalConfig"
 
 interface ProjectContactProps {
   name: string
@@ -37,7 +37,7 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
       ? ongoingText
       : completeText
 
-  const meta = { useSiteMetadata }
+  const meta = { useProjectPortalConfig }
 
   return (
     <div className="w-full lg:w-2/5 xl:w-1/3">
