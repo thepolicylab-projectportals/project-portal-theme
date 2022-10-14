@@ -97,7 +97,7 @@ const pages = [
     show: false,
   },
 ]
-const useSiteStaticText = {
+const FooterProps = {
   footer: {
     heading: {
       link: "https://www.google.com/",
@@ -291,10 +291,7 @@ const Index = () => {
       <CollaboratorDetails requirement={"Requirement only"} />
       <CollaboratorDetails keyDates={"Key dates only"} />
       <div style={{ backgroundColor: "black" }}>
-        <FooterLayout
-          image={footerImage}
-          useSiteStaticText={useSiteStaticText}
-        />
+        <FooterLayout image={footerImage} FooterProps={FooterProps} />
       </div>
       <Contact {...contact1} />
       <ProjectTeam
