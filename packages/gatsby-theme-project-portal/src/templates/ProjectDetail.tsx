@@ -84,7 +84,7 @@ export const ProjectDetailLayout = ({
     console.log(projectTeam)
     // if (!showMainContactOnProjectTeam) {
     //   projectTeam = contacts.slice(1, contacts.length)
-    // }
+    //}
   }
   return (
     <article>
