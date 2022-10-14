@@ -1,7 +1,7 @@
 import React from "react"
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
 
-export const FooterLayout = ({ image, useSiteStaticText }) => {
+export const FooterLayout = ({ image, FooterProps }) => {
   const meta = useSiteMetadata()
   // use of GatsbyImage for the logo causs pa11y error as it doesn't register as an image
 
@@ -9,7 +9,7 @@ export const FooterLayout = ({ image, useSiteStaticText }) => {
     <footer className="w-full px-2 py-8 bg-footer xl:container xl:px-12">
       <div className="flex items-center justify-center mt-6 lg:my-auto">
         <div className="text-nav text-footertext">
-          {useSiteStaticText.footer.copyright}
+          {FooterProps.footer.copyright}
         </div>
       </div>
       <div
@@ -17,7 +17,7 @@ export const FooterLayout = ({ image, useSiteStaticText }) => {
       ems-center justify-center mt-6 lg:my-auto"
       >
         <ul className="text-nav text-footertext list-none">
-          {useSiteStaticText.footer.links.map(({ title, link }, i) => (
+          {FooterProps.footer.links.map(({ title, link }, i) => (
             <ListItem key={"link_" + i} target={link}>
               {title}
             </ListItem>
@@ -27,7 +27,7 @@ export const FooterLayout = ({ image, useSiteStaticText }) => {
       <div className="block w-full lg:w-auto mt-5">
         <a
           className="flex items-center gap-4 justify-center flex-wrap"
-          href={useSiteStaticText.footer.heading.link}
+          href={FooterProps.footer.heading.link}
         >
           {image && (
             <img
@@ -38,7 +38,7 @@ export const FooterLayout = ({ image, useSiteStaticText }) => {
             />
           )}
           <p className="text-center inline-block text-h4 font-bold text-footertext">
-            {useSiteStaticText.footer.heading.title}
+            {FooterProps.footer.heading.title}
           </p>
         </a>
       </div>
