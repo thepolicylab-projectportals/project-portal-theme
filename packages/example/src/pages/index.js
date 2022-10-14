@@ -14,7 +14,9 @@ import {
   CollaboratorDetails,
   NavbarLayout,
   SiteMetadata,
+  FooterLayout,
   BottomBannerLayout,
+  BottomBanner,
   ProjectTeam,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
 
@@ -94,6 +96,24 @@ const pages = [
     show: false,
   },
 ]
+const FooterProps = {
+  footer: {
+    heading: {
+      link: "https://www.google.com/",
+      title: "Language title",
+    },
+    links: [
+      {
+        title: "Office 1",
+        link: "http://www.google.com",
+      },
+      {
+        title: "Office 2",
+        link: "http://www.google.com",
+      },
+    ],
+  },
+}
 
 const collaborator_details = {
   expertise: "- Collaborator.\n- Details.\n- Expertise.\n",
@@ -122,10 +142,15 @@ const projectContacts = [
 ]
 
 const link = "https://www.nc.gov/terms"
-const bottomBannerImageLink = "R+D link"
+const linkId = "r-and-d-link"
 
 const Index = () => {
-  const { logo, BottomBanner, contact } = useStaticQuery(graphql`
+  const {
+    logo,
+    BottomBanner: bottomBannerImageQuery,
+    FooterImage,
+    contact,
+  } = useStaticQuery(graphql`
     query {
       logo: file(relativePath: { regex: "/^logo.png$/" }) {
         childImageSharp {
@@ -142,11 +167,17 @@ const Index = () => {
           gatsbyImageData(width: 160)
         }
       }
+      FooterImage: file(relativePath: { regex: "/^footer.png$/" }) {
+        childImageSharp {
+          gatsbyImageData(height: 64)
+        }
+      }
     }
   `)
 
   const navbarLogoImage = getImage(logo)
-  const bannerImage = getImage(BottomBanner)
+  const bottomBannerImage = getImage(bottomBannerImageQuery)
+  const footerImage = getImage(FooterImage)
 
   return (
     <>
@@ -166,26 +197,23 @@ const Index = () => {
         pages={pages}
         activePage="First Nav"
       />
+      {/*Bottom banner image, text and link:*/}
       <BottomBannerLayout
-        image={bannerImage}
+        image={bottomBannerImage}
         text="Sample text"
         link={link}
-        bottomBannerImageLink={bottomBannerImageLink}
+        linkId={linkId}
       />
+      {/*Bottom banner image, text:*/}
       <BottomBannerLayout
-        image={bannerImage}
+        image={bottomBannerImage}
         text="Sample text"
-        bottomBannerImageLink={bottomBannerImageLink}
+        linkId={linkId}
       />
-      <BottomBannerLayout
-        text="Sample text"
-        link={link}
-        bottomBannerImageLink={bottomBannerImageLink}
-      />
-      <BottomBannerLayout
-        text="Sample text"
-        bottomBannerImageLink={bottomBannerImageLink}
-      />
+      <BottomBannerLayout text="Sample text" link={link} linkId={linkId} />
+      <BottomBannerLayout text="Sample text" linkId={linkId} />
+      {/*Bottom banner using staticText:*/}
+      <BottomBanner />
       <BackIcon />
       <ForwardIcon />
       <ProjectStatus status="open" />
@@ -204,7 +232,7 @@ const Index = () => {
         title={"contact1Title"}
         email={"user1@example.com"}
         name={"contact1"}
-        contactImage={BottomBanner}
+        contactImage={bottomBannerImage}
         showEmail={true}
       />
       {/*Contact with Hide Email*/}
@@ -232,6 +260,9 @@ const Index = () => {
       <CollaboratorDetails expertise={"Expertise only"} />
       <CollaboratorDetails requirement={"Requirement only"} />
       <CollaboratorDetails keyDates={"Key dates only"} />
+      <div style={{ backgroundColor: "black" }}>
+        <FooterLayout image={footerImage} FooterProps={FooterProps} />
+      </div>
       <Contact {...contact1} />
       <ProjectTeam
         title="all the project team are here today"
