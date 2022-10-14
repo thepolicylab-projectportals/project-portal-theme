@@ -9,6 +9,8 @@ export const useSiteMetadata = () => {
           description
           url
           locale
+          ongoingText
+          completeText
         }
       }
     }
