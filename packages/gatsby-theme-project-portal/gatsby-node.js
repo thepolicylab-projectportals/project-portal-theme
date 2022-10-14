@@ -3,13 +3,14 @@ const { withDefaults } = require(`./utils/default-options`)
 const {
   projectTypeDefs,
   projectPortalConfigTypeDefs,
+  contactTypeDefs,
 } = require(`./utils/types`)
 
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
-
   createTypes(projectPortalConfigTypeDefs)
   createTypes(projectTypeDefs)
+  createTypes(contactTypeDefs)
 }
 
 exports.sourceNodes = ({ actions, createContentDigest }, themeOptions) => {

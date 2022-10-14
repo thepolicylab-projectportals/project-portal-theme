@@ -43,10 +43,24 @@ const projectTypeDefs = `
 
 const CONTACT_NODE_TYPE = `Contact`
 
+const contactTypeDefs = `
+  type ${CONTACT_NODE_TYPE} implements Node {
+    key: String!
+    name: String
+    employer: String
+    title: String
+    image: String
+    email: String
+    lastModified: Date @dateformat(formatString: "YYYY-MM-DDTHH:mm:ss.SSSZ")
+    projectPageContent: String
+  }
+`
+
 module.exports = {
   CONFIG_NODE_TYPE,
   projectPortalConfigTypeDefs,
   PROJECT_NODE_TYPE,
   projectTypeDefs,
   CONTACT_NODE_TYPE,
+  contactTypeDefs,
 }
