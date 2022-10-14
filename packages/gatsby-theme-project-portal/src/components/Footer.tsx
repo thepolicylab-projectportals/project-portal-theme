@@ -1,8 +1,11 @@
 import React from "react"
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
+import { useStaticText } from "../hooks"
 
 export const FooterLayout = ({ image, FooterProps }) => {
-  const meta = useSiteMetadata()
+  const {
+    meta: { siteTitle: footerSiteTitle },
+  } = useSiteMetadata()
   // use of GatsbyImage for the logo causs pa11y error as it doesn't register as an image
 
   return (
@@ -32,7 +35,7 @@ export const FooterLayout = ({ image, FooterProps }) => {
           {image && (
             <img
               srcSet={image.images.sources[0].srcSet}
-              alt={meta.siteTitle + " logo"}
+              alt={footerSiteTitle + " logo"}
               height={image.height}
               width={image.width}
             />
@@ -54,8 +57,8 @@ const ListItem = ({ target, children }) => {
   )
 }
 
-// const FooterImage = (FooterLayout) => {
-//     const query = useStaticQuery(graphql`
+// export const Footer = () => {
+// const {Footer} = useStaticQuery(graphql`
 //     query {
 //      Footer: file(relativePath: { regex: "/^footer.png$/" }) {
 //         childImageSharp {
@@ -65,5 +68,6 @@ const ListItem = ({ target, children }) => {
 //     }
 //  `)
 //  const FooterImage = getImage(Footer)
-//  return  <FooterLayout image={FooterImage} useSiteStaticText={useSiteStaticText} />
+//
+//   return <FooterLayout FooterProps={useSiteStaticText} image={FooterImage} />
 // }
