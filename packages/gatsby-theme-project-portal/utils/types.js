@@ -7,8 +7,9 @@ const projectPortalConfigTypeDefs = `
     }
   `
 
-// constants for GraphQL Project type
+// constants for GraphQL Project and Contact types
 const PROJECT_NODE_TYPE = `Project`
+const CONTACT_NODE_TYPE = `Contact`
 
 const projectTypeDefs = `
     type ${PROJECT_NODE_TYPE} implements Node {
@@ -38,10 +39,11 @@ const projectTypeDefs = `
       emailContent: String
       
       lastModified: Date @dateformat(formatString: "YYYY-MM-DDTHH:mm:ss.SSSZ")
+      
+      mainContact: ${CONTACT_NODE_TYPE} @link(by: "key")
+      projectTeam: [${CONTACT_NODE_TYPE}] @link(by: "key")
     }
   `
-
-const CONTACT_NODE_TYPE = `Contact`
 
 const contactTypeDefs = `
   type ${CONTACT_NODE_TYPE} implements Node {
