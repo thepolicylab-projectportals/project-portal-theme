@@ -3,11 +3,12 @@ import { useSiteMetadata } from "../hooks/useSiteMetadata"
 import { useStaticText } from "../hooks"
 
 export const FooterLayout = ({ image, FooterProps }) => {
-  const {
-    meta: { siteTitle: footerSiteTitle },
-  } = useSiteMetadata()
+  const meta = useSiteMetadata()
   // use of GatsbyImage for the logo causs pa11y error as it doesn't register as an image
-
+  //this approach did not work
+  // const {
+  //   meta: { siteTitle: bottomBannerText },
+  // } = useStaticText()
   return (
     <footer className="w-full px-2 py-8 bg-footer xl:container xl:px-12">
       <div className="flex items-center justify-center mt-6 lg:my-auto">
@@ -35,7 +36,7 @@ export const FooterLayout = ({ image, FooterProps }) => {
           {image && (
             <img
               srcSet={image.images.sources[0].srcSet}
-              alt={footerSiteTitle + " logo"}
+              alt={meta.siteTitle + " logo"}
               height={image.height}
               width={image.width}
             />
