@@ -46,66 +46,69 @@ exports.createSchemaCustomization = ({ actions }) => {
   createTypes(allAirtableTypeDefs)
 }
 
-exports.sourceNodes = async ({
-  actions,
-  createContentDigest,
-  createNodeId,
-  getNodesByType,
-}) => {
+exports.sourceNodes = async (
+  { actions, createContentDigest, createNodeId, getNodesByType },
+  pluginOptions
+) => {
+  const { partnerName } = withDefaults(pluginOptions)
+  console.log("theme options: partnerName", partnerName)
+
   const { createNode } = actions
   const projectAirtableNodes = getNodesByType(`${PROJECT_AIRTABLE_TYPE}`)
   const contactAirtableNodes = getNodesByType(`${CONTACT_AIRTABLE_TYPE}`)
 
   // loop through projectJSONNodes and create Project nodes
-  projectAirtableNodes.forEach((project) => {
-    let projectTeam
+  projectAirtableNodes
+    .filter((project) => project.data.partnerName === partnerName)
+    .forEach((project) => {
+      let projectTeam
 
-    if (project.data.showMainContactOnProjectTeam) {
-      projectTeam = project.data.contacts
-    } else {
-      projectTeam = project.data.contacts.slice(1, -1)
-    }
+      if (project.data.showMainContactOnProjectTeam) {
+        projectTeam = project.data.contacts
+      } else {
+        projectTeam = project.data.contacts.slice(1, -1)
+      }
 
-    let projectRestructured = {
-      slug: project.data.slug,
+      let projectRestructured = {
+        slug: project.data.slug,
 
-      question: project.data.question,
-      partnerName: project.data.partnerName,
-      status: project.data.status,
+        question: project.data.question,
+        partnerName: project.data.partnerName,
+        status: project.data.status,
 
-      opportunityCloses: project.data.opportunityCloses,
-      startDate: project.data.startDate,
-      endDate: project.data.endDate,
+        opportunityCloses: project.data.opportunityCloses,
+        startDate: project.data.startDate,
+        endDate: project.data.endDate,
 
-      agency: project.data.agency,
-      topics: project.data.topics,
-      supportNeeded: project.data.supportNeeded,
-      summary: project.data.summary,
-      deliverable: project.data.deliverable,
-      purpose: project.data.purpose,
-      expertise: project.data.expertise,
-      requirement: project.data.requirement,
-      keyDates: project.data.keyDates,
-      statusOfData: project.data.statusOfData,
-      priorResearch: project.data.priorResearch,
-      fundingInfo: project.data.fundingInfo,
-      emailContent: project.data.emailContent,
-      lastModified: project.data.lastModified,
+        agency: project.data.agency,
+        topics: project.data.topics,
+        supportNeeded: project.data.supportNeeded,
+        summary: project.data.summary,
+        deliverable: project.data.deliverable,
+        purpose: project.data.purpose,
+        expertise: project.data.expertise,
+        requirement: project.data.requirement,
+        keyDates: project.data.keyDates,
+        statusOfData: project.data.statusOfData,
+        priorResearch: project.data.priorResearch,
+        fundingInfo: project.data.fundingInfo,
+        emailContent: project.data.emailContent,
+        lastModified: project.data.lastModified,
 
-      mainContact: project.data.contacts.slice(0, 1),
-      projectTeam: projectTeam,
-    }
-    createNode({
-      ...projectRestructured,
-      id: createNodeId(`${PROJECT_NODE_TYPE}-${projectRestructured.slug}`),
-      parent: null,
-      children: [],
-      internal: {
-        type: `${PROJECT_NODE_TYPE}`,
-        contentDigest: createContentDigest(projectRestructured),
-      },
+        mainContact: project.data.contacts.slice(0, 1),
+        projectTeam: projectTeam,
+      }
+      createNode({
+        ...projectRestructured,
+        id: createNodeId(`${PROJECT_NODE_TYPE}-${projectRestructured.slug}`),
+        parent: null,
+        children: [],
+        internal: {
+          type: `${PROJECT_NODE_TYPE}`,
+          contentDigest: createContentDigest(projectRestructured),
+        },
+      })
     })
-  })
 
   contactAirtableNodes.forEach((contact) => {
     // Restructure the airtable object to fulfil the format for the CONTACT_NODE_TYPE
