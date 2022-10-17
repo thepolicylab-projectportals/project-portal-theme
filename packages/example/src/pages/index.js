@@ -275,7 +275,8 @@ const Index = () => {
       </div>
       <ProjectDetailLayout
         {...sample_card}
-        contacts={projectContacts}
+        mainContact={contact1}
+        projectTeam={projectContacts}
         emailContent={"test content"}
       />
       <div>
@@ -283,7 +284,8 @@ const Index = () => {
       </div>
       <ProjectDetailLayout
         {...sample_card}
-        contacts={projectContacts}
+        mainContact={contact1}
+        projectTeam={projectContacts}
         emailContent={"test content"}
         status={"completed"}
       />

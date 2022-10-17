@@ -4,6 +4,7 @@ import moment from "moment"
 import { BackIcon } from "./BackIcon"
 
 import {
+  ContactType,
   Feature,
   //MainContact,
   SectionOfItem,
@@ -35,15 +36,8 @@ interface ProjectDetailLayoutProps {
   fundingInfo: string
   emailContent: string
   collaborationType: string
-  contacts: {
-    frontmatter: {
-      name: string
-      title: string
-      employer: string
-      email: string
-      contactImage: any
-    }
-  }[]
+  mainContact: ContactType
+  projectTeam: ContactType[]
   location: any
 }
 
@@ -71,20 +65,10 @@ export const ProjectDetailLayout: FunctionComponent<
   fundingInfo,
   emailContent,
   collaborationType,
-  contacts,
+  mainContact,
+  projectTeam,
   location,
 }) => {
-  let mainContact = null
-  let projectTeam = null
-
-  if (contacts) {
-    //mainContact = contacts[0].frontmatter
-    projectTeam = contacts
-    console.log(projectTeam)
-    // if (!showMainContactOnProjectTeam) {
-    //   projectTeam = contacts.slice(1, contacts.length)
-    //}
-  }
   return (
     <article>
       <header className="py-16 p-responsive bg-primary">
@@ -189,12 +173,13 @@ export const ProjectDetailLayout: FunctionComponent<
                 </div>
               )}
             </div>
+            {/*{!isNA(mainContact) && (*/}
             {/*<MainContact*/}
             {/*  {...mainContact}*/}
             {/*  status={status}*/}
             {/*  date={status === "open" ? opportunityCloses : endDate}*/}
             {/*  emailContent={emailContent}*/}
-            {/*/>*/}
+            {/*/> )}*/}
           </div>
         </section>
 
@@ -209,10 +194,12 @@ export const ProjectDetailLayout: FunctionComponent<
             }}
           />
         ) : (
-          <ProjectTeam
-            title="Project Team"
-            contacts={projectTeam.map((contact) => contact)}
-          />
+          !isEmpty(projectTeam) && (
+            <ProjectTeam
+              title="Project Team"
+              contacts={projectTeam.map((contact) => contact)}
+            />
+          )
         )}
         <section className="my-12">
           <Link to={withPrefix(`/${status === "open" ? "" : status}`)}>
