@@ -14,6 +14,7 @@ import {
   CollaboratorDetails,
   NavbarLayout,
   SiteMetadata,
+  FooterLayout,
   BottomBannerLayout,
   BottomBanner,
   ProjectTeam,
@@ -95,6 +96,24 @@ const pages = [
     show: false,
   },
 ]
+const FooterProps = {
+  footer: {
+    heading: {
+      link: "https://www.google.com/",
+      title: "Language title",
+    },
+    links: [
+      {
+        title: "Office 1",
+        link: "http://www.google.com",
+      },
+      {
+        title: "Office 2",
+        link: "http://www.google.com",
+      },
+    ],
+  },
+}
 
 const collaborator_details = {
   expertise: "- Collaborator.\n- Details.\n- Expertise.\n",
@@ -129,6 +148,7 @@ const Index = () => {
   const {
     logo,
     BottomBanner: bottomBannerImageQuery,
+    FooterImage,
     contact,
   } = useStaticQuery(graphql`
     query {
@@ -147,11 +167,17 @@ const Index = () => {
           gatsbyImageData(width: 160)
         }
       }
+      FooterImage: file(relativePath: { regex: "/^footer.png$/" }) {
+        childImageSharp {
+          gatsbyImageData(height: 64)
+        }
+      }
     }
   `)
 
   const navbarLogoImage = getImage(logo)
   const bottomBannerImage = getImage(bottomBannerImageQuery)
+  const footerImage = getImage(FooterImage)
 
   return (
     <>
@@ -234,6 +260,9 @@ const Index = () => {
       <CollaboratorDetails expertise={"Expertise only"} />
       <CollaboratorDetails requirement={"Requirement only"} />
       <CollaboratorDetails keyDates={"Key dates only"} />
+      <div style={{ backgroundColor: "black" }}>
+        <FooterLayout image={footerImage} FooterProps={FooterProps} />
+      </div>
       <Contact {...contact1} />
       <ProjectTeam
         title="all the project team are here today"
