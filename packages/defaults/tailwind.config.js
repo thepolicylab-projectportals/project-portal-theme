@@ -2,13 +2,13 @@ module.exports = {
   presets: [
     require("@thepolicylab-projectportals/gatsby-theme-project-portal/src/styles/tailwind.presets"),
   ],
-  purge: {
-    enabled: true,
-    content: [
-      "./src/**/*.{js,jsx,ts,tsx,html}",
-      "../node_modules/@thepolicylab-projectportals/theme/src/**/*.{js,jsx,ts,tsx,html}",
-    ],
-  },
+  // purge: {
+  //   enabled: true,
+  //   content: [
+  //     "./src/**/*.{js,jsx,ts,tsx,html}",
+  //     "../node_modules/@thepolicylab-projectportals/theme/src/**/*.{js,jsx,ts,tsx,html}",
+  //   ],
+  // },
   theme: {
     extend: {
       colors: {
