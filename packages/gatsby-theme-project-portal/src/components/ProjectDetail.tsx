@@ -9,7 +9,6 @@ import {
   SectionOfItem,
   ShareProject,
 } from "./index"
-// { Layout } from "../layouts/Layout"
 
 import { CollaboratorDetails, ProjectTeam } from "./index"
 import { statusOutput, isNA, isEmpty } from "../utils"
@@ -227,99 +226,3 @@ export const ProjectDetailLayout: FunctionComponent<
     </article>
   )
 }
-//
-// export const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
-//   const { data } = props
-//   console.log(data)
-//   const {
-//     question,
-//     summary,
-//     status,
-//     opportunityCloses,
-//     startDate,
-//     endDate,
-//     lastModified,
-//     agency,
-//     topics,
-//     deliverable,
-//     purpose,
-//     expertise,
-//     requirement,
-//     keyDates,
-//     priorResearch,
-//     statusOfData,
-//     fundingInfo,
-//     contacts,
-//     emailContent,
-//   } = data.item.frontmatter
-//
-//   let mainContact = null
-//   let projectTeam = null
-//
-//   if (contacts) {
-//     mainContact = contacts[0].frontmatter
-//     projectTeam = contacts
-//     console.log(projectTeam)
-//     // if (!showMainContactOnProjectTeam) {
-//     //   projectTeam = contacts.slice(1, contacts.length)
-//     // }
-//   }
-//
-//   return (
-//     <Layout title={question} description={summary}>
-//       <ProjectDetailLayout
-//         {...props}
-//       />
-//     </Layout>
-//   )
-// }
-
-// export const query = graphql`
-//   query ProjectDetailQuery($slug: String!) {
-//     item: markdownRemark(
-//       fileAbsolutePath: { regex: "/projects/" }
-//       frontmatter: { slug: { eq: $slug } }
-//     ) {
-//       frontmatter {
-//         question
-//         partnerName
-//         slug
-//         summary
-//         status
-//         startDate
-//         endDate
-//         agency
-//         topics
-//         deliverable
-//         purpose
-//         opportunityCloses
-//         supportNeeded
-//         expertise
-//         requirement
-//         applicationProcess
-//         priorResearch
-//         fundingInfo
-//         emailContent
-//         collaborationType
-//         contacts {
-//           frontmatter {
-//             name
-//             title
-//             employer
-//             email
-//             contactImage {
-//               childImageSharp {
-//                 gatsbyImageData(
-//                   width: 100
-//                   height: 100
-//                   placeholder: BLURRED
-//                   layout: FIXED
-//                 )
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// `
