@@ -2,6 +2,8 @@
 
 A plugin for the `gatsby-theme-project-portal` to import Airtable data and structure them as `Project` and `Contact` as required by the theme.
 
+The theme handles linking the Project to its Contacts together. 
+
 ## Options
 
 The plugin has the following options:
