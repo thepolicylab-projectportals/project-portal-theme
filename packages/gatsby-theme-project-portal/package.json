@@ -19,7 +19,8 @@
     "moment": "^2.29.4",
     "react-icons": "^4.4.0",
     "react-helmet": "^6.1.0",
-    "react-share": "^4.4.0"
+    "react-share": "^4.4.0",
+    "react-select": "^5.5.1"
   },
   "repository": {
     "type": "git",
