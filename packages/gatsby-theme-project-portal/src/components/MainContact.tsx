@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import { Contact, MarkdownText } from "../components"
 import { statusOutput } from "../utils"
 import { useProjectPortalConfig } from "../hooks/useProjectPortalConfig"
+import { useStaticText } from "../hooks/useStaticText"
 
 interface ProjectContactProps {
   name: string
@@ -25,12 +26,13 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
   emailContent,
 }) => {
   const meta = useProjectPortalConfig()
+  const staticText = useStaticText()
   const mainText =
     status === "open"
       ? emailContent
       : status === "ongoing"
-      ? meta.ongoingText
-      : meta.completeText
+      ? staticText.ongoingText
+      : staticText.completeText
   return (
     <div className="w-full lg:w-2/5 xl:w-1/3">
       <div className="w-full p-8 mb-8 bg-gray-100">
