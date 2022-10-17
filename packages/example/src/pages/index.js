@@ -18,6 +18,7 @@ import {
   BottomBannerLayout,
   BottomBanner,
   ProjectTeam,
+  ProjectDetailLayout,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
 
 import { useStaticQuery, graphql } from "gatsby"
@@ -43,7 +44,7 @@ const sample_card = {
   partnerName: "Example",
   slug: "test-project",
   summary: "Test Summary\n",
-  status: "open",
+  status: "completed",
   opportunityCloses: "2022-03-04",
   startDate: "2022-01-03",
   endDate: "2022-03-04",
@@ -269,6 +270,14 @@ const Index = () => {
         contacts={projectContacts}
       />
       <SiteMetadata />
+      <div>
+        ____________________________TEST__PROJECT___DETAIL_______________________________
+      </div>
+      <ProjectDetailLayout
+        {...sample_card}
+        contacts={projectContacts}
+        emailContent={"test content"}
+      />
     </>
   )
 }

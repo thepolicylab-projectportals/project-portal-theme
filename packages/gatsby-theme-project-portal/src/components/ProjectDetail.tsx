@@ -1,61 +1,59 @@
 import { graphql, Link, withPrefix } from "gatsby"
 import React, { FunctionComponent } from "react"
 import moment from "moment"
-import BackIcon from "../components/BackIcon"
+import { BackIcon } from "./BackIcon"
 
 import {
   Feature,
   //MainContact,
   SectionOfItem,
   ShareProject,
-} from "../components"
+} from "./index"
 // { Layout } from "../layouts/Layout"
 
-import { CollaboratorDetails, ProjectTeam } from "../components"
+import { CollaboratorDetails, ProjectTeam } from "./index"
 import { statusOutput, isNA, isEmpty } from "../utils"
 
-interface ProjectDetailProps {
-  data: {
-    item: {
-      frontmatter: {
-        question: string
-        partnerName: string
-        slug: string
-        summary: string
-        status: string
-        opportunityCloses: Date
-        startDate: Date
-        endDate: Date
-        lastModified: Date
-        agency: string
-        topics: string[]
-        deliverable: string
-        purpose: string
-        expertise: string
-        requirement: string
-        keyDates: string
-        priorResearch: string
-        statusOfData: string
-        fundingInfo: string
-        emailContent: string
-        collaborationType: string
-        contacts: {
-          frontmatter: {
-            name: string
-            title: string
-            employer: string
-            email: string
-            contactImage: any
-          }
-        }[]
-      }
+interface ProjectDetailLayoutProps {
+  question: string
+  partnerName: string
+  slug: string
+  summary: string
+  status: string
+  opportunityCloses: Date
+  startDate: Date
+  endDate: Date
+  lastModified: Date
+  agency: string
+  topics: string[]
+  deliverable: string
+  purpose: string
+  expertise: string
+  requirement: string
+  keyDates: string
+  priorResearch: string
+  statusOfData: string
+  fundingInfo: string
+  emailContent: string
+  collaborationType: string
+  contacts: {
+    frontmatter: {
+      name: string
+      title: string
+      employer: string
+      email: string
+      contactImage: any
     }
-  }
+  }[]
   location: any
 }
 
-export const ProjectDetailLayout = ({
+export const ProjectDetailLayout: FunctionComponent<
+  ProjectDetailLayoutProps
+> = ({
   question,
+  partnerName,
+  slug,
   summary,
   status,
   opportunityCloses,
@@ -72,14 +70,16 @@ export const ProjectDetailLayout = ({
   priorResearch,
   statusOfData,
   fundingInfo,
-  contacts,
   emailContent,
+  collaborationType,
+  contacts,
+  location,
 }) => {
   let mainContact = null
   let projectTeam = null
 
   if (contacts) {
-    mainContact = contacts[0].frontmatter
+    //mainContact = contacts[0].frontmatter
     projectTeam = contacts
     console.log(projectTeam)
     // if (!showMainContactOnProjectTeam) {
@@ -212,7 +212,7 @@ export const ProjectDetailLayout = ({
         ) : (
           <ProjectTeam
             title="Project Team"
-            contacts={projectTeam.map((contact) => contact.frontmatter)}
+            contacts={projectTeam.map((contact) => contact)}
           />
         )}
         <section className="my-12">
@@ -228,7 +228,7 @@ export const ProjectDetailLayout = ({
   )
 }
 //
-// const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
+// export const ProjectDetail: FunctionComponent<ProjectDetailProps> = (props) => {
 //   const { data } = props
 //   console.log(data)
 //   const {
@@ -268,31 +268,11 @@ export const ProjectDetailLayout = ({
 //   return (
 //     <Layout title={question} description={summary}>
 //       <ProjectDetailLayout
-//         question={question}
-//         summary={summary}
-//         status={status}
-//         opportunityCloses={opportunityCloses}
-//         startDate={startDate}
-//         endDate={endDate}
-//         lastModified={lastModified}
-//         agency={agency}
-//         topics={topics}
-//         deliverable={deliverable}
-//         purpose={purpose}
-//         expertise={expertise}
-//         requirement={requirement}
-//         keyDates={keyDates}
-//         priorResearch={priorResearch}
-//         statusOfData={statusOfData}
-//         fundingInfo={fundingInfo}
-//         contacts={contacts}
-//         emailContent={emailContent}
+//         {...props}
 //       />
 //     </Layout>
 //   )
 // }
-
-//export default ProjectDetail
 
 // export const query = graphql`
 //   query ProjectDetailQuery($slug: String!) {
