@@ -186,7 +186,15 @@ package-and-install () {
     yarn workspace "$workspacePackage" pack --filename "$packPath"
 
     echo "including $packPath"
-    packageManagerAddList+=($packPath)
+    case "${packageManager}" in
+      yarn) {
+        packageManagerAddList+=("file:${packPath}")
+      } ;;
+      npm) {
+        packageManagerAddList+=($packPath)
+      } ;;
+      *) die "package manager ${packageManager} unknown, can't add.";;
+    esac
   done
 
   # Add everything we need in one go
