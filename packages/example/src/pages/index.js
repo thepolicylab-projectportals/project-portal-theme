@@ -18,6 +18,7 @@ import {
   BottomBannerLayout,
   BottomBanner,
   ProjectTeam,
+  HeaderWithImage,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
 
 import { useStaticQuery, graphql } from "gatsby"
@@ -150,6 +151,7 @@ const Index = () => {
     BottomBanner: bottomBannerImageQuery,
     FooterImage,
     contact,
+    HeaderImage,
   } = useStaticQuery(graphql`
     query {
       logo: file(relativePath: { regex: "/^logo.png$/" }) {
@@ -172,12 +174,20 @@ const Index = () => {
           gatsbyImageData(height: 64)
         }
       }
+      HeaderImage: file(relativePath: { regex: "/^logo.png$/" }) {
+        childImageSharp {
+          resize(width: 1536) {
+            src
+          }
+        }
+      }
     }
   `)
 
   const navbarLogoImage = getImage(logo)
   const bottomBannerImage = getImage(bottomBannerImageQuery)
   const footerImage = getImage(FooterImage)
+  const headerImageSrc = HeaderImage.childImageSharp.resize.src
 
   return (
     <>
@@ -269,6 +279,11 @@ const Index = () => {
         contacts={projectContacts}
       />
       <SiteMetadata />
+      <HeaderWithImage
+        title={"test title"}
+        imageSrc={headerImageSrc}
+        lede={"test lede"}
+      />
     </>
   )
 }
