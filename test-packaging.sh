@@ -12,7 +12,7 @@ NAME
   package-and-install – package a gatsby theme and build a new site using the package
 
 SYNOPSIS
-  package-and-install [-m {pack,newest,publish}] [-a artifactDir] [-t templateDir] [-s] [-n themeName] [-p publishTag] [-h]
+  package-and-install [-w workspacePackage1,2,...] [-a artifactDir] [-t templateDir] [-s] [-p publishTag] [-h]
 
 DESCRIPTION
   The package-and-install tool:
@@ -23,10 +23,11 @@ DESCRIPTION
 
   The options are as follows:
 
-  -n themeName
-    The theme name. It should be identical to the "name" parameter in the theme's package.json file.
+  -w workspacePackages
+    The names of packages to create and install from workspaces, separated by commas.
+    They should be identical to the "name" parameter in the plugins' package.json files.
     Examples:
-      -n "@thepolicylab-projectportals/gatsby-theme-project-portal"
+      -w "@thepolicylab-projectportals/gatsby-theme-project-portal,@thepolicylab-projectportals/project-portal-content-netlify"
 
   -m {pack,newest,publish}
     Packaging method:
@@ -87,9 +88,6 @@ EOM
 # Specify the template site
 package-and-install () {
 
-  # Specify how the package will be created
-  packageMethod="pack"
-
   # Specify how the site will be created. This is implicitly set if a template is defined.
   # empty (default) – create an empty site and add the minimum code using the package manager
   # template – create a site based on an existing directory
@@ -110,9 +108,6 @@ package-and-install () {
   # packages/defaults/
   templateDir=""
 
-  # Specify the theme name (must be a workspace)
-  themeName="@thepolicylab-projectportals/gatsby-theme-project-portal"
-
   # Specify where the pack file is stored
   artifactDir="$(pwd)/artifacts"
 
@@ -131,9 +126,8 @@ package-and-install () {
             templateDir=${OPTARG}
             initMethod="template"
             };;
-          n) themeName=${OPTARG};;
           a) artifactDir=${OPTARG};;
-          m) packageMethod=${OPTARG};;
+
           i) packageManager=${OPTARG};;
           s) serve=1;;
           p) publishTag=${OPTARG};;
@@ -145,7 +139,7 @@ package-and-install () {
       esac
   done
 
-  echo "Running package-and-install with ${templateDir} ${themeName} ${artifactDir} ${packageMethod} ${initMethod} ${serve}"
+  echo "Running package-and-install with ${templateDir} ${artifactDir} ${initMethod} ${serve}"
 
   # Spawn a new subshell to carry out the rest of the commands.
   # This way, if anything "dies", it only kills the subshell, and not the whole shell session.
