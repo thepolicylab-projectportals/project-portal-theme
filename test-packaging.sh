@@ -95,6 +95,15 @@ package-and-install () {
   # template – create a site based on an existing directory
   initMethod="empty"
 
+  # Specify any packages we need to install from registries
+  registryPackages="react@^16.14.0,react-dom@^16.14.0,gatsby@^4.24.0"
+
+  # Specify any packages we need to install from workspaces
+  workspacePackages="@thepolicylab-projectportals/gatsby-theme-project-portal,@thepolicylab-projectportals/project-portal-content-netlify"
+
+  # Specify any packages we need to include in gatsby config
+  gatsbyConfigPackages="@thepolicylab-projectportals/gatsby-theme-project-portal,@thepolicylab-projectportals/project-portal-content-netlify"
+
   # Specify the templateDir (must be a gatsby site)
   # Examples:
   # packages/example/
@@ -115,7 +124,7 @@ package-and-install () {
   # Specify which package manager to use
   packageManager="yarn"
 
-  while getopts sht:n:a:m:p:i: flag
+  while getopts sht:n:a:m:p:i:r flag
   do
       case "${flag}" in
           t) {
@@ -128,6 +137,8 @@ package-and-install () {
           i) packageManager=${OPTARG};;
           s) serve=1;;
           p) publishTag=${OPTARG};;
+          r) registryPackages=${OPTARG};;
+          w) workspacePackage=${OPTARG};;
           h) echo "$USAGE" | more; return 1;;
 
           *) echo "flag ${flag} not recognized" ; return 1
@@ -146,61 +157,62 @@ package-and-install () {
     # Add files we need to ensure the installer looks in the right place for the package
     cp ./packages/gatsby-theme-project-portal/.npmrc "$testDir" || die "couldn't copy rc-files"
 
-
-    case "${packageMethod}" in
-      pack) {
-        # Get the path where the pack-file will be created
-        mkdir -p "$artifactDir"
-        packPath="$artifactDir/theme-$(date '+%s')-$(git rev-parse --short HEAD)-$(base64 < "/dev/urandom" | tr -dc '0-9a-zA-Z' | head -c3 ).tgz"
-        export packPath
-
-        # Create the pack file itself
-        yarn workspace "$themeName" pack --filename "$packPath" || die "couldn't create pack-file directory"
-      };;
-      newest) {
-        # this doesn't do anything special – we just install as usual
-        echo "installing from remote"
-      };;
-      publish) {
-        # Publish the theme as a new pre-release version
-        yarn workspace "$themeName" publish --tag "$publishTag" --prerelease --no-git-tag-version  || die "If this fails, check your ~/.npmrc file. It should look like this: //npm.pkg.github.com/:_authToken={your token here} ."
-      };;
-
-    esac
-
-    # Create an empty directory testDir where we can test the installation
-    testDir=$(mktemp -d || die "Failed to create new temporary directory.")
-    echo "new temporary directory: $testDir"
-
-    # Add files we need to ensure the installer looks in the right place for the package
-    cp ./packages/gatsby-theme-project-portal/.npmrc "$testDir" || die "couldn't copy rc-files"
-
+    # Create the empty or template Gatsby site
     case "${initMethod}" in
       empty) {
         (
           cd "$testDir" || die "Failed to cd to testDir '$testDir'"
           ${packageManager} init -y || die "Failed to init new site"
-          case "${packageMethod}" in
-            pack) ${packageManager} add "$packPath" react@^16.14.0 react-dom@^16.14.0 gatsby@^4.24.0 || die "failed to install dependencies including $packPath.";;
-            *) ${packageManager} add react@^16.14.0 react-dom@^16.14.0 gatsby@^4.24.0 "$themeName@$publishTag" || die "Failed to add dependencies";;
-          esac
-          echo "module.exports = { plugins: [\`@thepolicylab-projectportals/gatsby-theme-project-portal\`] }" > "$testDir/gatsby-config.js"
+
+          # Add anything we need to Gatsby Config
+          plugins=""
+          gatsbyConfigPackagesArray=(${(s/,/)gatsbyConfigPackages})
+          for gatsbyConfigPackage in ${gatsbyConfigPackagesArray}
+          do
+            plugins="${plugins} \`${gatsbyConfigPackage}\`,"
+          done
+          echo "module.exports = { plugins: [${plugins}] }" > "gatsby-config.js"
         )
       };;
       template) {
         # Sync content from the template site to the testDir
         rsync -av --progress "$templateDir/." "$testDir" --exclude node_modules --exclude .cache --exclude public
-        ( cd "$testDir" || die "Failed to cd to testDir '$testDir'"
-          case "${packageMethod}" in
-            pack) {
-            ${packageManager} add "$packPath" || die "failed to add dependency $packPath."
-            };;
-            *) ${packageManager} add "$themeName@$publishTag" || die "failed to specify theme version $themeName@$publishTag" ;;
-          esac
-        )
       };;
     esac
 
+    declare -a packageManagerAddList
+
+    # List any packages we need from the registries
+    registryPackagesArray=(${(s/,/)registryPackages})
+    echo "registry packages"
+    for registryPackage in ${registryPackagesArray}
+    do
+      echo "including ${registryPackage}"
+      packageManagerAddList+=($registryPackage)
+    done
+
+    # List any packages we need from the workspaces
+    workspacePackagesArray=(${(s/,/)workspacePackages})
+    for workspacePackage in ${workspacePackagesArray}
+    do
+      echo "packaging ${workspacePackage}"
+
+      packagePrefix=$(basename "$workspacePackage")
+      packPath="$artifactDir/$packagePrefix-$(date '+%s')-$(git rev-parse --short HEAD)-$(base64 < "/dev/urandom" | tr -dc '0-9a-zA-Z' | head -c3 ).tgz"
+
+      mkdir -p "$artifactDir"
+      yarn workspace "$workspacePackage" pack --filename "$packPath"
+
+      echo "including $packPath"
+      packageManagerAddList+=($packPath)
+    done
+
+    # Add everything we need in one go
+    (
+    echo "installing all of ${packageManagerAddList}"
+      cd "$testDir" || die "Failed to cd to testDir '$testDir'"
+      ${packageManager} add "${packageManagerAddList[@]}"
+    )
 
     (
       # Navigate to the test directory
@@ -208,9 +220,6 @@ package-and-install () {
 
       # Show the current version of the package.json
       cat package.json
-
-      # Delete node modules before we continue
-      rm -r node_modules/
 
       case "${packageManager}" in
         yarn) {
@@ -233,46 +242,17 @@ package-and-install () {
       # Serve the site
       case "${packageManager}" in
         yarn) {
-          if [[ ${serve} -eq 1 ]]
-                then
-                  yarn gatsby serve
-                else
-                  echo "Site built successfully. To serve run:"
-                  echo "(cd $testDir && yarn gatsby serve)"
-                fi
-          };;
-        npm) {
-          if [[ ${serve} -eq 1 ]]
-          then
-            npm run env -- gatsby serve
-          else
-            echo "Site built successfully. To serve run:"
-            echo "(cd $testDir && npm run env -- gatsby serve)"
-          fi
+          echo "Site built successfully. To serve run:"
+          echo "(cd $testDir && yarn gatsby serve)"
         };;
-        *) die "package manager ${packageManager} unknown, can't install.";;
+        npm) {
+          echo "Site built successfully. To serve run:"
+          echo "(cd $testDir && npm run env -- gatsby serve)"
+        };;
+        *) die "package manager ${packageManager} unknown, can't serve.";;
       esac
 
 
     )
-  )
-}
-
-# Define some standard test sets
-run-all-local-packaging-tests () {
-  (
-    package-and-install -m pack -i npm || die "packaging failed: package-and-install -m pack -i npm"
-    package-and-install -m pack -t packages/defaults/ -i npm || die "packaging failed: package-and-install -m pack -t packages/defaults/" -i npm
-    package-and-install -m pack -t packages/example/ -i npm  || die "packaging failed: package-and-install -m pack -t packages/example/" -i npm
-  )
-}
-
-run-all-publish-packaging-tests () {
-  (
-    package-and-install -m publish -p testPackage -i npm  || die "packaging failed: package-and-install -m publish -p testPackage -i npm"
-
-    package-and-install -m newest -p testPackage -i npm || die "packaging failed: package-and-install -m newest -p testPackage -i npm"
-    package-and-install -m newest -p testPackage -t packages/defaults/ -i npm  || die "packaging failed: package-and-install -m newest -p testPackage -t packages/defaults/ -i npm"
-    package-and-install -m newest -p testPackage -t packages/example/ -i npm || die "packaging failed: package-and-install -m newest -p testPackage -t packages/example/ -i npm"
   )
 }
