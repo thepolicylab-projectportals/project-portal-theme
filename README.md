@@ -11,8 +11,6 @@
 - [📄`test-packaging.sh`](test-packaging.sh) contains `zsh` functions used for testing the packaging, publishing, and building of the sites without using `yarn` workspaces (which was the main problem with the first implementation of the theme).
 - [📄`yarn.lock`](yarn.lock) lists all the current package version used when setting up the workspaces.
 - [📄`Brewfile`](Brewfile) can be used by the macOS homebrew package manager to install project dependencies. For more info, run `brew bundle --help` or visit [https://brew.sh](https://brew.sh).
-- [📁`.yarn`](./.yarn) has the settings and node packages for the yarn workspaces.
-    - [📁`cache`](./.yarn/cache) contains current versions of the node modules being used in the workspaces.
 - [📁`node_modules`](./node_modules) When you run `yarn install`, the packages from `./.yarn/cache` are unpacked here.
 - [📁`artifacts`](./artifacts) is not checked in to the repository, but is where the `yarn pack` command in the test scripts outputs the `.tgz` file containing the theme.
 
