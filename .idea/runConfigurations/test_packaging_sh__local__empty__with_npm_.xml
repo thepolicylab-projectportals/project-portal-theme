@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="test-packaging.sh (local: empty, with npm)" type="ShConfigurationType">
-    <option name="SCRIPT_TEXT" value="source test-packaging.sh; package-and-install -i npm" />
+    <option name="SCRIPT_TEXT" value="source test-packaging.sh; package-and-install -i npm -r react@^16.14.0,react-dom@^16.14.0,gatsby@^4.24.0 -w @thepolicylab-projectportals/gatsby-theme-project-portal -g @thepolicylab-projectportals/gatsby-theme-project-portal" />
     <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
     <option name="SCRIPT_PATH" value="$PROJECT_DIR$/test-packaging.sh" />
     <option name="SCRIPT_OPTIONS" value="" />

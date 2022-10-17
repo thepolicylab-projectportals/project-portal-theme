@@ -30,8 +30,9 @@ DESCRIPTION
   -r registryPackages
       The names of packages to install from the registry, separated by commas.
       They should be identical to the "name" parameter in the plugins' package.json files,
-      plus optionally a version number
-      Default: "react@^16.14.0,react-dom@^16.14.0,gatsby@^4.24.0"
+      plus optionally a version number.
+      If unset, no additional packages are added from the registry.
+
       Examples:
         -r "gatsby,react,react-dom"
         -r "gatsby@^4.24.0,react@16.13.0,react-dom@16.13.0"
@@ -40,8 +41,7 @@ DESCRIPTION
   -w workspacePackages
     The names of packages to create and install from workspaces, separated by commas.
     They should be identical to the "name" parameter in the plugins' package.json files.
-    Default: "@thepolicylab-projectportals/gatsby-theme-project-portal,@thepolicylab-projectportals/project-portal-content-netlify"
-
+    If unset, no additional packages are added from the workspaces.
     Examples:
       -w "@thepolicylab-projectportals/gatsby-theme-project-portal,@thepolicylab-projectportals/project-portal-content-netlify"
       -w "@thepolicylab-projectportals/project-portal-content-airtable"
@@ -61,31 +61,33 @@ DESCRIPTION
 EXAMPLES
 
   Create an empty site using the current local version (minimum example):
-    % package-and-install
+    % package-and-install -r react@^16.14.0,react-dom@^16.14.0,gatsby@^4.24.0 -w @thepolicylab-projectportals/gatsby-theme-project-portal -g @thepolicylab-projectportals/gatsby-theme-project-portal
 
   Create a new duplicate of the "defaults" site:
-    % package-and-install -t "packages/defaults/"
+    % package-and-install -t "packages/defaults/" -w @thepolicylab-projectportals/gatsby-theme-project-portal
 
   Create a new duplicate of the "defaults" site, using npm to install the node_modules:
-      % package-and-install -t "packages/defaults/" -i npm
+    % package-and-install -i npm -t "packages/defaults/" -w @thepolicylab-projectportals/gatsby-theme-project-portal
 
   Create a new duplicate of the "example" site:
-    % package-and-install -t "packages/example/"
+    % package-and-install -t "packages/example/" -w @thepolicylab-projectportals/gatsby-theme-project-portal
+
+  Create a new duplicate of the "example-content" site:
+    % package-and-install -t "packages/example-content/" -w @thepolicylab-projectportals/gatsby-theme-project-portal,@thepolicylab-projectportals/project-portal-content-netlify
 
 EOM
 
 # Specify the template site
 package-and-install () {
 
-
   # Specify any packages we need to install from registries
-  registryPackages="react@^16.14.0,react-dom@^16.14.0,gatsby@^4.24.0"
+  registryPackages=""
 
   # Specify any packages we need to install from workspaces
-  workspacePackages="@thepolicylab-projectportals/gatsby-theme-project-portal,@thepolicylab-projectportals/project-portal-content-netlify"
+  workspacePackages=""
 
   # Specify any packages we need to include in gatsby config
-  gatsbyConfigPackages="@thepolicylab-projectportals/gatsby-theme-project-portal,@thepolicylab-projectportals/project-portal-content-netlify"
+  gatsbyConfigPackages=""
 
   # Specify the templateDir (must be a gatsby site)
   # Examples:
@@ -193,10 +195,14 @@ package-and-install () {
 
     # Add everything we need in one go
     (
-    echo "installing all of " "${packageManagerAddList[@]}"
-      cd "$testDir" || die "Failed to cd to testDir '$testDir'"
-      echo cd "$testDir"
-      ${packageManager} add "${packageManagerAddList[@]}" || die "Failed to add dependencies'"
+      if [ ${#packageManagerAddList[@]} -eq 0 ]; then
+        echo "no packages to add."
+      else
+        echo "installing all of " "${packageManagerAddList[@]}"
+        cd "$testDir" || die "Failed to cd to testDir '$testDir'"
+        echo cd "$testDir"
+        ${packageManager} add "${packageManagerAddList[@]}" || die "Failed to add dependencies'"
+      fi
     )
 
     (

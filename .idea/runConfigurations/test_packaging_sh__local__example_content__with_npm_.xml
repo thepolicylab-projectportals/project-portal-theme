@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="test-packaging.sh (local: example, with yarn)" type="ShConfigurationType">
-    <option name="SCRIPT_TEXT" value="source test-packaging.sh; package-and-install -t packages/example/ -i yarn -w @thepolicylab-projectportals/gatsby-theme-project-portal" />
+  <configuration default="false" name="test-packaging.sh (local: example-content, with npm)" type="ShConfigurationType">
+    <option name="SCRIPT_TEXT" value="source test-packaging.sh; package-and-install -t &quot;packages/example-content/&quot; -w @thepolicylab-projectportals/gatsby-theme-project-portal,@thepolicylab-projectportals/project-portal-content-netlify -i npm" />
     <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
     <option name="SCRIPT_PATH" value="$PROJECT_DIR$/test-packaging.sh" />
     <option name="SCRIPT_OPTIONS" value="" />
