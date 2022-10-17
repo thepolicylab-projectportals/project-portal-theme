@@ -14,7 +14,8 @@ interface FooterProps {
     title: String
     link: String
   }[]
-  image?: { imageData: IGatsbyImageData; altText: string }
+  image?: { imageData: IGatsbyImageData }
+  altText: string
 }
 
 export const FooterLayout: FunctionComponent<FooterProps> = ({
@@ -83,6 +84,14 @@ export const Footer = () => {
   // `)
   // const { title: siteTitle } = useSiteMetadata()
   // const image = { imageData: getImage(imageQuery), altText: `${siteTitle} logo` }
-  const { footer: footerImageProps } = useStaticText()
-  return <FooterLayout {...footerImageProps} />
+  const staticText = useStaticText()
+
+  return (
+    <FooterLayout
+      heading={staticText.footer.heading}
+      copyright={staticText.footer.copyright}
+      links={staticText.footer.links}
+      altText={staticText.title}
+    />
+  )
 }
