@@ -49,7 +49,7 @@ source test-packaging.sh
 
 Run the packaging, build the example site, and serve it locally:
 ```zsh
-package-and-install -m pack -t packages/example/ -s
+package-and-install -t "packages/example/" -w @thepolicylab-projectportals/gatsby-theme-project-portal
 ```
 
 Please note `yarn` version should be `v1.22.19`. Check it using: 
