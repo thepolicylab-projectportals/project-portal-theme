@@ -1,14 +1,14 @@
 {
   "name": "@thepolicylab-projectportals/project-portal-content-netlify",
-  "version": "1.0.0",
+  "version": "1.0.0-1",
   "main": "index.js",
   "author": "John Gerrard Holland <john_holland1@brown.edu>",
   "license": "MIT",
   "peerDependencies": {
+    "@thepolicylab-projectportals/gatsby-theme-project-portal": "^2.1.0-11",
     "gatsby": "^4.24.0",
     "react": "^16.14.0",
-    "react-dom": "^16.14.0",
-    "@thepolicylab-projectportals/gatsby-theme-project-portal": "^2.1.0-11"
+    "react-dom": "^16.14.0"
   },
   "dependencies": {
     "gatsby-source-filesystem": "^4.1.0",
