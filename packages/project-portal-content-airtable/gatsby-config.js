@@ -10,16 +10,15 @@ module.exports = (pluginOptions) => {
           tables: [
             {
               baseId: process.env.AIRTABLE_BASE_ID,
-              tableName: pluginOptionsWithDefaults.projectsTable,
-              // tableLinks: ["contacts"],
               queryName: "Project",
+              tableName: pluginOptionsWithDefaults.projectsTable,
               separateNodeType: true,
             },
             {
               baseId: process.env.AIRTABLE_BASE_ID,
+              queryName: "Contact",
               tableName: pluginOptionsWithDefaults.contactsTable,
               mapping: { contactImage: "fileNode" },
-              queryName: "Contact",
               separateNodeType: true,
             },
           ],
