@@ -161,6 +161,7 @@ package-and-install () {
     };;
   esac
 
+  # Define a variable to hold all of the packages we need to install
   declare -a packageManagerAddList
 
   # List any packages we need from the registries
