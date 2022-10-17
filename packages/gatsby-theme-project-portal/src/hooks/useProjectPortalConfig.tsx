@@ -5,6 +5,7 @@ export const useProjectPortalConfig = () => {
     {
       projectPortalConfig {
         showDevBanner
+        projectInterestLink
       }
     }
   `)

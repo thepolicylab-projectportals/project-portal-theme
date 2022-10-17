@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react"
 import { Link } from "gatsby"
 import { Contact, MarkdownText } from "../components"
 import { statusOutput } from "../utils"
-import { useSiteMetadata } from "../hooks/useSiteMetadata"
+import { useProjectPortalConfig } from "../hooks/useProjectPortalConfig"
 
 interface ProjectContactProps {
   name: string
@@ -24,7 +24,7 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
   status,
   emailContent,
 }) => {
-  const meta = useSiteMetadata()
+  const meta = useProjectPortalConfig()
   const mainText =
     status === "open"
       ? emailContent

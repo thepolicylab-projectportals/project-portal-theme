@@ -7,6 +7,7 @@ function withDefaults(themeOptions) {
     ...themeOptions,
     showDevBanner: themeOptions.showDevBanner || true,
     staticText: lodash.merge(defaultStaticText, themeOptions.staticText),
+    useProjectPortalConfig: "",
   }
 }
 
