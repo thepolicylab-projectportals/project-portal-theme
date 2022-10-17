@@ -1,27 +1,39 @@
-import React from "react"
-import { useSiteMetadata } from "../hooks/useSiteMetadata"
+import React, { FunctionComponent } from "react"
+import { IGatsbyImageData } from "gatsby-plugin-image"
 import { useStaticText } from "../hooks"
 
-export const FooterLayout = ({ image, FooterProps }) => {
-  const meta = useSiteMetadata()
-  // use of GatsbyImage for the logo causs pa11y error as it doesn't register as an image
-  //this approach did not work
-  // const {
-  //   meta: { siteTitle: bottomBannerText },
-  // } = useStaticText()
+// This is the same structure as the "footer" part of the useStaticText query,
+// so that we can pass the staticText.footer unchanged into the code
+interface FooterProps {
+  heading: {
+    title: String
+    link: string
+  }
+  copyright: String
+  links: {
+    title: String
+    link: String
+  }[]
+  image?: { imageData: IGatsbyImageData; altText: string }
+}
+
+export const FooterLayout: FunctionComponent<FooterProps> = ({
+  heading,
+  copyright,
+  links,
+  image,
+}) => {
   return (
     <footer className="w-full px-2 py-8 bg-footer xl:container xl:px-12">
       <div className="flex items-center justify-center mt-6 lg:my-auto">
-        <div className="text-nav text-footertext">
-          {FooterProps.footer.copyright}
-        </div>
+        <div className="text-nav text-footertext">{copyright}</div>
       </div>
       <div
         className="flex it
       ems-center justify-center mt-6 lg:my-auto"
       >
         <ul className="text-nav text-footertext list-none">
-          {FooterProps.footer.links.map(({ title, link }, i) => (
+          {links.map(({ title, link }, i) => (
             <ListItem key={"link_" + i} target={link}>
               {title}
             </ListItem>
@@ -31,18 +43,19 @@ export const FooterLayout = ({ image, FooterProps }) => {
       <div className="block w-full lg:w-auto mt-5">
         <a
           className="flex items-center gap-4 justify-center flex-wrap"
-          href={FooterProps.footer.heading.link}
+          href={heading.link}
         >
           {image && (
+            // use of <img /> for the logo because <GatsbyImage /> leads to pa11y error
             <img
-              srcSet={image.images.sources[0].srcSet}
-              alt={meta.siteTitle + " logo"}
-              height={image.height}
-              width={image.width}
+              srcSet={image.imageData.images.sources[0].srcSet}
+              alt={image.altText}
+              height={image.imageData.height}
+              width={image.imageData.width}
             />
           )}
           <p className="text-center inline-block text-h4 font-bold text-footertext">
-            {FooterProps.footer.heading.title}
+            {heading.title}
           </p>
         </a>
       </div>
@@ -58,17 +71,18 @@ const ListItem = ({ target, children }) => {
   )
 }
 
-// export const Footer = () => {
-// const {Footer} = useStaticQuery(graphql`
-//     query {
-//      Footer: file(relativePath: { regex: "/^footer.png$/" }) {
-//         childImageSharp {
-//           gatsbyImageData(height: 64)
-//         }
-//       }
-//     }
-//  `)
-//  const FooterImage = getImage(Footer)
-//
-//   return <FooterLayout FooterProps={useSiteStaticText} image={FooterImage} />
-// }
+export const Footer = () => {
+  // const { imageQuery } = useStaticQuery(graphql`
+  //   query {
+  //     imageQuery: file(relativePath: { regex: "/^footer.png$/" }) {
+  //       childImageSharp {
+  //         gatsbyImageData(height: 64)
+  //       }
+  //     }
+  //   }
+  // `)
+  // const { title: siteTitle } = useSiteMetadata()
+  // const image = { imageData: getImage(imageQuery), altText: `${siteTitle} logo` }
+  const { footer: footerImageProps } = useStaticText()
+  return <FooterLayout {...footerImageProps} />
+}
