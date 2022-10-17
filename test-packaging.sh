@@ -131,116 +131,111 @@ package-and-install () {
   echo "gatsbyConfigPackages: ${gatsbyConfigPackages}"
   echo "artifactDir: ${artifactDir}"
 
+  # Create an empty directory testDir where we can test the installation
+  testDir=$(mktemp -d || die "Failed to create new temporary directory.")
+  echo "new temporary directory: $testDir"
 
+  # Add files we need to ensure the installer looks in the right place for the package
+  cp .npmrc "$testDir" || die "couldn't copy rc-file"
 
-  # Spawn a new subshell to carry out the rest of the commands.
-  # This way, if anything "dies", it only kills the subshell, and not the whole shell session.
+  # Create the empty or template Gatsby site
+  case "${initMethod}" in
+    empty) {
+      (
+        cd "$testDir" || die "Failed to cd to testDir '$testDir'"
+        ${packageManager} init -y || die "Failed to init new site"
 
-    # Create an empty directory testDir where we can test the installation
-    testDir=$(mktemp -d || die "Failed to create new temporary directory.")
-    echo "new temporary directory: $testDir"
+        # Add anything we need to Gatsby Config
+        plugins=""
+        gatsbyConfigPackagesArray=(${(s/,/)gatsbyConfigPackages})
+        for gatsbyConfigPackage in "${gatsbyConfigPackagesArray[@]}"
+        do
+          plugins="${plugins} \`${gatsbyConfigPackage}\`,"
+        done
+        echo "module.exports = { plugins: [${plugins}] }" > "gatsby-config.js"
+      )
+    };;
+    template) {
+      # Sync content from the template site to the testDir
+      rsync -av --progress "$templateDir/." "$testDir" --exclude node_modules --exclude .cache --exclude public
+    };;
+  esac
 
-    # Add files we need to ensure the installer looks in the right place for the package
-    cp ./packages/gatsby-theme-project-portal/.npmrc "$testDir" || die "couldn't copy rc-files"
+  declare -a packageManagerAddList
 
-    # Create the empty or template Gatsby site
-    case "${initMethod}" in
-      empty) {
-        (
-          cd "$testDir" || die "Failed to cd to testDir '$testDir'"
-          ${packageManager} init -y || die "Failed to init new site"
+  # List any packages we need from the registries
+  registryPackagesArray=(${(s/,/)registryPackages})
+  echo "registry packages"
+  for registryPackage in "${registryPackagesArray[@]}"
+  do
+    echo "including ${registryPackage}"
+    packageManagerAddList+=($registryPackage)
+  done
 
-          # Add anything we need to Gatsby Config
-          plugins=""
-          gatsbyConfigPackagesArray=(${(s/,/)gatsbyConfigPackages})
-          for gatsbyConfigPackage in "${gatsbyConfigPackagesArray[@]}"
-          do
-            plugins="${plugins} \`${gatsbyConfigPackage}\`,"
-          done
-          echo "module.exports = { plugins: [${plugins}] }" > "gatsby-config.js"
-        )
-      };;
-      template) {
-        # Sync content from the template site to the testDir
-        rsync -av --progress "$templateDir/." "$testDir" --exclude node_modules --exclude .cache --exclude public
-      };;
+  # List any packages we need from the workspaces
+  workspacePackagesArray=(${(s/,/)workspacePackages})
+  for workspacePackage in "${workspacePackagesArray[@]}"
+  do
+    echo "packaging ${workspacePackage}"
+
+    packagePrefix=$(basename "$workspacePackage")
+    packPath="$artifactDir/$packagePrefix-$(date '+%s')-$(git rev-parse --short HEAD)-$(base64 < "/dev/urandom" | tr -dc '0-9a-zA-Z' | head -c3 ).tgz"
+
+    mkdir -p "$artifactDir"
+    yarn workspace "$workspacePackage" pack --filename "$packPath"
+
+    echo "including $packPath"
+    packageManagerAddList+=($packPath)
+  done
+
+  # Add everything we need in one go
+  (
+    if [ ${#packageManagerAddList[@]} -eq 0 ]; then
+      echo "no packages to add."
+    else
+      echo "installing all of " "${packageManagerAddList[@]}"
+      cd "$testDir" || die "Failed to cd to testDir '$testDir'"
+      echo cd "$testDir"
+      ${packageManager} add "${packageManagerAddList[@]}" || die "Failed to add dependencies'"
+    fi
+  )
+
+  (
+    # Navigate to the test directory
+    cd "$testDir" || die "couldn't cd to testDir '$testDir'"
+
+    # Show the current version of the package.json
+    cat package.json
+
+    case "${packageManager}" in
+      yarn) {
+        # Install the rest of the dependencies
+        yarn install || die "failed to install all dependencies"
+
+        # Build the site
+        yarn gatsby build || die "failed to build site"
+      } ;;
+      npm) {
+        # Install the rest of the dependencies
+        npm install || die "failed to install all dependencies"
+
+        # Build the site
+        npm run env -- gatsby build || die "failed to build site"
+      } ;;
+      *) die "package manager ${packageManager} unknown, can't install & build.";;
     esac
 
-    declare -a packageManagerAddList
-
-    # List any packages we need from the registries
-    registryPackagesArray=(${(s/,/)registryPackages})
-    echo "registry packages"
-    for registryPackage in "${registryPackagesArray[@]}"
-    do
-      echo "including ${registryPackage}"
-      packageManagerAddList+=($registryPackage)
-    done
-
-    # List any packages we need from the workspaces
-    workspacePackagesArray=(${(s/,/)workspacePackages})
-    for workspacePackage in "${workspacePackagesArray[@]}"
-    do
-      echo "packaging ${workspacePackage}"
-
-      packagePrefix=$(basename "$workspacePackage")
-      packPath="$artifactDir/$packagePrefix-$(date '+%s')-$(git rev-parse --short HEAD)-$(base64 < "/dev/urandom" | tr -dc '0-9a-zA-Z' | head -c3 ).tgz"
-
-      mkdir -p "$artifactDir"
-      yarn workspace "$workspacePackage" pack --filename "$packPath"
-
-      echo "including $packPath"
-      packageManagerAddList+=($packPath)
-    done
-
-    # Add everything we need in one go
-    (
-      if [ ${#packageManagerAddList[@]} -eq 0 ]; then
-        echo "no packages to add."
-      else
-        echo "installing all of " "${packageManagerAddList[@]}"
-        cd "$testDir" || die "Failed to cd to testDir '$testDir'"
-        echo cd "$testDir"
-        ${packageManager} add "${packageManagerAddList[@]}" || die "Failed to add dependencies'"
-      fi
-    )
-
-    (
-      # Navigate to the test directory
-      cd "$testDir" || die "couldn't cd to testDir '$testDir'"
-
-      # Show the current version of the package.json
-      cat package.json
-
-      case "${packageManager}" in
-        yarn) {
-          # Install the rest of the dependencies
-          yarn install || die "failed to install all dependencies"
-
-          # Build the site
-          yarn gatsby build || die "failed to build site"
-        } ;;
-        npm) {
-          # Install the rest of the dependencies
-          npm install || die "failed to install all dependencies"
-
-          # Build the site
-          npm run env -- gatsby build || die "failed to build site"
-        } ;;
-        *) die "package manager ${packageManager} unknown, can't install & build.";;
-      esac
-
-      # Serve the site
-      case "${packageManager}" in
-        yarn) {
-          echo "Site built successfully. To serve run:"
-          echo "(cd $testDir && yarn gatsby serve)"
-        };;
-        npm) {
-          echo "Site built successfully. To serve run:"
-          echo "(cd $testDir && npm run env -- gatsby serve)"
-        };;
-        *) die "package manager ${packageManager} unknown, can't serve.";;
-      esac
-    )
+    # Serve the site
+    case "${packageManager}" in
+      yarn) {
+        echo "Site built successfully. To serve run:"
+        echo "(cd $testDir && yarn gatsby serve)"
+      };;
+      npm) {
+        echo "Site built successfully. To serve run:"
+        echo "(cd $testDir && npm run env -- gatsby serve)"
+      };;
+      *) die "package manager ${packageManager} unknown, can't serve.";;
+    esac
+  )
 }
