@@ -44,7 +44,7 @@ const sample_card = {
   partnerName: "Example",
   slug: "test-project",
   summary: "Test Summary\n",
-  status: "completed",
+  status: "open",
   opportunityCloses: "2022-03-04",
   startDate: "2022-01-03",
   endDate: "2022-03-04",
@@ -271,12 +271,21 @@ const Index = () => {
       />
       <SiteMetadata />
       <div>
-        ____________________________TEST__PROJECT___DETAIL_______________________________
+        ____________________________TEST__PROJECT__DETAIL__OPEN____________________________
       </div>
       <ProjectDetailLayout
         {...sample_card}
         contacts={projectContacts}
         emailContent={"test content"}
+      />
+      <div>
+        ____________________________TEST__PROJECT__DETAIL__Completed/Ongoing____________________________
+      </div>
+      <ProjectDetailLayout
+        {...sample_card}
+        contacts={projectContacts}
+        emailContent={"test content"}
+        status={"completed"}
       />
     </>
   )
