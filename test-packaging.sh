@@ -139,6 +139,14 @@ package-and-install () {
   # Spawn a new subshell to carry out the rest of the commands.
   # This way, if anything "dies", it only kills the subshell, and not the whole shell session.
   (
+    # Create an empty directory testDir where we can test the installation
+    testDir=$(mktemp -d || die "Failed to create new temporary directory.")
+    echo "new temporary directory: $testDir"
+
+    # Add files we need to ensure the installer looks in the right place for the package
+    cp ./packages/gatsby-theme-project-portal/.npmrc "$testDir" || die "couldn't copy rc-files"
+
+
     case "${packageMethod}" in
       pack) {
         # Get the path where the pack-file will be created
