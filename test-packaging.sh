@@ -242,8 +242,5 @@ package-and-install () {
         };;
         *) die "package manager ${packageManager} unknown, can't serve.";;
       esac
-
-
     )
-
 }
