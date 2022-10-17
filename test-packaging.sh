@@ -12,43 +12,48 @@ NAME
   package-and-install – package a gatsby theme and build a new site using the package
 
 SYNOPSIS
-  package-and-install [-w workspacePackage1,2,...] [-a artifactDir] [-t templateDir] [-s] [-p publishTag] [-h]
+  package-and-install [-t templateDir] [-r registryPackage1,2,...] [-w workspacePackage1,2,...] \
+    [-a artifactDir] [-i {yarn,npm}] [-h]
 
 DESCRIPTION
   The package-and-install tool:
-  1) creates a new package based on a gatsby theme in the current workspace,
-  2) adds it as a dependency to a Gatsby site,
-  3) builds the site,
-  4) (optionally) serves the site on the localhost.
+  0) initializes a Gatsby site from empty or based on a template,
+  1) creates new packages based on a Gatsby theme and plugins in the current workspace,
+  2) adds them as a dependency to a Gatsby site,
+  3) builds the site.
 
   The options are as follows:
-
-  -w workspacePackages
-    The names of packages to create and install from workspaces, separated by commas.
-    They should be identical to the "name" parameter in the plugins' package.json files.
-    Examples:
-      -w "@thepolicylab-projectportals/gatsby-theme-project-portal,@thepolicylab-projectportals/project-portal-content-netlify"
-
-  -m {pack,newest,publish}
-    Packaging method:
-      - pack (default) – create and install a new pack-file,
-      - newest – use the newest released version
-      - publish – create and install a new release
-
-  -a artifactDir
-    The location where the packed theme is stored. Default: ./artifacts
-
-  -p publishTag
-    A tag to be used on the GitHub package. Used if "-m publish" or "-m latest" is selected. Default: "latest"
 
   -t templateDir
     A template directory to duplicate for the Gatsby site. If unset, an empty site is created.
 
-  -i {yarn,npm}
-    The package manager to use for the installation in the target directory. Default: yarn
+  -r registryPackages
+      The names of packages to install from the registry, separated by commas.
+      They should be identical to the "name" parameter in the plugins' package.json files,
+      plus optionally a version number
+      Default: "react@^16.14.0,react-dom@^16.14.0,gatsby@^4.24.0"
+      Examples:
+        -r "gatsby,react,react-dom"
+        -r "gatsby@^4.24.0,react@16.13.0,react-dom@16.13.0"
+        -r "gatsby@^4.24.0,react@16.13.0,react-dom@16.13.0,@thepolicylab-projectportals/gatsby-theme-project-portal,@thepolicylab-projectportals/project-portal-content-netlify"
 
-  -s
-    Serve the site once it has been built.
+  -w workspacePackages
+    The names of packages to create and install from workspaces, separated by commas.
+    They should be identical to the "name" parameter in the plugins' package.json files.
+    Default: "@thepolicylab-projectportals/gatsby-theme-project-portal,@thepolicylab-projectportals/project-portal-content-netlify"
+
+    Examples:
+      -w "@thepolicylab-projectportals/gatsby-theme-project-portal,@thepolicylab-projectportals/project-portal-content-netlify"
+      -w "@thepolicylab-projectportals/project-portal-content-airtable"
+      -w ""
+
+  -a artifactDir
+    The location where the packed theme is stored.
+    Default: ./artifacts
+
+  -i {yarn,npm}
+    The package manager to use for the installation in the target directory.
+    Default: yarn
 
   -h
     Show this help message and exit
@@ -56,7 +61,7 @@ DESCRIPTION
 EXAMPLES
 
   Create an empty site using the current local version (minimum example):
-    % package-and-install -m pack
+    % package-and-install
 
   Create a new duplicate of the "defaults" site:
     % package-and-install -t "packages/defaults/"
@@ -67,31 +72,11 @@ EXAMPLES
   Create a new duplicate of the "example" site:
     % package-and-install -t "packages/example/"
 
-  Install the newest productive version on the GitHub registry:
-    % package-and-install -m "newest"
-
-  Create and install a new test version of the theme,
-    but mark it as a test version rather than for productive use:
-    % package-and-install -m "publish" -p "packageTest"
-
-  Install the newest test version from the GitHub registry to a minimum site:
-    (usually after running "package-and-install -m publish -p packageTest"):
-    % package-and-install -m "newest" -p "packageTest"
-
-  Install the newest test version from the GitHub registry to the example site:
-    (usually after running "package-and-install -m publish -p packageTest"):
-    % package-and-install -m "newest" -p "packageTest" -t "packages/example/"
-
-
 EOM
 
 # Specify the template site
 package-and-install () {
 
-  # Specify how the site will be created. This is implicitly set if a template is defined.
-  # empty (default) – create an empty site and add the minimum code using the package manager
-  # template – create a site based on an existing directory
-  initMethod="empty"
 
   # Specify any packages we need to install from registries
   registryPackages="react@^16.14.0,react-dom@^16.14.0,gatsby@^4.24.0"
@@ -108,42 +93,47 @@ package-and-install () {
   # packages/defaults/
   templateDir=""
 
+  # Specify how the site will be created. This is implicitly set if a template is defined.
+  # empty (default) – create an empty site and add the minimum code using the package manager
+  # template – create a site based on an existing directory
+  initMethod="empty"
+
   # Specify where the pack file is stored
   artifactDir="$(pwd)/artifacts"
-
-  publishTag="latest"
-
-  # Specify if we serve the site at the end. Default: no.
-  serve=0
 
   # Specify which package manager to use
   packageManager="yarn"
 
-  while getopts sht:n:a:m:p:i:r flag
+  while getopts t:r:w:g:a:i:h flag
   do
       case "${flag}" in
           t) {
             templateDir=${OPTARG}
             initMethod="template"
             };;
-          a) artifactDir=${OPTARG};;
-
-          i) packageManager=${OPTARG};;
-          s) serve=1;;
-          p) publishTag=${OPTARG};;
           r) registryPackages=${OPTARG};;
-          w) workspacePackage=${OPTARG};;
+          w) workspacePackages=${OPTARG};;
+          g) gatsbyConfigPackages=${OPTARG};;
+          a) artifactDir=${OPTARG};;
+          i) packageManager=${OPTARG};;
           h) echo "$USAGE" | more; return 1;;
 
           *) echo "flag ${flag} not recognized" ; return 1
       esac
   done
 
-  echo "Running package-and-install with ${templateDir} ${artifactDir} ${initMethod} ${serve}"
+  echo "Running package-and-install with: "
+  echo "init method ... template directory: ${initMethod} ... '${templateDir}'"
+  echo "registryPackages: ${registryPackages}"
+  echo "workspacePackages: ${workspacePackages}"
+  echo "gatsbyConfigPackages: ${gatsbyConfigPackages}"
+  echo "artifactDir: ${artifactDir}"
+
+
 
   # Spawn a new subshell to carry out the rest of the commands.
   # This way, if anything "dies", it only kills the subshell, and not the whole shell session.
-  (
+
     # Create an empty directory testDir where we can test the installation
     testDir=$(mktemp -d || die "Failed to create new temporary directory.")
     echo "new temporary directory: $testDir"
@@ -161,7 +151,7 @@ package-and-install () {
           # Add anything we need to Gatsby Config
           plugins=""
           gatsbyConfigPackagesArray=(${(s/,/)gatsbyConfigPackages})
-          for gatsbyConfigPackage in ${gatsbyConfigPackagesArray}
+          for gatsbyConfigPackage in "${gatsbyConfigPackagesArray[@]}"
           do
             plugins="${plugins} \`${gatsbyConfigPackage}\`,"
           done
@@ -179,7 +169,7 @@ package-and-install () {
     # List any packages we need from the registries
     registryPackagesArray=(${(s/,/)registryPackages})
     echo "registry packages"
-    for registryPackage in ${registryPackagesArray}
+    for registryPackage in "${registryPackagesArray[@]}"
     do
       echo "including ${registryPackage}"
       packageManagerAddList+=($registryPackage)
@@ -187,7 +177,7 @@ package-and-install () {
 
     # List any packages we need from the workspaces
     workspacePackagesArray=(${(s/,/)workspacePackages})
-    for workspacePackage in ${workspacePackagesArray}
+    for workspacePackage in "${workspacePackagesArray[@]}"
     do
       echo "packaging ${workspacePackage}"
 
@@ -203,9 +193,10 @@ package-and-install () {
 
     # Add everything we need in one go
     (
-    echo "installing all of ${packageManagerAddList}"
+    echo "installing all of " "${packageManagerAddList[@]}"
       cd "$testDir" || die "Failed to cd to testDir '$testDir'"
-      ${packageManager} add "${packageManagerAddList[@]}"
+      echo cd "$testDir"
+      ${packageManager} add "${packageManagerAddList[@]}" || die "Failed to add dependencies'"
     )
 
     (
@@ -248,5 +239,5 @@ package-and-install () {
 
 
     )
-  )
+
 }
