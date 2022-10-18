@@ -1,10 +1,10 @@
 import React, { FunctionComponent, ReactNode } from "react"
 import {
-  // Footer,
-  // BottomBanner,
+  Footer,
+  BottomBanner,
   DevelopmentBanner,
   // Navbar,
-  // SiteMetadata,
+  SiteMetadata,
 } from "../components"
 import { useProjectPortalConfig } from "../hooks"
 // import "@fontsource/public-sans"
@@ -37,7 +37,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
   return (
     <div className="w-full mx-0 bg-white border-0 xl:container xl:p-0 xl:mx-auto xl:border-l xl:border-r xl:border-gray-200 flex flex-col min-h-screen">
       {coalescedShowDevBanner && <DevelopmentBanner />}
-      {/*<SiteMetadata title={title} description={description} />*/}
+      <SiteMetadata title={title} description={description} />
       {/*<Navbar activePage={activePage} />*/}
       <div className="flex-1">{children}</div>
       <BottomBanner />
