@@ -11,6 +11,7 @@ module.exports = (themeOptions) => {
     locale: "en",
     image: "/icons/icon-256x256.png",
   }
+  const themeOptionsWithDefaults = withDefaults(themeOptions)
 
   return {
     siteMetadata: siteMetadata,
@@ -19,7 +20,7 @@ module.exports = (themeOptions) => {
         resolve: `gatsby-plugin-postcss`,
         options: {
           postCssPlugins: [
-            require("tailwindcss")(themeOptions.tailwindConfig),
+            require("tailwindcss")(themeOptionsWithDefaults.tailwindConfig),
             require("autoprefixer"),
           ],
         },
