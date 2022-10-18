@@ -10,9 +10,9 @@ interface ProjectContactProps {
   title: string
   employer: string
   email: string
-  contactImage: any
+  contactImage?: any
   status: string
-  emailContent: string
+  emailContent?: string
 }
 
 export const MainContact: FunctionComponent<ProjectContactProps> = ({
