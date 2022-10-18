@@ -18,6 +18,7 @@ import {
   BottomBannerLayout,
   BottomBanner,
   ProjectTeam,
+  MainContact,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
 
 import { useStaticQuery, graphql } from "gatsby"
@@ -251,6 +252,53 @@ const Index = () => {
         email={"user3@example.com"}
         name={"contact3"}
         showEmail={true}
+      />
+
+      <MainContact
+        name={"test name"}
+        title={"contactNewTitle"}
+        employer={"testEmployer"}
+        email={"user2@example.com"}
+        contactImage={contact}
+        status={"open"}
+        emailContent={"test content"}
+      />
+      <MainContact
+        name={"test name 1"}
+        title={"contact2Title"}
+        employer={"testEmployer 1"}
+        email={"user2@example.com"}
+        status={"open"}
+      />
+      <MainContact
+        name={"test name 3"}
+        title={"contact2Title"}
+        employer={"testEmployer 3"}
+        email={"user3@example.com"}
+        status={"completed"}
+      />
+      <MainContact
+        name={"test name"}
+        title={"contactNewTitle"}
+        employer={"testEmployer"}
+        email={"user2@example.com"}
+        contactImage={contact}
+        status={"open"}
+      />
+      <MainContact
+        {...contact1}
+        status="open"
+        emailContent="email content (open)"
+      />
+      <MainContact
+        {...contact1}
+        status="ongoing"
+        emailContent="email content ongoing (unused)"
+      />
+      <MainContact
+        {...contact1}
+        status="completed"
+        emailContent="email content completed (unused)"
       />
       {/*Normal Case for Collaborator Details*/}
       <CollaboratorDetails {...collaborator_details} />
