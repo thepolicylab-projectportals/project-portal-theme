@@ -2,12 +2,14 @@ module.exports = {
   presets: [
     require("@thepolicylab-projectportals/gatsby-theme-project-portal/src/styles/tailwind.presets"),
   ],
-  content: [
-    "./src/**/*.{js,jsx,ts,tsx,html}",
-    "**/components/*.{js,jsx,ts,tsx,html}",
-    // "/Users/aomar7/WebstormProjects/project-portal-theme_new/packages/gatsby-theme-project-portal/src/**/*.{js,jsx,ts,tsx,html}",
-    "../node_modules/@thepolicylab-projectportals/gatsby-theme-project-portal/src/**/*.{js,jsx,ts,tsx,html}",
-  ],
+  purge: {
+    content: [
+      "./node_modules/@thepolicylab-projectportals/gatsby-theme-project-portal/src/**/*.{js,jsx,ts,tsx,html}",
+      //   "./src/**/*.{js,jsx,ts,tsx,html}",
+      //   "**/components/*.{js,jsx,ts,tsx,html}",
+      //   // "/Users/aomar7/WebstormProjects/project-portal-theme_new/packages/gatsby-theme-project-portal/src/**/*.{js,jsx,ts,tsx,html}",
+    ],
+  },
   theme: {
     extend: {
       colors: {
