@@ -1,4 +1,3 @@
-const tailwindConfig = require("./tailwind.config")
 const siteMetadata = {
   title: "Project Portal Example (Test Data)",
 }
@@ -12,9 +11,6 @@ module.exports = {
     `gatsby-transformer-sharp`,
     {
       resolve: `@thepolicylab-projectportals/gatsby-theme-project-portal`,
-      options: {
-        tailwindConfig: tailwindConfig,
-      },
     },
     {
       resolve: `gatsby-source-filesystem`,
