@@ -4,7 +4,7 @@ module.exports = {
   ],
   content: [
     "./src/**/*.{js,jsx,ts,tsx,html}",
-    "**/components/*.{js,jsx,ts,tsx,html}",
+    "../packages/gatsby-theme-project-portal/src/**/*.{js,jsx,ts,tsx,html}",
     // "/Users/aomar7/WebstormProjects/project-portal-theme_new/packages/gatsby-theme-project-portal/src/**/*.{js,jsx,ts,tsx,html}",
     "../node_modules/@thepolicylab-projectportals/gatsby-theme-project-portal/src/**/*.{js,jsx,ts,tsx,html}",
   ],
