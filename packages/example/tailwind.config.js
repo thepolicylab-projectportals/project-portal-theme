@@ -16,15 +16,12 @@ module.exports = {
   presets: [
     require("@thepolicylab-projectportals/gatsby-theme-project-portal/src/styles/tailwind.presets"),
   ],
-  purge: {
-    enabled: true,
-    content: [
-      // The theme components
-      themeDirectory + "/src/**/*.{js,jsx,ts,tsx,html}",
-      // The local src components
-      "./src/**/*.{js,jsx,ts,tsx,html}",
-    ],
-  },
+  content: [
+    // The theme components
+    themeDirectory + "/src/**/*.{js,jsx,ts,tsx,html}",
+    // The local src components
+    "./src/**/*.{js,jsx,ts,tsx,html}",
+  ],
   theme: {
     extend: {
       colors: {
