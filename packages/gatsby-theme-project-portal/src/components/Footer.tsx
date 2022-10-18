@@ -17,7 +17,7 @@ interface FooterProps {
   image?: {
     imageData: IGatsbyImageData
     altText: string
-  }```
+  }
 }
 
 export const FooterLayout: FunctionComponent<FooterProps> = ({
