@@ -274,6 +274,8 @@ const Index = () => {
         name={"test name 3"}
         title={"contact2Title"}
         employer={"testEmployer 3"}
+        email={"user3@example.com"}
+        status={"completed"}
       />
       <MainContact
         name={"test name"}
