@@ -16,27 +16,25 @@ import { statusOutput, isNA, isEmpty } from "../utils"
 
 interface ProjectDetailLayoutProps {
   question: string
-  partnerName: string
-  slug: string
-  summary: string
+  summary?: string
   status: string
   opportunityCloses: Date
   startDate: Date
   endDate: Date
   lastModified: Date
   agency: string
-  topics: string[]
-  deliverable: string
-  purpose: string
-  expertise: string
-  requirement: string
-  keyDates: string
-  priorResearch: string
-  statusOfData: string
-  fundingInfo: string
+  topics?: string[]
+  deliverable?: string
+  purpose?: string
+  expertise?: string
+  requirement?: string
+  keyDates?: string
+  priorResearch?: string
+  statusOfData?: string
+  fundingInfo?: string
   emailContent: string
-  mainContact: ContactType
-  projectTeam: ContactType[]
+  mainContact?: ContactType
+  projectTeam?: ContactType[]
 }
 
 export const ProjectDetailLayout: FunctionComponent<
