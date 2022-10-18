@@ -6,7 +6,7 @@ import { BackIcon } from "./BackIcon"
 import {
   ContactType,
   Feature,
-  //MainContact,
+  MainContact,
   SectionOfItem,
   ShareProject,
 } from "./index"
@@ -167,13 +167,13 @@ export const ProjectDetailLayout: FunctionComponent<
                 </div>
               )}
             </div>
-            {/*{!isNA(mainContact) && (*/}
-            {/*<MainContact*/}
-            {/*  {...mainContact}*/}
-            {/*  status={status}*/}
-            {/*  date={status === "open" ? opportunityCloses : endDate}*/}
-            {/*  emailContent={emailContent}*/}
-            {/*/> )}*/}
+            {!(mainContact === null || mainContact === undefined) && (
+              <MainContact
+                {...mainContact}
+                status={status}
+                emailContent={emailContent}
+              />
+            )}
           </div>
         </section>
 
