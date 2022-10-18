@@ -1,11 +1,10 @@
+// General metadata for the site
 module.exports = {
+  siteMetadata: {
+    title: "Project Portal Example (Test Data)",
+  },
   plugins: [
-    {
-      resolve: `@thepolicylab-projectportals/gatsby-theme-project-portal`,
-      options: {
-        siteTitle: `Project Portal Example (Test Data)`
-      }
-    },
+    `@thepolicylab-projectportals/gatsby-theme-project-portal`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,

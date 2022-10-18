@@ -7,6 +7,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     type ProjectPortalConfig implements Node {
       siteTitle: String
       showDevBanner: Boolean
+      projectInterestLink: String
     }
   `)
 }

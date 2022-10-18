@@ -1,7 +1,7 @@
 {
-  "name": "defaults",
+  "name": "example-site",
   "version": "1.0.0",
-  "author": "John Gerrard Holland <john_holland1@brown.edu>",
+  "author": "The Policy Lab <thepolicylab@brown.edu>",
   "license": "MIT",
   "scripts": {
     "develop": "gatsby develop",

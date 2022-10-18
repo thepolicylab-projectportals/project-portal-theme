@@ -5,7 +5,7 @@
   "author": "John Gerrard Holland <john_holland1@brown.edu>",
   "license": "MIT",
   "peerDependencies": {
-    "gatsby": "^4.0.0",
+    "gatsby": "^4.24.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0"
   },
@@ -14,15 +14,12 @@
     "gatsby-plugin-sharp": "^4.24.0",
     "gatsby-source-filesystem": "^4.1.0",
     "gatsby-transformer-sharp": "^4.24.0",
+    "lodash": "^4.17.21",
     "markdown-to-jsx": "^7.1.7",
     "moment": "^2.29.4",
     "react-icons": "^4.4.0",
+    "react-helmet": "^6.1.0",
     "react-share": "^4.4.0"
-  },
-  "devDependencies": {
-    "gatsby": "^4.0.0",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0"
   },
   "repository": {
     "type": "git",
