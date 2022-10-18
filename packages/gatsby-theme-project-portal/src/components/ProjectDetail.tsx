@@ -35,18 +35,14 @@ interface ProjectDetailLayoutProps {
   statusOfData: string
   fundingInfo: string
   emailContent: string
-  collaborationType: string
   mainContact: ContactType
   projectTeam: ContactType[]
-  location: any
 }
 
 export const ProjectDetailLayout: FunctionComponent<
   ProjectDetailLayoutProps
 > = ({
   question,
-  partnerName,
-  slug,
   summary,
   status,
   opportunityCloses,
@@ -64,10 +60,8 @@ export const ProjectDetailLayout: FunctionComponent<
   statusOfData,
   fundingInfo,
   emailContent,
-  collaborationType,
   mainContact,
   projectTeam,
-  location,
 }) => {
   return (
     <article>
