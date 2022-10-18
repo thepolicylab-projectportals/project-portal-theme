@@ -283,6 +283,21 @@ const Index = () => {
         employer={"testEmployer 3"}
       />
       <MainContact name={"test name 4"} />
+      <MainContact
+        {...contact1}
+        status="open"
+        emailContent="email content (open)"
+      />
+      <MainContact
+        {...contact1}
+        status="ongoing"
+        emailContent="email content ongoing (unused)"
+      />
+      <MainContact
+        {...contact1}
+        status="completed"
+        emailContent="email content completed (unused)"
+      />
       {/*Normal Case for Collaborator Details*/}
       <CollaboratorDetails {...collaborator_details} />
       {/*No Collaborator Details*/}
