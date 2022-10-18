@@ -12,7 +12,6 @@ interface ProjectContactProps {
   email: string
   contactImage: any
   status: string
-  date: Date
   emailContent: string
 }
 
