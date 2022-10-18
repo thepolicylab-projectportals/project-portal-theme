@@ -1,4 +1,4 @@
-import { graphql, Link, withPrefix } from "gatsby"
+import { Link, withPrefix } from "gatsby"
 import React, { FunctionComponent } from "react"
 import moment from "moment"
 import { BackIcon } from "./BackIcon"
