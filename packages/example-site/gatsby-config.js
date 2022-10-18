@@ -2,7 +2,6 @@
 const tailwindConfig = require("./tailwind.config")
 const siteMetadata = {
   title: "Project Portal Example (Site with Queries)",
-  short_name: "Project Portal Site",
 }
 
 module.exports = {

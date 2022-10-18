@@ -1,7 +1,6 @@
 const tailwindConfig = require("./tailwind.config")
 const siteMetadata = {
   title: "Project Portal Example (Test Data)",
-  short_name: "Project Portal",
 }
 
 // General metadata for the site
