@@ -1,6 +1,11 @@
 const colors = require("tailwindcss/colors")
+const path = require("path")
 
 module.exports = {
+  content: [
+    // The theme components
+    path.join(__dirname, "../**/*.{js,jsx,ts,tsx,html}"),
+  ],
   theme: {
     container: {
       center: true,
