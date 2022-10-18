@@ -1,11 +1,11 @@
 import React from "react"
-import { BottomBanner } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
+import { Layout } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/layouts"
 
 const Index = () => {
   return (
-    <>
-      <BottomBanner />
-    </>
+    <Layout title={"the title"} description={"the description"}>
+      <h1>Heading 1</h1>
+    </Layout>
   )
 }
 
