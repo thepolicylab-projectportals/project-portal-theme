@@ -30,8 +30,8 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
     status === "open"
       ? emailContent
       : status === "ongoing"
-      ? staticText.ongoingText
-      : staticText.completeText
+      ? staticText.main_contact_text.ongoingText
+      : staticText.main_contact_text.completeText
   return (
     <div className="w-full lg:w-2/5 xl:w-1/3">
       <div className="w-full p-8 mb-8 bg-gray-100">
