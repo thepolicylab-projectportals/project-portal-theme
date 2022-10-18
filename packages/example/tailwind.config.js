@@ -21,6 +21,7 @@ module.exports = {
     themeDirectory + "/src/**/*.{js,jsx,ts,tsx,html}",
     // The local src components
     "./src/**/*.{js,jsx,ts,tsx,html}",
+    "../node_modules/@thepolicylab-projectportals/gatsby-theme-project-portal/src/**/*.{js,jsx,ts,tsx,html}",
   ],
   theme: {
     extend: {
