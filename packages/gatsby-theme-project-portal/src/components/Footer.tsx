@@ -93,7 +93,7 @@ export const Footer = () => {
       heading={staticText.footer.heading}
       copyright={staticText.footer.copyright}
       links={staticText.footer.links}
-      altText={staticText.title}
+      // image={{ imageData: getImage(imageQuery), altText: staticText.title + " logo" }}
     />
   )
 }
