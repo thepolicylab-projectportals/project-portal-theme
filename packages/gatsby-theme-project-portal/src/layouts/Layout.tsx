@@ -3,7 +3,7 @@ import {
   Footer,
   BottomBanner,
   DevelopmentBanner,
-  // Navbar,
+  Navbar,
   SiteMetadata,
 } from "../components"
 import { useProjectPortalConfig } from "../hooks"
@@ -38,7 +38,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
     <div className="w-full mx-0 bg-white border-0 xl:container xl:p-0 xl:mx-auto xl:border-l xl:border-r xl:border-gray-200 flex flex-col min-h-screen">
       {coalescedShowDevBanner && <DevelopmentBanner />}
       <SiteMetadata title={title} description={description} />
-      {/*<Navbar activePage={activePage} />*/}
+      <Navbar activePage={activePage} />
       <div className="flex-1">{children}</div>
       <BottomBanner />
       <Footer />
