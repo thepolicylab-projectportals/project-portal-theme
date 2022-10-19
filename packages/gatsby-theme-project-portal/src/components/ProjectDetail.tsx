@@ -165,7 +165,7 @@ export const ProjectDetailLayout: FunctionComponent<
                 </div>
               )}
             </div>
-            {!isNA(mainContact) && (
+            {!(mainContact === null || mainContact === undefined) && (
               <MainContact
                 {...mainContact}
                 status={status}
