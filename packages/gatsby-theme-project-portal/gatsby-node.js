@@ -7,6 +7,12 @@ exports.createSchemaCustomization = ({ actions }) => {
     type ProjectPortalConfig implements Node {
       showDevBanner: Boolean
       projectInterestLink: String
+      pages: [NavbarItemType]
+    }
+    type NavbarItemType {
+      name: String
+      link: String
+      show: Boolean
     }
   `)
 }
