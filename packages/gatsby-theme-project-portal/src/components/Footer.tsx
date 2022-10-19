@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react"
-import { getImage, IGatsbyImageData } from "gatsby-plugin-image"
+import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image"
 import { useStaticText } from "../hooks"
 import { graphql, useStaticQuery } from "gatsby"
 
@@ -51,11 +51,10 @@ export const FooterLayout: FunctionComponent<FooterProps> = ({
         >
           {image && (
             // use of <img /> for the logo because <GatsbyImage /> leads to pa11y error
-            <img
-              srcSet={image.imageData.images.sources[0].srcSet}
+            <GatsbyImage
+              className="hidden xl:inline-block"
+              image={image.imageData}
               alt={image.altText}
-              height={image.imageData.height}
-              width={image.imageData.width}
             />
           )}
           <p className="text-center inline-block text-h4 font-bold text-footertext">
