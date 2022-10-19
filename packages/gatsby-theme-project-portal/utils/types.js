@@ -4,6 +4,7 @@ const CONFIG_NODE_TYPE = `ProjectPortalConfig`
 const projectPortalConfigTypeDefs = `
     type ${CONFIG_NODE_TYPE} implements Node {
       showDevBanner: Boolean
+      projectInterestLink: String
     }
   `
 
