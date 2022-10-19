@@ -1,11 +1,10 @@
 const tailwindConfig = require("./tailwind.config")
-const siteMetadata = {
-  title: "Project Portal Example (Test Data)",
-}
 
 // General metadata for the site
 module.exports = {
-  siteMetadata: siteMetadata,
+  siteMetadata: {
+    title: "Project Portal Example (Test Data)",
+  },
   plugins: [
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
