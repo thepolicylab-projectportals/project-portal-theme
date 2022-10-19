@@ -10,7 +10,6 @@ module.exports = {
     {
       resolve: `@thepolicylab-projectportals/gatsby-theme-project-portal`,
       options: {
-        themeImageDirectory: `${__dirname}/src/images`,
         pages: [
           {
             name: "Landing Page",
