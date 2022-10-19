@@ -6,7 +6,7 @@ function withDefaults(themeOptions) {
   return {
     showDevBanner: themeOptions.showDevBanner || true,
     staticText: lodash.merge(defaultStaticText, themeOptions.staticText),
-    pages: [
+    pages: themeOptions.pages || [
       {
         name: "Home",
         link: "/",
