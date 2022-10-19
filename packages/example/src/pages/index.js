@@ -19,6 +19,7 @@ import {
   BottomBannerLayout,
   BottomBanner,
   ProjectTeam,
+  ProjectDetailLayout,
   MainContact,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
 
@@ -331,6 +332,64 @@ const Index = () => {
         contacts={projectContacts}
       />
       <SiteMetadata />
+      <div>
+        ____________________________TEST__PROJECT__DETAIL__OPEN____________________________
+      </div>
+      <ProjectDetailLayout
+        {...sample_card}
+        mainContact={contact1}
+        projectTeam={projectContacts}
+        emailContent={"test content"}
+      />
+      <div>
+        ___________________________TEST__PROJECT__DETAIL__OPEN___No__Application__Details________________
+      </div>
+      <ProjectDetailLayout
+        question={sample_card.question}
+        summary={sample_card.summary}
+        status={sample_card.status}
+        opportunityCloses={sample_card.opportunityCloses}
+        startDate={sample_card.startDate}
+        endDate={sample_card.endDate}
+        agency={sample_card.agency}
+        topics={sample_card.topics}
+        deliverable={sample_card.deliverable}
+        purpose={sample_card.purpose}
+        priorResearch={sample_card.priorResearch}
+        statusOfData={sample_card.statusOfData}
+        fundingInfo={sample_card.fundingInfo}
+        lastModified={sample_card.lastModified}
+        created={sample_card.created}
+        projectTeam={projectContacts}
+        emailContent={"test content"}
+      />
+      <div>
+        ____________________________TEST__PROJECT__DETAIL__Completed______________________________________
+      </div>
+      <ProjectDetailLayout
+        {...sample_card}
+        mainContact={contact1}
+        projectTeam={projectContacts}
+        emailContent={"test content"}
+        status={"completed"}
+      />
+      <div>
+        _____________________________TEST__PROJECT__DETAIL__Ongoing_______________________________________
+      </div>
+      <ProjectDetailLayout
+        question={sample_card.question}
+        status={"ongoing"}
+        opportunityCloses={sample_card.opportunityCloses}
+        startDate={sample_card.startDate}
+        endDate={sample_card.endDate}
+        agency={sample_card.agency}
+        priorResearch={sample_card.priorResearch}
+        statusOfData={sample_card.statusOfData}
+        fundingInfo={sample_card.fundingInfo}
+        lastModified={sample_card.lastModified}
+        created={sample_card.created}
+        emailContent={"test content"}
+      />
       <Footer />
     </>
   )
