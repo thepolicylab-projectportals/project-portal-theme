@@ -34,7 +34,7 @@ const NavbarItem: FunctionComponent<NavbarItemProps> = ({
   )
 }
 
-interface NavbarProps {
+interface NavbarLayoutProps {
   title: string
   activePage?: string
   image?: IGatsbyImageData
@@ -45,12 +45,12 @@ interface NavbarProps {
   }[]
 }
 
-export const NavbarLayout: FunctionComponent<NavbarProps> = ({
+export const NavbarLayout: FunctionComponent<NavbarLayoutProps> = ({
   title,
   activePage,
   image,
   pages,
-}: NavbarProps) => {
+}: NavbarLayoutProps) => {
   const [navbarOpen, setNavbarOpen] = React.useState(false)
   return (
     <>
@@ -116,9 +116,11 @@ export const NavbarLayout: FunctionComponent<NavbarProps> = ({
   )
 }
 
-export const Navbar: FunctionComponent<NavbarProps> = ({
-  activePage,
-}: NavbarProps) => {
+interface NavbarProps {
+  activePage?: string
+}
+
+export const Navbar: FunctionComponent<NavbarProps> = ({ activePage }) => {
   // const { logo } = useStaticQuery(graphql`
   //   query NavbarLogoQuery {
   //     logo: file(relativePath: { regex: "/^logo.png$/" }) {
