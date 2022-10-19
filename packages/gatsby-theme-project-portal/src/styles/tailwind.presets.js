@@ -20,7 +20,7 @@ module.exports = {
         link: "#005EA2",
         topics: "#73B3E7",
         navbar: "#ECF0F3",
-        rd: "#ffffff",
+        bottombanner: "#ffffff",
         footer: "#ECF0F3",
         footertext: "#092940",
         primary: colors.cyan[500],
