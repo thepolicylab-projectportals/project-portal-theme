@@ -6,8 +6,7 @@ function withDefaults(themeOptions) {
   return {
     showDevBanner: themeOptions.showDevBanner || true,
     staticText: lodash.merge(defaultStaticText, themeOptions.staticText),
-    themeImageDirectory:
-      themeOptions.themeImageDirectory || `${__dirname}/../src/images`,
+    themeImageDirectory: themeOptions.themeImageDirectory || "./content/themeImages",
     pages: themeOptions.pages || [
       {
         name: "Home",
