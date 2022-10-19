@@ -54,7 +54,6 @@ const contactTypeDefs = `
     employer: String
     title: String
     email: String
-    projectPageContent: String
     
     image: String
     
