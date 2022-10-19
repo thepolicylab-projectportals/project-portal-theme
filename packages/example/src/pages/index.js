@@ -19,6 +19,8 @@ import {
   BottomBannerLayout,
   BottomBanner,
   ProjectTeam,
+  HeaderWithImage,
+  ProjectDetailLayout,
   MainContact,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
 
@@ -151,6 +153,7 @@ const Index = () => {
     BottomBanner: bottomBannerImageQuery,
     FooterImageQuery,
     contact,
+    HeaderImage,
   } = useStaticQuery(graphql`
     query {
       logo: file(relativePath: { regex: "/^logo.png$/" }) {
@@ -173,11 +176,19 @@ const Index = () => {
           gatsbyImageData(height: 64)
         }
       }
+      HeaderImage: file(relativePath: { regex: "/^logo.png$/" }) {
+        childImageSharp {
+          resize(width: 1536) {
+            src
+          }
+        }
+      }
     }
   `)
 
   const navbarLogoImage = getImage(logo)
   const bottomBannerImage = getImage(bottomBannerImageQuery)
+  const headerImageSrc = HeaderImage.childImageSharp.resize.src
   const footerImage = getImage(FooterImageQuery)
 
   return (
@@ -331,6 +342,69 @@ const Index = () => {
         contacts={projectContacts}
       />
       <SiteMetadata />
+      <HeaderWithImage
+        title={"test title"}
+        imageSrc={headerImageSrc}
+        lede={"test lede"}
+      />
+      <div>
+        ____________________________TEST__PROJECT__DETAIL__OPEN____________________________
+      </div>
+      <ProjectDetailLayout
+        {...sample_card}
+        mainContact={contact1}
+        projectTeam={projectContacts}
+        emailContent={"test content"}
+      />
+      <div>
+        ___________________________TEST__PROJECT__DETAIL__OPEN___No__Application__Details________________
+      </div>
+      <ProjectDetailLayout
+        question={sample_card.question}
+        summary={sample_card.summary}
+        status={sample_card.status}
+        opportunityCloses={sample_card.opportunityCloses}
+        startDate={sample_card.startDate}
+        endDate={sample_card.endDate}
+        agency={sample_card.agency}
+        topics={sample_card.topics}
+        deliverable={sample_card.deliverable}
+        purpose={sample_card.purpose}
+        priorResearch={sample_card.priorResearch}
+        statusOfData={sample_card.statusOfData}
+        fundingInfo={sample_card.fundingInfo}
+        lastModified={sample_card.lastModified}
+        created={sample_card.created}
+        projectTeam={projectContacts}
+        emailContent={"test content"}
+      />
+      <div>
+        ____________________________TEST__PROJECT__DETAIL__Completed______________________________________
+      </div>
+      <ProjectDetailLayout
+        {...sample_card}
+        mainContact={contact1}
+        projectTeam={projectContacts}
+        emailContent={"test content"}
+        status={"completed"}
+      />
+      <div>
+        _____________________________TEST__PROJECT__DETAIL__Ongoing_______________________________________
+      </div>
+      <ProjectDetailLayout
+        question={sample_card.question}
+        status={"ongoing"}
+        opportunityCloses={sample_card.opportunityCloses}
+        startDate={sample_card.startDate}
+        endDate={sample_card.endDate}
+        agency={sample_card.agency}
+        priorResearch={sample_card.priorResearch}
+        statusOfData={sample_card.statusOfData}
+        fundingInfo={sample_card.fundingInfo}
+        lastModified={sample_card.lastModified}
+        created={sample_card.created}
+        emailContent={"test content"}
+      />
       <Footer />
     </>
   )
