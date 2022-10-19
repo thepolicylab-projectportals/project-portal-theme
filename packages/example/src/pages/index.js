@@ -15,10 +15,13 @@ import {
   NavbarLayout,
   SiteMetadata,
   FooterLayout,
+  Footer,
   BottomBannerLayout,
   BottomBanner,
   ProjectTeam,
   HeaderWithImage,
+  ProjectDetailLayout,
+  MainContact,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
 
 import { useStaticQuery, graphql } from "gatsby"
@@ -97,23 +100,22 @@ const pages = [
     show: false,
   },
 ]
-const FooterProps = {
-  footer: {
-    heading: {
-      link: "https://www.google.com/",
-      title: "Language title",
-    },
-    links: [
-      {
-        title: "Office 1",
-        link: "http://www.google.com",
-      },
-      {
-        title: "Office 2",
-        link: "http://www.google.com",
-      },
-    ],
+const footerProps = {
+  heading: {
+    title: "footer:title:name",
+    link: "https://www.google.com/",
   },
+  copyright: "footer copyright",
+  links: [
+    {
+      title: "Office 1",
+      link: "http://www.google.com",
+    },
+    {
+      title: "Office 2",
+      link: "http://www.google.com",
+    },
+  ],
 }
 
 const collaborator_details = {
@@ -149,7 +151,7 @@ const Index = () => {
   const {
     logo,
     BottomBanner: bottomBannerImageQuery,
-    FooterImage,
+    FooterImageQuery,
     contact,
     HeaderImage,
   } = useStaticQuery(graphql`
@@ -169,7 +171,7 @@ const Index = () => {
           gatsbyImageData(width: 160)
         }
       }
-      FooterImage: file(relativePath: { regex: "/^footer.png$/" }) {
+      FooterImageQuery: file(relativePath: { regex: "/^footer.png$/" }) {
         childImageSharp {
           gatsbyImageData(height: 64)
         }
@@ -186,8 +188,8 @@ const Index = () => {
 
   const navbarLogoImage = getImage(logo)
   const bottomBannerImage = getImage(bottomBannerImageQuery)
-  const footerImage = getImage(FooterImage)
   const headerImageSrc = HeaderImage.childImageSharp.resize.src
+  const footerImage = getImage(FooterImageQuery)
 
   return (
     <>
@@ -262,6 +264,53 @@ const Index = () => {
         name={"contact3"}
         showEmail={true}
       />
+
+      <MainContact
+        name={"test name"}
+        title={"contactNewTitle"}
+        employer={"testEmployer"}
+        email={"user2@example.com"}
+        contactImage={contact}
+        status={"open"}
+        emailContent={"test content"}
+      />
+      <MainContact
+        name={"test name 1"}
+        title={"contact2Title"}
+        employer={"testEmployer 1"}
+        email={"user2@example.com"}
+        status={"open"}
+      />
+      <MainContact
+        name={"test name 3"}
+        title={"contact2Title"}
+        employer={"testEmployer 3"}
+        email={"user3@example.com"}
+        status={"completed"}
+      />
+      <MainContact
+        name={"test name"}
+        title={"contactNewTitle"}
+        employer={"testEmployer"}
+        email={"user2@example.com"}
+        contactImage={contact}
+        status={"open"}
+      />
+      <MainContact
+        {...contact1}
+        status="open"
+        emailContent="email content (open)"
+      />
+      <MainContact
+        {...contact1}
+        status="ongoing"
+        emailContent="email content ongoing (unused)"
+      />
+      <MainContact
+        {...contact1}
+        status="completed"
+        emailContent="email content completed (unused)"
+      />
       {/*Normal Case for Collaborator Details*/}
       <CollaboratorDetails {...collaborator_details} />
       {/*No Collaborator Details*/}
@@ -271,8 +320,22 @@ const Index = () => {
       <CollaboratorDetails requirement={"Requirement only"} />
       <CollaboratorDetails keyDates={"Key dates only"} />
       <div style={{ backgroundColor: "black" }}>
-        <FooterLayout image={footerImage} FooterProps={FooterProps} />
+        <FooterLayout
+          image={{ imageData: footerImage, altText: "San Antonio Logo" }}
+          {...footerProps}
+        />
       </div>
+
+      <FooterLayout {...footerProps} />
+
+      <FooterLayout
+        heading={{
+          title: "CCV Project Portal",
+          link: "https://thepolicylab.brown.edu",
+        }}
+        copyright="© 2022 Brown University"
+        links={[]}
+      />
       <Contact {...contact1} />
       <ProjectTeam
         title="all the project team are here today"
@@ -284,6 +347,65 @@ const Index = () => {
         imageSrc={headerImageSrc}
         lede={"test lede"}
       />
+      <div>
+        ____________________________TEST__PROJECT__DETAIL__OPEN____________________________
+      </div>
+      <ProjectDetailLayout
+        {...sample_card}
+        mainContact={contact1}
+        projectTeam={projectContacts}
+        emailContent={"test content"}
+      />
+      <div>
+        ___________________________TEST__PROJECT__DETAIL__OPEN___No__Application__Details________________
+      </div>
+      <ProjectDetailLayout
+        question={sample_card.question}
+        summary={sample_card.summary}
+        status={sample_card.status}
+        opportunityCloses={sample_card.opportunityCloses}
+        startDate={sample_card.startDate}
+        endDate={sample_card.endDate}
+        agency={sample_card.agency}
+        topics={sample_card.topics}
+        deliverable={sample_card.deliverable}
+        purpose={sample_card.purpose}
+        priorResearch={sample_card.priorResearch}
+        statusOfData={sample_card.statusOfData}
+        fundingInfo={sample_card.fundingInfo}
+        lastModified={sample_card.lastModified}
+        created={sample_card.created}
+        projectTeam={projectContacts}
+        emailContent={"test content"}
+      />
+      <div>
+        ____________________________TEST__PROJECT__DETAIL__Completed______________________________________
+      </div>
+      <ProjectDetailLayout
+        {...sample_card}
+        mainContact={contact1}
+        projectTeam={projectContacts}
+        emailContent={"test content"}
+        status={"completed"}
+      />
+      <div>
+        _____________________________TEST__PROJECT__DETAIL__Ongoing_______________________________________
+      </div>
+      <ProjectDetailLayout
+        question={sample_card.question}
+        status={"ongoing"}
+        opportunityCloses={sample_card.opportunityCloses}
+        startDate={sample_card.startDate}
+        endDate={sample_card.endDate}
+        agency={sample_card.agency}
+        priorResearch={sample_card.priorResearch}
+        statusOfData={sample_card.statusOfData}
+        fundingInfo={sample_card.fundingInfo}
+        lastModified={sample_card.lastModified}
+        created={sample_card.created}
+        emailContent={"test content"}
+      />
+      <Footer />
     </>
   )
 }

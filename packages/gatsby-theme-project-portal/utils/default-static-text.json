@@ -50,5 +50,9 @@
   },
   "bottom_banner": {
     "text": "This project portal example content was developed by the The Policy Lab and the Center for Computation and Visualization at Brown University. If you have ideas for how to improve it, please let us know!"
+  },
+  "main_contact_text": {
+    "ongoingText": "We plan to post results and deliverables when the project is complete. In the meantime, we welcome questions about the project.",
+    "completeText": "We’re eager to learn how you use the results and welcome any questions."
   }
 }
