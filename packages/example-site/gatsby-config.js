@@ -10,6 +10,13 @@ module.exports = {
     {
       resolve: `@thepolicylab-projectportals/gatsby-theme-project-portal`,
       options: {
+        pages: [
+          {
+            name: "Landing Page",
+            link: "/",
+            show: true,
+          },
+        ],
         tailwindConfig: tailwindConfig,
         staticText: {
           bottom_banner: {

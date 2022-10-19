@@ -13,6 +13,7 @@ import {
   Contact,
   CollaboratorDetails,
   NavbarLayout,
+  Navbar,
   SiteMetadata,
   FooterLayout,
   Footer,
@@ -406,6 +407,7 @@ const Index = () => {
         emailContent={"test content"}
       />
       <Footer />
+      <Navbar />
     </>
   )
 }
