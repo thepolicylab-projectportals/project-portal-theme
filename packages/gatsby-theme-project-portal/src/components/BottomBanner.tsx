@@ -20,7 +20,7 @@ export const BottomBannerLayout: FunctionComponent<BottomBannerProps> = ({
 }) => {
   linkId = linkId ?? "bottom-banner-image-link-id"
   return (
-    <div className="py-6 mt-12 overflow-hidden bg-rd p-responsive">
+    <div className="py-6 mt-12 overflow-hidden bg-bottombanner p-responsive">
       <div className="m-responsive">
         <div className="w-full flex gap-4 sm:gap-8 items-center justify-center flex-wrap">
           {!isNA(link) && image && (

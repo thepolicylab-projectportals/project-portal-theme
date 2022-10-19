@@ -8,6 +8,12 @@ exports.createSchemaCustomization = ({ actions }) => {
       siteTitle: String
       showDevBanner: Boolean
       projectInterestLink: String
+      pages: [NavbarItemType]
+    }
+    type NavbarItemType {
+      name: String
+      link: String
+      show: Boolean
     }
   `)
 }

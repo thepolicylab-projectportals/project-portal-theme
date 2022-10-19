@@ -7,9 +7,13 @@ export const useProjectPortalConfig = () => {
         siteTitle
         showDevBanner
         projectInterestLink
+        pages {
+          name
+          link
+          show
+        }
       }
     }
   `)
-
   return data.projectPortalConfig
 }
