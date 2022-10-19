@@ -1,3 +1,5 @@
+const path = require("path")
+
 // Get the `main` file listed in the theme's package.json.
 // This should (hopefully) find the right directory with node_modules,
 // as well as with the yarn berry unpacking approach.
