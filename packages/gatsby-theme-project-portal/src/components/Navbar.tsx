@@ -116,40 +116,28 @@ export const NavbarLayout: FunctionComponent<NavbarProps> = ({
   )
 }
 
-// export const Navbar: FunctionComponent<NavbarProps> = ({
-//   activePage,
-// }: NavbarProps) => {
-//   const {
-//     site: {
-//       siteMetadata: { title, pages },
-//     },
-//     logo,
-//   } = useStaticQuery(graphql`
-//     query {
-//       site {
-//         siteMetadata {
-//           title
-//           pages {
-//             name
-//             link
-//             show
-//           }
-//         }
-//       }
-//       logo: file(relativePath: { regex: "/^logo.png$/" }) {
-//         childImageSharp {
-//           gatsbyImageData(width: 64)
-//         }
-//       }
-//     }
-//   `)
-//   const image = getImage(logo)
-//   return (
-//     <NavbarLayout
-//       activePage={activePage}
-//       title={title}
-//       pages={pages}
-//       image={image}
-//     />
-//   )
-// }
+export const Navbar: FunctionComponent<NavbarProps> = ({
+  activePage,
+}: NavbarProps) => {
+  // const { logo } = useStaticQuery(graphql`
+  //   query NavbarLogoQuery {
+  //     logo: file(relativePath: { regex: "/^logo.png$/" }) {
+  //       childImageSharp {
+  //         gatsbyImageData(width: 64)
+  //       }
+  //     }
+  //   }
+  // `)
+  //   const image = getImage(logo)
+  const { title } = useSiteMetadata()
+  const { pages } = useProjectPortalConfig()
+  const image = null // replace this line with the line above when introducing images back in.
+  return (
+    <NavbarLayout
+      activePage={activePage}
+      title={title}
+      pages={pages}
+      image={image}
+    />
+  )
+}
