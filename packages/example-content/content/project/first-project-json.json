@@ -1,0 +1,6 @@
+{
+  "slug": "first-project-json",
+  "question": "Hello world (from json)?",
+  "mainContact": "first-contact",
+  "projectTeam": ["first-contact", "second-contact"]
+}

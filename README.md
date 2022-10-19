@@ -11,8 +11,6 @@
 - [📄`test-packaging.sh`](test-packaging.sh) contains `zsh` functions used for testing the packaging, publishing, and building of the sites without using `yarn` workspaces (which was the main problem with the first implementation of the theme).
 - [📄`yarn.lock`](yarn.lock) lists all the current package version used when setting up the workspaces.
 - [📄`Brewfile`](Brewfile) can be used by the macOS homebrew package manager to install project dependencies. For more info, run `brew bundle --help` or visit [https://brew.sh](https://brew.sh).
-- [📁`.yarn`](./.yarn) has the settings and node packages for the yarn workspaces.
-    - [📁`cache`](./.yarn/cache) contains current versions of the node modules being used in the workspaces.
 - [📁`node_modules`](./node_modules) When you run `yarn install`, the packages from `./.yarn/cache` are unpacked here.
 - [📁`artifacts`](./artifacts) is not checked in to the repository, but is where the `yarn pack` command in the test scripts outputs the `.tgz` file containing the theme.
 
@@ -51,7 +49,7 @@ source test-packaging.sh
 
 Run the packaging, build the example site, and serve it locally:
 ```zsh
-package-and-install -m pack -t packages/example/ -s
+package-and-install -t "packages/example/" -w @thepolicylab-projectportals/gatsby-theme-project-portal
 ```
 
 Please note `yarn` version should be `v1.22.19`. Check it using: 
@@ -64,47 +62,9 @@ yarn -v
 
 #### Local
 
-Load the shell scripts:
-```zsh
-source test-packaging.sh
-```
-
-Run a series of local packaging tests:
-```zsh
-run-all-local-packaging-tests
-```
-The tests include the following site setups: 
-- Setting up an empty Gatsby site,
-- Duplicating `packages/defaults`,
-- Duplicating `packages/example`,
-
-using the theme from 
-- a local pack file (created new each time)
-
-... and then building the site.
-
-For more control over which tests are run, you can use the `package-and-install` command directly. To see the options, run:
-```zsh
-source test-packaging.sh
-package-and-install -h
-```
+Run the "all local build and packaging checks (with npm)" run configuration in WebStorm.
 
 #### ⚠️ Danger Zone: Publishing
-
-> **Warning**:
->
-> These commands automatically create a published package on the GitHub NPM Repository.
-
-To update the package version to a new pre-release patch version, then run the full publish cycle on GitHub and build the example site using that package, execute: 
-```zsh
-package-and-install -m publish -p testPackage -t packages/example/ -s
-```
-
-To test all the example sites (defaults, example and the empty site) with the full publishing workflow, you can run:
-```zsh
-source test-packaging.sh
-run-all-publish-packaging-tests
-```
 
 ### Create a New Package Version (GitHub)
 
@@ -177,6 +137,15 @@ Do this by adding a file in your home directory called `.npmrc`, and which shoul
 To publish a new version of the theme, execute:
 ```zsh
 yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" publish
+```
+
+#### Test the theme
+
+Test installing and building the theme using the test-packaging scripts, where you load the theme from the registry instead of the local directory:
+
+```zsh
+source test-packaging.sh
+package-and-install -t "packages/example/" -r react@^16.14.0,react-dom@^16.14.0,gatsby@^4.24.0,@thepolicylab-projectportals/gatsby-theme-project-portal
 ```
 
 ### Use Prettier Code Formatter in WebStorm

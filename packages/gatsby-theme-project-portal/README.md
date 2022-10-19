@@ -51,3 +51,7 @@ workspaces](https://yarnpkg.com/lang/en/docs/workspaces/) like the
 does](https://github.com/ChristopherBiscardi/gatsby-theme-examples),
 but using `yarn link` or `npm link` is a viable alternative if you're
 not familiar with workspaces.
+
+## Data Sources
+
+This theme relies on a plugin sourcing data and creating `Project` and `Content` Nodes which are of the types described in [types.js](./utils/types.js).
