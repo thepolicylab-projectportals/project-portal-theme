@@ -75,14 +75,12 @@ export const NavbarLayout: FunctionComponent<NavbarLayoutProps> = ({
               to="/"
             >
               <>
-                {image ? (
+                {image && (
                   <GatsbyImage
                     className="hidden xl:inline-block"
                     image={image}
                     alt={"nav_logo"}
                   />
-                ) : (
-                  <></>
                 )}
                 {title}
               </>

@@ -1,10 +1,7 @@
 const { withDefaults } = require(`./utils/default-options`)
 
 module.exports = (themeOptions) => {
-  console.log("theme options: ", themeOptions)
-  console.log("theme options with defaults: ", withDefaults(themeOptions))
   const themeOptionsWithDefaults = withDefaults(themeOptions)
-
   return {
     siteMetadata: {
       title: "Gatsby Theme Project Portal",
@@ -23,6 +20,13 @@ module.exports = (themeOptions) => {
         options: {
           name: `themeImages`,
           path: themeOptionsWithDefaults.themeImageDirectory,
+      {
+        resolve: `gatsby-plugin-postcss`,
+        options: {
+          postCssPlugins: [
+            require("tailwindcss")(themeOptionsWithDefaults.tailwindConfig),
+            require("autoprefixer"),
+          ],
         },
       },
     ],

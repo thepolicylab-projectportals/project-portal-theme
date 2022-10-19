@@ -15,6 +15,5 @@ export const useProjectPortalConfig = () => {
       }
     }
   `)
-
   return data.projectPortalConfig
 }
