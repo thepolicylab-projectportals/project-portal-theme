@@ -11,6 +11,7 @@ export const useProjectPortalConfig = () => {
           link
           show
         }
+        themeImageDirectory
       }
     }
   `)

@@ -3,6 +3,7 @@ const { withDefaults } = require(`./utils/default-options`)
 module.exports = (themeOptions) => {
   console.log("theme options: ", themeOptions)
   console.log("theme options with defaults: ", withDefaults(themeOptions))
+  const themeOptionsWithDefaults = withDefaults(themeOptions)
 
   return {
     siteMetadata: {
@@ -13,5 +14,17 @@ module.exports = (themeOptions) => {
       locale: "en",
       image: "/icons/icon-256x256.png",
     },
+    plugins: [
+      `gatsby-plugin-image`,
+      `gatsby-plugin-sharp`,
+      `gatsby-transformer-sharp`,
+      {
+        resolve: `gatsby-source-filesystem`,
+        options: {
+          name: `themeImages`,
+          path: themeOptionsWithDefaults.themeImageDirectory,
+        },
+      },
+    ],
   }
 }
