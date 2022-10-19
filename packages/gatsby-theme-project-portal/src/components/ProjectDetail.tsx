@@ -1,4 +1,4 @@
-import { graphql, Link, withPrefix } from "gatsby"
+import { Link, withPrefix } from "gatsby"
 import React, { FunctionComponent } from "react"
 import moment from "moment"
 import { BackIcon } from "./BackIcon"
@@ -6,7 +6,7 @@ import { BackIcon } from "./BackIcon"
 import {
   ContactType,
   Feature,
-  //MainContact,
+  MainContact,
   SectionOfItem,
   ShareProject,
 } from "./index"
@@ -165,13 +165,13 @@ export const ProjectDetailLayout: FunctionComponent<
                 </div>
               )}
             </div>
-            {/*{!isNA(mainContact) && (*/}
-            {/*<MainContact*/}
-            {/*  {...mainContact}*/}
-            {/*  status={status}*/}
-            {/*  date={status === "open" ? opportunityCloses : endDate}*/}
-            {/*  emailContent={emailContent}*/}
-            {/*/> )}*/}
+            {!isNA(mainContact) && (
+              <MainContact
+                {...mainContact}
+                status={status}
+                emailContent={emailContent}
+              />
+            )}
           </div>
         </section>
 

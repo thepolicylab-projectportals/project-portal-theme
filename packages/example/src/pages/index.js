@@ -360,7 +360,6 @@ const Index = () => {
         fundingInfo={sample_card.fundingInfo}
         lastModified={sample_card.lastModified}
         created={sample_card.created}
-        mainContact={contact1}
         projectTeam={projectContacts}
         emailContent={"test content"}
       />
