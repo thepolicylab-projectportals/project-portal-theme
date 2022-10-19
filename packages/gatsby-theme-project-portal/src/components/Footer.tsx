@@ -50,7 +50,6 @@ export const FooterLayout: FunctionComponent<FooterProps> = ({
           href={heading.link}
         >
           {image && (
-            // use of <img /> for the logo because <GatsbyImage /> leads to pa11y error
             <GatsbyImage
               className="hidden xl:inline-block"
               image={image.imageData}
