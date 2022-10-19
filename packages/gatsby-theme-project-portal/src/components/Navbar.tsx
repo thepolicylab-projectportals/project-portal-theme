@@ -131,9 +131,9 @@ export const Navbar: FunctionComponent<NavbarProps> = ({ activePage }) => {
   //   }
   // `)
   //   const image = getImage(logo)
+  const image = null // replace this line with the `getImage` line
   const { title } = useSiteMetadata()
   const { pages } = useProjectPortalConfig()
-  const image = null // replace this line with the line above when introducing images back in.
   return (
     <NavbarLayout
       activePage={activePage}
