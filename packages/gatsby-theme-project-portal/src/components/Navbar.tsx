@@ -121,7 +121,11 @@ interface NavbarProps {
 export const Navbar: FunctionComponent<NavbarProps> = ({ activePage }) => {
   const { logo } = useStaticQuery(graphql`
     query NavbarLogoQuery {
-      logo: file(relativePath: { regex: "/^navbar.png$/" }) {
+      logo: file(
+        relativePath: { regex: "/^navbar.png$/" }
+        # only match files in the "themeImages" sourced directory:
+        sourceInstanceName: { eq: "themeImages" }
+      ) {
         childImageSharp {
           gatsbyImageData(width: 64)
         }
