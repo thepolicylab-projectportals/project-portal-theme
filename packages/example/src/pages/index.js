@@ -13,6 +13,7 @@ import {
   Contact,
   CollaboratorDetails,
   NavbarLayout,
+  Navbar,
   SiteMetadata,
   FooterLayout,
   Footer,
@@ -332,6 +333,7 @@ const Index = () => {
       />
       <SiteMetadata />
       <Footer />
+      <Navbar />
     </>
   )
 }
