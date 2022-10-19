@@ -36,7 +36,7 @@ const NavbarItem: FunctionComponent<NavbarItemProps> = ({
 interface NavbarProps {
   title: string
   activePage?: string
-  image: IGatsbyImageData
+  image?: IGatsbyImageData
   pages: {
     name: string
     link: string
@@ -74,11 +74,15 @@ export const NavbarLayout: FunctionComponent<NavbarProps> = ({
               to="/"
             >
               <>
-                <GatsbyImage
-                  className="hidden xl:inline-block"
-                  image={image}
-                  alt={"nav_logo"}
-                />
+                {image ? (
+                  <GatsbyImage
+                    className="hidden xl:inline-block"
+                    image={image}
+                    alt={"nav_logo"}
+                  />
+                ) : (
+                  <></>
+                )}
                 {title}
               </>
             </Link>
