@@ -16,7 +16,6 @@ import { statusOutput, isNA, isEmpty } from "../utils"
 
 interface ProjectDetailLayoutProps {
   question: string
-  slug: string
   summary?: string
   status: string
   opportunityCloses: Date
