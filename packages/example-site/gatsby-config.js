@@ -1,8 +1,11 @@
 // General metadata for the site
+const tailwindConfig = require("./tailwind.config")
+const siteMetadata = {
+  title: "Project Portal Example (Site with Queries)",
+}
+
 module.exports = {
-  siteMetadata: {
-    title: "Project Portal Example (Site with Queries)",
-  },
+  siteMetadata: siteMetadata,
   plugins: [
     {
       resolve: `@thepolicylab-projectportals/gatsby-theme-project-portal`,
@@ -14,6 +17,7 @@ module.exports = {
             show: true,
           },
         ],
+        tailwindConfig: tailwindConfig,
         staticText: {
           bottom_banner: {
             text: "This is the Project Portal site footer text.",

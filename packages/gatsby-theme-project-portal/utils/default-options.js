@@ -13,6 +13,8 @@ function withDefaults(themeOptions) {
         show: true,
       },
     ],
+    tailwindConfig:
+      themeOptions.tailwindConfig || require(`../src/styles/tailwind.presets`),
   }
 }
 
