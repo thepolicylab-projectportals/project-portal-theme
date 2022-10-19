@@ -1,5 +1,3 @@
-const path = require("path")
-
 // Get the `main` file listed in the theme's package.json.
 // This should (hopefully) find the right directory with node_modules,
 // as well as with the yarn berry unpacking approach.
@@ -18,7 +16,7 @@ module.exports = {
   ],
   content: [
     // The theme components
-    path.join(themeDirectory, "src/**/*.{js,jsx,ts,tsx,html}"),
+    themeDirectory + "/src/**/*.{js,jsx,ts,tsx,html}",
     // The local src components
     "./src/**/*.{js,jsx,ts,tsx,html}",
   ],
