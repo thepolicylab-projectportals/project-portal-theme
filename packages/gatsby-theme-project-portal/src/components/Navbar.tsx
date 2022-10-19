@@ -2,6 +2,7 @@ import React, { FunctionComponent } from "react"
 import { Link } from "gatsby"
 import { FaBars, FaTimes } from "react-icons/fa"
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
+import { useProjectPortalConfig, useSiteMetadata } from "../hooks"
 
 interface NavbarItemProps {
   name: string
