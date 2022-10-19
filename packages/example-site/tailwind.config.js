@@ -18,7 +18,7 @@ module.exports = {
   ],
   content: [
     // The theme components
-    themeDirectory + "/src/**/*.{js,jsx,ts,tsx,html}",
+    path.join(themeDirectory, "src/**/*.{js,jsx,ts,tsx,html}"),
     // The local src components
     "./src/**/*.{js,jsx,ts,tsx,html}",
   ],
