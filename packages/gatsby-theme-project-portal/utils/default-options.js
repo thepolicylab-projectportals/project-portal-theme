@@ -7,6 +7,8 @@ function withDefaults(themeOptions) {
     ...themeOptions,
     showDevBanner: themeOptions.showDevBanner || true,
     staticText: lodash.merge(defaultStaticText, themeOptions.staticText),
+    tailwindConfig:
+      themeOptions.tailwindConfig || require(`../src/styles/tailwind.presets`),
   }
 }
 
