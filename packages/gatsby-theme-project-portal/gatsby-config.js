@@ -20,6 +20,8 @@ module.exports = (themeOptions) => {
         options: {
           name: `themeImages`,
           path: themeOptionsWithDefaults.themeImageDirectory,
+        },
+      },
       {
         resolve: `gatsby-plugin-postcss`,
         options: {
