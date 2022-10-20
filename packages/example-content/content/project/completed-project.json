@@ -28,6 +28,5 @@
   "status": "completed",
   "statusOfData": "example statusOfData",
   "summary": "example summary",
-  "supportNeeded": "example supportNeeded",
-  "topics": "example topics"
+  "topics": ["example topics"]
 }
