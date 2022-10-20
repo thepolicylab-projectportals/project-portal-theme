@@ -28,20 +28,8 @@ exports.createSchemaCustomization = ({ actions }) => {
       startDate: Date @dateformat(formatString: "YYYY-MM-DD")
       endDate: Date @dateformat(formatString: "YYYY-MM-DD")
       lastModified: Date @dateformat(formatString: "YYYY-MM-DDTHH:mm:ss.SSSZ")
-      contacts: [${CONTACT_AIRTABLE_TYPE}]
-      }  
-    type ${CONTACT_AIRTABLE_TYPE} implements Node {
-      recordId: String
-      data: ContactData
-    }
-    type ContactData {
-      name: String
-      email: String
-      employer: String
-      title: String
-      Project_Page_Content: String
-      Last_Modified: Date @dateformat(formatString: "YYYY-MM-DDTHH:mm:ss.SSSZ") 
-    }
+      contacts: [String]
+      }
   `
   createTypes(allAirtableTypeDefs)
 }
