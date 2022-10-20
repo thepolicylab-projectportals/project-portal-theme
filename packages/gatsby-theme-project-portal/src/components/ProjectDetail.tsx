@@ -187,10 +187,7 @@ export const ProjectDetailLayout: FunctionComponent<
           />
         ) : (
           !isEmpty(projectTeam) && (
-            <ProjectTeam
-              title="Project Team"
-              contacts={projectTeam.map((contact) => contact)}
-            />
+            <ProjectTeam title="Project Team" contacts={projectTeam} />
           )
         )}
         <section className="my-12">
