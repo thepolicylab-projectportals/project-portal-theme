@@ -4,6 +4,8 @@ function withDefaults(pluginOptions) {
     partnerName: pluginOptions.partnerName || "Example Content",
     projectTable: pluginOptions.projectTable || "Project Page Content",
     contactTable: pluginOptions.contactTable || "Project Contacts",
+    showMainContactOnProjectTeamDefault:
+      pluginOptions.showMainContactOnProjectTeamDefault || false,
   }
 }
 
