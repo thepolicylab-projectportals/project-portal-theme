@@ -20,7 +20,7 @@ module.exports = {
         tailwindConfig: tailwindConfig,
         staticText: {
           bottom_banner: {
-            text: "This project portal example content was developed by the The Policy Lab and the Center for Computation and Visualization at Brown University. If you have ideas for how to improve it, please let us know!",
+            text: "This is the Project Portal site footer text.",
           },
         },
       },
