@@ -50,7 +50,8 @@ exports.sourceNodes = async (
   { actions, createContentDigest, createNodeId, getNodesByType },
   pluginOptions
 ) => {
-  const { partnerName } = withDefaults(pluginOptions)
+  const { partnerName, showMainContactOnProjectTeamDefault } =
+    withDefaults(pluginOptions)
   console.log("theme options: partnerName", partnerName)
 
   const { createNode } = actions
