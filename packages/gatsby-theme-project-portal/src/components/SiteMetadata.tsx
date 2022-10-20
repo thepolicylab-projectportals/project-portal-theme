@@ -1,9 +1,21 @@
-import React from "react"
+import React, { FunctionComponent } from "react"
 import { Helmet } from "react-helmet"
 import { graphql, useStaticQuery } from "gatsby"
-import PropTypes from "prop-types"
+import { IGatsbyImageData } from "gatsby-plugin-image"
 
-export const SiteMetadata = ({ description, image, title, pathname }) => {
+interface SiteMetadataProps {
+  description?: string
+  image?: IGatsbyImageData
+  title?: string
+  pathname?: string
+}
+
+export const SiteMetadata: FunctionComponent<SiteMetadataProps> = ({
+  description,
+  image,
+  title,
+  pathname,
+}) => {
   const {
     site: {
       siteMetadata: {
@@ -57,10 +69,4 @@ export const SiteMetadata = ({ description, image, title, pathname }) => {
       <meta property="twitter:description" content={seo.description} />
     </Helmet>
   )
-}
-
-SiteMetadata.propTypes = {
-  description: PropTypes.string,
-  image: PropTypes.string,
-  title: PropTypes.string,
 }

@@ -20,6 +20,10 @@ export const useStaticText = () => {
           bottom_banner {
             text
           }
+          main_contact_text {
+            ongoingText
+            completeText
+          }
           open {
             lede
             pageName
