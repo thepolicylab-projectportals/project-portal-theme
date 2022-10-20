@@ -31,3 +31,39 @@ exports.sourceNodes = ({ actions, createContentDigest }, themeOptions) => {
     },
   })
 }
+
+const PostTemplate = require.resolve(`./src/templates/dev-banner`)
+
+exports.createPages = async ({ graphql, actions, reporter }) => {
+  const { createPage } = actions
+
+  const result = await graphql(
+    `
+      query {
+        allProject {
+          nodes {
+            slug
+          }
+        }
+      }
+    `
+  )
+
+  if (result.errors) {
+    reporter.panicOnBuild(result.errors)
+  }
+
+  // Create Posts and Post pages.
+  const { allProject } = result.data
+  const projects = allProject.nodes
+
+  // Create a page for each Post
+  projects.forEach((project) => {
+    const { slug } = project
+    createPage({
+      path: slug,
+      component: PostTemplate,
+      context: {},
+    })
+  })
+}
