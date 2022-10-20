@@ -58,27 +58,12 @@ exports.sourceNodes = async (
         project.data.showMainContactOnProjectTeam ??
         showMainContactOnProjectTeamDefault
 
-      switch (contactsData.length) {
-        case 0:
-          mainContact = null
-          projectTeam = []
-          break
-        case 1:
-          mainContact = contactsData.slice(0, 1)
-          if (showMainContactOnProjectTeam) {
-            projectTeam = contactsData
-          } else {
-            projectTeam = []
-          }
-          break
-        default:
-          mainContact = contactsData.slice(0, 1)
-          if (showMainContactOnProjectTeam) {
-            projectTeam = contactsData
-          } else {
-            projectTeam = contactsData.slice(1, -1)
-          }
-          break
+      mainContact = contactsData.slice(0, 1)
+
+      if (showMainContactOnProjectTeam) {
+        projectTeam = contactsData
+      } else {
+        projectTeam = contactsData.slice(1)
       }
 
       let projectRestructured = {
