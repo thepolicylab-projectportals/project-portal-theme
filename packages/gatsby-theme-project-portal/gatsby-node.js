@@ -32,7 +32,7 @@ exports.sourceNodes = ({ actions, createContentDigest }, themeOptions) => {
   })
 }
 
-const PostTemplate = require.resolve(`./src/templates/dev-banner`)
+const PostTemplate = require.resolve(`./src/templates/project-detail-page`)
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
@@ -63,7 +63,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     createPage({
       path: slug,
       component: PostTemplate,
-      context: {},
+      context: {
+        slug: slug,
+      },
     })
   })
 }
