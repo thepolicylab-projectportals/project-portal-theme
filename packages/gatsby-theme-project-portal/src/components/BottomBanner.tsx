@@ -51,7 +51,10 @@ export const BottomBannerLayout: FunctionComponent<BottomBannerProps> = ({
 export const BottomBanner = () => {
   const { BottomBanner } = useStaticQuery(graphql`
     query {
-      BottomBanner: file(relativePath: { regex: "/^bottom_banner.png$/" }) {
+      BottomBanner: file(
+        relativePath: { regex: "/^bottom_banner.png$/" }
+        sourceInstanceName: { eq: "themeImages" }
+      ) {
         childImageSharp {
           gatsbyImageData(width: 160)
         }
