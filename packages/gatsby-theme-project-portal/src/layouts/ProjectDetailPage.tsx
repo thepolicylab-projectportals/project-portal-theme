@@ -2,9 +2,12 @@ import { Layout } from "./Layout"
 import { ProjectDetailLayout, ProjectDetailLayoutProps } from "../components"
 import React, { FunctionComponent } from "react"
 
+// For the ProjectDetailPage we add the slug which isn't on the layout
 interface ProjectDetailPageProps extends ProjectDetailLayoutProps {
   slug: string
 }
+
+// The query results we're interested in are hidden inside the data.project field in the query object
 interface ProjectDetailPageQueryResults {
   data: {
     project: ProjectDetailPageProps
@@ -14,11 +17,11 @@ interface ProjectDetailPageQueryResults {
 export const ProjectDetailPage: FunctionComponent<
   ProjectDetailPageQueryResults
 > = (props) => {
-  console.log("ProjectDetailPage props passed: ", props)
+  // Destructure the results of the query to get the props we need from the project
   const {
     data: { project },
   } = props
-  console.log("ProjectDetailPage project passed: ", project)
+
   return (
     <Layout title={project.question} description={project.summary}>
       <ProjectDetailLayout {...project} />
