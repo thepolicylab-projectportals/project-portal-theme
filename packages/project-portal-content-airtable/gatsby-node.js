@@ -62,12 +62,35 @@ exports.sourceNodes = async (
   projectAirtableNodes
     .filter((project) => project.data.partnerName === partnerName)
     .forEach((project) => {
-      let projectTeam
+      let projectTeam, mainContact, contactsData, showMainContactOnProjectTeam
 
-      if (project.data.showMainContactOnProjectTeam) {
-        projectTeam = project.data.contacts
-      } else {
-        projectTeam = project.data.contacts.slice(1, -1)
+      contactsData = project.data.contacts ?? []
+
+      showMainContactOnProjectTeam =
+        project.data.showMainContactOnProjectTeam ??
+        showMainContactOnProjectTeamDefault
+
+      switch (contactsData.length) {
+        case 0:
+          mainContact = null
+          projectTeam = []
+          break
+        case 1:
+          mainContact = contactsData.slice(0, 1)
+          if (showMainContactOnProjectTeam) {
+            projectTeam = contactsData
+          } else {
+            projectTeam = []
+          }
+          break
+        default:
+          mainContact = contactsData.slice(0, 1)
+          if (showMainContactOnProjectTeam) {
+            projectTeam = contactsData
+          } else {
+            projectTeam = contactsData.slice(1, -1)
+          }
+          break
       }
 
       let projectRestructured = {
@@ -96,7 +119,7 @@ exports.sourceNodes = async (
         emailContent: project.data.emailContent,
         lastModified: project.data.lastModified,
 
-        mainContact: project.data.contacts.slice(0, 1),
+        mainContact: mainContact,
         projectTeam: projectTeam,
       }
       createNode({
