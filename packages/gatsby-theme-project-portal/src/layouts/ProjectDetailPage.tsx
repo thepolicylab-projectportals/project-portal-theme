@@ -5,13 +5,23 @@ import React, { FunctionComponent } from "react"
 interface ProjectDetailPageProps extends ProjectDetailLayoutProps {
   slug: string
 }
+interface ProjectDetailPageQueryResults {
+  data: {
+    project: ProjectDetailPageProps
+  }
+}
 
-export const ProjectDetailPage: FunctionComponent<ProjectDetailPageProps> = (
-  props
-) => {
+export const ProjectDetailPage: FunctionComponent<
+  ProjectDetailPageQueryResults
+> = (props) => {
+  console.log("ProjectDetailPage props passed: ", props)
+  const {
+    data: { project },
+  } = props
+  console.log("ProjectDetailPage project passed: ", project)
   return (
-    <Layout title={props.question} description={props.summary}>
-      <ProjectDetailLayout {...props} />
+    <Layout title={project.question} description={project.summary}>
+      <ProjectDetailLayout {...project} />
     </Layout>
   )
 }
