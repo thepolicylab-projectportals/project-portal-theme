@@ -6,6 +6,12 @@ export const useProjectPortalConfig = () => {
       projectPortalConfig {
         showDevBanner
         projectInterestLink
+        pages {
+          name
+          link
+          show
+        }
+        themeImageDirectory
       }
     }
   `)
