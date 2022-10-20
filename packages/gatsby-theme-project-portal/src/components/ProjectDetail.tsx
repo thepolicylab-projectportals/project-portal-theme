@@ -14,7 +14,7 @@ import {
 import { CollaboratorDetails, ProjectTeam } from "./index"
 import { statusOutput, isNA, isEmpty } from "../utils"
 
-interface ProjectDetailLayoutProps {
+export interface ProjectDetailLayoutProps {
   question: string
   summary?: string
   status: string
