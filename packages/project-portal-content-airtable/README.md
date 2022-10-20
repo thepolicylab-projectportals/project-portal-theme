@@ -34,8 +34,8 @@ AIRTABLE_API_KEY=key1234567890abc AIRTABLE_BASE_ID=app3QJ302C1oHE7uw yarn worksp
 
 To modify which projects are selected and how they are represented on Airtable, the plugin has the following options:
 - `partnerName`: the name in the `Partner Name` field on Airtable, used to filter the projects. Default (which should always be replaced in production use): `Example Content`
-- `projectsTable`: should match the name of the table containing the projects on Airtable. Default: `Project Page Content`
-- `contactsTable`: should match the name of the table containing the contacts on Airtable. default: `Project Contacts`
+- `projectTable`: should match the name of the table containing the projects on Airtable. Default: `Project Page Content`
+- `contactTable`: should match the name of the table containing the contacts on Airtable. default: `Project Contacts`
 
 These should be set in the `gatsby-config.js` in the site which uses them, as follows:
 ```js
@@ -63,8 +63,8 @@ The `package.json` file loads the dependencies when `npm install` is run.
 ### Source the Airtable entries: [gatsby-config.js](./gatsby-config.js)
 
 The plugin's `gatsby-config.js` runs the `gatsby-source-airtable` plugin for two tables:
-- once with the `projects` table (either the default table or the `projectsTable` specified in the theme options), and
-- once with the `contacts` (either the default path or the `contactsTable` specified in the theme options).
+- once with the `projects` table (either the default table or the `projectTable` specified in the theme options), and
+- once with the `contacts` (either the default path or the `contactTable` specified in the theme options).
 
 For each of these, a different node type containing the data is created: `AirtableProject` and `AirtableContact` respectively.
 

@@ -2,8 +2,8 @@ function withDefaults(pluginOptions) {
   return {
     ...pluginOptions,
     partnerName: pluginOptions.partnerName || "Example Content",
-    projectsTable: pluginOptions.projectsTable || "Project Page Content",
-    contactsTable: pluginOptions.contactsTable || "Project Contacts",
+    projectTable: pluginOptions.projectTable || "Project Page Content",
+    contactTable: pluginOptions.contactTable || "Project Contacts",
   }
 }
 
