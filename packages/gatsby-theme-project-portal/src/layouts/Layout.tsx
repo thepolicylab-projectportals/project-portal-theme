@@ -7,8 +7,6 @@ import {
   SiteMetadata,
 } from "../components"
 import { useProjectPortalConfig } from "../hooks"
-// import "@fontsource/public-sans"
-// import "../styles/global.css"
 
 interface LayoutProps {
   activePage?: string
