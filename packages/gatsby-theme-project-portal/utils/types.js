@@ -3,6 +3,7 @@ const CONFIG_NODE_TYPE = `ProjectPortalConfig`
 
 const projectPortalConfigTypeDefs = `
     type ${CONFIG_NODE_TYPE} implements Node {
+      siteTitle: String
       showDevBanner: Boolean
       projectInterestLink: String
       pages: [NavbarItemType]
