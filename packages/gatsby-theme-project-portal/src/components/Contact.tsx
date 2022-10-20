@@ -30,26 +30,26 @@ export const Contact: React.FC<ContactProps> = ({
           height: "100px",
         }}
       >
-        {contactImage ? (
-          <GatsbyImage
-            className="relative rounded-full"
-            alt={name}
-            image={getImage(contactImage)}
-            style={{
-              transform: "translateZ(0)",
-            }}
-          />
-        ) : (
-          <StaticImage
-            className="rounded-full"
-            alt={name}
-            src="../images/narwhal.jpg"
-            width={100}
-            height={100}
-            placeholder="blurred"
-            layout="fixed"
-          />
-        )}
+        {/*{contactImage ? (*/}
+        {/*  <GatsbyImage*/}
+        {/*    className="relative rounded-full"*/}
+        {/*    alt={name}*/}
+        {/*    image={getImage(contactImage)}*/}
+        {/*    style={{*/}
+        {/*      transform: "translateZ(0)",*/}
+        {/*    }}*/}
+        {/*  />*/}
+        {/*) : (*/}
+        {/*  <StaticImage*/}
+        {/*    className="rounded-full"*/}
+        {/*    alt={name}*/}
+        {/*    src={`../images/narwhal.jpg`}*/}
+        {/*    width={100}*/}
+        {/*    height={100}*/}
+        {/*    placeholder="blurred"*/}
+        {/*    layout="fixed"*/}
+        {/*  />*/}
+        {/*)}*/}
       </div>
       <div className="pl-2 pr-2 pb-2">
         <p className="font-bold text-black text-body">{name}</p>
