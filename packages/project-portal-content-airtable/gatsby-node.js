@@ -52,7 +52,7 @@ exports.sourceNodes = async (
     .forEach((project) => {
       let projectTeam, mainContact, contactsData, showMainContactOnProjectTeam
 
-      contactsData = project.data.contacts ?? []
+      contactsData = project.data.contacts
 
       showMainContactOnProjectTeam =
         project.data.showMainContactOnProjectTeam ??
