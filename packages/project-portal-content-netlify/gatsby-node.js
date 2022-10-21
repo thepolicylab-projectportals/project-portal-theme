@@ -53,18 +53,14 @@ exports.createSchemaCustomization = ({ actions }) => {
   createTypes(contactJsonTypeDefs)
 }
 
-exports.sourceNodes = async ({
-  actions,
-  createContentDigest,
+exports.onCreateNode = async ({
+  node, // the node that was just created
+  actions: { createNode },
   createNodeId,
-  getNodesByType,
+  createContentDigest,
 }) => {
-  const { createNode } = actions
-  const projectJSONNodes = getNodesByType(`${PROJECT_JSON_TYPE}`)
-  const contactJSONNodes = getNodesByType(`${CONTACT_JSON_TYPE}`)
-
-  // loop through projectJSONNodes and create Project nodes
-  projectJSONNodes.forEach((project) =>
+  if (node.internal.type === PROJECT_JSON_TYPE) {
+    const project = node
     createNode({
       ...project,
       id: createNodeId(`${PROJECT_NODE_TYPE}-${project.slug}`),
@@ -75,9 +71,9 @@ exports.sourceNodes = async ({
         contentDigest: createContentDigest(project),
       },
     })
-  )
-
-  contactJSONNodes.forEach((contact) =>
+  }
+  if (node.internal.type === CONTACT_JSON_TYPE) {
+    const contact = node
     createNode({
       ...contact,
       id: createNodeId(`${CONTACT_NODE_TYPE}-${contact.key}`),
@@ -88,5 +84,5 @@ exports.sourceNodes = async ({
         contentDigest: createContentDigest(contact),
       },
     })
-  )
+  }
 }
