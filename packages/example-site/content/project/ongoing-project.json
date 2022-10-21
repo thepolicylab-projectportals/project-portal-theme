@@ -1,0 +1,32 @@
+{
+  "slug": "ongoing-project",
+  "question": "Hello world (from json)?",
+  "mainContact": "first-contact",
+  "projectTeam": [
+    "first-contact",
+    "second-contact"
+  ],
+  "agency": "example agency",
+  "deliverable": "example deliverable",
+  "description": "example description",
+  "emailContent": "example emailContent",
+  "endDate": "2016-12-15",
+  "expertise": "example expertise",
+  "fundingInfo": "example fundingInfo",
+  "keyDates": "example keyDates",
+  "lastModified": "example lastModified",
+  "email": "example email",
+  "employer": "example employer",
+  "image": "example image",
+  "key": "example key",
+  "name": "example name",
+  "title": "example title",
+  "opportunityCloses": "2022-10-28",
+  "purpose": "example purpose",
+  "requirement": "example requirement",
+  "startDate": "2022-06-17",
+  "status": "ongoing",
+  "statusOfData": "example statusOfData",
+  "summary": "example summary",
+  "topics": ["example topics"]
+}
