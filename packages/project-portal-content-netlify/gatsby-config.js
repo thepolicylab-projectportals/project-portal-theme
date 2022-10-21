@@ -1,5 +1,4 @@
 const { withDefaults } = require("./utils/default-options")
-const tailwindConfig = require("example-site/tailwind.config")
 module.exports = (pluginOptions) => {
   const pluginOptionsWithDefaults = withDefaults(pluginOptions)
   return {
@@ -8,7 +7,6 @@ module.exports = (pluginOptions) => {
       {
         resolve: `gatsby-plugin-netlify-cms`,
         options: {
-          // modulePath: tailwindConfig,
           enableIdentityWidget: true,
           publicPath: `admin`,
         },

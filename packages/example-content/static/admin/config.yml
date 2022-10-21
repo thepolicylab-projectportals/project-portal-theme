@@ -17,7 +17,7 @@ collections:
       - { name: partnerName, label: Partner Name, widget: "select", options: ["project-portal-satx", "project-portal-nc", "project-portal-example"], required: false}
       - { name: slug, label: Slug }
       - { name: status, label: Status, widget: "select", options: [ "ongoing", "open", "completed" ], required: false}
-      - { name: opportunityCloses, label: Opportunity Closes, widget: 'date', default: ""}
+      - { name: opportunityCloses, label: Opportunity Closes, widget: 'date', default: "", required: false}
       - { name: startDate, label: Start Date, required: false, widget: 'date', default: ""}
       - { name: endDate, label: End Date, required: false, widget: 'date', default: ""}
       - { name: agency, label: Agency, required: false, widget: "markdown"}

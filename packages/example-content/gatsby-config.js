@@ -1,4 +1,4 @@
-const tailwindConfig = require("example-site/tailwind.config")
+const tailwindConfig = require("example-content/tailwind.config")
 
 module.exports = {
   siteMetadata: {
