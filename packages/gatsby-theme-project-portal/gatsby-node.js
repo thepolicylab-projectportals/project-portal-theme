@@ -5,6 +5,19 @@ const {
   projectPortalConfigTypeDefs,
   contactTypeDefs,
 } = require(`./utils/types`)
+const fs = require("fs");
+
+exports.onPreBootstrap = ({ reporter }, themeOptions) => {
+  const { themeImageDirectory } = withDefaults(themeOptions)
+  const paths = [themeImageDirectory]
+
+  paths.forEach((path) => {
+    if (!fs.existsSync(path)) {
+      reporter.info(`creating the ${path} directory`)
+      fs.mkdirSync(path, { recursive: true })
+    }
+  })
+}
 
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
