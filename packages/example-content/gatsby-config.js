@@ -15,6 +15,7 @@ module.exports = {
             link: "/",
             show: true,
           },
+          { name: "Add Projects", link: "/admin/", show: true },
         ],
         tailwindConfig: tailwindConfig,
         staticText: {
