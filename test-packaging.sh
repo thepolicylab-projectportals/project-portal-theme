@@ -246,17 +246,22 @@ package-and-install () {
       esac
     done
 
-    # Serve the site
+    # Tell the user how to interact with the site
     case "${packageManager}" in
       yarn) {
-        echo "Site built successfully. To serve run:"
-        echo "(cd $testDir && yarn gatsby serve)"
+        echo "To start dev server run:"
+        echo "(cd $testDir && yarn gatsby clean && yarn gatsby develop)"
+        echo "To rebuild and serve, run:"
+        echo "(cd $testDir && yarn gatsby clean && yarn gatsby build && yarn gatsby serve)"
       };;
       npm) {
-        echo "Site built successfully. To serve run:"
-        echo "(cd $testDir && npm run env -- gatsby serve)"
+        echo "To start dev server run:"
+        echo "(cd $testDir && npm run env -- gatsby clean && npm run env -- gatsby develop)"
+        echo "To rebuild and serve, run:"
+        echo "(cd $testDir && npm run env -- gatsby clean && npm run env -- gatsby build && npm run env -- gatsby serve)"
       };;
       *) die "package manager ${packageManager} unknown, can't serve.";;
     esac
+
   )
 }
