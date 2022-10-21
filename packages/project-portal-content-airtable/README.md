@@ -73,8 +73,8 @@ For each of these, a different node type containing the data is created: `Airtab
 The plugin's `gatsby-node.js` converts the `AirtableProject` and `AirtableContact` nodes into `Project` and `Contact` nodes, which follow the type specification defined in the [theme's `types.js` file](../gatsby-theme-project-portal/utils/types.js).
 
 - Using explicit type declarations, it ensures that the `AirtableProject` and `AirtableContact` nodes have the fields required to run the plugin successfully.
-- For each `AirtableProject` node, a new `Project` node is created,
-- For each `AirtableContact` node, a new `Contact` node is created.
+- When an `AirtableProject` node is created, a new `Project` node is created,
+- When an `AirtableContact` node is created, a new `Contact` node is created.
 
 > 💡 The linking between the `Project` and `Contact` nodes is handled by the `@thepolicylab-projectportals/gatsby-theme-project-portal`. This replaces the `project.mainContact` value (a string) with the `Contact` node which has a matching `contact.key`.
 
