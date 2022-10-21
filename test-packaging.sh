@@ -86,6 +86,7 @@ EOM
 
 # Specify the template site
 package-and-install () {
+  setopt LOCAL_OPTIONS xtrace
 
   # Specify any packages we need to install from registries
   registryPackages=""
