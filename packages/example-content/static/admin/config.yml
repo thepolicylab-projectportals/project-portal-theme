@@ -3,18 +3,18 @@ backend:
   branch: 52-add-netlify-cms-functionality
 local_backend:
     url: http://localhost:8081/api/v1
-media_folder: "/content"
-public_folder: "../content"
+media_folder: "/packages/example-content/content/images"
+public_folder: "../content/images"
 media_folder_relative: true
 collections:
   - name: projects
     label: Projects
-    folder: "content/projects"
+    folder: "/packages/example-content/content/projects"
     extension: json
     create: true
     identifier_field: question
     fields:
-      - { name: question, label: Question, widget: "markdown"}
+      - { name: question, label: Question, widget: "markdown", required: false}
       - { name: partnerName, label: Partner Name, widget: "select", options: ["project-portal-satx", "project-portal-nc", "project-portal-example"], required: false}
       - { name: slug, label: Slug }
       - { name: status, label: Status, widget: "select", options: [ "ongoing", "open", "completed" ], required: false}
@@ -22,9 +22,9 @@ collections:
       - { name: startDate, label: Start Date, required: false, widget: 'date', default: ""}
       - { name: endDate, label: End Date, required: false, widget: 'date', default: ""}
       - { name: agency, label: Agency, required: false, widget: "markdown"}
-      - { name: topics, label: Topics, widget: "select", options: [ "Taxation", "Forms", "Collections", "Government Operations","Human Resources", "Crime and Law Enforcement", "Delinquency Prevention"], multiple: true}
+      - { name: topics, label: Topics, widget: "select", options: [ "Taxation", "Forms", "Collections", "Government Operations","Human Resources", "Crime and Law Enforcement", "Delinquency Prevention"], multiple: true, required: false}
       - { name: supportNeeded, label: Support Needed, required: false, widget: markdown}
-      - { name: summary, label: Summary, widget: markdown}
+      - { name: summary, label: Summary, widget: markdown, required: false}
       - { name: deliverable, label: Deliverable, widget: markdown, required: false}
       - { name: purpose, label: Purpose, widget: markdown, required: false}
       - { name: expertise, label: Expertise, widget: markdown, required: false}
@@ -34,18 +34,18 @@ collections:
       - { name: priorResearch, label: Prior Research, required: false, widget: markdown}
       - { name: fundingInfo, label: Funding Info, required: false, widget: markdown}
       - { name: emailContent, label: Email Content, widget: markdown, required: false}
-      - { name: contacts, label: Contacts, widget: "relation",   collection: "Contacts", search_fields: ["name"], value_field: "id", display_fields: ["name"], multiple: true}
-      - { name: lastModified, label: Last Modified, widget: datetime}
+      - { name: contacts, label: Contacts, widget: "relation",   collection: "Contacts", search_fields: ["name"], value_field: "id", display_fields: ["name"], multiple: true, required: false}
+      - { name: lastModified, label: Last Modified, widget: datetime, required: false}
   - name: Contacts
     label: Project Contacts
-    folder: "content/contacts"
+    folder: "/packages/example-content/content/contacts"
     create: true
     extension: markdown
-    identifier_field: name
+    identifier_field: key
     fields:
-      - { name: id, label: ID }
+      - { name: key, label: Key }
       - { name: name, label: Name}
-      - { name: title, label: title, required: false }
+      - { name: title, label: Title, required: false }
       - { name: email, label: Email, required: false }
       - { name: employer, label: Employer, required: false }
       - { name: contactImage, label: Contact Image, widget: "image",required: false}
