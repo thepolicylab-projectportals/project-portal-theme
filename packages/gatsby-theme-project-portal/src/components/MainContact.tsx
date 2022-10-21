@@ -2,8 +2,7 @@ import React, { FunctionComponent } from "react"
 import { Link } from "gatsby"
 import { Contact, MarkdownText } from "../components"
 import { statusOutput } from "../utils"
-import { useProjectPortalConfig } from "../hooks/useProjectPortalConfig"
-import { useStaticText } from "../hooks/useStaticText"
+import { useProjectPortalConfig, useStaticText } from "../hooks"
 
 interface ProjectContactProps {
   name: string
