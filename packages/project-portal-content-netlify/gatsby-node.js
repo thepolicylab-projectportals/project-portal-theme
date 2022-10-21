@@ -21,8 +21,9 @@ exports.onPreInit = () => {
 exports.onPreBootstrap = ({ reporter }, pluginOptions) => {
   console.log(withDefaults(pluginOptions))
 
-  const { projectPath, contactPath } = withDefaults(pluginOptions)
-  const paths = [projectPath, contactPath]
+  const { projectPath, contactPath, contactImagePath } =
+    withDefaults(pluginOptions)
+  const paths = [projectPath, contactPath, contactImagePath]
 
   paths.forEach((path) => {
     if (!fs.existsSync(path)) {
@@ -52,6 +53,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     type ${CONTACT_JSON_TYPE} implements Node {
       key: String!
       name: String
+      image: File @link(by: "relativePath")
     }
   `
   createTypes(contactJsonTypeDefs)
