@@ -18,7 +18,7 @@ export const DefaultContactImage = ({ alt }) => {
   const { logo } = useStaticQuery(graphql`
     query DefaultContactImageQuery {
       logo: file(
-        name: { regex: "/default-contact/" }
+        name: { eq: "default-contact" }
         extension: { in: ["png", "jpg", "jpeg"] }
         # only match files in the "themeImages" sourced directory:
         sourceInstanceName: { eq: "themeImages" }
