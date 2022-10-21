@@ -97,7 +97,8 @@ The `gatsby-transformer-json` converts each file found into a node in GraphQL, o
 The plugin's `gatsby-node.js` converts the `ProjectJson` and `ContactJson` nodes into `Project` and `Contact` nodes, which follow the type specification defined in the [theme's `types.js` file](../gatsby-theme-project-portal/utils/types.js).
 
 - Using explicit type declarations, it ensures that the `ProjectJson` and `ContactJson` nodes have the fields required to run the plugin successfully.
-- For each `ProjectJson` node, a new `Project` node is created,
-- For each `ContactJson` node, a new `Contact` node is created.
+- Then using the `onCreateNode` API:
+  - When a `ProjectJson` node is created, a new `Project` node is created,
+  - When a `ContactJson` node is created, a new `Contact` node is created.
 
 > 💡 The linking between the `Project` and `Contact` nodes is handled by the `@thepolicylab-projectportals/gatsby-theme-project-portal`. This replaces the `project.mainContact` value (a string) with the `Contact` node which has a matching `contact.key`.
