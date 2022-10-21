@@ -1,6 +1,6 @@
 {
   "name": "@thepolicylab-projectportals/project-portal-content-netlify",
-  "version": "1.0.0-2",
+  "version": "1.1.0",
   "main": "index.js",
   "author": "John Gerrard Holland <john_holland1@brown.edu>",
   "license": "MIT",
