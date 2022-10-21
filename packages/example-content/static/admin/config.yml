@@ -55,6 +55,7 @@ collections:
     folder: "packages/example-content/content/topic"
     extension: json
     create: true
-    identifier_field: name
+    identifier_field:
+    fields:
       - { name: name, label: Topic }
 
