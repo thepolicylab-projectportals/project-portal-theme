@@ -217,7 +217,6 @@ package-and-install () {
     else
       echo "installing all of " "${packageManagerAddList[@]}"
       cd "$testDir" || die "Failed to cd to testDir '$testDir'"
-      echo cd "$testDir"
       ${packageManager} add "${packageManagerAddList[@]}" || die "Failed to add dependencies'"
     fi
   )
