@@ -44,3 +44,43 @@ exports.sourceNodes = ({ actions, createContentDigest }, themeOptions) => {
     },
   })
 }
+
+const ProjectDetailPageTemplate = require.resolve(
+  `./src/templates/project-detail-page`
+)
+
+exports.createPages = async ({ graphql, actions, reporter }) => {
+  const { createPage } = actions
+
+  const result = await graphql(
+    `
+      query {
+        allProject {
+          nodes {
+            slug
+          }
+        }
+      }
+    `
+  )
+
+  if (result.errors) {
+    reporter.panicOnBuild(result.errors)
+  }
+
+  // Create Posts and Post pages.
+  const { allProject } = result.data
+  const projects = allProject.nodes
+
+  // Create a page for each Post
+  projects.forEach((project) => {
+    const { slug } = project
+    createPage({
+      path: `project/${slug}`,
+      component: ProjectDetailPageTemplate,
+      context: {
+        slug: slug,
+      },
+    })
+  })
+}

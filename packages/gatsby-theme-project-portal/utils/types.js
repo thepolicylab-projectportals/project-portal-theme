@@ -33,7 +33,6 @@ const projectTypeDefs = `
   
       agency: String
       topics: [String]
-      supportNeeded: [String]
       
       summary: String
       deliverable: String
