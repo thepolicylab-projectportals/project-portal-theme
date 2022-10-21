@@ -3,7 +3,7 @@ import React from "react"
 
 export interface MarkdownTextProps {
   text: string
-  className: string
+  className?: string
 }
 
 export const MarkdownText = ({ text, ...props }: MarkdownTextProps) => {
