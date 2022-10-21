@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import { Layout } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/layouts"
+import { Layout } from "../layouts"
 
 export default () => {
   return (
