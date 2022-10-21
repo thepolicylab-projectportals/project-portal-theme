@@ -3,7 +3,7 @@ backend:
   branch: 52-add-netlify-cms-functionality
 local_backend: true
 media_folder: "packages/example-content/content/images"
-public_folder: "../images"
+public_folder: "./images"
 media_folder_relative: true
 collections:
   - name: projects
