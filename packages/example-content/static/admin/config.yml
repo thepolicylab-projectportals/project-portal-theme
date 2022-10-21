@@ -1,7 +1,6 @@
 backend:
-  name: test-repo
-#  name: git-gateway
-#  branch: 52-add-netlify-cms-functionality
+  name: git-gateway
+  branch: 52-add-netlify-cms-functionality
 local_backend:
     url: http://localhost:8081/api/v1
 media_folder: "/content"
