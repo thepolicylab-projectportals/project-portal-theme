@@ -14,6 +14,10 @@ const { withDefaults } = require("./utils/default-options")
 const PROJECT_JSON_TYPE = `ProjectJson`
 const CONTACT_JSON_TYPE = `ContactJson`
 
+exports.onPreInit = () => {
+  console.log("starting project-portal-content-netlify plugin")
+}
+
 exports.onPreBootstrap = ({ reporter }, pluginOptions) => {
   console.log(withDefaults(pluginOptions))
 
@@ -60,6 +64,7 @@ exports.onCreateNode = async ({
   createContentDigest,
 }) => {
   if (node.internal.type === PROJECT_JSON_TYPE) {
+    console.log(PROJECT_JSON_TYPE, node)
     const project = node
     createNode({
       ...project,
@@ -73,6 +78,7 @@ exports.onCreateNode = async ({
     })
   }
   if (node.internal.type === CONTACT_JSON_TYPE) {
+    console.log(CONTACT_JSON_TYPE, node)
     const contact = node
     createNode({
       ...contact,
