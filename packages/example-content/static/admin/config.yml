@@ -2,13 +2,13 @@ backend:
   name: git-gateway
   branch: 52-add-netlify-cms-functionality
 local_backend: true
-media_folder: "/example-content/content/images"
+media_folder: "content/images"
 public_folder: "../images"
 media_folder_relative: true
 collections:
   - name: projects
     label: Projects
-    folder: "/example-content/content/projects"
+    folder: "content/projects"
     extension: json
     create: true
     identifier_field: question
@@ -37,7 +37,7 @@ collections:
       - { name: lastModified, label: Last Modified, widget: datetime, required: false}
   - name: Contacts
     label: Project Contacts
-    folder: "/example-content/content/contacts"
+    folder: "content/contacts"
     create: true
     extension: markdown
     identifier_field: key
