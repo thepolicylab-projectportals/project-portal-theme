@@ -2,16 +2,16 @@ backend:
   name: git-gateway
   branch: 52-add-netlify-cms-functionality
 local_backend: true
-media_folder: "content/images"
+media_folder: "packages/example-content/content/images"
 public_folder: "../images"
 media_folder_relative: true
 collections:
   - name: projects
     label: Projects
-    folder: "content/project"
+    folder: "packages/example-content/content/project"
     extension: json
     create: true
-    identifier_field: question
+    identifier_field: slug
     fields:
       - { name: question, label: Question, widget: "markdown", required: false}
       - { name: partnerName, label: Partner Name, widget: "select", options: ["project-portal-satx", "project-portal-nc", "project-portal-example"], required: false}
@@ -37,9 +37,9 @@ collections:
       - { name: lastModified, label: Last Modified, widget: datetime, required: false}
   - name: Contacts
     label: Project Contacts
-    folder: "content/contact"
+    folder: "packages/example-content/content/contact"
     create: true
-    extension: markdown
+    extension: json
     identifier_field: key
     fields:
       - { name: key, label: Key }
