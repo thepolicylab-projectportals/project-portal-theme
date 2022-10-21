@@ -62,7 +62,7 @@ const contactTypeDefs = `
     title: String
     email: String
     
-    image: File
+    image: File @link(by: "relativePath")
     
     lastModified: Date @dateformat(formatString: "YYYY-MM-DDTHH:mm:ss.SSSZ")
   }
