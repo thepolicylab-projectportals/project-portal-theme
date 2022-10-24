@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react"
-import { IGatsbyImageData } from "gatsby-plugin-image"
+import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image"
 import { useStaticText } from "../hooks"
+import { graphql, useStaticQuery } from "gatsby"
 
 // This is the same structure as the "footer" part of the useStaticText query,
 // so that we can pass the staticText.footer unchanged into the code
@@ -49,12 +50,10 @@ export const FooterLayout: FunctionComponent<FooterProps> = ({
           href={heading.link}
         >
           {image && (
-            // use of <img /> for the logo because <GatsbyImage /> leads to pa11y error
-            <img
-              srcSet={image.imageData.images.sources[0].srcSet}
+            <GatsbyImage
+              className="hidden xl:inline-block"
+              image={image.imageData}
               alt={image.altText}
-              height={image.imageData.height}
-              width={image.imageData.width}
             />
           )}
           <p className="text-center inline-block text-h4 font-bold text-footertext">
@@ -75,17 +74,19 @@ const ListItem = ({ target, children }) => {
 }
 
 export const Footer = () => {
-  // const { imageQuery } = useStaticQuery(graphql`
-  //   query {
-  //     imageQuery: file(relativePath: { regex: "/^footer.png$/" }) {
-  //       childImageSharp {
-  //         gatsbyImageData(height: 64)
-  //       }
-  //     }
-  //   }
-  // `)
-  // const { title: siteTitle } = useSiteMetadata()
-  // const image = { imageData: getImage(imageQuery), altText: `${siteTitle} logo` }
+  const { logo } = useStaticQuery(graphql`
+    query FooterLogoQuery {
+      logo: file(
+        relativePath: { regex: "/^footer.png$/" }
+        # only match files in the "themeImages" sourced directory:
+        sourceInstanceName: { eq: "themeImages" }
+      ) {
+        childImageSharp {
+          gatsbyImageData(height: 64)
+        }
+      }
+    }
+  `)
   const staticText = useStaticText()
 
   return (
@@ -93,7 +94,7 @@ export const Footer = () => {
       heading={staticText.footer.heading}
       copyright={staticText.footer.copyright}
       links={staticText.footer.links}
-      // image={{ imageData: getImage(imageQuery), altText: staticText.title + " logo" }}
+      image={{ imageData: getImage(logo), altText: staticText.title + " logo" }}
     />
   )
 }

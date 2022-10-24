@@ -14,7 +14,7 @@ import {
 import { CollaboratorDetails, ProjectTeam } from "./index"
 import { statusOutput, isNA, isEmpty } from "../utils"
 
-interface ProjectDetailLayoutProps {
+export interface ProjectDetailLayoutProps {
   question: string
   summary?: string
   status: string
@@ -187,10 +187,7 @@ export const ProjectDetailLayout: FunctionComponent<
           />
         ) : (
           !isEmpty(projectTeam) && (
-            <ProjectTeam
-              title="Project Team"
-              contacts={projectTeam.map((contact) => contact)}
-            />
+            <ProjectTeam title="Project Team" contacts={projectTeam} />
           )
         )}
         <section className="my-12">

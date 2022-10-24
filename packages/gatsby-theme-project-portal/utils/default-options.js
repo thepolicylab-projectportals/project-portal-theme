@@ -7,6 +7,8 @@ function withDefaults(themeOptions) {
     siteTitle: themeOptions.siteTitle || `Gatsby Theme Project Portal`,
     showDevBanner: themeOptions.showDevBanner || true,
     staticText: lodash.merge(defaultStaticText, themeOptions.staticText),
+    themeImageDirectory:
+      themeOptions.themeImageDirectory || "./content/theme-image",
     pages: themeOptions.pages || [
       {
         name: "Home",
