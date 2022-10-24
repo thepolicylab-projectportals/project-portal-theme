@@ -14,7 +14,6 @@ collections:
     identifier_field: slug
     fields:
       - { name: question, label: Question, widget: "markdown"}
-      - { name: partnerName, label: Partner Name, widget: "select", options: ["project-portal-satx", "project-portal-nc", "project-portal-example"]}
       - { name: slug, label: Slug }
       - { name: status, label: Status, widget: "select", options: [ "ongoing", "open", "completed" ]}
       - { name: opportunityCloses, label: Opportunity Closes, widget: 'date', default: "", required: false}
