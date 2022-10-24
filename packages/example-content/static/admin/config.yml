@@ -39,6 +39,8 @@ collections:
     create: true
     extension: json
     identifier_field: name
+    media_folder: ""
+    public_folder: ""
     fields:
       - { name: name, label: Name}
       - { name: title, label: Title, required: false }
