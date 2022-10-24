@@ -47,7 +47,6 @@ export const SiteMetadata: FunctionComponent<SiteMetadataProps> = ({
     url: `${url}${pathname || ``}`,
     locale: locale,
   }
-  console.log(seo)
 
   return (
     <Helmet
