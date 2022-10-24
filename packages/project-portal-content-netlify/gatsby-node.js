@@ -137,7 +137,20 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
         name: "String",
         employer: "String",
         title: "String",
-        image: "File",
+        image: {
+          type: "File",
+          resolve: (source, args, context) => {
+            return context.nodeModel.findOne({
+              type: "File",
+              query: {
+                filter: {
+                  relativePath: { eq: source.image },
+                  sourceInstanceName: { eq: "contact" },
+                },
+              },
+            })
+          },
+        },
       },
     }),
   ]
