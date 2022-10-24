@@ -181,19 +181,9 @@ CMS.init({
             required: false,
           },
           {
-            name: "contactImage",
+            name: "image",
             label: "Contact Image",
             widget: "image",
-            required: false,
-          },
-          {
-            name: "projectPageContent",
-            label: "Project Page Content",
-            widget: "relation",
-            collection: "projects",
-            search_fields: ["slug"],
-            value_field: "slug",
-            display_fields: ["slug"],
             required: false,
           },
           {
