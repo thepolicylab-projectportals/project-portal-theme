@@ -3,7 +3,12 @@ module.exports = (pluginOptions) => {
   const pluginOptionsWithDefaults = withDefaults(pluginOptions)
   return {
     plugins: [
+      // Include transformers first – ensure they are available when we do the sourcing
       `gatsby-transformer-json`,
+      `gatsby-plugin-image`,
+      `gatsby-plugin-sharp`,
+      `gatsby-transformer-sharp`,
+      // Now source the files
       {
         resolve: `gatsby-source-filesystem`,
         options: {
@@ -16,13 +21,6 @@ module.exports = (pluginOptions) => {
         options: {
           name: `contact`,
           path: pluginOptionsWithDefaults.contactPath,
-        },
-      },
-      {
-        resolve: `gatsby-source-filesystem`,
-        options: {
-          name: `contactImage`,
-          path: pluginOptionsWithDefaults.contactImagePath,
         },
       },
     ],
