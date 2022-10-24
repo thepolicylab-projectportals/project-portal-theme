@@ -119,8 +119,8 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
         title: "String",
         image: {
           type: "File",
-          resolve: (source, args, context) => {
-            return context.nodeModel.findOne({
+          resolve: async (source, args, context) => {
+            return await context.nodeModel.findOne({
               type: "File",
               query: {
                 filter: {
