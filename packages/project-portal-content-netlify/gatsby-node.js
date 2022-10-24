@@ -34,26 +34,6 @@ exports.onPreBootstrap = ({ reporter }, pluginOptions) => {
 
 exports.createSchemaCustomization = ({ actions, schema }) => {
   const { createTypes } = actions
-  // We specify the date-types for the ProjectJson
-  // to ensure we load the correct format for the
-  // Project nodes
-
-  // const typeDefs = `
-  //   type ${PROJECT_JSON_TYPE} implements Node & ${PROJECT_NODE_TYPE} {
-  //     slug: String
-  //     opportunityCloses: Date @dateformat(formatString: "YYYY-MM-DD")
-  //     startDate: Date @dateformat(formatString: "YYYY-MM-DD")
-  //     endDate: Date @dateformat(formatString: "YYYY-MM-DD")
-  //     lastModified: Date @dateformat(formatString: "YYYY-MM-DDTHH:mm:ss.SSSZ")
-  //     mainContact: ${CONTACT_JSON_TYPE} @link(by: "key")
-  //     projectTeam: [${CONTACT_JSON_TYPE}] @link(by: "key")
-  //   }
-  //   type ${CONTACT_JSON_TYPE} implements Node & ${CONTACT_NODE_TYPE} {
-  //     key: String!
-  //     name: String
-  //     image: File @fileByRelativePath
-  //     }
-  // `
 
   const typeDefs = [
     schema.buildObjectType({
