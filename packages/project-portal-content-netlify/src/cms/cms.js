@@ -5,7 +5,7 @@ import CMS from "netlify-cms-app"
 CMS.init({
   config: {
     media_folder: "content/image",
-    public_folder: "/images",
+    public_folder: "/image",
     collections: [
       {
         name: "projects",
