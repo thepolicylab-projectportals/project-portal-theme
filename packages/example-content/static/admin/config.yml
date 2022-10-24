@@ -14,7 +14,6 @@ collections:
     identifier_field: slug
     fields:
       - { name: question, label: Question, widget: "markdown"}
-      - { name: partnerName, label: Partner Name, widget: "select", options: ["project-portal-satx", "project-portal-nc", "project-portal-example"]}
       - { name: slug, label: Slug }
       - { name: status, label: Status, widget: "select", options: [ "ongoing", "open", "completed" ]}
       - { name: opportunityCloses, label: Opportunity Closes, widget: 'date', default: "", required: false}
@@ -33,9 +32,7 @@ collections:
       - { name: fundingInfo, label: Funding Info, required: false, widget: markdown}
       - { name: emailContent, label: Email Content, widget: markdown, required: false}
       - { name: mainContact, label: Main Contact, widget: "relation", collection: "Contacts", search_fields: [ "name" ], value_field: "name", display_fields: [ "name" ]}
-      - { name: contacts, label: Contacts, widget: "relation",   collection: "Contacts", search_fields: ["name"], value_field: "name", display_fields: ["name"], multiple: true, required: false}
-      - { name: showMainContactOnProjectTeam, label: Show Main Contact On Project Team, widget: "boolean", default: false, required: false }
-      - { name: lastModified, label: Last Modified, widget: datetime, required: false}
+      - { name: projectTeam, label: Project Team, widget: "relation",   collection: "Contacts", search_fields: ["name"], value_field: "name", display_fields: ["name"], multiple: true, required: false}
   - name: Contacts
     label: Project Contacts
     folder: "packages/example-content/content/contact"
@@ -47,6 +44,7 @@ collections:
       - { name: title, label: Title, required: false }
       - { name: email, label: Email, required: false }
       - { name: employer, label: Employer, required: false }
+      - { name: image, label: Contact Image, widget: "image", required: false}
       - { name: contactImage, label: Contact Image, widget: "image", required: false}
       - { name: lastModified, label: Last Modified, widget: datetime, required: false }
   - name: topics
