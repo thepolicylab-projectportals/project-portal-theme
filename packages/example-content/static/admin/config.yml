@@ -33,8 +33,7 @@ collections:
       - { name: fundingInfo, label: Funding Info, required: false, widget: markdown}
       - { name: emailContent, label: Email Content, widget: markdown, required: false}
       - { name: mainContact, label: Main Contact, widget: "relation", collection: "Contacts", search_fields: [ "name" ], value_field: "name", display_fields: [ "name" ]}
-      - { name: contacts, label: Contacts, widget: "relation",   collection: "Contacts", search_fields: ["name"], value_field: "name", display_fields: ["name"], multiple: true, required: false}
-      - { name: showMainContactOnProjectTeam, label: Show Main Contact On Project Team, widget: "boolean", default: false, required: false }
+      - { name: projectTeam, label: Project Team, widget: "relation",   collection: "Contacts", search_fields: ["name"], value_field: "name", display_fields: ["name"], multiple: true, required: false}
       - { name: lastModified, label: Last Modified, widget: datetime, required: false}
   - name: Contacts
     label: Project Contacts
