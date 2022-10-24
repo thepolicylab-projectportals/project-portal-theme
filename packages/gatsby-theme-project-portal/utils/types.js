@@ -47,8 +47,8 @@ const projectTypeDefs = `
       
       lastModified: Date @dateformat(formatString: "YYYY-MM-DDTHH:mm:ss.SSSZ")
       
-      mainContact: ${CONTACT_NODE_TYPE} @link(by: "key")
-      projectTeam: [${CONTACT_NODE_TYPE}] @link(by: "key")
+      mainContact: ${CONTACT_NODE_TYPE}
+      projectTeam: [${CONTACT_NODE_TYPE}]
     }
   `
 
@@ -61,7 +61,7 @@ const contactTypeDefs = `
     title: String
     email: String
     
-    image: String
+    image: File
     
     lastModified: Date @dateformat(formatString: "YYYY-MM-DDTHH:mm:ss.SSSZ")
   }
