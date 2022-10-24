@@ -52,6 +52,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     type ${CONTACT_JSON_TYPE} implements Node {
       key: String!
       name: String
+      image: File @fileByRelativePath
     }
   `
   createTypes(contactJsonTypeDefs)
