@@ -21,7 +21,7 @@
   "key": "example key",
   "name": "example name",
   "title": "example title",
-  "opportunityCloses": "example opportunityCloses",
+  "opportunityCloses": "2022-12-31",
   "purpose": "example purpose",
   "requirement": "example requirement",
   "startDate": "2022-06-17",
