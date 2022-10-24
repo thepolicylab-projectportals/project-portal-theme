@@ -29,6 +29,5 @@
   "emailContent": "example emailContent",
   "purpose": "example purpose",
   "key": "example key",
-  "lastModified": "example lastModified",
   "deliverable": "### example deliverable\n\n* \"Test\"\n* \"﻿Test 1\""
 }
