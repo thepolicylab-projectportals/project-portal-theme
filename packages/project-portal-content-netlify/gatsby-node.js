@@ -105,8 +105,8 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
 
         mainContact: {
           type: CONTACT_NODE_TYPE,
-          resolve: (source, args, context, info) => {
-            return context.nodeModel.findOne({
+          resolve: async (source, args, context) => {
+            return await context.nodeModel.findOne({
               type: CONTACT_JSON_TYPE,
               query: {
                 filter: { key: { eq: source.mainContact } },
