@@ -37,25 +37,23 @@ exports.createSchemaCustomization = ({ actions }) => {
   // We specify the date-types for the ProjectJson
   // to ensure we load the correct format for the
   // Project nodes
-  const projectJsonTypeDefs = `
+  const typeDefs = `
     type ${PROJECT_JSON_TYPE} implements Node {
       slug: String
       opportunityCloses: Date @dateformat(formatString: "YYYY-MM-DD")
       startDate: Date @dateformat(formatString: "YYYY-MM-DD")
       endDate: Date @dateformat(formatString: "YYYY-MM-DD")
       lastModified: Date @dateformat(formatString: "YYYY-MM-DDTHH:mm:ss.SSSZ")
+      mainContact: ${CONTACT_JSON_TYPE} @link(by: "key")
+      projectTeam: [${CONTACT_JSON_TYPE}] @link(by: "key")
     }
-  `
-  createTypes(projectJsonTypeDefs)
-
-  const contactJsonTypeDefs = `
     type ${CONTACT_JSON_TYPE} implements Node {
       key: String!
       name: String
       image: File @fileByRelativePath
-    }
+      }
   `
-  createTypes(contactJsonTypeDefs)
+  createTypes(typeDefs)
 }
 
 exports.onCreateNode = async ({
