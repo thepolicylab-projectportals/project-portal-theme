@@ -2,7 +2,6 @@ const fs = require("fs")
 
 const {
   PROJECT_NODE_TYPE,
-  CONTACT_NODE_TYPE,
 } = require("@thepolicylab-projectportals/gatsby-theme-project-portal/utils/types")
 const { withDefaults } = require("./utils/default-options")
 
