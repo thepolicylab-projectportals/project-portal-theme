@@ -136,29 +136,3 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
   ]
   createTypes(typeDefs)
 }
-
-// exports.sourceNodes = async function ({
-//   actions,
-//   createContentDigest,
-//   createNodeId,
-//   getNodesByType,
-// }) {
-//   const { createNode } = actions
-//
-//   const projectJsonNodes = await getNodesByType(PROJECT_JSON_TYPE)
-//   console.log("collected project nodes:", projectJsonNodes)
-//
-//   projectJsonNodes.forEach((project) => {
-//     console.log(PROJECT_JSON_TYPE, project)
-//     createNode({
-//       ...project,
-//       id: createNodeId(`${PROJECT_NODE_TYPE}-${project.slug}`),
-//       parent: null,
-//       children: [],
-//       internal: {
-//         type: `${PROJECT_NODE_TYPE}`,
-//         contentDigest: createContentDigest(project),
-//       },
-//     })
-//   })
-// }
