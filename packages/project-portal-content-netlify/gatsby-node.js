@@ -55,15 +55,19 @@ exports.createSchemaCustomization = ({ actions }) => {
   createTypes(typeDefs)
 }
 
-exports.onCreateNode = async ({
-  node, // the node that was just created
-  actions: { createNode },
-  createNodeId,
+exports.sourceNodes = async function ({
+  actions,
   createContentDigest,
-}) => {
-  if (node.internal.type === PROJECT_JSON_TYPE) {
-    console.log(PROJECT_JSON_TYPE, node)
-    const project = node
+  createNodeId,
+  getNodesByType,
+}) {
+  const { createNode } = actions
+
+  const projectJsonNodes = await getNodesByType(PROJECT_JSON_TYPE)
+  console.log("collected project nodes:", projectJsonNodes)
+
+  projectJsonNodes.forEach((project) => {
+    console.log(PROJECT_JSON_TYPE, project)
     createNode({
       ...project,
       id: createNodeId(`${PROJECT_NODE_TYPE}-${project.slug}`),
@@ -74,19 +78,5 @@ exports.onCreateNode = async ({
         contentDigest: createContentDigest(project),
       },
     })
-  }
-  if (node.internal.type === CONTACT_JSON_TYPE) {
-    console.log(CONTACT_JSON_TYPE, node)
-    const contact = node
-    createNode({
-      ...contact,
-      id: createNodeId(`${CONTACT_NODE_TYPE}-${contact.key}`),
-      parent: null,
-      children: [],
-      internal: {
-        type: `${CONTACT_NODE_TYPE}`,
-        contentDigest: createContentDigest(contact),
-      },
-    })
-  }
+  })
 }
