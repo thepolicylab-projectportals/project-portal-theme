@@ -21,9 +21,8 @@ exports.onPreInit = () => {
 exports.onPreBootstrap = ({ reporter }, pluginOptions) => {
   console.log(withDefaults(pluginOptions))
 
-  const { projectPath, contactPath, contactImagePath } =
-    withDefaults(pluginOptions)
-  const paths = [projectPath, contactPath, contactImagePath]
+  const { projectPath, contactPath } = withDefaults(pluginOptions)
+  const paths = [projectPath, contactPath]
 
   paths.forEach((path) => {
     if (!fs.existsSync(path)) {
