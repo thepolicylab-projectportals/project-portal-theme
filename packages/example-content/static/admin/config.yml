@@ -45,7 +45,6 @@ collections:
       - { name: email, label: Email, required: false }
       - { name: employer, label: Employer, required: false }
       - { name: contactImage, label: Contact Image, widget: "image", required: false}
-      - { name: projectPageContent, label: Project Page Content, widget: "relation", collection: "projects", search_fields: [ "slug" ], value_field: "slug", display_fields: [ "slug" ], required: false }
       - { name: lastModified, label: Last Modified, widget: datetime, required: false }
   - name: topics
     label: Topics
