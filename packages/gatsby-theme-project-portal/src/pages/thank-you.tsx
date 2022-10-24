@@ -16,18 +16,14 @@ interface ThankYouProps {
 }
 
 export default ({ data }: ThankYouProps) => {
+  const image = data.bgImage.childImageSharp.resize.src
   return (
     <Layout
       activePage="about"
       title="Thank you"
       description="Thank you for your interest in working with us!"
     >
-      <HeaderWithImage
-        title="Thank You"
-        lede=""
-        imageSrc={data.bgImage.childImageSharp.resize.src}
-      />
-
+      {image && <HeaderWithImage title="Thank You" lede="" imageSrc={image} />}
       <div className="container pt-6 overflow-hidden bg-white">
         <div className="flex flex-wrap">
           <div className="lg:w-2/3 sm:w-full">
