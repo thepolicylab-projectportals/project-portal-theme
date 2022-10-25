@@ -1,0 +1,78 @@
+name: pa11y tests
+
+on: pull_request
+
+jobs:
+  build:
+    name: Building site and running pa11y-ci tests
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        site: [defaults, example-site]
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v2
+
+      - run: yarn install --frozen-lockfile && yarn workspace ${{ matrix.site }} build
+        env:
+          RECAPTCHA_SITE_KEY: ${{ secrets.RECAPTCHA_SITE_KEY }}
+
+      - name: Start up app
+        run: yarn yarn workspace ${{ matrix.site }} serve & npx wait-on http://localhost:9000
+
+      - name: Run pa11y-ci
+        run: npm exec -c 'pa11y-ci -s http://localhost:9000/sitemap/sitemap-0.xml'
+
+      - name: Prettify result file
+        if: ${{ always() }}
+        run: python -m json.tool results.json pretty_results.json
+
+      - name: Read pa11y result file
+        if: ${{ always() }}
+        id: pa11y_output
+        uses: juliangruber/read-file-action@v1
+        with:
+          path: ./pretty_results.json
+
+      - name: Comment on pull request (failure).
+        if: ${{ failure() }}
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          header: ${{ matrix.site }}
+          message:
+            "<p><small>Note: This comment gets updated with every commit</small></p>
+
+            <details>
+            <summary>
+            <p>Git SHA: <code>${{ github.event.pull_request.head.sha }}</code></p>
+            <p>Site: <code>${{ matrix.site }}</code></p>
+            <h3>Pa11y test status: <strong>FAIL</strong></h3>
+            </summary>
+
+            <pre><code>
+            ${{ steps.pa11y_output.outputs.content }}
+            </code></pre>
+            </details>"
+
+      - name: Comment on pull request (success).
+        if: ${{ success() }}
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          header: ${{ matrix.site }}
+          message:
+            "<p><small>Note: This comment gets updated with every commit</small></p>
+
+            <details>
+            <summary>
+            <p>Git SHA: <code>${{ github.event.pull_request.head.sha }}</code></p>
+            <p>Site: <code>${{ matrix.site }}</code></p>
+            <h3>Pa11y test status: <strong>PASS</strong></h3>
+            </summary>
+
+            <pre><code>
+            ${{ steps.pa11y_output.outputs.content }}
+            </code></pre>
+            </details>"
