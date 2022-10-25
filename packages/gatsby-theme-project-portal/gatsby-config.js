@@ -1,3 +1,6 @@
+require("dotenv").config({
+  path: `${__dirname}/.env`,
+})
 const { withDefaults } = require(`./utils/default-options`)
 
 module.exports = (themeOptions) => {
@@ -10,6 +13,7 @@ module.exports = (themeOptions) => {
       url: `http://localhost:${process.env.CI ? 9000 : process.env.PORT ?? ``}`,
       locale: "en",
       image: "/icons/icon-256x256.png",
+      recaptchaSiteKey: process.env.RECAPTCHA_SITE_KEY,
     },
     plugins: [
       `gatsby-plugin-image`,
