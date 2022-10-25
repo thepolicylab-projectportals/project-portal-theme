@@ -52,7 +52,7 @@ export default ({ data }: ThankYouProps) => {
 
 export const query = graphql`
   query ThankYouQuery {
-bgImage: file(
+    bgImage: file(
       name: { eq: "contact" }
       extension: { in: ["png", "jpg", "jpeg"] }
       sourceInstanceName: { eq: "themeImages" }
