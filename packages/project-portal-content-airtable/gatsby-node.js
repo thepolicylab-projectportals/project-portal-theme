@@ -41,7 +41,7 @@ exports.onCreateNode = async (
       project.data.showMainContactOnProjectTeam ??
       showMainContactOnProjectTeamDefault
 
-    mainContact = contactsData.slice(0, 1)
+    mainContact = contactsData.slice(0, 1)[0]
 
     if (showMainContactOnProjectTeam) {
       projectTeam = contactsData
