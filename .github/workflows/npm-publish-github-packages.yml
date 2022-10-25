@@ -40,6 +40,6 @@ jobs:
           node-version: 16
           registry-url: https://npm.pkg.github.com/
           scope: '@thepolicylab-projectportals'
-      - run: yarn workspace ${{ matrix.package }} publish --new-version ${{ github.ref_name }}
+      - run: yarn workspace ${{ matrix.package }} publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
