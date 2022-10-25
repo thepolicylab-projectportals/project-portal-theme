@@ -29,12 +29,32 @@ export const query = graphql`
         title
         employer
         email
+        image {
+          childImageSharp {
+            gatsbyImageData(
+              width: 100
+              height: 100
+              placeholder: BLURRED
+              layout: FIXED
+            )
+          }
+        }
       }
       projectTeam {
         name
         title
         employer
         email
+        image {
+          childImageSharp {
+            gatsbyImageData(
+              width: 100
+              height: 100
+              placeholder: BLURRED
+              layout: FIXED
+            )
+          }
+        }
       }
     }
   }
