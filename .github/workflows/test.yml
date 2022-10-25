@@ -26,14 +26,14 @@ jobs:
 
       - name: Prettify result file
         if: ${{ always() }}
-        run: python -m json.tool results.json pretty_results.json
+        run: python -m json.tool pa11y-results.json pretty-pa11y-results.json
 
       - name: Read pa11y result file
         if: ${{ always() }}
         id: pa11y_output
         uses: juliangruber/read-file-action@v1
         with:
-          path: ./pretty_results.json
+          path: ./pretty-pa11y-results.json
 
       - name: Comment on pull request (failure).
         if: ${{ failure() }}

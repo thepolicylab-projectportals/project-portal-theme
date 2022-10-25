@@ -1,0 +1,12 @@
+{
+  "defaults": {
+    "concurrency": 1,
+    "standard": "WCAG2AA",
+    "runners": ["htmlcs"],
+    "reporters": [
+      "cli",
+      ["json", { "fileName": "./pa11y-results.json" }]
+    ],
+    "hideElements": "#g-recaptcha-response, iframe[style*='display: none;']"
+  }
+}
