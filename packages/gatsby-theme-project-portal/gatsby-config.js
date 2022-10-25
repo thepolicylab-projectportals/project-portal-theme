@@ -12,6 +12,16 @@ module.exports = (themeOptions) => {
       image: "/icons/icon-256x256.png",
     },
     plugins: [
+      `gatsby-plugin-image`,
+      `gatsby-plugin-sharp`,
+      `gatsby-transformer-sharp`,
+      {
+        resolve: `gatsby-source-filesystem`,
+        options: {
+          name: `themeImages`,
+          path: themeOptionsWithDefaults.themeImageDirectory,
+        },
+      },
       {
         resolve: `gatsby-plugin-postcss`,
         options: {

@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react"
-import { Link } from "gatsby"
+import { graphql, Link, useStaticQuery } from "gatsby"
 import { FaBars, FaTimes } from "react-icons/fa"
-import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
+import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image"
 import { useProjectPortalConfig, useSiteMetadata } from "../hooks"
 
 interface NavbarItemProps {
@@ -119,25 +119,30 @@ interface NavbarProps {
 }
 
 export const Navbar: FunctionComponent<NavbarProps> = ({ activePage }) => {
-  // const { logo } = useStaticQuery(graphql`
-  //   query NavbarLogoQuery {
-  //     logo: file(relativePath: { regex: "/^logo.png$/" }) {
-  //       childImageSharp {
-  //         gatsbyImageData(width: 64)
-  //       }
-  //     }
-  //   }
-  // `)
-  //   const image = getImage(logo)
-  const image = null // replace this line with the `getImage` line
+  const { logo } = useStaticQuery(graphql`
+    query NavbarLogoQuery {
+      logo: file(
+        relativePath: { regex: "/^navbar.png$/" }
+        # only match files in the "themeImages" sourced directory:
+        sourceInstanceName: { eq: "themeImages" }
+      ) {
+        childImageSharp {
+          gatsbyImageData(width: 64)
+        }
+      }
+    }
+  `)
   const { title } = useSiteMetadata()
   const { pages } = useProjectPortalConfig()
+  const image = getImage(logo)
   return (
-    <NavbarLayout
-      activePage={activePage}
-      title={title}
-      pages={pages}
-      image={image}
-    />
+    <>
+      <NavbarLayout
+        activePage={activePage}
+        title={title}
+        pages={pages}
+        image={image}
+      />
+    </>
   )
 }
