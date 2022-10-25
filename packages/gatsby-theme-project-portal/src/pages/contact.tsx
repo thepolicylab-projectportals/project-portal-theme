@@ -301,7 +301,7 @@ export default ({ data }: ContactProps) => {
             className="mb-10 leading-normal text-body lg:text-body"
             text={useStaticText().contact.lede}
           />
-          <ContactForm recaptcha={data.site.siteMetadata.recaptchaSiteKey} />
+          <ContactForm recaptcha={data.site.siteMetadata?.recaptchaSiteKey} />
         </article>
       </main>
     </Layout>
