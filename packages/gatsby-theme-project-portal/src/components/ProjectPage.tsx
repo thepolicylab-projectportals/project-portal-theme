@@ -1,18 +1,18 @@
 import React, { useState, useEffect, useRef } from "react"
 import { Cards, CardProps } from "../components"
-//import { Layout } from "../layouts/Layout"
+import { Layout } from "../layouts"
 import { HeaderWithImage } from "./HeaderWithImage"
 import { BackIcon } from "./BackIcon"
 import { ForwardIcon } from "./ForwardIcon"
 import Select from "react-select"
+import { isNA } from "../utils"
 
-function customSort(dateField, sortDescending) {
+function customSort(dateField: string, sortAscending: boolean) {
   return function (a, b) {
     let sortValue = 0
-    console.log(a, b)
-    const aValue = a.frontmatter[dateField]
-    const bValue = b.frontmatter[dateField]
-    console.log(aValue, bValue)
+    const aValue = a.data[dateField]
+    const bValue = b.data[dateField]
+
     // equal items sort equally
     if (aValue === bValue) {
       sortValue = 0
@@ -28,7 +28,7 @@ function customSort(dateField, sortDescending) {
       sortValue = aValue > bValue ? -1 : 1
     }
 
-    if (!sortDescending) {
+    if (sortAscending) {
       sortValue = sortValue * -1
     }
 
@@ -39,11 +39,11 @@ export interface ProjectPageProps {
   title: string
   lede: string
   pageName: string
-  dateField: string
+  sortOptions: []
   data: {
     items: {
       nodes: {
-        frontmatter: CardProps
+        data: CardProps
       }[]
     }
     bgImage: {
@@ -61,7 +61,7 @@ export const ProjectPage = ({
   data,
   lede,
   pageName,
-  dateField,
+  sortOptions,
 }: ProjectPageProps) => {
   const ITEMS_PER_PAGE = 6
   const allProjects = data.items.nodes
@@ -69,10 +69,10 @@ export const ProjectPage = ({
   const [displayProjects, setDisplayProjects] = useState(allProjects)
 
   const projectTopics = []
-  console.log(data)
+
   for (const project of allProjects) {
-    if (project.frontmatter.topics) {
-      for (const topic of project.frontmatter.topics) {
+    if (project.data.topics) {
+      for (const topic of project.data.topics) {
         if (!projectTopics.some(({ value }) => value === topic)) {
           projectTopics.push({ value: topic, label: topic })
         }
@@ -80,16 +80,40 @@ export const ProjectPage = ({
     }
   }
 
-  const sortOptions = [
-    { value: true, label: "Newest to Oldest" },
-    { value: false, label: "Oldest to Newest" },
+  const projectStatus = new Map()
+  projectStatus.set("created", "Date Posted")
+  projectStatus.set("opportunityCloses", "Opportunity Closes")
+  projectStatus.set("startDate", "Project Started")
+  projectStatus.set("endDate", "Project Ended")
+
+  var sortingOptions = []
+  var index = 1
+  var sortDirections = [
+    { direction: "Newest to Oldest", sortAscending: false },
+    { direction: "Oldest to Newest", sortAscending: true },
   ]
-  const [sortDirection, setSortDirection] = useState(sortOptions[0])
+  for (const sortOption of sortOptions) {
+    const project_status = projectStatus.get(sortOption)
+
+    for (const direction of sortDirections) {
+      const newSortOption = {
+        value: index,
+        label: project_status + ": " + direction.direction,
+        field: sortOption,
+        sortAscending: direction.sortAscending,
+      }
+      sortingOptions.push(newSortOption)
+      index++
+    }
+  }
+
+  const [sortDirection, setSortDirection] = useState(sortingOptions[0])
 
   useEffect(() => {
     const sortedList = [...allProjects]
-    console.log(dateField, sortDirection.value)
-    sortedList.sort(customSort(dateField, sortDirection.value))
+    sortedList.sort(
+      customSort(sortDirection.field, sortDirection.sortAscending)
+    )
     setSortedProjects(sortedList)
     setPageStart(0)
     setPageEnd(ITEMS_PER_PAGE)
@@ -161,9 +185,7 @@ export const ProjectPage = ({
       const filteredTopics = selectedOptions.map(({ value }) => value)
       setDisplayProjects(
         sortedProjects.filter((project) =>
-          project.frontmatter.topics.some((topic) =>
-            filteredTopics.includes(topic)
-          )
+          project.data.topics.some((topic) => filteredTopics.includes(topic))
         )
       )
     }
@@ -176,12 +198,14 @@ export const ProjectPage = ({
   }
 
   return (
-    <Layout activePage={pageName} title={title} description={lede}>
-      <HeaderWithImage
-        title={title}
-        imageSrc={data.bgImage.childImageSharp.resize.src}
-        lede={lede}
-      />
+    <main>
+      <header>
+        <HeaderWithImage
+          title={title}
+          imageSrc={data.bgImage.childImageSharp.resize.src}
+          lede={lede}
+        />
+      </header>
       <div className="relative">
         <div ref={scrollToRef} className="absolute -top-100px"></div>
       </div>
@@ -197,7 +221,7 @@ export const ProjectPage = ({
               name="sort-select"
               value={sortDirection}
               onChange={setSortDirection}
-              options={sortOptions}
+              options={sortingOptions}
               styles={selectStyle}
             />
           </div>
@@ -217,47 +241,52 @@ export const ProjectPage = ({
             />
           </div>
         </div>
+        <div className="sr-only">
+          Total Results: {displayProjects.length} Projects
+        </div>
         <Cards nodes={list} />
       </div>
-      <div className="flex items-center gap-4 justify-center flex-wrap">
-        <div className="flex-1 flex justify-end">
-          <button
-            className={`font-bold pr-4 ${
-              hasPrev ? "text-primary" : "text-gray-500 pointer-events-none"
-            }`}
-            onClick={handleLoadPrev}
-          >
-            <BackIcon /> Previous
-          </button>
+      {!(isNA(hasPrev) && isNA(hasNext)) && (
+        <div className="flex items-center gap-4 justify-center flex-wrap">
+          <div className="flex-1 flex justify-end">
+            <button
+              className={`font-bold pr-4 ${
+                hasPrev ? "text-primary" : "text-gray-500 pointer-events-none"
+              }`}
+              onClick={handleLoadPrev}
+            >
+              <BackIcon /> Previous
+            </button>
+          </div>
+          <div className="flex items-center gap-4 justify-center">
+            {Array.from({ length: numPages }, (_, i) => {
+              return (
+                <button
+                  className={`${
+                    pageStart / ITEMS_PER_PAGE === i
+                      ? "btn pointer-events-none"
+                      : "btn-white"
+                  } min-w-3rem p-2 border-solid`}
+                  key={"Page" + i}
+                  onClick={() => handleLoadCustom(i)}
+                >
+                  {i + 1}
+                </button>
+              )
+            })}
+          </div>
+          <div className="flex-1 flex justify-start">
+            <button
+              className={`font-bold pl-4 ${
+                hasNext ? "text-primary" : "text-gray-500 pointer-events-none"
+              }`}
+              onClick={handleLoadNext}
+            >
+              Next <ForwardIcon />
+            </button>
+          </div>
         </div>
-        <div className="flex items-center gap-4 justify-center">
-          {Array.from({ length: numPages }, (_, i) => {
-            return (
-              <button
-                className={`${
-                  pageStart / ITEMS_PER_PAGE === i
-                    ? "btn pointer-events-none"
-                    : "btn-white"
-                } min-w-3rem p-2 border-solid`}
-                key={"Page" + i}
-                onClick={() => handleLoadCustom(i)}
-              >
-                {i + 1}
-              </button>
-            )
-          })}
-        </div>
-        <div className="flex-1 flex justify-start">
-          <button
-            className={`font-bold pl-4 ${
-              hasNext ? "text-primary" : "text-gray-500 pointer-events-none"
-            }`}
-            onClick={handleLoadNext}
-          >
-            Next <ForwardIcon />
-          </button>
-        </div>
-      </div>
-    </Layout>
+      )}
+    </main>
   )
 }
