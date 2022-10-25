@@ -31,6 +31,7 @@ module.exports = (themeOptions) => {
           ],
         },
       },
+      `gatsby-plugin-sitemap`,
     ],
   }
 }
