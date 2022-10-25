@@ -38,6 +38,6 @@ jobs:
         with:
           node-version: 16
           registry-url: https://npm.pkg.github.com/
-      - run: yarn workspace ${{ matrix.package }} publish
+      - run: yarn workspace ${{ matrix.package }} publish --new-version ${{ github.ref }}
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
