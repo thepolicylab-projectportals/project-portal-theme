@@ -133,8 +133,8 @@ CMS.init({
             display_fields: ["name"],
           },
           {
-            name: "contacts",
-            label: "Contacts",
+            name: "projectTeam",
+            label: "Project Team",
             widget: "relation",
             collection: "Contacts",
             search_fields: ["name"],
