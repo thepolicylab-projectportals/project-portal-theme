@@ -19,7 +19,7 @@ jobs:
           RECAPTCHA_SITE_KEY: ${{ secrets.RECAPTCHA_SITE_KEY }}
 
       - name: Start up app
-        run: yarn yarn workspace ${{ matrix.site }} serve & npx wait-on http://localhost:9000
+        run: yarn workspace ${{ matrix.site }} serve & npx wait-on http://localhost:9000
 
       - name: Run pa11y-ci
         run: npm exec -c 'pa11y-ci -s http://localhost:9000/sitemap/sitemap-0.xml'
