@@ -52,7 +52,11 @@ export default ({ data }: ThankYouProps) => {
 
 export const query = graphql`
   query ThankYouQuery {
-    bgImage: file(relativePath: { regex: "/contact.jpg/" }) {
+bgImage: file(
+      name: { eq: "contact" }
+      extension: { in: ["png", "jpg", "jpeg"] }
+      sourceInstanceName: { eq: "themeImages" }
+    ) {
       childImageSharp {
         resize(width: 1536, height: 352) {
           src
