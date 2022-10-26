@@ -211,3 +211,10 @@ CMS.init({
     ],
   },
 })
+
+CMS.registerEventListener({
+  name: "preSave",
+  handler: ({ entry }) => {
+    return entry.get("data").set("lastModified", new Date().toISOString())
+  },
+})
