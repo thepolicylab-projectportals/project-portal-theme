@@ -26,6 +26,8 @@ import {
   ProjectPage,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
 
+import { ContactForm } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/pages/contact"
+
 import { useStaticQuery, graphql } from "gatsby"
 import { getImage } from "gatsby-plugin-image"
 
@@ -434,6 +436,7 @@ const Index = () => {
       />
       <Footer />
       <Navbar />
+      <ContactForm />
       <ProjectPage
         allProjects={allProjects}
         bgImage={headerImageSrc}
