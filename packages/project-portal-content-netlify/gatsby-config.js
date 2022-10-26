@@ -5,6 +5,13 @@ module.exports = (pluginOptions) => {
     plugins: [
       `gatsby-transformer-json`,
       {
+        resolve: `gatsby-plugin-netlify-cms`,
+        options: {
+          enableIdentityWidget: true,
+          publicPath: `admin`,
+        },
+      },
+      {
         resolve: `gatsby-source-filesystem`,
         options: {
           name: `project`,
