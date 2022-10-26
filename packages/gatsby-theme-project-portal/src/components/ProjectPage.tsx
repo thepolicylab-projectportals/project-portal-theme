@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from "react"
 import { Cards, CardProps } from "../components"
-import { Layout } from "../layouts"
 import { HeaderWithImage } from "./HeaderWithImage"
 import { BackIcon } from "./BackIcon"
 import { ForwardIcon } from "./ForwardIcon"
@@ -10,8 +9,8 @@ import { isNA } from "../utils"
 function customSort(dateField: string, sortAscending: boolean) {
   return function (a, b) {
     let sortValue = 0
-    const aValue = a.data[dateField]
-    const bValue = b.data[dateField]
+    const aValue = a[dateField]
+    const bValue = b[dateField]
 
     // equal items sort equally
     if (aValue === bValue) {
@@ -38,41 +37,27 @@ function customSort(dateField: string, sortAscending: boolean) {
 export interface ProjectPageProps {
   title: string
   lede: string
-  pageName: string
-  sortOptions: []
-  data: {
-    items: {
-      nodes: {
-        data: CardProps
-      }[]
-    }
-    bgImage: {
-      childImageSharp: {
-        resize: {
-          src: string
-        }
-      }
-    }
-  }
+  sortOptions: [...any]
+  allProjects: CardProps[]
+  bgImage: string
 }
 
 export const ProjectPage = ({
   title,
-  data,
+  allProjects,
   lede,
-  pageName,
   sortOptions,
+  bgImage,
 }: ProjectPageProps) => {
   const ITEMS_PER_PAGE = 6
-  const allProjects = data.items.nodes
   const [sortedProjects, setSortedProjects] = useState(allProjects)
   const [displayProjects, setDisplayProjects] = useState(allProjects)
 
   const projectTopics = []
 
   for (const project of allProjects) {
-    if (project.data.topics) {
-      for (const topic of project.data.topics) {
+    if (project.topics) {
+      for (const topic of project.topics) {
         if (!projectTopics.some(({ value }) => value === topic)) {
           projectTopics.push({ value: topic, label: topic })
         }
@@ -185,7 +170,7 @@ export const ProjectPage = ({
       const filteredTopics = selectedOptions.map(({ value }) => value)
       setDisplayProjects(
         sortedProjects.filter((project) =>
-          project.data.topics.some((topic) => filteredTopics.includes(topic))
+          project.topics.some((topic) => filteredTopics.includes(topic))
         )
       )
     }
@@ -200,11 +185,7 @@ export const ProjectPage = ({
   return (
     <main>
       <header>
-        <HeaderWithImage
-          title={title}
-          imageSrc={data.bgImage.childImageSharp.resize.src}
-          lede={lede}
-        />
+        <HeaderWithImage title={title} imageSrc={bgImage} lede={lede} />
       </header>
       <div className="relative">
         <div ref={scrollToRef} className="absolute -top-100px"></div>
