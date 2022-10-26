@@ -65,23 +65,13 @@ const sample_card = {
   statusOfData: "Testing\n",
   fundingInfo: "- Test.\n- Test.\n",
   commitment: "10 hours a week",
-  contactName: "Sue DeNym",
-  contactTitle: "The Boss",
-  contactEmail: "me@me.com",
   lastModified: "2022-05-27T16:34:04.000Z",
-  created: "2021-11-04T15:49:30.000Z",
 }
 
 const sample_cards = [
-  {
-    data: sample_card,
-  },
-  {
-    data: { ...sample_card, ...{ status: "ongoing" } },
-  },
-  {
-    data: { ...sample_card, ...{ status: "completed" } },
-  },
+  sample_card,
+  { ...sample_card, ...{ status: "ongoing" } },
+  { ...sample_card, ...{ status: "completed" } },
 ]
 
 const pages = [
