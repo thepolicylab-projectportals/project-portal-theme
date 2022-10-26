@@ -17,3 +17,5 @@ artifacts
 .pnp.*
 
 .env
+
+pa11y-results.json

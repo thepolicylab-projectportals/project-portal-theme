@@ -13,6 +13,7 @@ export const useProjectPortalConfig = () => {
           show
         }
         themeImageDirectory
+        recaptchaSiteKey
       }
     }
   `)

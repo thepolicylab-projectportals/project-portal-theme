@@ -23,7 +23,10 @@ import {
   HeaderWithImage,
   ProjectDetailLayout,
   MainContact,
+  ProjectPage,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
+
+import { ContactForm } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/pages/contact"
 
 import { useStaticQuery, graphql } from "gatsby"
 import { getImage } from "gatsby-plugin-image"
@@ -65,23 +68,13 @@ const sample_card = {
   statusOfData: "Testing\n",
   fundingInfo: "- Test.\n- Test.\n",
   commitment: "10 hours a week",
-  contactName: "Sue DeNym",
-  contactTitle: "The Boss",
-  contactEmail: "me@me.com",
   lastModified: "2022-05-27T16:34:04.000Z",
-  created: "2021-11-04T15:49:30.000Z",
 }
 
 const sample_cards = [
-  {
-    data: sample_card,
-  },
-  {
-    data: { ...sample_card, ...{ status: "ongoing" } },
-  },
-  {
-    data: { ...sample_card, ...{ status: "completed" } },
-  },
+  sample_card,
+  { ...sample_card, ...{ status: "ongoing" } },
+  { ...sample_card, ...{ status: "completed" } },
 ]
 
 const pages = [
@@ -131,7 +124,7 @@ const contact1 = {
   title: "Assistant Head of Gatsby",
   email: "gatsby@brown.edu",
   name: "Herbert Mumphrey III",
-  contactImage: null,
+  image: null,
   showEmail: false,
 }
 
@@ -192,6 +185,41 @@ const Index = () => {
   const headerImageSrc = HeaderImage.childImageSharp.resize.src
   const footerImage = getImage(FooterImageQuery)
 
+  const allProjects = [
+    {
+      question: "Hello world (from json)?",
+      slug: "completed-project",
+      status: "completed",
+      summary: "example summary",
+      deliverable: "example deliverable",
+      expertise: "example expertise",
+      keyDates: "example keyDates",
+      endDate: "2016-12-15",
+      agency: "example agency",
+      topics: ["example topics"],
+      statusOfData: "example statusOfData",
+      priorResearch: null,
+      fundingInfo: "example fundingInfo",
+      lastModified: "Invalid date",
+    },
+    {
+      question: "Hello world2 (from json)?",
+      slug: "completed-project-2",
+      status: "completed",
+      summary: "example summary",
+      deliverable: "example deliverable",
+      expertise: "example expertise",
+      keyDates: "example keyDates",
+      endDate: "2016-12-15",
+      agency: "example agency",
+      topics: ["example topics"],
+      statusOfData: "example statusOfData",
+      priorResearch: null,
+      fundingInfo: "example fundingInfo",
+      lastModified: "Invalid date",
+    },
+  ]
+
   return (
     <>
       <DevelopmentBanner />
@@ -245,7 +273,7 @@ const Index = () => {
         title={"contact1Title"}
         email={"user1@example.com"}
         name={"contact1"}
-        contactImage={bottomBannerImage}
+        image={bottomBannerImage}
         showEmail={true}
       />
       {/*Contact with Hide Email*/}
@@ -254,7 +282,7 @@ const Index = () => {
         title={"contact2Title"}
         email={"user2@example.com"}
         name={"contact2"}
-        contactImage={contact}
+        image={contact}
         showEmail={false}
       />
       {/*Contact with Hide Email*/}
@@ -271,7 +299,7 @@ const Index = () => {
         title={"contactNewTitle"}
         employer={"testEmployer"}
         email={"user2@example.com"}
-        contactImage={contact}
+        image={contact}
         status={"open"}
         emailContent={"test content"}
       />
@@ -294,7 +322,7 @@ const Index = () => {
         title={"contactNewTitle"}
         employer={"testEmployer"}
         email={"user2@example.com"}
-        contactImage={contact}
+        image={contact}
         status={"open"}
       />
       <MainContact
@@ -408,6 +436,21 @@ const Index = () => {
       />
       <Footer />
       <Navbar />
+      <ContactForm />
+      <ProjectPage
+        allProjects={allProjects}
+        bgImage={headerImageSrc}
+        title={"sample title"}
+        lede={"sample lede"}
+        sortOptions={["endDate", "created"]}
+      />
+      <ProjectPage
+        allProjects={[]}
+        bgImage={headerImageSrc}
+        title={"sample title"}
+        lede={"sample lede"}
+        sortOptions={["endDate", "created"]}
+      />
     </>
   )
 }
