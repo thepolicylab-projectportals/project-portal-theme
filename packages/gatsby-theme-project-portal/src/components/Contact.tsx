@@ -1,5 +1,6 @@
 import React from "react"
-import { StaticImage, GatsbyImage, getImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { graphql, useStaticQuery } from "gatsby"
 
 export interface ContactType {
   name: string
@@ -11,6 +12,30 @@ export interface ContactType {
 
 interface ContactProps extends ContactType {
   showEmail: boolean
+}
+
+export const DefaultContactImage = ({ alt }) => {
+  const { logo } = useStaticQuery(graphql`
+    query DefaultContactImageQuery {
+      logo: file(
+        name: { eq: "default-contact" }
+        extension: { in: ["png", "jpg", "jpeg"] }
+        # only match files in the "themeImages" sourced directory:
+        sourceInstanceName: { eq: "themeImages" }
+      ) {
+        childImageSharp {
+          gatsbyImageData(width: 100, height: 100)
+        }
+      }
+    }
+  `)
+
+  const image = getImage(logo)
+  return (
+    <>
+      <GatsbyImage className="rounded-full" alt={alt} image={image} />
+    </>
+  )
 }
 
 export const Contact: React.FC<ContactProps> = ({
@@ -40,15 +65,7 @@ export const Contact: React.FC<ContactProps> = ({
             }}
           />
         ) : (
-          <StaticImage
-            className="rounded-full"
-            alt={name}
-            src="../images/narwhal.jpg"
-            width={100}
-            height={100}
-            placeholder="blurred"
-            layout="fixed"
-          />
+          <DefaultContactImage alt={name} />
         )}
       </div>
       <div className="pl-2 pr-2 pb-2">
