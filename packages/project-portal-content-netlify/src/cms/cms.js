@@ -13,16 +13,17 @@ CMS.init({
         folder: "content/project",
         extension: "json",
         create: true,
-        identifier_field: "slug",
+        identifier_field: "title",
         fields: [
+          {
+            name: "title",
+            label: "Short title",
+            widget: "string",
+          },
           {
             name: "question",
             label: "Question",
             widget: "markdown",
-          },
-          {
-            name: "slug",
-            label: "Slug",
           },
           {
             name: "status",
