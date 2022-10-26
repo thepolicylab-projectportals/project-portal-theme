@@ -9,6 +9,8 @@ module.exports = (pluginOptions) => {
         options: {
           enableIdentityWidget: true,
           publicPath: `admin`,
+          modulePath: `${__dirname}/src/cms/cms.js`,
+          manualInit: true,
         },
       },
       {
