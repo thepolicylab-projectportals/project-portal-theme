@@ -26,5 +26,6 @@ module.exports = {
       },
     },
     `@thepolicylab-projectportals/project-portal-content-netlify`,
+    `@thepolicylab-projectportals/project-portal-plugin-robots`,
   ],
 }
