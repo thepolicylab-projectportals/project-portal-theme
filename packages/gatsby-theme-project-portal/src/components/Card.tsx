@@ -5,7 +5,7 @@ import { ProjectStatus } from "./ProjectStatus"
 import { statusOutput, isEmpty } from "../utils"
 import moment from "moment"
 
-export interface CardProps {
+export interface CardWithoutNavigationProps {
   question: string
   partnerName: string
   slug: string
@@ -26,6 +26,9 @@ export interface CardProps {
   fundingInfo: string
   commitment: string
   lastModified: Date
+}
+
+export interface CardProps extends CardWithoutNavigationProps {
   navigation: {
     current: number
     items: string[]
