@@ -53,13 +53,13 @@ const standardInputBoxErrorClassName =
 
 const messageInputBoxErrorClassName =
   "w-full text-contact h-48 px-3 py-2 leading-tight text-black border-2 border-red shadow appearance-none focus:outline-none focus:shadow-outline"
-
+//
 function changeCheck(event) {
   //job of changeCheck is to remove all error messages that
   //may have been brought up from a previous submit attempt
   if (event.target.name != "subject") {
-    document.getElementById(event.target.name + "ErrorLabel").className =
-      errorLabelHiddenClassName
+    // document.getElementById(event.target.name + "ErrorLabel").className =
+    //   errorLabelHiddenClassName
     document.getElementById(event.target.name).className =
       standardInputBoxStartClassName
 
@@ -129,7 +129,7 @@ export class ContactForm extends Component {
       email: "",
       subject: "",
       message: "",
-      recaptchaSiteKey: recaptcha.recaptcha,
+      recaptchaSiteKey: "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI",
       captchaSuccess: false,
     }
     this.handleChange = this.handleChange.bind(this)
@@ -304,7 +304,7 @@ export default ({ data }: ContactProps) => {
             text={useStaticText().contact.lede}
           />
           <ContactForm
-            recaptcha={data.allProjectPortalConfig.nodes?.recaptchaSiteKey}
+            recaptcha={data.allProjectPortalConfig.nodes.recaptchaSiteKey}
           />
         </article>
       </main>

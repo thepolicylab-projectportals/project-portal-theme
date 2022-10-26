@@ -1,4 +1,7 @@
 const lodash = require("lodash")
+require("dotenv").config({
+  path: `${__dirname}/.env`,
+})
 
 const defaultStaticText = require("./default-static-text.json")
 
