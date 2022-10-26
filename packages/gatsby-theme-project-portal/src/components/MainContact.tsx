@@ -3,13 +3,14 @@ import { Link } from "gatsby"
 import { Contact, MarkdownText } from "../components"
 import { statusOutput } from "../utils"
 import { useProjectPortalConfig, useStaticText } from "../hooks"
+import { IGatsbyImageData } from "gatsby-plugin-image"
 
 interface ProjectContactProps {
   name: string
   title: string
   employer: string
   email: string
-  contactImage?: any
+  image?: IGatsbyImageData
   status: string
   emailContent?: string
 }
@@ -19,7 +20,7 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
   title,
   employer,
   email,
-  contactImage,
+  image,
   status,
   emailContent,
 }) => {
@@ -67,7 +68,7 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
         <h4 className="text-h4">Project point of contact</h4>
         <div className="mt-4 text-body">
           <Contact
-            {...{ name, title, employer, email, contactImage }}
+            {...{ name, title, employer, email, image }}
             showEmail={true}
           />
         </div>

@@ -7,7 +7,7 @@ export interface ContactType {
   title: string
   employer: string
   email: string
-  contactImage?: any
+  image?: any
 }
 
 interface ContactProps extends ContactType {
@@ -43,7 +43,7 @@ export const Contact: React.FC<ContactProps> = ({
   title,
   employer,
   email,
-  contactImage,
+  image,
   showEmail,
 }) => {
   return (
@@ -55,11 +55,11 @@ export const Contact: React.FC<ContactProps> = ({
           height: "100px",
         }}
       >
-        {contactImage ? (
+        {image ? (
           <GatsbyImage
             className="relative rounded-full"
             alt={name}
-            image={getImage(contactImage)}
+            image={getImage(image)}
             style={{
               transform: "translateZ(0)",
             }}

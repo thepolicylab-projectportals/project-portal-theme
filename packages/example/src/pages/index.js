@@ -131,7 +131,7 @@ const contact1 = {
   title: "Assistant Head of Gatsby",
   email: "gatsby@brown.edu",
   name: "Herbert Mumphrey III",
-  contactImage: null,
+  image: null,
   showEmail: false,
 }
 
@@ -245,7 +245,7 @@ const Index = () => {
         title={"contact1Title"}
         email={"user1@example.com"}
         name={"contact1"}
-        contactImage={bottomBannerImage}
+        image={bottomBannerImage}
         showEmail={true}
       />
       {/*Contact with Hide Email*/}
@@ -254,7 +254,7 @@ const Index = () => {
         title={"contact2Title"}
         email={"user2@example.com"}
         name={"contact2"}
-        contactImage={contact}
+        image={contact}
         showEmail={false}
       />
       {/*Contact with Hide Email*/}
@@ -271,7 +271,7 @@ const Index = () => {
         title={"contactNewTitle"}
         employer={"testEmployer"}
         email={"user2@example.com"}
-        contactImage={contact}
+        image={contact}
         status={"open"}
         emailContent={"test content"}
       />
@@ -294,7 +294,7 @@ const Index = () => {
         title={"contactNewTitle"}
         employer={"testEmployer"}
         email={"user2@example.com"}
-        contactImage={contact}
+        image={contact}
         status={"open"}
       />
       <MainContact
