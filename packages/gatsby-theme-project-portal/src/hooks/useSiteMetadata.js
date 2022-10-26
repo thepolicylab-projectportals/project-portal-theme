@@ -9,7 +9,6 @@ export const useSiteMetadata = () => {
           description
           url
           locale
-          recaptchaSiteKey
         }
       }
     }

@@ -7,6 +7,7 @@ const projectPortalConfigTypeDefs = `
       showDevBanner: Boolean
       projectInterestLink: String
       pages: [NavbarItemType]
+      recaptchaSiteKey: String
     }
     type NavbarItemType {
       name: String
