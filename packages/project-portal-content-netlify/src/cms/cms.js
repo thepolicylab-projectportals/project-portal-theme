@@ -129,7 +129,7 @@ CMS.init({
             widget: "relation",
             collection: "Contacts",
             search_fields: ["name"],
-            value_field: "name",
+            value_field: "key",
             display_fields: ["name"],
           },
           {
@@ -138,7 +138,7 @@ CMS.init({
             widget: "relation",
             collection: "Contacts",
             search_fields: ["name"],
-            value_field: "name",
+            value_field: "key",
             display_fields: ["name"],
             multiple: true,
             required: false,
@@ -157,10 +157,15 @@ CMS.init({
         folder: "content/contact",
         create: true,
         extension: "json",
-        identifier_field: "name",
+        identifier_field: "key",
         media_folder: "",
         public_folder: "",
         fields: [
+          {
+            name: "key",
+            label: "Key",
+            widget: "string",
+          },
           {
             name: "name",
             label: "Name",
