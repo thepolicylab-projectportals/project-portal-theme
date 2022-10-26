@@ -1,4 +1,5 @@
 backend:
   name: git-gateway
-  branch: 52-add-netlify-cms-functionality
-local_backend: true
+  branch: main
+publish_mode: editorial_workflow
+local_backend: false
