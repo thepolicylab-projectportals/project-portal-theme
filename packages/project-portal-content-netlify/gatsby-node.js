@@ -93,7 +93,7 @@ exports.createSchemaCustomization = ({ actions, schema, getNode }) => {
             return await context.nodeModel.findOne({
               type: CONTACT_JSON_TYPE,
               query: {
-                filter: { key: { eq: source.mainContact } },
+                filter: { slug: { eq: source.mainContact } },
               },
             })
           },
@@ -104,7 +104,7 @@ exports.createSchemaCustomization = ({ actions, schema, getNode }) => {
             const { entries } = await context.nodeModel.findAll({
               type: CONTACT_JSON_TYPE,
               query: {
-                filter: { key: { in: source.projectTeam ?? [] } },
+                filter: { slug: { in: source.projectTeam ?? [] } },
               },
             })
             return entries
