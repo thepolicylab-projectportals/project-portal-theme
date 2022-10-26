@@ -41,7 +41,6 @@ By default, the plugin supports look for content files in the site's directory a
 The projects should be formatted as follows:
 ```json
 {
-  "slug": "first-project",
   "question": "Hello world?",
   "mainContact": "first-contact",
   "projectTeam": ["first-contact", "second-contact"]
