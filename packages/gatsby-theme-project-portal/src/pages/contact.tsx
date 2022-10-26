@@ -291,7 +291,7 @@ export default ({ data }: ContactProps) => {
           <HeaderWithImage
             title="Contact"
             lede=""
-            imageSrc={data?.bgImage.childImageSharp.resize.src}
+            imageSrc={data?.bgImage?.childImageSharp.resize.src}
           />
         </header>
 
