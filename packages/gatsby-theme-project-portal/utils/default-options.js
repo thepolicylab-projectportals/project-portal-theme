@@ -18,7 +18,9 @@ function withDefaults(themeOptions) {
     ],
     tailwindConfig:
       themeOptions.tailwindConfig || require(`../src/styles/tailwind.presets`),
-    recaptchaSiteKey: themeOptions.recaptchaSiteKey || ``,
+    recaptchaSiteKey:
+      themeOptions.recaptchaSiteKey ||
+      `6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI`,
   }
 }
 

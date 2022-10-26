@@ -119,7 +119,7 @@ function submitCheck(state) {
   return nameCheck && emailCheck && messageCheck
 }
 
-class ContactForm extends Component {
+export class ContactForm extends Component {
   state: ContactFormState
 
   constructor(recaptcha, props) {
@@ -162,6 +162,7 @@ class ContactForm extends Component {
   }
 
   render() {
+    console.log("recapthca", this.state.recaptchaSiteKey)
     return (
       <form
         onSubmit={this.handleSubmit}
@@ -257,12 +258,12 @@ class ContactForm extends Component {
             onChange={this.handleChange}
           />
         </div>
-
-        <ReCAPTCHA
-          sitekey={this.state.recaptchaSiteKey}
-          onChange={this.handleCaptcha}
-        />
-
+        {this.state.recaptchaSiteKey && (
+          <ReCAPTCHA
+            sitekey={this.state.recaptchaSiteKey}
+            onChange={this.handleCaptcha}
+          />
+        )}
         <div className="flex mt-4 items-center justify-between">
           <button
             className="btn"
@@ -290,7 +291,7 @@ export default ({ data }: ContactProps) => {
           <HeaderWithImage
             title="Contact"
             lede=""
-            imageSrc={data.bgImage?.childImageSharp.resize.src}
+            imageSrc={data?.bgImage.childImageSharp.resize.src}
           />
         </header>
 
@@ -303,7 +304,7 @@ export default ({ data }: ContactProps) => {
             text={useStaticText().contact.lede}
           />
           <ContactForm
-            recaptcha={data.allProjectPortalConfig.nodes.recaptchaSiteKey}
+            recaptcha={data.allProjectPortalConfig.nodes?.recaptchaSiteKey}
           />
         </article>
       </main>
