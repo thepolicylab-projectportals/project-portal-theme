@@ -278,6 +278,7 @@ class ContactForm extends Component {
 }
 
 export default ({ data }: ContactProps) => {
+  console.log(data)
   return (
     <Layout
       activePage="Contact"
