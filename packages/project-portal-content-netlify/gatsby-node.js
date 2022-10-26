@@ -32,63 +32,107 @@ exports.onPreBootstrap = ({ reporter }, pluginOptions) => {
   })
 }
 
-exports.createSchemaCustomization = ({ actions }) => {
+exports.createSchemaCustomization = ({ actions, schema }) => {
   const { createTypes } = actions
-  // We specify the date-types for the ProjectJson
-  // to ensure we load the correct format for the
-  // Project nodes
-  const projectJsonTypeDefs = `
-    type ${PROJECT_JSON_TYPE} implements Node {
-      slug: String
-      opportunityCloses: Date @dateformat(formatString: "YYYY-MM-DD")
-      startDate: Date @dateformat(formatString: "YYYY-MM-DD")
-      endDate: Date @dateformat(formatString: "YYYY-MM-DD")
-      lastModified: Date @dateformat(formatString: "YYYY-MM-DDTHH:mm:ss.SSSZ")
-    }
-  `
-  createTypes(projectJsonTypeDefs)
 
-  const contactJsonTypeDefs = `
-    type ${CONTACT_JSON_TYPE} implements Node {
-      key: String!
-      name: String
-    }
-  `
-  createTypes(contactJsonTypeDefs)
-}
+  const typeDefs = [
+    schema.buildObjectType({
+      name: PROJECT_JSON_TYPE,
+      interfaces: ["Node", PROJECT_NODE_TYPE],
+      fields: {
+        slug: "String!",
+        question: "String",
+        status: "String",
+        opportunityCloses: {
+          type: "Date",
+          extensions: {
+            dateformat: {},
+          },
+        },
+        startDate: {
+          type: "Date",
+          extensions: {
+            dateformat: {},
+          },
+        },
+        endDate: {
+          type: "Date",
+          extensions: {
+            dateformat: {},
+          },
+        },
 
-exports.onCreateNode = async ({
-  node, // the node that was just created
-  actions: { createNode },
-  createNodeId,
-  createContentDigest,
-}) => {
-  if (node.internal.type === PROJECT_JSON_TYPE) {
-    console.log(PROJECT_JSON_TYPE, node)
-    const project = node
-    createNode({
-      ...project,
-      id: createNodeId(`${PROJECT_NODE_TYPE}-${project.slug}`),
-      parent: null,
-      children: [],
-      internal: {
-        type: `${PROJECT_NODE_TYPE}`,
-        contentDigest: createContentDigest(project),
+        agency: "String",
+        topics: "[String]",
+
+        summary: "String",
+        deliverable: "String",
+        purpose: "String",
+        expertise: "String",
+        requirement: "String",
+        keyDates: "String",
+        statusOfData: "String",
+        priorResearch: "String",
+        fundingInfo: "String",
+        emailContent: "String",
+
+        lastModified: {
+          type: "Date",
+          extensions: {
+            dateformat: { formatString: "YYYY-MM-DDTHH:mm:ss.SSSZ" },
+          },
+        },
+
+        mainContact: {
+          type: CONTACT_NODE_TYPE,
+          resolve: async (source, args, context) => {
+            return await context.nodeModel.findOne({
+              type: CONTACT_JSON_TYPE,
+              query: {
+                filter: { key: { eq: source.mainContact } },
+              },
+            })
+          },
+        },
+        projectTeam: {
+          type: [CONTACT_JSON_TYPE],
+          resolve: async (source, args, context) => {
+            const { entries } = await context.nodeModel.findAll({
+              type: CONTACT_JSON_TYPE,
+              query: {
+                filter: { key: { in: source.projectTeam ?? [] } },
+              },
+            })
+            return entries
+          },
+        },
       },
-    })
-  }
-  if (node.internal.type === CONTACT_JSON_TYPE) {
-    console.log(CONTACT_JSON_TYPE, node)
-    const contact = node
-    createNode({
-      ...contact,
-      id: createNodeId(`${CONTACT_NODE_TYPE}-${contact.key}`),
-      parent: null,
-      children: [],
-      internal: {
-        type: `${CONTACT_NODE_TYPE}`,
-        contentDigest: createContentDigest(contact),
+    }),
+    schema.buildObjectType({
+      name: CONTACT_JSON_TYPE,
+      interfaces: ["Node", CONTACT_NODE_TYPE],
+      fields: {
+        key: "String!",
+        email: "String",
+        name: "String",
+        employer: "String",
+        title: "String",
+        image: {
+          type: "File",
+          resolve: async (source, args, context) => {
+            return await context.nodeModel.findOne({
+              type: "File",
+              query: {
+                filter: {
+                  relativePath: { eq: source.image },
+                  sourceInstanceName: { eq: "contact" },
+                },
+              },
+            })
+          },
+        },
       },
-    })
-  }
+    }),
+  ]
+  createTypes(typeDefs)
 }
