@@ -23,7 +23,7 @@ export const SiteMetadata: FunctionComponent<SiteMetadataProps> = ({
         title: defaultTitle,
         description: defaultDescription,
         image: defaultImage,
-        url,
+        siteUrl: url,
       },
     },
   } = useStaticQuery(graphql`
@@ -33,7 +33,7 @@ export const SiteMetadata: FunctionComponent<SiteMetadataProps> = ({
           locale
           title
           description
-          url
+          siteUrl
           image
         }
       }
