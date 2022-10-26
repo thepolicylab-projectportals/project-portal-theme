@@ -13,10 +13,7 @@
   "dependencies": {
     "gatsby-source-airtable": "^2.3.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/thepolicylab-projectportals/project-portal-theme.git"
-  },
+  "repository": "https://github.com/thepolicylab-projectportals/project-portal-theme",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   }
