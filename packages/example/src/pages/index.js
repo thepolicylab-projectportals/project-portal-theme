@@ -23,6 +23,7 @@ import {
   HeaderWithImage,
   ProjectDetailLayout,
   MainContact,
+  ProjectPage,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
 
 import { useStaticQuery, graphql } from "gatsby"
@@ -181,6 +182,41 @@ const Index = () => {
   const bottomBannerImage = getImage(bottomBannerImageQuery)
   const headerImageSrc = HeaderImage.childImageSharp.resize.src
   const footerImage = getImage(FooterImageQuery)
+
+  const allProjects = [
+    {
+      question: "Hello world (from json)?",
+      slug: "completed-project",
+      status: "completed",
+      summary: "example summary",
+      deliverable: "example deliverable",
+      expertise: "example expertise",
+      keyDates: "example keyDates",
+      endDate: "2016-12-15",
+      agency: "example agency",
+      topics: ["example topics"],
+      statusOfData: "example statusOfData",
+      priorResearch: null,
+      fundingInfo: "example fundingInfo",
+      lastModified: "Invalid date",
+    },
+    {
+      question: "Hello world2 (from json)?",
+      slug: "completed-project-2",
+      status: "completed",
+      summary: "example summary",
+      deliverable: "example deliverable",
+      expertise: "example expertise",
+      keyDates: "example keyDates",
+      endDate: "2016-12-15",
+      agency: "example agency",
+      topics: ["example topics"],
+      statusOfData: "example statusOfData",
+      priorResearch: null,
+      fundingInfo: "example fundingInfo",
+      lastModified: "Invalid date",
+    },
+  ]
 
   return (
     <>
@@ -398,6 +434,20 @@ const Index = () => {
       />
       <Footer />
       <Navbar />
+      <ProjectPage
+        allProjects={allProjects}
+        bgImage={headerImageSrc}
+        title={"sample title"}
+        lede={"sample lede"}
+        sortOptions={["endDate", "created"]}
+      />
+      <ProjectPage
+        allProjects={[]}
+        bgImage={headerImageSrc}
+        title={"sample title"}
+        lede={"sample lede"}
+        sortOptions={["endDate", "created"]}
+      />
     </>
   )
 }
