@@ -4,16 +4,14 @@ import React from "react"
 import PropTypes from "prop-types"
 
 // Components
-import { Contact } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
+import { ContactLayout } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components/Contact"
 
 const ContactPreview = ({ entry }) => {
   const data = entry.getIn(["data"]).toJS()
 
-  console.log(data)
-
   return (
     <>
-      <Contact {...data} showEmail={true} />
+      <ContactLayout {...data} showEmail={true} image={<></>} />
     </>
   )
 }
