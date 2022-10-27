@@ -87,6 +87,13 @@ exports.createSchemaCustomization = ({ actions, schema, getNode }) => {
           },
         },
 
+        created: {
+          type: "Date",
+          extensions: {
+            dateformat: { formatString: "YYYY-MM-DDTHH:mm:ss.SSSZ" },
+          },
+        },
+
         mainContact: {
           type: CONTACT_NODE_TYPE,
           resolve: async (source, args, context) => {
