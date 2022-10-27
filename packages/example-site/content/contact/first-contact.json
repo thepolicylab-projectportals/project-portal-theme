@@ -1,3 +1,8 @@
 {
-  "name": "Horace I"
+  "name": "Horace I",
+  "title": "Head of Gatsby",
+  "email": "person@brown.edu",
+  "employer": "Brown University",
+  "image": "first-contact.png",
+  "lastModified": "2022-10-27T21:53:53.342Z"
 }
