@@ -1,17 +1,26 @@
 import React from "react"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image"
 import { graphql, useStaticQuery } from "gatsby"
 
-export interface ContactType {
+interface BaseContactType {
   name: string
   title: string
   employer: string
   email: string
+}
+
+export interface ContactType extends BaseContactType {
   image?: any
 }
 
-interface ContactProps extends ContactType {
+interface ContactProps extends BaseContactType {
   showEmail: boolean
+  image?: IGatsbyImageData
+}
+
+interface ContactLayoutProps extends BaseContactType {
+  showEmail: boolean
+  image: React.ReactNode
 }
 
 export const DefaultContactImage = ({ alt }) => {
@@ -46,6 +55,38 @@ export const Contact: React.FC<ContactProps> = ({
   image,
   showEmail,
 }) => {
+  const displayImage = image ? (
+    <GatsbyImage
+      className="relative rounded-full"
+      alt={name}
+      image={getImage(image)}
+      style={{
+        transform: "translateZ(0)",
+      }}
+    />
+  ) : (
+    <DefaultContactImage alt={name} />
+  )
+  return (
+    <ContactLayout
+      name={name}
+      title={title}
+      employer={employer}
+      email={email}
+      showEmail={showEmail}
+      image={displayImage}
+    />
+  )
+}
+
+export const ContactLayout: React.FC<ContactLayoutProps> = ({
+  name,
+  title,
+  employer,
+  email,
+  image,
+  showEmail,
+}) => {
   return (
     <div className="flex items-start gap-4 overflow-hidden flex-nowrap justify-left">
       <div
@@ -55,18 +96,7 @@ export const Contact: React.FC<ContactProps> = ({
           height: "100px",
         }}
       >
-        {image ? (
-          <GatsbyImage
-            className="relative rounded-full"
-            alt={name}
-            image={getImage(image)}
-            style={{
-              transform: "translateZ(0)",
-            }}
-          />
-        ) : (
-          <DefaultContactImage alt={name} />
-        )}
+        {image}
       </div>
       <div className="pl-2 pr-2 pb-2">
         <p className="font-bold text-black text-body">{name}</p>
