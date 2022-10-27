@@ -48,6 +48,7 @@ const projectTypeDefs = `
       emailContent: String
       
       lastModified: Date @dateformat(formatString: "YYYY-MM-DDTHH:mm:ss.SSSZ")
+      created: Date @dateformat(formatString: "YYYY-MM-DDTHH:mm:ss.SSSZ")
       
       mainContact: ${CONTACT_NODE_TYPE}
       projectTeam: [${CONTACT_NODE_TYPE}]
