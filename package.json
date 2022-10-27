@@ -2,7 +2,7 @@
   "name": "project-portal-theme",
   "packageManager": "yarn@1.22.19",
   "private": true,
-  "version": "3.0.0-1",
+  "version": "3.0.1",
   "license": "0BSD",
   "scripts": {
     "build": "yarn workspace example build",
