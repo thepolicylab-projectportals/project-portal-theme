@@ -1,5 +1,6 @@
 import CMS from "netlify-cms-app"
 import ContactPreview from "./contact-preview"
+import ProjectDetailPreview from "./project-preview"
 
 // The following configuration is merged with the configuration from the site's config.yml file
 // (if it exists in the site's directory static/admin/config.yml)
@@ -9,7 +10,7 @@ CMS.init({
     public_folder: "/image",
     collections: [
       {
-        name: "projects",
+        name: "project",
         label: "Projects",
         folder: "content/project",
         extension: "json",
@@ -233,3 +234,4 @@ CMS.registerEventListener({
 })
 
 CMS.registerPreviewTemplate("contact", ContactPreview)
+CMS.registerPreviewTemplate("project", ProjectDetailPreview)
