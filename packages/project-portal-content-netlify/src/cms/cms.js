@@ -155,7 +155,6 @@ CMS.init({
             name: "lastModified",
             label: "Last Modified",
             widget: "hidden",
-            required: false,
           },
         ],
       },
