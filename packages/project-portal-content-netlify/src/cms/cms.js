@@ -145,6 +145,11 @@ CMS.init({
             required: false,
           },
           {
+            name: "created",
+            label: "Created",
+            widget: "datetime",
+          },
+          {
             name: "lastModified",
             label: "Last Modified",
             widget: "hidden",
