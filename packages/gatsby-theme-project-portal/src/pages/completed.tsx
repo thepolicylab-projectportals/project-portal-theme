@@ -37,6 +37,8 @@ export const query = graphql`
   query ProjectPageQuery {
     allProject(filter: { status: { eq: "completed" } }) {
       nodes {
+        endDate
+        created
         question
         slug
         status
@@ -44,7 +46,6 @@ export const query = graphql`
         deliverable
         expertise
         keyDates
-        endDate
         agency
         topics
         statusOfData

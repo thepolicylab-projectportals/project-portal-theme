@@ -37,6 +37,8 @@ export const query = graphql`
   query ProjectPageQuery {
     allProject(filter: { status: { eq: "open" } }) {
       nodes {
+        opportunityCloses
+        created
         question
         slug
         status

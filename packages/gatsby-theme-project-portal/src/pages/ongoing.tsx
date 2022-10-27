@@ -37,6 +37,8 @@ export const query = graphql`
   query ProjectPageQuery {
     allProject(filter: { status: { eq: "ongoing" } }) {
       nodes {
+        startDate
+        created
         question
         slug
         status
