@@ -5,7 +5,7 @@
     <scripts>
       <script value="develop" />
     </scripts>
-    <arguments value="--verbose" />
+    <arguments value="--verbose  --inspect" />
     <node-interpreter value="project" />
     <envs>
       <env name="PORT" value="8003" />
