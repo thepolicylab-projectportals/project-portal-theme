@@ -1,4 +1,5 @@
 import CMS from "netlify-cms-app"
+import ContactPreview from "./contact-preview"
 
 // The following configuration is merged with the configuration from the site's config.yml file
 // (if it exists in the site's directory static/admin/config.yml)
@@ -159,8 +160,8 @@ CMS.init({
         ],
       },
       {
-        name: "Contacts",
-        label: "Project Contacts",
+        name: "contact",
+        label: "Contacts",
         folder: "content/contact",
         create: true,
         extension: "json",
@@ -230,3 +231,5 @@ CMS.registerEventListener({
     return entry.get("data").set("lastModified", new Date().toISOString())
   },
 })
+
+CMS.registerPreviewTemplate("contact", ContactPreview)
