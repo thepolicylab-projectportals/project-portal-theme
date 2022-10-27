@@ -5,6 +5,7 @@ const {
   CONTACT_NODE_TYPE,
 } = require("@thepolicylab-projectportals/gatsby-theme-project-portal/utils/types")
 const { withDefaults } = require("./utils/default-options")
+const { createFilePath } = require("gatsby-source-filesystem")
 
 // These parameters must match the types which gatsby-transformer-json _implicitly_
 // creates for the "Project" and "Contact" types.
@@ -32,7 +33,7 @@ exports.onPreBootstrap = ({ reporter }, pluginOptions) => {
   })
 }
 
-exports.createSchemaCustomization = ({ actions, schema }) => {
+exports.createSchemaCustomization = ({ actions, schema, getNode }) => {
   const { createTypes } = actions
 
   const typeDefs = [
@@ -40,7 +41,10 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
       name: PROJECT_JSON_TYPE,
       interfaces: ["Node", PROJECT_NODE_TYPE],
       fields: {
-        slug: "String!",
+        slug: {
+          type: "String!",
+          resolve: (node) => createFilePath({ node, getNode }).slice(1, -1),
+        },
         question: "String",
         status: "String",
         opportunityCloses: {
@@ -89,7 +93,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
             return await context.nodeModel.findOne({
               type: CONTACT_JSON_TYPE,
               query: {
-                filter: { key: { eq: source.mainContact } },
+                filter: { slug: { eq: source.mainContact } },
               },
             })
           },
@@ -100,7 +104,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
             const { entries } = await context.nodeModel.findAll({
               type: CONTACT_JSON_TYPE,
               query: {
-                filter: { key: { in: source.projectTeam ?? [] } },
+                filter: { slug: { in: source.projectTeam ?? [] } },
               },
             })
             return entries
@@ -112,7 +116,12 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
       name: CONTACT_JSON_TYPE,
       interfaces: ["Node", CONTACT_NODE_TYPE],
       fields: {
-        key: "String!",
+        slug: {
+          type: "String!",
+          resolve: (node) => {
+            return createFilePath({ node, getNode }).slice(1, -1)
+          },
+        },
         email: "String",
         name: "String",
         employer: "String",

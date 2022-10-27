@@ -9,8 +9,8 @@
     "serve": "gatsby serve"
   },
   "dependencies": {
-    "@thepolicylab-projectportals/gatsby-theme-project-portal": "^2.1.0-0",
-    "@thepolicylab-projectportals/project-portal-content-netlify": "^1.2.0-0",
+    "@thepolicylab-projectportals/gatsby-theme-project-portal": "^3.0.0-0",
+    "@thepolicylab-projectportals/project-portal-content-netlify": "^3.0.0-0",
     "gatsby": "^4.24.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0"

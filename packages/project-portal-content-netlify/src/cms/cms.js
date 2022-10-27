@@ -13,16 +13,17 @@ CMS.init({
         folder: "content/project",
         extension: "json",
         create: true,
-        identifier_field: "slug",
+        identifier_field: "title",
         fields: [
+          {
+            name: "title",
+            label: "Short title",
+            widget: "string",
+          },
           {
             name: "question",
             label: "Question",
             widget: "markdown",
-          },
-          {
-            name: "slug",
-            label: "Slug",
           },
           {
             name: "status",
@@ -129,7 +130,7 @@ CMS.init({
             widget: "relation",
             collection: "Contacts",
             search_fields: ["name"],
-            value_field: "name",
+            value_field: "{{slug}}",
             display_fields: ["name"],
           },
           {
@@ -138,7 +139,7 @@ CMS.init({
             widget: "relation",
             collection: "Contacts",
             search_fields: ["name"],
-            value_field: "name",
+            value_field: "{{slug}}",
             display_fields: ["name"],
             multiple: true,
             required: false,
@@ -146,7 +147,7 @@ CMS.init({
           {
             name: "lastModified",
             label: "Last Modified",
-            widget: "datetime",
+            widget: "hidden",
             required: false,
           },
         ],
@@ -161,6 +162,11 @@ CMS.init({
         media_folder: "",
         public_folder: "",
         fields: [
+          {
+            name: "key",
+            label: "Key",
+            widget: "hidden",
+          },
           {
             name: "name",
             label: "Name",
@@ -189,7 +195,7 @@ CMS.init({
           {
             name: "lastModified",
             label: "Last Modified",
-            widget: "datetime",
+            widget: "hidden",
             required: false,
           },
         ],

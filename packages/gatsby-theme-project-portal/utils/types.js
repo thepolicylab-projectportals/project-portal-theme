@@ -58,7 +58,7 @@ const contactTypeDefs = `
   interface ${CONTACT_NODE_TYPE} implements Node {
     id: ID!
   
-    key: String!
+    slug: String!
     
     name: String
     employer: String
