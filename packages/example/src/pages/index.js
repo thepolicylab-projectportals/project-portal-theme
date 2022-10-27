@@ -67,7 +67,6 @@ const sample_card = {
     "None, but we will share project background with our selected collaborator.\n",
   statusOfData: "Testing\n",
   fundingInfo: "- Test.\n- Test.\n",
-  commitment: "10 hours a week",
   lastModified: "2022-05-27T16:34:04.000Z",
 }
 
