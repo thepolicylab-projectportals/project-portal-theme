@@ -197,11 +197,6 @@ CMS.init({
         public_folder: "",
         fields: [
           {
-            name: "key",
-            label: "Key",
-            widget: "hidden",
-          },
-          {
             name: "name",
             label: "Name",
           },
