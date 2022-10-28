@@ -3,7 +3,7 @@ import { graphql, navigate } from "gatsby"
 import { MarkdownText } from "../components"
 import { Layout } from "../layouts"
 import { HeaderWithImage } from "../components"
-import { useStaticText } from "../hooks"
+import { useProjectPortalConfig, useStaticText } from "../hooks"
 import ReCAPTCHA from "react-google-recaptcha"
 
 const encode = (data: { [Key: string]: string }) => {
@@ -297,6 +297,10 @@ export class ContactForm extends Component<ContactFormProps> {
 }
 
 export default ({ data }: ContactProps) => {
+  const { recaptchaSiteKey } = useProjectPortalConfig()
+  const { title, lede } = useStaticText().contact
+  const imageSrc = data?.bgImage?.childImageSharp.resize.src
+
   return (
     <Layout
       activePage="Contact"
