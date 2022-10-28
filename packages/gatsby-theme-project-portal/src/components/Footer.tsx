@@ -77,8 +77,8 @@ export const Footer = () => {
   const { logo } = useStaticQuery(graphql`
     query FooterLogoQuery {
       logo: file(
-        relativePath: { regex: "/^footer.png$/" }
-        # only match files in the "themeImages" sourced directory:
+        name: { eq: "footer" }
+        extension: { in: ["png", "jpg", "jpeg"] }
         sourceInstanceName: { eq: "themeImages" }
       ) {
         childImageSharp {
