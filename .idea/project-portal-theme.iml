@@ -10,6 +10,14 @@
       <excludeFolder url="file://$MODULE_DIR$/packages/example/.cache" />
       <excludeFolder url="file://$MODULE_DIR$/packages/example/public" />
       <excludeFolder url="file://$MODULE_DIR$/artifacts" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/example-content/.cache" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/example-content/public" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/example-content-airtable/.cache" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/example-content-airtable/public" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/example-site/public" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/nc-content/.cache" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/nc-content/public" />
+      <excludeFolder url="file://$MODULE_DIR$/packages/example-site/.cache" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

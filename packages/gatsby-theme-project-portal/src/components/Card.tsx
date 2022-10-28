@@ -24,7 +24,6 @@ export interface CardWithoutNavigationProps {
   priorResearch: string
   statusOfData: string
   fundingInfo: string
-  commitment: string
   lastModified: Date
 }
 
