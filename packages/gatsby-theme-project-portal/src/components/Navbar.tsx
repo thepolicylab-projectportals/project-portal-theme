@@ -124,8 +124,8 @@ export const Navbar: FunctionComponent<NavbarProps> = ({ activePage }) => {
   const { logo } = useStaticQuery(graphql`
     query NavbarLogoQuery {
       logo: file(
-        relativePath: { regex: "/^navbar.png$/" }
-        # only match files in the "themeImages" sourced directory:
+        name: { eq: "navbar" }
+        extension: { in: ["png", "jpg", "jpeg"] }
         sourceInstanceName: { eq: "themeImages" }
       ) {
         childImageSharp {
