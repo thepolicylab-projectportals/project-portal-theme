@@ -14,7 +14,6 @@ CMS.init({
         extension: "json",
         create: true,
         identifier_field: "title",
-        preview_path: "project/{{slug}}",
         fields: [
           {
             name: "title",
