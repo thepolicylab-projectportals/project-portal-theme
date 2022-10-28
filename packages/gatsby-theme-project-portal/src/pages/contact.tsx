@@ -138,12 +138,6 @@ export class ContactForm extends Component {
   }
 
   handleChange(event) {
-    console.log("test")
-    console.log(event)
-    console.log(event.target.name)
-    console.log(event.target.value)
-    console.log("YAAAA")
-    console.log(document.getElementById(event.target.name + "ErrorLabel"))
     changeCheck(event)
     this.setState({ [event.target.name]: event.target.value })
   }
@@ -293,7 +287,6 @@ export class ContactForm extends Component {
 }
 
 export default ({ data }: ContactProps) => {
-  console.log(data)
   return (
     <Layout
       activePage="Contact"
