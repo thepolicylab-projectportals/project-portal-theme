@@ -121,17 +121,21 @@ function submitCheck(state) {
   return nameCheck && emailCheck && messageCheck
 }
 
-export class ContactForm extends Component {
+interface ContactFormProps {
+  recaptchaSiteKey: string
+}
+
+export class ContactForm extends Component<ContactFormProps> {
   state: ContactFormState
 
-  constructor(recaptcha, props) {
-    super(recaptcha, props)
+  constructor(props) {
+    super(props)
     this.state = {
       name: "",
       email: "",
       subject: "",
       message: "",
-      recaptchaSiteKey: "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI",
+      recaptchaSiteKey: props.recaptchaSiteKey,
       captchaSuccess: false,
     }
     this.handleChange = this.handleChange.bind(this)
