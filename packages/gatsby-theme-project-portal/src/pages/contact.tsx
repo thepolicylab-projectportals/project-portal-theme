@@ -101,7 +101,9 @@ function submitCheck(state) {
   }
   //if email exists, make sure it is valid email format
   else {
-    if (!document.getElementById("email").validity.valid) {
+    if (
+      !(document.getElementById("email") as HTMLInputElement).validity.valid
+    ) {
       document.getElementById("invalidEmailErrorLabel").className =
         errorLabelShownClassName
       document.getElementById("email").className =
