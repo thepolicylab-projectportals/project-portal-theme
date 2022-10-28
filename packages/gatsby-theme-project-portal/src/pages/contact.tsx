@@ -163,7 +163,7 @@ export class ContactForm extends Component {
     }
   }
 
-  handleCaptcha(event) {
+  handleCaptcha() {
     this.setState({ captchaSuccess: true })
   }
 
