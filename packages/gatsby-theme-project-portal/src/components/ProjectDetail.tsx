@@ -1,7 +1,5 @@
-import { Link, withPrefix } from "gatsby"
 import React, { FunctionComponent } from "react"
 import moment from "moment"
-import { BackIcon } from "./BackIcon"
 
 import {
   ContactType,
@@ -9,9 +7,10 @@ import {
   MainContact,
   SectionOfItem,
   ShareProject,
-} from "./index"
+  CollaboratorDetails,
+  ProjectTeam,
+} from "."
 
-import { CollaboratorDetails, ProjectTeam } from "./index"
 import { statusOutput, isNA, isEmpty } from "../utils"
 
 export interface ProjectDetailLayoutProps {
@@ -192,14 +191,6 @@ export const ProjectDetailLayout: FunctionComponent<
             <ProjectTeam title="Project Team" contacts={projectTeam} />
           )
         )}
-        <section className="my-12">
-          <Link to={withPrefix(`/${status === "open" ? "" : status}`)}>
-            <button className="btn m-responsive">
-              <BackIcon />
-              <span className="pl-2">Back</span>
-            </button>
-          </Link>
-        </section>
       </div>
     </article>
   )
