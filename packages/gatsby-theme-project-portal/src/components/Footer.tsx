@@ -32,10 +32,7 @@ export const FooterLayout: FunctionComponent<FooterProps> = ({
       <div className="flex items-center justify-center mt-6 lg:my-auto">
         <div className="text-nav text-footertext">{copyright}</div>
       </div>
-      <div
-        className="flex it
-      ems-center justify-center mt-6 lg:my-auto"
-      >
+      <div className="flex items-center justify-center mt-6 lg:my-auto">
         <ul className="text-nav text-footertext list-none">
           {links.map(({ title, link }, i) => (
             <ListItem key={"link_" + i} target={link}>
