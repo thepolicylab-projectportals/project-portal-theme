@@ -152,7 +152,11 @@ export class ContactForm extends Component {
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "form-name": "contact", ...this.state }),
+        body: encode({
+          "form-name": "contact",
+          ...this.state,
+          captchaSuccess: this.state.captchaSuccess.toString(),
+        }),
       })
         .then(() => navigate("/thank-you/"))
         .catch((error) => alert(error))
