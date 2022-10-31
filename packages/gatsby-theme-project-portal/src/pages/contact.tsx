@@ -3,7 +3,7 @@ import { graphql, navigate } from "gatsby"
 import { MarkdownText } from "../components"
 import { Layout } from "../layouts"
 import { HeaderWithImage } from "../components"
-import { useStaticText } from "../hooks"
+import { useProjectPortalConfig, useStaticText } from "../hooks"
 import ReCAPTCHA from "react-google-recaptcha"
 
 const encode = (data: { [Key: string]: string }) => {
@@ -297,32 +297,24 @@ export class ContactForm extends Component<ContactFormProps> {
 }
 
 export default ({ data }: ContactProps) => {
+  const { recaptchaSiteKey } = useProjectPortalConfig()
+  const { title, lede } = useStaticText().contact
+  const imageSrc = data?.bgImage?.childImageSharp.resize.src
+
   return (
-    <Layout
-      activePage="Contact"
-      title={useStaticText().contact.title}
-      description={useStaticText().contact.lede}
-    >
+    <Layout activePage="Contact" title={title} description={lede}>
       <main>
         <header>
-          <HeaderWithImage
-            title="Contact"
-            lede=""
-            imageSrc={data?.bgImage?.childImageSharp.resize.src}
-          />
+          <HeaderWithImage title="Contact" lede="" imageSrc={imageSrc} />
         </header>
 
         <article className="w-full pt-5 px-8 lg:px-16 xl:px-24 lg:w-2/3">
-          <h1 className="mt-8 mb-2 text-h2 font-bold">
-            {useStaticText().contact.title}
-          </h1>
+          <h1 className="mt-8 mb-2 text-h2 font-bold">{title}</h1>
           <MarkdownText
             className="mb-10 leading-normal text-body lg:text-body"
-            text={useStaticText().contact.lede}
+            text={lede}
           />
-          <ContactForm
-            recaptcha={data.allProjectPortalConfig.nodes.recaptchaSiteKey}
-          />
+          <ContactForm recaptchaSiteKey={recaptchaSiteKey} />
         </article>
       </main>
     </Layout>
@@ -331,11 +323,6 @@ export default ({ data }: ContactProps) => {
 
 export const query = graphql`
   query ContactQuery {
-    allProjectPortalConfig {
-      nodes {
-        recaptchaSiteKey
-      }
-    }
     bgImage: file(
       name: { eq: "contact" }
       extension: { in: ["png", "jpg", "jpeg"] }
