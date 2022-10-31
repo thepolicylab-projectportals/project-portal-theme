@@ -58,8 +58,8 @@ function changeCheck(event) {
   //job of changeCheck is to remove all error messages that
   //may have been brought up from a previous submit attempt
   if (event.target.name != "subject") {
-    // document.getElementById(event.target.name + "ErrorLabel").className =
-    //   errorLabelHiddenClassName
+    document.getElementById(event.target.name + "ErrorLabel").className =
+      errorLabelHiddenClassName
     document.getElementById(event.target.name).className =
       standardInputBoxStartClassName
 
@@ -162,13 +162,13 @@ export class ContactForm extends Component {
   }
 
   render() {
-    console.log("recapthca", this.state.recaptchaSiteKey)
     return (
       <form
         onSubmit={this.handleSubmit}
         data-netlify="true"
         data-netlify-honeypot="bot-field"
         name="contact"
+        noValidate
       >
         <div className="mb-6">
           <label
@@ -176,6 +176,10 @@ export class ContactForm extends Component {
             className="block mb-2 text-contact font-bold text-black"
           >
             Full name
+            <span className="text-red"> *</span>
+          </label>
+          <label id="nameErrorLabel" className={errorLabelHiddenClassName}>
+            Please enter your full name
           </label>
           <input
             aria-label="Full name"
@@ -246,6 +250,10 @@ export class ContactForm extends Component {
             className="block mb-2 text-contact font-bold text-black"
           >
             Message
+            <span className="text-red"> *</span>
+          </label>
+          <label id="messageErrorLabel" className={errorLabelHiddenClassName}>
+            Please enter a brief message
           </label>
           <textarea
             aria-label="Message"
@@ -279,7 +287,6 @@ export class ContactForm extends Component {
 }
 
 export default ({ data }: ContactProps) => {
-  console.log(data)
   return (
     <Layout
       activePage="Contact"
