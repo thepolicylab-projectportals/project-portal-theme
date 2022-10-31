@@ -1,6 +1,11 @@
 import { Layout } from "./Layout"
-import { ProjectDetailLayout, ProjectDetailLayoutProps } from "../components"
+import {
+  BackIcon,
+  ProjectDetailLayout,
+  ProjectDetailLayoutProps,
+} from "../components"
 import React, { FunctionComponent } from "react"
+import { Link, withPrefix } from "gatsby"
 
 // For the ProjectDetailPage we add the slug which isn't on the layout
 interface ProjectDetailPageProps extends ProjectDetailLayoutProps {
@@ -24,7 +29,23 @@ export const ProjectDetailPage: FunctionComponent<
 
   return (
     <Layout title={project.question} description={project.summary}>
-      <ProjectDetailLayout {...project} />
+      <main>
+        <ProjectDetailLayout {...project} />
+      </main>
+      <div className="p-responsive pb-4">
+        <section className="my-12">
+          <Link
+            to={withPrefix(
+              `/${project.status === "open" ? "" : project.status}`
+            )}
+          >
+            <button className="btn m-responsive">
+              <BackIcon />
+              <span className="pl-2">Back</span>
+            </button>
+          </Link>
+        </section>
+      </div>
     </Layout>
   )
 }

@@ -1,7 +1,5 @@
-import { Link, withPrefix } from "gatsby"
 import React, { FunctionComponent } from "react"
 import moment from "moment"
-import { BackIcon } from "./BackIcon"
 
 import {
   ContactType,
@@ -9,9 +7,10 @@ import {
   MainContact,
   SectionOfItem,
   ShareProject,
-} from "./index"
+  CollaboratorDetails,
+  ProjectTeam,
+} from "."
 
-import { CollaboratorDetails, ProjectTeam } from "./index"
 import { statusOutput, isNA, isEmpty } from "../utils"
 
 export interface ProjectDetailLayoutProps {
@@ -74,64 +73,66 @@ export const ProjectDetailLayout: FunctionComponent<
 }) => {
   return (
     <article>
-      <header className="py-16 p-responsive bg-primary">
-        <div className="flex flex-col justify-between m-responsive lg:flex-row">
-          <div className="w-auto">
-            <h1 className="text-h3 sm:text-h2 w-full font-bold leading-h2 text-white lg:w-4/5">
-              {question}
-            </h1>
-            {
-              // This code allows you to set the defaults for key dates
-              // For instance, change the second `true` here to `startDate` if you
-              // do _not_ want any date to appear when the project `startDate` is
-              // null. Note that you may also need to edit the `statusOutput` call
-              // below and also the one in `Card.tsx`
-              statusOutput(status, true, true, true) !== null && (
-                <div className="mt-4 text-white text-body">
-                  <span className="font-bold">
+      <header>
+        <div className="py-16 p-responsive bg-primary">
+          <div className="flex flex-col justify-between m-responsive lg:flex-row">
+            <div className="w-auto">
+              <h1 className="text-h3 sm:text-h2 w-full font-bold leading-h2 text-white lg:w-4/5">
+                {question}
+              </h1>
+              {
+                // This code allows you to set the defaults for key dates
+                // For instance, change the second `true` here to `startDate` if you
+                // do _not_ want any date to appear when the project `startDate` is
+                // null. Note that you may also need to edit the `statusOutput` call
+                // below and also the one in `Card.tsx`
+                statusOutput(status, true, true, true) !== null && (
+                  <div className="mt-4 text-white text-body">
+                    <span className="font-bold">
+                      {statusOutput(
+                        status,
+                        "Opportunity closes: ",
+                        "Project started: ",
+                        "Project ended: "
+                      )}
+                    </span>
                     {statusOutput(
                       status,
-                      "Opportunity closes: ",
-                      "Project started: ",
-                      "Project ended: "
+                      opportunityCloses
+                        ? moment(opportunityCloses).format("MMMM D, YYYY")
+                        : "Open until filled",
+                      startDate
+                        ? moment(startDate).format("MMMM D, YYYY")
+                        : moment(lastModified).format("MMMM D, YYYY"),
+                      endDate
+                        ? moment(endDate).format("MMMM D, YYYY")
+                        : moment(lastModified).format("MMMM D, YYYY")
                     )}
-                  </span>
-                  {statusOutput(
-                    status,
-                    opportunityCloses
-                      ? moment(opportunityCloses).format("MMMM D, YYYY")
-                      : "Until filled",
-                    startDate
-                      ? moment(startDate).format("MMMM D, YYYY")
-                      : moment(lastModified).format("MMMM D, YYYY"),
-                    endDate
-                      ? moment(endDate).format("MMMM D, YYYY")
-                      : moment(lastModified).format("MMMM D, YYYY")
-                  )}
-                </div>
-              )
-            }
-            <div className="text-white text-body">
-              <span className="font-bold">Department or Agency: </span>
-              {agency}
+                  </div>
+                )
+              }
+              <div className="text-white text-body">
+                <span className="font-bold">Department or Agency: </span>
+                {agency}
+              </div>
             </div>
+            <ShareProject />
           </div>
-          <ShareProject />
+        </div>
+        <div className="p-responsive pb-4">
+          <section className="flex flex-wrap items-start py-6 m-responsive gap-x-10 gap-y-4">
+            {!isEmpty(topics) && (
+              <div className="text-tag mt-2">
+                <Feature label="Topics" className="bg-topics" value={topics} />
+              </div>
+            )}
+          </section>
         </div>
       </header>
-
-      <main className="p-responsive pb-4">
-        <section className="flex flex-wrap items-start py-6 m-responsive gap-x-10 gap-y-4">
-          {!isEmpty(topics) && (
-            <div className="text-tag mt-2">
-              <Feature label="Topics" className="bg-topics" value={topics} />
-            </div>
-          )}
-        </section>
-
+      <div className="p-responsive pb-4">
         <section className="mt-8">
           <div className="m-responsive">
-            <h2 className="text-h3">Project overview</h2>
+            <h2 className="text-h3">Project Overview</h2>
           </div>
           <div className="flex flex-col justify-between w-full py-4 lg:flex-row">
             <div className="m-responsive lg:w-3/5 xl:2/3">
@@ -201,15 +202,7 @@ export const ProjectDetailLayout: FunctionComponent<
             <ProjectTeam title="Project Team" contacts={projectTeam} />
           )
         )}
-        <section className="my-12">
-          <Link to={withPrefix(`/${status === "open" ? "" : status}`)}>
-            <button className="btn m-responsive">
-              <BackIcon />
-              <span className="pl-2">Back</span>
-            </button>
-          </Link>
-        </section>
-      </main>
+      </div>
     </article>
   )
 }
