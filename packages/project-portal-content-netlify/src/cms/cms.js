@@ -37,6 +37,7 @@ CMS.init({
             widget: "date",
             required: false,
             format: "YYYY-MM-DD",
+            default: "",
           },
           {
             name: "startDate",
@@ -44,6 +45,7 @@ CMS.init({
             widget: "date",
             required: false,
             format: "YYYY-MM-DD",
+            default: "",
           },
           {
             name: "endDate",
@@ -51,6 +53,7 @@ CMS.init({
             widget: "date",
             required: false,
             format: "YYYY-MM-DD",
+            default: "",
           },
           {
             name: "agency",
