@@ -101,7 +101,9 @@ function submitCheck(state) {
   }
   //if email exists, make sure it is valid email format
   else {
-    if (!document.getElementById("email").validity.valid) {
+    if (
+      !(document.getElementById("email") as HTMLInputElement).validity.valid
+    ) {
       document.getElementById("invalidEmailErrorLabel").className =
         errorLabelShownClassName
       document.getElementById("email").className =
@@ -119,17 +121,21 @@ function submitCheck(state) {
   return nameCheck && emailCheck && messageCheck
 }
 
-export class ContactForm extends Component {
+interface ContactFormProps {
+  recaptchaSiteKey: string
+}
+
+export class ContactForm extends Component<ContactFormProps> {
   state: ContactFormState
 
-  constructor(recaptcha, props) {
-    super(recaptcha, props)
+  constructor(props) {
+    super(props)
     this.state = {
       name: "",
       email: "",
       subject: "",
       message: "",
-      recaptchaSiteKey: "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI",
+      recaptchaSiteKey: props.recaptchaSiteKey,
       captchaSuccess: false,
     }
     this.handleChange = this.handleChange.bind(this)
@@ -150,14 +156,18 @@ export class ContactForm extends Component {
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "form-name": "contact", ...this.state }),
+        body: encode({
+          "form-name": "contact",
+          ...this.state,
+          captchaSuccess: this.state.captchaSuccess.toString(),
+        }),
       })
         .then(() => navigate("/thank-you/"))
         .catch((error) => alert(error))
     }
   }
 
-  handleCaptcha(event) {
+  handleCaptcha() {
     this.setState({ captchaSuccess: true })
   }
 
