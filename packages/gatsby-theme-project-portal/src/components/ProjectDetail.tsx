@@ -15,26 +15,37 @@ import { CollaboratorDetails, ProjectTeam } from "./index"
 import { statusOutput, isNA, isEmpty } from "../utils"
 
 export interface ProjectDetailLayoutProps {
+  // Core content
   question: string
-  summary?: string
+  summary: string
+
+  // (Optional) general additional content
+  deliverable?: string
+  purpose?: string
+  fundingInfo?: string
+  statusOfData?: string
+  priorResearch?: string
+
+  // (Optional) collaborator-targeted additional content
+  expertise?: string
+  requirement?: string
+  keyDates?: string
+
+  // Contact
+  mainContact: ContactType
+  emailContent?: string // shown with MainContact for open projects
+
+  // Project team
+  projectTeam?: ContactType[]
+
+  // Metadata
   status: string
   opportunityCloses: Date
   startDate: Date
   endDate: Date
-  lastModified: Date
   agency: string
   topics?: string[]
-  deliverable?: string
-  purpose?: string
-  expertise?: string
-  requirement?: string
-  keyDates?: string
-  priorResearch?: string
-  statusOfData?: string
-  fundingInfo?: string
-  emailContent?: string
-  mainContact?: ContactType
-  projectTeam?: ContactType[]
+  lastModified: Date
 }
 
 export const ProjectDetailLayout: FunctionComponent<
