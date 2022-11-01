@@ -5,7 +5,7 @@ import { useSiteMetadata } from "../hooks"
 
 interface SiteMetadataProps {
   description?: string
-  image?: IGatsbyImageData
+  image?: string
   title?: string
   pathname?: string
 }
