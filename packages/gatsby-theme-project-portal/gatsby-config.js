@@ -11,7 +11,7 @@ module.exports = (themeOptions) => {
         process.env.CI ? 9000 : process.env.PORT ?? ``
       }`,
       locale: "en",
-      image: "/icons/icon-256x256.png",
+      image: themeOptionsWithDefaults.icon,
     },
     plugins: [
       `gatsby-plugin-image`,
