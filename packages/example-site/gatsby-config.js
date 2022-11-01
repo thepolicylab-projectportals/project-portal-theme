@@ -23,6 +23,7 @@ module.exports = {
             text: "This is the Project Portal site footer text.",
           },
         },
+        icon: `${__dirname}/content/theme-image/icon.png`,
       },
     },
     `@thepolicylab-projectportals/project-portal-content-netlify`,
