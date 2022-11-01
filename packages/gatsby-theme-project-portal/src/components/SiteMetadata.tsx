@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react"
 import { Helmet } from "react-helmet"
-import { graphql, useStaticQuery } from "gatsby"
 import { IGatsbyImageData } from "gatsby-plugin-image"
+import { useSiteMetadata } from "../hooks"
 
 interface SiteMetadataProps {
   description?: string
@@ -17,28 +17,12 @@ export const SiteMetadata: FunctionComponent<SiteMetadataProps> = ({
   pathname,
 }) => {
   const {
-    site: {
-      siteMetadata: {
-        locale,
-        title: defaultTitle,
-        description: defaultDescription,
-        image: defaultImage,
-        siteUrl: url,
-      },
-    },
-  } = useStaticQuery(graphql`
-    query SiteMetadata {
-      site {
-        siteMetadata {
-          locale
-          title
-          description
-          siteUrl
-          image
-        }
-      }
-    }
-  `)
+    locale,
+    title: defaultTitle,
+    description: defaultDescription,
+    image: defaultImage,
+    siteUrl: url,
+  } = useSiteMetadata()
 
   const seo = {
     title: title || defaultTitle,
