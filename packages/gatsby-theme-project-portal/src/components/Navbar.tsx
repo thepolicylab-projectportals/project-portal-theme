@@ -25,7 +25,9 @@ const NavbarItem: FunctionComponent<NavbarItemProps> = ({
                 {name}
               </span>
             ) : (
-              <span className="text-nav ml-2">{name}</span>
+              <span className="text-nav pb-1 ml-2 border-b-2 hover:border-primary xl:border-transparent">
+                {name}
+              </span>
             )}
           </Link>
         </span>
@@ -57,7 +59,7 @@ export const NavbarLayout: FunctionComponent<NavbarLayoutProps> = ({
       <nav
         id="nav-bar"
         className={
-          "sticky top-0 flex flex-wrap items-center justify-between w-full p-0 bg-navbar xl:relative xl:px-2 xl:py-6 overflow-hidden z-10"
+          "sticky top-0 flex flex-wrap items-center justify-between w-full p-0 bg-navbar xl:relative xl:px-2 xl:py-6 overflow-y-visible z-10"
         }
       >
         <div className="flex flex-wrap justify-between w-full px-0 xl:px-4">
@@ -71,7 +73,7 @@ export const NavbarLayout: FunctionComponent<NavbarLayoutProps> = ({
               {navbarOpen ? <FaTimes /> : <FaBars />}
             </button>
             <Link
-              className="block mx-4 my-auto overflow-hidden text-h4 text-black flex gap-4 items-center whitespace-nowrap"
+              className="block mx-4 my-auto overflow-hidden text-nav text-black font-bold flex gap-4 items-center whitespace-nowrap"
               to="/"
             >
               <>
@@ -88,7 +90,7 @@ export const NavbarLayout: FunctionComponent<NavbarLayoutProps> = ({
           </div>
           <div
             className={
-              "fixed top-16 w-full md:w-2/3 xl:w-auto xl:relative xl:top-0 flex-grow items-center bg-primary xl:bg-transparent xl:flex xl:bg-navbar z-10 xl:z-0 transition-transform drop-shadow-lg filter xl:drop-shadow-none" +
+              "absolute top-16 w-full md:w-2/3 xl:w-auto xl:relative xl:top-0 flex-grow items-center bg-primary xl:bg-transparent xl:flex xl:bg-navbar z-10 xl:z-0 transition-transform drop-shadow-lg filter xl:drop-shadow-none" +
               (navbarOpen ? " flex" : " hidden")
             }
             id="example-navbar-danger"
@@ -122,8 +124,8 @@ export const Navbar: FunctionComponent<NavbarProps> = ({ activePage }) => {
   const { logo } = useStaticQuery(graphql`
     query NavbarLogoQuery {
       logo: file(
-        relativePath: { regex: "/^navbar.png$/" }
-        # only match files in the "themeImages" sourced directory:
+        name: { eq: "navbar" }
+        extension: { in: ["png", "jpg", "jpeg"] }
         sourceInstanceName: { eq: "themeImages" }
       ) {
         childImageSharp {

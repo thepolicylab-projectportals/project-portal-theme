@@ -5,7 +5,7 @@
   "author": "John Gerrard Holland <john_holland1@brown.edu>",
   "license": "MIT",
   "peerDependencies": {
-    "@thepolicylab-projectportals/gatsby-theme-project-portal": "^2.1.0-0",
+    "@thepolicylab-projectportals/gatsby-theme-project-portal": "^3.0.2",
     "gatsby": "^4.24.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0"
@@ -13,10 +13,7 @@
   "dependencies": {
     "gatsby-source-airtable": "^2.3.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/thepolicylab-projectportals/project-portal-theme.git"
-  },
+  "repository": "https://github.com/thepolicylab-projectportals/project-portal-theme",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   }

@@ -1,5 +1,4 @@
 {
-  "slug": "completed-project",
   "question": "Hello world (from json)?",
   "mainContact": "first-contact",
   "projectTeam": [
@@ -14,13 +13,7 @@
   "expertise": "example expertise",
   "fundingInfo": "example fundingInfo",
   "keyDates": "example keyDates",
-  "lastModified": "example lastModified",
-  "email": "example email",
-  "employer": "example employer",
-  "image": "example image",
-  "key": "example key",
-  "name": "example name",
-  "title": "example title",
+  "lastModified": "2022-08-31T20:33:19.394Z",
   "opportunityCloses": "2022-10-28",
   "purpose": "example purpose",
   "requirement": "example requirement",

@@ -7,6 +7,7 @@ const projectPortalConfigTypeDefs = `
       showDevBanner: Boolean
       projectInterestLink: String
       pages: [NavbarItemType]
+      recaptchaSiteKey: String
     }
     type NavbarItemType {
       name: String
@@ -20,11 +21,12 @@ const PROJECT_NODE_TYPE = `Project`
 const CONTACT_NODE_TYPE = `Contact`
 
 const projectTypeDefs = `
-    type ${PROJECT_NODE_TYPE} implements Node {
+    interface ${PROJECT_NODE_TYPE} implements Node {
+      id: ID!
+      
       slug: String!
       
       question: String
-      partnerName: String
       status: String
       
       opportunityCloses: Date @dateformat
@@ -46,24 +48,26 @@ const projectTypeDefs = `
       emailContent: String
       
       lastModified: Date @dateformat(formatString: "YYYY-MM-DDTHH:mm:ss.SSSZ")
+      created: Date @dateformat(formatString: "YYYY-MM-DDTHH:mm:ss.SSSZ")
       
-      mainContact: ${CONTACT_NODE_TYPE} @link(by: "key")
-      projectTeam: [${CONTACT_NODE_TYPE}] @link(by: "key")
+      mainContact: ${CONTACT_NODE_TYPE}
+      projectTeam: [${CONTACT_NODE_TYPE}]
     }
   `
 
 const contactTypeDefs = `
-  type ${CONTACT_NODE_TYPE} implements Node {
-    key: String!
+  interface ${CONTACT_NODE_TYPE} implements Node {
+    id: ID!
+  
+    slug: String!
     
     name: String
     employer: String
     title: String
     email: String
     
-    image: String
-    
-    lastModified: Date @dateformat(formatString: "YYYY-MM-DDTHH:mm:ss.SSSZ")
+    image: File
+   
   }
 `
 
