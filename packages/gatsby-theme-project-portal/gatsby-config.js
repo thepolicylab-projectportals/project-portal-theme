@@ -11,7 +11,6 @@ module.exports = (themeOptions) => {
         process.env.CI ? 9000 : process.env.PORT ?? ``
       }`,
       locale: "en",
-      image: themeOptionsWithDefaults.icon,
     },
     plugins: [
       `gatsby-plugin-image`,
@@ -46,7 +45,7 @@ module.exports = (themeOptions) => {
           theme_color:
             themeOptionsWithDefaults.tailwindConfig.theme.extend.colors.primary,
           display: `standalone`,
-          icon: themeOptionsWithDefaults.icon,
+          icon: themeOptionsWithDefaults.faviconPath,
         },
       },
     ],
