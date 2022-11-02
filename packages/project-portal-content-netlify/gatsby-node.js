@@ -15,13 +15,7 @@ const { createFilePath } = require("gatsby-source-filesystem")
 const PROJECT_JSON_TYPE = `ProjectJson`
 const CONTACT_JSON_TYPE = `ContactJson`
 
-exports.onPreInit = () => {
-  console.log("starting project-portal-content-netlify plugin")
-}
-
 exports.onPreBootstrap = ({ reporter }, pluginOptions) => {
-  console.log(withDefaults(pluginOptions))
-
   const { projectPath, contactPath } = withDefaults(pluginOptions)
   const paths = [projectPath, contactPath]
 
