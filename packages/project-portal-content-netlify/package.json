@@ -1,6 +1,6 @@
 {
   "name": "@thepolicylab-projectportals/project-portal-content-netlify",
-  "version": "3.0.2",
+  "version": "3.1.0",
   "main": "index.js",
   "author": "The Policy Lab <thepolicylab@brown.edu>",
   "contributors": [
@@ -13,7 +13,7 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@thepolicylab-projectportals/gatsby-theme-project-portal": "^3.0.2",
+    "@thepolicylab-projectportals/gatsby-theme-project-portal": "^3.1.0",
     "gatsby": "^4.24.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0"
