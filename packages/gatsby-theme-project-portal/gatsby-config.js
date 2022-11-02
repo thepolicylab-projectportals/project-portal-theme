@@ -1,13 +1,5 @@
 const { withDefaults } = require(`./utils/default-options`)
-const { getSiteUrl } = require(`./utils/getSiteUrl`)
-
-console.log(
-  (process.env.NETLIFY && process.env.CONTEXT) ??
-    process.env.GATSBY_ENV ??
-    process.env.NODE_ENV,
-  process.env.GATSBY_ENV,
-  process.env.NODE_ENV
-)
+const { getSiteUrl, getBuildContext } = require(`./utils/context`)
 
 module.exports = (themeOptions) => {
   const themeOptionsWithDefaults = withDefaults(themeOptions)
@@ -44,10 +36,7 @@ module.exports = (themeOptions) => {
       {
         resolve: "gatsby-plugin-robots-txt",
         options: {
-          resolveEnv: () =>
-            (process.env.NETLIFY && process.env.CONTEXT) ??
-            process.env.GATSBY_ENV ??
-            process.env.NODE_ENV,
+          resolveEnv: getBuildContext,
           env: {
             production: {
               policy: [{ userAgent: "*" }],

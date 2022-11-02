@@ -41,6 +41,27 @@ function getSiteUrl() {
   }
 }
 
+function getBuildContext() {
+  // Returns the build context from wherever we are.
+  // For Netlify, returns a string like
+  // - "production",
+  // - "deploy-preview",
+  // - "branch-deploy",
+  // - "dev"
+  // For elsewhere, returns a string like
+  // - "production"
+  // - "test"
+  // - "development"
+  return (
+    (process.env.NETLIFY && process.env.CONTEXT) ??
+    // If we're running locally, then use the GATSBY_ENV variable
+    process.env.GATSBY_ENV ??
+    // ... and if that's not set, use NODE_ENV as a fallback.
+    process.env.NODE_ENV
+  )
+}
+
 module.exports = {
   getSiteUrl,
+  getBuildContext,
 }
