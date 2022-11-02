@@ -10,6 +10,7 @@ function getSiteUrl() {
       case "branch-deploy":
         return process.env.DEPLOY_PRIME_URL
       case "dev":
+        // Note: this shouldn't be 8888, which is where the "Netlify server" runs when running Netlify locally.
         return `http://localhost:${process.env.PORT ?? "8000"}`
       default:
         console.error(`context unknown: ${process.env.CONTEXT}`)
