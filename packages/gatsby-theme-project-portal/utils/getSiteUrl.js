@@ -22,7 +22,6 @@ function getSiteUrl() {
     // We're probably running locally.
     // The user might have set a port, but if not, we need a sensible default.
     let defaultPort
-    console.log(`We're probably running locally. ${process.env.NODE_ENV}`)
     switch (process.env.NODE_ENV) {
       case "development":
         defaultPort = 8000
