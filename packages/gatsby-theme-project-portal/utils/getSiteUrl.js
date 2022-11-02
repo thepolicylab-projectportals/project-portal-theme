@@ -9,7 +9,7 @@ function getSiteUrl() {
         return process.env.DEPLOY_PRIME_URL
       case "branch-deploy":
         return process.env.DEPLOY_PRIME_URL
-      case "development":
+      case "dev":
         return `http://localhost:${process.env.PORT ?? "8000"}`
       default:
         console.error(`context unknown: ${process.env.CONTEXT}`)
