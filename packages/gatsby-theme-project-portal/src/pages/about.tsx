@@ -59,59 +59,60 @@ const AboutList = ({ aboutTitle, aboutText }) => {
 export default ({ data }: AboutProps) => {
   const { title } = useSiteMetadata()
   const language = useStaticText()
-  console.log("test")
-  console.log(data)
+
   return (
     <Layout activePage="About" title="About" description={`About the ${title}`}>
       <main>
-        <header>
-          <HeaderWithImage
-            title="About"
-            lede=""
-            imageSrc={data?.bgImage?.childImageSharp.resize.src}
-          />
-        </header>
+        <article>
+          <header>
+            <HeaderWithImage
+              title="About"
+              lede=""
+              imageSrc={data?.bgImage?.childImageSharp.resize.src}
+            />
+          </header>
 
-        <article className="w-full pt-5 px-8 lg:px-16 xl:px-24 lg:w-2/3">
-          <section className="mb-20">
-            {language.about.header && (
-              <h2 className="text-h3 sm:text-h2 my-8 font-bold text-black">
-                {language.about.header}
-              </h2>
-            )}
-            {language.about.aims.map(({ title, text }, i) => (
-              <AboutList
-                key={"list_" + i}
-                aboutTitle={title}
-                aboutText={text}
-              />
-            ))}
-          </section>
-
-          <section className="mb-20">
-            <h2 className="text-h3 sm:text-h2 my-6">
-              Frequently Asked Questions
-            </h2>
-            {language.about.faq.map(({ title, text }, i) => (
-              <Accordion
-                key={"collapsibleList_" + i}
-                title={title}
-                text={text}
-              />
-            ))}
-          </section>
-
-          {!isNA(language.about.accessibility) && (
-            <section id="accessibility">
-              <h2 className="text-h3 sm:text-h2 my-6">
-                Accessibility Statement
-              </h2>
-              <MarkdownText
-                className="mb-10 leading-normal text-body lg:text-body"
-                text={language.about.accessibility}
-              />
+          <div className="w-full pt-5 px-8 lg:px-16 xl:px-24 lg:w-2/3">
+            <section className="mb-20">
+              {language.about.header && (
+                <h2 className="text-h3 sm:text-h2 my-8 font-bold text-black">
+                  {language.about.header}
+                </h2>
+              )}
+              {language.about.aims.map(({ title, text }, i) => (
+                <AboutList
+                  key={"list_" + i}
+                  aboutTitle={title}
+                  aboutText={text}
+                />
+              ))}
             </section>
-          )}
+
+            <section className="mb-20">
+              <h2 className="text-h3 sm:text-h2 my-6">
+                Frequently Asked Questions
+              </h2>
+              {language.about.faq.map(({ title, text }, i) => (
+                <Accordion
+                  key={"collapsibleList_" + i}
+                  title={title}
+                  text={text}
+                />
+              ))}
+            </section>
+
+            {!isNA(language.about.accessibility) && (
+              <section id="accessibility">
+                <h2 className="text-h3 sm:text-h2 my-6">
+                  Accessibility Statement
+                </h2>
+                <MarkdownText
+                  className="mb-10 leading-normal text-body lg:text-body"
+                  text={language.about.accessibility}
+                />
+              </section>
+            )}
+          </div>
         </article>
       </main>
     </Layout>

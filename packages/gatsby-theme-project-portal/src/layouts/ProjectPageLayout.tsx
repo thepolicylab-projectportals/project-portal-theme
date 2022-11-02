@@ -29,13 +29,15 @@ export const ProjectPageLayout: FunctionComponent<ProjectPageLayoutProps> = ({
 }) => {
   return (
     <Layout activePage={pageName} title={title} description={lede}>
-      <ProjectPage
-        allProjects={allProject.nodes}
-        bgImage={bgImage?.childImageSharp.resize.src}
-        title={title}
-        lede={lede}
-        sortOptions={sortOptions}
-      />
+      <main>
+        <ProjectPage
+          allProjects={allProject.nodes}
+          bgImage={bgImage?.childImageSharp.resize.src}
+          title={title}
+          lede={lede}
+          sortOptions={sortOptions}
+        />
+      </main>
     </Layout>
   )
 }

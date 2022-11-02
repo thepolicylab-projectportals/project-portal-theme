@@ -16,7 +16,6 @@ interface ThankYouProps {
 }
 
 export default ({ data }: ThankYouProps) => {
-  console.log(data)
   return (
     <Layout
       activePage="about"
