@@ -34,6 +34,21 @@ module.exports = (themeOptions) => {
         },
       },
       `gatsby-plugin-sitemap`,
+      {
+        resolve: `gatsby-plugin-manifest`,
+        options: {
+          name: themeOptionsWithDefaults.siteTitle,
+          short_name: themeOptionsWithDefaults.shortTitle,
+          start_url: `/`,
+          background_color:
+            themeOptionsWithDefaults.tailwindConfig.theme.extend.colors
+              .background,
+          theme_color:
+            themeOptionsWithDefaults.tailwindConfig.theme.extend.colors.primary,
+          display: `standalone`,
+          icon: themeOptionsWithDefaults.faviconPath,
+        },
+      },
     ],
   }
 }
