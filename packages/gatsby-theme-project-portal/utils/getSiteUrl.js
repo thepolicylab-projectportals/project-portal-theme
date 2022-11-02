@@ -20,21 +20,21 @@ function getSiteUrl() {
     return `http://localhost:9000`
   } else {
     // We're probably running locally.
-    // The user might have set a port, but if not, we need a sensible default.
+    // The user might have set a port, which we'll respect, but if not, we need a sensible default.
     let defaultPort
     switch (process.env.NODE_ENV) {
-      case "development":
-        defaultPort = 8000
+      case "production":
+        defaultPort = 9000
         break
       case "test":
         defaultPort = 3000
         break
-      case "production":
-        defaultPort = 9000
+      case "development":
+        defaultPort = 8000
         break
       default:
-        console.warn(`NODE_ENV value unknown: ${process.env.NODE_ENV}`)
-        defaultPort = 8000
+        console.error(`NODE_ENV value unknown: ${process.env.NODE_ENV}`)
+        process.exit(1)
     }
     return `http://localhost:${process.env.PORT ?? defaultPort}`
   }
