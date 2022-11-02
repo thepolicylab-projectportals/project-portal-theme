@@ -25,7 +25,7 @@
     "react-helmet": "^6.1.0",
     "react-icons": "^4.4.0",
     "react-google-recaptcha": "^2.1.0",
-    "react-select": "^5.5.1",
+    "react-select": "^5.5.9",
     "react-share": "^4.4.0",
     "tailwindcss": "^3.1.8",
     "gatsby-plugin-sitemap": "^5.24.0"
