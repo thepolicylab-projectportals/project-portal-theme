@@ -9,7 +9,7 @@ function getSiteUrl() {
         return process.env.DEPLOY_PRIME_URL
       case "branch-deploy":
         return process.env.DEPLOY_PRIME_URL
-      case "development":
+      case "dev":
         return `http://localhost:${process.env.PORT ?? "8000"}`
       default:
         console.error(`context unknown: ${process.env.CONTEXT}`)
@@ -20,19 +20,21 @@ function getSiteUrl() {
     return `http://localhost:9000`
   } else {
     // We're probably running locally.
-    // The user might have set a port, but if not, we need a sensible default.
+    // The user might have set a port, which we'll respect, but if not, we need a sensible default.
     let defaultPort
-    console.log(`We're probably running locally. ${process.env.NODE_ENV}`)
     switch (process.env.NODE_ENV) {
-      case "development":
-        defaultPort = 8000
-        break
       case "production":
         defaultPort = 9000
         break
-      default:
-        console.warn(`NODE_ENV value unknown: ${process.env.NODE_ENV}`)
+      case "test":
+        defaultPort = 3000
+        break
+      case "development":
         defaultPort = 8000
+        break
+      default:
+        console.error(`NODE_ENV value unknown: ${process.env.NODE_ENV}`)
+        process.exit(1)
     }
     return `http://localhost:${process.env.PORT ?? defaultPort}`
   }
