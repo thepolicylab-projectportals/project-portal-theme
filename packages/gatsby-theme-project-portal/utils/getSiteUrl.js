@@ -26,6 +26,9 @@ function getSiteUrl() {
       case "development":
         defaultPort = 8000
         break
+      case "test":
+        defaultPort = 3000
+        break
       case "production":
         defaultPort = 9000
         break
