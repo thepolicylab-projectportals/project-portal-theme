@@ -2,7 +2,15 @@
   "name": "@thepolicylab-projectportals/gatsby-theme-project-portal",
   "version": "3.0.2",
   "main": "index.js",
-  "author": "John Gerrard Holland <john_holland1@brown.edu>",
+  "author": "The Policy Lab <thepolicylab@brown.edu>",
+  "contributors": [
+    "John Gerrard Holland <john_holland1@brown.edu>",
+    "Joshua Lu <joshua_lu1@brown.edu>",
+    "Aisulu Omar <aisulu_omar@brown.edu>",
+    "Paul Xu <yang_xu@brown.edu>",
+    "Kevin Wilson <kevin_wilson@brown.edu>",
+    "Aidan Hudson-Lapore <aidan_hudson-lapore@brown.edu>"
+  ],
   "license": "MIT",
   "peerDependencies": {
     "gatsby": "^4.24.0",
