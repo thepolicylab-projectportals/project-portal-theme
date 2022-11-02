@@ -5,6 +5,9 @@ const defaultStaticText = require("./default-static-text.json")
 function withDefaults(themeOptions) {
   return {
     siteTitle: themeOptions.siteTitle || `Gatsby Theme Project Portal`,
+    shortTitle: themeOptions.shortTitle || `Project Portal`,
+    faviconPath:
+      themeOptions.faviconPath || `${__dirname}/../images/default-icon.png`,
     showDevBanner: themeOptions.showDevBanner || true,
     staticText: lodash.merge(defaultStaticText, themeOptions.staticText),
     themeImageDirectory:
