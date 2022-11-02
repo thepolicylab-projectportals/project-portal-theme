@@ -1,4 +1,5 @@
 function getSiteUrl() {
+  // Returns a best guess for the current site's URL, given that it might be running on Netlify, GitHub, or locally.
   if (process.env.NETLIFY) {
     // We're running on Netlify
     switch (process.env.CONTEXT) {
