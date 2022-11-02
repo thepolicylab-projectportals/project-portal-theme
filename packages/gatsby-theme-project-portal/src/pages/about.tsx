@@ -59,8 +59,7 @@ const AboutList = ({ aboutTitle, aboutText }) => {
 export default ({ data }: AboutProps) => {
   const { title } = useSiteMetadata()
   const language = useStaticText()
-  console.log("test")
-  console.log(data)
+
   return (
     <Layout activePage="About" title="About" description={`About the ${title}`}>
       <main>
