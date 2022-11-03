@@ -189,8 +189,8 @@ CMS.init({
       },
       {
         name: "Contacts",
-        label: "Project Contacts",
-        label_singular: "Project Contact",
+        label: "Contacts",
+        label_singular: "Contact",
         folder: "content/contact",
         create: true,
         extension: "json",
