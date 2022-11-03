@@ -1,4 +1,5 @@
 const { withDefaults } = require(`./utils/default-options`)
+const { getSiteUrl } = require(`./utils/getSiteUrl`)
 
 module.exports = (themeOptions) => {
   const themeOptionsWithDefaults = withDefaults(themeOptions)
@@ -7,9 +8,7 @@ module.exports = (themeOptions) => {
       title: "Gatsby Theme Project Portal",
       description:
         "The Project Portal, developed by the Policy Lab at Brown University.",
-      siteUrl: `http://localhost:${
-        process.env.CI ? 9000 : process.env.PORT ?? ``
-      }`,
+      siteUrl: getSiteUrl(),
       locale: "en",
       image: "/icons/icon-256x256.png",
     },
