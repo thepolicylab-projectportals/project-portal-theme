@@ -10,6 +10,7 @@ CMS.init({
       {
         name: "projects",
         label: "Projects",
+        label_singular: "Project",
         folder: "content/project",
         extension: "json",
         create: true,
@@ -189,6 +190,7 @@ CMS.init({
       {
         name: "Contacts",
         label: "Project Contacts",
+        label_singular: "Project Contact",
         folder: "content/contact",
         create: true,
         extension: "json",
@@ -232,6 +234,7 @@ CMS.init({
       {
         name: "topics",
         label: "Topics",
+        label_singular: "Topic",
         folder: "content/topic",
         extension: "json",
         create: true,
