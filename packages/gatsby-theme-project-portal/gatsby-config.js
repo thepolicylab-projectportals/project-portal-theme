@@ -1,5 +1,5 @@
 const { withDefaults } = require(`./utils/default-options`)
-const { getSiteUrl } = require(`./utils/getSiteUrl`)
+const { getSiteUrl, getBuildContext } = require(`./utils/context`)
 
 module.exports = (themeOptions) => {
   const themeOptionsWithDefaults = withDefaults(themeOptions)
@@ -46,6 +46,37 @@ module.exports = (themeOptions) => {
             themeOptionsWithDefaults.tailwindConfig.theme.extend.colors.primary,
           display: `standalone`,
           icon: themeOptionsWithDefaults.faviconPath,
+        },
+      },
+      {
+        resolve: "gatsby-plugin-robots-txt",
+        options: {
+          resolveEnv: getBuildContext,
+          env: {
+            production: {
+              policy: [{ userAgent: "*" }],
+            },
+            "branch-deploy": {
+              policy: [{ userAgent: "*", disallow: ["/"] }],
+              sitemap: null,
+              host: null,
+            },
+            "deploy-preview": {
+              policy: [{ userAgent: "*", disallow: ["/"] }],
+              sitemap: null,
+              host: null,
+            },
+            dev: {
+              policy: [{ userAgent: "*", disallow: ["/"] }],
+              sitemap: null,
+              host: null,
+            },
+            development: {
+              policy: [{ userAgent: "*", disallow: ["/"] }],
+              sitemap: null,
+              host: null,
+            },
+          },
         },
       },
     ],
