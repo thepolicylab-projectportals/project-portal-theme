@@ -6,6 +6,7 @@ CMS.init({
   config: {
     media_folder: "content/image",
     public_folder: "/image",
+    publish_mode: "editorial_workflow",
     collections: [
       {
         name: "projects",
