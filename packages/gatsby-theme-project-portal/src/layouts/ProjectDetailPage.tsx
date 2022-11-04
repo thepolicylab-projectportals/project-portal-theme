@@ -6,6 +6,7 @@ import {
 } from "../components"
 import React, { FunctionComponent } from "react"
 import { Link, withPrefix } from "gatsby"
+import { statusOutput } from "../utils"
 
 // For the ProjectDetailPage we add the slug which isn't on the layout
 interface ProjectDetailPageProps extends ProjectDetailLayoutProps {
@@ -27,10 +28,20 @@ export const ProjectDetailPage: FunctionComponent<
     data: { project },
   } = props
 
+  const mainContactHeadline = statusOutput(
+    project.status,
+    "Interested in collaborating?",
+    "The project is in progress.",
+    "The project is complete."
+  )
+
   return (
     <Layout title={project.question} description={project.summary}>
       <main>
-        <ProjectDetailLayout {...project} />
+        <ProjectDetailLayout
+          {...project}
+          mainContactHeadline={mainContactHeadline}
+        />
       </main>
       <div className="p-responsive pb-4">
         <section className="my-12">

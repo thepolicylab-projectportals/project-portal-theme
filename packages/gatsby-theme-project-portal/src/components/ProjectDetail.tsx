@@ -32,6 +32,7 @@ export interface ProjectDetailLayoutProps {
 
   // Contact
   mainContact: ContactType
+  mainContactHeadline: string
   emailContent?: string // shown with MainContact for open projects
 
   // Project team
@@ -67,6 +68,7 @@ export const ProjectDetailLayout: FunctionComponent<
   priorResearch,
   statusOfData,
   fundingInfo,
+  mainContactHeadline,
   emailContent,
   mainContact,
   projectTeam,
@@ -182,6 +184,7 @@ export const ProjectDetailLayout: FunctionComponent<
                 {...mainContact}
                 status={status}
                 emailContent={emailContent}
+                mainContactHeadline={mainContactHeadline}
               />
             )}
           </div>

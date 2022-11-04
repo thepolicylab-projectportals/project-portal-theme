@@ -1,7 +1,6 @@
 import React, { FunctionComponent } from "react"
 import { Link } from "gatsby"
 import { Contact, MarkdownText } from "../components"
-import { statusOutput } from "../utils"
 import { useProjectPortalConfig, useStaticText } from "../hooks"
 import { IGatsbyImageData } from "gatsby-plugin-image"
 
@@ -12,6 +11,7 @@ interface ProjectContactProps {
   email: string
   image?: IGatsbyImageData
   status: string
+  mainContactHeadline: string
   emailContent?: string
 }
 
@@ -23,6 +23,7 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
   image,
   status,
   emailContent,
+  mainContactHeadline,
 }) => {
   const meta = useProjectPortalConfig()
   const staticText = useStaticText()
@@ -35,14 +36,7 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
   return (
     <div className="w-full lg:w-2/5 xl:w-1/3">
       <div className="w-full p-8 mb-8 bg-gray-100">
-        <h4 className="text-h4">
-          {statusOutput(
-            status,
-            "Interested in collaborating?",
-            "The project is in progress.",
-            "The project is complete."
-          )}
-        </h4>
+        <h4 className="text-h4">{mainContactHeadline}</h4>
         <div className="text-black text-body">
           <MarkdownText text={mainText} />
         </div>
