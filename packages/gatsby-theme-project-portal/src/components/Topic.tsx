@@ -1,3 +1,13 @@
+import { graphql } from "gatsby"
+
 export interface TopicType {
-  name: string
+  slug: string
+  title: string
 }
+
+export const query = graphql`
+  fragment TopicDetails on Topic {
+    slug
+    title
+  }
+`
