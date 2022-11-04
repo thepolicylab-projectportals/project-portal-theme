@@ -15,6 +15,7 @@ CMS.init({
         extension: "json",
         create: true,
         identifier_field: "title",
+        sortable_fields: ["Date Posted", "Short title", "Author"],
         fields: [
           {
             name: "title",
