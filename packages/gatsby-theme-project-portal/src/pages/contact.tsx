@@ -3,7 +3,7 @@ import { graphql, navigate } from "gatsby"
 import { MarkdownText } from "../components"
 import { Layout } from "../layouts"
 import { HeaderWithImage } from "../components"
-import { useStaticText } from "../hooks"
+import { useProjectPortalConfig, useStaticText } from "../hooks"
 import ReCAPTCHA from "react-google-recaptcha"
 
 const encode = (data: { [Key: string]: string }) => {
@@ -58,8 +58,8 @@ function changeCheck(event) {
   //job of changeCheck is to remove all error messages that
   //may have been brought up from a previous submit attempt
   if (event.target.name != "subject") {
-    // document.getElementById(event.target.name + "ErrorLabel").className =
-    //   errorLabelHiddenClassName
+    document.getElementById(event.target.name + "ErrorLabel").className =
+      errorLabelHiddenClassName
     document.getElementById(event.target.name).className =
       standardInputBoxStartClassName
 
@@ -101,7 +101,9 @@ function submitCheck(state) {
   }
   //if email exists, make sure it is valid email format
   else {
-    if (!document.getElementById("email").validity.valid) {
+    if (
+      !(document.getElementById("email") as HTMLInputElement).validity.valid
+    ) {
       document.getElementById("invalidEmailErrorLabel").className =
         errorLabelShownClassName
       document.getElementById("email").className =
@@ -119,17 +121,21 @@ function submitCheck(state) {
   return nameCheck && emailCheck && messageCheck
 }
 
-export class ContactForm extends Component {
+interface ContactFormProps {
+  recaptchaSiteKey: string
+}
+
+export class ContactForm extends Component<ContactFormProps> {
   state: ContactFormState
 
-  constructor(recaptcha, props) {
-    super(recaptcha, props)
+  constructor(props) {
+    super(props)
     this.state = {
       name: "",
       email: "",
       subject: "",
       message: "",
-      recaptchaSiteKey: "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI",
+      recaptchaSiteKey: props.recaptchaSiteKey,
       captchaSuccess: false,
     }
     this.handleChange = this.handleChange.bind(this)
@@ -150,25 +156,29 @@ export class ContactForm extends Component {
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "form-name": "contact", ...this.state }),
+        body: encode({
+          "form-name": "contact",
+          ...this.state,
+          captchaSuccess: this.state.captchaSuccess.toString(),
+        }),
       })
         .then(() => navigate("/thank-you/"))
         .catch((error) => alert(error))
     }
   }
 
-  handleCaptcha(event) {
+  handleCaptcha() {
     this.setState({ captchaSuccess: true })
   }
 
   render() {
-    console.log("recapthca", this.state.recaptchaSiteKey)
     return (
       <form
         onSubmit={this.handleSubmit}
         data-netlify="true"
         data-netlify-honeypot="bot-field"
         name="contact"
+        noValidate
       >
         <div className="mb-6">
           <label
@@ -176,6 +186,10 @@ export class ContactForm extends Component {
             className="block mb-2 text-contact font-bold text-black"
           >
             Full name
+            <span className="text-red"> *</span>
+          </label>
+          <label id="nameErrorLabel" className={errorLabelHiddenClassName}>
+            Please enter your full name
           </label>
           <input
             aria-label="Full name"
@@ -246,6 +260,10 @@ export class ContactForm extends Component {
             className="block mb-2 text-contact font-bold text-black"
           >
             Message
+            <span className="text-red"> *</span>
+          </label>
+          <label id="messageErrorLabel" className={errorLabelHiddenClassName}>
+            Please enter a brief message
           </label>
           <textarea
             aria-label="Message"
@@ -279,33 +297,24 @@ export class ContactForm extends Component {
 }
 
 export default ({ data }: ContactProps) => {
-  console.log(data)
+  const { recaptchaSiteKey } = useProjectPortalConfig()
+  const { title, lede } = useStaticText().contact
+  const imageSrc = data?.bgImage?.childImageSharp.resize.src
+
   return (
-    <Layout
-      activePage="Contact"
-      title={useStaticText().contact.title}
-      description={useStaticText().contact.lede}
-    >
+    <Layout activePage="Contact" title={title} description={lede}>
       <main>
         <header>
-          <HeaderWithImage
-            title="Contact"
-            lede=""
-            imageSrc={data?.bgImage?.childImageSharp.resize.src}
-          />
+          <HeaderWithImage title="Contact" lede="" imageSrc={imageSrc} />
         </header>
 
         <article className="w-full pt-5 px-8 lg:px-16 xl:px-24 lg:w-2/3">
-          <h1 className="mt-8 mb-2 text-h2 font-bold">
-            {useStaticText().contact.title}
-          </h1>
+          <h1 className="mt-8 mb-2 text-h2 font-bold">{title}</h1>
           <MarkdownText
             className="mb-10 leading-normal text-body lg:text-body"
-            text={useStaticText().contact.lede}
+            text={lede}
           />
-          <ContactForm
-            recaptcha={data.allProjectPortalConfig.nodes.recaptchaSiteKey}
-          />
+          <ContactForm recaptchaSiteKey={recaptchaSiteKey} />
         </article>
       </main>
     </Layout>
@@ -314,11 +323,6 @@ export default ({ data }: ContactProps) => {
 
 export const query = graphql`
   query ContactQuery {
-    allProjectPortalConfig {
-      nodes {
-        recaptchaSiteKey
-      }
-    }
     bgImage: file(
       name: { eq: "contact" }
       extension: { in: ["png", "jpg", "jpeg"] }

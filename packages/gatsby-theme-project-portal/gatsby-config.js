@@ -1,4 +1,5 @@
 const { withDefaults } = require(`./utils/default-options`)
+const { getSiteUrl, getBuildContext } = require(`./utils/context`)
 
 module.exports = (themeOptions) => {
   const themeOptionsWithDefaults = withDefaults(themeOptions)
@@ -7,11 +8,8 @@ module.exports = (themeOptions) => {
       title: "Gatsby Theme Project Portal",
       description:
         "The Project Portal, developed by the Policy Lab at Brown University.",
-      siteUrl: `http://localhost:${
-        process.env.CI ? 9000 : process.env.PORT ?? ``
-      }`,
+      siteUrl: getSiteUrl(),
       locale: "en",
-      image: "/icons/icon-256x256.png",
     },
     plugins: [
       `gatsby-plugin-image`,
@@ -34,6 +32,52 @@ module.exports = (themeOptions) => {
         },
       },
       `gatsby-plugin-sitemap`,
+      {
+        resolve: `gatsby-plugin-manifest`,
+        options: {
+          name: themeOptionsWithDefaults.siteTitle,
+          short_name: themeOptionsWithDefaults.shortTitle,
+          start_url: `/`,
+          background_color:
+            themeOptionsWithDefaults.tailwindConfig.theme.extend.colors
+              .background,
+          theme_color:
+            themeOptionsWithDefaults.tailwindConfig.theme.extend.colors.primary,
+          display: `standalone`,
+          icon: themeOptionsWithDefaults.faviconPath,
+        },
+      },
+      {
+        resolve: "gatsby-plugin-robots-txt",
+        options: {
+          resolveEnv: getBuildContext,
+          env: {
+            production: {
+              policy: [{ userAgent: "*" }],
+            },
+            "branch-deploy": {
+              policy: [{ userAgent: "*", disallow: ["/"] }],
+              sitemap: null,
+              host: null,
+            },
+            "deploy-preview": {
+              policy: [{ userAgent: "*", disallow: ["/"] }],
+              sitemap: null,
+              host: null,
+            },
+            dev: {
+              policy: [{ userAgent: "*", disallow: ["/"] }],
+              sitemap: null,
+              host: null,
+            },
+            development: {
+              policy: [{ userAgent: "*", disallow: ["/"] }],
+              sitemap: null,
+              host: null,
+            },
+          },
+        },
+      },
     ],
   }
 }

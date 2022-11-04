@@ -26,6 +26,8 @@ module.exports = {
         primary: colors.cyan[500],
         primarydark: colors.cyan[800],
         warning: colors.amber[500],
+        background: "#fafafa",
+        red: "#b50909",
       },
       flex: {
         4: "4 4 0%",

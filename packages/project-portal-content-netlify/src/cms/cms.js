@@ -12,6 +12,7 @@ CMS.init({
       {
         name: "project",
         label: "Projects",
+        label_singular: "Project",
         folder: "content/project",
         extension: "json",
         create: true,
@@ -21,17 +22,28 @@ CMS.init({
             name: "title",
             label: "Short title",
             widget: "string",
+            required: true,
+            hint:
+              'A short phrase or sentence describing the content. Example: "COVID Nonprofit Impact". ' +
+              'Slug is created based on the short title."The slug – a part of the web address – is created based on the short title. ' +
+              'E.g. https://projectportal.brown.edu/project/covid-nonprofit-impact."',
           },
           {
             name: "question",
             label: "Question",
-            widget: "markdown",
+            widget: "string",
+            required: true,
+            hint:
+              "The main question answered by the project. Research questions should be brief, ideally no more than 25 words." +
+              'Example: "What impact has COVID-19 had on nonprofit organizations?"',
           },
           {
             name: "status",
             label: "Status",
             widget: "select",
-            options: ["ongoing", "open", "completed"],
+            options: ["open", "ongoing", "completed"],
+            default: "open",
+            required: true,
           },
           {
             name: "opportunityCloses",
@@ -39,6 +51,8 @@ CMS.init({
             widget: "date",
             required: false,
             format: "YYYY-MM-DD",
+            default: "",
+            hint: 'For "open" projects, the date on which the chance to collaborate ceases.',
           },
           {
             name: "startDate",
@@ -46,6 +60,10 @@ CMS.init({
             widget: "date",
             required: false,
             format: "YYYY-MM-DD",
+            default: "",
+            hint:
+              "The date on which the project is planned to start / did start. Required for ongoing and completed" +
+              " projects, and optional for open projects",
           },
           {
             name: "endDate",
@@ -53,11 +71,17 @@ CMS.init({
             widget: "date",
             required: false,
             format: "YYYY-MM-DD",
+            default: "",
+            hint:
+              "The date on which the project is planned to end / did end. Required for completed projects, and " +
+              "optional for open and ongoing projects.",
           },
           {
             name: "agency",
-            label: "Agency",
-            widget: "markdown",
+            label: "Department or Agency",
+            widget: "string",
+            required: true,
+            hint: "The Department or Agency responsible for the project.",
           },
           {
             name: "topics",
@@ -68,6 +92,8 @@ CMS.init({
             value_field: "name",
             display_fields: ["name"],
             multiple: true,
+            required: true,
+            hint: "A list of themes and topics which relate to this project. To create a new topic, go to the 'Topic' collection.",
           },
           {
             name: "summary",
@@ -79,52 +105,34 @@ CMS.init({
             label: "Deliverable",
             widget: "markdown",
             default: "",
+            required: false,
+            hint:
+              "(Anticipated) deliverable(s). Required for completed projects, and " +
+              "optional for open and ongoing projects.",
           },
           {
             name: "purpose",
             label: "Purpose",
             widget: "markdown",
             default: "",
-          },
-          {
-            name: "expertise",
-            label: "Expertise",
-            widget: "markdown",
-            default: "",
-          },
-          {
-            name: "requirement",
-            label: "Requirement",
-            widget: "markdown",
             required: false,
+            hint: "Required for completed projects, and optional for open and ongoing projects.",
           },
           {
-            name: "keyDates",
-            label: "Key Dates",
+            name: "fundingInfo",
+            label: "Funding Info",
             widget: "markdown",
             required: false,
           },
           {
             name: "statusOfData",
             label: "Status Of Data",
-            required: false,
             widget: "markdown",
+            required: false,
           },
           {
             name: "priorResearch",
             label: "Prior Research",
-            required: false,
-            widget: "markdown",
-          },
-          {
-            name: "fundingInfo",
-            label: "Funding Info",
-            required: false,
-            widget: "markdown",
-          },
-          {
-            name: "emailContent",
-            label: "Email Content",
             widget: "markdown",
             required: false,
           },
@@ -133,25 +141,58 @@ CMS.init({
             label: "Main Contact",
             widget: "relation",
             collection: "Contacts",
-            search_fields: ["name"],
+            search_fields: ["name", "email", "title", "employer"],
             value_field: "{{slug}}",
             display_fields: ["name"],
+            required: true,
+            hint: 'The primary point of contact. To create a new contact or modify an existing one, go to the "Contacts" collection.',
+          },
+          {
+            name: "emailContent",
+            label: "Email Content",
+            widget: "markdown",
+            required: false,
+            hint: 'Shown with Main Contact. Only shown on "open" projects.',
+          },
+          {
+            name: "expertise",
+            label: "Expertise",
+            widget: "markdown",
+            default: "",
+            required: false,
+            hint: 'Expertise desired from potential collaborators. Only shown on "open" projects.',
+          },
+          {
+            name: "requirement",
+            label: "Requirement",
+            widget: "markdown",
+            required: false,
+            hint: 'Requirements for potential collaborators. Only shown on "open" projects.',
+          },
+          {
+            name: "keyDates",
+            label: "Key Dates",
+            widget: "markdown",
+            required: false,
+            hint: 'Key dates or events for potential collaborators. Only shown on "open" projects.',
           },
           {
             name: "projectTeam",
             label: "Project Team",
             widget: "relation",
             collection: "Contacts",
-            search_fields: ["name"],
+            search_fields: ["name", "email", "title", "employer"],
             value_field: "{{slug}}",
             display_fields: ["name"],
             multiple: true,
             required: false,
+            hint: 'People or organizations who are involved. To create a new contact or modify an existing one, go to the "Contacts" collection.',
           },
           {
             name: "created",
-            label: "Created",
+            label: "Date Posted",
             widget: "datetime",
+            hint: "The default sorting date for open projects. Click now to put this project first.",
           },
           {
             name: "lastModified",
@@ -163,6 +204,7 @@ CMS.init({
       {
         name: "contact",
         label: "Contacts",
+        label_singular: "Contact",
         folder: "content/contact",
         create: true,
         extension: "json",
@@ -170,11 +212,6 @@ CMS.init({
         media_folder: "",
         public_folder: "",
         fields: [
-          {
-            name: "key",
-            label: "Key",
-            widget: "hidden",
-          },
           {
             name: "name",
             label: "Name",
@@ -211,6 +248,7 @@ CMS.init({
       {
         name: "topics",
         label: "Topics",
+        label_singular: "Topic",
         folder: "content/topic",
         extension: "json",
         create: true,
@@ -219,6 +257,7 @@ CMS.init({
           {
             name: "name",
             label: "Topic",
+            hint: "Topics should be in Title Case and no more than 30 characters.",
           },
         ],
       },

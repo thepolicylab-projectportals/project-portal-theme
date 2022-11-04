@@ -52,7 +52,8 @@ export const BottomBanner = () => {
   const { BottomBanner } = useStaticQuery(graphql`
     query {
       BottomBanner: file(
-        relativePath: { regex: "/^bottom_banner.png$/" }
+        name: { eq: "bottom-banner" }
+        extension: { in: ["png", "jpg", "jpeg"] }
         sourceInstanceName: { eq: "themeImages" }
       ) {
         childImageSharp {

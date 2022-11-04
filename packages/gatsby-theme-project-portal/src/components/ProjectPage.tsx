@@ -183,7 +183,7 @@ export const ProjectPage = ({
   }
 
   return (
-    <main>
+    <>
       <header>
         <HeaderWithImage title={title} imageSrc={bgImage} lede={lede} />
       </header>
@@ -268,6 +268,6 @@ export const ProjectPage = ({
           </div>
         </div>
       )}
-    </main>
+    </>
   )
 }
