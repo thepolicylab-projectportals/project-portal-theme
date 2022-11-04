@@ -6,9 +6,22 @@ import PropTypes from "prop-types"
 // Components
 import { ProjectDetailLayout } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
 
-const ProjectDetailPreview = ({ entry }) => {
+const ProjectDetailPreview = ({ entry, fieldsMetaData }) => {
   const data = entry.getIn(["data"]).toJS()
-  console.log("project data", data)
+
+  // Get the MainContact data
+  const mainContact = fieldsMetaData.getIn(["mainContact"]).toJS().contact[
+    data.mainContact
+  ]
+
+  // Get the ProjectTeam data
+  const projectTeamMapping = fieldsMetaData
+    .getIn(["projectTeam"])
+    .toJS().contact
+  const projectTeam = data.projectTeam.map((slug) => projectTeamMapping[slug])
+
+  console.log("MainContact", mainContact)
+  console.log("projectTeam", projectTeam)
 
   return (
     <>
@@ -31,24 +44,14 @@ const ProjectDetailPreview = ({ entry }) => {
         statusOfData={data.statusOfData}
         fundingInfo={data.fundingInfo}
         emailContent={data.emailContent}
-        mainContact={null}
-        projectTeam={[]}
+        mainContact={null} // Need to extract queries out of MainContact
+        projectTeam={projectTeam}
       />
 
       <section className="m-responsive">
         <h3 className="text-h3 my-4">Main Contact</h3>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 justify-self-center">
           {data.mainContact}
-        </div>
-      </section>
-      <hr />
-
-      <section className="m-responsive">
-        <h3 className="text-h3 my-4">Project Team</h3>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 justify-self-center">
-          {data.projectTeam.map((contact) => (
-            <li className="w-auto px-4">{contact}</li>
-          ))}
         </div>
       </section>
       <hr />
