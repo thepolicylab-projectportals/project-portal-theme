@@ -77,7 +77,7 @@ CMS.init({
             widget: "relation",
             collection: "topics",
             search_fields: ["name"],
-            value_field: "name",
+            value_field: "{{slug}}",
             display_fields: ["name"],
             multiple: true,
             required: true,
