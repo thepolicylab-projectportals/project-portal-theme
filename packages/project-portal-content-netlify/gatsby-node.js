@@ -61,7 +61,18 @@ exports.createSchemaCustomization = ({ actions, schema, getNode }) => {
         },
 
         agency: "String",
-        topics: "[String]",
+        topics: {
+          type: [TOPIC_NODE_TYPE],
+          resolve: async (source, args, context) => {
+            const { entries } = await context.nodeModel.findAll({
+              type: TOPIC_JSON_TYPE,
+              query: {
+                filter: { slug: { in: source.topics ?? [] } },
+              },
+            })
+            return entries
+          },
+        },
 
         summary: "String",
         deliverable: "String",
@@ -141,6 +152,19 @@ exports.createSchemaCustomization = ({ actions, schema, getNode }) => {
             })
           },
         },
+      },
+    }),
+    schema.buildObjectType({
+      name: TOPIC_JSON_TYPE,
+      interfaces: ["Node", TOPIC_NODE_TYPE],
+      fields: {
+        slug: {
+          type: "String!",
+          resolve: (node) => {
+            return createFilePath({ node, getNode }).slice(1, -1)
+          },
+        },
+        name: "String",
       },
     }),
   ]
