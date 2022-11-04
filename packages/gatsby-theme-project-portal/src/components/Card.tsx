@@ -28,7 +28,7 @@ export const query = graphql`
     status
     agency
     topics {
-      name
+      ...TopicDetails
     }
     opportunityCloses
     startDate
@@ -110,7 +110,7 @@ export const Card: FunctionComponent<CardProps> = ({
                     <Feature
                       label="Topics"
                       className="bg-topics"
-                      value={topics.map((topic) => topic.name)}
+                      value={topics.map((topic) => topic.title)}
                     />
                   </div>
                 )}
