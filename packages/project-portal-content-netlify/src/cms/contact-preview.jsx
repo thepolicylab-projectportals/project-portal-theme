@@ -6,13 +6,18 @@ import PropTypes from "prop-types"
 // Components
 import { ContactLayout } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components/Contact"
 
-const ContactPreview = ({ entry }) => {
+const ContactPreview = ({ entry, getAsset }) => {
   const data = entry.getIn(["data"]).toJS()
 
+  const image = entry.getIn(["data", "image"])
+  const imageAsset = getAsset(image)
+
   return (
-    <>
-      <ContactLayout {...data} showEmail={true} image={<></>} />
-    </>
+    <ContactLayout
+      {...data}
+      showEmail={true}
+      image={<img src={imageAsset.url} alt={data.name} />}
+    />
   )
 }
 
