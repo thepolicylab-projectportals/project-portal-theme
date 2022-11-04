@@ -1,18 +1,15 @@
 import React, { FunctionComponent } from "react"
 import { Helmet } from "react-helmet"
 import { graphql, useStaticQuery } from "gatsby"
-import { IGatsbyImageData } from "gatsby-plugin-image"
 
 interface SiteMetadataProps {
   description?: string
-  image?: IGatsbyImageData
   title?: string
   pathname?: string
 }
 
 export const SiteMetadata: FunctionComponent<SiteMetadataProps> = ({
   description,
-  image,
   title,
   pathname,
 }) => {
@@ -22,10 +19,10 @@ export const SiteMetadata: FunctionComponent<SiteMetadataProps> = ({
         locale,
         title: defaultTitle,
         description: defaultDescription,
-        image: defaultImage,
         siteUrl: url,
       },
     },
+    socialShareImage,
   } = useStaticQuery(graphql`
     query SiteMetadata {
       site {
@@ -34,7 +31,15 @@ export const SiteMetadata: FunctionComponent<SiteMetadataProps> = ({
           title
           description
           siteUrl
-          image
+        }
+      }
+      socialShareImage: file(
+        name: { eq: "social-share-image" }
+        extension: { in: ["png", "jpg", "jpeg"] }
+        sourceInstanceName: { eq: "themeImages" }
+      ) {
+        childImageSharp {
+          gatsbyImageData
         }
       }
     }
@@ -43,8 +48,10 @@ export const SiteMetadata: FunctionComponent<SiteMetadataProps> = ({
   const seo = {
     title: title || defaultTitle,
     description: description || defaultDescription,
-    image: `${url}${image || defaultImage}`,
     url: `${url}${pathname || ``}`,
+    image: socialShareImage
+      ? `${url}${socialShareImage?.childImageSharp.gatsbyImageData.images.fallback.src}`
+      : "",
     locale: locale,
   }
 
@@ -61,11 +68,11 @@ export const SiteMetadata: FunctionComponent<SiteMetadataProps> = ({
       <meta property="og:type" content="website" />
       <meta property="og:locale" content={seo.locale} />
       <meta property="og:site_name" content={seo.title} />
-      <meta property="og:image" content={seo.image} />
       <meta property="og:description" content={seo.description} />
       <meta name="twitter:card" content="summary" />
-      <meta name="twitter:image" content={seo.image} />
       <meta property="twitter:description" content={seo.description} />
+      <meta property="og:image" content={seo.image} />
+      <meta name="twitter:image" content={seo.image} />
     </Helmet>
   )
 }
