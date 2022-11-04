@@ -96,7 +96,7 @@ export const ContactLayout: React.FC<ContactLayoutProps> = ({
           height: "100px",
         }}
       >
-        {image}
+        {image && image}
       </div>
       <div className="pl-2 pr-2 pb-2">
         <p className="font-bold text-black text-body">{name}</p>
