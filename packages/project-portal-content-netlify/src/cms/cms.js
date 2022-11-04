@@ -15,6 +15,7 @@ CMS.init({
         extension: "json",
         create: true,
         identifier_field: "title",
+        sortable_fields: ["title", "status", "lastModified"],
         fields: [
           {
             name: "title",
@@ -209,6 +210,7 @@ CMS.init({
         identifier_field: "name",
         media_folder: "",
         public_folder: "",
+        sortable_fields: ["name"],
         fields: [
           {
             name: "name",
@@ -251,6 +253,7 @@ CMS.init({
         extension: "json",
         create: true,
         identifier_field: "name",
+        sortable_fields: ["name"],
         fields: [
           {
             name: "name",
