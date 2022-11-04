@@ -58,7 +58,7 @@ const projectTypeDefs = `
     interface ${TOPIC_NODE_TYPE} implements Node {
       id: ID!
       slug: String!
-      name: String
+      title: String
     }
   `
 

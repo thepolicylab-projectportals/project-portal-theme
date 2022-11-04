@@ -232,14 +232,14 @@ CMS.init({
       {
         name: "topics",
         label: "Topics",
+        label_singular: "Topic",
         folder: "content/topic",
         extension: "json",
         create: true,
-        identifier_field: "name",
         fields: [
           {
-            name: "name",
-            label: "Topic",
+            name: "title",
+            label: "Title",
           },
         ],
       },

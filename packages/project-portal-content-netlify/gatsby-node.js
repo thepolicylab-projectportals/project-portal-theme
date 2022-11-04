@@ -166,7 +166,7 @@ exports.createSchemaCustomization = ({ actions, schema, getNode }) => {
             return createFilePath({ node, getNode }).slice(1, -1)
           },
         },
-        name: "String",
+        title: "String",
       },
     }),
   ]
