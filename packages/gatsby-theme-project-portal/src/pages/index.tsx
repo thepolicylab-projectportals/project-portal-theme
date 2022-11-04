@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { CardProps } from "../components"
+import { CardProps, TopicType } from "../components"
 import { useStaticText } from "../hooks"
 import { ProjectPageLayout } from "../layouts/ProjectPageLayout"
 
@@ -8,6 +8,9 @@ export interface OpenProjectProps {
   data: {
     allProject: {
       nodes: CardProps[]
+    }
+    allTopic: {
+      nodes: TopicType[]
     }
     bgImage: {
       childImageSharp: {
@@ -19,12 +22,15 @@ export interface OpenProjectProps {
   }
 }
 
-export default ({ data: { allProject, bgImage } }: OpenProjectProps) => {
+export default ({
+  data: { allProject, allTopic, bgImage },
+}: OpenProjectProps) => {
   const { open } = useStaticText()
 
   return (
     <ProjectPageLayout
       allProject={allProject}
+      allTopic={allTopic}
       bgImage={bgImage}
       title={open.title}
       lede={open.lede}
@@ -38,6 +44,11 @@ export const query = graphql`
     allProject(filter: { status: { eq: "open" } }) {
       nodes {
         ...CardDetails
+      }
+    }
+    allTopic {
+      nodes {
+        ...TopicDetails
       }
     }
     bgImage: file(
