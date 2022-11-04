@@ -20,14 +20,19 @@ CMS.init({
             label: "Short title",
             widget: "string",
             required: true,
-            hint: 'A short phrase or sentence describing the content. Example: "COVID Nonprofit Impact"',
+            hint:
+              'A short phrase or sentence describing the content. Example: "COVID Nonprofit Impact". ' +
+              'Slug is created based on the short title."The slug – a part of the web address – is created based on the short title. ' +
+              'E.g. https://projectportal.brown.edu/project/covid-nonprofit-impact."',
           },
           {
             name: "question",
             label: "Question",
-            widget: "text",
+            widget: "string",
             required: true,
-            hint: 'The main question answered by the project. Example: "What impact has COVID-19 had on nonprofit organizations?"',
+            hint:
+              "The main question answered by the project. Research questions should be brief, ideally no more than 25 words." +
+              'Example: "What impact has COVID-19 had on nonprofit organizations?"',
           },
           {
             name: "status",
@@ -53,7 +58,9 @@ CMS.init({
             required: false,
             format: "YYYY-MM-DD",
             default: "",
-            hint: "The date on which the project is planned to start / did start.",
+            hint:
+              "The date on which the project is planned to start / did start. Required for ongoing and completed" +
+              " projects, and optional for open projects",
           },
           {
             name: "endDate",
@@ -62,7 +69,9 @@ CMS.init({
             required: false,
             format: "YYYY-MM-DD",
             default: "",
-            hint: "The date on which the project is planned to end / did end.",
+            hint:
+              "The date on which the project is planned to end / did end. Required for completed projects, and " +
+              "optional for open and ongoing projects.",
           },
           {
             name: "agency",
@@ -94,7 +103,9 @@ CMS.init({
             widget: "markdown",
             default: "",
             required: false,
-            hint: "(Anticipated) deliverable(s).",
+            hint:
+              "(Anticipated) deliverable(s). Required for completed projects, and " +
+              "optional for open and ongoing projects.",
           },
           {
             name: "purpose",
@@ -102,6 +113,7 @@ CMS.init({
             widget: "markdown",
             default: "",
             required: false,
+            hint: "Required for completed projects, and optional for open and ongoing projects.",
           },
           {
             name: "fundingInfo",
@@ -240,6 +252,7 @@ CMS.init({
           {
             name: "name",
             label: "Topic",
+            hint: "Topics should be in Title Case and no more than 30 characters.",
           },
         ],
       },
