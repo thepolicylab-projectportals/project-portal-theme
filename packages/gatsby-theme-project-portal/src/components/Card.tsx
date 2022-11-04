@@ -1,4 +1,4 @@
-import { Link } from "gatsby"
+import { graphql, Link } from "gatsby"
 import React, { FunctionComponent } from "react"
 import { Feature } from "."
 import { ProjectStatus } from "./ProjectStatus"
@@ -26,6 +26,23 @@ export interface CardWithoutNavigationProps {
   fundingInfo: string
   lastModified: Date
 }
+
+export const query = graphql`
+  fragment CardDetails on Project {
+    slug
+    question
+    status
+    agency
+    topics {
+      name
+    }
+    opportunityCloses
+    startDate
+    endDate
+    lastModified
+    created
+  }
+`
 
 export interface CardProps extends CardWithoutNavigationProps {
   navigation: {

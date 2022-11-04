@@ -37,21 +37,7 @@ export const query = graphql`
   query ProjectPageQuery {
     allProject(filter: { status: { eq: "completed" } }) {
       nodes {
-        endDate
-        created
-        question
-        slug
-        status
-        summary
-        deliverable
-        expertise
-        keyDates
-        agency
-        topics
-        statusOfData
-        priorResearch
-        fundingInfo
-        lastModified
+        ...CardDetails
       }
     }
     bgImage: file(
