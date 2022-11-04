@@ -186,7 +186,7 @@ export const ProjectDetailLayout: FunctionComponent<
                 {...mainContact}
                 status={status}
                 emailContent={emailContent}
-                mainContactHeadline={mainContactHeadline}
+                headline={mainContactHeadline}
                 projectInterestLink={projectInterestLink}
               />
             )}

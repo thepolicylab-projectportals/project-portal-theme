@@ -11,7 +11,8 @@ interface ProjectContactProps {
   email: string
   image?: IGatsbyImageData
   status: string
-  mainContactHeadline: string
+  headline: string
+  mainContactBody: String
   emailContent?: string
   projectInterestLink?: string
 }
@@ -24,7 +25,7 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
   image,
   status,
   emailContent,
-  mainContactHeadline,
+  headline,
   projectInterestLink,
 }) => {
   const staticText = useStaticText()
@@ -37,7 +38,7 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
   return (
     <div className="w-full lg:w-2/5 xl:w-1/3">
       <div className="w-full p-8 mb-8 bg-gray-100">
-        <h4 className="text-h4">{mainContactHeadline}</h4>
+        <h4 className="text-h4">{headline}</h4>
         <div className="text-black text-body">
           <MarkdownText text={mainText} />
         </div>
