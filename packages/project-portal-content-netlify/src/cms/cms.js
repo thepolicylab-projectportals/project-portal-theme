@@ -6,7 +6,6 @@ CMS.init({
   config: {
     media_folder: "content/image",
     public_folder: "/image",
-    local_backend: true,
     collections: [
       {
         name: "projects",
