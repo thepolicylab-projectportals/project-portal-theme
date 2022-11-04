@@ -3,6 +3,7 @@ const fs = require("fs")
 const {
   PROJECT_NODE_TYPE,
   CONTACT_NODE_TYPE,
+  TOPIC_NODE_TYPE,
 } = require("@thepolicylab-projectportals/gatsby-theme-project-portal/utils/types")
 const { withDefaults } = require("./utils/default-options")
 const { createFilePath } = require("gatsby-source-filesystem")
@@ -14,6 +15,7 @@ const { createFilePath } = require("gatsby-source-filesystem")
 // to match.
 const PROJECT_JSON_TYPE = `ProjectJson`
 const CONTACT_JSON_TYPE = `ContactJson`
+const TOPIC_JSON_TYPE = `TopicJson`
 
 exports.onPreBootstrap = ({ reporter }, pluginOptions) => {
   const { projectPath, contactPath } = withDefaults(pluginOptions)
