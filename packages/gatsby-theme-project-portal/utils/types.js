@@ -19,6 +19,7 @@ const projectPortalConfigTypeDefs = `
 // constants for GraphQL Project and Contact types
 const PROJECT_NODE_TYPE = `Project`
 const CONTACT_NODE_TYPE = `Contact`
+const TOPIC_NODE_TYPE = `Topic`
 
 const projectTypeDefs = `
     interface ${PROJECT_NODE_TYPE} implements Node {
@@ -34,7 +35,7 @@ const projectTypeDefs = `
       endDate: Date @dateformat
   
       agency: String
-      topics: [String]
+      topics: [${TOPIC_NODE_TYPE}]
       
       summary: String
       deliverable: String
@@ -52,6 +53,12 @@ const projectTypeDefs = `
       
       mainContact: ${CONTACT_NODE_TYPE}
       projectTeam: [${CONTACT_NODE_TYPE}]
+    }
+    
+    interface ${TOPIC_NODE_TYPE} implements Node {
+      id: ID!
+      slug: String!
+      name: String
     }
   `
 
@@ -78,4 +85,5 @@ module.exports = {
   projectTypeDefs,
   CONTACT_NODE_TYPE,
   contactTypeDefs,
+  TOPIC_NODE_TYPE,
 }
