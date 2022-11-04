@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react"
-import { Cards, CardProps } from "../components"
+import { Cards, CardProps, TopicType } from "../components"
 import { HeaderWithImage } from "./HeaderWithImage"
 import { BackIcon } from "./BackIcon"
 import { ForwardIcon } from "./ForwardIcon"
@@ -39,12 +39,14 @@ export interface ProjectPageProps {
   lede: string
   sortOptions: [...any]
   allProjects: CardProps[]
+  allTopics: TopicType[]
   bgImage: string
 }
 
 export const ProjectPage = ({
   title,
   allProjects,
+  allTopics,
   lede,
   sortOptions,
   bgImage,
@@ -52,18 +54,6 @@ export const ProjectPage = ({
   const ITEMS_PER_PAGE = 6
   const [sortedProjects, setSortedProjects] = useState(allProjects)
   const [displayProjects, setDisplayProjects] = useState(allProjects)
-
-  const projectTopics = []
-
-  for (const project of allProjects) {
-    if (project.topics) {
-      for (const topic of project.topics) {
-        if (!projectTopics.some(({ value }) => value === topic)) {
-          projectTopics.push({ value: topic, label: topic })
-        }
-      }
-    }
-  }
 
   const projectStatus = new Map()
   projectStatus.set("created", "Date Posted")
@@ -163,6 +153,11 @@ export const ProjectPage = ({
 
   const [selectedOptions, setSelectedOptions] = useState([])
 
+  const filterOptions = allTopics.map((topic) => ({
+    value: topic.slug, // We use the topic's slug as the primary key for filtering
+    label: topic.title,
+  }))
+
   useEffect(() => {
     if (selectedOptions.length == 0) {
       setDisplayProjects(sortedProjects)
@@ -170,7 +165,9 @@ export const ProjectPage = ({
       const filteredTopics = selectedOptions.map(({ value }) => value)
       setDisplayProjects(
         sortedProjects.filter((project) =>
-          project.topics.some((topic) => filteredTopics.includes(topic))
+          project.topics
+            .map((topic) => topic.slug)
+            .some((topicSlug) => filteredTopics.includes(topicSlug))
         )
       )
     }
@@ -217,7 +214,7 @@ export const ProjectPage = ({
               isMulti={true}
               value={selectedOptions}
               onChange={setSelectedOptions}
-              options={projectTopics}
+              options={filterOptions}
               styles={selectStyle}
             />
           </div>
