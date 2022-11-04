@@ -2,13 +2,14 @@ import React, { FunctionComponent } from "react"
 import moment from "moment"
 
 import {
+  CollaboratorDetails,
   ContactType,
   Feature,
   MainContact,
+  ProjectTeam,
   SectionOfItem,
   ShareProject,
-  CollaboratorDetails,
-  ProjectTeam,
+  TopicType,
 } from "."
 
 import { statusOutput, isNA, isEmpty } from "../utils"
@@ -45,10 +46,6 @@ export interface ProjectDetailLayoutProps {
   agency: string
   topics?: TopicType[]
   lastModified: Date
-}
-
-export interface TopicType {
-  name: string
 }
 
 export const ProjectDetailLayout: FunctionComponent<
