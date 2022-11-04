@@ -127,7 +127,7 @@ export const ProjectDetailLayout: FunctionComponent<
                 <Feature
                   label="Topics"
                   className="bg-topics"
-                  value={topics.map((topic) => topic.name)}
+                  value={topics.map((topic) => topic.title)}
                 />
               </div>
             )}
