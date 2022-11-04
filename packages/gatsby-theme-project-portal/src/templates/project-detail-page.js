@@ -15,7 +15,7 @@ export const query = graphql`
       lastModified
       agency
       topics {
-        name
+        ...TopicDetails
       }
       deliverable
       purpose
