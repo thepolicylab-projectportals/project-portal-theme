@@ -20,7 +20,10 @@ CMS.init({
             label: "Short title",
             widget: "string",
             required: true,
-            hint: 'A short phrase or sentence describing the content. Example: "COVID Nonprofit Impact". Slug is created based on the short title.',
+            hint:
+              'A short phrase or sentence describing the content. Example: "COVID Nonprofit Impact". ' +
+              'Slug is created based on the short title."The slug – a part of the web address – is created based on the short title. ' +
+              'E.g. https://projectportal.brown.edu/project/covid-nonprofit-impact."',
           },
           {
             name: "question",
@@ -55,7 +58,9 @@ CMS.init({
             required: false,
             format: "YYYY-MM-DD",
             default: "",
-            hint: "The date on which the project is planned to start / did start. It is only optional for open projects.",
+            hint:
+              "The date on which the project is planned to start / did start. Required for ongoing and completed" +
+              " projects, and optional for open projects",
           },
           {
             name: "endDate",
@@ -64,7 +69,9 @@ CMS.init({
             required: false,
             format: "YYYY-MM-DD",
             default: "",
-            hint: "The date on which the project is planned to end / did end. It is only optional for open and ongoing projects ",
+            hint:
+              "The date on which the project is planned to end / did end. Required for completed projects, and " +
+              "optional for open and ongoing projects.",
           },
           {
             name: "agency",
@@ -96,7 +103,9 @@ CMS.init({
             widget: "markdown",
             default: "",
             required: false,
-            hint: "(Anticipated) deliverable(s). It is only optional for open and ongoing projects",
+            hint:
+              "(Anticipated) deliverable(s). Required for completed projects, and " +
+              "optional for open and ongoing projects.",
           },
           {
             name: "purpose",
@@ -104,7 +113,7 @@ CMS.init({
             widget: "markdown",
             default: "",
             required: false,
-            hint: "It is only optional for open and ongoing projects",
+            hint: "Required for completed projects, and optional for open and ongoing projects.",
           },
           {
             name: "fundingInfo",
