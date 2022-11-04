@@ -7,6 +7,7 @@ import {
 import React, { FunctionComponent } from "react"
 import { Link, withPrefix } from "gatsby"
 import { statusOutput } from "../utils"
+import { useProjectPortalConfig } from "../hooks"
 
 // For the ProjectDetailPage we add the slug which isn't on the layout
 interface ProjectDetailPageProps extends ProjectDetailLayoutProps {
@@ -35,12 +36,15 @@ export const ProjectDetailPage: FunctionComponent<
     "The project is complete."
   )
 
+  const projectInterestLink = useProjectPortalConfig().projectInterestLink
+
   return (
     <Layout title={project.question} description={project.summary}>
       <main>
         <ProjectDetailLayout
           {...project}
           mainContactHeadline={mainContactHeadline}
+          projectInterestLink={projectInterestLink}
         />
       </main>
       <div className="p-responsive pb-4">

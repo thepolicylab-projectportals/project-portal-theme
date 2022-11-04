@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react"
 import { Link } from "gatsby"
 import { Contact, MarkdownText } from "../components"
-import { useProjectPortalConfig, useStaticText } from "../hooks"
+import { useStaticText } from "../hooks"
 import { IGatsbyImageData } from "gatsby-plugin-image"
 
 interface ProjectContactProps {
@@ -13,6 +13,7 @@ interface ProjectContactProps {
   status: string
   mainContactHeadline: string
   emailContent?: string
+  projectInterestLink?: string
 }
 
 export const MainContact: FunctionComponent<ProjectContactProps> = ({
@@ -24,8 +25,8 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
   status,
   emailContent,
   mainContactHeadline,
+  projectInterestLink,
 }) => {
-  const meta = useProjectPortalConfig()
   const staticText = useStaticText()
   const mainText =
     status === "open"
@@ -42,8 +43,8 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
         </div>
         <div className="mt-4">
           {status === "open" ? (
-            meta.projectInterestLink ? (
-              <a href={meta.projectInterestLink} target="_blank" rel="noopener">
+            projectInterestLink ? (
+              <a href={projectInterestLink} target="_blank" rel="noopener">
                 <button className="btn">Express interest</button>
               </a>
             ) : (
