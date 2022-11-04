@@ -7,7 +7,7 @@ import {
 import React, { FunctionComponent } from "react"
 import { Link, withPrefix } from "gatsby"
 import { statusOutput } from "../utils"
-import { useProjectPortalConfig } from "../hooks"
+import { useProjectPortalConfig, useStaticText } from "../hooks"
 
 // For the ProjectDetailPage we add the slug which isn't on the layout
 interface ProjectDetailPageProps extends ProjectDetailLayoutProps {
@@ -36,6 +36,20 @@ export const ProjectDetailPage: FunctionComponent<
     "The project is complete."
   )
 
+  const staticText = useStaticText()
+  let mainContactBodyText
+  switch (project.status) {
+    case "open":
+      mainContactBodyText = project.emailContent
+      break
+    case "ongoing":
+      mainContactBodyText = staticText.main_contact_text.ongoingText
+      break
+    case "complete":
+      mainContactBodyText = staticText.main_contact_text.completeText
+      break
+  }
+
   const projectInterestLink = useProjectPortalConfig().projectInterestLink
 
   return (
@@ -43,8 +57,11 @@ export const ProjectDetailPage: FunctionComponent<
       <main>
         <ProjectDetailLayout
           {...project}
-          mainContactHeadline={mainContactHeadline}
-          projectInterestLink={projectInterestLink}
+          mainContactText={{
+            headline: mainContactHeadline,
+            body: mainContactBodyText,
+            projectInterestLink: projectInterestLink,
+          }}
         />
       </main>
       <div className="p-responsive pb-4">

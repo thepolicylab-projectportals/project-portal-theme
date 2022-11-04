@@ -32,9 +32,12 @@ export interface ProjectDetailLayoutProps {
 
   // Contact
   mainContact: ContactType
-  mainContactHeadline: string
+  mainContactText: {
+    headline: string
+    body: string
+    projectInterestLink: string
+  }
   emailContent?: string // shown with MainContact for open projects
-  projectInterestLink: string
 
   // Project team
   projectTeam?: ContactType[]
@@ -69,9 +72,7 @@ export const ProjectDetailLayout: FunctionComponent<
   priorResearch,
   statusOfData,
   fundingInfo,
-  mainContactHeadline,
-  projectInterestLink,
-  emailContent,
+  mainContactText,
   mainContact,
   projectTeam,
 }) => {
@@ -184,10 +185,8 @@ export const ProjectDetailLayout: FunctionComponent<
             {!(mainContact === null || mainContact === undefined) && (
               <MainContact
                 {...mainContact}
+                {...mainContactText}
                 status={status}
-                emailContent={emailContent}
-                headline={mainContactHeadline}
-                projectInterestLink={projectInterestLink}
               />
             )}
           </div>
