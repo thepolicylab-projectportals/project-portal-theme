@@ -11,9 +11,8 @@ registries:
     url: "https://npm.pkg.github.com"
 
 updates:
-  -
+  - package-ecosystem: npm
     directory: /
-    package-ecosystem: npm
     schedule:
       interval: daily
     registries:
