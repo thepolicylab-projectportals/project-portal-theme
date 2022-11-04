@@ -43,8 +43,12 @@ export interface ProjectDetailLayoutProps {
   startDate: Date
   endDate: Date
   agency: string
-  topics?: string[]
+  topics?: TopicType[]
   lastModified: Date
+}
+
+export interface TopicType {
+  name: string
 }
 
 export const ProjectDetailLayout: FunctionComponent<
@@ -123,7 +127,11 @@ export const ProjectDetailLayout: FunctionComponent<
           <section className="flex flex-wrap items-start py-6 m-responsive gap-x-10 gap-y-4">
             {!isEmpty(topics) && (
               <div className="text-tag mt-2">
-                <Feature label="Topics" className="bg-topics" value={topics} />
+                <Feature
+                  label="Topics"
+                  className="bg-topics"
+                  value={topics.map((topic) => topic.name)}
+                />
               </div>
             )}
           </section>

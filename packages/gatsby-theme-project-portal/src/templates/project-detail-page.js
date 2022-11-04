@@ -14,7 +14,9 @@ export const query = graphql`
       endDate
       lastModified
       agency
-      topics
+      topics {
+        name
+      }
       deliverable
       purpose
       expertise
