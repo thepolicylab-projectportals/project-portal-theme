@@ -4,7 +4,6 @@ import { HeaderWithImage } from "./HeaderWithImage"
 import { BackIcon } from "./BackIcon"
 import { ForwardIcon } from "./ForwardIcon"
 import Select from "react-select"
-import { isNA } from "../utils"
 
 function customSort(dateField: string, sortAscending: boolean) {
   return function (a, b) {
@@ -227,7 +226,7 @@ export const ProjectPage = ({
         </div>
         <Cards nodes={list} />
       </div>
-      {!(isNA(hasPrev) && isNA(hasNext)) && (
+      {!(hasPrev == null && hasNext == null) && (
         <div className="flex items-center gap-4 justify-center flex-wrap">
           <div className="flex-1 flex justify-end">
             <button
