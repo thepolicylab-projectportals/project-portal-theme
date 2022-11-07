@@ -1,6 +1,6 @@
 {
   "name": "project-portal-theme",
-  "packageManager": "yarn@1.22.19",
+  "packageManager": "yarn@3.2.4",
   "private": true,
   "version": "3.1.0",
   "license": "0BSD",
@@ -13,7 +13,7 @@
   ],
   "devDependencies": {
     "jest": "^29.2.2",
-    "prettier": "^2.7.1",
-    "pa11y-ci": "^3.0.1"
+    "pa11y-ci": "^3.0.1",
+    "prettier": "^2.7.1"
   }
 }
