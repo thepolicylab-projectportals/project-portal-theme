@@ -18,26 +18,26 @@
     "react-dom": "^18.2.0"
   },
   "dependencies": {
-    "@tailwindcss/forms": "^0.5.3",
     "@headlessui/react": "^1.7.3",
+    "@tailwindcss/forms": "^0.5.3",
     "autoprefixer": "^10.4.13",
     "gatsby-plugin-image": "^2.24.0",
+    "gatsby-plugin-manifest": "^4.24.0",
     "gatsby-plugin-postcss": "^5.24.0",
+    "gatsby-plugin-robots-txt": "^1.7.1",
     "gatsby-plugin-sharp": "^4.24.0",
+    "gatsby-plugin-sitemap": "^5.24.0",
     "gatsby-source-filesystem": "^4.1.0",
     "gatsby-transformer-sharp": "^4.24.0",
-    "gatsby-plugin-manifest": "^4.24.0",
     "lodash": "^4.17.21",
     "markdown-to-jsx": "^7.1.7",
     "moment": "^2.29.4",
+    "react-google-recaptcha": "^2.1.0",
     "react-helmet": "^6.1.0",
     "react-icons": "^4.4.0",
-    "react-google-recaptcha": "^2.1.0",
     "react-select": "^5.6.0",
     "react-share": "^4.4.0",
-    "tailwindcss": "^3.1.8",
-    "gatsby-plugin-sitemap": "^5.24.0",
-    "gatsby-plugin-robots-txt": "^1.7.1"
+    "tailwindcss": "^3.1.8"
   },
   "devDependencies": {
     "@types/tailwindcss": "^3.1.0"
