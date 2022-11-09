@@ -1,4 +1,4 @@
 backend:
   name: git-gateway
-  branch: 228-add-editorial-workflow
+  branch: main
 local_backend: false
