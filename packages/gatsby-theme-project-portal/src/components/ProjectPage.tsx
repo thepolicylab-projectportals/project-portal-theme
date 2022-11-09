@@ -7,7 +7,7 @@ import Select from "react-select"
 
 function customSort(dateField: string, sortAscending: boolean) {
   return function (a, b) {
-    let sortValue = 0
+    let sortValue
     const aValue = a[dateField]
     const bValue = b[dateField]
 
