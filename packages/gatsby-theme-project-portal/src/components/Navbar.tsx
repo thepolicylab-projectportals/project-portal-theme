@@ -79,7 +79,7 @@ export const NavbarLayout: FunctionComponent<NavbarLayoutProps> = ({
               <>
                 {image && (
                   <GatsbyImage
-                    className="hidden xl:inline-block"
+                    className="xl:inline-block"
                     image={image}
                     alt={"nav_logo"}
                   />
@@ -134,9 +134,11 @@ export const Navbar: FunctionComponent<NavbarProps> = ({ activePage }) => {
       }
     }
   `)
+  console.log(logo)
   const { title } = useSiteMetadata()
   const { pages } = useProjectPortalConfig()
   const image = getImage(logo)
+  console.log(image)
   return (
     <>
       <NavbarLayout

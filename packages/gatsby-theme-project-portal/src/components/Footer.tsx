@@ -48,7 +48,7 @@ export const FooterLayout: FunctionComponent<FooterProps> = ({
         >
           {image && (
             <GatsbyImage
-              className="hidden xl:inline-block"
+              className="xl:inline-block"
               image={image.imageData}
               alt={image.altText}
             />
