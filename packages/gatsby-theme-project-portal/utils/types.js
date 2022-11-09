@@ -19,8 +19,8 @@ const projectPortalConfigTypeDefs = `
     open: CardPageType
     ongoing: CardPageType
     completed: CardPageType
-    about: AboutType
     contact: ContactType
+    about: AboutType
     bottom_banner: BottomBannerType
     footer: FooterType
     main_contact_text: MainContactTextType
