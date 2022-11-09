@@ -134,11 +134,9 @@ export const Navbar: FunctionComponent<NavbarProps> = ({ activePage }) => {
       }
     }
   `)
-  console.log(logo)
   const { title } = useSiteMetadata()
   const { pages } = useProjectPortalConfig()
   const image = getImage(logo)
-  console.log(image)
   return (
     <>
       <NavbarLayout
