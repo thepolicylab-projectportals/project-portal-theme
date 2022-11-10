@@ -10,7 +10,6 @@ module.exports = (themeOptions) => {
         "The Project Portal, developed by the Policy Lab at Brown University.",
       siteUrl: getSiteUrl(),
       locale: "en",
-      image: "/icons/icon-256x256.png",
     },
     plugins: [
       `gatsby-plugin-image`,

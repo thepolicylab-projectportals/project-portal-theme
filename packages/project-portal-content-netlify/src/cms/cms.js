@@ -6,6 +6,7 @@ CMS.init({
   config: {
     media_folder: "content/image",
     public_folder: "/image",
+    publish_mode: "editorial_workflow",
     collections: [
       {
         name: "projects",
@@ -15,6 +16,7 @@ CMS.init({
         extension: "json",
         create: true,
         identifier_field: "title",
+        sortable_fields: ["title", "status", "lastModified"],
         fields: [
           {
             name: "title",
@@ -209,6 +211,7 @@ CMS.init({
         identifier_field: "name",
         media_folder: "",
         public_folder: "",
+        sortable_fields: ["name"],
         fields: [
           {
             name: "name",
@@ -250,6 +253,7 @@ CMS.init({
         folder: "content/topic",
         extension: "json",
         create: true,
+        sortable_fields: ["title"],
         fields: [
           {
             name: "title",
