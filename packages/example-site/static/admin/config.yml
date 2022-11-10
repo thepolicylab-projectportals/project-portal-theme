@@ -1,4 +1,4 @@
 backend:
   name: git-gateway
-  branch: fix-duplicated-topics
+  branch: main
 local_backend: false
