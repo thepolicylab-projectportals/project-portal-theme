@@ -9,7 +9,7 @@ CMS.init({
     publish_mode: "editorial_workflow",
     collections: [
       {
-        name: "projects",
+        name: "project",
         label: "Projects",
         label_singular: "Project",
         folder: "content/project",
@@ -87,7 +87,7 @@ CMS.init({
             name: "topics",
             label: "Topics",
             widget: "relation",
-            collection: "topics",
+            collection: "topic",
             search_fields: ["name"],
             value_field: "{{slug}}",
             display_fields: ["name"],
@@ -140,7 +140,7 @@ CMS.init({
             name: "mainContact",
             label: "Main Contact",
             widget: "relation",
-            collection: "Contacts",
+            collection: "contact",
             search_fields: ["name", "email", "title", "employer"],
             value_field: "{{slug}}",
             display_fields: ["name"],
@@ -180,7 +180,7 @@ CMS.init({
             name: "projectTeam",
             label: "Project Team",
             widget: "relation",
-            collection: "Contacts",
+            collection: "contact",
             search_fields: ["name", "email", "title", "employer"],
             value_field: "{{slug}}",
             display_fields: ["name"],
@@ -202,7 +202,7 @@ CMS.init({
         ],
       },
       {
-        name: "Contacts",
+        name: "contact",
         label: "Contacts",
         label_singular: "Contact",
         folder: "content/contact",
@@ -247,7 +247,7 @@ CMS.init({
         ],
       },
       {
-        name: "topics",
+        name: "topic",
         label: "Topics",
         label_singular: "Topic",
         folder: "content/topic",
