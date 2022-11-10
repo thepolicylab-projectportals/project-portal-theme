@@ -3,6 +3,7 @@ const fs = require("fs")
 const {
   PROJECT_NODE_TYPE,
   CONTACT_NODE_TYPE,
+  TOPIC_NODE_TYPE,
 } = require("@thepolicylab-projectportals/gatsby-theme-project-portal/utils/types")
 const { withDefaults } = require("./utils/default-options")
 const { createFilePath } = require("gatsby-source-filesystem")
@@ -14,6 +15,7 @@ const { createFilePath } = require("gatsby-source-filesystem")
 // to match.
 const PROJECT_JSON_TYPE = `ProjectJson`
 const CONTACT_JSON_TYPE = `ContactJson`
+const TOPIC_JSON_TYPE = `TopicJson`
 
 exports.onPreBootstrap = ({ reporter }, pluginOptions) => {
   const { projectPath, contactPath } = withDefaults(pluginOptions)
@@ -61,7 +63,18 @@ exports.createSchemaCustomization = ({ actions, schema, getNode }) => {
         },
 
         agency: "String",
-        topics: "[String]",
+        topics: {
+          type: [TOPIC_NODE_TYPE],
+          resolve: async (source, args, context) => {
+            const { entries } = await context.nodeModel.findAll({
+              type: TOPIC_JSON_TYPE,
+              query: {
+                filter: { slug: { in: source.topics ?? [] } },
+              },
+            })
+            return entries
+          },
+        },
 
         summary: "String",
         deliverable: "String",
@@ -141,6 +154,19 @@ exports.createSchemaCustomization = ({ actions, schema, getNode }) => {
             })
           },
         },
+      },
+    }),
+    schema.buildObjectType({
+      name: TOPIC_JSON_TYPE,
+      interfaces: ["Node", TOPIC_NODE_TYPE],
+      fields: {
+        slug: {
+          type: "String!",
+          resolve: (node) => {
+            return createFilePath({ node, getNode }).slice(1, -1)
+          },
+        },
+        title: "String",
       },
     }),
   ]

@@ -1,31 +1,42 @@
-import { Link } from "gatsby"
+import { graphql, Link } from "gatsby"
 import React, { FunctionComponent } from "react"
-import { Feature } from "."
+import { Feature, TopicType } from "."
 import { ProjectStatus } from "./ProjectStatus"
 import { statusOutput, isEmpty } from "../utils"
 import moment from "moment"
 
 export interface CardWithoutNavigationProps {
-  question: string
-  partnerName: string
+  // Card Details
   slug: string
-  summary: string
+  question: string
   status: string
+  agency: string
+  topics: TopicType[]
+
+  // Dates
   opportunityCloses: Date
   startDate: Date
   endDate: Date
-  agency: string
-  topics: string[]
-  deliverable: string
-  purpose: string
-  expertise: string
-  requirement: string
-  keyDates: string
-  priorResearch: string
-  statusOfData: string
-  fundingInfo: string
   lastModified: Date
+  created: Date
 }
+
+export const query = graphql`
+  fragment CardDetails on Project {
+    slug
+    question
+    status
+    agency
+    topics {
+      ...TopicDetails
+    }
+    opportunityCloses
+    startDate
+    endDate
+    lastModified
+    created
+  }
+`
 
 export interface CardProps extends CardWithoutNavigationProps {
   navigation: {
@@ -35,11 +46,11 @@ export interface CardProps extends CardWithoutNavigationProps {
 }
 
 export const Card: FunctionComponent<CardProps> = ({
-  question,
   slug,
+  question,
   status,
-  topics,
   agency,
+  topics,
   opportunityCloses,
   startDate,
   endDate,
@@ -99,7 +110,7 @@ export const Card: FunctionComponent<CardProps> = ({
                     <Feature
                       label="Topics"
                       className="bg-topics"
-                      value={topics}
+                      value={topics.map((topic) => topic.title)}
                     />
                   </div>
                 )}

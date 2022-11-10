@@ -2,13 +2,14 @@ import React, { FunctionComponent } from "react"
 import moment from "moment"
 
 import {
+  CollaboratorDetails,
   ContactType,
   Feature,
   MainContact,
+  ProjectTeam,
   SectionOfItem,
   ShareProject,
-  CollaboratorDetails,
-  ProjectTeam,
+  TopicType,
 } from "."
 
 import { statusOutput, isNA, isEmpty } from "../utils"
@@ -43,7 +44,7 @@ export interface ProjectDetailLayoutProps {
   startDate: Date
   endDate: Date
   agency: string
-  topics?: string[]
+  topics?: TopicType[]
   lastModified: Date
 }
 
@@ -123,7 +124,11 @@ export const ProjectDetailLayout: FunctionComponent<
           <section className="flex flex-wrap items-start py-6 m-responsive gap-x-10 gap-y-4">
             {!isEmpty(topics) && (
               <div className="text-tag mt-2">
-                <Feature label="Topics" className="bg-topics" value={topics} />
+                <Feature
+                  label="Topics"
+                  className="bg-topics"
+                  value={topics.map((topic) => topic.title)}
+                />
               </div>
             )}
           </section>

@@ -1,10 +1,13 @@
 import { Layout } from "./Layout"
-import { ProjectPage, CardProps } from "../components"
+import { ProjectPage, CardProps, TopicType } from "../components"
 import React, { FunctionComponent } from "react"
 
 export interface ProjectPageLayoutProps {
   allProject: {
     nodes: CardProps[]
+  }
+  allTopic: {
+    nodes: TopicType[]
   }
   bgImage: {
     childImageSharp: {
@@ -21,6 +24,7 @@ export interface ProjectPageLayoutProps {
 
 export const ProjectPageLayout: FunctionComponent<ProjectPageLayoutProps> = ({
   allProject,
+  allTopic,
   bgImage,
   pageName,
   title,
@@ -32,6 +36,7 @@ export const ProjectPageLayout: FunctionComponent<ProjectPageLayoutProps> = ({
       <main>
         <ProjectPage
           allProjects={allProject.nodes}
+          allTopics={allTopic.nodes}
           bgImage={bgImage?.childImageSharp.resize.src}
           title={title}
           lede={lede}
