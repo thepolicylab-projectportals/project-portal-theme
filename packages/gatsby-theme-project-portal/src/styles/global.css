@@ -38,7 +38,7 @@ ol.markdown-text {
 }
 
 ul ul.markdown-text,ol ol.markdown-text,ol ul.markdown-text,ul ol.markdown-text {
-  margin-bottom: 0;
+  @apply mb-0
 }
 
 h1 {
