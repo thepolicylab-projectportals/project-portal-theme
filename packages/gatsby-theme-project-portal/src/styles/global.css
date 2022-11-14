@@ -29,6 +29,10 @@ li.list-style-type-dash span {
   margin-left: 3px;
 }
 
+ul ul.markdown-text,ol ol.markdown-text,ol ul.markdown-text,ul ol.markdown-text {
+  margin-bottom: 0;
+}
+
 h1 {
   @apply pb-4 text-3xl leading-tight md:text-4xl;
 }

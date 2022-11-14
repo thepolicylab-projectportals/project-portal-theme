@@ -25,12 +25,12 @@ export const MarkdownText = ({ text, ...props }: MarkdownTextProps) => {
           },
           ul: {
             props: {
-              className: "list-outside list-disc ml-5 mb-4",
+              className: "list-outside list-disc ml-5 mb-4 markdown-text",
             },
           },
           ol: {
             props: {
-              className: "list-outside list-decimal ml-5 mb-4",
+              className: "list-outside list-decimal ml-5 mb-4 markdown-text",
             },
           },
         },
