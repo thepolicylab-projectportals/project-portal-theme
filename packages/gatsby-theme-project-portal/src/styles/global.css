@@ -29,6 +29,14 @@ li.list-style-type-dash span {
   margin-left: 3px;
 }
 
+ul.markdown-text {
+  @apply list-outside list-disc ml-5 mb-4
+}
+
+ol.markdown-text {
+  @apply list-outside list-decimal ml-5 mb-4
+}
+
 ul ul.markdown-text,ol ol.markdown-text,ol ul.markdown-text,ul ol.markdown-text {
   margin-bottom: 0;
 }
