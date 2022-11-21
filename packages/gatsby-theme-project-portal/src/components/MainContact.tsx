@@ -48,14 +48,28 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
         </div>
         <div className="mt-4">
           {status === "open" ? (
-            meta.projectInterestLink ? (
-              <a href={meta.projectInterestLink} target="_blank" rel="noopener">
-                <button className="btn">Express interest</button>
-              </a>
+            meta.projectInterestLink || email ? (
+              //There is projectInterestLink or email
+              meta.projectInterestLink ? (
+                //Using projectInterestLink
+                <a
+                  href={meta.projectInterestLink}
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <button className="btn">Express interest</button>
+                </a>
+              ) : (
+                //Using email
+                <a href={`mailto:${email}`}>
+                  <button className="btn">Email point of contact</button>
+                </a>
+              )
             ) : (
-              <a href={`mailto:${email}`}>
-                <button className="btn">Email point of contact</button>
-              </a>
+              // if neither projectInterestLink nor email, use contact form
+              <Link to={"/contact"}>
+                <button className="btn-white">Express interest</button>
+              </Link>
             )
           ) : (
             <Link to={"/contact"}>
