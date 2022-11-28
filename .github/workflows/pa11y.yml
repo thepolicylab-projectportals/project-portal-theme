@@ -18,6 +18,12 @@ jobs:
       - name: Checkout source
         uses: actions/checkout@v3
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'yarn'
+
       - run: yarn install --frozen-lockfile && yarn workspace ${{ matrix.site }} build
         env:
           RECAPTCHA_SITE_KEY: ${{ secrets.RECAPTCHA_SITE_KEY }}
