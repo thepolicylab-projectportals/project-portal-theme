@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        site: [example-site]
+        site: [defaults, example-site]
 
     steps:
       - name: Checkout source
