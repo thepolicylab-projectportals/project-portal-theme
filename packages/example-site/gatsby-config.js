@@ -24,6 +24,7 @@ module.exports = {
           },
         },
         faviconPath: `${__dirname}/content/theme-image/favicon.png`,
+        projectInterestLink: `https://ccv.brown.edu`,
       },
     },
     `@thepolicylab-projectportals/project-portal-content-netlify`,

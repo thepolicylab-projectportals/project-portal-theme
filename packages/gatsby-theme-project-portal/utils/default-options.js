@@ -4,6 +4,7 @@ const defaultStaticText = require("./default-static-text.json")
 
 function withDefaults(themeOptions) {
   return {
+    ...themeOptions,
     siteTitle: themeOptions.siteTitle ?? `Gatsby Theme Project Portal`,
     shortTitle: themeOptions.shortTitle ?? `Project Portal`,
     faviconPath:
