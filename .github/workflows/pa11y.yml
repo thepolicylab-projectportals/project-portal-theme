@@ -32,7 +32,7 @@ jobs:
       - name: Serve site locally
         run: yarn workspace ${{ matrix.site }} serve & npx wait-on http://localhost:9000
 
-      - name: Run pa11y on the home page as a check
+      - name: Run pa11y on the home page (as a check that pa11y is operating properly)
         run: npm exec -c 'pa11y http://localhost:9000/ --debug'
 
       - name: Run pa11y-ci on all pages
