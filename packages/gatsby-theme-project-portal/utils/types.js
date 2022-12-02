@@ -74,6 +74,7 @@ const projectTypeDefs = `
       id: ID!
       
       slug: String!
+      shortTitle: String
       
       question: String
       status: String

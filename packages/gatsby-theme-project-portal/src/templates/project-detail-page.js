@@ -7,6 +7,7 @@ export const query = graphql`
   query ProjectDetailPageQuery($slug: String!) {
     project(slug: { eq: $slug }) {
       question
+      shortTitle
       summary
       status
       opportunityCloses

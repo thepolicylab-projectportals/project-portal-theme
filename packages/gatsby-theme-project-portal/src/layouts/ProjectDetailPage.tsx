@@ -28,7 +28,7 @@ export const ProjectDetailPage: FunctionComponent<
   } = props
 
   return (
-    <Layout title={project.question} description={project.summary}>
+    <Layout title={project.shortTitle} description={project.summary}>
       <main>
         <ProjectDetailLayout {...project} />
       </main>
