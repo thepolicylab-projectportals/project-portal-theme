@@ -8,6 +8,7 @@ import moment from "moment"
 export interface CardWithoutNavigationProps {
   // Card Details
   slug: string
+  shortTitle: string
   question: string
   status: string
   agency: string
@@ -24,6 +25,7 @@ export interface CardWithoutNavigationProps {
 export const query = graphql`
   fragment CardDetails on Project {
     slug
+    shortTitle
     question
     status
     agency
@@ -47,6 +49,7 @@ export interface CardProps extends CardWithoutNavigationProps {
 
 export const Card: FunctionComponent<CardProps> = ({
   slug,
+  shortTitle,
   question,
   status,
   agency,
@@ -117,7 +120,7 @@ export const Card: FunctionComponent<CardProps> = ({
               </div>
             </div>
             <div className="p-5 pb-1 mt-auto border-t-2 border-solid">
-              <button className="btn-wide">
+              <button aria-label={shortTitle} className="btn-wide">
                 {statusOutput(
                   status,
                   "View opportunity",
