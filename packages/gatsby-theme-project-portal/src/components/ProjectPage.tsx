@@ -163,11 +163,6 @@ export const ProjectPage = ({
 
   const [selectedOptions, setSelectedOptions] = useState([])
 
-  // const filterOptions = allTopics.map((topic) => ({
-  //   value: topic.slug, // We use the topic's slug as the primary key for filtering
-  //   label: topic.title,
-  // }))
-
   useEffect(() => {
     if (selectedOptions.length == 0) {
       setDisplayProjects(sortedProjects)
