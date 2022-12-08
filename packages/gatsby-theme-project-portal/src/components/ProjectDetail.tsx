@@ -18,7 +18,7 @@ export interface ProjectDetailLayoutProps {
   // Core content
   question: string
   summary: string
-  shortTitle: string
+  title: string
 
   // (Optional) general additional content
   deliverable?: string
@@ -55,7 +55,7 @@ export const ProjectDetailLayout: FunctionComponent<
   question,
   summary,
   status,
-  shortTitle,
+  title,
   opportunityCloses,
   startDate,
   endDate,

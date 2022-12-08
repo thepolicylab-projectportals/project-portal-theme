@@ -41,6 +41,7 @@ exports.createSchemaCustomization = ({ actions, schema, getNode }) => {
           type: "String!",
           resolve: (node) => createFilePath({ node, getNode }).slice(1, -1),
         },
+        title: "String!",
         question: "String",
         status: "String",
         opportunityCloses: {
