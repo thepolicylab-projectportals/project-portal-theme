@@ -25,8 +25,8 @@ module.exports = {
       colors: {
         background: "#fafafa",
         navbar: "#ECF0F3",
-        bottombanner: "#F7F7F7",
-        footer: "#382C2B",
+        bottombanner: "#ffffff",
+        footer: "#ECF0F3",
         footertext: "#092940",
         primary: "#00376D",
         primarydark: "#092940",
