@@ -1,5 +1,4 @@
 {
-  "slug": "open-project-2",
   "question": "Hello world (from json)?",
   "mainContact": "the-boss",
   "projectTeam": [
@@ -23,5 +22,5 @@
   "status": "open",
   "statusOfData": "example statusOfData",
   "summary": "example summary",
-  "topics": ["example-topic"]
+  "topics": ["example-topic", "ccv-settings"]
 }

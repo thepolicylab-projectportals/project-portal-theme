@@ -50,6 +50,17 @@ export const ProjectPage = ({
   sortOptions,
   bgImage,
 }: ProjectPageProps) => {
+  const filterOptions = []
+
+  for (const project of allProjects) {
+    if (project.topics) {
+      for (const topic of project.topics) {
+        if (!filterOptions.some(({ value }) => value === topic.slug)) {
+          filterOptions.push({ value: topic.slug, label: topic.title })
+        }
+      }
+    }
+  }
   const ITEMS_PER_PAGE = 6
   const [sortedProjects, setSortedProjects] = useState(allProjects)
   const [displayProjects, setDisplayProjects] = useState(allProjects)
@@ -151,11 +162,6 @@ export const ProjectPage = ({
   }, [list]) // triggered when list is changed
 
   const [selectedOptions, setSelectedOptions] = useState([])
-
-  const filterOptions = allTopics.map((topic) => ({
-    value: topic.slug, // We use the topic's slug as the primary key for filtering
-    label: topic.title,
-  }))
 
   useEffect(() => {
     if (selectedOptions.length == 0) {

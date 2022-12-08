@@ -1,14 +1,13 @@
 {
-  "question": "Hello world (from json)?",
+  "question": "Open Project 3",
   "mainContact": "first-contact",
   "projectTeam": [
     "first-contact",
     "second-contact"
   ],
-  "title" : "ongoing 2",
   "agency": "example agency",
   "deliverable": "example deliverable",
-  "description": "example description",
+  "description": "No topics",
   "emailContent": "example emailContent",
   "endDate": "2016-12-15",
   "expertise": "example expertise",
@@ -19,8 +18,8 @@
   "purpose": "example purpose",
   "requirement": "example requirement",
   "startDate": "2022-06-17",
-  "status": "ongoing",
+  "status": "open",
   "statusOfData": "example statusOfData",
   "summary": "example summary",
-  "topics": ["example-topic"]
+  "topics": []
 }
