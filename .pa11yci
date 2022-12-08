@@ -7,6 +7,6 @@
       "cli",
       ["json", { "fileName": "./pa11y-results.json" }]
     ],
-    "hideElements": "#g-recaptcha-response, iframe[style*='display: none;']"
+    "hideElements": "#g-recaptcha-response, iframe[style*='display: none;'], div[class*='pa11y-ignore']"
   }
 }
