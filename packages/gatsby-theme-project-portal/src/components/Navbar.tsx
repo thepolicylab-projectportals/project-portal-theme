@@ -79,7 +79,7 @@ export const NavbarLayout: FunctionComponent<NavbarLayoutProps> = ({
               <>
                 {image && (
                   <GatsbyImage
-                    className="xl:inline-block"
+                    className="xl:inline-block logotype"
                     image={image}
                     alt={"nav_logo"}
                   />

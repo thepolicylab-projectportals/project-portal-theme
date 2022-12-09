@@ -26,7 +26,7 @@ export const BottomBannerLayout: FunctionComponent<BottomBannerProps> = ({
           {!isNA(link) && image && (
             <Link id={linkId} to={link}>
               <GatsbyImage
-                className="inline-block"
+                className="inline-block logotype"
                 image={image}
                 alt="Bottom Banner logo"
               />
@@ -34,7 +34,7 @@ export const BottomBannerLayout: FunctionComponent<BottomBannerProps> = ({
           )}
           {isNA(link) && { image } && (
             <GatsbyImage
-              className="inline-block"
+              className="inline-block logotype"
               image={image}
               alt="R+D logo"
             />
