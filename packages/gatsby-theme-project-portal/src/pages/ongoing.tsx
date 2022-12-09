@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { CardProps } from "../components"
+import { CardProps, TopicType } from "../components"
 import { useStaticText } from "../hooks"
 import { ProjectPageLayout } from "../layouts/ProjectPageLayout"
 
@@ -8,6 +8,9 @@ export interface OngoingProjectProps {
   data: {
     allProject: {
       nodes: CardProps[]
+    }
+    allTopic: {
+      nodes: TopicType[]
     }
     bgImage: {
       childImageSharp: {
@@ -19,12 +22,15 @@ export interface OngoingProjectProps {
   }
 }
 
-export default ({ data: { allProject, bgImage } }: OngoingProjectProps) => {
+export default ({
+  data: { allProject, allTopic, bgImage },
+}: OngoingProjectProps) => {
   const { ongoing } = useStaticText()
 
   return (
     <ProjectPageLayout
       allProject={allProject}
+      allTopic={allTopic}
       bgImage={bgImage}
       title={ongoing.title}
       lede={ongoing.lede}
@@ -37,22 +43,12 @@ export const query = graphql`
   query ProjectPageQuery {
     allProject(filter: { status: { eq: "ongoing" } }) {
       nodes {
-        startDate
-        created
-        question
-        slug
-        status
-        summary
-        deliverable
-        expertise
-        keyDates
-        endDate
-        agency
-        topics
-        statusOfData
-        priorResearch
-        fundingInfo
-        lastModified
+        ...CardDetails
+      }
+    }
+    allTopic {
+      nodes {
+        ...TopicDetails
       }
     }
     bgImage: file(

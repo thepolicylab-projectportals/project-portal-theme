@@ -1,14 +1,14 @@
 {
-  "question": "Hello world (from json)?",
-  "mainContact": "the-boss",
+  "question": "Open Project 3",
+  "title": "Open Project 3",
+  "mainContact": "first-contact",
   "projectTeam": [
     "first-contact",
     "second-contact"
   ],
-  "title" : "open 1",
   "agency": "example agency",
   "deliverable": "example deliverable",
-  "description": "example description",
+  "description": "No topics",
   "emailContent": "example emailContent",
   "endDate": "2016-12-15",
   "expertise": "example expertise",
@@ -22,5 +22,5 @@
   "status": "open",
   "statusOfData": "example statusOfData",
   "summary": "example summary",
-  "topics": ["example-topic"]
+  "topics": []
 }

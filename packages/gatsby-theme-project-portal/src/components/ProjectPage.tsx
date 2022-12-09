@@ -1,14 +1,13 @@
 import React, { useState, useEffect, useRef } from "react"
-import { Cards, CardProps } from "../components"
+import { Cards, CardProps, TopicType } from "../components"
 import { HeaderWithImage } from "./HeaderWithImage"
 import { BackIcon } from "./BackIcon"
 import { ForwardIcon } from "./ForwardIcon"
 import Select from "react-select"
-import { isNA } from "../utils"
 
 function customSort(dateField: string, sortAscending: boolean) {
   return function (a, b) {
-    let sortValue = 0
+    let sortValue
     const aValue = a[dateField]
     const bValue = b[dateField]
 
@@ -39,31 +38,32 @@ export interface ProjectPageProps {
   lede: string
   sortOptions: [...any]
   allProjects: CardProps[]
+  allTopics: TopicType[]
   bgImage: string
 }
 
 export const ProjectPage = ({
   title,
   allProjects,
+  allTopics,
   lede,
   sortOptions,
   bgImage,
 }: ProjectPageProps) => {
-  const ITEMS_PER_PAGE = 6
-  const [sortedProjects, setSortedProjects] = useState(allProjects)
-  const [displayProjects, setDisplayProjects] = useState(allProjects)
-
-  const projectTopics = []
+  const filterOptions = []
 
   for (const project of allProjects) {
     if (project.topics) {
       for (const topic of project.topics) {
-        if (!projectTopics.some(({ value }) => value === topic)) {
-          projectTopics.push({ value: topic, label: topic })
+        if (!filterOptions.some(({ value }) => value === topic.slug)) {
+          filterOptions.push({ value: topic.slug, label: topic.title })
         }
       }
     }
   }
+  const ITEMS_PER_PAGE = 6
+  const [sortedProjects, setSortedProjects] = useState(allProjects)
+  const [displayProjects, setDisplayProjects] = useState(allProjects)
 
   const projectStatus = new Map()
   projectStatus.set("created", "Date Posted")
@@ -170,7 +170,9 @@ export const ProjectPage = ({
       const filteredTopics = selectedOptions.map(({ value }) => value)
       setDisplayProjects(
         sortedProjects.filter((project) =>
-          project.topics.some((topic) => filteredTopics.includes(topic))
+          project.topics
+            .map((topic) => topic.slug)
+            .some((topicSlug) => filteredTopics.includes(topicSlug))
         )
       )
     }
@@ -217,7 +219,7 @@ export const ProjectPage = ({
               isMulti={true}
               value={selectedOptions}
               onChange={setSelectedOptions}
-              options={projectTopics}
+              options={filterOptions}
               styles={selectStyle}
             />
           </div>
@@ -227,7 +229,7 @@ export const ProjectPage = ({
         </div>
         <Cards nodes={list} />
       </div>
-      {!(isNA(hasPrev) && isNA(hasNext)) && (
+      {!(hasPrev == null && hasNext == null) && (
         <div className="flex items-center gap-4 justify-center flex-wrap">
           <div className="flex-1 flex justify-end">
             <button

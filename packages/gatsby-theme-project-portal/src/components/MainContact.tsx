@@ -39,10 +39,14 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
               <a href={projectInterestLink} target="_blank" rel="noopener">
                 <button className="btn">Express interest</button>
               </a>
-            ) : (
+            ) : email ? (
               <a href={`mailto:${email}`}>
                 <button className="btn">Email point of contact</button>
               </a>
+            ) : (
+              <Link to={"/contact"}>
+                <button className="btn-white">Ask a question</button>
+              </Link>
             )
           ) : (
             <Link to={"/contact"}>

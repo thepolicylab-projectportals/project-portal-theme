@@ -3,6 +3,7 @@ function withDefaults(pluginOptions) {
     ...pluginOptions,
     projectPath: pluginOptions.projectPath || "./content/project",
     contactPath: pluginOptions.contactPath || "./content/contact",
+    topicPath: pluginOptions.topicPath || "./content/topic",
   }
 }
 

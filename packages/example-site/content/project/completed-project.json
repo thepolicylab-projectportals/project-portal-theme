@@ -5,6 +5,7 @@
     "first-contact",
     "second-contact"
   ],
+  "title": "completed 1",
   "agency": "example agency",
   "deliverable": "example deliverable",
   "description": "example description",
@@ -21,5 +22,5 @@
   "status": "completed",
   "statusOfData": "example statusOfData",
   "summary": "example summary",
-  "topics": ["example topics"]
+  "topics": ["example-topic"]
 }

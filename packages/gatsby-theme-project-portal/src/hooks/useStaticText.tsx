@@ -8,17 +8,20 @@ export const useStaticText = () => {
       projectPortalConfig {
         staticText {
           about {
+            header
             aims {
+              title
               text
             }
             faq {
-              text
               title
+              text
             }
-            header
+            accessibility
           }
           bottom_banner {
             text
+            link
           }
           main_contact_text {
             ongoingText
@@ -35,6 +38,7 @@ export const useStaticText = () => {
             title
           }
           footer {
+            copyright
             heading {
               link
               title
