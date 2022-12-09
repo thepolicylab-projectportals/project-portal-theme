@@ -274,3 +274,8 @@ CMS.registerEventListener({
 
 CMS.registerPreviewTemplate("contact", ContactPreview)
 CMS.registerPreviewTemplate("project", ProjectDetailPreview)
+CMS.registerPreviewStyle(
+  require.resolve(
+    `@thepolicylab-projectportals/gatsby-theme-project-portal/src/styles/global.css`
+  )
+)
