@@ -262,6 +262,69 @@ CMS.init({
           },
         ],
       },
+      {
+        name: "pages",
+        label: "Pages",
+        files: [
+          {
+            name: "about",
+            label: "About",
+            file: "content/page/about.json",
+            fields: [
+              {
+                name: "header",
+                label: "Header",
+                widget: "string",
+                required: false,
+              },
+              {
+                name: "accessibility",
+                label: "Accessibility Statement",
+                widget: "markdown",
+                required: false,
+              },
+              {
+                name: "aims",
+                label: "Aims",
+                widget: "list",
+                fields: [
+                  {
+                    name: "title",
+                    label: "Title",
+                    widget: "string",
+                    required: false,
+                  },
+                  {
+                    name: "text",
+                    label: "Text",
+                    widget: "markdown",
+                    required: true,
+                  },
+                ],
+              },
+              {
+                name: "faq",
+                label: "FAQ",
+                widget: "list",
+                fields: [
+                  {
+                    name: "title",
+                    label: "Title",
+                    widget: "string",
+                    required: true,
+                  },
+                  {
+                    name: "text",
+                    label: "Text",
+                    widget: "markdown",
+                    required: true,
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
     ],
   },
 })
