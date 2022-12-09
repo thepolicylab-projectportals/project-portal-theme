@@ -8,6 +8,7 @@ CMS.init({
   config: {
     media_folder: "content/image",
     public_folder: "/image",
+    publish_mode: "editorial_workflow",
     collections: [
       {
         name: "project",
@@ -17,6 +18,7 @@ CMS.init({
         extension: "json",
         create: true,
         identifier_field: "title",
+        sortable_fields: ["title", "status", "lastModified"],
         fields: [
           {
             name: "title",
@@ -87,10 +89,10 @@ CMS.init({
             name: "topics",
             label: "Topics",
             widget: "relation",
-            collection: "topics",
-            search_fields: ["name"],
-            value_field: "name",
-            display_fields: ["name"],
+            collection: "topic",
+            search_fields: ["title"],
+            value_field: "{{slug}}",
+            display_fields: ["title"],
             multiple: true,
             required: true,
             hint: "A list of themes and topics which relate to this project. To create a new topic, go to the 'Topic' collection.",
@@ -211,6 +213,7 @@ CMS.init({
         identifier_field: "name",
         media_folder: "",
         public_folder: "",
+        sortable_fields: ["name"],
         fields: [
           {
             name: "name",
@@ -246,18 +249,18 @@ CMS.init({
         ],
       },
       {
-        name: "topics",
+        name: "topic",
         label: "Topics",
         label_singular: "Topic",
         folder: "content/topic",
         extension: "json",
         create: true,
-        identifier_field: "name",
+        sortable_fields: ["title"],
         fields: [
           {
-            name: "name",
-            label: "Topic",
-            hint: "Topics should be in Title Case and no more than 30 characters.",
+            name: "title",
+            label: "Title",
+            hint: "Titles should be in Title Case and no more than 30 characters.",
           },
         ],
       },

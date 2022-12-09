@@ -53,7 +53,7 @@ export const ProjectDetailPage: FunctionComponent<
   const projectInterestLink = useProjectPortalConfig().projectInterestLink
 
   return (
-    <Layout title={project.question} description={project.summary}>
+    <Layout title={project.title} description={project.summary}>
       <main>
         <ProjectDetailLayout
           {...project}

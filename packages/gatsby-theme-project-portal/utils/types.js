@@ -2,29 +2,79 @@
 const CONFIG_NODE_TYPE = `ProjectPortalConfig`
 
 const projectPortalConfigTypeDefs = `
-    type ${CONFIG_NODE_TYPE} implements Node {
-      siteTitle: String
-      showDevBanner: Boolean
-      projectInterestLink: String
-      pages: [NavbarItemType]
-      recaptchaSiteKey: String
-    }
-    type NavbarItemType {
-      name: String
-      link: String
-      show: Boolean
-    }
-  `
+  type ${CONFIG_NODE_TYPE} implements Node {
+    siteTitle: String
+    shortTitle: String
+    showDevBanner: Boolean
+    projectInterestLink: String
+    pages: [NavbarItemType]
+    recaptchaSiteKey: String
+    staticText: StaticTextType
+  }
+  type NavbarItemType {
+    name: String
+    link: String
+    show: Boolean
+  }
+  type StaticTextType {
+    open: CardPageType
+    ongoing: CardPageType
+    completed: CardPageType
+    contact: ContactType
+    about: AboutType
+    bottom_banner: BottomBannerType
+    footer: FooterType
+    main_contact_text: MainContactTextType
+  }
+  type CardPageType {
+    lede: String
+    pageName: String
+    title: String
+  }
+  type ContactType {
+    title: String
+    lede: String
+  }
+  type AboutType {
+    header: String
+    aims: [TitleAndTextType]
+    faq: [TitleAndTextType]
+    accessibility: String
+  }    
+  type TitleAndTextType {
+    title: String
+    text: String
+  }
+  type BottomBannerType {
+    text: String
+    link: String
+  }
+  type MainContactTextType {
+    ongoingText: String
+    completeText: String
+  }
+  type FooterType {
+    copyright: String
+    heading: LinkType
+    links: [LinkType]
+  }
+  type LinkType {
+    title: String
+    link: String
+  }
+`
 
 // constants for GraphQL Project and Contact types
 const PROJECT_NODE_TYPE = `Project`
 const CONTACT_NODE_TYPE = `Contact`
+const TOPIC_NODE_TYPE = `Topic`
 
 const projectTypeDefs = `
     interface ${PROJECT_NODE_TYPE} implements Node {
       id: ID!
       
       slug: String!
+      title: String!
       
       question: String
       status: String
@@ -34,7 +84,7 @@ const projectTypeDefs = `
       endDate: Date @dateformat
   
       agency: String
-      topics: [String]
+      topics: [${TOPIC_NODE_TYPE}]
       
       summary: String
       deliverable: String
@@ -52,6 +102,12 @@ const projectTypeDefs = `
       
       mainContact: ${CONTACT_NODE_TYPE}
       projectTeam: [${CONTACT_NODE_TYPE}]
+    }
+    
+    interface ${TOPIC_NODE_TYPE} implements Node {
+      id: ID!
+      slug: String!
+      title: String
     }
   `
 
@@ -78,4 +134,5 @@ module.exports = {
   projectTypeDefs,
   CONTACT_NODE_TYPE,
   contactTypeDefs,
+  TOPIC_NODE_TYPE,
 }
