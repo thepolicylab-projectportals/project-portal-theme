@@ -272,6 +272,81 @@ CMS.init({
             file: "content/site/language.json",
             fields: [
               {
+                name: "open",
+                label: "Open Opportunities Page",
+                widget: "object",
+                fields: [
+                  {
+                    name: "pageName",
+                    label: "Page Name",
+                    widget: "string",
+                    required: true,
+                  },
+                  {
+                    name: "title",
+                    label: "Title",
+                    widget: "string",
+                    required: true,
+                  },
+                  {
+                    name: "lede",
+                    label: "Lede",
+                    widget: "markdown",
+                    required: true,
+                  },
+                ],
+              },
+              {
+                name: "ongoing",
+                label: "Ongoing Projects Page",
+                widget: "object",
+                fields: [
+                  {
+                    name: "pageName",
+                    label: "Page Name",
+                    widget: "string",
+                    required: true,
+                  },
+                  {
+                    name: "title",
+                    label: "Title",
+                    widget: "string",
+                    required: true,
+                  },
+                  {
+                    name: "lede",
+                    label: "Lede",
+                    widget: "markdown",
+                    required: true,
+                  },
+                ],
+              },
+              {
+                name: "completed",
+                label: "Completed Projects Page",
+                widget: "object",
+                fields: [
+                  {
+                    name: "pageName",
+                    label: "Page Name",
+                    widget: "string",
+                    required: true,
+                  },
+                  {
+                    name: "title",
+                    label: "Title",
+                    widget: "string",
+                    required: true,
+                  },
+                  {
+                    name: "lede",
+                    label: "Lede",
+                    widget: "markdown",
+                    required: true,
+                  },
+                ],
+              },
+              {
                 name: "about",
                 label: "About",
                 widget: "object",
@@ -298,7 +373,7 @@ CMS.init({
                         name: "text",
                         label: "Text",
                         widget: "markdown",
-                        required: true,
+                        required: false,
                       },
                     ],
                   },
@@ -312,13 +387,13 @@ CMS.init({
                         name: "title",
                         label: "Title",
                         widget: "string",
-                        required: true,
+                        required: false,
                       },
                       {
                         name: "text",
                         label: "Text",
                         widget: "markdown",
-                        required: true,
+                        required: false,
                       },
                     ],
                   },
@@ -326,6 +401,84 @@ CMS.init({
                     name: "accessibility",
                     label: "Accessibility Statement",
                     widget: "markdown",
+                    required: false,
+                  },
+                ],
+              },
+              {
+                name: "contact",
+                label: "Contact Page",
+                widget: "object",
+                fields: [
+                  {
+                    name: "title",
+                    label: "Title",
+                    widget: "string",
+                    required: false,
+                  },
+                  {
+                    name: "lede",
+                    label: "Lede",
+                    widget: "markdown",
+                    required: false,
+                  },
+                ],
+              },
+              {
+                name: "bottom_banner",
+                label: "Bottom Banner",
+                widget: "object",
+                fields: [
+                  { name: "text", widget: "markdown", required: false },
+                  {
+                    name: "link",
+                    label: "Image link",
+                    widget: "string",
+                    required: false,
+                  },
+                ],
+              },
+              {
+                name: "footer",
+                label: "Footer",
+                widget: "object",
+                fields: [
+                  { name: "copyright", widget: "string", optional: true },
+                  {
+                    name: "heading",
+                    widget: "object",
+                    required: false,
+                    fields: [
+                      { name: "title", widget: "string", required: false },
+                      { name: "link", widget: "string", required: false },
+                    ],
+                  },
+                  {
+                    name: "links",
+                    widget: "list",
+                    required: false,
+                    fields: [
+                      { name: "title", widget: "string" },
+                      { name: "link", widget: "string" },
+                    ],
+                  },
+                ],
+              },
+              {
+                name: "main_contact_text",
+                label: "Main Contact Text",
+                widget: "object",
+                fields: [
+                  {
+                    name: "ongoingText",
+                    label: "Ongoing Text",
+                    widget: "string",
+                    required: false,
+                  },
+                  {
+                    name: "completeText",
+                    label: "Complete Text",
+                    widget: "string",
                     required: false,
                   },
                 ],
