@@ -501,12 +501,14 @@ CMS.init({
                     fields: [
                       {
                         name: "title",
+                        label: "Title",
                         widget: "string",
                         required: false,
                         hint: "The text to show",
                       },
                       {
                         name: "link",
+                        label: "Link",
                         widget: "string",
                         required: false,
                         hint: "The link to follow if the text is clicked",
