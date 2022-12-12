@@ -263,7 +263,7 @@ CMS.init({
         ],
       },
       {
-        name: "pages",
+        name: "site",
         label: "Site",
         files: [
           {
