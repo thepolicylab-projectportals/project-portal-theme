@@ -1,4 +1,4 @@
 backend:
   name: git-gateway
-  branch: main
+  branch: feat-cms-static-language-2
 local_backend: false
