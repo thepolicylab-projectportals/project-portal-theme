@@ -13,7 +13,7 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@thepolicylab-projectportals/gatsby-theme-project-portal": "4.1.0",
+    "@thepolicylab-projectportals/gatsby-theme-project-portal": "^4.1.0",
     "gatsby": "^4.24.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
