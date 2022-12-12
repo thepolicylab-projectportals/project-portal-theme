@@ -262,6 +262,78 @@ CMS.init({
           },
         ],
       },
+      {
+        name: "pages",
+        label: "Site",
+        files: [
+          {
+            name: "siteLanguage",
+            label: "Static Text",
+            file: "content/site/language.json",
+            fields: [
+              {
+                name: "about",
+                label: "About",
+                widget: "object",
+                fields: [
+                  {
+                    name: "header",
+                    label: "Header",
+                    widget: "string",
+                    required: false,
+                  },
+                  {
+                    name: "aims",
+                    label: "Aims",
+                    widget: "list",
+                    required: false,
+                    fields: [
+                      {
+                        name: "title",
+                        label: "Title",
+                        widget: "string",
+                        required: false,
+                      },
+                      {
+                        name: "text",
+                        label: "Text",
+                        widget: "markdown",
+                        required: true,
+                      },
+                    ],
+                  },
+                  {
+                    name: "faq",
+                    label: "FAQ",
+                    widget: "list",
+                    required: false,
+                    fields: [
+                      {
+                        name: "title",
+                        label: "Title",
+                        widget: "string",
+                        required: true,
+                      },
+                      {
+                        name: "text",
+                        label: "Text",
+                        widget: "markdown",
+                        required: true,
+                      },
+                    ],
+                  },
+                  {
+                    name: "accessibility",
+                    label: "Accessibility Statement",
+                    widget: "markdown",
+                    required: false,
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
     ],
   },
 })
