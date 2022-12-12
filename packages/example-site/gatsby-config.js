@@ -18,11 +18,7 @@ module.exports = {
           },
         ],
         tailwindConfig: tailwindConfig,
-        staticText: {
-          bottom_banner: {
-            text: "This is the Project Portal site footer text.",
-          },
-        },
+        staticText: require(`${__dirname}/content/site/language.json`),
         faviconPath: `${__dirname}/content/theme-image/favicon.png`,
         projectInterestLink: `https://ccv.brown.edu`,
       },
