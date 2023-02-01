@@ -23,7 +23,7 @@ jobs:
           cache: 'yarn'
           node-version: 18
           registry-url: https://npm.pkg.github.com/
-          scope: '@thepolicylab-projectportals'
+          scope: '@hollandjg'  # replace with scope: '@thepolicylab-projectportals'
           token: ${{ secrets.GITHUB_TOKEN }}
           always-auth: true
       - run: yarn install --immutable
