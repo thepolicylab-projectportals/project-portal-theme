@@ -34,7 +34,7 @@ jobs:
         run: |
           echo "prerelease: " ${{ github.event.isPrerelease }}
           echo "latest: " ${{ github.event.isLatest }}
-          echo "event: " ${{ github.event }}
+          echo "event: " ${{ toJSON(github.event) }}
 
       - name: Pre-release packages
         if: ${{ github.event.isPrerelease }}
