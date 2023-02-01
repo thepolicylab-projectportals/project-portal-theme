@@ -24,6 +24,7 @@ jobs:
           node-version: 18
           registry-url: https://npm.pkg.github.com/
           scope: '@thepolicylab-projectportals'
+          token: ${{ secrets.GITHUB_TOKEN }}
       - run: yarn install --immutable
       - run: yarn test
       - name: Update version numbers
@@ -32,6 +33,7 @@ jobs:
           yarn workspace "@thepolicylab-projectportals/project-portal-content-netlify" version "${{ github.ref_name }}"
       - name: Publish packages
         run: | 
+          echo "${NODE_AUTH_TOKEN}"
           yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" npm publish
           yarn workspace "@thepolicylab-projectportals/project-portal-content-netlify" npm publish
         env:
