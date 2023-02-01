@@ -12,34 +12,25 @@ permissions:
   packages: write
 
 jobs:
-  build:
+  build-test-publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           cache: 'yarn'
-      - run: yarn install --frozen-lockfile # optional, --immutable
-      - run: yarn test
-
-  publish-gpr:
-    strategy:
-      matrix:
-        package:
-          - "@thepolicylab-projectportals/gatsby-theme-project-portal"
-          - "@thepolicylab-projectportals/project-portal-content-netlify"
-    needs: build
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
+          node-version: 18
           registry-url: https://npm.pkg.github.com/
           scope: '@thepolicylab-projectportals'
-      - run: yarn workspace ${{ matrix.package }} publish
+      - run: yarn install --frozen-lockfile # optional, --immutable
+      - run: yarn test
+      - name: Update version numbers
+        run: | 
+          yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" version ${GITHUB_REF_NAME}
+          yarn workspace "@thepolicylab-projectportals/project-portal-content-netlify" version ${GITHUB_REF_NAME}
+      - name: Publish packages
+        run: | 
+          yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" publish
+          yarn workspace "@thepolicylab-projectportals/project-portal-content-netlify" publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
