@@ -31,7 +31,7 @@ jobs:
           yarn workspace "@thepolicylab-projectportals/project-portal-content-netlify" version "${{ github.ref_name }}"
 
       - name: Pre-release packages
-        if: ${{ github.event.release.isLatest }}
+        if: ${{ github.event.release.isPrerelease }}
         run: |
           yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" npm publish --tag next
           yarn workspace "@thepolicylab-projectportals/project-portal-content-netlify" npm publish --tag next
