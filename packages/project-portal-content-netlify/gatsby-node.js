@@ -4,7 +4,7 @@ const {
   PROJECT_NODE_TYPE,
   CONTACT_NODE_TYPE,
   TOPIC_NODE_TYPE,
-} = require("@hollandjg/gatsby-theme-project-portal/utils/types")
+} = require("@thepolicylab-projectportals/gatsby-theme-project-portal/utils/types")
 const { withDefaults } = require("./utils/default-options")
 const { createFilePath } = require("gatsby-source-filesystem")
 

@@ -33,14 +33,14 @@ exports.sourceNodes = ({ actions, createContentDigest }, themeOptions) => {
 
   createNode({
     ...projectPortalConfig,
-    id: `@hollandjg/gatsby-theme-project-portal`,
+    id: `@thepolicylab-projectportals/gatsby-theme-project-portal`,
     parent: null,
     children: [],
     internal: {
       type: `ProjectPortalConfig`,
       contentDigest: createContentDigest(projectPortalConfig),
       content: JSON.stringify(projectPortalConfig),
-      description: `Options for @hollandjg/gatsby-theme-project-portal`,
+      description: `Options for @thepolicylab-projectportals/gatsby-theme-project-portal`,
     },
   })
 }

@@ -1,5 +1,5 @@
 import React from "react"
-import { ProjectPage } from "@hollandjg/gatsby-theme-project-portal/src/components"
+import { ProjectPage } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
 
 const allTopics = [
   { title: "Topic A", slug: "topic-a" },

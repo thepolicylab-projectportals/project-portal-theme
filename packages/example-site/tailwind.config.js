@@ -3,14 +3,16 @@ const path = require("path")
 // Get the `main` file listed in the theme's package.json.
 // This should (hopefully) find the right directory with node_modules,
 // as well as with the yarn berry unpacking approach.
-const themeMainFile = require.resolve(`@hollandjg/gatsby-theme-project-portal`)
+const themeMainFile = require.resolve(
+  `@thepolicylab-projectportals/gatsby-theme-project-portal`
+)
 
 // Get the path to the theme's directory, without a trailing slash
 const themeDirectory = path.dirname(themeMainFile)
 
 module.exports = {
   presets: [
-    require("@hollandjg/gatsby-theme-project-portal/src/styles/tailwind.presets"),
+    require("@thepolicylab-projectportals/gatsby-theme-project-portal/src/styles/tailwind.presets"),
   ],
   content: [
     // The theme components

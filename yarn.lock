@@ -2111,54 +2111,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hollandjg/gatsby-theme-project-portal@0.0.2, @hollandjg/gatsby-theme-project-portal@workspace:packages/gatsby-theme-project-portal":
-  version: 0.0.0-use.local
-  resolution: "@hollandjg/gatsby-theme-project-portal@workspace:packages/gatsby-theme-project-portal"
-  dependencies:
-    "@headlessui/react": ^1.7.8
-    "@tailwindcss/forms": ^0.5.3
-    "@types/tailwindcss": ^3.1.0
-    autoprefixer: ^10.4.13
-    gatsby-plugin-image: ^2.24.0
-    gatsby-plugin-manifest: ^4.25.0
-    gatsby-plugin-postcss: ^5.24.0
-    gatsby-plugin-robots-txt: ^1.7.1
-    gatsby-plugin-sharp: ^4.25.0
-    gatsby-plugin-sitemap: ^5.25.0
-    gatsby-source-filesystem: ^4.25.0
-    gatsby-transformer-sharp: ^4.25.0
-    lodash: ^4.17.21
-    markdown-to-jsx: ^7.1.8
-    moment: ^2.29.4
-    react-google-recaptcha: ^2.1.0
-    react-helmet: ^6.1.0
-    react-icons: ^4.7.1
-    react-select: ^5.7.0
-    react-share: ^4.4.0
-    tailwindcss: ^3.2.4
-  peerDependencies:
-    gatsby: ^4.24.0
-    react: ^18.2.0
-    react-dom: ^18.2.0
-  languageName: unknown
-  linkType: soft
-
-"@hollandjg/project-portal-content-netlify@0.0.0, @hollandjg/project-portal-content-netlify@workspace:packages/project-portal-content-netlify":
-  version: 0.0.0-use.local
-  resolution: "@hollandjg/project-portal-content-netlify@workspace:packages/project-portal-content-netlify"
-  dependencies:
-    gatsby-plugin-netlify-cms: ^6.24.0
-    gatsby-source-filesystem: ^4.25.0
-    gatsby-transformer-json: 4.25.0
-    netlify-cms-app: ^2.15.72
-  peerDependencies:
-    "@hollandjg/gatsby-theme-project-portal": 0.0.2
-    gatsby: ^4.24.0
-    react: ^18.2.0
-    react-dom: ^18.2.0
-  languageName: unknown
-  linkType: soft
-
 "@humanwhocodes/config-array@npm:^0.5.0":
   version: 0.5.0
   resolution: "@humanwhocodes/config-array@npm:0.5.0"
@@ -3337,6 +3289,54 @@ __metadata:
   checksum: 9eddb4dbd06d01b1068138ff52a54ed0e35a28e7bfd3c72e226fc28658ecd92a9c078c4abe9c83db090984672040644d7ae2e035933fb619dd703df1d87aa275
   languageName: node
   linkType: hard
+
+"@thepolicylab-projectportals/gatsby-theme-project-portal@0.0.0, @thepolicylab-projectportals/gatsby-theme-project-portal@workspace:packages/gatsby-theme-project-portal":
+  version: 0.0.0-use.local
+  resolution: "@thepolicylab-projectportals/gatsby-theme-project-portal@workspace:packages/gatsby-theme-project-portal"
+  dependencies:
+    "@headlessui/react": ^1.7.8
+    "@tailwindcss/forms": ^0.5.3
+    "@types/tailwindcss": ^3.1.0
+    autoprefixer: ^10.4.13
+    gatsby-plugin-image: ^2.24.0
+    gatsby-plugin-manifest: ^4.25.0
+    gatsby-plugin-postcss: ^5.24.0
+    gatsby-plugin-robots-txt: ^1.7.1
+    gatsby-plugin-sharp: ^4.25.0
+    gatsby-plugin-sitemap: ^5.25.0
+    gatsby-source-filesystem: ^4.25.0
+    gatsby-transformer-sharp: ^4.25.0
+    lodash: ^4.17.21
+    markdown-to-jsx: ^7.1.8
+    moment: ^2.29.4
+    react-google-recaptcha: ^2.1.0
+    react-helmet: ^6.1.0
+    react-icons: ^4.7.1
+    react-select: ^5.7.0
+    react-share: ^4.4.0
+    tailwindcss: ^3.2.4
+  peerDependencies:
+    gatsby: ^4.24.0
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  languageName: unknown
+  linkType: soft
+
+"@thepolicylab-projectportals/project-portal-content-netlify@0.0.0, @thepolicylab-projectportals/project-portal-content-netlify@workspace:packages/project-portal-content-netlify":
+  version: 0.0.0-use.local
+  resolution: "@thepolicylab-projectportals/project-portal-content-netlify@workspace:packages/project-portal-content-netlify"
+  dependencies:
+    gatsby-plugin-netlify-cms: ^6.24.0
+    gatsby-source-filesystem: ^4.25.0
+    gatsby-transformer-json: 4.25.0
+    netlify-cms-app: ^2.15.72
+  peerDependencies:
+    "@thepolicylab-projectportals/gatsby-theme-project-portal": 0.0.0
+    gatsby: ^4.24.0
+    react: ^18.2.0
+    react-dom: ^18.2.0
+  languageName: unknown
+  linkType: soft
 
 "@tokenizer/token@npm:^0.3.0":
   version: 0.3.0
@@ -6855,7 +6855,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "defaults@workspace:packages/defaults"
   dependencies:
-    "@hollandjg/gatsby-theme-project-portal": 0.0.2
+    "@thepolicylab-projectportals/gatsby-theme-project-portal": 0.0.0
     gatsby: ^4.25.0
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -8041,8 +8041,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "example-content@workspace:packages/example-content"
   dependencies:
-    "@hollandjg/gatsby-theme-project-portal": 0.0.2
-    "@hollandjg/project-portal-content-netlify": 0.0.0
+    "@thepolicylab-projectportals/gatsby-theme-project-portal": 0.0.0
+    "@thepolicylab-projectportals/project-portal-content-netlify": 0.0.0
     gatsby: ^4.25.0
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -8053,8 +8053,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "example-site@workspace:packages/example-site"
   dependencies:
-    "@hollandjg/gatsby-theme-project-portal": 0.0.2
-    "@hollandjg/project-portal-content-netlify": 0.0.0
+    "@thepolicylab-projectportals/gatsby-theme-project-portal": 0.0.0
+    "@thepolicylab-projectportals/project-portal-content-netlify": 0.0.0
     gatsby: ^4.25.0
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -8065,7 +8065,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "example@workspace:packages/example"
   dependencies:
-    "@hollandjg/gatsby-theme-project-portal": 0.0.2
+    "@thepolicylab-projectportals/gatsby-theme-project-portal": 0.0.0
     gatsby: ^4.25.0
     gatsby-plugin-image: ^2.24.0
     gatsby-plugin-sharp: ^4.25.0

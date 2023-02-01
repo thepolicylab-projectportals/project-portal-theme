@@ -24,9 +24,9 @@ import {
   ProjectDetailLayout,
   MainContact,
   ProjectPage,
-} from "@hollandjg/gatsby-theme-project-portal/src/components"
+} from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
 
-import { ContactForm } from "@hollandjg/gatsby-theme-project-portal/src/pages/contact"
+import { ContactForm } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/pages/contact"
 
 import { useStaticQuery, graphql } from "gatsby"
 import { getImage } from "gatsby-plugin-image"

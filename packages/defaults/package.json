@@ -9,7 +9,7 @@
     "serve": "gatsby serve"
   },
   "dependencies": {
-    "@hollandjg/gatsby-theme-project-portal": "0.0.2",
+    "@thepolicylab-projectportals/gatsby-theme-project-portal": "0.0.0",
     "gatsby": "^4.25.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

@@ -1,6 +1,6 @@
 {
-  "name": "@hollandjg/gatsby-theme-project-portal",
-  "version": "0.0.2",
+  "name": "@thepolicylab-projectportals/gatsby-theme-project-portal",
+  "version": "0.0.0",
   "main": "index.js",
   "author": "The Policy Lab <thepolicylab@brown.edu>",
   "contributors": [
@@ -42,7 +42,7 @@
   "devDependencies": {
     "@types/tailwindcss": "^3.1.0"
   },
-  "repository": "https://github.com/hollandjg/project-portal-theme",
+  "repository": "https://github.com/thepolicylab-projectportals/project-portal-theme",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   }
