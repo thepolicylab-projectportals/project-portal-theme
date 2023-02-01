@@ -26,8 +26,8 @@ jobs:
       - run: yarn test
       - name: Update version numbers
         run: | 
-          yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" version ${GITHUB_REF_NAME}
-          yarn workspace "@thepolicylab-projectportals/project-portal-content-netlify" version ${GITHUB_REF_NAME}
+          yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" version "${{ github.ref_name }}"
+          yarn workspace "@thepolicylab-projectportals/project-portal-content-netlify" version "${{ github.ref_name }}"
       - name: Publish packages
         run: | 
           yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" publish
