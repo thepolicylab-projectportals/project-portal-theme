@@ -16,9 +16,6 @@ jobs:
       packages: write
 
     steps:
-#      - name: Echo event
-#        run: |
-#          ${{ toJSON(github.event) }}
 
       - uses: actions/checkout@v3
         with:
@@ -35,7 +32,7 @@ jobs:
           yarn workspace "@thepolicylab-projectportals/project-portal-content-netlify" version "${{ github.ref_name }}"
 
       - name: Pre-release packages
-        if: ${{ github.event.prerelease }}
+        if: github.event_name == 'release' && github.event.prerelease == true
         run: |
           yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" npm publish --tag next
           yarn workspace "@thepolicylab-projectportals/project-portal-content-netlify" npm publish --tag next
@@ -43,9 +40,12 @@ jobs:
           YARN_NPM_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Release packages
-        if: ${{ !github.event.prerelease }}
+        if: github.event_name == 'release' && github.event.prerelease == false
         run: |
           yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" npm publish
           yarn workspace "@thepolicylab-projectportals/project-portal-content-netlify" npm publish
         env:
           YARN_NPM_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Echo event
+        run: echo toJSON(github.event)
