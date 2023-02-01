@@ -17,19 +17,6 @@ jobs:
 
     steps:
 
-      - name: Pre-release packages check
-        if: ${{ github.event_name == 'release' && github.event.release.prerelease == true }}
-        run: echo "pre-release"
-
-      - name: Release packages
-        if: ${{ github.event_name == 'release' && github.event.release.prerelease == false }}
-        run: echo "release"
-
-      - name: Echo event
-        run: | 
-          echo "${{ github.event_name }}"
-          echo "${{ toJSON(github.event) }}"
-
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
