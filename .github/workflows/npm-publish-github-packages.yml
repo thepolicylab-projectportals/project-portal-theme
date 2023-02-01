@@ -22,7 +22,7 @@ jobs:
           node-version: 18
           registry-url: https://npm.pkg.github.com/
           scope: '@thepolicylab-projectportals'
-      - run: yarn install --frozen-lockfile # optional, --immutable
+      - run: yarn install --immutable
       - run: yarn test
       - name: Update version numbers
         run: | 
