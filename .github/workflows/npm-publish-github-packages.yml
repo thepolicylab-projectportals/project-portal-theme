@@ -33,9 +33,8 @@ jobs:
           yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" version "${{ github.ref_name }}"
           yarn workspace "@thepolicylab-projectportals/project-portal-content-netlify" version "${{ github.ref_name }}"
       - name: Publish packages
-        run: | 
-          echo "${NODE_AUTH_TOKEN}"
+        run: |
           yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" npm publish
           yarn workspace "@thepolicylab-projectportals/project-portal-content-netlify" npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          YARN_NPM_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
