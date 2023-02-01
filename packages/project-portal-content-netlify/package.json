@@ -1,5 +1,5 @@
 {
-  "name": "@thepolicylab-projectportals/project-portal-content-netlify",
+  "name": "@hollandjg/project-portal-content-netlify",
   "version": "0.0.0",
   "main": "index.js",
   "author": "The Policy Lab <thepolicylab@brown.edu>",
@@ -13,7 +13,7 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@thepolicylab-projectportals/gatsby-theme-project-portal": "0.0.0",
+    "@hollandjg/gatsby-theme-project-portal": "0.0.2",
     "gatsby": "^4.24.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
@@ -26,7 +26,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/thepolicylab-projectportals/project-portal-theme.git"
+    "url": "https://github.com/hollandjg/project-portal-theme.git"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"

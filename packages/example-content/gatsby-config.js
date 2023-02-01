@@ -5,9 +5,9 @@ require("dotenv").config({
 
 module.exports = {
   plugins: [
-    `@thepolicylab-projectportals/project-portal-content-netlify`,
+    `@hollandjg/project-portal-content-netlify`,
     {
-      resolve: `@thepolicylab-projectportals/gatsby-theme-project-portal`,
+      resolve: `@hollandjg/gatsby-theme-project-portal`,
       options: {
         pages: [
           { name: "Home", link: "/", show: true },

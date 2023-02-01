@@ -1,5 +1,5 @@
 import React from "react"
-import { Layout } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/layouts"
+import { Layout } from "@hollandjg/gatsby-theme-project-portal/src/layouts"
 
 const Index = () => {
   return (

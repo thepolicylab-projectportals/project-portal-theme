@@ -8,7 +8,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     {
-      resolve: `@thepolicylab-projectportals/gatsby-theme-project-portal`,
+      resolve: `@hollandjg/gatsby-theme-project-portal`,
     },
     {
       resolve: `gatsby-source-filesystem`,

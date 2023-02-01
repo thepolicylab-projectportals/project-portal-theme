@@ -1,11 +1,11 @@
 import React from "react"
 import { graphql } from "gatsby"
 import { Disclosure } from "@headlessui/react"
-import { Layout } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/layouts"
+import { Layout } from "@hollandjg/gatsby-theme-project-portal/src/layouts"
 import {
   HeaderWithImage,
   MarkdownText,
-} from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
+} from "@hollandjg/gatsby-theme-project-portal/src/components"
 import { FaPlus, FaMinus } from "react-icons/fa"
 import { useStaticText, useSiteMetadata } from "../hooks"
 import { isNA } from "../utils"

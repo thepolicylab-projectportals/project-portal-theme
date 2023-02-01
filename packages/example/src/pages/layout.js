@@ -1,6 +1,6 @@
 import React from "react"
-import { Layout } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/layouts"
-import { CollaboratorDetails } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
+import { Layout } from "@hollandjg/gatsby-theme-project-portal/src/layouts"
+import { CollaboratorDetails } from "@hollandjg/gatsby-theme-project-portal/src/components"
 
 const collaborator_details = {
   expertise: "- Collaborator.\n- Details.\n- Expertise.\n",

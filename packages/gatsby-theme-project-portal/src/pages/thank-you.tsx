@@ -1,7 +1,7 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import { Layout } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/layouts"
-import { HeaderWithImage } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
+import { Layout } from "@hollandjg/gatsby-theme-project-portal/src/layouts"
+import { HeaderWithImage } from "@hollandjg/gatsby-theme-project-portal/src/components"
 
 interface ThankYouProps {
   data: {

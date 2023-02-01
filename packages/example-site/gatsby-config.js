@@ -8,7 +8,7 @@ module.exports = {
   siteMetadata: siteMetadata,
   plugins: [
     {
-      resolve: `@thepolicylab-projectportals/gatsby-theme-project-portal`,
+      resolve: `@hollandjg/gatsby-theme-project-portal`,
       options: {
         pages: [
           {
@@ -27,6 +27,6 @@ module.exports = {
         projectInterestLink: `https://ccv.brown.edu`,
       },
     },
-    `@thepolicylab-projectportals/project-portal-content-netlify`,
+    `@hollandjg/project-portal-content-netlify`,
   ],
 }
