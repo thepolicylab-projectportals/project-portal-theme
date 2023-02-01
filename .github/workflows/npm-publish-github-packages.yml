@@ -16,8 +16,6 @@ jobs:
       packages: write
 
     steps:
-      - name: Echo event
-        run: echo ${{ toJSON(github.event) }}
 
       - name: Pre-release packages check
         if: ${{ github.event_name == 'release' && github.event.prerelease == true }}
@@ -26,6 +24,9 @@ jobs:
       - name: Release packages
         if: ${{ github.event_name == 'release' && github.event.prerelease == false }}
         run: echo "release"
+
+      - name: Echo event
+        run: echo "${{ toJSON(github.event) }}"
 
       - uses: actions/checkout@v3
         with:
