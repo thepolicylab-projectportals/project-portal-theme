@@ -25,6 +25,7 @@ jobs:
           registry-url: https://npm.pkg.github.com/
           scope: '@thepolicylab-projectportals'
           token: ${{ secrets.GITHUB_TOKEN }}
+          always-auth: true
       - run: yarn install --immutable
       - run: yarn test
       - name: Update version numbers
