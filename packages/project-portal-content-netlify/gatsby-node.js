@@ -18,8 +18,8 @@ const CONTACT_JSON_TYPE = `ContactJson`
 const TOPIC_JSON_TYPE = `TopicJson`
 
 exports.onPreBootstrap = ({ reporter }, pluginOptions) => {
-  const { projectPath, contactPath } = withDefaults(pluginOptions)
-  const paths = [projectPath, contactPath]
+  const { projectPath, contactPath, topicPath } = withDefaults(pluginOptions)
+  const paths = [projectPath, contactPath, topicPath]
 
   paths.forEach((path) => {
     if (!fs.existsSync(path)) {
