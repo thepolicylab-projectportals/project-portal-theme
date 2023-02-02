@@ -23,7 +23,7 @@
 
 ### Install Dependencies
 
-You can install the dependencies (including `node 18` and `yarn classic`) by running:
+You can install the dependencies (including `node 18` and `yarn berry`) by running:
 ```zsh
 brew bundle
 ```
@@ -52,7 +52,7 @@ Run the packaging, build the example site, and serve it locally:
 package-and-install -t "packages/example/" -w @thepolicylab-projectportals/gatsby-theme-project-portal
 ```
 
-Please note `yarn` version should be `v1.22.19`. Check it using: 
+Please note `yarn` version should be `v3.4.1`. Check it using: 
 
 ```
 yarn -v
@@ -64,81 +64,31 @@ yarn -v
 
 Run the "all local build and packaging checks (with npm)" run configuration in WebStorm.
 
-#### ⚠️ Danger Zone: Publishing
 
-### Create a New Package Version (GitHub)
+### Release Process
 
-Process:
-- Update the version number (patch, minor or major version).
-- Publish the package
+ The release process is automated using GitHub Actions. 
 
-#### Update Version Number
+- Navigate to the repository's code tab at https://github.com/thepolicylab-projectportals/project-portal-theme
+- Click "Releases"
+- Click "Draft a new release"
+- In the "Choose a tag" field, type the new semantic release number using the NPM version syntax. 
+  The version number should be prefixed with a "v". 
+  e.g. "v1.2.3" for a standard release, "v1.2.3-a4" for an alpha release, "v1.2.3-b5" for a beta 
+  release, "v1.2.3-rc6" for a release candidate, and then click "Create new tag on publish". 
+- Leave "Release title" empty.
+- Click on "Generate Release notes". Check that the release notes match with the version number you have chosen – 
+  breaking changes require a new major version number, e.g. v2.0.0, new features a minor version number, e.g. 
+  v1.3.0 and fixes a bugfix number v1.2.4. If necessary, modify the version number you've chosen to be consistent 
+  with the content of the release.
+- Select whether this is a pre-release or a new "latest" release. It's a "pre-release" if there's an alpha, 
+  beta, or release candidate number in the tag name, otherwise it's a new "latest" release.
+- Click on "Publish release"
+ 
+GitHub actions will run to create and publish NPM packages. Check in GitHub actions whether the 
+process runs without errors and fix any errors which occur.
 
-The process for updating the theme version number is as follows:
-1. Update the theme version number.
-2. Update the example sites' version numbers to match.
-3. Commit the code.
-
-You can manually update the theme version to the next pre-release version `#.#.#-ɑ`:
-```zsh
-yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" version --prerelease --no-git-tag-version
-```
-
-You can manually update the theme version to the next patch version `#.#.z`:
-```zsh
-yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" version --patch --no-git-tag-version
-```
-
-Manually update the theme version to the next minor version `#.y.0`:
-```zsh
-yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" version --minor --no-git-tag-version 
-```
-
-Manually update the theme version to the next major version `x.0.0`:
-```zsh
-yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" version --major --no-git-tag-version 
-```
-
-**Important:** if you update the theme version number, you may also need to update the referenced version number in the sites. Do that by modifying the sites' `package.json` files. 
-
-Check that this is done by ensuring that all the version numbers listed by the following command are consistent:
-
-```zsh
-{
-  theme_package_json="packages/gatsby-theme-project-portal/package.json"
-  echo "file line tag version_number"
-  echo "$theme_package_json " $(sed -n '/.*"version": "\([^"]*\)",.*$/{=;p;}' "$theme_package_json");
-  for package_json in packages/{example,defaults}/package.json
-  do
-    echo "$package_json " $(sed -n '/gatsby-theme-project-portal/{=;p;}' "$package_json");
-  done
-} | column -t
-```
-
-Once you have done this, commit the updated version of all the `package.json` files.
-
-#### Login to GitHub NPM Repository
-
-Before you publish the theme, you'll need to store a token for the GitHub package repository.
-Do this by adding a file in your home directory called `.npmrc`, and which should look like this:
-```zsh
-//npm.pkg.github.com/:_authToken=ghp_abcdef123456abcdef123456bcdef123456a
-``` 
-... where the authentication token after the `=` comes from your [GitHub > Settings > Developer settings > Personal access tokens](https://github.com/settings/tokens). The token should have the following scopes:
-- repo (all)
-- write:packages, 
-- read:packages, 
-- delete:packages
-
-#### Publish the theme
-
-> **⚠️ Danger**: this command automatically creates a new published version of the theme.
-
-To publish a new version of the theme, execute:
-```zsh
-yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" publish
-```
-
+   
 #### Test the theme
 
 Test installing and building the theme using the test-packaging scripts, where you load the theme from the registry instead of the local directory:

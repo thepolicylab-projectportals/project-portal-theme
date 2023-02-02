@@ -1,6 +1,6 @@
 {
   "name": "@thepolicylab-projectportals/gatsby-theme-project-portal",
-  "version": "4.1.0",
+  "version": "0.0.0",
   "main": "index.js",
   "author": "The Policy Lab <thepolicylab@brown.edu>",
   "contributors": [
@@ -18,26 +18,26 @@
     "react-dom": "^18.2.0"
   },
   "dependencies": {
-    "@tailwindcss/forms": "^0.5.3",
     "@headlessui/react": "^1.7.8",
+    "@tailwindcss/forms": "^0.5.3",
     "autoprefixer": "^10.4.13",
     "gatsby-plugin-image": "^2.24.0",
+    "gatsby-plugin-manifest": "^4.25.0",
     "gatsby-plugin-postcss": "^5.24.0",
+    "gatsby-plugin-robots-txt": "^1.7.1",
     "gatsby-plugin-sharp": "^4.25.0",
+    "gatsby-plugin-sitemap": "^5.25.0",
     "gatsby-source-filesystem": "^4.25.0",
     "gatsby-transformer-sharp": "^4.25.0",
-    "gatsby-plugin-manifest": "^4.25.0",
     "lodash": "^4.17.21",
     "markdown-to-jsx": "^7.1.9",
     "moment": "^2.29.4",
+    "react-google-recaptcha": "^2.1.0",
     "react-helmet": "^6.1.0",
     "react-icons": "^4.7.1",
-    "react-google-recaptcha": "^2.1.0",
     "react-select": "^5.7.0",
     "react-share": "^4.4.0",
-    "tailwindcss": "^3.2.4",
-    "gatsby-plugin-sitemap": "^5.25.0",
-    "gatsby-plugin-robots-txt": "^1.7.1"
+    "tailwindcss": "^3.2.4"
   },
   "devDependencies": {
     "@types/tailwindcss": "^3.1.0"
