@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@tailwindcss/forms": "^0.5.3",
-    "@headlessui/react": "^1.7.5",
+    "@headlessui/react": "^1.7.8",
     "autoprefixer": "^10.4.13",
     "gatsby-plugin-image": "^2.24.0",
     "gatsby-plugin-postcss": "^5.24.0",
@@ -28,7 +28,7 @@
     "gatsby-transformer-sharp": "^4.25.0",
     "gatsby-plugin-manifest": "^4.25.0",
     "lodash": "^4.17.21",
-    "markdown-to-jsx": "^7.1.8",
+    "markdown-to-jsx": "^7.1.9",
     "moment": "^2.29.4",
     "react-helmet": "^6.1.0",
     "react-icons": "^4.7.1",
