@@ -84,6 +84,13 @@ EXAMPLES
 
 EOM
 
+read -r -d '' YARNRC << EOM
+nodeLinker: node-modules
+npmScopes:
+  thepolicylab-projectportals:
+    npmRegistryServer: https://npm.pkg.github.com
+EOM
+
 # Specify the template site
 package-and-install () {
   setopt LOCAL_OPTIONS xtrace
@@ -148,8 +155,12 @@ package-and-install () {
   testDir=$(mktemp -d || die "Failed to create new temporary directory.")
   echo "new temporary directory: $testDir"
 
+  # Specify the yarn version
+  ( cd $testDir && yarn set version berry )
+
   # Add files we need to ensure the installer looks in the right place for the package
-  cp .npmrc "$testDir" || die "couldn't copy rc-file"
+  echo "$YARNRC" > "$testDir/.yarnrc.yml"
+
 
   # Create the empty or template Gatsby site
   case "${initMethod}" in
@@ -174,6 +185,8 @@ package-and-install () {
     };;
   esac
 
+  echo "using ${packageManager} version $(${packageManager} -v)"
+
   # Define a variable to hold all of the packages we need to install
   declare -a packageManagerAddList
 
@@ -196,12 +209,12 @@ package-and-install () {
     packPath="$artifactDir/$packagePrefix-$(date '+%s')-$(git rev-parse --short HEAD)-$(base64 < "/dev/urandom" | tr -dc '0-9a-zA-Z' | head -c3 ).tgz"
 
     mkdir -p "$artifactDir"
-    yarn workspace "$workspacePackage" pack --filename "$packPath"
+    yarn workspace "$workspacePackage" pack --out "$packPath"
 
     echo "including $packPath"
     case "${packageManager}" in
       yarn) {
-        packageManagerAddList+=("file:${packPath}")
+        packageManagerAddList+=("$workspacePackage@file:${packPath}")
       } ;;
       npm) {
         packageManagerAddList+=($packPath)
@@ -249,7 +262,9 @@ package-and-install () {
     # Tell the user how to interact with the site
     case "${packageManager}" in
       yarn) {
-        echo "To start dev server run:"
+        echo "To serve the built site run:"
+        echo "(cd $testDir && yarn gatsby serve)"
+        echo "To start a clean dev server run:"
         echo "(cd $testDir && yarn gatsby clean && yarn gatsby develop)"
         echo "To rebuild and serve, run:"
         echo "(cd $testDir && yarn gatsby clean && yarn gatsby build && yarn gatsby serve)"
