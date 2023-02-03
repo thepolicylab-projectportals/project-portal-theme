@@ -3,7 +3,7 @@
   "packageManager": "yarn@3.4.1",
   "private": true,
   "version": "0.0.0",
-  "license": "0BSD",
+  "license": "MIT",
   "scripts": {
     "build": "yarn workspace example build",
     "test": "jest --passWithNoTests"
