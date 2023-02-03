@@ -129,7 +129,7 @@ export const Navbar: FunctionComponent<NavbarProps> = ({ activePage }) => {
         sourceInstanceName: { eq: "themeImages" }
       ) {
         childImageSharp {
-          gatsbyImageData(width: 64)
+          gatsbyImageData(height: 64)
         }
       }
     }
