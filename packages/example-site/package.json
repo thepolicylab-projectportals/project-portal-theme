@@ -11,7 +11,7 @@
   "dependencies": {
     "@thepolicylab-projectportals/gatsby-theme-project-portal": "0.0.0",
     "@thepolicylab-projectportals/project-portal-content-netlify": "0.0.0",
-    "gatsby": "^4.25.0",
+    "gatsby": "^5.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }

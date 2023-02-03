@@ -9,12 +9,12 @@
     "serve": "gatsby serve"
   },
   "dependencies": {
-    "@thepolicylab-projectportals/gatsby-theme-project-portal": "0.0.0",
-    "gatsby": "^4.25.0",
-    "gatsby-plugin-image": "^2.24.0",
-    "gatsby-plugin-sharp": "^4.25.0",
-    "gatsby-source-filesystem": "^4.25.0",
-    "gatsby-transformer-sharp": "^4.25.0",
+    "@thepolicylab-projectportals/gatsby-theme-project-portal": "^0.0.0",
+    "gatsby": "^5.3.0",
+    "gatsby-plugin-image": "^3.3.2",
+    "gatsby-plugin-sharp": "^5.3.2",
+    "gatsby-source-filesystem": "^5.3.1",
+    "gatsby-transformer-sharp": "^5.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }

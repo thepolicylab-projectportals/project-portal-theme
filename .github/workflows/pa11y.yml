@@ -21,6 +21,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
+          node-version: 18
           cache: 'yarn'
 
       - name: Install dependencies
@@ -36,7 +37,7 @@ jobs:
         run: npm exec -c 'pa11y http://localhost:9000/ --debug --hide-elements "div[class*='logotype']"'
 
       - name: Run pa11y-ci on all pages
-        run: npm exec -c 'pa11y-ci -s http://localhost:9000/sitemap/sitemap-0.xml'
+        run: npm exec -c 'pa11y-ci -s http://localhost:9000/sitemap-0.xml'
 
       - name: Prettify result file
         if: ${{ always() }}

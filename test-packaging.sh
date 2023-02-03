@@ -68,7 +68,7 @@ DESCRIPTION
 EXAMPLES
 
   Create an empty site using the current local version (minimum example):
-    % package-and-install -r react@^16.14.0,react-dom@^16.14.0,gatsby@^4.24.0 -w @thepolicylab-projectportals/gatsby-theme-project-portal -g @thepolicylab-projectportals/gatsby-theme-project-portal
+    % package-and-install -r react@^18.0.0,react-dom@^18.0.0,gatsby@^5.0.0 -w @thepolicylab-projectportals/gatsby-theme-project-portal -g @thepolicylab-projectportals/gatsby-theme-project-portal
 
   Create a new duplicate of the "defaults" site:
     % package-and-install -t "packages/defaults/" -w @thepolicylab-projectportals/gatsby-theme-project-portal
