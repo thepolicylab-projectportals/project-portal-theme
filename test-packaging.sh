@@ -68,7 +68,7 @@ DESCRIPTION
 EXAMPLES
 
   Create an empty site using the current local version (minimum example):
-    % package-and-install -r react@^16.14.0,react-dom@^16.14.0,gatsby@^4.24.0 -w @thepolicylab-projectportals/gatsby-theme-project-portal -g @thepolicylab-projectportals/gatsby-theme-project-portal
+    % package-and-install -r react@^18.0.0,react-dom@^18.0.0,gatsby@^5.0.0 -w @thepolicylab-projectportals/gatsby-theme-project-portal -g @thepolicylab-projectportals/gatsby-theme-project-portal
 
   Create a new duplicate of the "defaults" site:
     % package-and-install -t "packages/defaults/" -w @thepolicylab-projectportals/gatsby-theme-project-portal
@@ -82,6 +82,13 @@ EXAMPLES
   Create a new duplicate of the "example-content" site:
     % package-and-install -t "packages/example-content/" -w @thepolicylab-projectportals/gatsby-theme-project-portal,@thepolicylab-projectportals/project-portal-content-netlify
 
+EOM
+
+read -r -d '' YARNRC << EOM
+nodeLinker: node-modules
+npmScopes:
+  thepolicylab-projectportals:
+    npmRegistryServer: https://npm.pkg.github.com
 EOM
 
 # Specify the template site
@@ -144,35 +151,12 @@ package-and-install () {
   echo "artifactDir: ${artifactDir}"
   echo "gatsbyCommands:" ${gatsbyCommands}
 
-  # Create an empty directory testDir where we can test the installation
-  testDir=$(mktemp -d || die "Failed to create new temporary directory.")
-  echo "new temporary directory: $testDir"
 
-  # Add files we need to ensure the installer looks in the right place for the package
-  cp .npmrc "$testDir" || die "couldn't copy rc-file"
+  ###################
+  # Local Preparation
+  ###################
 
-  # Create the empty or template Gatsby site
-  case "${initMethod}" in
-    empty) {
-      (
-        cd "$testDir" || die "Failed to cd to testDir '$testDir'"
-        ${packageManager} init -y || die "Failed to init new site"
-
-        # Add anything we need to Gatsby Config
-        plugins=""
-        gatsbyConfigPackagesArray=(${(s/,/)gatsbyConfigPackages})
-        for gatsbyConfigPackage in "${gatsbyConfigPackagesArray[@]}"
-        do
-          plugins="${plugins} \`${gatsbyConfigPackage}\`,"
-        done
-        echo "module.exports = { plugins: [${plugins}] }" > "gatsby-config.js"
-      )
-    };;
-    template) {
-      # Sync content from the template site to the testDir
-      rsync -av --progress "$templateDir/." "$testDir" --exclude node_modules --exclude .cache --exclude public
-    };;
-  esac
+  # Create all the packages locally we'll need later and add them to arrays
 
   # Define a variable to hold all of the packages we need to install
   declare -a packageManagerAddList
@@ -196,12 +180,12 @@ package-and-install () {
     packPath="$artifactDir/$packagePrefix-$(date '+%s')-$(git rev-parse --short HEAD)-$(base64 < "/dev/urandom" | tr -dc '0-9a-zA-Z' | head -c3 ).tgz"
 
     mkdir -p "$artifactDir"
-    yarn workspace "$workspacePackage" pack --filename "$packPath"
+    yarn workspace "$workspacePackage" pack --out "$packPath"
 
     echo "including $packPath"
     case "${packageManager}" in
       yarn) {
-        packageManagerAddList+=("file:${packPath}")
+        packageManagerAddList+=("$workspacePackage@file:${packPath}")
       } ;;
       npm) {
         packageManagerAddList+=($packPath)
@@ -209,6 +193,54 @@ package-and-install () {
       *) die "package manager ${packageManager} unknown, can't add.";;
     esac
   done
+
+  ###############
+  # TestDir Setup
+  ###############
+
+  # Create an empty directory testDir where we can test the installation
+  testDir=$(mktemp -d || die "Failed to create new temporary directory.")
+  echo "new temporary directory: $testDir"
+
+  (
+    cd "$testDir" || die "Failed to cd to testDir '$testDir'"
+    # Set up the package manager
+    case "${packageManager}" in
+      yarn) {
+          echo "$YARNRC" > "$testDir/.yarnrc.yml"  # initialize the yarnrc first
+          yarn set version berry  # ... then set the version, as this modifies the yarnrc
+      };;
+      npm) {
+        echo
+      };;
+      *) die "package manager ${packageManager} unknown, can't serve.";;
+    esac
+
+    echo "using ${packageManager} version $(${packageManager} -v)"
+  )
+
+  # Create the empty or template Gatsby site
+  case "${initMethod}" in
+    empty) {
+      (
+        cd "$testDir" || die "Failed to cd to testDir '$testDir'"
+        ${packageManager} init -y || die "Failed to init new site"
+
+        # Add anything we need to Gatsby Config
+        plugins=""
+        gatsbyConfigPackagesArray=(${(s/,/)gatsbyConfigPackages})
+        for gatsbyConfigPackage in "${gatsbyConfigPackagesArray[@]}"
+        do
+          plugins="${plugins} \`${gatsbyConfigPackage}\`,"
+        done
+        echo "module.exports = { plugins: [${plugins}] }" > "gatsby-config.js"
+      )
+    };;
+    template) {
+      # Sync content from the template site to the testDir
+      rsync -av --progress "$templateDir/." "$testDir" --exclude node_modules --exclude .cache --exclude public
+    };;
+  esac
 
   # Add everything we need in one go
   (
@@ -249,12 +281,16 @@ package-and-install () {
     # Tell the user how to interact with the site
     case "${packageManager}" in
       yarn) {
-        echo "To start dev server run:"
+        echo "To serve the built site run:"
+        echo "(cd $testDir && yarn gatsby serve)"
+        echo "To start a clean dev server run:"
         echo "(cd $testDir && yarn gatsby clean && yarn gatsby develop)"
         echo "To rebuild and serve, run:"
         echo "(cd $testDir && yarn gatsby clean && yarn gatsby build && yarn gatsby serve)"
       };;
       npm) {
+        echo "To serve the built site run:"
+        echo "(cd $testDir && npm run env -- gatsby develop)"
         echo "To start dev server run:"
         echo "(cd $testDir && npm run env -- gatsby clean && npm run env -- gatsby develop)"
         echo "To rebuild and serve, run:"

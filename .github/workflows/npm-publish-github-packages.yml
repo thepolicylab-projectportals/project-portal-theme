@@ -5,41 +5,44 @@ name: Node.js Package
 
 on:
   release:
-    types: [created]
-
-permissions:
-  contents: read
-  packages: write
+    types: [ published ]
 
 jobs:
-  build:
+  build-test-publish:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          cache: 'yarn'
-      - run: yarn install --frozen-lockfile # optional, --immutable
-      - run: yarn test
 
-  publish-gpr:
-    strategy:
-      matrix:
-        package:
-          - "@thepolicylab-projectportals/gatsby-theme-project-portal"
-          - "@thepolicylab-projectportals/project-portal-content-netlify"
-    needs: build
-    runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
+
     steps:
+
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
-          registry-url: https://npm.pkg.github.com/
-          scope: '@thepolicylab-projectportals'
-      - run: yarn workspace ${{ matrix.package }} publish
+          cache: 'yarn'
+          node-version: 18
+      - run: yarn install --immutable
+      - run: yarn test
+      - name: Update version numbers
+        run: | 
+          yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" version "${{ github.ref_name }}"
+          yarn workspace "@thepolicylab-projectportals/project-portal-content-netlify" version "${{ github.ref_name }}"
+
+      - name: Pre-release packages
+        if: ${{ github.event_name == 'release' && github.event.release.prerelease == true }}
+        run: |
+          yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" npm publish --tag next
+          yarn workspace "@thepolicylab-projectportals/project-portal-content-netlify" npm publish --tag next
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          YARN_NPM_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Release packages
+        if: ${{ github.event_name == 'release' && github.event.release.prerelease == false }}
+        run: |
+          yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" npm publish
+          yarn workspace "@thepolicylab-projectportals/project-portal-content-netlify" npm publish
+        env:
+          YARN_NPM_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
