@@ -1,0 +1,41 @@
+{
+    "heading": {
+      "link": "https://www.sanantonio.gov/",
+      "title": ""
+    },
+    "copyright": "Copyright 2022 City of San Antonio, images courtesy of the City of San Antonio",
+    "links": [
+      {
+        "title": "Office of Equity",
+        "link": "http://www.sanantonio.gov/Equity.aspx"
+      },
+      {
+        "title": "ADA Compliance",
+        "link": "http://www.sanantonio.gov/ada/"
+      },
+      {
+        "title": "Telecommuting",
+        "link": "https://www.sanantonio.gov/EASI"
+      },
+      {
+        "title": "Site Map",
+        "link": "https://www.sanantonio.gov/Website-Map"
+      },
+      {
+        "title": "Open Records",
+        "link": "http://www.sanantonio.gov/opengovernment/"
+      },
+      {
+        "title": "Contact Us",
+        "link": "https://www.sanantonio.gov/contact"
+      },
+      {
+        "title": "Privacy Policy & Disclaimer",
+        "link": "http://www.sanantonio.gov/disclaimer.aspx"
+      },
+      {
+        "title": "Accessibility Statement",
+        "link": "/about/#accessibility"
+      }
+    ]
+  }
