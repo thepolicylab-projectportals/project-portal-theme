@@ -1,7 +1,3 @@
-const lodash = require("lodash")
-
-const defaultStaticText = require("./default-static-text.json")
-
 function withDefaults(themeOptions) {
   return {
     ...themeOptions,
@@ -10,7 +6,6 @@ function withDefaults(themeOptions) {
     faviconPath:
       themeOptions?.faviconPath ?? `${__dirname}/../images/default-icon.png`,
     showDevBanner: themeOptions?.showDevBanner ?? true,
-    staticText: lodash.merge(defaultStaticText, themeOptions?.staticText),
     themeImageDirectory:
       themeOptions?.themeImageDirectory ?? "./content/theme-image",
     pages: themeOptions?.pages ?? [

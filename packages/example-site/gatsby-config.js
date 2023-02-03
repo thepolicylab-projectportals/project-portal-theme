@@ -18,7 +18,6 @@ module.exports = {
           },
         ],
         tailwindConfig: tailwindConfig,
-        staticText: require(`${__dirname}/content/site/language.json`),
         faviconPath: `${__dirname}/content/theme-image/favicon.png`,
         projectInterestLink: `https://ccv.brown.edu`,
       },

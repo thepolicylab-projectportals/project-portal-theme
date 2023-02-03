@@ -9,58 +9,11 @@ const projectPortalConfigTypeDefs = `
     projectInterestLink: String
     pages: [NavbarItemType]
     recaptchaSiteKey: String
-    staticText: StaticTextType
   }
   type NavbarItemType {
     name: String
     link: String
     show: Boolean
-  }
-  type StaticTextType {
-    open: CardPageType
-    ongoing: CardPageType
-    completed: CardPageType
-    contact: ContactType
-    about: AboutType
-    bottom_banner: BottomBannerType
-    footer: FooterType
-    main_contact_text: MainContactTextType
-  }
-  type CardPageType {
-    lede: String
-    pageName: String
-    title: String
-  }
-  type ContactType {
-    title: String
-    lede: String
-  }
-  type AboutType {
-    header: String
-    aims: [TitleAndTextType]
-    faq: [TitleAndTextType]
-    accessibility: String
-  }    
-  type TitleAndTextType {
-    title: String
-    text: String
-  }
-  type BottomBannerType {
-    text: String
-    link: String
-  }
-  type MainContactTextType {
-    ongoingText: String
-    completeText: String
-  }
-  type FooterType {
-    copyright: String
-    heading: LinkType
-    links: [LinkType]
-  }
-  type LinkType {
-    title: String
-    link: String
   }
 `
 const STATIC_TEXT_NODE_TYPE = `ProjectPortalStaticText`
