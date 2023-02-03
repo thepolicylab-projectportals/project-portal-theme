@@ -3303,7 +3303,7 @@ __metadata:
     gatsby-plugin-postcss: ^5.24.0
     gatsby-plugin-robots-txt: ^1.7.1
     gatsby-plugin-sharp: ^4.25.0
-    gatsby-plugin-sitemap: ^5.25.0
+    gatsby-plugin-sitemap: ^6.5.0
     gatsby-source-filesystem: ^4.25.0
     gatsby-transformer-sharp: ^4.25.0
     lodash: ^4.17.21
@@ -9015,19 +9015,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-sitemap@npm:^5.25.0":
-  version: 5.25.0
-  resolution: "gatsby-plugin-sitemap@npm:5.25.0"
+"gatsby-plugin-sitemap@npm:^6.5.0":
+  version: 6.5.0
+  resolution: "gatsby-plugin-sitemap@npm:6.5.0"
   dependencies:
-    "@babel/runtime": ^7.15.4
+    "@babel/runtime": ^7.20.7
     common-tags: ^1.8.2
     minimatch: ^3.1.2
-    sitemap: ^7.0.0
+    sitemap: ^7.1.1
   peerDependencies:
-    gatsby: ^4.0.0-next
-    react: ^16.9.0 || ^17.0.0 || ^18.0.0 || ^0.0.0
-    react-dom: ^16.9.0 || ^17.0.0 || ^18.0.0 || ^0.0.0
-  checksum: c05f56d913409f347fa7bbc510f829c79449031163d18d132dd1631244ecf484feddbdffdae45114881e07403473ca151857ad96bd8a20fbad18159a3d37c5d9
+    gatsby: ^5.0.0-next
+    react: ^18.0.0 || ^0.0.0
+    react-dom: ^18.0.0 || ^0.0.0
+  checksum: 913838aec96316d092d8b2e4522bbeaeb6da9b066db6b69090be281662bc5d10bac1eada69b1f2b09d307b642b0a5234457c3640e4cb25ca9a8e63a2524a8e40
   languageName: node
   linkType: hard
 
@@ -17521,7 +17521,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sitemap@npm:^7.0.0":
+"sitemap@npm:^7.1.1":
   version: 7.1.1
   resolution: "sitemap@npm:7.1.1"
   dependencies:
