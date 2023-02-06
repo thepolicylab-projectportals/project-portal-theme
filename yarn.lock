@@ -2098,15 +2098,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@headlessui/react@npm:^1.7.8":
-  version: 1.7.8
-  resolution: "@headlessui/react@npm:1.7.8"
+"@headlessui/react@npm:^1.7.10":
+  version: 1.7.10
+  resolution: "@headlessui/react@npm:1.7.10"
   dependencies:
     client-only: ^0.0.1
   peerDependencies:
     react: ^16 || ^17 || ^18
     react-dom: ^16 || ^17 || ^18
-  checksum: 2baf0686b846a9adf38828c95dab370353149234b81a24a2f4f399c8a635027fe3cd04624e52597a7d9b4a1ceebef0508450d625f62ae05433647d403cecd608
+  checksum: 39b50fb07bd5482611720d292f1db6ca79a52ccea304aa24a21fdca693d983e212d7493c52ece8921581222206f9cbb8f1a91485efa17cc36a7a9a44d8df1547
   languageName: node
   linkType: hard
 
@@ -3312,7 +3312,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@thepolicylab-projectportals/gatsby-theme-project-portal@workspace:packages/gatsby-theme-project-portal"
   dependencies:
-    "@headlessui/react": ^1.7.8
+    "@headlessui/react": ^1.7.10
     "@tailwindcss/forms": ^0.5.3
     "@types/tailwindcss": ^3.1.0
     autoprefixer: ^10.4.13
