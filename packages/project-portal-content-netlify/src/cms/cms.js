@@ -274,8 +274,7 @@ CMS.init({
               {
                 name: "templateKey",
                 label: "Template Key",
-                widget: "string",
-                hidden: true,
+                widget: "hidden",
                 default: "CardPage",
               },
               {
@@ -316,8 +315,7 @@ CMS.init({
               {
                 name: "templateKey",
                 label: "Template Key",
-                widget: "string",
-                hidden: true,
+                widget: "hidden",
                 default: "CardPage",
               },
               {
@@ -351,8 +349,7 @@ CMS.init({
               {
                 name: "templateKey",
                 label: "Template Key",
-                widget: "string",
-                hidden: true,
+                widget: "hidden",
                 default: "CardPage",
               },
               {
@@ -386,8 +383,7 @@ CMS.init({
               {
                 name: "templateKey",
                 label: "Template Key",
-                widget: "string",
-                hidden: true,
+                widget: "hidden",
                 default: "AboutPage",
               },
               {
@@ -458,8 +454,7 @@ CMS.init({
               {
                 name: "templateKey",
                 label: "Template Key",
-                widget: "string",
-                hidden: true,
+                widget: "hidden",
                 default: "ContactPage",
               },
               {
