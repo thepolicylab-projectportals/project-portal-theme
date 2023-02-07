@@ -4,16 +4,12 @@ const {
   PROJECT_NODE_TYPE,
   CONTACT_NODE_TYPE,
   TOPIC_NODE_TYPE,
-  STATIC_TEXT_NODE_TYPE,
   PAGE_NODE_TYPE,
   CARD_FILTER_TYPE,
   TITLE_AND_TEXT_TYPE,
 } = require("@thepolicylab-projectportals/gatsby-theme-project-portal/utils/types")
 const { withDefaults } = require("./utils/default-options")
 const { createFilePath } = require("gatsby-source-filesystem")
-const lodash = require("lodash")
-const defaultStaticText = require("@thepolicylab-projectportals/gatsby-theme-project-portal/utils/default-static-text.json")
-const path = require("path")
 
 // These parameters must match the types which gatsby-transformer-json _implicitly_
 // creates for the "Project" and "Contact" types.
@@ -201,38 +197,4 @@ exports.createSchemaCustomization = ({ actions, schema, getNode }) => {
     }),
   ]
   createTypes(typeDefs)
-}
-
-exports.sourceNodes = ({ actions, createContentDigest }, pluginOptions) => {
-  const { createNode } = actions
-
-  const { pagePath, sitePath } = withDefaults(pluginOptions)
-
-  const importedStaticText = {
-    open: require(path.resolve(`${pagePath}/open.json`)),
-    ongoing: require(path.resolve(`${pagePath}/ongoing.json`)),
-    completed: require(path.resolve(`${pagePath}/completed.json`)),
-    contact: require(path.resolve(`${pagePath}/contact.json`)),
-    about: require(path.resolve(`${pagePath}/about.json`)),
-    bottom_banner: require(path.resolve(`${sitePath}/bottom-banner.json`)),
-    footer: require(path.resolve(`${sitePath}/footer.json`)),
-    main_contact_text: require(path.resolve(
-      `${sitePath}/main-contact-text.json`
-    )),
-  }
-
-  const staticText = lodash.merge(defaultStaticText, importedStaticText)
-
-  createNode({
-    ...staticText,
-    id: `@thepolicylab-projectportals/project-portal-content-netlify`,
-    parent: null,
-    children: [],
-    internal: {
-      type: `${STATIC_TEXT_NODE_TYPE}`,
-      contentDigest: createContentDigest(staticText),
-      content: JSON.stringify(staticText),
-      description: `Static Text for @thepolicylab-projectportals/gatsby-theme-project-portal`,
-    },
-  })
 }

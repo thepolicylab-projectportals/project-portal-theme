@@ -1,5 +1,6 @@
 // constants for Project Portal Config type
 const CONFIG_NODE_TYPE = `ProjectPortalConfig`
+const STATIC_TEXT_NODE_TYPE = `ProjectPortalStaticText`
 
 const projectPortalConfigTypeDefs = `
   type ${CONFIG_NODE_TYPE} implements Node {
@@ -9,44 +10,17 @@ const projectPortalConfigTypeDefs = `
     projectInterestLink: String
     pages: [NavbarItemType]
     recaptchaSiteKey: String
+    staticText: ${STATIC_TEXT_NODE_TYPE}
   }
   type NavbarItemType {
     name: String
     link: String
     show: Boolean
   }
-`
-const STATIC_TEXT_NODE_TYPE = `ProjectPortalStaticText`
-
-const projectPortalStaticTextTypeDefs = `
-  type ${STATIC_TEXT_NODE_TYPE} implements Node {
-    open: CardPageType
-    ongoing: CardPageType
-    completed: CardPageType
-    contact: ContactType
-    about: AboutType
+  type ${STATIC_TEXT_NODE_TYPE} {
     bottom_banner: BottomBannerType
     footer: FooterType
     main_contact_text: MainContactTextType
-  }
-  type CardPageType {
-    lede: String
-    pageName: String
-    title: String
-  }
-  type ContactType {
-    title: String
-    lede: String
-  }
-  type AboutType {
-    header: String
-    aims: [TitleAndTextType]
-    faq: [TitleAndTextType]
-    accessibility: String
-  }    
-  type TitleAndTextType {
-    title: String
-    text: String
   }
   type BottomBannerType {
     text: String
@@ -151,8 +125,8 @@ const pageTypeDefs = `
     
     # Accessibility page options:
     header: String
-    aims: [TitleAndTextType]
-    faq: [TitleAndTextType]
+    aims: [${TITLE_AND_TEXT_TYPE}]
+    faq: [${TITLE_AND_TEXT_TYPE}]
     accessibility: String
     
   }
@@ -166,17 +140,16 @@ const pageTypeDefs = `
 `
 
 module.exports = {
-  CONFIG_NODE_TYPE,
   projectPortalConfigTypeDefs,
-  PROJECT_NODE_TYPE,
   projectTypeDefs,
-  CONTACT_NODE_TYPE,
   contactTypeDefs,
+  pageTypeDefs,
+  CONFIG_NODE_TYPE,
+  PROJECT_NODE_TYPE,
+  CONTACT_NODE_TYPE,
   TOPIC_NODE_TYPE,
-  projectPortalStaticTextTypeDefs,
   STATIC_TEXT_NODE_TYPE,
   PAGE_NODE_TYPE,
-  pageTypeDefs,
   CARD_FILTER_TYPE,
   TITLE_AND_TEXT_TYPE,
 }
