@@ -22,9 +22,9 @@ const TOPIC_JSON_TYPE = `TopicJson`
 const PAGE_JSON_TYPE = `PageJson`
 
 exports.onPreBootstrap = ({ reporter }, pluginOptions) => {
-  const { projectPath, contactPath, topicPath, pagePath } =
+  const { projectPath, contactPath, topicPath, pagePath, configPath } =
     withDefaults(pluginOptions)
-  const paths = [projectPath, contactPath, topicPath, pagePath]
+  const paths = [projectPath, contactPath, topicPath, pagePath, configPath]
 
   paths.forEach((path) => {
     if (!fs.existsSync(path)) {

@@ -1,10 +1,10 @@
 function withDefaults(pluginOptions) {
   return {
     ...pluginOptions,
+    configPath: pluginOptions.configPath || "./content/config",
     projectPath: pluginOptions.projectPath || "./content/project",
     contactPath: pluginOptions.contactPath || "./content/contact",
     topicPath: pluginOptions.topicPath || "./content/topic",
-    sitePath: pluginOptions.sitePath || "./content/site",
     pagePath: pluginOptions.pagePath || "./content/page",
   }
 }
