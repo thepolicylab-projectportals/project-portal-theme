@@ -1,0 +1,10 @@
+{
+  "templateKey": "CardPage",
+  "title": "All Projects",
+  "lede": "The City of San Antonio is building research partnerships to help answer questions about how to best serve residents. We are seeking academic and scientific research partners with methodological expertise related to design, data analytics, and field experimentation, as well as domain knowledge related to the topics.\n\nBrowse open opportunities below. If you would like to be considered for involvement with a project, please complete the interest form and we’ll be in touch with more information about the requirements and next steps. We look forward to hearing from you!",
+  "pageName": "All Projects",
+  "sortOptions": ["created", "opportunityCloses"],
+  "filter": {
+    "status": ["open", "ongoing", "completed"]
+  }
+}

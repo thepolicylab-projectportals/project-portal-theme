@@ -98,7 +98,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   cardPages.nodes.forEach((page) => {
     const { slug, filter } = page
     createPage({
-      path: `card/${slug}`,
+      path: `/${slug}`,
       component: CardPageTemplate,
       context: {
         slug: slug,
