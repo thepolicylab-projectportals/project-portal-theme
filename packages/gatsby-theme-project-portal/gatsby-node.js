@@ -53,6 +53,7 @@ const ProjectDetailPageTemplate = require.resolve(
 const CardPageTemplate = require.resolve(`./src/templates/card-page`)
 const AboutPageTemplate = require.resolve(`./src/templates/about-page`)
 const ContactPageTemplate = require.resolve(`./src/templates/contact-page`)
+const ThankYouPageTemplate = require.resolve(`./src/templates/thank-you-page`)
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
@@ -131,9 +132,18 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   contactPages.nodes.forEach((page) => {
     const { slug } = page
+    const thankYouPagePath = `/${slug}/thank-you`
     createPage({
       path: `/${slug}`,
       component: ContactPageTemplate,
+      context: {
+        slug: slug,
+        thankYouPagePath: thankYouPagePath,
+      },
+    })
+    createPage({
+      path: thankYouPagePath,
+      component: ThankYouPageTemplate,
       context: {
         slug: slug,
       },
