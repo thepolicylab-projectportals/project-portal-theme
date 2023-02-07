@@ -130,6 +130,30 @@ const contactTypeDefs = `
   }
 `
 
+const PAGE_NODE_TYPE = `Page`
+const CARD_FILTER_TYPE = `CardFilterType`
+const pageTypeDefs = `
+  interface ${PAGE_NODE_TYPE} implements Node {
+    id: ID!  
+    slug: String!
+    
+    templateKey: String
+    
+    pageName: String
+    
+    title: String
+    lede: String
+    
+    # Card Page Options
+    sortOptions: [String]
+    filter: CardFilterType
+    
+  }
+  type ${CARD_FILTER_TYPE} {
+    status: [String]
+  }
+`
+
 module.exports = {
   CONFIG_NODE_TYPE,
   projectPortalConfigTypeDefs,
@@ -140,4 +164,7 @@ module.exports = {
   TOPIC_NODE_TYPE,
   projectPortalStaticTextTypeDefs,
   STATIC_TEXT_NODE_TYPE,
+  PAGE_NODE_TYPE,
+  pageTypeDefs,
+  CARD_FILTER_TYPE,
 }

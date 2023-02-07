@@ -5,6 +5,8 @@ const {
   CONTACT_NODE_TYPE,
   TOPIC_NODE_TYPE,
   STATIC_TEXT_NODE_TYPE,
+  PAGE_NODE_TYPE,
+  CARD_FILTER_TYPE,
 } = require("@thepolicylab-projectportals/gatsby-theme-project-portal/utils/types")
 const { withDefaults } = require("./utils/default-options")
 const { createFilePath } = require("gatsby-source-filesystem")
@@ -20,6 +22,7 @@ const path = require("path")
 const PROJECT_JSON_TYPE = `ProjectJson`
 const CONTACT_JSON_TYPE = `ContactJson`
 const TOPIC_JSON_TYPE = `TopicJson`
+const PAGE_JSON_TYPE = `PageJson`
 
 exports.onPreBootstrap = ({ reporter }, pluginOptions) => {
   const { projectPath, contactPath, topicPath } = withDefaults(pluginOptions)
@@ -172,6 +175,21 @@ exports.createSchemaCustomization = ({ actions, schema, getNode }) => {
           },
         },
         title: "String",
+      },
+    }),
+    schema.buildObjectType({
+      name: PAGE_JSON_TYPE,
+      interfaces: ["Node", PAGE_NODE_TYPE],
+      fields: {
+        slug: {
+          type: "String!",
+          resolve: (node) => {
+            return createFilePath({ node, getNode }).slice(1, -1)
+          },
+        },
+        filter: {
+          type: CARD_FILTER_TYPE,
+        },
       },
     }),
   ]
