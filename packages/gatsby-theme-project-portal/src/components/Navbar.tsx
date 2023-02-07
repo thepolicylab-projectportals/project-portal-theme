@@ -1,8 +1,12 @@
 import React, { FunctionComponent } from "react"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import { FaBars, FaTimes } from "react-icons/fa"
-import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image"
-import { useProjectPortalConfig, useSiteMetadata } from "../hooks"
+import { getImage, IGatsbyImageData } from "gatsby-plugin-image"
+import {
+  useProjectPortalConfig,
+  useSiteMetadata,
+} from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/hooks"
+import { SiteTitle } from "./SiteTitle"
 
 interface NavbarItemProps {
   name: string
@@ -76,16 +80,7 @@ export const NavbarLayout: FunctionComponent<NavbarLayoutProps> = ({
               className="block mx-4 my-auto overflow-hidden text-nav text-black font-bold flex gap-4 items-center whitespace-nowrap"
               to="/"
             >
-              <>
-                {image && (
-                  <GatsbyImage
-                    className="xl:inline-block logotype"
-                    image={image}
-                    alt={"nav_logo"}
-                  />
-                )}
-                {title}
-              </>
+              <SiteTitle image={image} title={title} />
             </Link>
           </div>
           <div
