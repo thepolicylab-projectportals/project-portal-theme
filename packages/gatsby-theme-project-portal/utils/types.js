@@ -1,8 +1,14 @@
 // constants for Project Portal Config type
 const CONFIG_NODE_TYPE = `ProjectPortalConfig`
 const STATIC_TEXT_NODE_TYPE = `ProjectPortalStaticText`
+const PROJECT_NODE_TYPE = `Project`
+const CONTACT_NODE_TYPE = `Contact`
+const TOPIC_NODE_TYPE = `Topic`
+const PAGE_NODE_TYPE = `Page`
+const CARD_FILTER_TYPE = `CardFilterType`
+const TITLE_AND_TEXT_TYPE = `TitleAndTextType`
 
-const projectPortalConfigTypeDefs = `
+const typeDefs = `
   type ${CONFIG_NODE_TYPE} implements Node {
     siteTitle: String
     shortTitle: String
@@ -39,15 +45,7 @@ const projectPortalConfigTypeDefs = `
     title: String
     link: String
   }
-`
-
-// constants for GraphQL Project and Contact types
-const PROJECT_NODE_TYPE = `Project`
-const CONTACT_NODE_TYPE = `Contact`
-const TOPIC_NODE_TYPE = `Topic`
-
-const projectTypeDefs = `
-    interface ${PROJECT_NODE_TYPE} implements Node {
+  interface ${PROJECT_NODE_TYPE} implements Node {
       id: ID!
       
       slug: String!
@@ -86,9 +84,7 @@ const projectTypeDefs = `
       slug: String!
       title: String
     }
-  `
 
-const contactTypeDefs = `
   interface ${CONTACT_NODE_TYPE} implements Node {
     id: ID!
   
@@ -102,12 +98,7 @@ const contactTypeDefs = `
     image: File
    
   }
-`
 
-const PAGE_NODE_TYPE = `Page`
-const CARD_FILTER_TYPE = `CardFilterType`
-const TITLE_AND_TEXT_TYPE = `TitleAndTextType`
-const pageTypeDefs = `
   interface ${PAGE_NODE_TYPE} implements Node {
     id: ID!  
     slug: String!
@@ -140,10 +131,7 @@ const pageTypeDefs = `
 `
 
 module.exports = {
-  projectPortalConfigTypeDefs,
-  projectTypeDefs,
-  contactTypeDefs,
-  pageTypeDefs,
+  typeDefs,
   CONFIG_NODE_TYPE,
   PROJECT_NODE_TYPE,
   CONTACT_NODE_TYPE,
