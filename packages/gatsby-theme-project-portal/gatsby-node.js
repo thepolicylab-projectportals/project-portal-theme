@@ -83,10 +83,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     reporter.panicOnBuild(result.errors)
   }
 
-  // Create Posts and Post pages.
   const { allProject, cardPages, aboutPages, contactPages } = result.data
 
-  // Create a page for each Post
   allProject.nodes.forEach((project) => {
     const { slug } = project
     createPage({
