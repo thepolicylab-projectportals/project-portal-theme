@@ -119,7 +119,7 @@ exports.createSchemaCustomization = ({ actions, schema, getNode }) => {
           },
         },
         projectTeam: {
-          type: [CONTACT_JSON_TYPE],
+          type: [CONTACT_NODE_TYPE],
           resolve: async (source, args, context) => {
             const { entries } = await context.nodeModel.findAll({
               type: CONTACT_JSON_TYPE,
