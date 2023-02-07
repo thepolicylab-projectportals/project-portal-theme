@@ -132,6 +132,7 @@ const contactTypeDefs = `
 
 const PAGE_NODE_TYPE = `Page`
 const CARD_FILTER_TYPE = `CardFilterType`
+const TITLE_AND_TEXT_TYPE = `TitleAndTextType`
 const pageTypeDefs = `
   interface ${PAGE_NODE_TYPE} implements Node {
     id: ID!  
@@ -148,6 +149,16 @@ const pageTypeDefs = `
     sortOptions: [String]
     filter: CardFilterType
     
+    # Accessibility page options:
+    header: String
+    aims: [TitleAndTextType]
+    faq: [TitleAndTextType]
+    accessibility: String
+    
+  }
+  type ${TITLE_AND_TEXT_TYPE} {
+    title: String
+    text: String
   }
   type ${CARD_FILTER_TYPE} {
     status: [String]
@@ -167,4 +178,5 @@ module.exports = {
   PAGE_NODE_TYPE,
   pageTypeDefs,
   CARD_FILTER_TYPE,
+  TITLE_AND_TEXT_TYPE,
 }

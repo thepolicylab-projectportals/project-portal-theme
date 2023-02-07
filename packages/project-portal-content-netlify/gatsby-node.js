@@ -7,6 +7,7 @@ const {
   STATIC_TEXT_NODE_TYPE,
   PAGE_NODE_TYPE,
   CARD_FILTER_TYPE,
+  TITLE_AND_TEXT_TYPE,
 } = require("@thepolicylab-projectportals/gatsby-theme-project-portal/utils/types")
 const { withDefaults } = require("./utils/default-options")
 const { createFilePath } = require("gatsby-source-filesystem")
@@ -189,6 +190,12 @@ exports.createSchemaCustomization = ({ actions, schema, getNode }) => {
         },
         filter: {
           type: CARD_FILTER_TYPE,
+        },
+        faq: {
+          type: [TITLE_AND_TEXT_TYPE],
+        },
+        aims: {
+          type: [TITLE_AND_TEXT_TYPE],
         },
       },
     }),

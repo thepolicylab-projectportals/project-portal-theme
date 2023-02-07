@@ -1,17 +1,31 @@
-import React from "react"
-import { graphql } from "gatsby"
+import React, { FunctionComponent } from "react"
 import { Disclosure } from "@headlessui/react"
-import { Layout } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/layouts"
+import { FaPlus, FaMinus } from "react-icons/fa"
+
+import { Layout } from "./Layout"
 import {
   HeaderWithImage,
   MarkdownText,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
-import { FaPlus, FaMinus } from "react-icons/fa"
-import { useStaticText, useSiteMetadata } from "../hooks"
+import { useSiteMetadata } from "../hooks"
 import { isNA } from "../utils"
 
 interface AboutProps {
   data: {
+    page: {
+      pageName: string
+      title: string
+      header: string
+      aims: {
+        title: string
+        text: string
+      }[]
+      faq: {
+        title: string
+        text: string
+      }[]
+      accessibility: string
+    }
     bgImage: {
       childImageSharp: {
         resize: {
@@ -56,9 +70,13 @@ const AboutList = ({ aboutTitle, aboutText }) => {
   )
 }
 
-export default ({ data }: AboutProps) => {
+export const AboutPageLayout: FunctionComponent<AboutProps> = ({
+  data: {
+    page: { header, aims, faq, accessibility },
+    bgImage,
+  },
+}: AboutProps) => {
   const { title } = useSiteMetadata()
-  const language = useStaticText()
 
   return (
     <Layout activePage="About" title="About" description={`About the ${title}`}>
@@ -68,18 +86,18 @@ export default ({ data }: AboutProps) => {
             <HeaderWithImage
               title="About"
               lede=""
-              imageSrc={data?.bgImage?.childImageSharp.resize.src}
+              imageSrc={bgImage?.childImageSharp.resize.src}
             />
           </header>
 
           <div className="w-full pt-5 px-8 lg:px-16 xl:px-24 lg:w-2/3">
             <section className="mb-20">
-              {language.about.header && (
+              {header && (
                 <h2 className="text-h3 sm:text-h2 my-8 font-bold text-black">
-                  {language.about.header}
+                  {header}
                 </h2>
               )}
-              {language.about.aims.map(({ title, text }, i) => (
+              {aims.map(({ title, text }, i) => (
                 <AboutList
                   key={"list_" + i}
                   aboutTitle={title}
@@ -92,7 +110,7 @@ export default ({ data }: AboutProps) => {
               <h2 className="text-h3 sm:text-h2 my-6">
                 Frequently Asked Questions
               </h2>
-              {language.about.faq.map(({ title, text }, i) => (
+              {faq.map(({ title, text }, i) => (
                 <Accordion
                   key={"collapsibleList_" + i}
                   title={title}
@@ -101,14 +119,14 @@ export default ({ data }: AboutProps) => {
               ))}
             </section>
 
-            {!isNA(language.about.accessibility) && (
+            {!isNA(accessibility) && (
               <section id="accessibility">
                 <h2 className="text-h3 sm:text-h2 my-6">
                   Accessibility Statement
                 </h2>
                 <MarkdownText
                   className="mb-10 leading-normal text-body lg:text-body"
-                  text={language.about.accessibility}
+                  text={accessibility}
                 />
               </section>
             )}
@@ -118,19 +136,3 @@ export default ({ data }: AboutProps) => {
     </Layout>
   )
 }
-
-export const query = graphql`
-  query AboutQuery {
-    bgImage: file(
-      name: { eq: "about" }
-      extension: { in: ["png", "jpg", "jpeg"] }
-      sourceInstanceName: { eq: "themeImages" }
-    ) {
-      childImageSharp {
-        resize(width: 1536) {
-          src
-        }
-      }
-    }
-  }
-`

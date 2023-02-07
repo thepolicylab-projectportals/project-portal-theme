@@ -51,6 +51,7 @@ const ProjectDetailPageTemplate = require.resolve(
   `./src/templates/project-detail-page`
 )
 const CardPageTemplate = require.resolve(`./src/templates/card-page`)
+const AboutPageTemplate = require.resolve(`./src/templates/about-page`)
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
@@ -71,6 +72,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             }
           }
         }
+        aboutPages: allPage(filter: { templateKey: { eq: "AboutPage" } }) {
+          nodes {
+            slug
+          }
+        }
       }
     `
   )
@@ -80,11 +86,10 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 
   // Create Posts and Post pages.
-  const { allProject, cardPages } = result.data
-  const projects = allProject.nodes
+  const { allProject, cardPages, aboutPages } = result.data
 
   // Create a page for each Post
-  projects.forEach((project) => {
+  allProject.nodes.forEach((project) => {
     const { slug } = project
     createPage({
       path: `project/${slug}`,
@@ -103,6 +108,17 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       context: {
         slug: slug,
         statusFilter: filter.status,
+      },
+    })
+  })
+
+  aboutPages.nodes.forEach((page) => {
+    const { slug } = page
+    createPage({
+      path: `/${slug}`,
+      component: AboutPageTemplate,
+      context: {
+        slug: slug,
       },
     })
   })
