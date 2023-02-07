@@ -1,9 +1,8 @@
-import React, { Component } from "react"
-import { graphql, navigate } from "gatsby"
+import React, { Component, FunctionComponent } from "react"
+import { navigate } from "gatsby"
 import { MarkdownText } from "../components"
-import { Layout } from "../layouts"
+import { Layout } from "./Layout"
 import { HeaderWithImage } from "../components"
-import { useProjectPortalConfig, useStaticText } from "../hooks"
 import ReCAPTCHA from "react-google-recaptcha"
 
 const encode = (data: { [Key: string]: string }) => {
@@ -14,10 +13,12 @@ const encode = (data: { [Key: string]: string }) => {
 
 interface ContactProps {
   data: {
-    allProjectPortalConfig: {
-      nodes: {
-        recaptchaSiteKey
-      }
+    page: {
+      title: string
+      lede: string
+    }
+    projectPortalConfig: {
+      recaptchaSiteKey
     }
     bgImage: {
       childImageSharp: {
@@ -296,11 +297,14 @@ export class ContactForm extends Component<ContactFormProps> {
   }
 }
 
-export default ({ data }: ContactProps) => {
-  const { recaptchaSiteKey } = useProjectPortalConfig()
-  const { title, lede } = useStaticText().contact
-  const imageSrc = data?.bgImage?.childImageSharp.resize.src
-
+export const ContactPageLayout: FunctionComponent<ContactProps> = ({
+  data: {
+    bgImage,
+    page: { title, lede },
+    projectPortalConfig: { recaptchaSiteKey },
+  },
+}: ContactProps) => {
+  const imageSrc = bgImage?.childImageSharp.resize.src
   return (
     <Layout activePage="Contact" title={title} description={lede}>
       <main>
@@ -320,19 +324,3 @@ export default ({ data }: ContactProps) => {
     </Layout>
   )
 }
-
-export const query = graphql`
-  query ContactQuery {
-    bgImage: file(
-      name: { eq: "contact" }
-      extension: { in: ["png", "jpg", "jpeg"] }
-      sourceInstanceName: { eq: "themeImages" }
-    ) {
-      childImageSharp {
-        resize(width: 1536) {
-          src
-        }
-      }
-    }
-  }
-`
