@@ -41,13 +41,14 @@ module.exports = (pluginOptions) => {
           path: pluginOptionsWithDefaults.pagePath,
         },
       },
-      {
-        resolve: `gatsby-source-filesystem`,
-        options: {
-          name: `config`,
-          path: pluginOptionsWithDefaults.configPath,
-        },
-      },
+      // {
+      //   resolve: `gatsby-source-filesystem`,
+      //   options: {
+      //     name: `config`,
+      //     path: pluginOptionsWithDefaults.configPath,
+      //   },
+      // },
+      // TODO: replace manual import of remaining static text
     ],
   }
 }

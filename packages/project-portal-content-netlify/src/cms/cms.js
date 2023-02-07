@@ -272,6 +272,13 @@ CMS.init({
             label: "Open",
             fields: [
               {
+                name: "templateKey",
+                label: "Template Key",
+                widget: "string",
+                hidden: true,
+                default: "CardPage",
+              },
+              {
                 name: "pageName",
                 label: "Page Name",
                 widget: "string",
@@ -307,6 +314,13 @@ CMS.init({
                 hint: "The name which appears in the Navbar",
               },
               {
+                name: "templateKey",
+                label: "Template Key",
+                widget: "string",
+                hidden: true,
+                default: "CardPage",
+              },
+              {
                 name: "title",
                 label: "Title",
                 widget: "string",
@@ -335,6 +349,13 @@ CMS.init({
                 hint: "The name which appears in the Navbar",
               },
               {
+                name: "templateKey",
+                label: "Template Key",
+                widget: "string",
+                hidden: true,
+                default: "CardPage",
+              },
+              {
                 name: "title",
                 label: "Title",
                 widget: "string",
@@ -361,6 +382,13 @@ CMS.init({
                 widget: "string",
                 required: false,
                 hint: 'The heading which appears above the "Aims" section',
+              },
+              {
+                name: "templateKey",
+                label: "Template Key",
+                widget: "string",
+                hidden: true,
+                default: "AboutPage",
               },
               {
                 name: "aims",
@@ -428,6 +456,13 @@ CMS.init({
                 hint: "The heading which appears above the lede",
               },
               {
+                name: "templateKey",
+                label: "Template Key",
+                widget: "string",
+                hidden: true,
+                default: "ContactPage",
+              },
+              {
                 name: "lede",
                 label: "Lede",
                 widget: "markdown",
@@ -443,100 +478,130 @@ CMS.init({
         label: "Site",
         files: [
           {
-            name: "bottom_banner",
-            file: "content/site/bottom-banner.json",
-            label: "Bottom Banner",
-            hint: "A full-width block above the footer which may contain an image and a text",
+            name: "layout",
+            label: "Layout",
+            file: "content/config/layout.json",
             fields: [
               {
-                name: "text",
-                widget: "markdown",
-                required: false,
-                hint: "The text which appears in the bottom banner",
-              },
-              {
-                name: "link",
-                label: "Image link",
-                widget: "string",
-                required: false,
-                hint: "A link which is applied to the image, if an image is present",
-              },
-            ],
-          },
-          {
-            name: "footer",
-            file: "content/site/footer.json",
-            label: "Footer",
-            fields: [
-              {
-                name: "copyright",
-                widget: "string",
-                required: false,
-                hint: "A copyright notice which appears at the top of the footer",
-              },
-              {
-                name: "links",
-                widget: "list",
-                required: false,
-                hint: "A list of texts to be shown as links",
-                fields: [
-                  {
-                    name: "title",
-                    label: "Title",
-                    widget: "string",
-                    hint: "The text to show",
-                  },
-                  {
-                    name: "link",
-                    label: "Link target",
-                    widget: "string",
-                    hint: "The link to follow if the text is clicked",
-                  },
-                ],
-              },
-              {
-                name: "heading",
+                label: "Navbar",
+                name: "navbar",
                 widget: "object",
-                required: false,
-                hint: "A text to show at the bottom of the footer, next to the image (if present)",
+                hint: "The site navigation bar",
                 fields: [
                   {
                     name: "title",
-                    label: "Title",
                     widget: "string",
                     required: false,
-                    hint: "The text to show",
+                    hint: "The text which appears next to the logo",
                   },
                   {
-                    name: "link",
-                    label: "Link",
-                    widget: "string",
-                    required: false,
-                    hint: "The link to follow if the text is clicked",
+                    name: "pages",
+                    widget: "list",
+                    fields: [
+                      { name: "name", widget: "string" },
+                      { name: "link", widget: "string" },
+                      { name: "show", widget: "boolean" },
+                    ],
                   },
                 ],
               },
-            ],
-          },
-          {
-            name: "main_contact_text",
-            file: "content/site/main-contact-text.json",
-            label: "Main Contact",
-            hint: 'Texts to show next to the Main Contact on Project Detail Pages. Note: the texts for open projects are specified in the "Email Content" field of the Project itself.',
-            fields: [
               {
-                name: "ongoingText",
-                label: "Ongoing Text",
-                widget: "string",
-                required: false,
-                hint: "The text to show for Ongoing projects",
+                name: "bottom_banner",
+                label: "Bottom Banner",
+                widget: "object",
+                hint: "A full-width block above the footer which may contain an image and a text",
+                fields: [
+                  {
+                    name: "text",
+                    widget: "markdown",
+                    required: false,
+                    hint: "The text which appears in the bottom banner",
+                  },
+                  {
+                    name: "link",
+                    label: "Image link",
+                    widget: "string",
+                    required: false,
+                    hint: "A link which is applied to the image, if an image is present",
+                  },
+                ],
               },
               {
-                name: "completeText",
-                label: "Complete Text",
-                widget: "string",
-                required: false,
-                hint: "The text to show for Completed projects",
+                name: "footer",
+                label: "Footer",
+                widget: "object",
+                fields: [
+                  {
+                    name: "copyright",
+                    widget: "string",
+                    required: false,
+                    hint: "A copyright notice which appears at the top of the footer",
+                  },
+                  {
+                    name: "links",
+                    widget: "list",
+                    required: false,
+                    hint: "A list of texts to be shown as links",
+                    fields: [
+                      {
+                        name: "title",
+                        label: "Title",
+                        widget: "string",
+                        hint: "The text to show",
+                      },
+                      {
+                        name: "link",
+                        label: "Link target",
+                        widget: "string",
+                        hint: "The link to follow if the text is clicked",
+                      },
+                    ],
+                  },
+                  {
+                    name: "heading",
+                    widget: "object",
+                    required: false,
+                    hint: "A text to show at the bottom of the footer, next to the image (if present)",
+                    fields: [
+                      {
+                        name: "title",
+                        label: "Title",
+                        widget: "string",
+                        required: false,
+                        hint: "The text to show",
+                      },
+                      {
+                        name: "link",
+                        label: "Link",
+                        widget: "string",
+                        required: false,
+                        hint: "The link to follow if the text is clicked",
+                      },
+                    ],
+                  },
+                ],
+              },
+              {
+                name: "main_contact_text",
+                widget: "object",
+                label: "Main Contact",
+                hint: 'Texts to show next to the Main Contact on Project Detail Pages. Note: the texts for open projects are specified in the "Email Content" field of the Project itself.',
+                fields: [
+                  {
+                    name: "ongoingText",
+                    label: "Ongoing Text",
+                    widget: "string",
+                    required: false,
+                    hint: "The text to show for Ongoing projects",
+                  },
+                  {
+                    name: "completeText",
+                    label: "Complete Text",
+                    widget: "string",
+                    required: false,
+                    hint: "The text to show for Completed projects",
+                  },
+                ],
               },
             ],
           },
