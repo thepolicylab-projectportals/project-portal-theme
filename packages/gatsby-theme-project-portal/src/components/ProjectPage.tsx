@@ -4,6 +4,7 @@ import { HeaderWithImage } from "./HeaderWithImage"
 import { BackIcon } from "./BackIcon"
 import { ForwardIcon } from "./ForwardIcon"
 import Select from "react-select"
+import * as JsSearch from "js-search"
 
 function customSort(dateField: string, sortAscending: boolean) {
   return function (a, b) {
@@ -122,6 +123,27 @@ export const ProjectPage = ({
     scrollToRef?.current?.scrollIntoView({ behavior: "smooth" })
   }
 
+  let search = new JsSearch.Search("slug")
+  search.addIndex("topics")
+  search.addIndex("question")
+  search.addIndex("agency")
+
+  const handleInputChange = (event) => {
+    search.addDocuments(sortedProjects)
+    const query = event.target.value
+    console.log("yay!")
+    console.log(query)
+    console.log(search.search(query))
+    //setSearchResults(search.search(query))
+    if (search.search(query).length == 0) {
+      console.log("here!!")
+      console.log(sortedProjects)
+      setDisplayProjects(sortedProjects)
+    } else {
+      setDisplayProjects(search.search(query))
+    }
+  }
+
   const handleLoadNext = () => {
     handleScroll()
     // handle load next button click
@@ -221,6 +243,17 @@ export const ProjectPage = ({
               onChange={setSelectedOptions}
               options={filterOptions}
               styles={selectStyle}
+            />
+          </div>
+          <div className="flex-1 min-w-30ch">
+            <label id="filter-label" className="font-bold" htmlFor="filter">
+              Search
+            </label>
+            <input
+              type="text"
+              aria-label="Search"
+              placeholder="Type to filter posts..."
+              onChange={handleInputChange}
             />
           </div>
         </div>
