@@ -193,20 +193,24 @@ export const ProjectDetailLayout: FunctionComponent<
           </div>
         </section>
 
-        <hr className="my-8 border-gray-300 m-responsive" />
-
         {status === "open" && (
-          <CollaboratorDetails
-            {...{
-              expertise,
-              requirement,
-              keyDates,
-            }}
-          />
+          <>
+            <hr className="my-8 border-gray-300 m-responsive" />
+            <CollaboratorDetails
+              {...{
+                expertise,
+                requirement,
+                keyDates,
+              }}
+            />
+          </>
         )}
 
         {!isEmpty(projectTeam) && (
-          <ProjectTeam title="Project Team" contacts={projectTeam} />
+          <>
+            <hr className="my-8 border-gray-300 m-responsive" />
+            <ProjectTeam title="Project Team" contacts={projectTeam} />
+          </>
         )}
       </div>
     </article>
