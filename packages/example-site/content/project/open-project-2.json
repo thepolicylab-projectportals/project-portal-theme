@@ -1,10 +1,6 @@
 {
   "question": "Hello world (from json)?",
   "mainContact": "the-boss",
-  "projectTeam": [
-    "first-contact",
-    "second-contact"
-  ],
   "title" : "open 2",
   "agency": "example agency",
   "deliverable": "example deliverable",
