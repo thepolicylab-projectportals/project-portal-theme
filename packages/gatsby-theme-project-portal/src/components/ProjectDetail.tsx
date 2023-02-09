@@ -55,7 +55,6 @@ export const ProjectDetailLayout: FunctionComponent<
   question,
   summary,
   status,
-  title,
   opportunityCloses,
   startDate,
   endDate,
@@ -196,7 +195,7 @@ export const ProjectDetailLayout: FunctionComponent<
 
         <hr className="my-8 border-gray-300 m-responsive" />
 
-        {status === "open" ? (
+        {status === "open" && (
           <CollaboratorDetails
             {...{
               expertise,
@@ -204,10 +203,10 @@ export const ProjectDetailLayout: FunctionComponent<
               keyDates,
             }}
           />
-        ) : (
-          !isEmpty(projectTeam) && (
-            <ProjectTeam title="Project Team" contacts={projectTeam} />
-          )
+        )}
+
+        {!isEmpty(projectTeam) && (
+          <ProjectTeam title="Project Team" contacts={projectTeam} />
         )}
       </div>
     </article>
