@@ -3346,7 +3346,7 @@ __metadata:
   dependencies:
     gatsby-plugin-netlify-cms: ^7.6.0
     gatsby-source-filesystem: ^5.3.1
-    gatsby-transformer-json: 5.5.0
+    gatsby-transformer-json: 5.6.0
     netlify-cms-app: ^2.15.72
   peerDependencies:
     "@thepolicylab-projectportals/gatsby-theme-project-portal": 0.0.0
@@ -9167,15 +9167,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-transformer-json@npm:5.5.0":
-  version: 5.5.0
-  resolution: "gatsby-transformer-json@npm:5.5.0"
+"gatsby-transformer-json@npm:5.6.0":
+  version: 5.6.0
+  resolution: "gatsby-transformer-json@npm:5.6.0"
   dependencies:
-    "@babel/runtime": ^7.20.7
+    "@babel/runtime": ^7.20.13
     bluebird: ^3.7.2
   peerDependencies:
     gatsby: ^5.0.0-next
-  checksum: 5dbae869ac6add11ccf24f6c9113c7eda3ee3e656027e75a15124d18807a0bdd7ac855ec6167f2abe8264ff8fae9b567c690047d8f73acbc5c02fdc33bc1c007
+  checksum: adf499c7df40bf546462f14f421ba69c86faa608aaba4522aa5a999d308560e09a75e79a670082cf5fed16b96d41281fb4e56bde1d03b0013eb3fb5bc27c85ec
   languageName: node
   linkType: hard
 
