@@ -3360,7 +3360,7 @@ __metadata:
     gatsby-plugin-robots-txt: ^1.8.0
     gatsby-plugin-sharp: ^5.6.0
     gatsby-plugin-sitemap: ^6.3.1
-    gatsby-source-filesystem: ^5.3.1
+    gatsby-source-filesystem: ^5.6.0
     gatsby-transformer-sharp: ^5.6.0
     lodash: ^4.17.21
     markdown-to-jsx: ^7.1.9
@@ -3383,7 +3383,7 @@ __metadata:
   resolution: "@thepolicylab-projectportals/project-portal-content-netlify@workspace:packages/project-portal-content-netlify"
   dependencies:
     gatsby-plugin-netlify-cms: ^7.6.0
-    gatsby-source-filesystem: ^5.3.1
+    gatsby-source-filesystem: ^5.6.0
     gatsby-transformer-json: 5.6.0
     netlify-cms-app: ^2.15.72
   peerDependencies:
@@ -8082,7 +8082,7 @@ __metadata:
     gatsby: ^5.6.0
     gatsby-plugin-image: ^3.6.0
     gatsby-plugin-sharp: ^5.6.0
-    gatsby-source-filesystem: ^5.3.1
+    gatsby-source-filesystem: ^5.6.0
     gatsby-transformer-sharp: ^5.6.0
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -9166,22 +9166,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-source-filesystem@npm:^5.3.1":
-  version: 5.5.0
-  resolution: "gatsby-source-filesystem@npm:5.5.0"
+"gatsby-source-filesystem@npm:^5.6.0":
+  version: 5.6.0
+  resolution: "gatsby-source-filesystem@npm:5.6.0"
   dependencies:
-    "@babel/runtime": ^7.20.7
+    "@babel/runtime": ^7.20.13
     chokidar: ^3.5.3
     file-type: ^16.5.4
     fs-extra: ^11.1.0
-    gatsby-core-utils: ^4.5.0
+    gatsby-core-utils: ^4.6.0
     mime: ^3.0.0
     pretty-bytes: ^5.6.0
     valid-url: ^1.0.9
-    xstate: ^4.34.0
+    xstate: ^4.35.3
   peerDependencies:
     gatsby: ^5.0.0-next
-  checksum: 91f011626aaabc5f70ce144d7022b02514ea7f7d1f1d492939e85fb4f8acef6aa5523f8df736470934ff57a13ddc190af45c124b12da50c3743a27323d5f471f
+  checksum: 65575e512b99d6d35f7e6ef0f9cb81bef063bd3493220f8cd6e717bcb4ae741326c715a79e614d24c6a4c8f2c8f74fec3e6afdf248d3e0b8a5493bea9c2364d7
   languageName: node
   linkType: hard
 
@@ -19836,7 +19836,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"xstate@npm:^4.34.0, xstate@npm:^4.35.3":
+"xstate@npm:^4.35.3":
   version: 4.35.4
   resolution: "xstate@npm:4.35.4"
   checksum: 92fcf15e80c9726002d24ef8f01595058e44b44d7ecad0cce933dc9f9ef89a73c57cba02af68817be42f504a80425daeb248f38158a80b5f12771f6fe408fca5
