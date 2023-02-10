@@ -124,21 +124,20 @@ export const ProjectPage = ({
   }
 
   let search = new JsSearch.Search("slug")
-  search.addIndex("topics")
+  //search.addIndex("topics")
   search.addIndex("question")
   search.addIndex("agency")
 
   const handleInputChange = (event) => {
     search.addDocuments(sortedProjects)
     const query = event.target.value
-    console.log("yay!")
-    console.log(query)
-    console.log(search.search(query))
-    //setSearchResults(search.search(query))
+
     if (search.search(query).length == 0) {
-      console.log("here!!")
-      console.log(sortedProjects)
-      setDisplayProjects(sortedProjects)
+      if (query === "") {
+        setDisplayProjects(sortedProjects)
+      } else {
+        setDisplayProjects(search.search(query))
+      }
     } else {
       setDisplayProjects(search.search(query))
     }
