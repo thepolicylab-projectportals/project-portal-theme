@@ -20,7 +20,8 @@ function withDefaults(themeOptions) {
       },
     ],
     tailwindConfig:
-      themeOptions?.tailwindConfig ?? require(`../src/styles/tailwind.presets`),
+      themeOptions?.tailwindConfig ??
+      require(`${__dirname}/../src/styles/tailwind.presets`),
     // The ReCAPTCHA site key defaults to the standard example key provided by Google for the v2 recaptcha.
     // If the user wants to provide NO site key, not even the default, then they can set the themeOptions:
     // themeOptions: { recaptchaSiteKey: "" }
