@@ -3354,7 +3354,7 @@ __metadata:
     "@tailwindcss/forms": ^0.5.3
     "@types/tailwindcss": ^3.1.0
     autoprefixer: ^10.4.13
-    gatsby-plugin-image: ^3.3.2
+    gatsby-plugin-image: ^3.6.0
     gatsby-plugin-manifest: ^5.3.1
     gatsby-plugin-postcss: ^6.3.0
     gatsby-plugin-robots-txt: ^1.8.0
@@ -5145,20 +5145,6 @@ __metadata:
   peerDependencies:
     "@babel/core": ^7.0.0-0
   checksum: ab0355efbad17d29492503230387679dfb780b63b25408990d2e4cf421012dae61d6199ddc309f4d2409ce4e9d3002d187702700dd8f4f8770ebbba651ed066c
-  languageName: node
-  linkType: hard
-
-"babel-plugin-remove-graphql-queries@npm:^5.5.0":
-  version: 5.5.0
-  resolution: "babel-plugin-remove-graphql-queries@npm:5.5.0"
-  dependencies:
-    "@babel/runtime": ^7.20.7
-    "@babel/types": ^7.20.7
-    gatsby-core-utils: ^4.5.0
-  peerDependencies:
-    "@babel/core": ^7.0.0
-    gatsby: ^5.0.0-next
-  checksum: a0ef5bf40f1abeefcbc8475f038dda16e2fc2f6fa8c812877bf5f1c69467bd89417bb54c95264a19bf4a401d5769210b686c2040209e75a53d2e737edc5f0c87
   languageName: node
   linkType: hard
 
@@ -8094,7 +8080,7 @@ __metadata:
   dependencies:
     "@thepolicylab-projectportals/gatsby-theme-project-portal": ^0.0.0
     gatsby: ^5.6.0
-    gatsby-plugin-image: ^3.3.2
+    gatsby-plugin-image: ^3.6.0
     gatsby-plugin-sharp: ^5.6.0
     gatsby-source-filesystem: ^5.3.1
     gatsby-transformer-sharp: ^5.6.0
@@ -8921,22 +8907,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-image@npm:^3.3.2":
-  version: 3.5.0
-  resolution: "gatsby-plugin-image@npm:3.5.0"
+"gatsby-plugin-image@npm:^3.6.0":
+  version: 3.6.0
+  resolution: "gatsby-plugin-image@npm:3.6.0"
   dependencies:
     "@babel/code-frame": ^7.18.6
-    "@babel/parser": ^7.20.7
-    "@babel/runtime": ^7.20.7
-    "@babel/traverse": ^7.20.10
+    "@babel/parser": ^7.20.13
+    "@babel/runtime": ^7.20.13
+    "@babel/traverse": ^7.20.13
     babel-jsx-utils: ^1.1.0
-    babel-plugin-remove-graphql-queries: ^5.5.0
+    babel-plugin-remove-graphql-queries: ^5.6.0
     camelcase: ^6.3.0
     chokidar: ^3.5.3
     common-tags: ^1.8.2
     fs-extra: ^11.1.0
-    gatsby-core-utils: ^4.5.0
-    gatsby-plugin-utils: ^4.5.0
+    gatsby-core-utils: ^4.6.0
+    gatsby-plugin-utils: ^4.6.0
     objectFitPolyfill: ^2.3.5
     prop-types: ^15.8.1
   peerDependencies:
@@ -8951,7 +8937,7 @@ __metadata:
       optional: true
     gatsby-source-filesystem:
       optional: true
-  checksum: c9caf2193699cdda729977cb77d9301bbd4e7aac5465c338d7ad82129dfe02531b74f2dcc46c86580e30e9d79ec0929fac5dff2a5ab09ef0315b306d84f217b6
+  checksum: 013f7d80eb8cd41bebb43aba1728336b689359e38228c7fb8264c4614a40900901c4288b296954479789a0aee20b3c1412238735f9900df7ebb1242f5bb6557d
   languageName: node
   linkType: hard
 
