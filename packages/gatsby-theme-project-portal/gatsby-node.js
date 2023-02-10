@@ -1,5 +1,5 @@
 const { withDefaults } = require(`./utils/default-options`)
-const { typeDefs } = require(`./utils/types`)
+const { typeDefs, CONFIG_NODE_TYPE } = require(`./utils/types`)
 const fs = require("fs")
 
 exports.onPreBootstrap = ({ reporter }, themeOptions) => {
@@ -30,7 +30,7 @@ exports.sourceNodes = ({ actions, createContentDigest }, themeOptions) => {
     parent: null,
     children: [],
     internal: {
-      type: `ProjectPortalConfig`,
+      type: `${CONFIG_NODE_TYPE}`,
       contentDigest: createContentDigest(projectPortalConfig),
       content: JSON.stringify(projectPortalConfig),
       description: `Options for @thepolicylab-projectportals/gatsby-theme-project-portal`,
