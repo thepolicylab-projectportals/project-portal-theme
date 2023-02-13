@@ -1,2 +1,6 @@
 export { Layout } from "./Layout"
 export { ProjectDetailPage } from "./ProjectDetailPage"
+export { CardPageLayout } from "./CardPageLayout"
+export { AboutPageLayout } from "./AboutPageLayout"
+export { ContactPageLayout } from "./ContactPageLayout"
+export { ThankYouPageLayout } from "./ThankYouPageLayout"

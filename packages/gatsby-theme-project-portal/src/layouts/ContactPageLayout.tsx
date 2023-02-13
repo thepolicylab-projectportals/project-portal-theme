@@ -1,9 +1,8 @@
-import React, { Component } from "react"
-import { graphql, navigate } from "gatsby"
+import React, { Component, FunctionComponent } from "react"
+import { navigate } from "gatsby"
 import { MarkdownText } from "../components"
-import { Layout } from "../layouts"
+import { Layout } from "./Layout"
 import { HeaderWithImage } from "../components"
-import { useProjectPortalConfig, useStaticText } from "../hooks"
 import ReCAPTCHA from "react-google-recaptcha"
 
 const encode = (data: { [Key: string]: string }) => {
@@ -13,11 +12,16 @@ const encode = (data: { [Key: string]: string }) => {
 }
 
 interface ContactProps {
+  pageContext: {
+    thankYouPagePath: string
+  }
   data: {
-    allProjectPortalConfig: {
-      nodes: {
-        recaptchaSiteKey
-      }
+    page: {
+      title: string
+      lede: string
+    }
+    projectPortalConfig: {
+      recaptchaSiteKey
     }
     bgImage: {
       childImageSharp: {
@@ -36,6 +40,7 @@ interface ContactFormState {
   message: string
   recaptchaSiteKey: string
   captchaSuccess: boolean
+  thankYouPagePath: string
 }
 
 const errorLabelShownClassName = "font-bold text-red"
@@ -123,6 +128,7 @@ function submitCheck(state) {
 
 interface ContactFormProps {
   recaptchaSiteKey: string
+  thankYouPagePath: string
 }
 
 export class ContactForm extends Component<ContactFormProps> {
@@ -137,6 +143,7 @@ export class ContactForm extends Component<ContactFormProps> {
       message: "",
       recaptchaSiteKey: props.recaptchaSiteKey,
       captchaSuccess: false,
+      thankYouPagePath: props.thankYouPagePath,
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -162,7 +169,7 @@ export class ContactForm extends Component<ContactFormProps> {
           captchaSuccess: this.state.captchaSuccess.toString(),
         }),
       })
-        .then(() => navigate("/thank-you/"))
+        .then(() => navigate(this.state.thankYouPagePath))
         .catch((error) => alert(error))
     }
   }
@@ -296,11 +303,15 @@ export class ContactForm extends Component<ContactFormProps> {
   }
 }
 
-export default ({ data }: ContactProps) => {
-  const { recaptchaSiteKey } = useProjectPortalConfig()
-  const { title, lede } = useStaticText().contact
-  const imageSrc = data?.bgImage?.childImageSharp.resize.src
-
+export const ContactPageLayout: FunctionComponent<ContactProps> = ({
+  pageContext: { thankYouPagePath },
+  data: {
+    bgImage,
+    page: { title, lede },
+    projectPortalConfig: { recaptchaSiteKey },
+  },
+}: ContactProps) => {
+  const imageSrc = bgImage?.childImageSharp.resize.src
   return (
     <Layout activePage="Contact" title={title} description={lede}>
       <main>
@@ -314,25 +325,12 @@ export default ({ data }: ContactProps) => {
             className="mb-10 leading-normal text-body lg:text-body"
             text={lede}
           />
-          <ContactForm recaptchaSiteKey={recaptchaSiteKey} />
+          <ContactForm
+            recaptchaSiteKey={recaptchaSiteKey}
+            thankYouPagePath={thankYouPagePath}
+          />
         </article>
       </main>
     </Layout>
   )
 }
-
-export const query = graphql`
-  query ContactQuery {
-    bgImage: file(
-      name: { eq: "contact" }
-      extension: { in: ["png", "jpg", "jpeg"] }
-      sourceInstanceName: { eq: "themeImages" }
-    ) {
-      childImageSharp {
-        resize(width: 1536) {
-          src
-        }
-      }
-    }
-  }
-`
