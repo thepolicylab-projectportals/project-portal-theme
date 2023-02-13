@@ -7,18 +7,6 @@ export const useStaticText = () => {
     query StaticTextQuery {
       projectPortalConfig {
         staticText {
-          about {
-            header
-            aims {
-              title
-              text
-            }
-            faq {
-              title
-              text
-            }
-            accessibility
-          }
           bottom_banner {
             text
             link
@@ -26,16 +14,6 @@ export const useStaticText = () => {
           main_contact_text {
             ongoingText
             completeText
-          }
-          open {
-            lede
-            pageName
-            title
-          }
-          ongoing {
-            lede
-            pageName
-            title
           }
           footer {
             copyright
@@ -47,15 +25,6 @@ export const useStaticText = () => {
               link
               title
             }
-          }
-          contact {
-            lede
-            title
-          }
-          completed {
-            lede
-            pageName
-            title
           }
         }
       }
