@@ -1,15 +1,7 @@
 // constants for Project Portal Config type
 const CONFIG_NODE_TYPE = `ProjectPortalConfig`
-const STATIC_TEXT_NODE_TYPE = `ProjectPortalStaticText`
-const LAYOUT_CONFIG_TYPE = `LayoutConfig`
-const PROJECT_NODE_TYPE = `Project`
-const CONTACT_NODE_TYPE = `Contact`
-const TOPIC_NODE_TYPE = `Topic`
-const PAGE_NODE_TYPE = `Page`
-const CARD_FILTER_TYPE = `CardFilterType`
-const TITLE_AND_TEXT_TYPE = `TitleAndTextType`
 
-const typeDefs = `
+const projectPortalConfigTypeDefs = `
   type ${CONFIG_NODE_TYPE} implements Node {
     siteTitle: String
     shortTitle: String
@@ -17,30 +9,41 @@ const typeDefs = `
     projectInterestLink: String
     pages: [NavbarItemType]
     recaptchaSiteKey: String
-    staticText: ${STATIC_TEXT_NODE_TYPE}
+    staticText: StaticTextType
   }
-  
-  type ${LAYOUT_CONFIG_TYPE} {
-    navbar: NavbarType
-    bottom_banner: BottomBannerType
-    footer: FooterType
-    showDevBanner: Boolean
-  }
-  
-  type NavbarType {
-    title: String
-    pages: [NavbarItemType]
-  }
-  
   type NavbarItemType {
     name: String
     link: String
     show: Boolean
   }
-  type ${STATIC_TEXT_NODE_TYPE} {
+  type StaticTextType {
+    open: CardPageType
+    ongoing: CardPageType
+    completed: CardPageType
+    contact: ContactType
+    about: AboutType
     bottom_banner: BottomBannerType
     footer: FooterType
     main_contact_text: MainContactTextType
+  }
+  type CardPageType {
+    lede: String
+    pageName: String
+    title: String
+  }
+  type ContactType {
+    title: String
+    lede: String
+  }
+  type AboutType {
+    header: String
+    aims: [TitleAndTextType]
+    faq: [TitleAndTextType]
+    accessibility: String
+  }    
+  type TitleAndTextType {
+    title: String
+    text: String
   }
   type BottomBannerType {
     text: String
@@ -59,7 +62,15 @@ const typeDefs = `
     title: String
     link: String
   }
-  interface ${PROJECT_NODE_TYPE} implements Node {
+`
+
+// constants for GraphQL Project and Contact types
+const PROJECT_NODE_TYPE = `Project`
+const CONTACT_NODE_TYPE = `Contact`
+const TOPIC_NODE_TYPE = `Topic`
+
+const projectTypeDefs = `
+    interface ${PROJECT_NODE_TYPE} implements Node {
       id: ID!
       
       slug: String!
@@ -98,7 +109,9 @@ const typeDefs = `
       slug: String!
       title: String
     }
+  `
 
+const contactTypeDefs = `
   interface ${CONTACT_NODE_TYPE} implements Node {
     id: ID!
   
@@ -112,46 +125,14 @@ const typeDefs = `
     image: File
    
   }
-
-  interface ${PAGE_NODE_TYPE} implements Node {
-    id: ID!  
-    slug: String!
-    
-    templateKey: String
-    
-    pageName: String
-    
-    title: String
-    lede: String
-    
-    # Card Page Options
-    sortOptions: [String]
-    filter: CardFilterType
-    
-    # Accessibility page options:
-    header: String
-    aims: [${TITLE_AND_TEXT_TYPE}]
-    faq: [${TITLE_AND_TEXT_TYPE}]
-    accessibility: String
-    
-  }
-  type ${TITLE_AND_TEXT_TYPE} {
-    title: String
-    text: String
-  }
-  type ${CARD_FILTER_TYPE} {
-    status: [String]
-  }
 `
 
 module.exports = {
-  typeDefs,
   CONFIG_NODE_TYPE,
+  projectPortalConfigTypeDefs,
   PROJECT_NODE_TYPE,
+  projectTypeDefs,
   CONTACT_NODE_TYPE,
+  contactTypeDefs,
   TOPIC_NODE_TYPE,
-  STATIC_TEXT_NODE_TYPE,
-  PAGE_NODE_TYPE,
-  CARD_FILTER_TYPE,
-  TITLE_AND_TEXT_TYPE,
 }
