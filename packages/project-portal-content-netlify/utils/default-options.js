@@ -4,6 +4,7 @@ function withDefaults(pluginOptions) {
     projectPath: pluginOptions.projectPath || "./content/project",
     contactPath: pluginOptions.contactPath || "./content/contact",
     topicPath: pluginOptions.topicPath || "./content/topic",
+    pagePath: pluginOptions.pagePath || "./content/page",
   }
 }
 
