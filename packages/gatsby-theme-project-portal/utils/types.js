@@ -17,19 +17,11 @@ const projectPortalConfigTypeDefs = `
     show: Boolean
   }
   type StaticTextType {
-    open: CardPageType
-    ongoing: CardPageType
-    completed: CardPageType
     contact: ContactType
     about: AboutType
     bottom_banner: BottomBannerType
     footer: FooterType
     main_contact_text: MainContactTextType
-  }
-  type CardPageType {
-    lede: String
-    pageName: String
-    title: String
   }
   type ContactType {
     title: String
