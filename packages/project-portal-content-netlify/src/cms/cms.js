@@ -262,6 +262,63 @@ CMS.init({
           },
         ],
       },
+      {
+        name: "cardPage",
+        label: "Card Page",
+        folder: "content/card-page",
+        create: true,
+        fields: [
+          {
+            name: "templateKey",
+            label: "Template Key",
+            widget: "hidden",
+            default: "CardPage",
+          },
+          {
+            name: "pageName",
+            label: "Page Name",
+            widget: "string",
+            required: false,
+            hint: "The name which appears in the Navbar",
+          },
+          {
+            name: "title",
+            label: "Title",
+            widget: "string",
+            required: false,
+            hint: "The title which appears at the top of the page",
+          },
+          {
+            name: "lede",
+            label: "Lede",
+            widget: "markdown",
+            required: false,
+            hint: "The text which appears under the title",
+          },
+          {
+            name: "sortOptions",
+            label: "Sort Options",
+            widget: "select",
+            multiple: true,
+            required: true,
+            options: ["created", "opportunityCloses", "startDate", "endDate"],
+          },
+          {
+            name: "filter",
+            label: "Filters",
+            widget: "object",
+            fields: [
+              {
+                name: "status",
+                widget: "select",
+                multiple: true,
+                required: true,
+                options: ["open", "ongoing", "completed"],
+              },
+            ],
+          },
+        ],
+      },
     ],
   },
 })
