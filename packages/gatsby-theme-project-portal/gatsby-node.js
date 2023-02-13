@@ -1,5 +1,3 @@
-const fs = require("fs")
-
 const { withDefaults } = require(`./utils/default-options`)
 const {
   projectTypeDefs,
@@ -8,6 +6,7 @@ const {
   pageTypeDefs,
 } = require(`./utils/types`)
 const CardPageTemplate = require.resolve(`./src/templates/card-page`)
+const fs = require("fs")
 
 exports.onPreBootstrap = ({ reporter }, themeOptions) => {
   const { themeImageDirectory } = withDefaults(themeOptions)
