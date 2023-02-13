@@ -41,6 +41,10 @@ exports.sourceNodes = ({ actions, createContentDigest }, themeOptions) => {
 const ProjectDetailPageTemplate = require.resolve(
   `./src/templates/project-detail-page`
 )
+const CardPageTemplate = require.resolve(`./src/templates/card-page`)
+const AboutPageTemplate = require.resolve(`./src/templates/about-page`)
+const ContactPageTemplate = require.resolve(`./src/templates/contact-page`)
+const ThankYouPageTemplate = require.resolve(`./src/templates/thank-you-page`)
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
@@ -53,6 +57,24 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             slug
           }
         }
+        cardPages: allPage(filter: { templateKey: { eq: "CardPage" } }) {
+          nodes {
+            slug
+            filter {
+              status
+            }
+          }
+        }
+        aboutPages: allPage(filter: { templateKey: { eq: "AboutPage" } }) {
+          nodes {
+            slug
+          }
+        }
+        contactPages: allPage(filter: { templateKey: { eq: "ContactPage" } }) {
+          nodes {
+            slug
+          }
+        }
       }
     `
   )
@@ -61,8 +83,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     reporter.panicOnBuild(result.errors)
   }
 
-  // Create Posts and Post pages.
-  const { allProject } = result.data
+  const { allProject, cardPages, aboutPages, contactPages } = result.data
   const projects = allProject.nodes
 
   // Create a page for each Post
@@ -71,6 +92,49 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     createPage({
       path: `project/${slug}`,
       component: ProjectDetailPageTemplate,
+      context: {
+        slug: slug,
+      },
+    })
+  })
+
+  cardPages.nodes.forEach((page) => {
+    const { slug, filter } = page
+    createPage({
+      path: `/${slug}`,
+      component: CardPageTemplate,
+      context: {
+        slug: slug,
+        statusFilter: filter.status,
+      },
+    })
+  })
+
+  aboutPages.nodes.forEach((page) => {
+    const { slug } = page
+    createPage({
+      path: `/${slug}`,
+      component: AboutPageTemplate,
+      context: {
+        slug: slug,
+      },
+    })
+  })
+
+  contactPages.nodes.forEach((page) => {
+    const { slug } = page
+    const thankYouPagePath = `/${slug}/thank-you`
+    createPage({
+      path: `/${slug}`,
+      component: ContactPageTemplate,
+      context: {
+        slug: slug,
+        thankYouPagePath: thankYouPagePath,
+      },
+    })
+    createPage({
+      path: thankYouPagePath,
+      component: ThankYouPageTemplate,
       context: {
         slug: slug,
       },
