@@ -17,7 +17,7 @@ export interface CardPageLayoutProps {
         }
       }
     }
-    page: {
+    cardPage: {
       pageName: string
       title: string
       lede: string
@@ -34,7 +34,7 @@ export const CardPageLayout: FunctionComponent<CardPageLayoutProps> = ({
     allProject,
     allTopic,
     bgImage,
-    page: { pageName, title, lede, sortOptions },
+    cardPage: { pageName, title, lede, sortOptions },
   },
 }) => {
   return (
