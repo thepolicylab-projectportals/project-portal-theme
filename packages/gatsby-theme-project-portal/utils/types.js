@@ -120,7 +120,7 @@ const contactTypeDefs = `
 `
 
 const CARD_PAGE_NODE_TYPE = `cardPage`
-const CARD_PAGE_FILTER_TYPE = `cardPageFilter`
+const CARD_PAGE_FILTER_TYPE = `cardPageFilterOn`
 const pageTypeDefs = `
   interface ${CARD_PAGE_NODE_TYPE} implements Node {
     id: ID!
@@ -129,7 +129,7 @@ const pageTypeDefs = `
     pageName: String
     title: String
     sortOptions: [String]
-    filter: ${CARD_PAGE_FILTER_TYPE}
+    filterOn: ${CARD_PAGE_FILTER_TYPE}
   }
   type ${CARD_PAGE_FILTER_TYPE} {
     status: [String]

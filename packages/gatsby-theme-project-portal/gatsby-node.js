@@ -66,7 +66,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         allCardPage {
           nodes {
             slug
-            filter {
+            filterOn {
               status
             }
           }
@@ -97,13 +97,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const { allCardPage } = result.data
   allCardPage.nodes.forEach((page) => {
-    const { slug, filter } = page
+    const { slug, filterOn } = page
     createPage({
       path: `/${slug}`,
       component: CardPageTemplate,
       context: {
         slug: slug,
-        statusFilter: filter.status,
+        statusFilter: filterOn?.status,
       },
     })
   })

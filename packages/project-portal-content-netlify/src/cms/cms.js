@@ -304,7 +304,7 @@ CMS.init({
             options: ["created", "opportunityCloses", "startDate", "endDate"],
           },
           {
-            name: "filter",
+            name: "filterOn",
             label: "Filters",
             widget: "object",
             fields: [

@@ -189,7 +189,7 @@ exports.createSchemaCustomization = ({ actions, schema, getNode }) => {
         title: "String",
         lede: "String",
         sortOptions: "[String]",
-        filter: {
+        filterOn: {
           type: CARD_PAGE_FILTER_TYPE,
         },
       },
