@@ -1,4 +1,5 @@
 const { withDefaults } = require(`./utils/default-options`)
+
 const {
   projectTypeDefs,
   projectPortalConfigTypeDefs,
