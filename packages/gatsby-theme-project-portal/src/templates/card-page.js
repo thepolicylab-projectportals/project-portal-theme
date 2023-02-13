@@ -1,12 +1,11 @@
 import { graphql } from "gatsby"
 import { CardPageLayout } from "../layouts"
-import { CARD_PAGE_NODE_TYPE } from "../../utils/types"
 
 export default CardPageLayout
 
 export const query = graphql`
   query CardPageQuery($slug: String!, $statusFilter: [String]) {
-    ${CARD_PAGE_NODE_TYPE}(slug: { eq: $slug }) {
+    cardPage(slug: { eq: $slug }) {
       pageName
       title
       lede
