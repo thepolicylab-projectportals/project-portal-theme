@@ -1,12 +1,13 @@
-const { withDefaults } = require(`./utils/default-options`)
+const fs = require("fs")
 
+const { withDefaults } = require(`./utils/default-options`)
 const {
   projectTypeDefs,
   projectPortalConfigTypeDefs,
   contactTypeDefs,
   pageTypeDefs,
 } = require(`./utils/types`)
-const fs = require("fs")
+const CardPageTemplate = require.resolve(`./src/templates/card-page`)
 
 exports.onPreBootstrap = ({ reporter }, themeOptions) => {
   const { themeImageDirectory } = withDefaults(themeOptions)
@@ -19,8 +20,6 @@ exports.onPreBootstrap = ({ reporter }, themeOptions) => {
     }
   })
 }
-
-const CardPageTemplate = require.resolve(`./src/templates/card-page`)
 
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
