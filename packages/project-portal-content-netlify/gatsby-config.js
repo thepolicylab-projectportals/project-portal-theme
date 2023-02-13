@@ -34,6 +34,13 @@ module.exports = (pluginOptions) => {
           path: pluginOptionsWithDefaults.topicPath,
         },
       },
+      {
+        resolve: `gatsby-source-filesystem`,
+        options: {
+          name: `page`,
+          path: pluginOptionsWithDefaults.pagePath,
+        },
+      },
     ],
   }
 }
