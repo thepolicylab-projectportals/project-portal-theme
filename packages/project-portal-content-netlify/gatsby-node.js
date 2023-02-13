@@ -184,7 +184,6 @@ exports.createSchemaCustomization = ({ actions, schema, getNode }) => {
             return createFilePath({ node, getNode }).slice(1, -1)
           },
         },
-        templateKey: "String",
         pageName: "String",
         title: "String",
         lede: "String",

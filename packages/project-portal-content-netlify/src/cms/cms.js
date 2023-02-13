@@ -269,12 +269,6 @@ CMS.init({
         create: true,
         fields: [
           {
-            name: "templateKey",
-            label: "Template Key",
-            widget: "hidden",
-            default: "CardPage",
-          },
-          {
             name: "pageName",
             label: "Page Name",
             widget: "string",
