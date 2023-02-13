@@ -30,7 +30,7 @@ exports.sourceNodes = ({ actions, createContentDigest }, themeOptions) => {
     parent: null,
     children: [],
     internal: {
-      type: `ProjectPortalConfig`,
+      type: `${CONFIG_NODE_TYPE}`,
       contentDigest: createContentDigest(projectPortalConfig),
       content: JSON.stringify(projectPortalConfig),
       description: `Options for @thepolicylab-projectportals/gatsby-theme-project-portal`,
