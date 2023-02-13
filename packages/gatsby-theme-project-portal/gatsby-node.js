@@ -90,7 +90,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     reporter.panicOnBuild(result.errors)
   }
 
-  const { allProject, cardPages, aboutPages, contactPages } = result.data
+  // Create Posts and Post pages.
+  const { allProject } = result.data
   const projects = allProject.nodes
 
   // Create a page for each Post
@@ -105,6 +106,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     })
   })
 
+  const { cardPages } = result.data
   cardPages.nodes.forEach((page) => {
     const { slug, filter } = page
     createPage({
@@ -117,6 +119,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     })
   })
 
+  const { aboutPages } = result.data
   aboutPages.nodes.forEach((page) => {
     const { slug } = page
     createPage({
@@ -128,6 +131,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     })
   })
 
+  const { contactPages } = result.data
   contactPages.nodes.forEach((page) => {
     const { slug } = page
     const thankYouPagePath = `/${slug}/thank-you`
