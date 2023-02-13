@@ -246,7 +246,7 @@ export const ProjectPage = ({
             />
           </div>
           <div className="flex-1 min-w-30ch">
-            <label id="filter-label" className="font-bold" htmlFor="filter">
+            <label id="search-label" className="font-bold" htmlFor="filter">
               Search
             </label>
             <input
