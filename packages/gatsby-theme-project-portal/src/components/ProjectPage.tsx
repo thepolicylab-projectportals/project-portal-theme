@@ -131,13 +131,7 @@ export const ProjectPage = ({
   const handleInputChange = (event) => {
     search.addDocuments(sortedProjects)
     const query = event.target.value
-    console.log("yay!")
-    console.log(query)
-    console.log(search.search(query))
-    //setSearchResults(search.search(query))
     if (search.search(query).length == 0) {
-      console.log("here!!")
-      console.log(sortedProjects)
       setDisplayProjects(sortedProjects)
     } else {
       setDisplayProjects(search.search(query))
