@@ -458,6 +458,152 @@ CMS.init({
               },
             ],
           },
+          {
+            name: "layout",
+            label: "Layout",
+            file: "content/config/layout.json",
+            fields: [
+              {
+                label: "Navbar",
+                name: "navbar",
+                widget: "object",
+                hint: "The site navigation bar",
+                fields: [
+                  {
+                    name: "title",
+                    widget: "string",
+                    required: false,
+                    hint: "The text which appears next to the logo",
+                  },
+                  {
+                    name: "pages",
+                    widget: "list",
+                    fields: [
+                      { name: "name", widget: "string" },
+                      { name: "link", widget: "string" },
+                      { name: "show", widget: "boolean" },
+                    ],
+                  },
+                ],
+              },
+              {
+                name: "bottom_banner",
+                label: "Bottom Banner",
+                widget: "object",
+                hint: "A full-width block above the footer which may contain an image and a text",
+                fields: [
+                  {
+                    name: "text",
+                    widget: "markdown",
+                    required: false,
+                    hint: "The text which appears in the bottom banner",
+                  },
+                  {
+                    name: "link",
+                    label: "Image link",
+                    widget: "string",
+                    required: false,
+                    hint: "A link which is applied to the image, if an image is present",
+                  },
+                ],
+              },
+              {
+                name: "footer",
+                label: "Footer",
+                widget: "object",
+                fields: [
+                  {
+                    name: "copyright",
+                    widget: "string",
+                    required: false,
+                    hint: "A copyright notice which appears at the top of the footer",
+                  },
+                  {
+                    name: "links",
+                    widget: "list",
+                    required: false,
+                    hint: "A list of texts to be shown as links",
+                    fields: [
+                      {
+                        name: "title",
+                        label: "Title",
+                        widget: "string",
+                        hint: "The text to show",
+                      },
+                      {
+                        name: "link",
+                        label: "Link target",
+                        widget: "string",
+                        hint: "The link to follow if the text is clicked",
+                      },
+                    ],
+                  },
+                  {
+                    name: "heading",
+                    widget: "object",
+                    required: false,
+                    hint: "A text to show at the bottom of the footer, next to the image (if present)",
+                    fields: [
+                      {
+                        name: "title",
+                        label: "Title",
+                        widget: "string",
+                        required: false,
+                        hint: "The text to show",
+                      },
+                      {
+                        name: "link",
+                        label: "Link",
+                        widget: "string",
+                        required: false,
+                        hint: "The link to follow if the text is clicked",
+                      },
+                    ],
+                  },
+                  {
+                    name: "showDevBanner",
+                    widget: "boolean",
+                    required: true,
+                    hint: "Show the development banner",
+                    default: true,
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            name: "mainContactConfig",
+            label: "Main Contact Config",
+            file: "content/config/main-contact.json",
+            fields: [
+              {
+                name: "ongoingText",
+                label: "Ongoing Text",
+                widget: "string",
+                required: false,
+                hint: "The text to show for Ongoing projects",
+              },
+              {
+                name: "completeText",
+                label: "Complete Text",
+                widget: "string",
+                required: false,
+                hint: "The text to show for Completed projects",
+              },
+              {
+                name: "projectInterestLink",
+                label: "Project Interest Link",
+                widget: "string",
+                required: false,
+                hint: "Link for users to use instead of the email address of the main contact. If this value is set, the button to send an email to the main contact will be replaced with a button with this link.",
+                pattern: [
+                  "^(https?:\\/\\/)?([\\da-z\\.-]+\\.[a-z\\.]{2,6}|[\\d\\.]+)([\\/:?=&#]{1}[\\da-z\\.-]+)*[\\/\\?]?$",
+                  // from https://regexr.com/3dqa0
+                  "Must be a valid URL.",
+                ],
+              },
+            ],
+          },
         ],
       },
     ],
