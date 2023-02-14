@@ -6,5 +6,6 @@
   "sortOptions": ["startDate", "created"],
   "filterOn": {
     "status": ["ongoing"]
-  }
+  },
+  "image": "ongoing.jpg"
 }
