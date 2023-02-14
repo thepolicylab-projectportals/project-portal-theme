@@ -488,7 +488,7 @@ CMS.init({
                 ],
               },
               {
-                name: "bottom_banner",
+                name: "bottomBanner",
                 label: "Bottom Banner",
                 widget: "object",
                 hint: "A full-width block above the footer which may contain an image and a text",
