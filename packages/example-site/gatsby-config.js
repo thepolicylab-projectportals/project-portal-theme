@@ -1,8 +1,9 @@
 // General metadata for the site
 const tailwindConfig = require("./tailwind.config")
-const siteMetadata = {
-  title: "Project Portal Example (Site with Queries)",
-}
+const {
+  loadProjectPortalThemeOptions,
+} = require("@thepolicylab-projectportals/project-portal-content-netlify/utils/theme-options")
+const { siteMetadata } = loadProjectPortalThemeOptions()
 
 module.exports = {
   siteMetadata: siteMetadata,
