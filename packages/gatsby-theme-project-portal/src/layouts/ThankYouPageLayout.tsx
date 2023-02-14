@@ -5,10 +5,12 @@ import { HeaderWithImage } from "@thepolicylab-projectportals/gatsby-theme-proje
 
 interface ThankYouProps {
   data: {
-    bgImage: {
-      childImageSharp: {
-        resize: {
-          src: string
+    generalPage: {
+      image: {
+        childImageSharp: {
+          resize: {
+            src: string
+          }
         }
       }
     }
@@ -27,7 +29,7 @@ export const ThankYouPageLayout: FunctionComponent<ThankYouProps> = ({
       <HeaderWithImage
         title="Thank You"
         lede=""
-        imageSrc={data.bgImage?.childImageSharp.resize.src}
+        imageSrc={data.generalPage.image?.childImageSharp.resize.src}
       />
       <div className="container pt-6 overflow-hidden bg-white">
         <div className="flex flex-wrap">

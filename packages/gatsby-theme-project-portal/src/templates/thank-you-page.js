@@ -5,14 +5,12 @@ export default ThankYouPageLayout
 
 export const query = graphql`
   query ThankYouQuery($slug: String!) {
-    bgImage: file(
-      name: { eq: $slug }
-      extension: { in: ["png", "jpg", "jpeg"] }
-      sourceInstanceName: { eq: "themeImages" }
-    ) {
-      childImageSharp {
-        resize(width: 1536, height: 352) {
-          src
+    generalPage(slug: { eq: $slug }) {
+      image {
+        childImageSharp {
+          resize(width: 1536) {
+            src
+          }
         }
       }
     }
