@@ -464,6 +464,13 @@ CMS.init({
             file: "content/config/layout.json",
             fields: [
               {
+                name: "showDevBanner",
+                widget: "boolean",
+                required: true,
+                hint: "Show the development banner",
+                default: true,
+              },
+              {
                 label: "Navbar",
                 name: "navbar",
                 widget: "object",
@@ -560,13 +567,6 @@ CMS.init({
                         hint: "The link to follow if the text is clicked",
                       },
                     ],
-                  },
-                  {
-                    name: "showDevBanner",
-                    widget: "boolean",
-                    required: true,
-                    hint: "Show the development banner",
-                    default: true,
                   },
                 ],
               },
