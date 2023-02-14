@@ -471,9 +471,10 @@ CMS.init({
                 fields: [
                   {
                     name: "title",
-                    widget: "string",
+                    label: "Site Title",
+                    widget: "hidden",
                     required: false,
-                    hint: "The text which appears next to the logo",
+                    hint: "The text which appears next to the logo.",
                   },
                   {
                     name: "pages",
