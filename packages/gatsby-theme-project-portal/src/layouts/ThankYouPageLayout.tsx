@@ -16,7 +16,7 @@ interface ThankYouProps {
 }
 
 export const ThankYouPageLayout: FunctionComponent<ThankYouProps> = ({
-  data: { bgImage },
+  data,
 }: ThankYouProps) => {
   return (
     <Layout
@@ -27,7 +27,7 @@ export const ThankYouPageLayout: FunctionComponent<ThankYouProps> = ({
       <HeaderWithImage
         title="Thank You"
         lede=""
-        imageSrc={bgImage?.childImageSharp.resize.src}
+        imageSrc={data.bgImage?.childImageSharp.resize.src}
       />
       <div className="container pt-6 overflow-hidden bg-white">
         <div className="flex flex-wrap">
