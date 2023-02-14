@@ -130,6 +130,7 @@ export const ProjectPage = ({
 
   const handleInputChange = (event) => {
     search.addDocuments(sortedProjects)
+    console.log(sortedProjects)
     const query = event.target.value
     if (search.search(query).length == 0) {
       setDisplayProjects(sortedProjects)
@@ -239,7 +240,7 @@ export const ProjectPage = ({
               styles={selectStyle}
             />
           </div>
-          <div className="flex-1 min-w-30ch">
+          <div className="flex-1 min-w-30ch auto-rows-auto flex flex-col">
             <label id="search-label" className="font-bold" htmlFor="filter">
               Search
             </label>
