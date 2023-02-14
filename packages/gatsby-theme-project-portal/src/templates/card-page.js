@@ -10,6 +10,13 @@ export const query = graphql`
       title
       lede
       sortOptions
+      image {
+        childImageSharp {
+          resize(width: 1536) {
+            src
+          }
+        }
+      }
     }
     allProject(filter: { status: { in: $statusFilter } }) {
       nodes {
@@ -19,17 +26,6 @@ export const query = graphql`
     allTopic {
       nodes {
         ...TopicDetails
-      }
-    }
-    bgImage: file(
-      name: { eq: $slug }
-      extension: { in: ["png", "jpg", "jpeg"] }
-      sourceInstanceName: { eq: "themeImages" }
-    ) {
-      childImageSharp {
-        resize(width: 1536) {
-          src
-        }
       }
     }
   }
