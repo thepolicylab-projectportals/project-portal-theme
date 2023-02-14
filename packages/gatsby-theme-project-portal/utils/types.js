@@ -121,6 +121,7 @@ const pageTypeDefs = `
     title: String
     sortOptions: [String]
     filterOn: ${CARD_PAGE_FILTER_TYPE}
+    image: File
   }
   type ${CARD_PAGE_FILTER_TYPE} {
     status: [String]
@@ -137,6 +138,7 @@ const pageTypeDefs = `
     aims: [${TITLE_AND_TEXT_TYPE}]
     faq: [${TITLE_AND_TEXT_TYPE}]
     accessibility: String
+    image: File
   }
     
   type ${TITLE_AND_TEXT_TYPE} {
