@@ -1,22 +1,4 @@
 {
-  "about": {
-    "header": "",
-    "aims": [
-      {
-        "text": "The Project Portal is intended to be a platform for state agencies to communicate about their projects. These might be proposed projects looking for partners or funding, ongoing-projects, or completed projects."
-      }
-    ],
-    "faq": [
-      {
-        "title": "Can we set up our own Project Portal?",
-        "text": "Absolutely. Get in touch with [The Policy Lab](https://thepolicylab.brown.edu) to find out how."
-      },
-      {
-        "title": "Are there project portals which are already live?",
-        "text": "Yes. North Carolina has a project portal here: [https://projectportal.nc.gov](https://projectportal.nc.gov)."
-      }
-    ]
-  },
   "contact": {
     "title": "How do I connect with The Policy Lab to find out more about setting up a Project Portal for my agency?",
     "lede": "If you have questions or feedback about the Project Portal, please use the form below. Your submission will go to OSP and The Policy Lab at Brown University, which is collaborating with agencies on Project Portals."
