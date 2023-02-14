@@ -428,6 +428,38 @@ CMS.init({
           },
         ],
       },
+      {
+        name: "config",
+        label: "Configuration",
+        files: [
+          {
+            name: "siteMetadata",
+            label: "Site Metadata",
+            file: "content/config/site-metadata.json",
+            fields: [
+              {
+                name: "templateKey",
+                widget: "hidden",
+                default: "siteMetadata",
+              },
+              {
+                name: "title",
+                label: "Title",
+                widget: "string",
+                required: true,
+                hint: "Site title, used in metadata",
+              },
+              {
+                name: "description",
+                label: "Description",
+                widget: "string",
+                required: false,
+                hint: "Site description, passed to search engines",
+              },
+            ],
+          },
+        ],
+      },
     ],
   },
 })
