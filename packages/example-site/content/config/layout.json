@@ -1,0 +1,31 @@
+{
+  "templateKey": "layoutConfig",
+  "navbar": {
+    "title": "Project Portal Example (Site with Queries) (from config)",
+    "pages": [
+      {
+        "name": "Landing Page (from config)",
+        "link": "/",
+        "show": true
+      }
+    ]
+  },
+  "bottomBanner": {
+    "text": " (from config) This portal is part of a pilot initiative to support applied research partnerships. If you have ideas for how to further improve it, please [let us know!](/contact)",
+    "link": "https://ccv.brown.edu/"
+  },
+  "footer": {
+    "heading": {
+      "link": "https://ccv.brown.edu/404",
+      "title": ""
+    },
+    "copyright": "(from config) Copyright 2022 Brown University",
+    "links": [
+      {
+        "title": "CCV",
+        "link": "https://ccv.brown.edu/404"
+      }
+    ]
+  },
+  "showDevBanner": true
+}
