@@ -245,6 +245,8 @@ export const ProjectPage = ({
               Search
             </label>
             <input
+              className="rounded border-neutral-300"
+              style={{height: "62%"}}
               type="text"
               aria-label="Search"
               placeholder="Type to filter posts..."
