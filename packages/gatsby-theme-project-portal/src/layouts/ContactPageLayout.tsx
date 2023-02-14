@@ -19,16 +19,16 @@ interface ContactProps {
     generalPage: {
       title: string
       lede: string
+      image: {
+        childImageSharp: {
+          resize: {
+            src: string
+          }
+        }
+      }
     }
     projectPortalConfig: {
       recaptchaSiteKey
-    }
-    bgImage: {
-      childImageSharp: {
-        resize: {
-          src: string
-        }
-      }
     }
   }
 }
@@ -306,12 +306,11 @@ export class ContactForm extends Component<ContactFormProps> {
 export const ContactPageLayout: FunctionComponent<ContactProps> = ({
   pageContext: { thankYouPagePath },
   data: {
-    bgImage,
-    generalPage: { title, lede },
+    generalPage: { title, lede, image },
     projectPortalConfig: { recaptchaSiteKey },
   },
 }: ContactProps) => {
-  const imageSrc = bgImage?.childImageSharp.resize.src
+  const imageSrc = image?.childImageSharp.resize.src
   return (
     <Layout activePage="Contact" title={title} description={lede}>
       <main>

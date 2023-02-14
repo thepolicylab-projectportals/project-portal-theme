@@ -8,20 +8,16 @@ export const query = graphql`
     generalPage(slug: { eq: $slug }) {
       title
       lede
+      image {
+        childImageSharp {
+          resize(width: 1536) {
+            src
+          }
+        }
+      }
     }
     projectPortalConfig {
       recaptchaSiteKey
-    }
-    bgImage: file(
-      name: { eq: $slug }
-      extension: { in: ["png", "jpg", "jpeg"] }
-      sourceInstanceName: { eq: "themeImages" }
-    ) {
-      childImageSharp {
-        resize(width: 1536) {
-          src
-        }
-      }
     }
   }
 `
