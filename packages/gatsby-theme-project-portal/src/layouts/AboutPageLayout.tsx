@@ -25,11 +25,11 @@ interface AboutProps {
         text: string
       }[]
       accessibility: string
-    }
-    bgImage: {
-      childImageSharp: {
-        resize: {
-          src: string
+      image: {
+        childImageSharp: {
+          resize: {
+            src: string
+          }
         }
       }
     }
@@ -75,8 +75,7 @@ export const AboutPageLayout: FunctionComponent<AboutProps> = ({
     site: {
       siteMetadata: { title: siteTitle },
     },
-    generalPage: { header, aims, faq, accessibility },
-    bgImage,
+    generalPage: { header, aims, faq, accessibility, image },
   },
 }: AboutProps) => {
   return (
@@ -91,7 +90,7 @@ export const AboutPageLayout: FunctionComponent<AboutProps> = ({
             <HeaderWithImage
               title="About"
               lede=""
-              imageSrc={bgImage?.childImageSharp.resize.src}
+              imageSrc={image?.childImageSharp.resize.src}
             />
           </header>
 
