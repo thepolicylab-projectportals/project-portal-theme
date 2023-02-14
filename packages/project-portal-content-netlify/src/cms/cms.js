@@ -305,6 +305,7 @@ CMS.init({
             multiple: true,
             required: true,
             options: ["created", "opportunityCloses", "startDate", "endDate"],
+            default: ["created"],
           },
           {
             name: "filterOn",
@@ -317,6 +318,7 @@ CMS.init({
                 multiple: true,
                 required: true,
                 options: ["open", "ongoing", "completed"],
+                default: ["open", "ongoing", "completed"],
               },
             ],
           },
