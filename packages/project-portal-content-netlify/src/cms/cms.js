@@ -266,8 +266,17 @@ CMS.init({
         name: "cardPage",
         label: "Card Page",
         folder: "content/card-page",
+        identifier_field: "shortTitle",
+        extension: "json",
         create: true,
         fields: [
+          {
+            name: "shortTitle",
+            label: "Short Title",
+            widget: "string",
+            required: true,
+            hint: "The name which is used to create the web address",
+          },
           {
             name: "pageName",
             label: "Page Name",
