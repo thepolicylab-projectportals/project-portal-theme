@@ -194,6 +194,20 @@ exports.createSchemaCustomization = ({ actions, schema, getNode }) => {
         filterOn: {
           type: CARD_PAGE_FILTER_TYPE,
         },
+        image: {
+          type: "File",
+          resolve: async (source, args, context) => {
+            return await context.nodeModel.findOne({
+              type: "File",
+              query: {
+                filter: {
+                  relativePath: { eq: source.image },
+                  sourceInstanceName: { eq: "image" },
+                },
+              },
+            })
+          },
+        },
       },
     }),
     schema.buildObjectType({
@@ -217,6 +231,20 @@ exports.createSchemaCustomization = ({ actions, schema, getNode }) => {
         },
         aims: {
           type: [TITLE_AND_TEXT_TYPE],
+        },
+        image: {
+          type: "File",
+          resolve: async (source, args, context) => {
+            return await context.nodeModel.findOne({
+              type: "File",
+              query: {
+                filter: {
+                  relativePath: { eq: source.image },
+                  sourceInstanceName: { eq: "image" },
+                },
+              },
+            })
+          },
         },
       },
     }),
