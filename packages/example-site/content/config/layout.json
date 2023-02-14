@@ -1,5 +1,6 @@
 {
   "templateKey": "layoutConfig",
+  "showDevBanner": false,
   "navbar": {
     "title": "Project Portal Example (Site with Queries) (from config)",
     "pages": [
@@ -26,6 +27,5 @@
         "link": "https://ccv.brown.edu/404"
       }
     ]
-  },
-  "showDevBanner": true
+  }
 }
