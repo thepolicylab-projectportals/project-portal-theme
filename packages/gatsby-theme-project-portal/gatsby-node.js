@@ -7,6 +7,7 @@ const {
   pageTypeDefs,
 } = require(`./utils/types`)
 const CardPageTemplate = require.resolve(`./src/templates/card-page`)
+const AboutPageTemplate = require.resolve(`./src/templates/about-page`)
 const fs = require("fs")
 
 exports.onPreBootstrap = ({ reporter }, themeOptions) => {
@@ -71,6 +72,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             }
           }
         }
+        aboutPages: allPage(filter: { templateKey: { eq: "AboutPage" } }) {
+          nodes {
+            slug
+          }
+        }
+        }
       }
     `
   )
@@ -107,6 +114,18 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       context: {
         slug: slug,
         statusFilter: status,
+      },
+    })
+  })
+
+  const { aboutPages } = result.data
+  aboutPages.nodes.forEach((page) => {
+    const { slug } = page
+    createPage({
+      path: `/${slug}`,
+      component: AboutPageTemplate,
+      context: {
+        slug: slug,
       },
     })
   })
