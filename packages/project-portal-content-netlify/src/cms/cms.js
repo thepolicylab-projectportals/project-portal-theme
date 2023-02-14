@@ -313,6 +313,83 @@ CMS.init({
           },
         ],
       },
+      {
+        name: "page",
+        label: "Other Pages",
+        files: [
+          {
+            name: "about",
+            file: "content/page/about.json",
+            label: "About",
+            fields: [
+              {
+                name: "header",
+                label: "Header",
+                widget: "string",
+                required: false,
+                hint: 'The heading which appears above the "Aims" section',
+              },
+              {
+                name: "templateKey",
+                label: "Template Key",
+                widget: "hidden",
+                default: "AboutPage",
+              },
+              {
+                name: "aims",
+                label: "Aims",
+                widget: "list",
+                required: false,
+                fields: [
+                  {
+                    name: "title",
+                    label: "Title",
+                    widget: "string",
+                    required: false,
+                    hint: "The heading which appears above the text block",
+                  },
+                  {
+                    name: "text",
+                    label: "Text",
+                    widget: "markdown",
+                    required: false,
+                    hint: "A text block in the aims section",
+                  },
+                ],
+              },
+              {
+                name: "faq",
+                label: "FAQ",
+                widget: "list",
+                required: false,
+                fields: [
+                  {
+                    name: "title",
+                    label: "Title",
+                    widget: "string",
+                    required: false,
+                    hint: "The heading which is shown before the user expands the text block",
+                  },
+                  {
+                    name: "text",
+                    label: "Text",
+                    widget: "markdown",
+                    required: false,
+                    hint: "The text which is shown when the user expands the text block",
+                  },
+                ],
+              },
+              {
+                name: "accessibility",
+                label: "Accessibility Statement",
+                widget: "markdown",
+                required: false,
+                hint: 'A text which appears under the heading "Accessibility Statement"',
+              },
+            ],
+          },
+        ],
+      },
     ],
   },
 })
