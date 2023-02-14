@@ -72,11 +72,12 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             }
           }
         }
-        aboutPages: allPage(filter: { templateKey: { eq: "AboutPage" } }) {
+        aboutPages: allGeneralPage(
+          filter: { templateKey: { eq: "AboutPage" } }
+        ) {
           nodes {
             slug
           }
-        }
         }
       }
     `
