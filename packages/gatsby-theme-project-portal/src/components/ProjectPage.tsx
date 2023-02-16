@@ -5,6 +5,7 @@ import { BackIcon } from "./BackIcon"
 import { ForwardIcon } from "./ForwardIcon"
 import Select from "react-select"
 import * as JsSearch from "js-search"
+import { SearchBar } from "./SearchBar"
 
 function customSort(dateField: string, sortAscending: boolean) {
   return function (a, b) {
@@ -241,17 +242,7 @@ export const ProjectPage = ({
             />
           </div>
           <div className="flex-1 min-w-30ch auto-rows-auto flex flex-col">
-            <label id="search-label" className="font-bold" htmlFor="filter">
-              Search
-            </label>
-            <input
-              className="rounded border-neutral-300"
-              style={{height: "62%"}}
-              type="text"
-              aria-label="Search"
-              placeholder="Type to filter posts..."
-              onChange={handleInputChange}
-            />
+            <SearchBar label={"Search"} handleInputChange={handleInputChange} />
           </div>
         </div>
         <div className="sr-only">
