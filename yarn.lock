@@ -8049,18 +8049,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"example-content@workspace:packages/example-content":
-  version: 0.0.0-use.local
-  resolution: "example-content@workspace:packages/example-content"
-  dependencies:
-    "@thepolicylab-projectportals/gatsby-theme-project-portal": 0.0.0
-    "@thepolicylab-projectportals/project-portal-content-netlify": 0.0.0
-    gatsby: ^5.6.0
-    react: ^18.2.0
-    react-dom: ^18.2.0
-  languageName: unknown
-  linkType: soft
-
 "example-site@workspace:packages/example-site":
   version: 0.0.0-use.local
   resolution: "example-site@workspace:packages/example-site"

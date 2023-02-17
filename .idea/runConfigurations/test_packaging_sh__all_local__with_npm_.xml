@@ -3,7 +3,6 @@
     <toRun name="test-packaging.sh (local: defaults, with npm)" type="ShConfigurationType" />
     <toRun name="test-packaging.sh (local: empty, with npm)" type="ShConfigurationType" />
     <toRun name="test-packaging.sh (local: example, with npm)" type="ShConfigurationType" />
-    <toRun name="test-packaging.sh (local: example-content, with npm)" type="ShConfigurationType" />
     <toRun name="test-packaging.sh (local: example-site, with npm)" type="ShConfigurationType" />
     <method v="2" />
   </configuration>
