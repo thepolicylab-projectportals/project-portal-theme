@@ -459,11 +459,6 @@ CMS.init({
             file: "content/config/site-metadata.json",
             fields: [
               {
-                name: "templateKey",
-                widget: "hidden",
-                default: "siteMetadata",
-              },
-              {
                 name: "title",
                 label: "Title",
                 widget: "string",
