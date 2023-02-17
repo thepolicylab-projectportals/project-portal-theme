@@ -29,5 +29,6 @@ module.exports = {
       },
     },
     `@thepolicylab-projectportals/project-portal-content-netlify`,
+    `gatsby-plugin-sitemap`,
   ],
 }
