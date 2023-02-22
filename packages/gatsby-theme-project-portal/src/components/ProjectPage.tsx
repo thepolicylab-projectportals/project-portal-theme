@@ -125,19 +125,35 @@ export const ProjectPage = ({
   }
 
   let search = new JsSearch.Search("slug")
-  search.addIndex("topics")
+  search.addIndex("topicNames")
   search.addIndex("question")
   search.addIndex("agency")
 
   const handleInputChange = (event) => {
+    //going through each project and "flattening" topics data for search
+    for (let i = 0; i < sortedProjects.length; i++){
+      sortedProjects[i]["topicNames"] = flattenTopics(sortedProjects[i])
+    }
+
     search.addDocuments(sortedProjects)
-    console.log(sortedProjects)
+
     const query = event.target.value
+    console.log(search.search(query))
     if (search.search(query).length == 0) {
       setDisplayProjects(sortedProjects)
     } else {
       setDisplayProjects(search.search(query))
     }
+  }
+
+  const flattenTopics = (project: CardProps): any => {
+    let result = []
+    //creating new array of all topicNames associated
+    //with this project
+    for (let i = 0; i < project.topics.length; i++) {
+      result.push(project.topics[i].title)
+    }
+    return result
   }
 
   const handleLoadNext = () => {
