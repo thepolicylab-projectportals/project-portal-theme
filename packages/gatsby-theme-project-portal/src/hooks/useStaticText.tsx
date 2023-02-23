@@ -7,18 +7,6 @@ export const useStaticText = () => {
     query StaticTextQuery {
       projectPortalConfig {
         staticText {
-          about {
-            header
-            aims {
-              title
-              text
-            }
-            faq {
-              title
-              text
-            }
-            accessibility
-          }
           bottom_banner {
             text
             link
