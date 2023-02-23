@@ -399,6 +399,33 @@ CMS.init({
               },
             ],
           },
+          {
+            name: "contact",
+            file: "content/page/contact.json",
+            label: "Contact",
+            fields: [
+              {
+                name: "templateKey",
+                label: "Template Key",
+                widget: "hidden",
+                default: "ContactPage",
+              },
+              {
+                name: "title",
+                label: "Title",
+                widget: "string",
+                required: false,
+                hint: "The heading which appears above the lede",
+              },
+              {
+                name: "lede",
+                label: "Lede",
+                widget: "markdown",
+                required: false,
+                hint: "A text which appears immediately above the contact form",
+              },
+            ],
+          },
         ],
       },
     ],

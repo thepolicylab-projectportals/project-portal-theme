@@ -129,6 +129,7 @@ const pageTypeDefs = `
   interface ${GENERAL_PAGE_NODE_TYPE} implements Node {
     id: ID!
     slug: String!
+    lede: String
     templateKey: String!
     title: String
     pageName: String
