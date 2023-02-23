@@ -21,21 +21,6 @@
     "title": "How do I connect with The Policy Lab to find out more about setting up a Project Portal for my agency?",
     "lede": "If you have questions or feedback about the Project Portal, please use the form below. Your submission will go to OSP and The Policy Lab at Brown University, which is collaborating with agencies on Project Portals."
   },
-  "open": {
-    "title": "Open partnership opportunities",
-    "pageName": "Open opportunities",
-    "lede": "State agencies are increasingly interested in collaborating with external partners to answer questions that inform decision making and improve policy and programmatic functions. Learn more below about some open opportunities."
-  },
-  "completed": {
-    "title": "Completed projects",
-    "pageName": "Completed projects",
-    "lede": "State agencies collaborate with external partners to answer important research, policy, and programmatic questions. Learn more below about some completed projects."
-  },
-  "ongoing": {
-    "title": "In-progress projects",
-    "pageName": "In-progress projects",
-    "lede": "State agencies collaborate with external partners to answer important research, policy, and programmatic questions. Learn more about in-progress projects here."
-  },
   "footer": {
     "copyright": "© The Policy Lab 2022",
     "heading": {

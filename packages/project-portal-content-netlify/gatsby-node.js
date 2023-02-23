@@ -4,6 +4,8 @@ const {
   PROJECT_NODE_TYPE,
   CONTACT_NODE_TYPE,
   TOPIC_NODE_TYPE,
+  CARD_PAGE_NODE_TYPE,
+  CARD_PAGE_FILTER_TYPE,
 } = require("@thepolicylab-projectportals/gatsby-theme-project-portal/utils/types")
 const { withDefaults } = require("./utils/default-options")
 const { createFilePath } = require("gatsby-source-filesystem")
@@ -16,10 +18,12 @@ const { createFilePath } = require("gatsby-source-filesystem")
 const PROJECT_JSON_TYPE = `ProjectJson`
 const CONTACT_JSON_TYPE = `ContactJson`
 const TOPIC_JSON_TYPE = `TopicJson`
+const CARD_PAGE_JSON_TYPE = `CardPageJson`
 
 exports.onPreBootstrap = ({ reporter }, pluginOptions) => {
-  const { projectPath, contactPath, topicPath } = withDefaults(pluginOptions)
-  const paths = [projectPath, contactPath, topicPath]
+  const { projectPath, contactPath, topicPath, cardPagePath } =
+    withDefaults(pluginOptions)
+  const paths = [projectPath, contactPath, topicPath, cardPagePath]
 
   paths.forEach((path) => {
     if (!fs.existsSync(path)) {
@@ -168,6 +172,25 @@ exports.createSchemaCustomization = ({ actions, schema, getNode }) => {
           },
         },
         title: "String",
+      },
+    }),
+    schema.buildObjectType({
+      name: CARD_PAGE_JSON_TYPE,
+      interfaces: ["Node", CARD_PAGE_NODE_TYPE],
+      fields: {
+        slug: {
+          type: "String!",
+          resolve: (node) => {
+            return createFilePath({ node, getNode }).slice(1, -1)
+          },
+        },
+        pageName: "String",
+        title: "String",
+        lede: "String",
+        sortOptions: "[String]",
+        filterOn: {
+          type: CARD_PAGE_FILTER_TYPE,
+        },
       },
     }),
   ]

@@ -17,19 +17,11 @@ const projectPortalConfigTypeDefs = `
     show: Boolean
   }
   type StaticTextType {
-    open: CardPageType
-    ongoing: CardPageType
-    completed: CardPageType
     contact: ContactType
     about: AboutType
     bottom_banner: BottomBannerType
     footer: FooterType
     main_contact_text: MainContactTextType
-  }
-  type CardPageType {
-    lede: String
-    pageName: String
-    title: String
   }
   type ContactType {
     title: String
@@ -127,6 +119,23 @@ const contactTypeDefs = `
   }
 `
 
+const CARD_PAGE_NODE_TYPE = `cardPage`
+const CARD_PAGE_FILTER_TYPE = `cardPageFilterOn`
+const pageTypeDefs = `
+  interface ${CARD_PAGE_NODE_TYPE} implements Node {
+    id: ID!
+    slug: String!
+    lede: String
+    pageName: String
+    title: String
+    sortOptions: [String]
+    filterOn: ${CARD_PAGE_FILTER_TYPE}
+  }
+  type ${CARD_PAGE_FILTER_TYPE} {
+    status: [String]
+  }  
+`
+
 module.exports = {
   CONFIG_NODE_TYPE,
   projectPortalConfigTypeDefs,
@@ -135,4 +144,7 @@ module.exports = {
   CONTACT_NODE_TYPE,
   contactTypeDefs,
   TOPIC_NODE_TYPE,
+  CARD_PAGE_NODE_TYPE,
+  CARD_PAGE_FILTER_TYPE,
+  pageTypeDefs,
 }

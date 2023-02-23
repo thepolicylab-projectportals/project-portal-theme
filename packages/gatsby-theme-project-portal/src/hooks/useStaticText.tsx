@@ -27,16 +27,6 @@ export const useStaticText = () => {
             ongoingText
             completeText
           }
-          open {
-            lede
-            pageName
-            title
-          }
-          ongoing {
-            lede
-            pageName
-            title
-          }
           footer {
             copyright
             heading {
@@ -50,11 +40,6 @@ export const useStaticText = () => {
           }
           contact {
             lede
-            title
-          }
-          completed {
-            lede
-            pageName
             title
           }
         }

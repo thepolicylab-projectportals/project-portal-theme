@@ -4,7 +4,9 @@ const {
   projectTypeDefs,
   projectPortalConfigTypeDefs,
   contactTypeDefs,
+  pageTypeDefs,
 } = require(`./utils/types`)
+const CardPageTemplate = require.resolve(`./src/templates/card-page`)
 const fs = require("fs")
 
 exports.onPreBootstrap = ({ reporter }, themeOptions) => {
@@ -24,6 +26,7 @@ exports.createSchemaCustomization = ({ actions }) => {
   createTypes(projectPortalConfigTypeDefs)
   createTypes(projectTypeDefs)
   createTypes(contactTypeDefs)
+  createTypes(pageTypeDefs)
 }
 
 exports.sourceNodes = ({ actions, createContentDigest }, themeOptions) => {
@@ -60,6 +63,14 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             slug
           }
         }
+        allCardPage {
+          nodes {
+            slug
+            filterOn {
+              status
+            }
+          }
+        }
       }
     `
   )
@@ -80,6 +91,22 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       component: ProjectDetailPageTemplate,
       context: {
         slug: slug,
+      },
+    })
+  })
+
+  const { allCardPage } = result.data
+  allCardPage.nodes.forEach((page) => {
+    const {
+      slug,
+      filterOn: { status },
+    } = page
+    createPage({
+      path: `/${slug}`,
+      component: CardPageTemplate,
+      context: {
+        slug: slug,
+        statusFilter: status,
       },
     })
   })
