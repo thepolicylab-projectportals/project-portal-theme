@@ -22,5 +22,5 @@
   "status": "open",
   "statusOfData": "example statusOfData",
   "summary": "example summary",
-  "topics": []
+  "topics": ["example-topic", "example-topic-3"]
 }

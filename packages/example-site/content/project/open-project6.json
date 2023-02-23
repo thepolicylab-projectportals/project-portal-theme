@@ -22,5 +22,5 @@
   "status": "open",
   "statusOfData": "example statusOfData",
   "summary": "example summary",
-  "topics": []
+  "topics": ["ccv-settings", "example-topic-4", "example-topic-2"]
 }
