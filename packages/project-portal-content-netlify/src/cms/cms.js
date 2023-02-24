@@ -299,6 +299,13 @@ CMS.init({
             hint: "The text which appears under the title",
           },
           {
+            name: "image",
+            label: "Image",
+            widget: "image",
+            required: false,
+            hint: "The image which appears behind the lede.",
+          },
+          {
             name: "sortOptions",
             label: "Sort Options",
             widget: "select",
@@ -339,6 +346,13 @@ CMS.init({
                 widget: "string",
                 required: false,
                 hint: 'The heading which appears above the "Aims" section',
+              },
+              {
+                name: "image",
+                label: "Image",
+                widget: "image",
+                required: false,
+                hint: "The image which appears behind page title.",
               },
               {
                 name: "templateKey",
@@ -423,6 +437,13 @@ CMS.init({
                 widget: "markdown",
                 required: false,
                 hint: "A text which appears immediately above the contact form",
+              },
+              {
+                name: "image",
+                label: "Image",
+                widget: "image",
+                required: false,
+                hint: "The image which appears behind the lede.",
               },
             ],
           },

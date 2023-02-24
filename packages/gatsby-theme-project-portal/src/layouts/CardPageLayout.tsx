@@ -10,13 +10,6 @@ export interface CardPageLayoutProps {
     allTopic: {
       nodes: TopicType[]
     }
-    bgImage: {
-      childImageSharp: {
-        resize: {
-          src: string
-        }
-      }
-    }
     cardPage: {
       pageName: string
       title: string
@@ -24,6 +17,13 @@ export interface CardPageLayoutProps {
       sortOptions: [...any]
       filter: {
         status: string[]
+      }
+      image: {
+        childImageSharp: {
+          resize: {
+            src: string
+          }
+        }
       }
     }
   }
@@ -33,8 +33,7 @@ export const CardPageLayout: FunctionComponent<CardPageLayoutProps> = ({
   data: {
     allProject,
     allTopic,
-    bgImage,
-    cardPage: { pageName, title, lede, sortOptions },
+    cardPage: { pageName, title, lede, sortOptions, image },
   },
 }) => {
   return (
@@ -43,7 +42,7 @@ export const CardPageLayout: FunctionComponent<CardPageLayoutProps> = ({
         <ProjectPage
           allProjects={allProject.nodes}
           allTopics={allTopic.nodes}
-          bgImage={bgImage?.childImageSharp.resize.src}
+          bgImage={image?.childImageSharp.resize.src}
           title={title}
           lede={lede}
           sortOptions={sortOptions}

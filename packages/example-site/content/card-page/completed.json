@@ -6,5 +6,6 @@
   "sortOptions": ["endDate", "created"],
   "filterOn": {
     "status": ["completed"]
-  }
+  },
+  "image": ""
 }

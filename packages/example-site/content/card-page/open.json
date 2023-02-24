@@ -6,5 +6,6 @@
   "sortOptions": ["created", "opportunityCloses"],
   "filterOn": {
     "status": ["open"]
-  }
+  },
+  "image": "open.jpg"
 }

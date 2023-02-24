@@ -23,15 +23,11 @@ export const query = graphql`
         text
       }
       accessibility
-    }
-    bgImage: file(
-      name: { eq: $slug }
-      extension: { in: ["png", "jpg", "jpeg"] }
-      sourceInstanceName: { eq: "themeImages" }
-    ) {
-      childImageSharp {
-        resize(width: 1536) {
-          src
+      image {
+        childImageSharp {
+          resize(width: 1536) {
+            src
+          }
         }
       }
     }
