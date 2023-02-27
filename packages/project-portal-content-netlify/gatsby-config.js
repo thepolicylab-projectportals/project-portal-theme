@@ -34,6 +34,27 @@ module.exports = (pluginOptions) => {
           path: pluginOptionsWithDefaults.topicPath,
         },
       },
+      {
+        resolve: `gatsby-source-filesystem`,
+        options: {
+          name: `cardPage`,
+          path: pluginOptionsWithDefaults.cardPagePath,
+        },
+      },
+      {
+        resolve: `gatsby-source-filesystem`,
+        options: {
+          name: `page`,
+          path: pluginOptionsWithDefaults.pagePath,
+        },
+      },
+      {
+        resolve: `gatsby-source-filesystem`,
+        options: {
+          name: `image`,
+          path: pluginOptionsWithDefaults.imagePath,
+        },
+      },
     ],
   }
 }

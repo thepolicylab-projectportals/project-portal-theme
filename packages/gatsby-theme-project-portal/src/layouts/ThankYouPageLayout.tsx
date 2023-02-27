@@ -1,21 +1,25 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
+import React, { FunctionComponent } from "react"
+import { Link } from "gatsby"
 import { Layout } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/layouts"
 import { HeaderWithImage } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
 
 interface ThankYouProps {
   data: {
-    bgImage: {
-      childImageSharp: {
-        resize: {
-          src: string
+    generalPage: {
+      image: {
+        childImageSharp: {
+          resize: {
+            src: string
+          }
         }
       }
     }
   }
 }
 
-export default ({ data }: ThankYouProps) => {
+export const ThankYouPageLayout: FunctionComponent<ThankYouProps> = ({
+  data,
+}: ThankYouProps) => {
   return (
     <Layout
       activePage="about"
@@ -25,7 +29,7 @@ export default ({ data }: ThankYouProps) => {
       <HeaderWithImage
         title="Thank You"
         lede=""
-        imageSrc={data.bgImage?.childImageSharp.resize.src}
+        imageSrc={data.generalPage.image?.childImageSharp.resize.src}
       />
       <div className="container pt-6 overflow-hidden bg-white">
         <div className="flex flex-wrap">
@@ -48,19 +52,3 @@ export default ({ data }: ThankYouProps) => {
     </Layout>
   )
 }
-
-export const query = graphql`
-  query ThankYouQuery {
-    bgImage: file(
-      name: { eq: "contact" }
-      extension: { in: ["png", "jpg", "jpeg"] }
-      sourceInstanceName: { eq: "themeImages" }
-    ) {
-      childImageSharp {
-        resize(width: 1536, height: 352) {
-          src
-        }
-      }
-    }
-  }
-`
