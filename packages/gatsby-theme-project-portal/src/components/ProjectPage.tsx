@@ -41,14 +41,12 @@ export interface ProjectPageProps {
   lede: string
   sortOptions: [...any]
   allProjects: CardProps[]
-  allTopics: TopicType[]
   bgImage: string
 }
 
 export const ProjectPage = ({
   title,
   allProjects,
-  allTopics,
   lede,
   sortOptions,
   bgImage,
