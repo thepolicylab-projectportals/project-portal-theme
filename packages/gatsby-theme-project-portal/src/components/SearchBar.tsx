@@ -2,7 +2,7 @@ import React, {ChangeEventHandler, Dispatch, FunctionComponent, SetStateAction} 
 
 interface SearchBarProps {
   label: string
-  onChange:  Dispatch<SetStateAction<any[]>>
+  onChange:  any
 }
 
 export const SearchBar: FunctionComponent<SearchBarProps> = ({

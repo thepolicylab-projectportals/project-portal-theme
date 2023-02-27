@@ -6,6 +6,7 @@ import { ForwardIcon } from "./ForwardIcon"
 import Select from "react-select"
 import * as JsSearch from "js-search"
 import { SearchBar } from "./SearchBar"
+import {filter} from "lodash";
 
 function customSort(dateField: string, sortAscending: boolean) {
   return function (a, b) {
@@ -196,14 +197,12 @@ export const ProjectPage = ({
     //2. Filter by topic
     //3. Search query
 
-    let filteredProjects = []
+    let filteredProjects = sortedProjects
 
     //2. filter by topic. If there are any filters chosen
     // apply it to filteredProjects
     // or else stick with sortedProjects (which may have been updated by sortOptions) aka the first check
-    if (selectedOptions.length == 0) {
-      filteredProjects = sortedProjects
-    } else {
+    if (selectedOptions.length > 0) {
       const filteredTopics = selectedOptions.map(({ value }) => value)
       filteredProjects =
         sortedProjects.filter((project) =>
@@ -223,7 +222,10 @@ export const ProjectPage = ({
         filteredProjects[i]["topicNames"] = flattenTopics(filteredProjects[i])
       }
       search.addDocuments(filteredProjects)
-      filteredProjects = search.search(searchQuery)
+      let searchResults = search.search(searchQuery)
+      if (searchResults.length > 0){
+        filteredProjects = searchResults
+      }
     }
 
     setFilterOptions(getTopics(filteredProjects))
