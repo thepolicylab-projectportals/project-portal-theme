@@ -26,7 +26,7 @@ import {
   ProjectPage,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
 
-import { ContactForm } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/pages/contact"
+import { ContactForm } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/layouts/ContactPageLayout"
 
 import { useStaticQuery, graphql } from "gatsby"
 import { getImage } from "gatsby-plugin-image"
