@@ -96,15 +96,6 @@ export const ProjectPage = ({
 
   const [sortDirection, setSortDirection] = useState(sortingOptions[0])
 
-  useEffect(() => {
-    const sortedList = [...allProjects]
-    sortedList.sort(
-      customSort(sortDirection.field, sortDirection.sortAscending)
-    )
-    setSortedProjects(sortedList)
-    setPageStart(0)
-    setPageEnd(ITEMS_PER_PAGE)
-  }, [sortDirection])
 
   const [pageStart, setPageStart] = useState(0)
   const [pageEnd, setPageEnd] = useState(ITEMS_PER_PAGE)
@@ -124,27 +115,12 @@ export const ProjectPage = ({
     scrollToRef?.current?.scrollIntoView({ behavior: "smooth" })
   }
 
+  const [searchQuery, setSearchQuery] = useState([])
+
   let search = new JsSearch.Search("slug")
   search.addIndex("topicNames")
   search.addIndex("question")
   search.addIndex("agency")
-
-  const handleInputChange = (event) => {
-    //going through each project and "flattening" topics data for search
-    for (let i = 0; i < sortedProjects.length; i++){
-      sortedProjects[i]["topicNames"] = flattenTopics(sortedProjects[i])
-    }
-
-    search.addDocuments(sortedProjects)
-
-    const query = event.target.value
-    console.log(search.search(query))
-    if (search.search(query).length == 0) {
-      setDisplayProjects(sortedProjects)
-    } else {
-      setDisplayProjects(search.search(query))
-    }
-  }
 
   const flattenTopics = (project: CardProps): any => {
     let result = []
@@ -198,21 +174,58 @@ export const ProjectPage = ({
   const [selectedOptions, setSelectedOptions] = useState([])
 
   useEffect(() => {
+    const sortedList = [...allProjects]
+    sortedList.sort(
+      customSort(sortDirection.field, sortDirection.sortAscending)
+    )
+    setSortedProjects(sortedList)
+    setPageStart(0)
+    setPageEnd(ITEMS_PER_PAGE)
+  }, [sortDirection])
+
+
+  useEffect(() => {
+    //consolidate what displayProjects will look like
+    //after 3 checks in following order:
+    //1. Sort by  **Done in other useEffect**
+    //2. Filter by topic
+    //3. Search query
+
+    let filteredProjects = []
+
+    //2. filter by topic. If there are any filters chosen
+    // apply it to filteredProjects
+    // or else stick with sortedProjects (which may have been updated by sortOptions) aka the first check
     if (selectedOptions.length == 0) {
-      setDisplayProjects(sortedProjects)
+      filteredProjects = sortedProjects
     } else {
       const filteredTopics = selectedOptions.map(({ value }) => value)
-      setDisplayProjects(
+      filteredProjects =
         sortedProjects.filter((project) =>
           project.topics
             .map((topic) => topic.slug)
             .some((topicSlug) => filteredTopics.includes(topicSlug))
         )
-      )
+
     }
     setPageStart(0)
     setPageEnd(ITEMS_PER_PAGE)
-  }, [selectedOptions, sortedProjects]) // triggered when list is changed
+
+    //3. search query
+    // if search query is used, we will now apply search results, to filteredProjects
+    if (searchQuery.length > 0){
+      for (let i = 0; i < filteredProjects.length; i++){
+        filteredProjects[i]["topicNames"] = flattenTopics(filteredProjects[i])
+      }
+      search.addDocuments(filteredProjects)
+      filteredProjects = search.search(searchQuery)
+    }
+
+    //now filteredProjects has gone through all 3 checks
+    //ready to update displayProjects
+    setDisplayProjects(filteredProjects)
+    //setDisplayProjects will trigger an updated display
+  }, [selectedOptions, sortedProjects, searchQuery]) // triggered when list is changed
 
   const selectStyle = {
     placeholder: (provided) => ({ ...provided, color: "#767676" }),
@@ -258,7 +271,7 @@ export const ProjectPage = ({
             />
           </div>
           <div className="flex-1 min-w-30ch auto-rows-auto flex flex-col">
-            <SearchBar label={"Search"} handleInputChange={handleInputChange} />
+            <SearchBar label={"Search"} onChange={e => setSearchQuery(e.target.value)} />
           </div>
         </div>
         <div className="sr-only">

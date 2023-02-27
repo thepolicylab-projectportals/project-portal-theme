@@ -1,13 +1,13 @@
-import React, {ChangeEventHandler, FunctionComponent} from "react"
+import React, {ChangeEventHandler, Dispatch, FunctionComponent, SetStateAction} from "react"
 
 interface SearchBarProps {
   label: string
-  handleInputChange: ChangeEventHandler<HTMLInputElement>
+  onChange:  Dispatch<SetStateAction<any[]>>
 }
 
 export const SearchBar: FunctionComponent<SearchBarProps> = ({
   label,
-  handleInputChange,
+  onChange,
 }) => {
   return (
     <>
@@ -20,7 +20,7 @@ export const SearchBar: FunctionComponent<SearchBarProps> = ({
         type="text"
         aria-label="Search"
         placeholder="Type to filter posts..."
-        onChange={handleInputChange}
+        onChange={onChange}
       />
     </>
   )
