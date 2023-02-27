@@ -3361,6 +3361,7 @@ __metadata:
     gatsby-plugin-sharp: ^5.6.0
     gatsby-source-filesystem: ^5.6.0
     gatsby-transformer-sharp: ^5.6.0
+    js-search: ^2.0.0
     lodash: ^4.17.21
     markdown-to-jsx: ^7.1.9
     moment: ^2.29.4
@@ -15462,7 +15463,6 @@ __metadata:
   resolution: "project-portal-theme@workspace:."
   dependencies:
     jest: ^29.4.1
-    js-search: ^2.0.0
     pa11y-ci: ^3.0.1
     prettier: ^2.8.4
   languageName: unknown
