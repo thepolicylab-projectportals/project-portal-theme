@@ -52,17 +52,22 @@ export const ProjectPage = ({
   sortOptions,
   bgImage,
 }: ProjectPageProps) => {
-  const filterOptions = []
 
-  for (const project of allProjects) {
-    if (project.topics) {
-      for (const topic of project.topics) {
-        if (!filterOptions.some(({ value }) => value === topic.slug)) {
-          filterOptions.push({ value: topic.slug, label: topic.title })
+  const getTopics = (project: CardProps[]): CardProps[] => {
+    let tempFilterOptions = []
+    for (const tempProject of project) {
+      if (tempProject.topics) {
+        for (const topic of tempProject.topics) {
+          if (!tempFilterOptions.some(({ value }) => value === topic.slug)) {
+            tempFilterOptions.push({ value: topic.slug, label: topic.title })
+          }
         }
       }
     }
+    return tempFilterOptions
   }
+  const [filterOptions, setFilterOptions] = useState(getTopics(allProjects))
+
   const ITEMS_PER_PAGE = 6
   const [sortedProjects, setSortedProjects] = useState(allProjects)
   const [displayProjects, setDisplayProjects] = useState(allProjects)
@@ -221,6 +226,7 @@ export const ProjectPage = ({
       filteredProjects = search.search(searchQuery)
     }
 
+    setFilterOptions(getTopics(filteredProjects))
     //now filteredProjects has gone through all 3 checks
     //ready to update displayProjects
     setDisplayProjects(filteredProjects)
