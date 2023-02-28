@@ -6,7 +6,6 @@ import { ForwardIcon } from "./ForwardIcon"
 import Select from "react-select"
 import * as JsSearch from "js-search"
 import { SearchBar } from "./SearchBar"
-import {filter} from "lodash";
 
 function customSort(dateField: string, sortAscending: boolean) {
   return function (a, b) {
@@ -51,7 +50,6 @@ export const ProjectPage = ({
   sortOptions,
   bgImage,
 }: ProjectPageProps) => {
-
   const getTopics = (project: CardProps[]): CardProps[] => {
     let tempFilterOptions = []
     for (const tempProject of project) {
@@ -99,7 +97,6 @@ export const ProjectPage = ({
   }
 
   const [sortDirection, setSortDirection] = useState(sortingOptions[0])
-
 
   const [pageStart, setPageStart] = useState(0)
   const [pageEnd, setPageEnd] = useState(ITEMS_PER_PAGE)
@@ -187,7 +184,6 @@ export const ProjectPage = ({
     setPageEnd(ITEMS_PER_PAGE)
   }, [sortDirection])
 
-
   useEffect(() => {
     //consolidate what displayProjects will look like
     //after 3 checks in following order:
@@ -202,26 +198,24 @@ export const ProjectPage = ({
     // or else stick with sortedProjects (which may have been updated by sortOptions) aka the first check
     if (selectedOptions.length > 0) {
       const filteredTopics = selectedOptions.map(({ value }) => value)
-      filteredProjects =
-        sortedProjects.filter((project) =>
-          project.topics
-            .map((topic) => topic.slug)
-            .some((topicSlug) => filteredTopics.includes(topicSlug))
-        )
-
+      filteredProjects = sortedProjects.filter((project) =>
+        project.topics
+          .map((topic) => topic.slug)
+          .some((topicSlug) => filteredTopics.includes(topicSlug))
+      )
     }
     setPageStart(0)
     setPageEnd(ITEMS_PER_PAGE)
 
     //3. search query
     // if search query is used, we will now apply search results, to filteredProjects
-    if (searchQuery.length > 0){
-      for (let i = 0; i < filteredProjects.length; i++){
+    if (searchQuery.length > 0) {
+      for (let i = 0; i < filteredProjects.length; i++) {
         filteredProjects[i]["topicNames"] = flattenTopics(filteredProjects[i])
       }
       search.addDocuments(filteredProjects)
       let searchResults = search.search(searchQuery)
-      if (searchResults.length > 0){
+      if (searchResults.length > 0) {
         filteredProjects = searchResults
       }
     }
@@ -277,7 +271,10 @@ export const ProjectPage = ({
             />
           </div>
           <div className="flex-1 min-w-30ch auto-rows-auto flex flex-col">
-            <SearchBar label={"Search"} onChange={e => setSearchQuery(e.target.value)} />
+            <SearchBar
+              label={"Search"}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
           </div>
         </div>
         <div className="sr-only">
