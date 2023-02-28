@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react"
-import { Cards, CardProps, TopicType } from "../components"
+import { Cards, CardProps } from "../components"
 import { HeaderWithImage } from "./HeaderWithImage"
 import { BackIcon } from "./BackIcon"
 import { ForwardIcon } from "./ForwardIcon"
@@ -41,14 +41,12 @@ export interface ProjectPageProps {
   lede: string
   sortOptions: [...any]
   allProjects: CardProps[]
-  allTopics: TopicType[]
   bgImage: string
 }
 
 export const ProjectPage = ({
   title,
   allProjects,
-  allTopics,
   lede,
   sortOptions,
   bgImage,
