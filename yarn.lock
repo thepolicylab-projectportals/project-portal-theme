@@ -3361,6 +3361,7 @@ __metadata:
     gatsby-plugin-sharp: ^5.6.0
     gatsby-source-filesystem: ^5.6.0
     gatsby-transformer-sharp: ^5.6.0
+    js-search: ^2.0.0
     lodash: ^4.17.21
     markdown-to-jsx: ^7.1.9
     moment: ^2.29.4
@@ -11671,6 +11672,13 @@ __metadata:
   version: 3.7.4
   resolution: "js-base64@npm:3.7.4"
   checksum: b8f6b10033b57bbb87fa34629f44bc665cb8b7bcba49610a29b296592616e633e9c186afaa02de5a54d60c08aaa36c8c8ad585db095a96fb331fe022f54792a2
+  languageName: node
+  linkType: hard
+
+"js-search@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "js-search@npm:2.0.0"
+  checksum: 2dc0ff4c63843fdeef76f8642d98f0be20231e78e75c5e106410836c26ca35860ea56e257804ecabd7026c096fd6abf1f3a78931f875afc4f81ab164c32738b0
   languageName: node
   linkType: hard
 

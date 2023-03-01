@@ -23,10 +23,5 @@ export const query = graphql`
         ...CardDetails
       }
     }
-    allTopic {
-      nodes {
-        ...TopicDetails
-      }
-    }
   }
 `
