@@ -1,12 +1,6 @@
 import React from "react"
 import { ProjectPage } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
 
-const allTopics = [
-  { title: "Topic A", slug: "topic-a" },
-  { title: "Topic B", slug: "topic-b" },
-  { title: "Topic C", slug: "topic-c" },
-]
-
 const sample_card = {
   question: "Test Question?",
   slug: "test-project",
@@ -48,7 +42,6 @@ const ProjectPageTest = () => {
         lede={"This is the lede."}
         sortOptions={["created", "opportunityCloses", "startDate", "endDate"]}
         allProjects={sample_cards}
-        allTopics={allTopics}
         bgImage={""}
       />
     </>
