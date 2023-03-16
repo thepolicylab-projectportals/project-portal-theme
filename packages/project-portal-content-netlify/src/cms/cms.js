@@ -34,7 +34,8 @@ CMS.init({
             widget: "string",
             required: true,
             hint:
-              "The main question answered by the project. Research questions should be brief, ideally no more than 25 words." +
+              "The main research question answered by the project. Only 3 to 5 words fit on a single line, so the question " +
+              "should be brief, ideally no more than 10 to 15 words. " +
               'Example: "What impact has COVID-19 had on nonprofit organizations?"',
           },
           {
