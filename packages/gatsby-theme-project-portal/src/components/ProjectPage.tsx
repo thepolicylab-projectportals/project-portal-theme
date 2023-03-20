@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from "react"
-import { Cards, CardProps, TopicType } from "../components"
+import { Cards, CardProps } from "../components"
 import { HeaderWithImage } from "./HeaderWithImage"
 import { BackIcon } from "./BackIcon"
 import { ForwardIcon } from "./ForwardIcon"
 import Select from "react-select"
+import * as JsSearch from "js-search"
+import { SearchBar } from "./SearchBar"
 
 function customSort(dateField: string, sortAscending: boolean) {
   return function (a, b) {
@@ -38,29 +40,31 @@ export interface ProjectPageProps {
   lede: string
   sortOptions: [...any]
   allProjects: CardProps[]
-  allTopics: TopicType[]
   bgImage: string
 }
 
 export const ProjectPage = ({
   title,
   allProjects,
-  allTopics,
   lede,
   sortOptions,
   bgImage,
 }: ProjectPageProps) => {
-  const filterOptions = []
-
-  for (const project of allProjects) {
-    if (project.topics) {
-      for (const topic of project.topics) {
-        if (!filterOptions.some(({ value }) => value === topic.slug)) {
-          filterOptions.push({ value: topic.slug, label: topic.title })
+  const getTopics = (project: CardProps[]): CardProps[] => {
+    let tempFilterOptions = []
+    for (const tempProject of project) {
+      if (tempProject.topics) {
+        for (const topic of tempProject.topics) {
+          if (!tempFilterOptions.some(({ value }) => value === topic.slug)) {
+            tempFilterOptions.push({ value: topic.slug, label: topic.title })
+          }
         }
       }
     }
+    return tempFilterOptions
   }
+  const [filterOptions, setFilterOptions] = useState(getTopics(allProjects))
+
   const ITEMS_PER_PAGE = 6
   const [sortedProjects, setSortedProjects] = useState(allProjects)
   const [displayProjects, setDisplayProjects] = useState(allProjects)
@@ -94,16 +98,6 @@ export const ProjectPage = ({
 
   const [sortDirection, setSortDirection] = useState(sortingOptions[0])
 
-  useEffect(() => {
-    const sortedList = [...allProjects]
-    sortedList.sort(
-      customSort(sortDirection.field, sortDirection.sortAscending)
-    )
-    setSortedProjects(sortedList)
-    setPageStart(0)
-    setPageEnd(ITEMS_PER_PAGE)
-  }, [sortDirection])
-
   const [pageStart, setPageStart] = useState(0)
   const [pageEnd, setPageEnd] = useState(ITEMS_PER_PAGE)
   //  state for the list
@@ -120,6 +114,23 @@ export const ProjectPage = ({
 
   const handleScroll = () => {
     scrollToRef?.current?.scrollIntoView({ behavior: "smooth" })
+  }
+
+  const [searchQuery, setSearchQuery] = useState([])
+
+  let search = new JsSearch.Search("slug")
+  search.addIndex("topicNames")
+  search.addIndex("question")
+  search.addIndex("agency")
+
+  const flattenTopics = (project: CardProps): any => {
+    let result = []
+    //creating new array of all topicNames associated
+    //with this project
+    for (let i = 0; i < project.topics.length; i++) {
+      result.push(project.topics[i].title)
+    }
+    return result
   }
 
   const handleLoadNext = () => {
@@ -164,21 +175,57 @@ export const ProjectPage = ({
   const [selectedOptions, setSelectedOptions] = useState([])
 
   useEffect(() => {
-    if (selectedOptions.length == 0) {
-      setDisplayProjects(sortedProjects)
-    } else {
+    const sortedList = [...allProjects]
+    sortedList.sort(
+      customSort(sortDirection.field, sortDirection.sortAscending)
+    )
+    setSortedProjects(sortedList)
+    setPageStart(0)
+    setPageEnd(ITEMS_PER_PAGE)
+  }, [sortDirection])
+
+  useEffect(() => {
+    //consolidate what displayProjects will look like
+    //after 3 checks in following order:
+    //1. Sort by  **Done in other useEffect**
+    //2. Filter by topic
+    //3. Search query
+
+    let filteredProjects = sortedProjects
+
+    //2. filter by topic. If there are any filters chosen
+    // apply it to filteredProjects
+    // or else stick with sortedProjects (which may have been updated by sortOptions) aka the first check
+    if (selectedOptions.length > 0) {
       const filteredTopics = selectedOptions.map(({ value }) => value)
-      setDisplayProjects(
-        sortedProjects.filter((project) =>
-          project.topics
-            .map((topic) => topic.slug)
-            .some((topicSlug) => filteredTopics.includes(topicSlug))
-        )
+      filteredProjects = sortedProjects.filter((project) =>
+        project.topics
+          .map((topic) => topic.slug)
+          .some((topicSlug) => filteredTopics.includes(topicSlug))
       )
     }
     setPageStart(0)
     setPageEnd(ITEMS_PER_PAGE)
-  }, [selectedOptions, sortedProjects]) // triggered when list is changed
+
+    //3. search query
+    // if search query is used, we will now apply search results, to filteredProjects
+    if (searchQuery.length > 0) {
+      for (let i = 0; i < filteredProjects.length; i++) {
+        filteredProjects[i]["topicNames"] = flattenTopics(filteredProjects[i])
+      }
+      search.addDocuments(filteredProjects)
+      let searchResults = search.search(searchQuery)
+      if (searchResults.length > 0) {
+        filteredProjects = searchResults
+      }
+    }
+
+    setFilterOptions(getTopics(filteredProjects))
+    //now filteredProjects has gone through all 3 checks
+    //ready to update displayProjects
+    setDisplayProjects(filteredProjects)
+    //setDisplayProjects will trigger an updated display
+  }, [selectedOptions, sortedProjects, searchQuery]) // triggered when list is changed
 
   const selectStyle = {
     placeholder: (provided) => ({ ...provided, color: "#767676" }),
@@ -221,6 +268,12 @@ export const ProjectPage = ({
               onChange={setSelectedOptions}
               options={filterOptions}
               styles={selectStyle}
+            />
+          </div>
+          <div className="flex-1 min-w-30ch auto-rows-auto flex flex-col">
+            <SearchBar
+              label={"Search"}
+              onChange={(e) => setSearchQuery(e.target.value)}
             />
           </div>
         </div>

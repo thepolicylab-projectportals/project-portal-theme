@@ -438,7 +438,6 @@ const Index = () => {
       <ContactForm />
       <ProjectPage
         allProjects={allProjects}
-        allTopics={[]}
         bgImage={headerImageSrc}
         title={"sample title"}
         lede={"sample lede"}
@@ -446,7 +445,6 @@ const Index = () => {
       />
       <ProjectPage
         allProjects={[]}
-        allTopics={[]}
         bgImage={headerImageSrc}
         title={"sample title"}
         lede={"sample lede"}
