@@ -2,6 +2,7 @@ import React, { FunctionComponent } from "react"
 import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image"
 import { useStaticText } from "../hooks"
 import { graphql, useStaticQuery } from "gatsby"
+import {SignUpForm} from "./SignUpForm";
 
 // This is the same structure as the "footer" part of the useStaticText query,
 // so that we can pass the staticText.footer unchanged into the code
@@ -61,7 +62,6 @@ export const FooterLayout: FunctionComponent<FooterProps> = ({
     </footer>
   )
 }
-
 const ListItem = ({ target, children }) => {
   return (
     <li className="block px-2 py-2 lg:inline-block lg:ml-6 underline hover:no-underline text-center">

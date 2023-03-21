@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "build": "yarn workspace example build",
-    "test": "jest --passWithNoTests"
+    "test": "jest --passWithNoTests",
+    "start-api": "netlify-lambda serve .netlify/functions"
   },
   "workspaces": [
     "packages/*"
@@ -18,5 +19,9 @@
   },
   "engines": {
     "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "formik": "^2.2.9",
+    "yup": "^1.0.2"
   }
 }

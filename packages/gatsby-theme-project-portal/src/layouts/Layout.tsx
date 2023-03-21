@@ -4,7 +4,7 @@ import {
   BottomBanner,
   DevelopmentBanner,
   Navbar,
-  SiteMetadata,
+  SiteMetadata, SignUpForm,
 } from "../components"
 import { useProjectPortalConfig } from "../hooks"
 
@@ -39,6 +39,9 @@ export const Layout: FunctionComponent<LayoutProps> = ({
       <Navbar activePage={activePage} />
       <div className="flex-1">{children}</div>
       <BottomBanner />
+        <div className="flex items-center justify-center p-5">
+            <SignUpForm/>
+        </div>
       <Footer />
     </div>
   )
