@@ -12,6 +12,8 @@ import {
   TopicType,
 } from "."
 
+import { ProjectFAQ } from "./ProjectFAQ"
+
 import { statusOutput, isNA, isEmpty } from "../utils"
 
 export interface ProjectDetailLayoutProps {
@@ -38,6 +40,12 @@ export interface ProjectDetailLayoutProps {
 
   // Project team
   projectTeam?: ContactType[]
+
+  // (Optional) FAQ
+  faq: {
+    title: string
+    text: string
+  }[]
 
   // Metadata
   status: string
@@ -72,6 +80,7 @@ export const ProjectDetailLayout: FunctionComponent<
   emailContent,
   mainContact,
   projectTeam,
+  faq,
 }) => {
   return (
     <article>
@@ -210,6 +219,25 @@ export const ProjectDetailLayout: FunctionComponent<
           <>
             <hr className="my-8 border-gray-300 m-responsive" />
             <ProjectTeam title="Project Team" contacts={projectTeam} />
+          </>
+        )}
+        {!isEmpty(faq) && (
+          <>
+            <hr className="my-8 border-gray-300 m-responsive" />
+            <div className="flex items-start gap-4 overflow-hidden flex-nowrap justify-left">
+              <section className="mb-20">
+                <h2 className="text-h3 sm:text-h2 my-6">
+                  Frequently Asked Questions
+                </h2>
+                {faq.map(({ title, text }, i) => (
+                  <ProjectFAQ
+                    key={"collapsibleList_" + i}
+                    title={title}
+                    text={text}
+                  />
+                ))}
+              </section>
+            </div>
           </>
         )}
       </div>
