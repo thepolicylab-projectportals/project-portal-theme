@@ -41,7 +41,8 @@ module.exports = (themeOptions) => {
             themeOptionsWithDefaults.tailwindConfig.theme.extend.colors
               .background,
           theme_color:
-            themeOptionsWithDefaults.tailwindConfig.theme.extend.colors.primary,
+            themeOptionsWithDefaults.tailwindConfig.theme.extend.colors
+              .primaryTPL,
           display: `standalone`,
           icon: themeOptionsWithDefaults.faviconPath,
         },

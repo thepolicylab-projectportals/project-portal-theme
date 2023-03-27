@@ -25,11 +25,11 @@ const NavbarItem: FunctionComponent<NavbarItemProps> = ({
         <span className="flex items-center p-5 leading-snug text-white hover:opacity-75 xl:text-black xl:px-3 xl:py-2">
           <Link to={link ? link : "#pablo"}>
             {isActive ? (
-              <span className="text-nav pb-1 ml-2 font-bold border-b-2 border-white xl:border-primary">
+              <span className="text-nav pb-1 ml-2 font-bold border-b-2 border-white xl:border-primaryTPL">
                 {name}
               </span>
             ) : (
-              <span className="text-nav pb-1 ml-2 border-b-2 hover:border-primary xl:border-transparent">
+              <span className="text-nav pb-1 ml-2 border-b-2 hover:border-primaryTPL xl:border-transparent">
                 {name}
               </span>
             )}
@@ -69,7 +69,7 @@ export const NavbarLayout: FunctionComponent<NavbarLayoutProps> = ({
         <div className="flex flex-wrap justify-between w-full px-0 xl:px-4">
           <div className="relative flex flex-no-wrap w-full xl:static xl:block xl:w-auto">
             <button
-              className="block p-6 ml-0 text-xl leading-none text-white outline-none cursor-pointer bg-primary xl:hidden focus:outline-none"
+              className="block p-6 ml-0 text-xl leading-none text-white outline-none cursor-pointer bg-primaryTPL xl:hidden focus:outline-none"
               type="button"
               aria-label="Open navigation menu"
               onClick={() => setNavbarOpen(!navbarOpen)}
@@ -85,7 +85,7 @@ export const NavbarLayout: FunctionComponent<NavbarLayoutProps> = ({
           </div>
           <div
             className={
-              "absolute top-16 w-full md:w-2/3 xl:w-auto xl:relative xl:top-0 flex-grow items-center bg-primary xl:bg-transparent xl:flex xl:bg-navbar z-10 xl:z-0 transition-transform drop-shadow-lg filter xl:drop-shadow-none" +
+              "absolute top-16 w-full md:w-2/3 xl:w-auto xl:relative xl:top-0 flex-grow items-center bg-primaryTPL xl:bg-transparent xl:flex xl:bg-navbar z-10 xl:z-0 transition-transform drop-shadow-lg filter xl:drop-shadow-none" +
               (navbarOpen ? " flex" : " hidden")
             }
             id="example-navbar-danger"

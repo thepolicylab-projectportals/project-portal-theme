@@ -62,7 +62,7 @@ export const Card: FunctionComponent<CardProps> = ({
 }) => {
   return (
     <article>
-      <div className="px-2 py-4 overflow-hidden bg-white border border-gray-200 rounded-md shadow-sm h-full">
+      <div className="px-2 py-4 overflow-hidden bg-white border border-grayTPL-200 rounded-md shadow-sm h-full">
         <Link to={`/project/${slug}`} state={{ navigation }}>
           <div className="flex flex-col h-full">
             <div className="mt-4 ml-4">

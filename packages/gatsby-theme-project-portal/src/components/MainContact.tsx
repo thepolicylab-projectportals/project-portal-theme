@@ -34,7 +34,7 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
       : staticText.main_contact_text.completeText
   return (
     <div className="w-full lg:w-2/5 xl:w-1/3">
-      <div className="w-full p-8 mb-8 bg-gray-100">
+      <div className="w-full p-8 mb-8 bg-grayTPL-100">
         <h4 className="text-h4">
           {statusOutput(
             status,
@@ -68,7 +68,7 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
           )}
         </div>
       </div>
-      <div className="w-full p-8 my-8 bg-gray-100">
+      <div className="w-full p-8 my-8 bg-grayTPL-100">
         <h4 className="text-h4">Project point of contact</h4>
         <div className="mt-4 text-body">
           <Contact

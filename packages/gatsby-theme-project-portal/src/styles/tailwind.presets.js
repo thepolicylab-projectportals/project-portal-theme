@@ -16,14 +16,14 @@ module.exports = {
     },
     extend: {
       colors: {
-        gray: colors.neutral,
+        grayTPL: colors.neutral,
         link: "#005EA2",
         topics: "#73B3E7",
         navbar: "#ECF0F3",
         bottombanner: "#ffffff",
         footer: "#ECF0F3",
         footertext: "#092940",
-        primary: colors.cyan[500],
+        primaryTPL: colors.cyan[500],
         primarydark: colors.cyan[800],
         warning: colors.amber[500],
         background: "#fafafa",

@@ -76,7 +76,7 @@ export const ProjectDetailLayout: FunctionComponent<
   return (
     <article>
       <header>
-        <div className="py-16 p-responsive bg-primary">
+        <div className="py-16 p-responsive bg-primaryTPL">
           <div className="flex flex-col justify-between m-responsive lg:flex-row">
             <div className="w-auto">
               <h1 className="text-h3 sm:text-h2 w-full font-bold leading-h2 text-white lg:w-4/5">
@@ -195,7 +195,7 @@ export const ProjectDetailLayout: FunctionComponent<
 
         {status === "open" && (
           <>
-            <hr className="my-8 border-gray-300 m-responsive" />
+            <hr className="my-8 border-grayTPL-300 m-responsive" />
             <CollaboratorDetails
               {...{
                 expertise,
@@ -208,7 +208,7 @@ export const ProjectDetailLayout: FunctionComponent<
 
         {!isEmpty(projectTeam) && (
           <>
-            <hr className="my-8 border-gray-300 m-responsive" />
+            <hr className="my-8 border-grayTPL-300 m-responsive" />
             <ProjectTeam title="Project Team" contacts={projectTeam} />
           </>
         )}

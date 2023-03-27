@@ -15,7 +15,7 @@ export const MarkdownText = ({ text, ...props }: MarkdownTextProps) => {
         overrides: {
           a: {
             props: {
-              className: "text-link underline hover:no-underline",
+              className: "text-linkTPL underline hover:no-underline",
             },
           },
           p: {

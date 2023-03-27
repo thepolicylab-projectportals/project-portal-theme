@@ -287,7 +287,9 @@ export const ProjectPage = ({
           <div className="flex-1 flex justify-end">
             <button
               className={`font-bold pr-4 ${
-                hasPrev ? "text-primary" : "text-gray-500 pointer-events-none"
+                hasPrev
+                  ? "text-primaryTPL"
+                  : "text-gray-500 pointer-events-none"
               }`}
               onClick={handleLoadPrev}
             >
@@ -314,7 +316,9 @@ export const ProjectPage = ({
           <div className="flex-1 flex justify-start">
             <button
               className={`font-bold pl-4 ${
-                hasNext ? "text-primary" : "text-gray-500 pointer-events-none"
+                hasNext
+                  ? "text-primaryTPL"
+                  : "text-gray-500 pointer-events-none"
               }`}
               onClick={handleLoadNext}
             >

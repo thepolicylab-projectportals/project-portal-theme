@@ -1,8 +1,13 @@
-import React, {ChangeEventHandler, Dispatch, FunctionComponent, SetStateAction} from "react"
+import React, {
+  ChangeEventHandler,
+  Dispatch,
+  FunctionComponent,
+  SetStateAction,
+} from "react"
 
 interface SearchBarProps {
   label: string
-  onChange:  any
+  onChange: any
 }
 
 export const SearchBar: FunctionComponent<SearchBarProps> = ({
@@ -15,8 +20,8 @@ export const SearchBar: FunctionComponent<SearchBarProps> = ({
         {label}
       </label>
       <input
-        className="rounded border-gray-300 hover:border-gray-400"
-        style={{height: "62%"}}
+        className="rounded border-grayTPL-300 hover:border-grayTPL-400"
+        style={{ height: "62%" }}
         type="text"
         aria-label="Search"
         placeholder="Type to filter posts..."
