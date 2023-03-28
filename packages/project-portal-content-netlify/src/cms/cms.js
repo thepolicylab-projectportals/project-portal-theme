@@ -197,14 +197,14 @@ CMS.init({
             fields: [
               {
                 name: "title",
-                label: "Title",
+                label: "Question",
                 widget: "string",
                 required: false,
                 hint: "The heading which is shown before the user expands the text block",
               },
               {
                 name: "text",
-                label: "Text",
+                label: "Answer",
                 widget: "markdown",
                 required: false,
                 hint: "The text which is shown when the user expands the text block",
@@ -413,14 +413,14 @@ CMS.init({
                 fields: [
                   {
                     name: "title",
-                    label: "Title",
+                    label: "Question",
                     widget: "string",
                     required: false,
                     hint: "The heading which is shown before the user expands the text block",
                   },
                   {
                     name: "text",
-                    label: "Text",
+                    label: "Answer",
                     widget: "markdown",
                     required: false,
                     hint: "The text which is shown when the user expands the text block",
