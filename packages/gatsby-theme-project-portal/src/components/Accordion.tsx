@@ -3,12 +3,12 @@ import { Disclosure } from "@headlessui/react"
 import { FaMinus, FaPlus } from "react-icons/fa"
 import { MarkdownText } from "./MarkdownText"
 
-interface FaqProps {
+interface AccordionProps {
   title: string
   text: string
 }
 
-export const ProjectFAQ: React.FC<FaqProps> = ({ title, text }) => {
+export const Accordion: React.FC<AccordionProps> = ({ title, text }) => {
   return (
     <div className="w-full my-6">
       <Disclosure>
