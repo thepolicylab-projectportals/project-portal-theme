@@ -12,6 +12,8 @@ import {
   TopicType,
 } from "."
 
+import { Accordion } from "./Accordion"
+
 import { statusOutput, isNA, isEmpty } from "../utils"
 
 export interface ProjectDetailLayoutProps {
@@ -38,6 +40,12 @@ export interface ProjectDetailLayoutProps {
 
   // Project team
   projectTeam?: ContactType[]
+
+  // (Optional) FAQ
+  faq: {
+    title: string
+    text: string
+  }[]
 
   // Metadata
   status: string
@@ -72,6 +80,7 @@ export const ProjectDetailLayout: FunctionComponent<
   emailContent,
   mainContact,
   projectTeam,
+  faq,
 }) => {
   return (
     <article>
@@ -181,6 +190,20 @@ export const ProjectDetailLayout: FunctionComponent<
                 <div className="w-full mt-4 lg:w-11/12">
                   <SectionOfItem label="Helpful links" value={priorResearch} />
                 </div>
+              )}
+              {!isEmpty(faq) && (
+                <>
+                  <section className="w-full mt-10 lg:w-11/12">
+                    <h3 className="text-h3">Frequently Asked Questions</h3>
+                    {faq.map(({ title, text }, i) => (
+                      <Accordion
+                        key={"collapsibleList_" + i}
+                        title={title}
+                        text={text}
+                      />
+                    ))}
+                  </section>
+                </>
               )}
             </div>
             {!(mainContact === null || mainContact === undefined) && (

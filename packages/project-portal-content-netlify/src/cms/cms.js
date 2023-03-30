@@ -190,6 +190,28 @@ CMS.init({
             hint: 'People or organizations who are involved. To create a new contact or modify an existing one, go to the "Contacts" collection.',
           },
           {
+            name: "faq",
+            label: "FAQ",
+            widget: "list",
+            required: false,
+            fields: [
+              {
+                name: "title",
+                label: "Question",
+                widget: "string",
+                required: false,
+                hint: "The heading which is shown before the user expands the text block",
+              },
+              {
+                name: "text",
+                label: "Answer",
+                widget: "markdown",
+                required: false,
+                hint: "The text which is shown when the user expands the text block",
+              },
+            ],
+          },
+          {
             name: "created",
             label: "Date Posted",
             widget: "datetime",
@@ -391,14 +413,14 @@ CMS.init({
                 fields: [
                   {
                     name: "title",
-                    label: "Title",
+                    label: "Question",
                     widget: "string",
                     required: false,
                     hint: "The heading which is shown before the user expands the text block",
                   },
                   {
                     name: "text",
-                    label: "Text",
+                    label: "Answer",
                     widget: "markdown",
                     required: false,
                     hint: "The text which is shown when the user expands the text block",

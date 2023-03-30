@@ -30,6 +30,7 @@ import { ContactForm } from "@thepolicylab-projectportals/gatsby-theme-project-p
 
 import { useStaticQuery, graphql } from "gatsby"
 import { getImage } from "gatsby-plugin-image"
+import AccordionTest from "./accordion"
 
 var markdownContent = `
 
@@ -450,6 +451,10 @@ const Index = () => {
         lede={"sample lede"}
         sortOptions={["endDate", "created"]}
       />
+      <div>
+        ____________________________TEST__ACCORDION____________________________
+      </div>
+      <AccordionTest />
     </>
   )
 }
