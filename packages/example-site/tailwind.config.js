@@ -28,7 +28,7 @@ module.exports = {
         bottombanner: "#ffffff",
         footer: "#ECF0F3",
         footertext: "#092940",
-        primary: "#00376D",
+        primaryTPL: "#00376D",
         primarydark: "#092940",
       },
     },
