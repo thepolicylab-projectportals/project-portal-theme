@@ -289,7 +289,7 @@ export const ProjectPage = ({
               className={`font-bold pr-4 ${
                 hasPrev
                   ? "text-primaryTPL"
-                  : "text-gray-500 pointer-events-none"
+                  : "text-grayTPL-500 pointer-events-none"
               }`}
               onClick={handleLoadPrev}
             >
@@ -318,7 +318,7 @@ export const ProjectPage = ({
               className={`font-bold pl-4 ${
                 hasNext
                   ? "text-primaryTPL"
-                  : "text-gray-500 pointer-events-none"
+                  : "text-grayTPL-500 pointer-events-none"
               }`}
               onClick={handleLoadNext}
             >
