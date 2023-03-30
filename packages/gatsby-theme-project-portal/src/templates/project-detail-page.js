@@ -59,6 +59,10 @@ export const query = graphql`
           }
         }
       }
+      faq {
+        text
+        title
+      }
     }
   }
 `

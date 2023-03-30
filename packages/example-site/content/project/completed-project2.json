@@ -26,6 +26,16 @@
   "employer": "example employer",
   "email": "example email",
   "description": "example description",
+  "faq": [
+    {
+      "title": "This is another question?",
+      "text": "We are looking for answers to specific projects."
+    },
+    {
+      "title": "Here's another question on the CMS side",
+      "text": "H﻿ere's an answer for that question! Yay!"
+    }
+  ],
   "emailContent": "example emailContent",
   "purpose": "example purpose",
   "key": "example key",

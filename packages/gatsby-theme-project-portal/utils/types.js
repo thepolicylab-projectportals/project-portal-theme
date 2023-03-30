@@ -49,6 +49,7 @@ const projectPortalConfigTypeDefs = `
 const PROJECT_NODE_TYPE = `Project`
 const CONTACT_NODE_TYPE = `Contact`
 const TOPIC_NODE_TYPE = `Topic`
+const TITLE_AND_TEXT_TYPE = `TitleAndText`
 
 const projectTypeDefs = `
     interface ${PROJECT_NODE_TYPE} implements Node {
@@ -83,6 +84,8 @@ const projectTypeDefs = `
       
       mainContact: ${CONTACT_NODE_TYPE}
       projectTeam: [${CONTACT_NODE_TYPE}]
+      
+      faq: [${TITLE_AND_TEXT_TYPE}]
     }
     
     interface ${TOPIC_NODE_TYPE} implements Node {
@@ -111,7 +114,6 @@ const contactTypeDefs = `
 const CARD_PAGE_NODE_TYPE = `cardPage`
 const CARD_PAGE_FILTER_TYPE = `cardPageFilterOn`
 const GENERAL_PAGE_NODE_TYPE = `generalPage`
-const TITLE_AND_TEXT_TYPE = `TitleAndText`
 const pageTypeDefs = `
   interface ${CARD_PAGE_NODE_TYPE} implements Node {
     id: ID!

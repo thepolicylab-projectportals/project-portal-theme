@@ -91,6 +91,9 @@ exports.createSchemaCustomization = ({ actions, schema, getNode }) => {
         requirement: "String",
         keyDates: "String",
         statusOfData: "String",
+        faq: {
+          type: [TITLE_AND_TEXT_TYPE],
+        },
         priorResearch: "String",
         fundingInfo: "String",
         emailContent: "String",
