@@ -3356,7 +3356,7 @@ __metadata:
     autoprefixer: ^10.4.13
     gatsby-plugin-image: ^3.6.0
     gatsby-plugin-manifest: ^5.3.1
-    gatsby-plugin-postcss: ^6.3.0
+    gatsby-plugin-postcss: ^6.8.0
     gatsby-plugin-robots-txt: ^1.8.0
     gatsby-plugin-sharp: ^5.6.0
     gatsby-source-filesystem: ^5.7.0
@@ -9014,16 +9014,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-postcss@npm:^6.3.0":
-  version: 6.5.0
-  resolution: "gatsby-plugin-postcss@npm:6.5.0"
+"gatsby-plugin-postcss@npm:^6.8.0":
+  version: 6.8.0
+  resolution: "gatsby-plugin-postcss@npm:6.8.0"
   dependencies:
-    "@babel/runtime": ^7.20.7
+    "@babel/runtime": ^7.20.13
     postcss-loader: ^7.0.2
   peerDependencies:
     gatsby: ^5.0.0-next
     postcss: ^8.0.5
-  checksum: a5e56c7996051e557a25adb3c4095c8a1815f227388667e0fadfdb7ce87820c6c70f596b525c1745ce4215ca92f1d044dc789f7d3107a05dc5a704042ad1a828
+  checksum: 9c5cccff1ae28524c1591b2c026df7672331f11b3ab51da42d2d82ce3ea5871e6911c76c62f7f88e6d38ac6b9341362c75cdb6caaf29b11a571dbf50100e1ea3
   languageName: node
   linkType: hard
 
