@@ -3382,7 +3382,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@thepolicylab-projectportals/project-portal-content-netlify@workspace:packages/project-portal-content-netlify"
   dependencies:
-    gatsby-plugin-netlify-cms: ^7.6.0
+    gatsby-plugin-netlify-cms: ^7.8.0
     gatsby-source-filesystem: ^5.7.0
     gatsby-transformer-json: 5.6.0
     netlify-cms-app: ^2.15.72
@@ -8969,9 +8969,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-netlify-cms@npm:^7.6.0":
-  version: 7.6.0
-  resolution: "gatsby-plugin-netlify-cms@npm:7.6.0"
+"gatsby-plugin-netlify-cms@npm:^7.8.0":
+  version: 7.8.0
+  resolution: "gatsby-plugin-netlify-cms@npm:7.8.0"
   dependencies:
     "@babel/runtime": ^7.20.13
     "@soda/friendly-errors-webpack-plugin": 1.8.1
@@ -8988,7 +8988,7 @@ __metadata:
     react: ^18.0.0 || ^0.0.0
     react-dom: ^18.0.0 || ^0.0.0
     webpack: ^5.0.0
-  checksum: b83e6de76700aac6a4869083775665d0fe87931fd1cc00f2c718631ea181e919221c269b5554f859095b4d015fb479d82e78eecdc77351caaa8f22b48803b179
+  checksum: 8017c15c0a12af4b3b4b70f0c06852f55080a8a2d9a0764d72512126e90aacc13eacb4370768c6671873eedb48544b0e2821adace76bd0e9fa2e3128269d898e
   languageName: node
   linkType: hard
 
