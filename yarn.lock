@@ -3360,7 +3360,7 @@ __metadata:
     gatsby-plugin-robots-txt: ^1.8.0
     gatsby-plugin-sharp: ^5.6.0
     gatsby-source-filesystem: ^5.7.0
-    gatsby-transformer-sharp: ^5.6.0
+    gatsby-transformer-sharp: ^5.8.0
     js-search: ^2.0.0
     lodash: ^4.17.21
     markdown-to-jsx: ^7.1.9
@@ -8077,7 +8077,7 @@ __metadata:
     gatsby-plugin-image: ^3.6.0
     gatsby-plugin-sharp: ^5.6.0
     gatsby-source-filesystem: ^5.7.0
-    gatsby-transformer-sharp: ^5.6.0
+    gatsby-transformer-sharp: ^5.8.0
     react: ^18.2.0
     react-dom: ^18.2.0
   languageName: unknown
@@ -9228,22 +9228,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-transformer-sharp@npm:^5.6.0":
-  version: 5.6.0
-  resolution: "gatsby-transformer-sharp@npm:5.6.0"
+"gatsby-transformer-sharp@npm:^5.8.0":
+  version: 5.8.0
+  resolution: "gatsby-transformer-sharp@npm:5.8.0"
   dependencies:
     "@babel/runtime": ^7.20.13
     bluebird: ^3.7.2
     common-tags: ^1.8.2
     fs-extra: ^11.1.0
-    gatsby-plugin-utils: ^4.6.0
+    gatsby-plugin-utils: ^4.8.0
     probe-image-size: ^7.2.3
     semver: ^7.3.8
     sharp: ^0.31.3
   peerDependencies:
     gatsby: ^5.0.0-next
     gatsby-plugin-sharp: ^5.0.0-next
-  checksum: ec87b86a8a06aad7fb6d91310decdd86cdc19dae86f9ebe2f95f9cc23807638e5ece98e3ff9442fb5f40cf45af4ac3ff7d8ff9c123626a87c76de3db6b195462
+  checksum: fef51109b28e690cc49ca344311c99859fe4334b8a98749f17fb98a278b1ce0f2260600e0ccba2253daadbc016154164abd178cd5686ac772a3c305cd02a3a33
   languageName: node
   linkType: hard
 
