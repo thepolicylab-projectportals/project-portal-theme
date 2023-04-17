@@ -30,4 +30,5 @@ jobs:
   call-ci-workflow:
     uses: thepolicylab-projectportals/.github/.github/workflows/pa11y-ci.yml@yarn2
     secrets: inherit
-    site-name: ${{ matrix.site }}
+    with:
+      site-name: ${{ matrix.site }}
