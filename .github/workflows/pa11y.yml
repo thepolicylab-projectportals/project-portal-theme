@@ -16,3 +16,4 @@ jobs:
     secrets: inherit
     with:
       yarn-command: "yarn workspace ${{ matrix.site }}"
+      site-name: "${{ matrix.site }}"
