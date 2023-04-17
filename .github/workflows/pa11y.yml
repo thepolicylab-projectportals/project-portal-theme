@@ -28,7 +28,7 @@ jobs:
           cache: 'yarn'
 
   call-ci-workflow:
-    uses: thepolicylab-projectportals/.github/.github/workflows/pa11y-ci.yml@yarn2
+    uses: thepolicylab-projectportals/.github/.github/workflows/pa11y-ci.yml@main
     secrets: inherit
     with:
       site-name: ${{ matrix.site }}
