@@ -27,7 +27,7 @@
     "gatsby-plugin-robots-txt": "^1.8.0",
     "gatsby-plugin-sharp": "^5.6.0",
     "gatsby-source-filesystem": "^5.7.0",
-    "gatsby-transformer-sharp": "^5.6.0",
+    "gatsby-transformer-sharp": "^5.9.0",
     "js-search": "^2.0.0",
     "lodash": "^4.17.21",
     "markdown-to-jsx": "^7.1.9",
