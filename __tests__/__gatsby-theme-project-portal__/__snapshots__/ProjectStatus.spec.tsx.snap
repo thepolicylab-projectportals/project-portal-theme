@@ -30,24 +30,3 @@ exports[`Test if the ProjectStatus component is working as expected <ProjectStat
   </div>
 </div>
 `;
-
-exports[`test DevelopmentBanner Component should render year if post is from 2019 1`] = `
-<div>
-  <div
-    class="py-6 overflow-hidden bg-warning text-center"
-  >
-    <h4>
-      ⚠️ This is a beta site.
-       
-      <a
-        class="underline hover:no-underline"
-        href="/contact"
-      >
-        We welcome feedback!
-      </a>
-       
-      ⚠️
-    </h4>
-  </div>
-</div>
-`;
