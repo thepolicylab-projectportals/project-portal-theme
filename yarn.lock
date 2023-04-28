@@ -3365,7 +3365,7 @@ __metadata:
     gatsby-plugin-manifest: ^5.8.0
     gatsby-plugin-postcss: ^6.8.0
     gatsby-plugin-robots-txt: ^1.8.0
-    gatsby-plugin-sharp: ^5.6.0
+    gatsby-plugin-sharp: ^5.9.0
     gatsby-source-filesystem: ^5.7.0
     gatsby-transformer-sharp: ^5.9.0
     js-search: ^2.0.0
@@ -8096,7 +8096,7 @@ __metadata:
     "@thepolicylab-projectportals/gatsby-theme-project-portal": ^0.0.0
     gatsby: ^5.8.1
     gatsby-plugin-image: ^3.6.0
-    gatsby-plugin-sharp: ^5.6.0
+    gatsby-plugin-sharp: ^5.9.0
     gatsby-source-filesystem: ^5.7.0
     gatsby-transformer-sharp: ^5.9.0
     react: ^18.2.0
@@ -9093,25 +9093,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-sharp@npm:^5.6.0":
-  version: 5.6.0
-  resolution: "gatsby-plugin-sharp@npm:5.6.0"
+"gatsby-plugin-sharp@npm:^5.9.0":
+  version: 5.9.0
+  resolution: "gatsby-plugin-sharp@npm:5.9.0"
   dependencies:
     "@babel/runtime": ^7.20.13
     async: ^3.2.4
     bluebird: ^3.7.2
     debug: ^4.3.4
     filenamify: ^4.3.0
-    fs-extra: ^11.1.0
-    gatsby-core-utils: ^4.6.0
-    gatsby-plugin-utils: ^4.6.0
+    fs-extra: ^11.1.1
+    gatsby-core-utils: ^4.9.0
+    gatsby-plugin-utils: ^4.9.0
     lodash: ^4.17.21
     probe-image-size: ^7.2.3
     semver: ^7.3.8
     sharp: ^0.31.3
   peerDependencies:
     gatsby: ^5.0.0-next
-  checksum: 95b8931aeee5f886a5216ebcf95a2972fd060a982c268e154746a6268ff1db7e9a6bccb11eac50d97a88dbc78eae4010ff9034958207869a4059bb6b5d2859ca
+  checksum: 0ec3f8380ebe8bff487a02a6d2ce0eb6f616608e7f390f1466d111880659e54d8c554af63f906505c22b31362b70530986c922e0f2fead59282d6a1c51fa611c
   languageName: node
   linkType: hard
 
