@@ -11,7 +11,7 @@
   "dependencies": {
     "@thepolicylab-projectportals/gatsby-theme-project-portal": "^0.0.0",
     "gatsby": "^5.8.1",
-    "gatsby-plugin-image": "^3.6.0",
+    "gatsby-plugin-image": "^3.9.0",
     "gatsby-plugin-sharp": "^5.9.0",
     "gatsby-source-filesystem": "^5.7.0",
     "gatsby-transformer-sharp": "^5.9.0",
