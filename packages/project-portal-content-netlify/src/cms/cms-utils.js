@@ -1,12 +1,16 @@
 if (typeof window !== "undefined") {
   // add admin.css
-  const link = document.createElement("link")
-  link.type = "text/css"
-  link.rel = "stylesheet"
-  link.href = "/admin/admin.css"
-  document.head.appendChild(link)
-  console.log(link.href)
-  console.log()
+  const styles =
+    "[data-slate-editor] {-webkit-user-modify: read-write !important;" + "}\n"
+  const css = document.createElement("style")
+  css.type = "text/css"
+  if (css.styleSheet) {
+    css.styleSheet.cssText = styles
+  } else {
+    css.appendChild(document.createTextNode(styles))
+  }
+
+  document.head.appendChild(css)
 
   if (process.env.NETLIFY_SITE_URL) {
     window.localStorage.setItem("netlifySiteURL", process.env.NETLIFY_SITE_URL)
