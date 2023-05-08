@@ -88,7 +88,7 @@ export const ProjectDetailLayout: FunctionComponent<
         <div className="py-16 p-responsive bg-primary">
           <div className="flex flex-col justify-between m-responsive lg:flex-row">
             <div className="w-auto">
-              <h1 className="text-h3 sm:text-h2 w-full font-bold leading-h2 text-white lg:w-4/5">
+              <h1 className="text-h2 md:text-h2 w-full font-bold leading-h2 text-white lg:w-4/5">
                 {question}
               </h1>
               {
