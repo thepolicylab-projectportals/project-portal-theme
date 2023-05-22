@@ -20,26 +20,26 @@ export const ShareProject: React.FC = () => {
       <h4 className="font-bold text-white text-xl lg:text-h4">
         Share this project
       </h4>
-      <div className="flex gap-6 mt-1 flex-nowrap place-content-start lg:gap-1">
+      <div className="flex gap-6 mt-1 flex-nowrap place-content-start text-5xl text-white lg:text-2xl lg:gap-1">
         <FacebookShareButton
           url={url}
           resetButtonStyle={true}
           className="shared"
         >
-          <FaFacebookSquare className="text-5xl text-white lg:text-2xl" />
+          <FaFacebookSquare />
         </FacebookShareButton>
         <TwitterShareButton url={url} resetButtonStyle={true}>
-          <FaTwitterSquare className="text-5xl text-white lg:text-2xl" />
+          <FaTwitterSquare />
         </TwitterShareButton>
         <LinkedinShareButton url={url} resetButtonStyle={true}>
-          <FaLinkedin className="text-5xl text-white lg:text-2xl" />
+          <FaLinkedin />
         </LinkedinShareButton>
         <EmailShareButton
           resetButtonStyle={true}
           url={url}
           subject={"Sharing a wonderful project opportunity!"}
         >
-          <FaEnvelopeSquare className="text-5xl text-white lg:text-2xl" />
+          <FaEnvelopeSquare />
         </EmailShareButton>
       </div>
     </div>
