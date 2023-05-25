@@ -27,8 +27,5 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/thepolicylab-projectportals/project-portal-theme.git"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
   }
 }
