@@ -20,11 +20,11 @@ jobs:
       
       - name: Setup .yarnrc.yml
         run: |
-          yarn config set npmScopes.my-org.npmRegistryServer "https://npm.pkg.github.com"
-          yarn config set npmScopes.my-org.npmAlwaysAuth true
-          yarn config set npmScopes.my-org.npmAuthToken $NPM_AUTH_TOKEN
+          yarn config set npmScopes.thepolicylab-projectportals.npmRegistryServer "https://registry.npmjs.org"
+          yarn config set npmScopes.thepolicylab-projectportals.npmAlwaysAuth true
+          yarn config set npmScopes.thepolicylab-projectportals.npmAuthToken $NPM_AUTH_TOKEN
         env:
-          NPM_AUTH_TOKEN: ${{ secrets.YARN_TOKEN }}
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           
       - run: cat ".npmrc"
       - run: yarn install --immutable
@@ -39,13 +39,9 @@ jobs:
         run: |
           yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" npm publish --tag next --access public
           yarn workspace "@thepolicylab-projectportals/project-portal-content-netlify" npm publish --tag next --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           
       - name: Release packages
         if: ${{ github.event_name == 'release' && github.event.release.prerelease == false }}
         run: |
           yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" npm publish --access public
           yarn workspace "@thepolicylab-projectportals/project-portal-content-netlify" npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
