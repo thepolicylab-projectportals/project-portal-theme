@@ -1,0 +1,41 @@
+name: Publish Package to npmjs
+on:
+  release:
+    types: [published]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with: 
+          fetch-depth: 0
+      # Setup .npmrc file to publish to npm
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'yarn'
+          registry-url: 'https://registry.npmjs.org'
+          # Defaults to the user or organization that owns the workflow file
+          scope: '@thepolicylab-projectportals'
+      - run: yarn install --immutable
+      - run: yarn test
+      - name: Update version numbers
+        run: | 
+          yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" version "${{ github.ref_name }}"
+          yarn workspace "@thepolicylab-projectportals/project-portal-content-netlify" version "${{ github.ref_name }}"
+  
+      - name: Pre-release packages
+        if: ${{ github.event_name == 'release' && github.event.release.prerelease == true }}
+        run: |
+          yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" npm publish --tag next
+          yarn workspace "@thepolicylab-projectportals/project-portal-content-netlify" npm publish --tag next
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          
+      - name: Release packages
+        if: ${{ github.event_name == 'release' && github.event.release.prerelease == false }}
+        run: |
+          yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" npm publish
+          yarn workspace "@thepolicylab-projectportals/project-portal-content-netlify" npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
