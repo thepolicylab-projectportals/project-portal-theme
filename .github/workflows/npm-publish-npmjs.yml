@@ -17,6 +17,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
           # Defaults to the user or organization that owns the workflow file
           scope: '@thepolicylab-projectportals'
+      - run: cat ".npmrc"
       - run: yarn install --immutable
       - run: yarn test
       - name: Update version numbers
