@@ -24,6 +24,8 @@ jobs:
         with:
           cache: 'yarn'
           node-version: 18
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@thepolicylab-projectportals'
       - run: yarn install --immutable
       - run: yarn test
       - name: Update version numbers
@@ -37,7 +39,7 @@ jobs:
           yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" npm publish --tag next
           yarn workspace "@thepolicylab-projectportals/project-portal-content-netlify" npm publish --tag next
         env:
-          YARN_NPM_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Release packages
         if: ${{ github.event_name == 'release' && github.event.release.prerelease == false }}
@@ -45,4 +47,4 @@ jobs:
           yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" npm publish
           yarn workspace "@thepolicylab-projectportals/project-portal-content-netlify" npm publish
         env:
-          YARN_NPM_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
