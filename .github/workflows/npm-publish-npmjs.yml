@@ -17,6 +17,14 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
           # Defaults to the user or organization that owns the workflow file
           scope: '@thepolicylab-projectportals'
+      
+      - name: Setup .yarnrc.yml
+        run: |
+          yarn config set npmScopes.my-org.npmRegistryServer "https://npm.pkg.github.com"
+          yarn config set npmScopes.my-org.npmAlwaysAuth true
+          yarn config set npmScopes.my-org.npmAuthToken $NPM_AUTH_TOKEN
+        env:
+          NPM_AUTH_TOKEN: ${{ secrets.YARN_TOKEN }}
           
       - run: cat ".npmrc"
       - run: yarn install --immutable
