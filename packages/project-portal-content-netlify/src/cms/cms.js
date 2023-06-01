@@ -1,5 +1,8 @@
 import CMS from "netlify-cms-app"
 
+// Add custom styles to the index.html page
+import "./cms-utils"
+
 // The following configuration is merged with the configuration from the site's config.yml file
 // (if it exists in the site's directory static/admin/config.yml)
 CMS.init({
