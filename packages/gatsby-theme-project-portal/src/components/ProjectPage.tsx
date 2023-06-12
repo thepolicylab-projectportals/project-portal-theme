@@ -110,7 +110,7 @@ export const ProjectPage = ({
   //  state of whether there are next projects
   const [hasNext, setHasNext] = useState(pageEnd < displayProjects.length)
   const numPages = Math.ceil(displayProjects.length / ITEMS_PER_PAGE)
-  const scrollToRef = useRef()
+  const scrollToRef = useRef<HTMLDivElement>(null)
 
   const handleScroll = () => {
     scrollToRef?.current?.scrollIntoView({ behavior: "smooth" })
