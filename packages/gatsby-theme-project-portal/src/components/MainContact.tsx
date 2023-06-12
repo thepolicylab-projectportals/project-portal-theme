@@ -38,7 +38,7 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
         <h4 className="text-h4">
           {statusOutput(
             status,
-            "Interested in collaborating?",
+            "This project is open. Interested in collaborating?",
             "The project is in progress.",
             "The project is complete."
           )}
