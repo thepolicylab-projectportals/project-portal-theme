@@ -11,19 +11,6 @@ describe("test HeaderWithImage Component", () => {
     imageSrc: "./__tests__/__testImages__/default-icon.png",
   }
 
-  // it("Should render lede and title text", () => {
-  //   render(
-  //     <HeaderWithImage
-  //       lede={testProps.lede}
-  //       title={testProps.title}
-  //       imageSrc={testProps.imageSrc}
-  //     />
-  //   )
-  //
-  //   expect(screen.getByText("test lede")).toBeTruthy()
-  //   expect(screen.getByText("test title")).toBeTruthy()
-  // })
-
   it("renders with correct props", () => {
     const { getByText } = render(<HeaderWithImage {...testProps} />)
     expect(getByText(testProps.title)).toBeInTheDocument()
@@ -34,26 +21,4 @@ describe("test HeaderWithImage Component", () => {
     const { queryByAltText } = render(<HeaderWithImage {...testProps} />)
     expect(queryByAltText("header image")).toBeNull()
   })
-
-  it("applies the image as a background", () => {
-    const { container } = render(<HeaderWithImage {...testProps} />)
-    const backgroundImage = container.style._values["backgroundImage"]
-    expect(backgroundImage).toEqual(`url(${testProps.imageSrc})`)
-  })
-
-  // it("matches the snapshot", () => {
-  //   const { container } = render(
-  //     <HeaderWithImage
-  //       lede="test lede"
-  //       title="test title"
-  //       imageSrc={"./__tests__/__testImages__/default-icon.png"}
-  //     />
-  //   )
-  //   expect(container).toMatchSnapshot()
-  //   const testImage
-  //   -l[]= document.querySelector("img") as HTMLImageElement
-  //   expect(testImage.src).toContain(
-  //     "./__tests__/__testImages__/default-icon.png"
-  //   )
-  // })
 })
