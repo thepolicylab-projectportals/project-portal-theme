@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test DevelopmentBanner Component Should render development banner component 1`] = `
+<div>
+  <div
+    class="py-6 overflow-hidden bg-warning text-center"
+  >
+    <h4>
+      ⚠️ This is a beta site.
+       
+      <a
+        class="underline hover:no-underline"
+        href="/contact"
+      >
+        We welcome feedback!
+      </a>
+       
+      ⚠️
+    </h4>
+  </div>
+</div>
+`;
