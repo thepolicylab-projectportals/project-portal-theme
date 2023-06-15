@@ -3,7 +3,7 @@ import { Cards, CardProps } from "../components"
 import { HeaderWithImage } from "./HeaderWithImage"
 import { BackIcon } from "./BackIcon"
 import { ForwardIcon } from "./ForwardIcon"
-import Select from "react-select"
+import Select, { MultiValue } from "react-select"
 import * as JsSearch from "js-search"
 import { SearchBar } from "./SearchBar"
 
@@ -172,7 +172,7 @@ export const ProjectPage = ({
     setHasNext(pageEnd < displayProjects.length)
   }, [list]) // triggered when list is changed
 
-  const [selectedOptions, setSelectedOptions] = useState([])
+  const [selectedOptions, setSelectedOptions] = useState<MultiValue<any>>([])
 
   useEffect(() => {
     const sortedList = [...allProjects]
