@@ -97,7 +97,7 @@ CMS.init({
             display_fields: ["title"],
             multiple: true,
             required: true,
-            hint: "A list of themes and topics which relate to this project. To create a new topic, go to the 'Topic' collection.",
+            hint: "A list of themes and topics which relate to this project. If you can't see the topic you want, start typing its name. To create a new topic, go to the 'Topic' collection.",
           },
           {
             name: "summary",
