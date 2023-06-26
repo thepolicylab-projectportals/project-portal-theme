@@ -60,28 +60,26 @@ export const Card: FunctionComponent<CardProps> = ({
   navigation,
 }) => {
 
+  const _Component = ({t, d}) => {
+    return (
+      <>
+        <span className="font-bold">{t}</span>
+        <span>{d}</span>
+      </>
+    )
+  }
+
   const DateDisplay = () => {
   if (status === "open" && opportunityCloses) {
-    return <>
-      <span className="font-bold">Opportunity closes: </span>
-      <span>{moment(opportunityCloses).format("MMMM D, YYYY")}</span>
-    </>
+    return <_Component t="Opportunity closes: " d={moment(opportunityCloses).format("MMMM D, YYYY")} />
   } else if (status === "open") {
-    return <>
-      <span className="font-bold">Opportunity closes: </span>
-      <span>Open until filled</span>
-    </>
+    return <_Component t="Opportunity closes: " d="Open until filled" />
+
   } else if (status === "ongoing" && startDate) {
-    return <>
-      <span className="font-bold">Project started: </span>
-      <span>{moment(startDate).format("MMMM D, YYYY")}</span>
-    </>
+    return <_Component t="Project started: " d={moment(startDate).format("MMMM D, YYYY")} />
   }
   else if (status === "completed" && endDate) {
-    return <>
-      <span className="font-bold">Project ended: </span>
-      <span>{moment(endDate).format("MMMM D, YYYY")}</span>
-    </>
+    return <_Component t="Project ended: " d={moment(endDate).format("MMMM D, YYYY")}/>
   }
   else {
     return <></>
