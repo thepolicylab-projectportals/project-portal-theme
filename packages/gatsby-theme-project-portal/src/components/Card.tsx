@@ -57,9 +57,38 @@ export const Card: FunctionComponent<CardProps> = ({
   opportunityCloses,
   startDate,
   endDate,
-  lastModified,
   navigation,
 }) => {
+
+  const DateDisplay = () => {
+  if (status === "open" && opportunityCloses) {
+    return <>
+      <span className="font-bold">Opportunity closes: </span>
+      <span>{moment(opportunityCloses).format("MMMM D, YYYY")}</span>
+    </>
+  } else if (status === "open") {
+    return <>
+      <span className="font-bold">Opportunity closes: </span>
+      <span>Open until filled</span>
+    </>
+  } else if (status === "ongoing" && startDate) {
+    return <>
+      <span className="font-bold">Project started: </span>
+      <span>{moment(startDate).format("MMMM D, YYYY")}</span>
+    </>
+  }
+  else if (status === "completed" && endDate) {
+    return <>
+      <span className="font-bold">Project ended: </span>
+      <span>{moment(endDate).format("MMMM D, YYYY")}</span>
+    </>
+  }
+  else {
+    return <></>
+  }
+
+}
+
   return (
     <article>
       <div className="px-2 py-4 overflow-hidden bg-white border border-gray-200 rounded-md shadow-sm h-full">
@@ -73,37 +102,10 @@ export const Card: FunctionComponent<CardProps> = ({
                 {question}
               </div>
               <div>
-                {
-                  // This code allows you to set the defaults for key dates
-                  // For instance, change the second `true` here to `startDate` if you
-                  // do _not_ want any date to appear when the project `startDate` is
-                  // null. Note that you may also need to edit the `statusOutput` call
-                  // below and also the one in `ProjectDetail.tsx`
-                  statusOutput(status, true, true, true) !== null && (
-                    <div className="mt-4 text-body">
-                      <span className="font-bold">
-                        {statusOutput(
-                          status,
-                          "Opportunity closes: ",
-                          "Project started: ",
-                          "Project ended: "
-                        )}
-                      </span>
-                      {statusOutput(
-                        status,
-                        opportunityCloses
-                          ? moment(opportunityCloses).format("MMMM D, YYYY")
-                          : "Open until filled",
-                        startDate
-                          ? moment(startDate).format("MMMM D, YYYY")
-                          : moment(lastModified).format("MMMM D, YYYY"),
-                        endDate
-                          ? moment(endDate).format("MMMM D, YYYY")
-                          : moment(lastModified).format("MMMM D, YYYY")
-                      )}
-                    </div>
-                  )
-                }
+              <div className="mt-4 text-body">
+                <DateDisplay />
+              </div>
+
                 <div className="mb-4 text-body">
                   <span className="font-bold">Department or Agency: </span>
                   {agency}
