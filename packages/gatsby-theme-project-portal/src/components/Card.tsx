@@ -74,7 +74,6 @@ export const Card: FunctionComponent<CardProps> = ({
     return <_DateDisplayStyling t="Opportunity closes: " d={moment(opportunityCloses).format("MMMM D, YYYY")} />
   } else if (status === "open") {
     return <_DateDisplayStyling t="Opportunity closes: " d="Open until filled" />
-
   } else if (status === "ongoing" && startDate) {
     return <_DateDisplayStyling t="Project started: " d={moment(startDate).format("MMMM D, YYYY")} />
   }
