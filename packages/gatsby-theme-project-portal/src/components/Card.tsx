@@ -83,7 +83,6 @@ export const Card: FunctionComponent<CardProps> = ({
   else {
     return <></>
   }
-
 }
 
   return (
