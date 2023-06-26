@@ -73,7 +73,7 @@ CMS.init({
             default: "",
             hint:
               "The date on which the project is planned to start / did start. Required for ongoing and completed" +
-              " projects, and optional for open projects",
+              " projects, and optional for open projects. The default sorting for ongoing projects.",
           },
           {
             name: "endDate",
@@ -84,7 +84,7 @@ CMS.init({
             default: "",
             hint:
               "The date on which the project is planned to end / did end. Required for completed projects, and " +
-              "optional for open and ongoing projects.",
+              "optional for open and ongoing projects. The default sorting for completed projects.",
           },
           {
             name: "agency",
