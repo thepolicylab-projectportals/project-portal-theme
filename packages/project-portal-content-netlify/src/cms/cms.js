@@ -51,13 +51,13 @@ CMS.init({
           },
           {
             name: "created",
-            label: "Date Posted",
+            label: "Date posted",
             widget: "datetime",
             hint: "The default sorting date for open projects. Click now to put this project first.",
           },
           {
             name: "opportunityCloses",
-            label: "Opportunity Closes",
+            label: "Opportunity closes",
             widget: "date",
             required: false,
             format: "YYYY-MM-DD",
@@ -66,7 +66,7 @@ CMS.init({
           },
           {
             name: "startDate",
-            label: "Start Date",
+            label: "Project started",
             widget: "date",
             required: false,
             format: "YYYY-MM-DD",
@@ -77,7 +77,7 @@ CMS.init({
           },
           {
             name: "endDate",
-            label: "End Date",
+            label: "Project ended",
             widget: "date",
             required: false,
             format: "YYYY-MM-DD",
