@@ -20,6 +20,7 @@ CMS.init({
         create: true,
         identifier_field: "title",
         sortable_fields: ["title", "status", "lastModified"],
+        preview_path: "project/{{slug}}",
         fields: [
           {
             name: "title",
