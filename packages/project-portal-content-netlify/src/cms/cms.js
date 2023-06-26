@@ -296,6 +296,7 @@ CMS.init({
         identifier_field: "shortTitle",
         extension: "json",
         create: true,
+        preview_path: "{{slug}}",
         fields: [
           {
             name: "shortTitle",
@@ -366,6 +367,7 @@ CMS.init({
             name: "about",
             file: "content/page/about.json",
             label: "About",
+            preview_path: "{{slug}}",
             fields: [
               {
                 name: "header",
@@ -444,6 +446,7 @@ CMS.init({
             name: "contact",
             file: "content/page/contact.json",
             label: "Contact",
+            preview_path: "contact",
             fields: [
               {
                 name: "templateKey",
