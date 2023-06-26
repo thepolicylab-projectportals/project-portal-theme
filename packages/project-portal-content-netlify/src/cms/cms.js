@@ -62,7 +62,8 @@ CMS.init({
             required: false,
             format: "YYYY-MM-DD",
             default: "",
-            hint: 'For "open" projects, the date on which the chance to collaborate ceases.',
+            hint: "The date on which the chance to collaborate ceases. " +
+              "(After this point the collaborators will be decided.)",
           },
           {
             name: "startDate",
@@ -72,7 +73,7 @@ CMS.init({
             format: "YYYY-MM-DD",
             default: "",
             hint:
-              "The date on which the project is planned to start / did start. Required for ongoing and completed" +
+              "The date on which the project started. Required for ongoing and completed" +
               " projects, and optional for open projects. The default sorting for ongoing projects.",
           },
           {
@@ -83,7 +84,7 @@ CMS.init({
             format: "YYYY-MM-DD",
             default: "",
             hint:
-              "The date on which the project is planned to end / did end. Required for completed projects, and " +
+              "The date on which the project ended. Required for completed projects, and " +
               "optional for open and ongoing projects. The default sorting for completed projects.",
           },
           {
