@@ -50,6 +50,12 @@ CMS.init({
             required: true,
           },
           {
+            name: "created",
+            label: "Date Posted",
+            widget: "datetime",
+            hint: "The default sorting date for open projects. Click now to put this project first.",
+          },
+          {
             name: "opportunityCloses",
             label: "Opportunity Closes",
             widget: "date",
@@ -213,12 +219,6 @@ CMS.init({
                 hint: "The text which is shown when the user expands the text block",
               },
             ],
-          },
-          {
-            name: "created",
-            label: "Date Posted",
-            widget: "datetime",
-            hint: "The default sorting date for open projects. Click now to put this project first.",
           },
           {
             name: "lastModified",
