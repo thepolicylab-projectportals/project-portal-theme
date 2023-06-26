@@ -105,7 +105,6 @@ export const Card: FunctionComponent<CardProps> = ({
               <div className="mt-4 text-body">
                 <DateDisplay />
               </div>
-
                 <div className="mb-4 text-body">
                   <span className="font-bold">Department or Agency: </span>
                   {agency}
