@@ -20,6 +20,7 @@ CMS.init({
         create: true,
         identifier_field: "title",
         sortable_fields: ["title", "status", "lastModified"],
+        preview_path: "project/{{slug}}",
         fields: [
           {
             name: "title",
@@ -50,35 +51,42 @@ CMS.init({
             required: true,
           },
           {
+            name: "created",
+            label: "Date posted",
+            widget: "datetime",
+            hint: "The default sorting date for open projects. Click now to put this project first.",
+          },
+          {
             name: "opportunityCloses",
-            label: "Opportunity Closes",
+            label: "Opportunity closes",
             widget: "date",
             required: false,
             format: "YYYY-MM-DD",
             default: "",
-            hint: 'For "open" projects, the date on which the chance to collaborate ceases.',
+            hint: "The date on which the chance to collaborate ceases. " +
+              "(After this point the collaborators will be decided.)",
           },
           {
             name: "startDate",
-            label: "Start Date",
+            label: "Project started",
             widget: "date",
             required: false,
             format: "YYYY-MM-DD",
             default: "",
             hint:
-              "The date on which the project is planned to start / did start. Required for ongoing and completed" +
-              " projects, and optional for open projects",
+              "The date on which the project started. Required for ongoing and completed" +
+              " projects, and optional for open projects. The default sorting for ongoing projects.",
           },
           {
             name: "endDate",
-            label: "End Date",
+            label: "Project ended",
             widget: "date",
             required: false,
             format: "YYYY-MM-DD",
             default: "",
             hint:
-              "The date on which the project is planned to end / did end. Required for completed projects, and " +
-              "optional for open and ongoing projects.",
+              "The date on which the project ended. Required for completed projects, and " +
+              "optional for open and ongoing projects. The default sorting for completed projects.",
           },
           {
             name: "agency",
@@ -215,12 +223,6 @@ CMS.init({
             ],
           },
           {
-            name: "created",
-            label: "Date Posted",
-            widget: "datetime",
-            hint: "The default sorting date for open projects. Click now to put this project first.",
-          },
-          {
             name: "lastModified",
             label: "Last Modified",
             widget: "hidden",
@@ -295,6 +297,7 @@ CMS.init({
         identifier_field: "shortTitle",
         extension: "json",
         create: true,
+        preview_path: "{{slug}}",
         fields: [
           {
             name: "shortTitle",
@@ -365,6 +368,7 @@ CMS.init({
             name: "about",
             file: "content/page/about.json",
             label: "About",
+            preview_path: "{{slug}}",
             fields: [
               {
                 name: "header",
@@ -443,6 +447,7 @@ CMS.init({
             name: "contact",
             file: "content/page/contact.json",
             label: "Contact",
+            preview_path: "contact",
             fields: [
               {
                 name: "templateKey",
