@@ -11,5 +11,6 @@ To run the Netlify CMS interface on a local deployment, there are two things you
 
 Inside `.../example-site/static/admin/config.yml`, you must set `local_backend: true`
 
-Also you must run the command `npx netlify-cms-proxy-server` to start the Netlify CMS File System Proxy Server
-
+Also inside `.../example-site/`, you must run the command `npx netlify-cms-proxy-server` to start the Netlify CMS File System Proxy Server.
+It is important to run this command in the root of the example-site directory in order to view and manipulate the data.
+This also applies to all standalone sites, must be at the root of each site directory if you want to start up the CMS interface locally. 
