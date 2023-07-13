@@ -3473,7 +3473,7 @@ __metadata:
     autoprefixer: ^10.4.13
     gatsby-plugin-image: ^3.11.0
     gatsby-plugin-manifest: ^5.8.0
-    gatsby-plugin-postcss: ^6.8.0
+    gatsby-plugin-postcss: ^6.11.0
     gatsby-plugin-robots-txt: ^1.8.0
     gatsby-plugin-sharp: ^5.9.0
     gatsby-source-filesystem: ^5.7.0
@@ -4966,6 +4966,13 @@ __metadata:
   dependencies:
     sprintf-js: ~1.0.2
   checksum: 7ca6e45583a28de7258e39e13d81e925cfa25d7d4aacbf806a382d3c02fcb13403a07fb8aeef949f10a7cfe4a62da0e2e807b348a5980554cc28ee573ef95945
+  languageName: node
+  linkType: hard
+
+"argparse@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "argparse@npm:2.0.1"
+  checksum: 83644b56493e89a254bae05702abf3a1101b4fa4d0ca31df1c9985275a5a5bd47b3c27b7fa0b71098d41114d8ca000e6ed90cad764b306f8a503665e4d517ced
   languageName: node
   linkType: hard
 
@@ -6797,6 +6804,18 @@ __metadata:
     path-type: ^4.0.0
     yaml: ^1.10.0
   checksum: c53bf7befc1591b2651a22414a5e786cd5f2eeaa87f3678a3d49d6069835a9d8d1aef223728e98aa8fec9a95bf831120d245096db12abe019fecb51f5696c96f
+  languageName: node
+  linkType: hard
+
+"cosmiconfig@npm:^8.2.0":
+  version: 8.2.0
+  resolution: "cosmiconfig@npm:8.2.0"
+  dependencies:
+    import-fresh: ^3.2.1
+    js-yaml: ^4.1.0
+    parse-json: ^5.0.0
+    path-type: ^4.0.0
+  checksum: 836d5d8efa750f3fb17b03d6ca74cd3154ed025dffd045304b3ef59637f662bde1e5dc88f8830080d180ec60841719cf4ea2ce73fb21ec694b16865c478ff297
   languageName: node
   linkType: hard
 
@@ -9475,16 +9494,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-postcss@npm:^6.8.0":
-  version: 6.8.0
-  resolution: "gatsby-plugin-postcss@npm:6.8.0"
+"gatsby-plugin-postcss@npm:^6.11.0":
+  version: 6.11.0
+  resolution: "gatsby-plugin-postcss@npm:6.11.0"
   dependencies:
     "@babel/runtime": ^7.20.13
-    postcss-loader: ^7.0.2
+    postcss-loader: ^7.3.2
   peerDependencies:
     gatsby: ^5.0.0-next
     postcss: ^8.0.5
-  checksum: 9c5cccff1ae28524c1591b2c026df7672331f11b3ab51da42d2d82ce3ea5871e6911c76c62f7f88e6d38ac6b9341362c75cdb6caaf29b11a571dbf50100e1ea3
+  checksum: a69ae3c5f1affab7773326787c41bcbfa43b538f1ce3a9010f2e0a8e1a6be22bc3f0274082146780ccbc648ce24a6e47bbbc00cd8c7a6f7652030b806d0c356d
   languageName: node
   linkType: hard
 
@@ -12353,6 +12372,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"js-yaml@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "js-yaml@npm:4.1.0"
+  dependencies:
+    argparse: ^2.0.1
+  bin:
+    js-yaml: bin/js-yaml.js
+  checksum: c7830dfd456c3ef2c6e355cc5a92e6700ceafa1d14bba54497b34a99f0376cecbb3e9ac14d3e5849b426d5a5140709a66237a8c991c675431271c4ce5504151a
+  languageName: node
+  linkType: hard
+
 "jsdom@npm:^20.0.0":
   version: 20.0.3
   resolution: "jsdom@npm:20.0.3"
@@ -12548,7 +12578,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"klona@npm:^2.0.4, klona@npm:^2.0.5":
+"klona@npm:^2.0.4":
   version: 2.0.6
   resolution: "klona@npm:2.0.6"
   checksum: ac9ee3732e42b96feb67faae4d27cf49494e8a3bf3fa7115ce242fe04786788e0aff4741a07a45a2462e2079aa983d73d38519c85d65b70ef11447bbc3c58ce7
@@ -15825,17 +15855,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-loader@npm:^7.0.2":
-  version: 7.0.2
-  resolution: "postcss-loader@npm:7.0.2"
+"postcss-loader@npm:^7.3.2":
+  version: 7.3.3
+  resolution: "postcss-loader@npm:7.3.3"
   dependencies:
-    cosmiconfig: ^7.0.0
-    klona: ^2.0.5
+    cosmiconfig: ^8.2.0
+    jiti: ^1.18.2
     semver: ^7.3.8
   peerDependencies:
     postcss: ^7.0.0 || ^8.0.1
     webpack: ^5.0.0
-  checksum: 2d251537d482eb751f812c96c8b515f46d7c9905cad7afab33f0f34872670619b7440cefc9e2babbf89fb11b4708850d522d79fa5ff788227587645e78f16638
+  checksum: c724044d6ae56334535c26bb4efc9c151431d44d60bc8300157c760747281a242757d8dab32db72738434531175b38a408cb0b270bb96207c07584dcfcd899ff
   languageName: node
   linkType: hard
 
