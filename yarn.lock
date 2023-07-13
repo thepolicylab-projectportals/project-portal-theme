@@ -3452,7 +3452,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@thepolicylab-projectportals/project-portal-content-netlify@workspace:packages/project-portal-content-netlify"
   dependencies:
-    gatsby-plugin-netlify-cms: ^7.8.0
+    gatsby-plugin-netlify-cms: ^7.11.0
     gatsby-source-filesystem: ^5.7.0
     gatsby-transformer-json: 5.9.0
     netlify-cms-app: ^2.15.72
@@ -9293,14 +9293,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-netlify-cms@npm:^7.8.0":
-  version: 7.8.0
-  resolution: "gatsby-plugin-netlify-cms@npm:7.8.0"
+"gatsby-plugin-netlify-cms@npm:^7.11.0":
+  version: 7.11.0
+  resolution: "gatsby-plugin-netlify-cms@npm:7.11.0"
   dependencies:
     "@babel/runtime": ^7.20.13
     "@soda/friendly-errors-webpack-plugin": 1.8.1
     copy-webpack-plugin: ^7.0.0
-    html-webpack-plugin: ^5.5.0
+    html-webpack-plugin: ^5.5.1
     html-webpack-skip-assets-plugin: ^1.0.3
     html-webpack-tags-plugin: ^3.0.2
     lodash: ^4.17.21
@@ -9312,7 +9312,7 @@ __metadata:
     react: ^18.0.0 || ^0.0.0
     react-dom: ^18.0.0 || ^0.0.0
     webpack: ^5.0.0
-  checksum: 8017c15c0a12af4b3b4b70f0c06852f55080a8a2d9a0764d72512126e90aacc13eacb4370768c6671873eedb48544b0e2821adace76bd0e9fa2e3128269d898e
+  checksum: 59e89e090e958732c13fdba72ba478d734440f265d48ef2401903bc40434a6757501a8bc239433b65c8eba2be9d1a8fa91693c99d6daf32f059f0518064821ea
   languageName: node
   linkType: hard
 
@@ -10580,9 +10580,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"html-webpack-plugin@npm:^5.5.0":
-  version: 5.5.0
-  resolution: "html-webpack-plugin@npm:5.5.0"
+"html-webpack-plugin@npm:^5.5.1":
+  version: 5.5.3
+  resolution: "html-webpack-plugin@npm:5.5.3"
   dependencies:
     "@types/html-minifier-terser": ^6.0.0
     html-minifier-terser: ^6.0.2
@@ -10591,7 +10591,7 @@ __metadata:
     tapable: ^2.0.0
   peerDependencies:
     webpack: ^5.20.0
-  checksum: f3d84d0df71fe2f5bac533cc74dce41ab058558cdcc6ff767d166a2abf1cf6fb8491d54d60ddbb34e95c00394e379ba52e0468e0284d1d0cc6a42987056e8219
+  checksum: ccf685195739c372ad641bbd0c9100a847904f34eedc7aff3ece7856cd6c78fd3746d2d615af1bb71e5727993fe711b89e9b744f033ed3fde646540bf5d5e954
   languageName: node
   linkType: hard
 
