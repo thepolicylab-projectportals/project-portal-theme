@@ -1,6 +1,6 @@
 import { graphql, Link } from "gatsby"
 import React, { FunctionComponent } from "react"
-import { Feature, TopicType } from "."
+import { Feature, KeyDate, TopicType } from "."
 import { ProjectStatus } from "./ProjectStatus"
 import { statusOutput, isEmpty } from "../utils"
 import moment from "moment"
@@ -59,32 +59,6 @@ export const Card: FunctionComponent<CardProps> = ({
   endDate,
   navigation,
 }) => {
-
-  const _DateDisplayStyling = ({t, d}) => {
-    return (
-      <>
-        <span className="font-bold">{t}</span>
-        <span>{d}</span>
-      </>
-    )
-  }
-
-  const DateDisplay = () => {
-  if (status === "open" && opportunityCloses) {
-    return <_DateDisplayStyling t="Opportunity closes: " d={moment(opportunityCloses).format("MMMM D, YYYY")} />
-  } else if (status === "open") {
-    return <_DateDisplayStyling t="Opportunity closes: " d="Open until filled" />
-  } else if (status === "ongoing" && startDate) {
-    return <_DateDisplayStyling t="Project started: " d={moment(startDate).format("MMMM D, YYYY")} />
-  }
-  else if (status === "completed" && endDate) {
-    return <_DateDisplayStyling t="Project ended: " d={moment(endDate).format("MMMM D, YYYY")}/>
-  }
-  else {
-    return <></>
-  }
-}
-
   return (
     <article>
       <div className="px-2 py-4 overflow-hidden bg-white border border-gray-200 rounded-md shadow-sm h-full">
@@ -98,9 +72,14 @@ export const Card: FunctionComponent<CardProps> = ({
                 {question}
               </div>
               <div>
-              <div className="mt-4 text-body">
-                <DateDisplay />
-              </div>
+                <div className="mt-4 text-body">
+                  <KeyDate
+                    status={status}
+                    opportunityCloses={opportunityCloses}
+                    startDate={startDate}
+                    endDate={endDate}
+                  />
+                </div>
                 <div className="mb-4 text-body">
                   <span className="font-bold">Department or Agency: </span>
                   {agency}
