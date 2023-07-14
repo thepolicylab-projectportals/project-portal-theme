@@ -15,9 +15,9 @@ export interface CardWithoutNavigationProps {
   topics: TopicType[]
 
   // Dates
-  opportunityCloses: Date
-  startDate: Date
-  endDate: Date
+  opportunityCloses?: Date
+  startDate?: Date
+  endDate?: Date
   lastModified: Date
   created: Date
 }
