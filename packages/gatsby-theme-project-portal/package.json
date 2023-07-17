@@ -32,7 +32,7 @@
     "lodash": "^4.17.21",
     "markdown-to-jsx": "^7.1.9",
     "moment": "^2.29.4",
-    "react-google-recaptcha": "^2.1.0",
+    "react-google-recaptcha": "^3.1.0",
     "react-helmet": "^6.1.0",
     "react-icons": "^4.10.1",
     "react-select": "^5.7.3",
