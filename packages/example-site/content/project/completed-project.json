@@ -2,8 +2,8 @@
   "question": "Hello world (from json)?",
   "mainContact": "first-contact",
   "projectTeam": [
-    "first-contact",
-    "second-contact"
+    "second-contact",
+    "first-contact"
   ],
   "title": "completed 1",
   "agency": "example agency",
