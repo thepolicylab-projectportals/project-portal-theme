@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import { BottomBannerLayout } from "./BottomBanner"
-import { emptyGatsbyImageData } from "./Contact.stories"
+
+import { emptyGatsbyImageData } from "./Story.utilities"
 
 const meta: Meta<typeof BottomBannerLayout> = {
   component: BottomBannerLayout,
