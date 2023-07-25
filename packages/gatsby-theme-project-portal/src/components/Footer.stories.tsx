@@ -33,6 +33,8 @@ export const Primary: Story = {
   },
 }
 
+export const Empty: Story = { args: { links: [], heading: { title: "" } } }
+
 export const NoHeadingLink: Story = {
   args: { ...Primary.args, heading: { title: "Heading Without Link" } },
 }
