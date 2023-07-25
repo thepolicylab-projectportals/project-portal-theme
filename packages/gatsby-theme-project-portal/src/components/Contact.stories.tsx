@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react"
 import { Contact } from "./Contact"
 import { IGatsbyImageData } from "gatsby-plugin-image"
 
-const emptyGatsbyImageData: IGatsbyImageData = {
+export const emptyGatsbyImageData: IGatsbyImageData = {
   // placeholder object for image whilst gatsby image
   layout: "fixed",
   width: 0,
