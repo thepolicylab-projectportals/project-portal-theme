@@ -32,10 +32,25 @@ export const Open: Story = {
   },
 }
 
+export const OpenNoDate: Story = {
+  args: {
+    ...Open.args,
+    status: "open",
+    opportunityCloses: null,
+  },
+}
+
 export const Ongoing: Story = {
   args: {
     ...Open.args,
     status: "ongoing",
+  },
+}
+export const OngoingNoDate: Story = {
+  args: {
+    ...Open.args,
+    status: "ongoing",
+    startDate: null,
   },
 }
 
@@ -43,5 +58,13 @@ export const Completed: Story = {
   args: {
     ...Open.args,
     status: "completed",
+  },
+}
+
+export const CompletedNoDate: Story = {
+  args: {
+    ...Open.args,
+    status: "completed",
+    endDate: null,
   },
 }
