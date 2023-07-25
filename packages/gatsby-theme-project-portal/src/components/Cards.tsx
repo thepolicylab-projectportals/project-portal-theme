@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react"
 import { Card, CardProps } from "."
 import { CardWithoutNavigationProps } from "./Card"
 
-interface CardsProps {
+export interface CardsProps {
   nodes: CardWithoutNavigationProps[]
 }
 
