@@ -21,3 +21,19 @@ export const Primary: Story = {
       "We are ready to begin the project as soon as we identify a collaborator.\n",
   },
 }
+
+export const Empty: Story = {
+  args: {},
+}
+
+export const NoExpertise: Story = {
+  args: { ...Primary.args, expertise: null },
+}
+
+export const NoRequirements: Story = {
+  args: { ...Primary.args, requirement: null },
+}
+
+export const NoKeyDates: Story = {
+  args: { ...Primary.args, keyDates: null },
+}
