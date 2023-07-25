@@ -1,14 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import { Contact } from "./Contact"
-import { IGatsbyImageData } from "gatsby-plugin-image"
+import { emptyGatsbyImageData } from "./Story.utilities"
 
-export const emptyGatsbyImageData: IGatsbyImageData = {
-  // placeholder object for image whilst gatsby image
-  layout: "fixed",
-  width: 0,
-  height: 0,
-  images: { sources: [] },
-}
 const meta: Meta<typeof Contact> = {
   component: Contact,
   tags: ["autodocs"],
