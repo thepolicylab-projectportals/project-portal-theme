@@ -23,3 +23,7 @@ export const Primary: Story = {
     showEmail: true,
   },
 }
+
+export const NoEmail: Story = {
+  args: { ...Primary.args, showEmail: false },
+}
