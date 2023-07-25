@@ -31,7 +31,7 @@ export default meta
 
 type Story = StoryObj<typeof CardProps>
 
-export const Open: Story = {
+export const Default: Story = {
   args: {
     slug: "test-project",
     title: "Test Project",
@@ -47,9 +47,17 @@ export const Open: Story = {
   },
 }
 
+export const Open: Story = {
+  args: {
+    ...Default.args,
+    status: "open",
+    opportunityCloses: null,
+  },
+}
+
 export const OpenNoDate: Story = {
   args: {
-    ...Open.args,
+    ...Default.args,
     status: "open",
     opportunityCloses: null,
   },
@@ -57,13 +65,13 @@ export const OpenNoDate: Story = {
 
 export const Ongoing: Story = {
   args: {
-    ...Open.args,
+    ...Default.args,
     status: "ongoing",
   },
 }
 export const OngoingNoDate: Story = {
   args: {
-    ...Open.args,
+    ...Default.args,
     status: "ongoing",
     startDate: null,
   },
@@ -71,15 +79,26 @@ export const OngoingNoDate: Story = {
 
 export const Completed: Story = {
   args: {
-    ...Open.args,
+    ...Default.args,
     status: "completed",
   },
 }
 
 export const CompletedNoDate: Story = {
   args: {
-    ...Open.args,
+    ...Default.args,
     status: "completed",
     endDate: null,
+  },
+}
+
+export const LongTopicsLIst: Story = {
+  args: {
+    ...Default.args,
+    topics: [
+      { slug: "short-topic", title: "Short Topic" },
+      { slug: "medium-topic-name", title: "Medium Topic Name" },
+      { slug: "extremely-long-topic-name", title: "Extremely Long Topic Name" },
+    ],
   },
 }
