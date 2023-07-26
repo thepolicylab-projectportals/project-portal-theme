@@ -1,12 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import { ProjectStatus } from "./ProjectStatus"
-
-export const statusArgType = {
-  status: {
-    options: ["open", "ongoing", "completed"],
-    control: { type: "radio" },
-  },
-}
+import { statusArgType } from "./Story.utilities"
 
 const meta: Meta<typeof ProjectStatus> = {
   component: ProjectStatus,

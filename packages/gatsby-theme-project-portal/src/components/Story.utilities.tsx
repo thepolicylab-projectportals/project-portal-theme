@@ -7,3 +7,9 @@ export const emptyGatsbyImageData: IGatsbyImageData = {
   height: 0,
   images: { sources: [] },
 }
+export const statusArgType = {
+  status: {
+    options: ["open", "ongoing", "completed"],
+    control: { type: "radio" },
+  },
+}
