@@ -15,13 +15,13 @@ export default meta
 type Story = StoryObj<typeof MainContact>
 
 // TODO: Doesn't work becuase MainContact uses useStaticText
-export const Primary: {
+export const Primary: Story = {
   args: {
-    name: "Contact Name"
-    title: "Title"
-    employer: "Employer"
-    email: "some-email@example.com"
-    status: "open"
-    emailContent: "Are you interested in this project?"
-  }
+    name: "Contact Name",
+    title: "Title",
+    employer: "Employer",
+    email: "some-email@example.com",
+    status: "open",
+    emailContent: "Are you interested in this project?",
+  },
 }
