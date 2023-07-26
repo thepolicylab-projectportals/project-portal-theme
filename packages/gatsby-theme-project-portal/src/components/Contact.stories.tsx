@@ -5,9 +5,6 @@ import { emptyGatsbyImageData } from "./Story.utilities"
 const meta: Meta<typeof Contact> = {
   component: Contact,
   tags: ["autodocs"],
-  args: {
-    image: emptyGatsbyImageData,
-  },
 }
 
 export default meta
@@ -21,6 +18,7 @@ export const Primary: Story = {
     employer: "Employer",
     email: "some-email@example.com",
     showEmail: true,
+    image: emptyGatsbyImageData,
   },
 }
 
