@@ -8,7 +8,7 @@ import { graphql, useStaticQuery } from "gatsby"
 export interface FooterProps {
   heading: {
     title: String
-    link: string
+    link: String
   }
   copyright: String
   links: {
@@ -17,7 +17,7 @@ export interface FooterProps {
   }[]
   image?: {
     imageData: IGatsbyImageData
-    altText: string
+    altText: String
   }
 }
 
