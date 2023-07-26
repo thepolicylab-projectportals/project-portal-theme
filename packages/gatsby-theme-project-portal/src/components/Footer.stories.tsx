@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { FooterLayout, FooterProps } from "./Footer"
+import { FooterLayout } from "./Footer"
 
 import { emptyGatsbyImageData } from "./Story.utilities"
 
@@ -10,7 +10,7 @@ const meta: Meta<typeof FooterLayout> = {
 
 export default meta
 
-type Story = StoryObj<typeof FooterProps>
+type Story = StoryObj<typeof FooterLayout>
 
 export const Primary: Story = {
   args: {
@@ -29,17 +29,15 @@ export const Primary: Story = {
         link: "https://brown.edu",
       },
     ],
-    image: emptyGatsbyImageData,
+    image: { imageData: emptyGatsbyImageData, altText: "" },
   },
 }
 
-export const Empty: Story = { args: { links: [], heading: { title: "" } } }
-
-export const NoHeadingLink: Story = {
-  args: { ...Primary.args, heading: { title: "Heading Without Link" } },
+export const Empty: Story = {
+  args: { links: [], heading: { title: "", link: "" }, copyright: "" },
 }
 
-export const NoCopyright: Story = {
+export const EmptyCopyright: Story = {
   args: { ...Primary.args, copyright: null },
 }
 
