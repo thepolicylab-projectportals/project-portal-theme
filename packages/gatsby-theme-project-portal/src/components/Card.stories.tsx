@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { Card, CardProps } from "./Card"
+import { Card } from "./Card"
 
 const exampleTopics = [
   { slug: "topic", title: "Topic" },
@@ -29,7 +29,7 @@ const meta: Meta<typeof Card> = {
 
 export default meta
 
-type Story = StoryObj<typeof CardProps>
+type Story = StoryObj<typeof Card>
 
 export const Primary: Story = {
   args: {
@@ -39,11 +39,11 @@ export const Primary: Story = {
     status: "open",
     agency: "Sample Agency",
     topics: [{ slug: "topic", title: "Topic" }],
-    created: "2022-03-04",
-    opportunityCloses: "2022-03-04",
-    startDate: "2022-01-03",
-    endDate: "2022-03-04",
-    lastModified: "2022-05-27T16:34:04.000Z",
+    opportunityCloses: new Date("2022-03-04"),
+    startDate: new Date("2022-01-03"),
+    endDate: new Date("2022-03-04"),
+    lastModified: new Date("2022-05-27T16:34:04.000Z"),
+    created: new Date("2022-03-04"),
   },
 }
 
