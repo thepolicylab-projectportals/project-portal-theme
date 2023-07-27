@@ -16,6 +16,6 @@ export const Primary: Story = {
     lede:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor" +
       " incididunt ut labore et dolore magna aliqua. ",
-    imageSrc: "../../images/default-icon.png", // TODO: Fix this – doesn't find and render
+    imageSrc: "theme-image/contact.jpg",
   },
 }
