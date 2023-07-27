@@ -13,6 +13,7 @@ const config = {
         },
       },
     },
+    "@storybook/addon-a11y",
   ],
   framework: {
     name: "@storybook/react-webpack5",
