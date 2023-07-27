@@ -5,10 +5,10 @@ import { graphql, useStaticQuery } from "gatsby"
 
 // This is the same structure as the "footer" part of the useStaticText query,
 // so that we can pass the staticText.footer unchanged into the code
-export interface FooterProps {
+interface FooterProps {
   heading: {
     title: String
-    link: String
+    link: string
   }
   copyright: String
   links: {
@@ -17,7 +17,7 @@ export interface FooterProps {
   }[]
   image?: {
     imageData: IGatsbyImageData
-    altText: String
+    altText: string
   }
 }
 
