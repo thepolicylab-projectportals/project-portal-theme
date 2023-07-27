@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { Cards, CardsProps } from "./Cards"
+import { Cards } from "./Cards"
 import * as CardStories from "./Card.stories"
 
 const meta: Meta<typeof Cards> = {
@@ -9,7 +9,7 @@ const meta: Meta<typeof Cards> = {
 
 export default meta
 
-type Story = StoryObj<typeof CardsProps>
+type Story = StoryObj<typeof Cards>
 
 export const Primary: Story = {
   args: {
