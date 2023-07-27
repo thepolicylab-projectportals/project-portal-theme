@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { ProjectPage, ProjectPageProps } from "./ProjectPage"
+import { ProjectPage } from "./ProjectPage"
 import * as CardsStories from "./Cards.stories"
 
 const meta: Meta<typeof ProjectPage> = {
@@ -9,7 +9,7 @@ const meta: Meta<typeof ProjectPage> = {
 
 export default meta
 
-type Story = StoryObj<typeof ProjectPageProps>
+type Story = StoryObj<typeof ProjectPage>
 
 export const Primary: Story = {
   args: {
