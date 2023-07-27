@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { Card } from "./Card"
+import { Card, CardProps } from "./Card"
 import { statusArgType } from "./Story.utilities"
 
 const exampleTopics = [
@@ -27,7 +27,7 @@ const meta: Meta<typeof Card> = {
 
 export default meta
 
-type Story = StoryObj<typeof Card>
+type Story = StoryObj<CardProps>
 
 export const Primary: Story = {
   args: {
