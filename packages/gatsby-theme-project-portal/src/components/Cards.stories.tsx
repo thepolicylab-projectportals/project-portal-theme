@@ -14,19 +14,19 @@ type Story = StoryObj<typeof Cards>
 export const Primary: Story = {
   args: {
     nodes: [
-      CardStories.Open.args,
-      CardStories.Ongoing.args,
-      CardStories.Completed.args,
-      CardStories.OpenNoDate.args,
-      CardStories.OngoingNoDate.args,
-      CardStories.CompletedNoDate.args,
+      CardStories.openData,
+      CardStories.ongoingData,
+      CardStories.completedData,
+      CardStories.openNoDateData,
+      CardStories.ongoingNoDateData,
+      CardStories.completedNoDateData,
     ],
   },
 }
 
 export const OneCard: Story = {
   args: {
-    nodes: [CardStories.Open.args],
+    nodes: [CardStories.openData],
   },
 }
 
