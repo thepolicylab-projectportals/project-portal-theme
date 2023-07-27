@@ -49,6 +49,7 @@ export const Open: Story = {
   args: {
     ...Primary.args,
     status: "open",
+    question: "Is this project open?",
     opportunityCloses: null,
   },
 }
@@ -57,6 +58,7 @@ export const OpenNoDate: Story = {
   args: {
     ...Primary.args,
     status: "open",
+    question: "Should this project have a date?",
     opportunityCloses: null,
   },
 }
@@ -64,6 +66,7 @@ export const OpenNoDate: Story = {
 export const Ongoing: Story = {
   args: {
     ...Primary.args,
+    question: "Why are we still doing this project?",
     status: "ongoing",
   },
 }
@@ -71,6 +74,7 @@ export const OngoingNoDate: Story = {
   args: {
     ...Primary.args,
     status: "ongoing",
+    question: "Should this project finish sometime?",
     startDate: null,
   },
 }
@@ -78,6 +82,7 @@ export const OngoingNoDate: Story = {
 export const Completed: Story = {
   args: {
     ...Primary.args,
+    question: "Why did we stop doing this?",
     status: "completed",
   },
 }
@@ -86,11 +91,12 @@ export const CompletedNoDate: Story = {
   args: {
     ...Primary.args,
     status: "completed",
+    question: "Is this actually finished?",
     endDate: null,
   },
 }
 
-export const LongTopicsLIst: Story = {
+export const LongTopicsList: Story = {
   args: {
     ...Primary.args,
     topics: [
