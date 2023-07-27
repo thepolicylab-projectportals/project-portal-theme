@@ -57,6 +57,7 @@ export const Card: FunctionComponent<CardProps> = ({
   opportunityCloses,
   startDate,
   endDate,
+  lastModified,
   navigation,
 }) => {
   return (
