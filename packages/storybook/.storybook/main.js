@@ -1,6 +1,6 @@
 /** @type { import('@storybook/react-webpack5').StorybookConfig } */
 const config = {
-  stories: ["../packages/*/src/**/*.stories.@(js|jsx|ts|tsx)"],
+  stories: ["../../*/src/**/*.stories.@(js|jsx|ts|tsx)"],
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
@@ -27,7 +27,7 @@ const config = {
     name: "@storybook/react-webpack5",
     options: {},
   },
-  staticDirs: ["../packages/example/content"],
+  staticDirs: ["../../example/content"],
   docs: {
     autodocs: "tag",
   },
