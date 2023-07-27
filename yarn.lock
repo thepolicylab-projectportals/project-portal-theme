@@ -3529,7 +3529,7 @@ __metadata:
     gatsby-plugin-postcss: ^6.11.0
     gatsby-plugin-robots-txt: ^1.8.0
     gatsby-plugin-sharp: ^5.9.0
-    gatsby-source-filesystem: ^5.7.0
+    gatsby-source-filesystem: ^5.11.0
     gatsby-transformer-sharp: ^5.11.0
     js-search: ^2.0.0
     lodash: ^4.17.21
@@ -3553,7 +3553,7 @@ __metadata:
   resolution: "@thepolicylab-projectportals/project-portal-content-netlify@workspace:packages/project-portal-content-netlify"
   dependencies:
     gatsby-plugin-netlify-cms: ^7.11.0
-    gatsby-source-filesystem: ^5.7.0
+    gatsby-source-filesystem: ^5.11.0
     gatsby-transformer-json: 5.11.0
     netlify-cms-app: ^2.15.72
   peerDependencies:
@@ -8511,7 +8511,7 @@ __metadata:
     gatsby: ^5.11.0
     gatsby-plugin-image: ^3.11.0
     gatsby-plugin-sharp: ^5.9.0
-    gatsby-source-filesystem: ^5.7.0
+    gatsby-source-filesystem: ^5.11.0
     gatsby-transformer-sharp: ^5.11.0
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -8735,7 +8735,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fastq@npm:^1.13.0, fastq@npm:^1.15.0, fastq@npm:^1.6.0":
+"fastq@npm:^1.15.0, fastq@npm:^1.6.0":
   version: 1.15.0
   resolution: "fastq@npm:1.15.0"
   dependencies:
@@ -8814,7 +8814,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"file-type@npm:^16.5.3, file-type@npm:^16.5.4":
+"file-type@npm:^16.5.4":
   version: 16.5.4
   resolution: "file-type@npm:16.5.4"
   dependencies:
@@ -9073,17 +9073,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fs-extra@npm:^11.1.0":
-  version: 11.1.0
-  resolution: "fs-extra@npm:11.1.0"
-  dependencies:
-    graceful-fs: ^4.2.0
-    jsonfile: ^6.0.1
-    universalify: ^2.0.0
-  checksum: 5ca476103fa1f5ff4a9b3c4f331548f8a3c1881edaae323a4415d3153b5dc11dc6a981c8d1dd93eec8367ceee27b53f8bd27eecbbf66ffcdd04927510c171e7f
-  languageName: node
-  linkType: hard
-
 "fs-extra@npm:^11.1.1":
   version: 11.1.1
   resolution: "fs-extra@npm:11.1.1"
@@ -9261,30 +9250,6 @@ __metadata:
     tmp: ^0.2.1
     xdg-basedir: ^4.0.0
   checksum: b7119119c8726af7ec2fd6a03bf6edd93d8c43fd8b4441be1e5cc356ed6d21f762d7e21a535128652b48326427d66a444544af967a9769a003c614213c07747e
-  languageName: node
-  linkType: hard
-
-"gatsby-core-utils@npm:^4.7.0":
-  version: 4.7.0
-  resolution: "gatsby-core-utils@npm:4.7.0"
-  dependencies:
-    "@babel/runtime": ^7.20.13
-    ci-info: 2.0.0
-    configstore: ^5.0.1
-    fastq: ^1.13.0
-    file-type: ^16.5.3
-    fs-extra: ^11.1.0
-    got: ^11.8.5
-    hash-wasm: ^4.9.0
-    import-from: ^4.0.0
-    lmdb: 2.5.3
-    lock: ^1.1.0
-    node-object-hash: ^2.3.10
-    proper-lockfile: ^4.1.2
-    resolve-from: ^5.0.0
-    tmp: ^0.2.1
-    xdg-basedir: ^4.0.0
-  checksum: aeda55878fae68701050c539862ca71462328a2849a04098a90dd380de28f87ce9aa093b5228afa3194b1e89f2571e51dbafd04db1ba21cdc1420cbf92c5ca44
   languageName: node
   linkType: hard
 
@@ -9653,22 +9618,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gatsby-source-filesystem@npm:^5.7.0":
-  version: 5.7.0
-  resolution: "gatsby-source-filesystem@npm:5.7.0"
+"gatsby-source-filesystem@npm:^5.11.0":
+  version: 5.11.0
+  resolution: "gatsby-source-filesystem@npm:5.11.0"
   dependencies:
     "@babel/runtime": ^7.20.13
     chokidar: ^3.5.3
     file-type: ^16.5.4
-    fs-extra: ^11.1.0
-    gatsby-core-utils: ^4.7.0
+    fs-extra: ^11.1.1
+    gatsby-core-utils: ^4.11.0
     mime: ^3.0.0
     pretty-bytes: ^5.6.0
     valid-url: ^1.0.9
-    xstate: ^4.35.3
+    xstate: ^4.37.2
   peerDependencies:
     gatsby: ^5.0.0-next
-  checksum: ed9e780c15abf394e96706a850814c45c85f84c1639f84f5ea9aa5a1140fe77f98c5809b8d7d9a24efa87bfe96e09b2e990b3103eed1ca3299614d59a627d0b7
+  checksum: f697e2012c4d56764388a62ff26a97de33bae2d0085043f43cb904b0d8f24ed0a18b5559e5b71fc8c31f6198a73c421484e6d4fdda40d41f45675bc4a1596870
   languageName: node
   linkType: hard
 
@@ -10227,7 +10192,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"got@npm:^11.8.5, got@npm:^11.8.6":
+"got@npm:^11.8.6":
   version: 11.8.6
   resolution: "got@npm:11.8.6"
   dependencies:
@@ -21049,13 +21014,6 @@ __metadata:
   version: 2.0.0
   resolution: "xmlhttprequest-ssl@npm:2.0.0"
   checksum: 1e98df67f004fec15754392a131343ea92e6ab5ac4d77e842378c5c4e4fd5b6a9134b169d96842cc19422d77b1606b8df84a5685562b3b698cb68441636f827e
-  languageName: node
-  linkType: hard
-
-"xstate@npm:^4.35.3":
-  version: 4.35.4
-  resolution: "xstate@npm:4.35.4"
-  checksum: 92fcf15e80c9726002d24ef8f01595058e44b44d7ecad0cce933dc9f9ef89a73c57cba02af68817be42f504a80425daeb248f38158a80b5f12771f6fe408fca5
   languageName: node
   linkType: hard
 
