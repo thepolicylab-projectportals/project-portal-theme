@@ -24,7 +24,20 @@ const config = {
     autodocs: "tag",
   },
   babel: {
-    presets: ["@babel/preset-react", "@babel/preset-typescript"],
+    sourceType: "unambiguous",
+    presets: [
+      [
+        "@babel/preset-env",
+        {
+          targets: {
+            chrome: 100,
+          },
+        },
+      ],
+      "@babel/preset-react",
+      "@babel/preset-typescript",
+    ],
+    plugins: [],
   },
   webpackFinal: async (config) => {
     // Transpile Gatsby module because Gatsby includes un-transpiled ES6 code.
