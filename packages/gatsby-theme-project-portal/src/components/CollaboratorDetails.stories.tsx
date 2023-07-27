@@ -1,8 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import {
-  CollaboratorDetails,
-  CollaboratorDetailsProps,
-} from "./CollaboratorDetails"
+import { CollaboratorDetails } from "./CollaboratorDetails"
 
 const meta: Meta<typeof CollaboratorDetails> = {
   component: CollaboratorDetails,
@@ -11,7 +8,7 @@ const meta: Meta<typeof CollaboratorDetails> = {
 
 export default meta
 
-type Story = StoryObj<typeof CollaboratorDetailsProps>
+type Story = StoryObj<typeof CollaboratorDetails>
 
 export const Primary: Story = {
   args: {
