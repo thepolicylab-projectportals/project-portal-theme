@@ -10,6 +10,14 @@ const config = {
       options: {
         postCss: {
           implementation: require.resolve("postcss"),
+          postcssOptions: {
+            plugins: {
+              tailwindcss: {
+                config: require("@thepolicylab-projectportals/gatsby-theme-project-portal/src/styles/tailwind.presets.js"),
+              },
+              autoprefixer: {},
+            },
+          },
         },
       },
     },
