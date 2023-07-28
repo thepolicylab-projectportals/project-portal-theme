@@ -17,92 +17,84 @@ import { Accordion } from "./Accordion"
 import { statusOutput, isNA, isEmpty } from "../utils"
 
 export interface ProjectDetailLayoutProps {
-  project: {
-    // Core content
-    question: string
-    summary: string
+  // Core content
+  question: string
+  summary: string
+  title: string
+
+  // (Optional) general additional content
+  deliverable?: string
+  purpose?: string
+  fundingInfo?: string
+  statusOfData?: string
+  priorResearch?: string
+
+  // (Optional) collaborator-targeted additional content
+  expertise?: string
+  requirement?: string
+  keyDates?: string
+
+  // Contact
+  mainContact: ContactType
+  emailContent?: string // shown with MainContact for open projects
+  projectInterestLink?: string // shown instead of email address for open projects
+
+  // Project team
+  projectTeam?: ContactType[]
+
+  // (Optional) FAQ
+  faq?: {
     title: string
+    text: string
+  }[]
 
-    // (Optional) general additional content
-    deliverable?: string
-    purpose?: string
-    fundingInfo?: string
-    statusOfData?: string
-    priorResearch?: string
+  // Metadata
+  status: string
+  opportunityCloses: Date
+  startDate: Date
+  endDate: Date
+  agency: string
+  topics?: TopicType[]
+  lastModified: Date
 
-    // (Optional) collaborator-targeted additional content
-    expertise?: string
-    requirement?: string
-    keyDates?: string
-
-    // Contact
-    mainContact: ContactType
-    emailContent?: string // shown with MainContact for open projects
-    projectInterestLink?: string // shown instead of email address for open projects
-
-    // Project team
-    projectTeam?: ContactType[]
-
-    // (Optional) FAQ
-    faq?: {
-      title: string
-      text: string
-    }[]
-
-    // Metadata
-    status: string
-    opportunityCloses: Date
-    startDate: Date
-    endDate: Date
-    agency: string
-    topics?: TopicType[]
-    lastModified: Date
-  }
-  projectPortalConfig: {
-    projectInterestLink: string
-    staticText: {
-      main_contact_text: { ongoingText: string; completeText: string }
-    }
-  }
+  mainContactOngoingText: string
+  mainContactCompleteText: string
 }
 
 export const ProjectDetailLayout: FunctionComponent<
   ProjectDetailLayoutProps
 > = ({
-  project: {
-    question,
-    summary,
-    status,
-    opportunityCloses,
-    startDate,
-    endDate,
-    lastModified,
-    agency,
-    topics,
-    deliverable,
-    purpose,
-    expertise,
-    requirement,
-    keyDates,
-    priorResearch,
-    statusOfData,
-    fundingInfo,
-    emailContent,
-    mainContact,
-    projectTeam,
-    faq,
-  },
-  projectPortalConfig: {
-    projectInterestLink,
-    staticText: { main_contact_text },
-  },
+  question,
+  summary,
+  status,
+  opportunityCloses,
+  startDate,
+  endDate,
+  lastModified,
+  agency,
+  topics,
+  deliverable,
+  purpose,
+  expertise,
+  requirement,
+  keyDates,
+  priorResearch,
+  statusOfData,
+  fundingInfo,
+  emailContent,
+  mainContact,
+  projectTeam,
+  faq,
+  mainContactOngoingText,
+  mainContactCompleteText,
+  projectInterestLink,
 }) => {
-  const mainText =
+  const mainContactText =
     status === "open"
       ? emailContent
       : status === "ongoing"
-      ? main_contact_text.ongoingText
-      : main_contact_text.completeText
+      ? mainContactOngoingText
+      : mainContactCompleteText
   return (
     <article>
       <header>
@@ -231,7 +223,7 @@ export const ProjectDetailLayout: FunctionComponent<
               <MainContact
                 {...mainContact}
                 status={status}
-                mainText={mainText}
+                mainText={mainContactText}
                 projectInterestLink={projectInterestLink}
               />
             )}
