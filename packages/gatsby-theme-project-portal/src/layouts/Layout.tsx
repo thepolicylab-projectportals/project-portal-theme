@@ -27,6 +27,7 @@ interface LayoutProps {
     }
     site: { siteMetadata: { title: string } }
     navbarLogo?: IGatsbyImageData
+    bottomBannerLogo?: IGatsbyImageData
     footerLogo?: IGatsbyImageData
   }
 
@@ -47,6 +48,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
       siteMetadata: { title },
     },
     navbarLogo,
+    bottomBannerLogo,
     footerLogo,
   },
   path,
@@ -66,6 +68,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
         text={bottom_banner.text}
         link={bottom_banner.link}
         linkId={"bottomBannerLink"}
+        image={bottomBannerLogo ? getImage(bottomBannerLogo) : null}
       />
       <FooterLayout
         heading={footer.heading}
@@ -98,6 +101,15 @@ export const query = graphql`
     ) {
       childImageSharp {
         gatsbyImageData(height: 64)
+      }
+    }
+    bottomBannerLogo: file(
+      name: { eq: "bottom-banner" }
+      extension: { in: ["png", "jpg", "jpeg"] }
+      sourceInstanceName: { eq: "themeImages" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(width: 160)
       }
     }
     site {
