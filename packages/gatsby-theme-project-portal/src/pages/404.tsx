@@ -19,8 +19,10 @@ export default () => {
   )
 }
 
+export { Head } from "../hooks"
+
 export const query = graphql`
-  query q404 {
+  query {
     projectPortalConfig {
       ...LayoutQuery
     }
