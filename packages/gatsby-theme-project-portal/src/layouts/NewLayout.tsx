@@ -1,13 +1,11 @@
 import React, { FunctionComponent, ReactNode } from "react"
 import {
-  Footer,
-  BottomBanner,
   DevelopmentBanner,
-  Navbar,
   SiteMetadata,
   NavbarLayout,
+  FooterLayout,
+  BottomBannerLayout,
 } from "../components"
-import { useProjectPortalConfig } from "../hooks"
 import { graphql } from "gatsby"
 
 interface NewLayoutProps {
@@ -18,6 +16,12 @@ interface NewLayoutProps {
       name: string
       show: boolean
     }[]
+    staticText: {
+      bottom_banner: {
+        text: string
+        link: string
+      }
+    }
   }
 
   activePage?: string
@@ -27,7 +31,11 @@ interface NewLayoutProps {
 }
 
 export const NewLayout: FunctionComponent<NewLayoutProps> = ({
-  projectPortalConfig: { showDevBanner, pages },
+  projectPortalConfig: {
+    showDevBanner,
+    pages,
+    staticText: { bottom_banner },
+  },
   activePage,
   title,
   description,
@@ -39,8 +47,16 @@ export const NewLayout: FunctionComponent<NewLayoutProps> = ({
       {/*<SiteMetadata title={title} description={description} />*/}
       <NavbarLayout activePage={activePage} title={title} pages={pages} />
       <div className="flex-1">{children}</div>
-      {/*<BottomBanner />*/}
-      {/*<Footer />*/}
+      <BottomBannerLayout
+        text={bottom_banner.text}
+        link={bottom_banner.link}
+        linkId={"bottomBannerLink"}
+      />
+      {/*<FooterLayout*/}
+      {/*  heading={staticText.footer.heading}*/}
+      {/*  copyright={staticText.footer.copyright}*/}
+      {/*  links={staticText.footer.links}*/}
+      {/*/>*/}
     </div>
   )
 }
@@ -52,6 +68,23 @@ export const query = graphql`
       link
       name
       show
+    }
+    staticText {
+      bottom_banner {
+        text
+        link
+      }
+      footer {
+        copyright
+        heading {
+          link
+          title
+        }
+        links {
+          link
+          title
+        }
+      }
     }
   }
 `

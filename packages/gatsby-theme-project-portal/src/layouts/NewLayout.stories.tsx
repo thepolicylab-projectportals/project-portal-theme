@@ -14,7 +14,16 @@ type Story = StoryObj<typeof NewLayout>
 
 export const Primary: Story = {
   args: {
-    projectPortalConfig: { showDevBanner: true, pages: examplePages },
+    projectPortalConfig: {
+      showDevBanner: true,
+      pages: examplePages,
+      staticText: {
+        bottom_banner: {
+          text: "The banner text",
+          link: "https://ccv.brown.edu",
+        },
+      },
+    },
     activePage: "Open",
     title: "Page Title",
     description: "The page description (metadata)",
