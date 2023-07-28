@@ -3,10 +3,12 @@ import { ProjectDetailPage } from "../layouts"
 
 export default ProjectDetailPage
 
+export { Head } from "../hooks"
+
 export const query = graphql`
   query ProjectDetailPageQuery($slug: String!) {
+    ...LayoutQuery
     projectPortalConfig {
-      ...LayoutQuery
       staticText {
         main_contact_text {
           ongoingText
@@ -14,10 +16,6 @@ export const query = graphql`
         }
       }
     }
-    site {
-      ...HeadData
-    }
-    ...NavbarIcon
     page: project(slug: { eq: $slug }) {
       title
       description: summary
@@ -83,5 +81,3 @@ export const query = graphql`
     }
   }
 `
-
-export { Head } from "../hooks"

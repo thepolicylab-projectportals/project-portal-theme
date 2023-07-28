@@ -5,13 +5,7 @@ export default CardPageLayout
 
 export const query = graphql`
   query CardPageQuery($slug: String!, $statusFilter: [String]) {
-    projectPortalConfig {
-      ...LayoutQuery
-    }
-    site {
-      ...HeadData
-    }
-    ...NavbarIcon
+    ...LayoutQuery
     page: cardPage(slug: { eq: $slug }) {
       pageName
       title

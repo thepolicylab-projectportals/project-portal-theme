@@ -75,27 +75,41 @@ export const Layout: FunctionComponent<LayoutProps> = ({
 }
 
 export const query = graphql`
-  fragment LayoutQuery on ProjectPortalConfig {
-    showDevBanner
-    pages {
-      link
-      name
-      show
-    }
-    staticText {
-      bottom_banner {
-        text
-        link
+  fragment LayoutQuery on Query {
+    navbarLogo: file(
+      name: { eq: "navbar" }
+      extension: { in: ["png", "jpg", "jpeg"] }
+      sourceInstanceName: { eq: "themeImages" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(height: 64)
       }
-      footer {
-        copyright
-        heading {
+    }
+    site {
+      ...HeadData
+    }
+    projectPortalConfig {
+      showDevBanner
+      pages {
+        link
+        name
+        show
+      }
+      staticText {
+        bottom_banner {
+          text
           link
-          title
         }
-        links {
-          link
-          title
+        footer {
+          copyright
+          heading {
+            link
+            title
+          }
+          links {
+            link
+            title
+          }
         }
       }
     }

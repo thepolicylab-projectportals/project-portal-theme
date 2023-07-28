@@ -5,14 +5,10 @@ export default ContactPageLayout
 
 export const query = graphql`
   query ContactQuery($slug: String!) {
+    ...LayoutQuery
     projectPortalConfig {
       recaptchaSiteKey
-      ...LayoutQuery
     }
-    site {
-      ...HeadData
-    }
-    ...NavbarIcon
     page: generalPage(slug: { eq: $slug }) {
       title
       lede

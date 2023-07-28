@@ -23,11 +23,6 @@ export { Head } from "../hooks"
 
 export const query = graphql`
   query {
-    projectPortalConfig {
-      ...LayoutQuery
-    }
-    site {
-      ...HeadData
-    }
+    ...LayoutQuery
   }
 `
