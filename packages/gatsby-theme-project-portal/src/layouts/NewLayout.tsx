@@ -4,7 +4,9 @@ import {
   SiteMetadata,
   NavbarLayout,
   FooterLayout,
+  FooterProps,
   BottomBannerLayout,
+  BottomBannerProps,
 } from "../components"
 import { graphql } from "gatsby"
 
@@ -17,10 +19,8 @@ interface NewLayoutProps {
       show: boolean
     }[]
     staticText: {
-      bottom_banner: {
-        text: string
-        link: string
-      }
+      bottom_banner: BottomBannerProps
+      footer: FooterProps
     }
   }
 
@@ -34,7 +34,7 @@ export const NewLayout: FunctionComponent<NewLayoutProps> = ({
   projectPortalConfig: {
     showDevBanner,
     pages,
-    staticText: { bottom_banner },
+    staticText: { bottom_banner, footer },
   },
   activePage,
   title,
@@ -52,11 +52,11 @@ export const NewLayout: FunctionComponent<NewLayoutProps> = ({
         link={bottom_banner.link}
         linkId={"bottomBannerLink"}
       />
-      {/*<FooterLayout*/}
-      {/*  heading={staticText.footer.heading}*/}
-      {/*  copyright={staticText.footer.copyright}*/}
-      {/*  links={staticText.footer.links}*/}
-      {/*/>*/}
+      <FooterLayout
+        heading={footer.heading}
+        copyright={footer.copyright}
+        links={footer.links}
+      />
     </div>
   )
 }

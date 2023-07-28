@@ -5,7 +5,7 @@ import { MarkdownText } from "../components"
 import { isNA } from "../utils"
 import { useStaticText } from "../hooks"
 
-interface BottomBannerProps {
+export interface BottomBannerProps {
   text: string
   image?: IGatsbyImageData
   link?: string

@@ -5,7 +5,7 @@ import { graphql, useStaticQuery } from "gatsby"
 
 // This is the same structure as the "footer" part of the useStaticText query,
 // so that we can pass the staticText.footer unchanged into the code
-interface FooterProps {
+export interface FooterProps {
   heading: {
     title: String
     link: string

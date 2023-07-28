@@ -2,6 +2,8 @@ import React from "react"
 import type { Meta, StoryObj } from "@storybook/react"
 import { NewLayout } from "./NewLayout"
 import { examplePages } from "../components/Navbar.stories"
+import * as BottomBannerStories from "../components/BottomBanner.stories"
+import * as FooterStories from "../components/Footer.stories"
 
 const meta: Meta<typeof NewLayout> = {
   component: NewLayout,
@@ -18,10 +20,8 @@ export const Primary: Story = {
       showDevBanner: true,
       pages: examplePages,
       staticText: {
-        bottom_banner: {
-          text: "The banner text",
-          link: "https://ccv.brown.edu",
-        },
+        bottom_banner: BottomBannerStories.Primary.args,
+        footer: FooterStories.Primary.args,
       },
     },
     activePage: "Open",
