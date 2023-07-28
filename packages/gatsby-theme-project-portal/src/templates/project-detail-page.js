@@ -7,6 +7,12 @@ export const query = graphql`
   query ProjectDetailPageQuery($slug: String!) {
     projectPortalConfig {
       ...LayoutQuery
+      staticText {
+        main_contact_text {
+          ongoingText
+          completeText
+        }
+      }
     }
     site {
       ...HeadData
