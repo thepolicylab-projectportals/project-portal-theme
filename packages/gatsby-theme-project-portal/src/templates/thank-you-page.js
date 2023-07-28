@@ -19,3 +19,5 @@ export const query = graphql`
     }
   }
 `
+
+export { Head } from "../components/NewSiteMetadata"
