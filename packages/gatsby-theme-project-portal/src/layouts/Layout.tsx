@@ -27,6 +27,7 @@ interface LayoutProps {
     }
     site: { siteMetadata: { title: string } }
     navbarLogo?: IGatsbyImageData
+    footerLogo?: IGatsbyImageData
   }
 
   activePage?: string
@@ -46,6 +47,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
       siteMetadata: { title },
     },
     navbarLogo,
+    footerLogo,
   },
   path,
   children,
@@ -69,6 +71,10 @@ export const Layout: FunctionComponent<LayoutProps> = ({
         heading={footer.heading}
         copyright={footer.copyright}
         links={footer.links}
+        image={{
+          imageData: footerLogo ? getImage(footerLogo) : null,
+          altText: title + " logo",
+        }}
       />
     </div>
   )
@@ -78,6 +84,15 @@ export const query = graphql`
   fragment LayoutQuery on Query {
     navbarLogo: file(
       name: { eq: "navbar" }
+      extension: { in: ["png", "jpg", "jpeg"] }
+      sourceInstanceName: { eq: "themeImages" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(height: 64)
+      }
+    }
+    footerLogo: file(
+      name: { eq: "footer" }
       extension: { in: ["png", "jpg", "jpeg"] }
       sourceInstanceName: { eq: "themeImages" }
     ) {
