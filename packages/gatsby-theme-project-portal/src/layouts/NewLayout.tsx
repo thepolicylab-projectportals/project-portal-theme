@@ -45,8 +45,6 @@ export const NewLayout: FunctionComponent<NewLayoutProps> = ({
     },
   },
   path,
-  activePage,
-  description,
   children,
 }) => {
   return (
