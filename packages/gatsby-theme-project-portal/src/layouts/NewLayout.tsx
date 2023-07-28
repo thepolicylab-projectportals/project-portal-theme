@@ -5,6 +5,7 @@ import {
   DevelopmentBanner,
   Navbar,
   SiteMetadata,
+  NavbarLayout,
 } from "../components"
 import { useProjectPortalConfig } from "../hooks"
 import { graphql } from "gatsby"
@@ -12,7 +13,13 @@ import { graphql } from "gatsby"
 interface NewLayoutProps {
   projectPortalConfig: {
     showDevBanner?: boolean
+    pages: {
+      link: string
+      name: string
+      show: boolean
+    }[]
   }
+
   activePage?: string
   title: string
   description: string
@@ -20,7 +27,7 @@ interface NewLayoutProps {
 }
 
 export const NewLayout: FunctionComponent<NewLayoutProps> = ({
-  projectPortalConfig: { showDevBanner },
+  projectPortalConfig: { showDevBanner, pages },
   activePage,
   title,
   description,
@@ -30,7 +37,7 @@ export const NewLayout: FunctionComponent<NewLayoutProps> = ({
     <div className="w-full mx-0 bg-white border-0 xl:container xl:p-0 xl:mx-auto xl:border-l xl:border-r xl:border-gray-200 flex flex-col min-h-screen">
       {showDevBanner && <DevelopmentBanner />}
       {/*<SiteMetadata title={title} description={description} />*/}
-      {/*<Navbar activePage={activePage} />*/}
+      <NavbarLayout activePage={activePage} title={title} pages={pages} />
       <div className="flex-1">{children}</div>
       {/*<BottomBanner />*/}
       {/*<Footer />*/}
@@ -41,5 +48,10 @@ export const NewLayout: FunctionComponent<NewLayoutProps> = ({
 export const query = graphql`
   fragment LayoutQuery on ProjectPortalConfig {
     showDevBanner
+    pages {
+      link
+      name
+      show
+    }
   }
 `
