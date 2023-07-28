@@ -4,7 +4,7 @@ import {
   Navbar,
   Footer,
   FooterProps,
-  BottomBannerLayout,
+  BottomBanner,
   BottomBannerProps,
 } from "../components"
 import { graphql } from "gatsby"
@@ -64,7 +64,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
         image={navbarLogo ? getImage(navbarLogo) : null}
       />
       <div className="flex-1">{children}</div>
-      <BottomBannerLayout
+      <BottomBanner
         text={bottom_banner.text}
         link={bottom_banner.link}
         linkId={"bottomBannerLink"}
