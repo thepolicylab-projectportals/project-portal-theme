@@ -28,7 +28,7 @@ export const ProjectDetailPage: FunctionComponent<
   } = props
 
   return (
-    <Layout title={project.title} description={project.summary}>
+    <>
       <main>
         <ProjectDetailLayout {...project} />
       </main>
@@ -46,6 +46,6 @@ export const ProjectDetailPage: FunctionComponent<
           </Link>
         </section>
       </div>
-    </Layout>
+    </>
   )
 }

@@ -1,4 +1,3 @@
-import { Layout } from "./Layout"
 import { ProjectPage, CardProps } from "../components"
 import React, { FunctionComponent } from "react"
 
@@ -33,16 +32,14 @@ export const CardPageLayout: FunctionComponent<CardPageLayoutProps> = ({
   },
 }) => {
   return (
-    <Layout activePage={pageName} title={title} description={lede}>
-      <main>
-        <ProjectPage
-          allProjects={allProject.nodes}
-          bgImage={image?.childImageSharp.resize.src}
-          title={title}
-          lede={lede}
-          sortOptions={sortOptions}
-        />
-      </main>
-    </Layout>
+    <main>
+      <ProjectPage
+        allProjects={allProject.nodes}
+        bgImage={image?.childImageSharp.resize.src}
+        title={title}
+        lede={lede}
+        sortOptions={sortOptions}
+      />
+    </main>
   )
 }

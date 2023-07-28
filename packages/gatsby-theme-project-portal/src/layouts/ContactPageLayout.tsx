@@ -312,24 +312,22 @@ export const ContactPageLayout: FunctionComponent<ContactProps> = ({
 }: ContactProps) => {
   const imageSrc = image?.childImageSharp.resize.src
   return (
-    <Layout activePage="Contact" title={title} description={lede}>
-      <main>
-        <header>
-          <HeaderWithImage title="Contact" lede="" imageSrc={imageSrc} />
-        </header>
+    <main>
+      <header>
+        <HeaderWithImage title="Contact" lede="" imageSrc={imageSrc} />
+      </header>
 
-        <article className="w-full pt-5 px-8 lg:px-16 xl:px-24 lg:w-2/3">
-          <h1 className="mt-8 mb-2 text-h2 font-bold">{title}</h1>
-          <MarkdownText
-            className="mb-10 leading-normal text-body lg:text-body"
-            text={lede}
-          />
-          <ContactForm
-            recaptchaSiteKey={recaptchaSiteKey}
-            thankYouPagePath={thankYouPagePath}
-          />
-        </article>
-      </main>
-    </Layout>
+      <article className="w-full pt-5 px-8 lg:px-16 xl:px-24 lg:w-2/3">
+        <h1 className="mt-8 mb-2 text-h2 font-bold">{title}</h1>
+        <MarkdownText
+          className="mb-10 leading-normal text-body lg:text-body"
+          text={lede}
+        />
+        <ContactForm
+          recaptchaSiteKey={recaptchaSiteKey}
+          thankYouPagePath={thankYouPagePath}
+        />
+      </article>
+    </main>
   )
 }
