@@ -86,9 +86,6 @@ EOM
 
 read -r -d '' YARNRC << EOM
 nodeLinker: node-modules
-npmScopes:
-  thepolicylab-projectportals:
-    npmRegistryServer: https://npm.pkg.github.com
 EOM
 
 # Specify the template site
