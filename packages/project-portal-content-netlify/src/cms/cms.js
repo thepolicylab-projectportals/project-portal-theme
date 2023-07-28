@@ -63,7 +63,8 @@ CMS.init({
             required: false,
             format: "YYYY-MM-DD",
             default: "",
-            hint: "The date on which the chance to collaborate ceases. " +
+            hint:
+              "The date on which the chance to collaborate ceases. " +
               "(After this point the collaborators will be decided.)",
           },
           {
@@ -535,7 +536,15 @@ CMS.init({
                     widget: "list",
                     fields: [
                       { name: "name", widget: "string" },
-                      { name: "link", widget: "string" },
+                      {
+                        name: "link",
+                        widget: "string",
+                        pattern: [
+                          /^\/$|^\/.*\/$/,
+                          "Should start and end with a slash.",
+                        ], // from
+                        // https://regexr.com/7hpn2
+                      },
                       { name: "show", widget: "boolean" },
                     ],
                   },
