@@ -19,13 +19,6 @@ interface NewLayoutProps {
   children: ReactNode
 }
 
-function getShowDevBannerSetting(showDevBanner?: boolean) {
-  // Checks whether the "showDevBanner" argument is explicitly set and use it if it is (i.e. not null),
-  // else use the showDevBannerThemeSetting.
-  const { showDevBanner: showDevBannerThemeSetting } = useProjectPortalConfig()
-  return showDevBanner ?? showDevBannerThemeSetting
-}
-
 export const NewLayout: FunctionComponent<NewLayoutProps> = ({
   projectPortalConfig: { showDevBanner },
   activePage,
