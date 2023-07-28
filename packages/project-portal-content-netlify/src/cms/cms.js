@@ -2,6 +2,7 @@ import CMS from "netlify-cms-app"
 
 // Add custom styles to the index.html page
 import "./cms-utils"
+import { ProjectDetailPreview } from "../components/ProjectDetailPreview"
 
 // The following configuration is merged with the configuration from the site's config.yml file
 // (if it exists in the site's directory static/admin/config.yml)
@@ -673,3 +674,5 @@ CMS.registerEventListener({
     return entry.get("data").set("lastModified", new Date().toISOString())
   },
 })
+
+CMS.registerPreviewTemplate("project", ProjectDetailPreview)
