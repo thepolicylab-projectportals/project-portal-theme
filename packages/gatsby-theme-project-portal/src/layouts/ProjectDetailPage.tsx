@@ -1,4 +1,3 @@
-import { Layout } from "./Layout"
 import {
   BackIcon,
   ProjectDetailLayout,
@@ -16,6 +15,15 @@ interface ProjectDetailPageProps extends ProjectDetailLayoutProps {
 interface ProjectDetailPageQueryResults {
   data: {
     project: ProjectDetailPageProps
+    projectPortalConfig: {
+      projectInterestLink
+      staticText: {
+        main_contact_text: {
+          ongoingText: string
+          completeText: string
+        }
+      }
+    }
   }
 }
 
@@ -24,13 +32,26 @@ export const ProjectDetailPage: FunctionComponent<
 > = (props) => {
   // Destructure the results of the query to get the props we need from the project
   const {
-    data: { project },
+    data: {
+      project,
+      projectPortalConfig: {
+        projectInterestLink,
+        staticText: {
+          main_contact_text: { ongoingText, completeText },
+        },
+      },
+    },
   } = props
 
   return (
     <>
       <main>
-        <ProjectDetailLayout {...project} />
+        <ProjectDetailLayout
+          {...project}
+          projectInterestLink={projectInterestLink}
+          mainContactOngoingText={ongoingText}
+          mainContactCompleteText={completeText}
+        />
       </main>
       <div className="p-responsive pb-4">
         <section className="my-12">
