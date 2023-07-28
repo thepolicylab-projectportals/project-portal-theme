@@ -1,6 +1,9 @@
 import React from "react"
 import type { Meta, StoryObj } from "@storybook/react"
 import { Layout } from "./Layout"
+import { examplePages } from "../components/Navbar.stories"
+import * as BottomBannerStories from "../components/BottomBanner.stories"
+import * as FooterStories from "../components/Footer.stories"
 
 const meta: Meta<typeof Layout> = {
   component: Layout,
@@ -11,13 +14,22 @@ export default meta
 
 type Story = StoryObj<typeof Layout>
 
-// TODO: Fix this – relies on SiteMetadata, which uses a static query.
 export const Primary: Story = {
   args: {
-    activePage: "open",
+    data: {
+      projectPortalConfig: {
+        showDevBanner: true,
+        pages: examplePages,
+        staticText: {
+          bottom_banner: BottomBannerStories.Primary.args,
+          footer: FooterStories.Primary.args,
+        },
+      },
+      site: { siteMetadata: { title: "The Site Title" } },
+    },
+    activePage: "Open",
     title: "Page Title",
     description: "The page description (metadata)",
     children: <></>,
-    showDevBanner: false,
   },
 }
