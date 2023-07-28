@@ -11,7 +11,14 @@ export default meta
 
 type Story = StoryObj<typeof ThankYouPageLayout>
 
-// TODO: Fix this – relies on SiteMetadata, which uses a static query.
 export const Primary: Story = {
-  args: {},
+  args: {
+    data: {
+      page: {
+        image: {
+          childImageSharp: { resize: { src: "theme-image/contact.jpg" } },
+        },
+      },
+    },
+  },
 }
