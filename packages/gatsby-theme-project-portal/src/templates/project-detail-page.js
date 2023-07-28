@@ -20,6 +20,21 @@ export const query = graphql`
       title
       description: summary
     }
+    defaultContactImage: file(
+      name: { eq: "default-contact" }
+      extension: { in: ["png", "jpg", "jpeg"] }
+      # only match files in the "themeImages" sourced directory:
+      sourceInstanceName: { eq: "themeImages" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 100
+          height: 100
+          placeholder: BLURRED
+          layout: FIXED
+        )
+      }
+    }
     project(slug: { eq: $slug }) {
       question
       title

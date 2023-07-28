@@ -13,6 +13,7 @@ interface ProjectContactProps {
   status: string
   projectInterestLink?: string
   mainText: string
+  defaultContactImage?: IGatsbyImageData
 }
 
 export const MainContact: FunctionComponent<ProjectContactProps> = ({
@@ -24,6 +25,7 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
   status,
   projectInterestLink,
   mainText,
+  defaultContactImage,
 }) => {
   return (
     <div className="w-full lg:w-2/5 xl:w-1/3">
@@ -65,7 +67,7 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
         <h4 className="text-h4">Project point of contact</h4>
         <div className="mt-4 text-body">
           <Contact
-            {...{ name, title, employer, email, image }}
+            {...{ name, title, employer, email, image, defaultContactImage }}
             showEmail={true}
           />
         </div>

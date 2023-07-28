@@ -15,6 +15,7 @@ import {
 import { Accordion } from "./Accordion"
 
 import { statusOutput, isNA, isEmpty } from "../utils"
+import { IGatsbyImageData } from "gatsby-plugin-image"
 
 export interface ProjectDetailLayoutProps {
   // Core content
@@ -59,6 +60,8 @@ export interface ProjectDetailLayoutProps {
 
   mainContactOngoingText: string
   mainContactCompleteText: string
+
+  defaultContactImage: IGatsbyImageData
 }
 
 export const ProjectDetailLayout: FunctionComponent<
@@ -88,6 +91,7 @@ export const ProjectDetailLayout: FunctionComponent<
   mainContactOngoingText,
   mainContactCompleteText,
   projectInterestLink,
+  defaultContactImage,
 }) => {
   const mainContactText =
     status === "open"
@@ -225,6 +229,7 @@ export const ProjectDetailLayout: FunctionComponent<
                 status={status}
                 mainText={mainContactText}
                 projectInterestLink={projectInterestLink}
+                defaultContactImage={defaultContactImage}
               />
             )}
           </div>
@@ -246,7 +251,11 @@ export const ProjectDetailLayout: FunctionComponent<
         {!isEmpty(projectTeam) && (
           <>
             <hr className="my-8 border-gray-300 m-responsive" />
-            <ProjectTeam title="Project Team" contacts={projectTeam} />
+            <ProjectTeam
+              title="Project Team"
+              contacts={projectTeam}
+              defaultContactImage={defaultContactImage}
+            />
           </>
         )}
       </div>

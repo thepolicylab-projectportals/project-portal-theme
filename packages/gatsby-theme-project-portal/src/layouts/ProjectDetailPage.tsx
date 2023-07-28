@@ -5,6 +5,7 @@ import {
 } from "../components"
 import React, { FunctionComponent } from "react"
 import { Link, withPrefix } from "gatsby"
+import { IGatsbyImageData } from "gatsby-plugin-image"
 
 // For the ProjectDetailPage we add the slug which isn't on the layout
 interface ProjectDetailPageProps extends ProjectDetailLayoutProps {
@@ -15,6 +16,7 @@ interface ProjectDetailPageProps extends ProjectDetailLayoutProps {
 interface ProjectDetailPageQueryResults {
   data: {
     project: ProjectDetailPageProps
+    defaultContactImage: IGatsbyImageData
     projectPortalConfig: {
       projectInterestLink
       staticText: {
@@ -40,6 +42,7 @@ export const ProjectDetailPage: FunctionComponent<
           main_contact_text: { ongoingText, completeText },
         },
       },
+      defaultContactImage,
     },
   } = props
 
@@ -51,6 +54,7 @@ export const ProjectDetailPage: FunctionComponent<
           projectInterestLink={projectInterestLink}
           mainContactOngoingText={ongoingText}
           mainContactCompleteText={completeText}
+          defaultContactImage={defaultContactImage}
         />
       </main>
       <div className="p-responsive pb-4">
