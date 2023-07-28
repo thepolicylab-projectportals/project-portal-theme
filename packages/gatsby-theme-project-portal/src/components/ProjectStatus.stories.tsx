@@ -1,10 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import { ProjectStatus } from "./ProjectStatus"
-import { statusArgType } from "./Story.utilities"
 
+export const statusArgType = {
+  status: {
+    options: ["open", "ongoing", "completed"],
+    control: { type: "radio" },
+  },
+}
 const meta: Meta<typeof ProjectStatus> = {
   component: ProjectStatus,
   tags: ["autodocs"],
+  includeStories: /^[A-Z]/,
   argTypes: statusArgType,
 }
 

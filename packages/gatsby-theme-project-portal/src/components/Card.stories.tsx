@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import { Card } from "./Card"
-import { statusArgType } from "./Story.utilities"
+
+import { statusArgType } from "./ProjectStatus.stories"
 
 export const exampleTopics = [
   { slug: "topic", title: "Topic" },
