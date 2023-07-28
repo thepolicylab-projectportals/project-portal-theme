@@ -16,7 +16,7 @@ interface ContactProps {
     thankYouPagePath: string
   }
   data: {
-    generalPage: {
+    page: {
       title: string
       lede: string
       image: {
