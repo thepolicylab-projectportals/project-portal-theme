@@ -2,7 +2,7 @@ import React from "react"
 import type { Meta, StoryObj } from "@storybook/react"
 import { AboutPageLayout } from "./AboutPageLayout"
 
-const meta: Meta<typeof AboutPageAboutPageLayout> = {
+const meta: Meta<typeof AboutPageLayout> = {
   component: AboutPageLayout,
   tags: ["autodocs"],
 }
