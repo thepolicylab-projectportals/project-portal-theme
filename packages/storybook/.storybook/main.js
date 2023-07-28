@@ -1,6 +1,6 @@
 /** @type { import('@storybook/react-webpack5').StorybookConfig } */
 const config = {
-  stories: ["../packages/*/src/**/*.stories.@(js|jsx|ts|tsx)"],
+  stories: ["../../*/src/**/*.stories.@(js|jsx|ts|tsx)"],
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
@@ -10,6 +10,14 @@ const config = {
       options: {
         postCss: {
           implementation: require.resolve("postcss"),
+          postcssOptions: {
+            plugins: {
+              tailwindcss: {
+                config: require("@thepolicylab-projectportals/gatsby-theme-project-portal/src/styles/tailwind.presets.js"),
+              },
+              autoprefixer: {},
+            },
+          },
         },
       },
     },
@@ -19,12 +27,25 @@ const config = {
     name: "@storybook/react-webpack5",
     options: {},
   },
-  staticDirs: ["../packages/example/content"],
+  staticDirs: ["../../example/content"],
   docs: {
     autodocs: "tag",
   },
   babel: {
-    presets: ["@babel/preset-react", "@babel/preset-typescript"],
+    sourceType: "unambiguous",
+    presets: [
+      [
+        "@babel/preset-env",
+        {
+          targets: {
+            chrome: 100,
+          },
+        },
+      ],
+      "@babel/preset-react",
+      "@babel/preset-typescript",
+    ],
+    plugins: [],
   },
   webpackFinal: async (config) => {
     // Transpile Gatsby module because Gatsby includes un-transpiled ES6 code.

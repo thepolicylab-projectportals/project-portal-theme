@@ -2,7 +2,7 @@ import React from "react"
 import { SectionOfItem } from "../components"
 import { isNA } from "../utils"
 
-export interface CollaboratorDetailsProps {
+interface CollaboratorDetailsProps {
   expertise?: string
   requirement?: string
   keyDates?: string
