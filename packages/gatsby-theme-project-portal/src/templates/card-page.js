@@ -11,6 +11,7 @@ export const query = graphql`
     site {
       ...HeadData
     }
+    ...NavbarIcon
     page: cardPage(slug: { eq: $slug }) {
       pageName
       title

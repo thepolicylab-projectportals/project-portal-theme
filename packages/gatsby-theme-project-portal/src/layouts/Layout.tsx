@@ -8,6 +8,7 @@ import {
   BottomBannerProps,
 } from "../components"
 import { graphql } from "gatsby"
+import { getImage, IGatsbyImageData } from "gatsby-plugin-image"
 
 interface LayoutProps {
   path: string
@@ -25,6 +26,7 @@ interface LayoutProps {
       }
     }
     site: { siteMetadata: { title: string } }
+    navbarLogo?: IGatsbyImageData
   }
 
   activePage?: string
@@ -43,6 +45,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
     site: {
       siteMetadata: { title },
     },
+    navbarLogo,
   },
   path,
   children,
@@ -50,7 +53,12 @@ export const Layout: FunctionComponent<LayoutProps> = ({
   return (
     <div className="w-full mx-0 bg-white border-0 xl:container xl:p-0 xl:mx-auto xl:border-l xl:border-r xl:border-gray-200 flex flex-col min-h-screen">
       {showDevBanner && <DevelopmentBanner />}
-      <NavbarLayout activePage={path} title={title} pages={pages} />
+      <NavbarLayout
+        activePage={path}
+        title={title}
+        pages={pages}
+        image={navbarLogo ? getImage(navbarLogo) : null}
+      />
       <div className="flex-1">{children}</div>
       <BottomBannerLayout
         text={bottom_banner.text}

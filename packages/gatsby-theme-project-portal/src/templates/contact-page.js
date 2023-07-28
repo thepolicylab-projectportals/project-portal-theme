@@ -12,6 +12,7 @@ export const query = graphql`
     site {
       ...HeadData
     }
+    ...NavbarIcon
     page: generalPage(slug: { eq: $slug }) {
       title
       lede

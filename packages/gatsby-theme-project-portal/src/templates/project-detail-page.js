@@ -17,6 +17,7 @@ export const query = graphql`
     site {
       ...HeadData
     }
+    ...NavbarIcon
     page: project(slug: { eq: $slug }) {
       title
       description: summary
