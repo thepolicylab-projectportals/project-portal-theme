@@ -5,6 +5,9 @@ export default AboutPageLayout
 
 export const query = graphql`
   query AboutQuery($slug: String!) {
+    projectPortalConfig {
+      ...LayoutQuery
+    }
     site {
       siteMetadata {
         title

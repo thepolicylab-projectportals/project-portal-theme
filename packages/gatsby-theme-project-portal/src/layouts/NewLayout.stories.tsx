@@ -14,10 +14,10 @@ type Story = StoryObj<typeof NewLayout>
 // TODO: Fix this – relies on SiteMetadata, which uses a static query.
 export const Primary: Story = {
   args: {
+    projectPortalConfig: { showDevBanner: false },
     activePage: "open",
     title: "Page Title",
     description: "The page description (metadata)",
     children: <></>,
-    showDevBanner: false,
   },
 }

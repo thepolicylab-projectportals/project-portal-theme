@@ -5,6 +5,9 @@ export default ProjectDetailPage
 
 export const query = graphql`
   query ProjectDetailPageQuery($slug: String!) {
+    projectPortalConfig {
+      ...LayoutQuery
+    }
     project(slug: { eq: $slug }) {
       question
       title

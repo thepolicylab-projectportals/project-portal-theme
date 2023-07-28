@@ -5,6 +5,9 @@ export default ThankYouPageLayout
 
 export const query = graphql`
   query ThankYouQuery($slug: String!) {
+    projectPortalConfig {
+      ...LayoutQuery
+    }
     generalPage(slug: { eq: $slug }) {
       image {
         childImageSharp {
