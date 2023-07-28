@@ -44,20 +44,6 @@ export const primaryData = {
   created: new Date("2022-03-04"),
 }
 
-export const primaryData = {
-  slug: "test-project",
-  title: "Test Project",
-  question: "Test Question?",
-  status: "open",
-  agency: "Sample Agency",
-  topics: [{ slug: "topic", title: "Topic" }],
-  opportunityCloses: new Date("2022-03-04"),
-  startDate: new Date("2022-01-03"),
-  endDate: new Date("2022-03-04"),
-  lastModified: new Date("2022-05-27T16:34:04.000Z"),
-  created: new Date("2022-03-04"),
-}
-
 export const Primary: Story = {
   args: primaryData,
 }
