@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { Card, CardProps } from "./Card"
+import { Card } from "./Card"
 import { statusArgType } from "./Story.utilities"
 
 export const exampleTopics = [
@@ -28,7 +28,7 @@ const meta: Meta<typeof Card> = {
 
 export default meta
 
-type Story = StoryObj<CardProps>
+type Story = StoryObj<typeof Card>
 
 export const primaryData = {
   slug: "test-project",
