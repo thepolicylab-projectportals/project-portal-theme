@@ -47,7 +47,7 @@ interface NavbarLayoutProps {
   }[]
 }
 
-export const NavbarLayout: FunctionComponent<NavbarLayoutProps> = ({
+export const Navbar: FunctionComponent<NavbarLayoutProps> = ({
   title,
   activePage,
   image,

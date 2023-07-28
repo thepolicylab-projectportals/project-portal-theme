@@ -1,7 +1,7 @@
 import React, { FunctionComponent, ReactNode } from "react"
 import {
   DevelopmentBanner,
-  NavbarLayout,
+  Navbar,
   Footer,
   FooterProps,
   BottomBannerLayout,
@@ -57,7 +57,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
   return (
     <div className="w-full mx-0 bg-white border-0 xl:container xl:p-0 xl:mx-auto xl:border-l xl:border-r xl:border-gray-200 flex flex-col min-h-screen">
       {showDevBanner && <DevelopmentBanner />}
-      <NavbarLayout
+      <Navbar
         activePage={path}
         title={title}
         pages={pages}

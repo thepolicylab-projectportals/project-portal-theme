@@ -12,10 +12,10 @@ import {
   Cards,
   Contact,
   CollaboratorDetails,
-  NavbarLayout,
+  Navbar,
   Navbar,
   SiteMetadata,
-  FooterLayout,
+  Footer,
   Footer,
   BottomBannerLayout,
   BottomBanner,
@@ -224,14 +224,14 @@ const Index = () => {
     <>
       <DevelopmentBanner />
       {/*Normal Navbar:*/}
-      <NavbarLayout
+      <Navbar
         title="Example Site"
         label="test"
         image={navbarLogoImage}
         pages={pages}
       />
       {/*Navbar with Active Page:*/}
-      <NavbarLayout
+      <Navbar
         title="Example Site"
         label="test"
         image={navbarLogoImage}
@@ -349,15 +349,15 @@ const Index = () => {
       <CollaboratorDetails requirement={"Requirement only"} />
       <CollaboratorDetails keyDates={"Key dates only"} />
       <div style={{ backgroundColor: "black" }}>
-        <FooterLayout
+        <Footer
           image={{ imageData: footerImage, altText: "San Antonio Logo" }}
           {...footerProps}
         />
       </div>
 
-      <FooterLayout {...footerProps} />
+      <Footer {...footerProps} />
 
-      <FooterLayout
+      <Footer
         heading={{
           title: "CCV Project Portal",
           link: "https://thepolicylab.brown.edu",
