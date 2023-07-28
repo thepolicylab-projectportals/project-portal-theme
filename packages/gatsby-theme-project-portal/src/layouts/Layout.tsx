@@ -2,7 +2,7 @@ import React, { FunctionComponent, ReactNode } from "react"
 import {
   DevelopmentBanner,
   NavbarLayout,
-  FooterLayout,
+  Footer,
   FooterProps,
   BottomBannerLayout,
   BottomBannerProps,
@@ -70,7 +70,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
         linkId={"bottomBannerLink"}
         image={bottomBannerLogo ? getImage(bottomBannerLogo) : null}
       />
-      <FooterLayout
+      <Footer
         heading={footer.heading}
         copyright={footer.copyright}
         links={footer.links}

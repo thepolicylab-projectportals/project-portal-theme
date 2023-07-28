@@ -1,16 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { FooterLayout } from "./Footer"
+import { Footer } from "./Footer"
 
 import { emptyGatsbyImageData } from "./Story.utilities"
 
-const meta: Meta<typeof FooterLayout> = {
-  component: FooterLayout,
+const meta: Meta<typeof Footer> = {
+  component: Footer,
   tags: ["autodocs"],
 }
 
 export default meta
 
-type Story = StoryObj<typeof FooterLayout>
+type Story = StoryObj<typeof Footer>
 
 export const Primary: Story = {
   args: {

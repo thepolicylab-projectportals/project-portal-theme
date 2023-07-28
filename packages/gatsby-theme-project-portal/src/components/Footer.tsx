@@ -19,7 +19,7 @@ export interface FooterProps {
   }
 }
 
-export const FooterLayout: FunctionComponent<FooterProps> = ({
+export const Footer: FunctionComponent<FooterProps> = ({
   heading,
   copyright,
   links,
