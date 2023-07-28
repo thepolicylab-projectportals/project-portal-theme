@@ -8,7 +8,6 @@ import { isNA } from "../utils"
 
 interface AboutProps {
   data: {
-    site: { siteMetadata: { title } }
     page: {
       pageName: string
       title: string
@@ -44,9 +43,6 @@ const AboutList = ({ aboutTitle, aboutText }) => {
 
 export const AboutPageLayout: FunctionComponent<AboutProps> = ({
   data: {
-    site: {
-      siteMetadata: { title: siteTitle },
-    },
     page: { header, aims, faq, accessibility, image },
   },
 }: AboutProps) => {
