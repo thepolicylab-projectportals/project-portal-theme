@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import { Card } from "./Card"
-import { statusArgType } from "./Story.utilities"
+
+import { argType as projectStatusArgType } from "./ProjectStatus.stories"
 
 export const exampleTopics = [
   { slug: "topic", title: "Topic" },
@@ -14,7 +15,7 @@ const meta: Meta<typeof Card> = {
   tags: ["autodocs"],
   includeStories: /^[A-Z]/,
   argTypes: {
-    ...statusArgType,
+    ...projectStatusArgType,
     topics: {
       options: Object.keys(exampleTopics),
       control: {
