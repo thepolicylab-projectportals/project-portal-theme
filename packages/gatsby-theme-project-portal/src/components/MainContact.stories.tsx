@@ -11,7 +11,6 @@ export default meta
 
 type Story = StoryObj<typeof MainContact>
 
-// TODO: Doesn't work becuase MainContact uses useStaticText
 export const Primary: Story = {
   args: {
     name: "Contact Name",
@@ -19,7 +18,14 @@ export const Primary: Story = {
     employer: "Employer",
     email: "some-email@example.com",
     status: "open",
-    emailContent: "Are you interested in this project?",
+    mainText: "We are actively searching for collaborators.",
     image: emptyGatsbyImageData,
+  },
+}
+
+export const ProjectInterestLink: Story = {
+  args: {
+    ...Primary.args,
+    projectInterestLink: "https://ccv.brown.edu",
   },
 }
