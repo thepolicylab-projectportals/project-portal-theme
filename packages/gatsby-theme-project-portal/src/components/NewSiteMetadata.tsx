@@ -29,13 +29,11 @@ export const Head = ({ location, params, data, pageContext }) => (
 
 export const query = graphql`
   fragment HeadData on Site {
-    site {
-      siteMetadata {
-        title
-        description
-        siteUrl
-        locale
-      }
+    siteMetadata {
+      title
+      description
+      siteUrl
+      locale
     }
   }
 `

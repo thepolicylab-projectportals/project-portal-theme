@@ -306,7 +306,7 @@ export class ContactForm extends Component<ContactFormProps> {
 export const ContactPageLayout: FunctionComponent<ContactProps> = ({
   pageContext: { thankYouPagePath },
   data: {
-    generalPage: { title, lede, image },
+    page: { title, lede, image },
     projectPortalConfig: { recaptchaSiteKey },
   },
 }: ContactProps) => {

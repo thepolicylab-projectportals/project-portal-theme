@@ -10,16 +10,19 @@ import {
 import { graphql } from "gatsby"
 
 interface NewLayoutProps {
-  projectPortalConfig: {
-    showDevBanner?: boolean
-    pages: {
-      link: string
-      name: string
-      show: boolean
-    }[]
-    staticText: {
-      bottom_banner: BottomBannerProps
-      footer: FooterProps
+  path: string
+  data: {
+    projectPortalConfig: {
+      showDevBanner?: boolean
+      pages: {
+        link: string
+        name: string
+        show: boolean
+      }[]
+      staticText: {
+        bottom_banner: BottomBannerProps
+        footer: FooterProps
+      }
     }
   }
 
@@ -30,11 +33,14 @@ interface NewLayoutProps {
 }
 
 export const NewLayout: FunctionComponent<NewLayoutProps> = ({
-  projectPortalConfig: {
-    showDevBanner,
-    pages,
-    staticText: { bottom_banner, footer },
+  data: {
+    projectPortalConfig: {
+      showDevBanner,
+      pages,
+      staticText: { bottom_banner, footer },
+    },
   },
+  path,
   activePage,
   title,
   description,
@@ -43,7 +49,7 @@ export const NewLayout: FunctionComponent<NewLayoutProps> = ({
   return (
     <div className="w-full mx-0 bg-white border-0 xl:container xl:p-0 xl:mx-auto xl:border-l xl:border-r xl:border-gray-200 flex flex-col min-h-screen">
       {showDevBanner && <DevelopmentBanner />}
-      <NavbarLayout activePage={activePage} title={title} pages={pages} />
+      <NavbarLayout activePage={path} title={""} pages={pages} />
       <div className="flex-1">{children}</div>
       <BottomBannerLayout
         text={bottom_banner.text}

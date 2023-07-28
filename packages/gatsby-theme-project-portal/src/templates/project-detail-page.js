@@ -8,6 +8,13 @@ export const query = graphql`
     projectPortalConfig {
       ...LayoutQuery
     }
+    site {
+      ...HeadData
+    }
+    page: project(slug: { eq: $slug }) {
+      title
+      description: summary
+    }
     project(slug: { eq: $slug }) {
       question
       title

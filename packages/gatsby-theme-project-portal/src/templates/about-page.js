@@ -9,11 +9,9 @@ export const query = graphql`
       ...LayoutQuery
     }
     site {
-      siteMetadata {
-        title
-      }
+      ...HeadData
     }
-    generalPage(slug: { eq: $slug }) {
+    page: generalPage(slug: { eq: $slug }) {
       pageName
       title
       header

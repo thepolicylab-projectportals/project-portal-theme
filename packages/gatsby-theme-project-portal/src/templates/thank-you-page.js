@@ -8,7 +8,10 @@ export const query = graphql`
     projectPortalConfig {
       ...LayoutQuery
     }
-    generalPage(slug: { eq: $slug }) {
+    site {
+      ...HeadData
+    }
+    page: generalPage(slug: { eq: $slug }) {
       image {
         childImageSharp {
           resize(width: 1536) {

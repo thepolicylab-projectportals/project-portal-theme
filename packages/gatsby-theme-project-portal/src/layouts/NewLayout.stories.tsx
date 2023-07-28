@@ -16,12 +16,14 @@ type Story = StoryObj<typeof NewLayout>
 
 export const Primary: Story = {
   args: {
-    projectPortalConfig: {
-      showDevBanner: true,
-      pages: examplePages,
-      staticText: {
-        bottom_banner: BottomBannerStories.Primary.args,
-        footer: FooterStories.Primary.args,
+    data: {
+      projectPortalConfig: {
+        showDevBanner: true,
+        pages: examplePages,
+        staticText: {
+          bottom_banner: BottomBannerStories.Primary.args,
+          footer: FooterStories.Primary.args,
+        },
       },
     },
     activePage: "Open",

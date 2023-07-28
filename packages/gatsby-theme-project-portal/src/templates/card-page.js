@@ -8,7 +8,10 @@ export const query = graphql`
     projectPortalConfig {
       ...LayoutQuery
     }
-    cardPage(slug: { eq: $slug }) {
+    site {
+      ...HeadData
+    }
+    page: cardPage(slug: { eq: $slug }) {
       pageName
       title
       lede

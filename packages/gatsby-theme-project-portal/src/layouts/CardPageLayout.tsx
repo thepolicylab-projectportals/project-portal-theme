@@ -6,7 +6,7 @@ export interface CardPageLayoutProps {
     allProject: {
       nodes: CardProps[]
     }
-    cardPage: {
+    page: {
       pageName: string
       title: string
       lede: string
@@ -28,7 +28,7 @@ export interface CardPageLayoutProps {
 export const CardPageLayout: FunctionComponent<CardPageLayoutProps> = ({
   data: {
     allProject,
-    cardPage: { pageName, title, lede, sortOptions, image },
+    page: { pageName, title, lede, sortOptions, image },
   },
 }) => {
   return (
