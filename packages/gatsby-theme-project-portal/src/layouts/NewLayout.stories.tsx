@@ -25,6 +25,7 @@ export const Primary: Story = {
           footer: FooterStories.Primary.args,
         },
       },
+      site: { siteMetadata: { title: "The Site Title" } },
     },
     activePage: "Open",
     title: "Page Title",

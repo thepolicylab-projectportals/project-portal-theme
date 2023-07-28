@@ -24,6 +24,7 @@ interface NewLayoutProps {
         footer: FooterProps
       }
     }
+    site: { siteMetadata: { title: string } }
   }
 
   activePage?: string
@@ -39,17 +40,19 @@ export const NewLayout: FunctionComponent<NewLayoutProps> = ({
       pages,
       staticText: { bottom_banner, footer },
     },
+    site: {
+      siteMetadata: { title },
+    },
   },
   path,
   activePage,
-  title,
   description,
   children,
 }) => {
   return (
     <div className="w-full mx-0 bg-white border-0 xl:container xl:p-0 xl:mx-auto xl:border-l xl:border-r xl:border-gray-200 flex flex-col min-h-screen">
       {showDevBanner && <DevelopmentBanner />}
-      <NavbarLayout activePage={path} title={""} pages={pages} />
+      <NavbarLayout activePage={path} title={title} pages={pages} />
       <div className="flex-1">{children}</div>
       <BottomBannerLayout
         text={bottom_banner.text}
