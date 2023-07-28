@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { Card } from "./Card"
+import { Card, CardProps } from "./Card"
 
 import { argType as projectStatusArgType } from "./ProjectStatus.stories"
 
@@ -118,3 +118,12 @@ export const longTopicsListData = {
 export const LongTopicsList: Story = {
   args: longTopicsListData,
 }
+
+export const exampleCards: CardProps[] = [
+  openData,
+  ongoingData,
+  completedData,
+  openNoDateData,
+  ongoingNoDateData,
+  completedNoDateData,
+]
