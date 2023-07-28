@@ -1,7 +1,6 @@
 import React, { FunctionComponent, ReactNode } from "react"
 import {
   DevelopmentBanner,
-  SiteMetadata,
   NavbarLayout,
   FooterLayout,
   FooterProps,
@@ -44,7 +43,6 @@ export const NewLayout: FunctionComponent<NewLayoutProps> = ({
   return (
     <div className="w-full mx-0 bg-white border-0 xl:container xl:p-0 xl:mx-auto xl:border-l xl:border-r xl:border-gray-200 flex flex-col min-h-screen">
       {showDevBanner && <DevelopmentBanner />}
-      {/*<SiteMetadata title={title} description={description} />*/}
       <NavbarLayout activePage={activePage} title={title} pages={pages} />
       <div className="flex-1">{children}</div>
       <BottomBannerLayout
