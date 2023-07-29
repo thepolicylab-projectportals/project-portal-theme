@@ -2,10 +2,24 @@ import type { Meta, StoryObj } from "@storybook/react"
 import { Footer } from "./Footer"
 
 import { emptyGatsbyImageData } from "./Story.utilities"
+import { IGatsbyImageData } from "gatsby-plugin-image"
 
 const meta: Meta<typeof Footer> = {
   component: Footer,
   tags: ["autodocs"],
+  includeStories: /^[A-Z]/,
+}
+
+export const footerLogo: IGatsbyImageData = {
+  layout: "fixed",
+  images: {
+    fallback: {
+      src: "image/logo-wide.png",
+    },
+    sources: [],
+  },
+  width: 129,
+  height: 64,
 }
 
 export default meta
@@ -29,8 +43,12 @@ export const Primary: Story = {
         link: "https://brown.edu",
       },
     ],
-    image: { imageData: emptyGatsbyImageData, altText: "" },
+    image: { imageData: footerLogo, altText: "Brown Logo" },
   },
+}
+
+export const ImageNoHeading: Story = {
+  args: { ...Primary.args, heading: { title: "", link: "" } },
 }
 
 export const Empty: Story = {

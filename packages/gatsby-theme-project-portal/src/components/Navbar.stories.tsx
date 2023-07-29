@@ -2,7 +2,9 @@ import type { Meta, StoryObj } from "@storybook/react"
 import { Navbar } from "./Navbar"
 import * as SiteTitleStories from "./SiteTitle.stories"
 
-import { emptyGatsbyImageData } from "./Story.utilities"
+import { siteTitleLogo } from "./SiteTitle.stories"
+
+export const navbarLogo = siteTitleLogo
 
 const meta: Meta<typeof Navbar> = {
   component: Navbar,
@@ -28,9 +30,14 @@ export const Primary: Story = {
     ...SiteTitleStories.Primary.args,
     activePage: "Home",
     pages: examplePages,
+    image: siteTitleLogo,
   },
 }
 
 export const OpenPageIsActive: Story = {
   args: { ...Primary.args, activePage: "Open" },
+}
+
+export const NoLogo: Story = {
+  args: { ...Primary.args, activePage: "Open", image: null },
 }

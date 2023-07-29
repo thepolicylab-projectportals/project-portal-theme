@@ -3,6 +3,7 @@ import { ProjectDetailLayout } from "./ProjectDetail"
 import * as ContactStories from "./Contact.stories"
 import * as ProjectTeamStories from "./ProjectTeam.stories"
 import { emptyGatsbyImageData } from "./Story.utilities"
+import { contactImage, contactImageYogi } from "./Contact.stories"
 
 const meta: Meta<typeof ProjectDetailLayout> = {
   component: ProjectDetailLayout,
@@ -36,7 +37,7 @@ export const Primary: Story = {
       title: "Title",
       employer: "Employer",
       email: "some-email@example.com",
-      image: emptyGatsbyImageData,
+      image: contactImage,
     },
     emailContent: "Are you interested in collaborating?",
 
@@ -55,6 +56,8 @@ export const Primary: Story = {
     projectInterestLink: "https://ccv.brown.edu",
     mainContactOngoingText: "The project is ongoing",
     mainContactCompleteText: "The project is finished",
+
+    defaultContactImage: contactImageYogi,
   },
 }
 
@@ -69,7 +72,7 @@ export const Minimum: Story = {
       title: "Title",
       employer: "Employer",
       email: "some-email@example.com",
-      image: emptyGatsbyImageData,
+      image: null,
     },
 
     status: "open",
@@ -82,5 +85,23 @@ export const Minimum: Story = {
     projectInterestLink: null,
     mainContactOngoingText: "The project is ongoing",
     mainContactCompleteText: "The project is finished",
+  },
+}
+
+export const NoMainContactImage: Story = {
+  args: {
+    defaultContactImage: contactImageYogi,
+    mainContact: {
+      image: null,
+    },
+  },
+}
+
+export const WithMainContactImage: Story = {
+  args: {
+    defaultContactImage: contactImageYogi,
+    mainContact: {
+      image: contactImage,
+    },
   },
 }

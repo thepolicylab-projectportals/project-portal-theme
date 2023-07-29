@@ -10,9 +10,8 @@ import {
   SectionOfItem,
   ShareProject,
   TopicType,
+  Accordion,
 } from "."
-
-import { Accordion } from "./Accordion"
 
 import { statusOutput, isNA, isEmpty } from "../utils"
 import { IGatsbyImageData } from "gatsby-plugin-image"
@@ -229,7 +228,7 @@ export const ProjectDetailLayout: FunctionComponent<
                 status={status}
                 mainText={mainContactText}
                 projectInterestLink={projectInterestLink}
-                defaultContactImage={defaultContactImage}
+                image={mainContact.image ?? defaultContactImage}
               />
             )}
           </div>

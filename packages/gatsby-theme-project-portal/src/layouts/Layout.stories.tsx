@@ -1,9 +1,11 @@
 import React from "react"
 import type { Meta, StoryObj } from "@storybook/react"
 import { Layout } from "./Layout"
-import { examplePages } from "../components/Navbar.stories"
+import { examplePages, navbarLogo } from "../components/Navbar.stories"
 import * as BottomBannerStories from "../components/BottomBanner.stories"
 import * as FooterStories from "../components/Footer.stories"
+import { bottomBannerLogo } from "../components/BottomBanner.stories"
+import { footerLogo } from "../components/Footer.stories"
 
 const meta: Meta<typeof Layout> = {
   component: Layout,
@@ -26,6 +28,9 @@ export const Primary: Story = {
         },
       },
       site: { siteMetadata: { title: "The Site Title" } },
+      navbarLogo: navbarLogo,
+      bottomBannerLogo: bottomBannerLogo,
+      footerLogo: footerLogo,
     },
     activePage: "Open",
     title: "Page Title",

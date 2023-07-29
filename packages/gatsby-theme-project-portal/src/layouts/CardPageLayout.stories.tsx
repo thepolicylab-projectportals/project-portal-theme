@@ -25,7 +25,7 @@ export const Primary: Story = {
         image: {
           childImageSharp: {
             resize: {
-              src: "theme-image/contact.jpg",
+              src: "image/background.jpg",
             },
           },
         },

@@ -19,7 +19,7 @@ export const Primary: Story = {
         title: null,
         header: "What we're here to do",
         image: {
-          childImageSharp: { resize: { src: "theme-image/contact.jpg" } },
+          childImageSharp: { resize: { src: "image/background.jpg" } },
         },
         aims: [
           {

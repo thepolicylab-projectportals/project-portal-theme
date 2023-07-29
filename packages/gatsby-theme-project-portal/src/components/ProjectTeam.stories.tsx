@@ -14,6 +14,11 @@ type Story = StoryObj<typeof ProjectTeam>
 export const Primary: Story = {
   args: {
     title: "The Project Team",
-    contacts: [ContactStories.Primary.args, ContactStories.NoEmail.args],
+    defaultContactImage: ContactStories.contactImageYogi,
+    contacts: [
+      ContactStories.Primary.args,
+      ContactStories.NoEmail.args,
+      ContactStories.NoImage.args,
+    ],
   },
 }

@@ -13,11 +13,23 @@ export default meta
 
 type Story = StoryObj<typeof Contact>
 
-const contactImage: IGatsbyImageData = {
+export const contactImage: IGatsbyImageData = {
   layout: "fixed",
   images: {
     fallback: {
-      src: "theme-image/default-contact.jpg",
+      src: "image/torso.png",
+    },
+    sources: [],
+  },
+  width: 100,
+  height: 100,
+}
+
+export const contactImageYogi: IGatsbyImageData = {
+  layout: "fixed",
+  images: {
+    fallback: {
+      src: "image/yogi.jpg",
     },
     sources: [],
   },
