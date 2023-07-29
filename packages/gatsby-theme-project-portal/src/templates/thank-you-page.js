@@ -2,6 +2,7 @@ import { graphql } from "gatsby"
 import { ThankYouPageLayout } from "../layouts"
 
 export default ThankYouPageLayout
+export { Head } from "../hooks"
 
 export const query = graphql`
   query ThankYouQuery($slug: String!) {
@@ -17,5 +18,3 @@ export const query = graphql`
     }
   }
 `
-
-export { Head } from "../hooks"

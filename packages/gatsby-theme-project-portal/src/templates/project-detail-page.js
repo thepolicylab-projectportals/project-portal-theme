@@ -2,7 +2,6 @@ import { graphql } from "gatsby"
 import { ProjectDetailPage } from "../layouts"
 
 export default ProjectDetailPage
-
 export { Head } from "../hooks"
 
 export const query = graphql`

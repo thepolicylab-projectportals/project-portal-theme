@@ -2,6 +2,7 @@ import { graphql } from "gatsby"
 import { CardPageLayout } from "../layouts"
 
 export default CardPageLayout
+export { Head } from "../hooks"
 
 export const query = graphql`
   query CardPageQuery($slug: String!, $statusFilter: [String]) {
@@ -26,5 +27,3 @@ export const query = graphql`
     }
   }
 `
-
-export { Head } from "../hooks"
