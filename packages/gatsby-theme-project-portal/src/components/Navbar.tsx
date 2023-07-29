@@ -2,8 +2,7 @@ import React, { FunctionComponent } from "react"
 import { Link } from "gatsby"
 import { FaBars, FaTimes } from "react-icons/fa"
 import { IGatsbyImageData } from "gatsby-plugin-image"
-import { SiteTitle } from "./SiteTitle"
-import { NavbarItem } from "./NavbarItem"
+import { SiteTitle, NavbarItem } from "."
 
 interface NavbarLayoutProps {
   title: string

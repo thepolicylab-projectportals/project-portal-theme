@@ -1,7 +1,7 @@
 import React from "react"
 import { Disclosure } from "@headlessui/react"
 import { FaMinus, FaPlus } from "react-icons/fa"
-import { MarkdownText } from "./MarkdownText"
+import { MarkdownText } from "."
 
 interface AccordionProps {
   title: string

@@ -1,9 +1,8 @@
 import { graphql, Link } from "gatsby"
 import React, { FunctionComponent } from "react"
-import { Feature, TopicType } from "."
-import { ProjectStatus } from "./ProjectStatus"
 import { statusOutput, isEmpty } from "../utils"
 import moment from "moment"
+import { Feature, TopicType, ProjectStatus } from "."
 
 export interface CardWithoutNavigationProps {
   // Card Details

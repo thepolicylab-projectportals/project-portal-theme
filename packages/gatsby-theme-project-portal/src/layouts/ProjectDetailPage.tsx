@@ -1,11 +1,11 @@
+import React, { FunctionComponent } from "react"
+import { Link, withPrefix } from "gatsby"
+import { IGatsbyImageData } from "gatsby-plugin-image"
 import {
   BackIcon,
   ProjectDetailLayout,
   ProjectDetailLayoutProps,
 } from "../components"
-import React, { FunctionComponent } from "react"
-import { Link, withPrefix } from "gatsby"
-import { IGatsbyImageData } from "gatsby-plugin-image"
 
 // For the ProjectDetailPage we add the slug which isn't on the layout
 interface ProjectDetailPageProps extends ProjectDetailLayoutProps {

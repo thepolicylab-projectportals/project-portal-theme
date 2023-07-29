@@ -1,7 +1,7 @@
 import { Link } from "gatsby"
 import React, { FunctionComponent } from "react"
-import { GatsbyImage, IGatsbyImageData, getImage } from "gatsby-plugin-image"
-import { MarkdownText } from "../components"
+import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
+import { MarkdownText } from "."
 import { isNA } from "../utils"
 
 export interface BottomBannerProps {

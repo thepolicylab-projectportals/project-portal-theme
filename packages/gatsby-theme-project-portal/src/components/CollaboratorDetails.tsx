@@ -1,5 +1,5 @@
 import React from "react"
-import { SectionOfItem } from "../components"
+import { SectionOfItem } from "."
 import { isNA } from "../utils"
 
 interface CollaboratorDetailsProps {

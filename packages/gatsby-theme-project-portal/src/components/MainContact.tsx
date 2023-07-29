@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from "react"
 import { Link } from "gatsby"
-import { Contact, MarkdownText } from "../components"
-import { statusOutput } from "../utils"
 import { IGatsbyImageData } from "gatsby-plugin-image"
+import { statusOutput } from "../utils"
+import { Contact, MarkdownText } from "."
 
 interface ProjectContactProps {
   name: string

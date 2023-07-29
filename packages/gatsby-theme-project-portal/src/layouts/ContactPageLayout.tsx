@@ -1,8 +1,7 @@
 import React, { Component, FunctionComponent } from "react"
 import { navigate } from "gatsby"
-import { MarkdownText } from "../components"
-import { HeaderWithImage } from "../components"
 import ReCAPTCHA from "react-google-recaptcha"
+import { MarkdownText, HeaderWithImage } from "../components"
 
 const encode = (data: { [Key: string]: string }) => {
   return Object.keys(data)

@@ -1,4 +1,6 @@
 import React, { FunctionComponent, ReactNode } from "react"
+import { graphql } from "gatsby"
+import { getImage, IGatsbyImageData } from "gatsby-plugin-image"
 import {
   DevelopmentBanner,
   Navbar,
@@ -7,8 +9,6 @@ import {
   BottomBanner,
   BottomBannerProps,
 } from "../components"
-import { graphql } from "gatsby"
-import { getImage, IGatsbyImageData } from "gatsby-plugin-image"
 
 interface LayoutProps {
   path: string

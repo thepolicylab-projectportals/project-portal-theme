@@ -1,5 +1,5 @@
-import { ProjectPage, CardProps } from "../components"
 import React, { FunctionComponent } from "react"
+import { ProjectPage, CardProps } from "../components"
 
 export interface CardPageLayoutProps {
   data: {

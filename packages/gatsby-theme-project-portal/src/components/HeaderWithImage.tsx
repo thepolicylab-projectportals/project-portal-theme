@@ -1,6 +1,6 @@
 import { withPrefix } from "gatsby"
 import React from "react"
-import { MarkdownText } from "../components"
+import { MarkdownText } from "."
 interface HeaderWithImageProps {
   title: string
   lede: string

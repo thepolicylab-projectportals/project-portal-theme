@@ -1,11 +1,14 @@
 import React, { useState, useEffect, useRef } from "react"
-import { Cards, CardProps } from "../components"
-import { HeaderWithImage } from "./HeaderWithImage"
-import { BackIcon } from "./BackIcon"
-import { ForwardIcon } from "./ForwardIcon"
 import Select, { MultiValue } from "react-select"
 import * as JsSearch from "js-search"
-import { SearchBar } from "./SearchBar"
+import {
+  Cards,
+  CardProps,
+  SearchBar,
+  BackIcon,
+  HeaderWithImage,
+  ForwardIcon,
+} from "."
 
 function customSort(dateField: string, sortAscending: boolean) {
   return function (a, b) {

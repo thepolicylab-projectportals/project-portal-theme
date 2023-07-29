@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react"
-import { Accordion } from "../components/Accordion"
 import {
+  Accordion,
   HeaderWithImage,
   MarkdownText,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
