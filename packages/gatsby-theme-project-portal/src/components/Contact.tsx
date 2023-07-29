@@ -1,6 +1,5 @@
 import React from "react"
 import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image"
-import { graphql, useStaticQuery } from "gatsby"
 
 export interface ContactType {
   name: string
