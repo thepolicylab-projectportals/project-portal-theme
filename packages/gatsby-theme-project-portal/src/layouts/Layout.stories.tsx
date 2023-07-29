@@ -32,9 +32,7 @@ export const Primary: Story = {
       bottomBannerLogo: bottomBannerLogo,
       footerLogo: footerLogo,
     },
-    activePage: "Open",
-    title: "Page Title",
-    description: "The page description (metadata)",
+    path: "/open/",
     children: <></>,
   },
 }
