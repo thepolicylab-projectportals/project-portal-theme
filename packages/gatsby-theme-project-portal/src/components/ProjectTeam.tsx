@@ -23,7 +23,7 @@ export const ProjectTeam: React.FC<ProjectTeamProps> = ({
               key={"contact-" + i}
               {...contact}
               showEmail={false}
-              defaultContactImage={defaultContactImage}
+              image={contact.image ?? defaultContactImage}
             />
           </div>
         ))}

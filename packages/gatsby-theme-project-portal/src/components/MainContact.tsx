@@ -67,8 +67,9 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
         <h4 className="text-h4">Project point of contact</h4>
         <div className="mt-4 text-body">
           <Contact
-            {...{ name, title, employer, email, image, defaultContactImage }}
+            {...{ name, title, employer, email }}
             showEmail={true}
+            image={image ?? defaultContactImage}
           />
         </div>
       </div>

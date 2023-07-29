@@ -21,7 +21,6 @@ export const Contact: React.FC<ContactProps> = ({
   email,
   image,
   showEmail,
-  defaultContactImage,
 }) => {
   return (
     <div className="flex items-start gap-4 overflow-hidden flex-nowrap justify-left">
@@ -32,11 +31,11 @@ export const Contact: React.FC<ContactProps> = ({
           height: "100px",
         }}
       >
-        {(image || defaultContactImage) && (
+        {image && (
           <GatsbyImage
             className="relative rounded-full"
             alt={name}
-            image={getImage(image || defaultContactImage)}
+            image={getImage(image)}
             style={{
               transform: "translateZ(0)",
             }}
