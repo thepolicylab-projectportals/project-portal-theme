@@ -62,7 +62,7 @@ export const Footer: FunctionComponent<FooterProps> = ({
 
 const ListItem = ({ target, children }) => {
   return (
-    <li className="block px-2 py-2 lg:inline-block lg:ml-6 underline hover:no-underline text-center">
+    <li className="block px-2 py-2 lg:inline-block lg:mx-3 underline hover:no-underline text-center">
       <a href={target}>{children}</a>
     </li>
   )
