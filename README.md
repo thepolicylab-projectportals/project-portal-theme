@@ -37,7 +37,7 @@ yarn install
 
 Run the example site in develop mode:
 ```zsh
-yarn workspace example develop
+yarn workspace example-site develop
 ```
 
 ### Build Site in Separate Directory (Locally)
