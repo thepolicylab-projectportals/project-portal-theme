@@ -1,11 +1,5 @@
 import React, { FunctionComponent, ReactNode } from "react"
-import {
-  Footer,
-  BottomBanner,
-  DevelopmentBanner,
-  Navbar,
-  SiteMetadata,
-} from "../components"
+import { Footer, BottomBanner, DevelopmentBanner, Navbar } from "../components"
 import { useProjectPortalConfig } from "../hooks"
 
 interface LayoutProps {
