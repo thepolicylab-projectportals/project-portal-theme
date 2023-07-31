@@ -8,7 +8,7 @@ export const query = graphql`
   query ProjectDetailPageQuery($slug: String!) {
     ...HeadData
     page: project(slug: { eq: $slug }) {
-      title
+      title: question
       description: summary
     }
     project(slug: { eq: $slug }) {
