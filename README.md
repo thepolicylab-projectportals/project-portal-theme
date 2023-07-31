@@ -91,11 +91,12 @@ process runs without errors and fix any errors which occur.
    
 #### Test the theme
 
-Test installing and building the theme using the test-packaging scripts, where you load the theme from the registry instead of the local directory:
+Test installing and building the theme using the test-packaging scripts, where you load the 
+theme and other plugins from the registry instead of the local directory:
 
 ```zsh
 source test-packaging.sh
-package-and-install -t "packages/example/" -r react@^16.14.0,react-dom@^16.14.0,gatsby@^4.24.0,@thepolicylab-projectportals/gatsby-theme-project-portal
+package-and-install -t "packages/example-site/" -r react@^18,react-dom@^18,gatsby@^5,@thepolicylab-projectportals/gatsby-theme-project-portal,@thepolicylab-projectportals/project-portal-content-netlify
 ```
 
 ### Use Prettier Code Formatter in WebStorm
