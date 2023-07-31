@@ -126,12 +126,18 @@ exports.createSchemaCustomization = ({ actions, schema, getNode }) => {
         projectTeam: {
           type: [CONTACT_JSON_TYPE],
           resolve: async (source, args, context) => {
-            const { entries } = await context.nodeModel.findAll({
-              type: CONTACT_JSON_TYPE,
-              query: {
-                filter: { slug: { in: source.projectTeam ?? [] } },
-              },
-            })
+            projectTeam = source.projectTeam || []
+            const entries = []
+            projectTeam.forEach((element) =>
+              entries.push(
+                context.nodeModel.findOne({
+                  type: CONTACT_JSON_TYPE,
+                  query: {
+                    filter: { slug: { eq: element } },
+                  },
+                })
+              )
+            )
             return entries
           },
         },
