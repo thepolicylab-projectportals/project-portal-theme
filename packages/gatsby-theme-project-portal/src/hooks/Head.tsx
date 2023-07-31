@@ -15,11 +15,11 @@ export function Head({ location, params, data, pageContext }) {
 
       <title>{data.page?.title}</title>
       <meta name="og:title" content={data.page?.title} />
-      <meta property="twitter:title" content={data.page?.title} />
+      <meta name="twitter:title" content={data.page?.title} />
 
       <meta name="description" content={data.page?.description} />
       <meta property="og:description" content={data.page?.description} />
-      <meta property="twitter:description" content={data.page?.description} />
+      <meta name="twitter:description" content={data.page?.description} />
 
       <meta
         name="og:url"
@@ -27,7 +27,7 @@ export function Head({ location, params, data, pageContext }) {
       />
 
       <meta property="og:image" content={socialShareImage} />
-      <meta property="twitter:image" content={socialShareImage} />
+      <meta name="twitter:image" content={socialShareImage} />
 
       <meta name="twitter:card" content="summary" />
     </>
