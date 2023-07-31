@@ -22,7 +22,7 @@ export function Head({ location, params, data, pageContext }) {
       <meta name="twitter:description" content={data.page?.description} />
 
       <meta
-        name="og:url"
+        property="og:url"
         content={`${data.site.siteMetadata.siteUrl}${location.pathname}`}
       />
 
