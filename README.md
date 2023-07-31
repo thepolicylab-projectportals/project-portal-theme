@@ -40,6 +40,21 @@ Run the example site in develop mode:
 yarn workspace example-site develop
 ```
 
+If you want to run the NetlifyCMS backend, then you need to start the NetlifyCMS proxy server a separate terminal window.
+
+In the `packages/example-site` directory run:
+```shell
+npx netlify-cms-proxy-server
+```
+
+In the `packages/example-site/static/config.yml` file, change the `local_backend` parameter to:
+```yml
+local_backend: true
+```
+
+Then load the `https://localhost:8000/admin/` to view the NetlifyCMS UI.
+
+
 ### Build Site in Separate Directory (Locally)
 
 Load the shell scripts:
