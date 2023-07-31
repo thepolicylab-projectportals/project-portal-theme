@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import { MainContact } from "./MainContact"
-import { emptyGatsbyImageData } from "./Story.utilities"
+import { contactImage } from "./Contact.stories"
 
 const meta: Meta<typeof MainContact> = {
   component: MainContact,
@@ -20,6 +20,6 @@ export const Primary: Story = {
     email: "some-email@example.com",
     status: "open",
     emailContent: "Are you interested in this project?",
-    image: emptyGatsbyImageData,
+    image: contactImage,
   },
 }
