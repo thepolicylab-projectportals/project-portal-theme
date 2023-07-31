@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import { Contact } from "./Contact"
 import { IGatsbyImageData } from "gatsby-plugin-image"
+import { loadImage } from "./Story.utilities"
 
 const meta: Meta<typeof Contact> = {
   component: Contact,
@@ -12,29 +13,9 @@ export default meta
 
 type Story = StoryObj<typeof Contact>
 
-export const contactImage: IGatsbyImageData = {
-  layout: "fixed",
-  images: {
-    fallback: {
-      src: "image/torso.png",
-    },
-    sources: [],
-  },
-  width: 100,
-  height: 100,
-}
+export const contactImage = loadImage("image/torso.png", 100, 100, "fixed")
 
-export const contactImageYogi: IGatsbyImageData = {
-  layout: "fixed",
-  images: {
-    fallback: {
-      src: "image/yogi.jpg",
-    },
-    sources: [],
-  },
-  width: 100,
-  height: 100,
-}
+export const contactImageYogi = loadImage("image/yogi.jpg", 100, 100, "fixed")
 
 export const Primary: Story = {
   args: {

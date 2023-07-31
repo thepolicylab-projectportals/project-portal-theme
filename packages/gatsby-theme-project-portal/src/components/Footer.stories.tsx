@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react"
 import { FooterLayout } from "./Footer"
 
 import { IGatsbyImageData } from "gatsby-plugin-image"
+import { loadImage } from "./Story.utilities"
 
 const meta: Meta<typeof FooterLayout> = {
   component: FooterLayout,
@@ -9,17 +10,12 @@ const meta: Meta<typeof FooterLayout> = {
   includeStories: /^[A-Z]/,
 }
 
-export const footerLogo: IGatsbyImageData = {
-  layout: "fixed",
-  images: {
-    fallback: {
-      src: "image/logo-wide.png",
-    },
-    sources: [],
-  },
-  width: 129,
-  height: 64,
-}
+export const footerLogo: IGatsbyImageData = loadImage(
+  "image/logo-wide.png",
+  129,
+  64,
+  "fixed"
+)
 
 export default meta
 

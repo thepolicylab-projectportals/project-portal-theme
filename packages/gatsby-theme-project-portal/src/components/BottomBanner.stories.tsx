@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import { BottomBannerLayout } from "./BottomBanner"
-
-import { IGatsbyImageData } from "gatsby-plugin-image"
+import { loadImage } from "./Story.utilities"
 
 const meta: Meta<typeof BottomBannerLayout> = {
   component: BottomBannerLayout,
@@ -9,17 +8,12 @@ const meta: Meta<typeof BottomBannerLayout> = {
   includeStories: /^[A-Z]/,
 }
 
-export const bottomBannerLogo: IGatsbyImageData = {
-  layout: "fixed",
-  images: {
-    fallback: {
-      src: "image/ccv-logo.png",
-    },
-    sources: [],
-  },
-  width: 160,
-  height: 83,
-}
+export const bottomBannerLogo = loadImage(
+  "image/ccv-logo.png",
+  160,
+  83,
+  "fixed"
+)
 
 export default meta
 

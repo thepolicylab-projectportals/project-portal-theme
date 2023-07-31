@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import { SiteTitle } from "./SiteTitle"
 
-import { emptyGatsbyImageData } from "./Story.utilities"
+import { loadImage } from "./Story.utilities"
 import { IGatsbyImageData } from "gatsby-plugin-image"
 
 const meta: Meta<typeof SiteTitle> = {
@@ -10,17 +10,7 @@ const meta: Meta<typeof SiteTitle> = {
   includeStories: /^[A-Z]/,
 }
 
-export const siteTitleLogo: IGatsbyImageData = {
-  layout: "fixed",
-  images: {
-    fallback: {
-      src: "image/logo-square.png",
-    },
-    sources: [],
-  },
-  width: 64,
-  height: 74,
-}
+export const siteTitleLogo = loadImage("image/logo-square.png", 64, 74, "fixed")
 
 export default meta
 
