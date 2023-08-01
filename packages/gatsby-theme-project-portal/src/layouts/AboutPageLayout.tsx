@@ -54,11 +54,7 @@ export const AboutPageLayout: FunctionComponent<AboutProps> = ({
   },
 }: AboutProps) => {
   return (
-    <Layout
-      activePage="About"
-      title="About"
-      description={`About the ${siteTitle}`}
-    >
+    <>
       <main>
         <article>
           <header>
@@ -112,6 +108,6 @@ export const AboutPageLayout: FunctionComponent<AboutProps> = ({
           </div>
         </article>
       </main>
-    </Layout>
+    </>
   )
 }

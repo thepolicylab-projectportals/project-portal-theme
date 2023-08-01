@@ -312,7 +312,7 @@ export const ContactPageLayout: FunctionComponent<ContactProps> = ({
 }: ContactProps) => {
   const imageSrc = image?.childImageSharp.resize.src
   return (
-    <Layout activePage="Contact" title={title} description={lede}>
+    <>
       <main>
         <header>
           <HeaderWithImage title="Contact" lede="" imageSrc={imageSrc} />
@@ -330,6 +330,6 @@ export const ContactPageLayout: FunctionComponent<ContactProps> = ({
           />
         </article>
       </main>
-    </Layout>
+    </>
   )
 }
