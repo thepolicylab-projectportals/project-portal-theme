@@ -66,7 +66,7 @@ export const NavbarLayout: FunctionComponent<NavbarLayoutProps> = ({
                     key={"nav" + i}
                     name={name}
                     link={link}
-                    isActive={activePage === name}
+                    isActive={activePage === link}
                   />
                 ) : (
                   ""
