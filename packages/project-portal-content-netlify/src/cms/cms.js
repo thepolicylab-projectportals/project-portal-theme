@@ -63,7 +63,8 @@ CMS.init({
             required: false,
             format: "YYYY-MM-DD",
             default: "",
-            hint: "The date on which the chance to collaborate ceases. " +
+            hint:
+              "The date on which the chance to collaborate ceases. " +
               "(After this point the collaborators will be decided.)",
           },
           {
@@ -648,6 +649,27 @@ CMS.init({
                   "^(https?:\\/\\/)?([\\da-z\\.-]+\\.[a-z\\.]{2,6}|[\\d\\.]+)([\\/:?=&#]{1}[\\da-z\\.-]+)*[\\/\\?]?$",
                   // from https://regexr.com/3dqa0
                   "Must be a valid URL.",
+                ],
+              },
+            ],
+          },
+          {
+            name: "emailService",
+            label: "Email Service",
+            file: "content/config/email-service-contacts.json",
+            fields: [
+              {
+                name: "contacts",
+                label: "Contact(s)",
+                widget: "list",
+                required: false,
+                hint: "Contacts for email service",
+                fields: [
+                  {
+                    name: "email",
+                    label: "Contact Email",
+                    widget: "string",
+                  },
                 ],
               },
             ],

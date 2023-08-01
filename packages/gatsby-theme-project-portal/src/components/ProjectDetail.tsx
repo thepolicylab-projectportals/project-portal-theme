@@ -2,17 +2,17 @@ import React, { FunctionComponent } from "react"
 import moment from "moment"
 
 import {
+  Accordion,
   CollaboratorDetails,
   ContactType,
-  Feature,
+  Topics,
+  KeyDate,
   MainContact,
   ProjectTeam,
   SectionOfItem,
   ShareProject,
   TopicType,
 } from "."
-
-import { Accordion } from "./Accordion"
 
 import { statusOutput, isNA, isEmpty } from "../utils"
 
@@ -99,26 +99,12 @@ export const ProjectDetailLayout: FunctionComponent<
                 // below and also the one in `Card.tsx`
                 statusOutput(status, true, true, true) !== null && (
                   <div className="mt-4 text-white text-body">
-                    <span className="font-bold">
-                      {statusOutput(
-                        status,
-                        "Opportunity closes: ",
-                        "Project started: ",
-                        "Project ended: "
-                      )}
-                    </span>
-                    {statusOutput(
-                      status,
-                      opportunityCloses
-                        ? moment(opportunityCloses).format("MMMM D, YYYY")
-                        : "Open until filled",
-                      startDate
-                        ? moment(startDate).format("MMMM D, YYYY")
-                        : moment(lastModified).format("MMMM D, YYYY"),
-                      endDate
-                        ? moment(endDate).format("MMMM D, YYYY")
-                        : moment(lastModified).format("MMMM D, YYYY")
-                    )}
+                    <KeyDate
+                      status={status}
+                      opportunityCloses={opportunityCloses}
+                      startDate={startDate}
+                      endDate={endDate}
+                    />
                   </div>
                 )
               }
@@ -134,11 +120,7 @@ export const ProjectDetailLayout: FunctionComponent<
           <section className="flex flex-wrap items-start py-6 m-responsive gap-x-10 gap-y-4">
             {!isEmpty(topics) && (
               <div className="text-tag mt-2">
-                <Feature
-                  label="Topics"
-                  className="bg-topics"
-                  value={topics.map((topic) => topic.title)}
-                />
+                <Topics topics={topics} />
               </div>
             )}
           </section>
