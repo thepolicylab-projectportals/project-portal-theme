@@ -1,6 +1,6 @@
 import { graphql } from "gatsby"
 import React, { FunctionComponent } from "react"
-import { Feature, TopicType } from "."
+import { Feature, KeyDate, TopicType } from "."
 import { ProjectStatus } from "./ProjectStatus"
 import { isEmpty, statusOutput } from "../utils"
 import moment from "moment"
@@ -15,9 +15,9 @@ export interface CardProps {
   topics: TopicType[]
 
   // Dates
-  opportunityCloses: Date
-  startDate: Date
-  endDate: Date
+  opportunityCloses?: Date
+  startDate?: Date
+  endDate?: Date
   lastModified: Date
   created: Date
 }
@@ -39,6 +39,13 @@ export const query = graphql`
     created
   }
 `
+
+export interface CardProps extends CardWithoutNavigationProps {
+  navigation: {
+    current: number
+    items: string[]
+  }
+}
 
 export const Card: FunctionComponent<CardProps> = ({
   slug,
@@ -64,37 +71,14 @@ export const Card: FunctionComponent<CardProps> = ({
               {question}
             </div>
             <div>
-              {
-                // This code allows you to set the defaults for key dates
-                // For instance, change the second `true` here to `startDate` if you
-                // do _not_ want any date to appear when the project `startDate` is
-                // null. Note that you may also need to edit the `statusOutput` call
-                // below and also the one in `ProjectDetail.tsx`
-                statusOutput(status, true, true, true) !== null && (
-                  <div className="mt-4 text-body">
-                    <span className="font-bold">
-                      {statusOutput(
-                        status,
-                        "Opportunity closes: ",
-                        "Project started: ",
-                        "Project ended: "
-                      )}
-                    </span>
-                    {statusOutput(
-                      status,
-                      opportunityCloses
-                        ? moment(opportunityCloses).format("MMMM D, YYYY")
-                        : "Open until filled",
-                      startDate
-                        ? moment(startDate).format("MMMM D, YYYY")
-                        : moment(lastModified).format("MMMM D, YYYY"),
-                      endDate
-                        ? moment(endDate).format("MMMM D, YYYY")
-                        : moment(lastModified).format("MMMM D, YYYY")
-                    )}
-                  </div>
-                )
-              }
+                <div className="mt-4 text-body">
+                  <KeyDate
+                    status={status}
+                    opportunityCloses={opportunityCloses}
+                    startDate={startDate}
+                    endDate={endDate}
+                  />
+                </div>
               <div className="mb-4 text-body">
                 <span className="font-bold">Department or Agency: </span>
                 {agency}
