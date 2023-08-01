@@ -3,7 +3,6 @@ import React, { FunctionComponent } from "react"
 import { Feature, KeyDate, TopicType } from "."
 import { ProjectStatus } from "./ProjectStatus"
 import { isEmpty, statusOutput } from "../utils"
-import moment from "moment"
 
 export interface CardProps {
   // Card Details
@@ -40,13 +39,6 @@ export const query = graphql`
   }
 `
 
-export interface CardProps extends CardWithoutNavigationProps {
-  navigation: {
-    current: number
-    items: string[]
-  }
-}
-
 export const Card: FunctionComponent<CardProps> = ({
   slug,
   title,
@@ -71,14 +63,14 @@ export const Card: FunctionComponent<CardProps> = ({
               {question}
             </div>
             <div>
-                <div className="mt-4 text-body">
-                  <KeyDate
-                    status={status}
-                    opportunityCloses={opportunityCloses}
-                    startDate={startDate}
-                    endDate={endDate}
-                  />
-                </div>
+              <div className="mt-4 text-body">
+                <KeyDate
+                  status={status}
+                  opportunityCloses={opportunityCloses}
+                  startDate={startDate}
+                  endDate={endDate}
+                />
+              </div>
               <div className="mb-4 text-body">
                 <span className="font-bold">Department or Agency: </span>
                 {agency}
