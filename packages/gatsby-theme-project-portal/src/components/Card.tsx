@@ -1,11 +1,10 @@
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import React, { FunctionComponent } from "react"
 import { Feature, KeyDate, TopicType } from "."
 import { ProjectStatus } from "./ProjectStatus"
-import { statusOutput, isEmpty } from "../utils"
-import moment from "moment"
+import { isEmpty, statusOutput } from "../utils"
 
-export interface CardWithoutNavigationProps {
+export interface CardProps {
   // Card Details
   slug: string
   title: string
@@ -40,13 +39,6 @@ export const query = graphql`
   }
 `
 
-export interface CardProps extends CardWithoutNavigationProps {
-  navigation: {
-    current: number
-    items: string[]
-  }
-}
-
 export const Card: FunctionComponent<CardProps> = ({
   slug,
   title,
@@ -58,56 +50,53 @@ export const Card: FunctionComponent<CardProps> = ({
   startDate,
   endDate,
   lastModified,
-  navigation,
 }) => {
   return (
     <article>
       <div className="px-2 py-4 overflow-hidden bg-white border border-gray-200 rounded-md shadow-sm h-full">
-        <Link to={`/project/${slug}`} state={{ navigation }}>
-          <div className="flex flex-col h-full">
-            <div className="mt-4 ml-4">
-              <ProjectStatus status={status} />
+        <div className="flex flex-col h-full">
+          <div className="mt-4 ml-4">
+            <ProjectStatus status={status} />
+          </div>
+          <div className="p-5 pb-5">
+            <div className="pb-4 text-h3 font-bold leading-snug text-black">
+              {question}
             </div>
-            <div className="p-5 pb-5">
-              <div className="pb-4 text-h3 font-bold leading-snug text-black">
-                {question}
+            <div>
+              <div className="mt-4 text-body">
+                <KeyDate
+                  status={status}
+                  opportunityCloses={opportunityCloses}
+                  startDate={startDate}
+                  endDate={endDate}
+                />
               </div>
-              <div>
-                <div className="mt-4 text-body">
-                  <KeyDate
-                    status={status}
-                    opportunityCloses={opportunityCloses}
-                    startDate={startDate}
-                    endDate={endDate}
+              <div className="mb-4 text-body">
+                <span className="font-bold">Department or Agency: </span>
+                {agency}
+              </div>
+              {!isEmpty(topics) && (
+                <div className="text-tag mt-4">
+                  <Feature
+                    label="Topics"
+                    className="bg-topics"
+                    value={topics.map((topic) => topic.title)}
                   />
                 </div>
-                <div className="mb-4 text-body">
-                  <span className="font-bold">Department or Agency: </span>
-                  {agency}
-                </div>
-                {!isEmpty(topics) && (
-                  <div className="text-tag mt-4">
-                    <Feature
-                      label="Topics"
-                      className="bg-topics"
-                      value={topics.map((topic) => topic.title)}
-                    />
-                  </div>
-                )}
-              </div>
-            </div>
-            <div className="p-5 pb-1 mt-auto border-t-2 border-solid">
-              <button aria-label={title + " Details"} className="btn-wide">
-                {statusOutput(
-                  status,
-                  "View opportunity",
-                  "View project",
-                  "View project"
-                )}
-              </button>
+              )}
             </div>
           </div>
-        </Link>
+          <div className="p-5 pb-1 mt-auto border-t-2 border-solid">
+            <button aria-label={title + " Details"} className="btn-wide">
+              {statusOutput(
+                status,
+                "View opportunity",
+                "View project",
+                "View project"
+              )}
+            </button>
+          </div>
+        </div>
       </div>
     </article>
   )
