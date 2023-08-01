@@ -23,7 +23,6 @@ type Story = StoryObj<typeof NavbarItem>
 export const Active: Story = {
   args: {
     name: "Home",
-    link: "/",
     isActive: true,
   },
 }
