@@ -1,8 +1,7 @@
 import { graphql } from "gatsby"
 import React, { FunctionComponent } from "react"
-import { Feature, KeyDate, TopicType } from "."
-import { ProjectStatus } from "./ProjectStatus"
 import { isEmpty, statusOutput } from "../utils"
+import { Topics, TopicType, ProjectStatus, KeyDate } from "."
 
 export interface CardProps {
   // Card Details
@@ -77,11 +76,7 @@ export const Card: FunctionComponent<CardProps> = ({
               </div>
               {!isEmpty(topics) && (
                 <div className="text-tag mt-4">
-                  <Feature
-                    label="Topics"
-                    className="bg-topics"
-                    value={topics.map((topic) => topic.title)}
-                  />
+                  <Topics topics={topics} />
                 </div>
               )}
             </div>
