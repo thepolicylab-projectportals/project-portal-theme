@@ -536,7 +536,15 @@ CMS.init({
                     widget: "list",
                     fields: [
                       { name: "name", widget: "string" },
-                      { name: "link", widget: "string" },
+                      {
+                        name: "link",
+                        widget: "string",
+                        pattern: [
+                          /^\/$|^\/.*\/$/,
+                          "Should start and end with a slash.",
+                        ], // from
+                        // https://regexr.com/7hpn2
+                      },
                       { name: "show", widget: "boolean" },
                     ],
                   },
