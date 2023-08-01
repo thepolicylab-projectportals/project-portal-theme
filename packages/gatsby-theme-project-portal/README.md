@@ -1,57 +1,12 @@
-# The smallest possible Gatsby theme
+# Gatsby Theme Project Portal
+
+A Gatsby theme designed for sharing public policy projects. Designed by
+[The Policy Lab at Brown University](https://thepolicylab.brown.edu) and built in collaboration 
+with the [Center for Computation and Visualization at Brown University](https://ccv.brown.edu).
+
 
 ## Quick Start
 
-```shell
-mkdir my-site
-cd my-site
-yarn init
-# install gatsby-theme-project-portal and its dependencies
-yarn add gatsby react react-dom gatsby-theme-project-portal
-```
-
-Then add the theme to your `gatsby-config.js`. We'll use the long-form
-here for educational purposes.
-
-```javascript
-module.exports = {
-  plugins: [
-    {
-      resolve: "gatsby-theme-project-portal",
-      options: {},
-    },
-  ],
-}
-```
-
-That's it, you can now run your gatsby site using
-
-```shell
-yarn gatsby develop
-```
-
-Note that this site doesn't _do_ anything, so you're seeing a missing
-resources error. Create a simple page in `src/pages/index.js` to see a
-page on the root url.
-
-```jsx
-import React from "react"
-
-export default function Home() {
-  return <div>My Site!</div>
-}
-```
-
-## Doing more with themes
-
-You can use this as a place to start when developing themes. I
-generally suggest using [yarn
-workspaces](https://yarnpkg.com/lang/en/docs/workspaces/) like the
-[gatsby-theme-examples repo
-does](https://github.com/ChristopherBiscardi/gatsby-theme-examples),
-but using `yarn link` or `npm link` is a viable alternative if you're
-not familiar with workspaces.
-
-## Data Sources
-
-This theme relies on a plugin sourcing data and creating `Project` and `Content` Nodes which are of the types described in [types.js](./utils/types.js).
+Duplicate the 
+[example site](https://github.com/thepolicylab-projectportals/project-portal-theme/tree/main/packages/example-site)
+which is a working example of a realistic configuration using NetlifyCMS.

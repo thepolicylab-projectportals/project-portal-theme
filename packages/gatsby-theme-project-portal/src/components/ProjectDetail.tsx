@@ -6,6 +6,7 @@ import {
   CollaboratorDetails,
   ContactType,
   Topics,
+  KeyDate,
   MainContact,
   ProjectTeam,
   SectionOfItem,
@@ -98,26 +99,12 @@ export const ProjectDetailLayout: FunctionComponent<
                 // below and also the one in `Card.tsx`
                 statusOutput(status, true, true, true) !== null && (
                   <div className="mt-4 text-white text-body">
-                    <span className="font-bold">
-                      {statusOutput(
-                        status,
-                        "Opportunity closes: ",
-                        "Project started: ",
-                        "Project ended: "
-                      )}
-                    </span>
-                    {statusOutput(
-                      status,
-                      opportunityCloses
-                        ? moment(opportunityCloses).format("MMMM D, YYYY")
-                        : "Open until filled",
-                      startDate
-                        ? moment(startDate).format("MMMM D, YYYY")
-                        : moment(lastModified).format("MMMM D, YYYY"),
-                      endDate
-                        ? moment(endDate).format("MMMM D, YYYY")
-                        : moment(lastModified).format("MMMM D, YYYY")
-                    )}
+                    <KeyDate
+                      status={status}
+                      opportunityCloses={opportunityCloses}
+                      startDate={startDate}
+                      endDate={endDate}
+                    />
                   </div>
                 )
               }
