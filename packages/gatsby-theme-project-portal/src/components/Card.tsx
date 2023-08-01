@@ -1,7 +1,6 @@
 import { graphql } from "gatsby"
 import React, { FunctionComponent } from "react"
 import { isEmpty, statusOutput } from "../utils"
-import moment from "moment"
 import { Topics, TopicType, ProjectStatus, KeyDate } from "."
 
 export interface CardProps {
