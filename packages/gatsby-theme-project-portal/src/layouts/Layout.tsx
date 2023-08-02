@@ -54,10 +54,11 @@ export const Layout: FunctionComponent<LayoutProps> = ({
     projectPortalConfig: {
       showDevBanner,
       pages,
-      staticText: { bottomBanner },
+      staticText: { bottomBanner, footer },
     },
     navbarLogo,
     bottomBannerLogo,
+    footerLogo,
   },
   children,
 }) => {
@@ -77,7 +78,15 @@ export const Layout: FunctionComponent<LayoutProps> = ({
         linkId={"bottomBannerLink"}
         image={bottomBannerLogo}
       />
-      <Footer />
+      <Footer
+        heading={footer.heading}
+        copyright={footer.copyright}
+        links={footer.links}
+        image={{
+          imageData: footerLogo,
+          altText: siteTitle + " logo",
+        }}
+      />
     </div>
   )
 }
@@ -101,6 +110,17 @@ export const query = graphql`
           text
           link
         }
+        footer {
+          copyright
+          links {
+            title
+            link
+          }
+          heading {
+            title
+            link
+          }
+        }
       }
     }
     navbarLogo: file(
@@ -119,6 +139,15 @@ export const query = graphql`
     ) {
       childImageSharp {
         gatsbyImageData(width: 160)
+      }
+    }
+    footerLogo: file(
+      name: { eq: "footer" }
+      extension: { in: ["png", "jpg", "jpeg"] }
+      sourceInstanceName: { eq: "themeImages" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(height: 64)
       }
     }
   }
