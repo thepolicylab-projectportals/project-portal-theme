@@ -26,6 +26,17 @@ interface LayoutProps {
           text: string
           link: string
         }
+        footer: {
+          copyright: string
+          links: {
+            title: string
+            link: string
+          }[]
+          heading: {
+            title: string
+            link: string
+          }
+        }
       }
     }
     navbarLogo?: ImageDataLike
