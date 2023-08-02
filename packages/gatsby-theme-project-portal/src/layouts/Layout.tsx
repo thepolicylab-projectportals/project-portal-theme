@@ -1,7 +1,7 @@
 import React, { FunctionComponent, ReactNode } from "react"
 import { graphql } from "gatsby"
 import { Footer, BottomBanner, DevelopmentBanner, Navbar } from "../components"
-import { IGatsbyImageData, getImage } from "gatsby-plugin-image"
+import { ImageDataLike } from "gatsby-plugin-image"
 
 interface LayoutProps {
   path: string
@@ -22,7 +22,7 @@ interface LayoutProps {
         show: boolean
       }[]
     }
-    navbarLogo?: IGatsbyImageData
+    navbarLogo?: ImageDataLike
   }
 }
 
