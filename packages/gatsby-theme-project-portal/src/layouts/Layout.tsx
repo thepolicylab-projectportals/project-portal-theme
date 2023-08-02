@@ -28,7 +28,7 @@ interface LayoutProps {
         }
       }
     }
-    navbarLogo?: IGatsbyImageData
+    navbarLogo?: ImageDataLike
     bottomBannerLogo?: ImageDataLike
   }
 }
