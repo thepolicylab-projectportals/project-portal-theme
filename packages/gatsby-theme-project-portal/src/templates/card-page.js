@@ -7,6 +7,7 @@ export { Head } from "../hooks"
 export const query = graphql`
   query CardPageQuery($slug: String!, $statusFilter: [String]) {
     ...HeadData
+    ...LayoutData
     page: cardPage(slug: { eq: $slug }) {
       title
       description: lede

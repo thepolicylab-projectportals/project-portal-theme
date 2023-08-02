@@ -7,6 +7,7 @@ export { Head } from "../hooks"
 export const query = graphql`
   query ThankYouQuery($slug: String!) {
     ...HeadData
+    ...LayoutData
     page: generalPage(slug: { eq: $slug }) {
       title
       description: lede
