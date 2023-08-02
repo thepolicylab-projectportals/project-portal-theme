@@ -1,12 +1,12 @@
 import { Link } from "gatsby"
 import React, { FunctionComponent } from "react"
-import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
+import { GatsbyImage, ImageDataLike, getImage } from "gatsby-plugin-image"
 import { MarkdownText } from "."
 import { isNA } from "../utils"
 
 export interface BottomBannerProps {
   text: string
-  image?: IGatsbyImageData
+  image?: ImageDataLike
   link?: string
   linkId?: string
 }
@@ -18,23 +18,24 @@ export const BottomBanner: FunctionComponent<BottomBannerProps> = ({
   linkId,
 }) => {
   linkId = linkId ?? "bottom-banner-image-link-id"
+  const resolvedImage = getImage(image)
   return (
     <div className="py-6 mt-12 overflow-hidden bg-bottombanner p-responsive">
       <div className="m-responsive">
         <div className="w-full flex gap-4 sm:gap-8 items-center justify-center flex-wrap">
-          {!isNA(link) && image && (
+          {!isNA(link) && resolvedImage && (
             <Link id={linkId} to={link}>
               <GatsbyImage
                 className="inline-block logotype"
-                image={image}
+                image={resolvedImage}
                 alt="Bottom Banner logo"
               />
             </Link>
           )}
-          {isNA(link) && { image } && (
+          {isNA(link) && { resolvedImage } && (
             <GatsbyImage
               className="inline-block logotype"
-              image={image}
+              image={resolvedImage}
               alt="R+D logo"
             />
           )}
