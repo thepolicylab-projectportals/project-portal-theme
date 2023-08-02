@@ -41,6 +41,7 @@ interface LayoutProps {
     }
     navbarLogo?: ImageDataLike
     bottomBannerLogo?: ImageDataLike
+    footerLogo?: ImageDataLike
   }
 }
 
