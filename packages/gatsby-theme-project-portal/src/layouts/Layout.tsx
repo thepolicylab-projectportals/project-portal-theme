@@ -26,22 +26,10 @@ interface LayoutProps {
           text: string
           link: string
         }
-        footer: {
-          copyright: string
-          heading: {
-            title: string
-            link: string
-          }
-          links: {
-            title: string
-            link: string
-          }[]
-        }
       }
     }
     navbarLogo?: ImageDataLike
     bottomBannerLogo?: ImageDataLike
-    footerLogo?: ImageDataLike
   }
 }
 
@@ -54,11 +42,10 @@ export const Layout: FunctionComponent<LayoutProps> = ({
     projectPortalConfig: {
       showDevBanner,
       pages,
-      staticText: { bottomBanner, footer },
+      staticText: { bottomBanner },
     },
     navbarLogo,
     bottomBannerLogo,
-    footerLogo,
   },
   children,
 }) => {
@@ -78,14 +65,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
         linkId={"bottomBannerLink"}
         image={bottomBannerLogo}
       />
-      <Footer
-        copyright={footer.copyright}
-        links={footer.links}
-        image={footerLogo}
-        altText={footer.heading.title + " logo"}
-        headingTitle={footer.heading.title}
-        headingLink={footer.heading.link}
-      />
+      <Footer />
     </div>
   )
 }
@@ -109,17 +89,6 @@ export const query = graphql`
           text
           link
         }
-        footer {
-          copyright
-          heading {
-            link
-            title
-          }
-          links {
-            link
-            title
-          }
-        }
       }
     }
     navbarLogo: file(
@@ -138,15 +107,6 @@ export const query = graphql`
     ) {
       childImageSharp {
         gatsbyImageData(width: 160)
-      }
-    }
-    footerLogo: file(
-      name: { eq: "footer" }
-      extension: { in: ["png", "jpg", "jpeg"] }
-      sourceInstanceName: { eq: "themeImages" }
-    ) {
-      childImageSharp {
-        gatsbyImageData(height: 64)
       }
     }
   }

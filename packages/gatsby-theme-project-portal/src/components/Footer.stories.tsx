@@ -1,21 +1,23 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { Footer } from "./Footer"
+import { FooterLayout } from "./Footer"
 
 import { emptyGatsbyImageData } from "./Story.utilities"
 
-const meta: Meta<typeof Footer> = {
-  component: Footer,
+const meta: Meta<typeof FooterLayout> = {
+  component: FooterLayout,
   tags: ["autodocs"],
 }
 
 export default meta
 
-type Story = StoryObj<typeof Footer>
+type Story = StoryObj<typeof FooterLayout>
 
 export const Primary: Story = {
   args: {
-    headingTitle: "Heading with Link",
-    headingLink: "https://brown.edu/",
+    heading: {
+      title: "Heading with Link",
+      link: "https://brown.edu/",
+    },
     copyright: "Copyright © 2023",
     links: [
       {
@@ -27,8 +29,7 @@ export const Primary: Story = {
         link: "https://brown.edu",
       },
     ],
-    image: emptyGatsbyImageData,
-    altText: "",
+    image: { imageData: emptyGatsbyImageData, altText: "" },
   },
 }
 
