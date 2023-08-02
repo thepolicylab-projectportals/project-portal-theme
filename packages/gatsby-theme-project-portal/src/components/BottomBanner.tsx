@@ -1,18 +1,17 @@
-import { graphql, Link, useStaticQuery } from "gatsby"
+import { Link } from "gatsby"
 import React, { FunctionComponent } from "react"
-import { GatsbyImage, IGatsbyImageData, getImage } from "gatsby-plugin-image"
-import { MarkdownText } from "../components"
+import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
+import { MarkdownText } from "."
 import { isNA } from "../utils"
-import { useStaticText } from "../hooks"
 
-interface BottomBannerProps {
+export interface BottomBannerProps {
   text: string
   image?: IGatsbyImageData
   link?: string
   linkId?: string
 }
 
-export const BottomBannerLayout: FunctionComponent<BottomBannerProps> = ({
+export const BottomBanner: FunctionComponent<BottomBannerProps> = ({
   image,
   text,
   link,
@@ -46,26 +45,4 @@ export const BottomBannerLayout: FunctionComponent<BottomBannerProps> = ({
       </div>
     </div>
   )
-}
-
-export const BottomBanner = () => {
-  const { BottomBanner } = useStaticQuery(graphql`
-    query {
-      BottomBanner: file(
-        name: { eq: "bottom-banner" }
-        extension: { in: ["png", "jpg", "jpeg"] }
-        sourceInstanceName: { eq: "themeImages" }
-      ) {
-        childImageSharp {
-          gatsbyImageData(width: 160)
-        }
-      }
-    }
-  `)
-  const bannerLogoImage = getImage(BottomBanner)
-  const {
-    bottom_banner: { text: bottomBannerText },
-  } = useStaticText()
-
-  return <BottomBannerLayout text={bottomBannerText} image={bannerLogoImage} />
 }

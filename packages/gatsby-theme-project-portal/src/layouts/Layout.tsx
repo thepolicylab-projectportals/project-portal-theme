@@ -21,8 +21,15 @@ interface LayoutProps {
         link: string
         show: boolean
       }[]
+      staticText: {
+        bottomBanner: {
+          text: string
+          link: string
+        }
+      }
     }
     navbarLogo?: IGatsbyImageData
+    bottomBannerLogo?: IGatsbyImageData
   }
 }
 
@@ -32,8 +39,13 @@ export const Layout: FunctionComponent<LayoutProps> = ({
     site: {
       siteMetadata: { title: siteTitle },
     },
-    projectPortalConfig: { showDevBanner, pages },
+    projectPortalConfig: {
+      showDevBanner,
+      pages,
+      staticText: { bottomBanner },
+    },
     navbarLogo,
+    bottomBannerLogo,
   },
   children,
 }) => {
@@ -47,7 +59,12 @@ export const Layout: FunctionComponent<LayoutProps> = ({
         activePage={path}
       />
       <div className="flex-1">{children}</div>
-      <BottomBanner />
+      <BottomBanner
+        text={bottomBanner.text}
+        link={bottomBanner.link}
+        linkId={"bottomBannerLink"}
+        image={bottomBannerLogo ? getImage(bottomBannerLogo) : null}
+      />
       <Footer />
     </div>
   )
@@ -67,6 +84,12 @@ export const query = graphql`
         name
         show
       }
+      staticText {
+        bottomBanner: bottom_banner {
+          text
+          link
+        }
+      }
     }
     navbarLogo: file(
       name: { eq: "navbar" }
@@ -75,6 +98,15 @@ export const query = graphql`
     ) {
       childImageSharp {
         gatsbyImageData(height: 64)
+      }
+    }
+    bottomBannerLogo: file(
+      name: { eq: "bottom-banner" }
+      extension: { in: ["png", "jpg", "jpeg"] }
+      sourceInstanceName: { eq: "themeImages" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(width: 160)
       }
     }
   }
