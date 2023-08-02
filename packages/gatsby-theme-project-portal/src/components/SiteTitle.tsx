@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from "react"
-import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
+import { GatsbyImage, getImage, ImageDataLike } from "gatsby-plugin-image"
 
 export interface SiteTitleProps {
-  image: IGatsbyImageData
+  image: ImageDataLike
   title: string
 }
 
@@ -10,12 +10,13 @@ export const SiteTitle: FunctionComponent<SiteTitleProps> = ({
   image,
   title,
 }) => {
+  const resolvedImage = getImage(image)
   return (
     <>
-      {image && (
+      {resolvedImage && (
         <GatsbyImage
           className="xl:inline-block logotype"
-          image={image}
+          image={resolvedImage}
           alt={"nav_logo"}
         />
       )}

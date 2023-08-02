@@ -1,13 +1,13 @@
 import React, { FunctionComponent } from "react"
 import { Link } from "gatsby"
 import { FaBars, FaTimes } from "react-icons/fa"
-import { IGatsbyImageData } from "gatsby-plugin-image"
+import { ImageDataLike } from "gatsby-plugin-image"
 import { SiteTitle, NavbarItem } from "."
 
 interface NavbarProps {
   title: string
   activePage?: string
-  image?: IGatsbyImageData
+  image?: ImageDataLike
   pages: {
     name: string
     link: string

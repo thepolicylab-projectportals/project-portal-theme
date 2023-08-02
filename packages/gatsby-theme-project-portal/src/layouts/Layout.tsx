@@ -42,7 +42,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
       {showDevBanner && <DevelopmentBanner />}
       <Navbar
         title={siteTitle}
-        image={navbarLogo ? getImage(navbarLogo) : null}
+        image={navbarLogo}
         pages={pages}
         activePage={path}
       />
