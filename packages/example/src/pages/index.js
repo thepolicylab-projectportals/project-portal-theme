@@ -20,7 +20,7 @@ import {
   BottomBanner,
   ProjectTeam,
   HeaderWithImage,
-  ProjectDetailLayout,
+  ProjectDetail,
   MainContact,
   ProjectPage,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
@@ -377,7 +377,7 @@ const Index = () => {
       <div>
         ____________________________TEST__PROJECT__DETAIL__OPEN____________________________
       </div>
-      <ProjectDetailLayout
+      <ProjectDetail
         {...sample_card}
         mainContact={contact1}
         projectTeam={projectContacts}
@@ -386,7 +386,7 @@ const Index = () => {
       <div>
         ___________________________TEST__PROJECT__DETAIL__OPEN___No__Application__Details________________
       </div>
-      <ProjectDetailLayout
+      <ProjectDetail
         question={sample_card.question}
         summary={sample_card.summary}
         status={sample_card.status}
@@ -408,7 +408,7 @@ const Index = () => {
       <div>
         ____________________________TEST__PROJECT__DETAIL__Completed______________________________________
       </div>
-      <ProjectDetailLayout
+      <ProjectDetail
         {...sample_card}
         mainContact={contact1}
         projectTeam={projectContacts}
@@ -418,7 +418,7 @@ const Index = () => {
       <div>
         _____________________________TEST__PROJECT__DETAIL__Ongoing_______________________________________
       </div>
-      <ProjectDetailLayout
+      <ProjectDetail
         question={sample_card.question}
         status={"ongoing"}
         opportunityCloses={sample_card.opportunityCloses}
