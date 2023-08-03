@@ -21,11 +21,7 @@ export const ThankYouPageLayout: FunctionComponent<ThankYouProps> = ({
   data,
 }: ThankYouProps) => {
   return (
-    <Layout
-      activePage="about"
-      title="Thank you"
-      description="Thank you for your interest in working with us!"
-    >
+    <>
       <HeaderWithImage
         title="Thank You"
         lede=""
@@ -49,6 +45,6 @@ export const ThankYouPageLayout: FunctionComponent<ThankYouProps> = ({
           </div>
         </div>
       </div>
-    </Layout>
+    </>
   )
 }

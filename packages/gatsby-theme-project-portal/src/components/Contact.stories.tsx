@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import { Contact } from "./Contact"
-import { IGatsbyImageData } from "gatsby-plugin-image"
 import { loadImage } from "./Story.utilities"
 
 const meta: Meta<typeof Contact> = {
@@ -25,6 +24,7 @@ export const Primary: Story = {
     email: "some-email@example.com",
     showEmail: true,
     image: contactImage,
+    defaultImage: contactImageYogi,
   },
 }
 

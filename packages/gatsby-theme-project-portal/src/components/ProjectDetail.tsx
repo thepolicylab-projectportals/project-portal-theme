@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from "react"
-import moment from "moment"
-
+import { ImageDataLike } from "gatsby-plugin-image"
 import {
   Accordion,
   CollaboratorDetails,
@@ -16,7 +15,7 @@ import {
 
 import { statusOutput, isNA, isEmpty } from "../utils"
 
-export interface ProjectDetailLayoutProps {
+export interface ProjectDetailProps {
   // Core content
   question: string
   summary: string
@@ -36,7 +35,10 @@ export interface ProjectDetailLayoutProps {
 
   // Contact
   mainContact: ContactType
-  emailContent?: string // shown with MainContact for open projects
+  openText?: string // shown with MainContact for open projects
+  ongoingText?: string // shown with MainContact for ongoing projects
+  completeText?: string // shown with MainContact for complete projects
+  projectInterestLink?: string // shown instead of email address for open projects
 
   // Project team
   projectTeam?: ContactType[]
@@ -55,11 +57,11 @@ export interface ProjectDetailLayoutProps {
   agency: string
   topics?: TopicType[]
   lastModified: Date
+
+  defaultContactImage: ImageDataLike
 }
 
-export const ProjectDetailLayout: FunctionComponent<
-  ProjectDetailLayoutProps
-> = ({
+export const ProjectDetail: FunctionComponent<ProjectDetailProps> = ({
   question,
   summary,
   status,
@@ -77,10 +79,14 @@ export const ProjectDetailLayout: FunctionComponent<
   priorResearch,
   statusOfData,
   fundingInfo,
-  emailContent,
   mainContact,
+  openText,
+  ongoingText,
+  completeText,
   projectTeam,
   faq,
+  projectInterestLink,
+  defaultContactImage,
 }) => {
   return (
     <article>
@@ -192,7 +198,11 @@ export const ProjectDetailLayout: FunctionComponent<
               <MainContact
                 {...mainContact}
                 status={status}
-                emailContent={emailContent}
+                openText={openText}
+                ongoingText={ongoingText}
+                completeText={completeText}
+                projectInterestLink={projectInterestLink}
+                defaultImage={defaultContactImage}
               />
             )}
           </div>
@@ -214,7 +224,11 @@ export const ProjectDetailLayout: FunctionComponent<
         {!isEmpty(projectTeam) && (
           <>
             <hr className="my-8 border-gray-300 m-responsive" />
-            <ProjectTeam title="Project Team" contacts={projectTeam} />
+            <ProjectTeam
+              title="Project Team"
+              contacts={projectTeam}
+              defaultImage={defaultContactImage}
+            />
           </>
         )}
       </div>

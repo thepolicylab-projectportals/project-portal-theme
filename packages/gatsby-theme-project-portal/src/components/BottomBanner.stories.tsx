@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { BottomBannerLayout } from "./BottomBanner"
+import { BottomBanner } from "./BottomBanner"
 import { loadImage } from "./Story.utilities"
 
-const meta: Meta<typeof BottomBannerLayout> = {
-  component: BottomBannerLayout,
+const meta: Meta<typeof BottomBanner> = {
+  component: BottomBanner,
   tags: ["autodocs"],
   includeStories: /^[A-Z]/,
 }
@@ -17,7 +17,7 @@ export const bottomBannerLogo = loadImage(
 
 export default meta
 
-type Story = StoryObj<typeof BottomBannerLayout>
+type Story = StoryObj<typeof BottomBanner>
 
 export const Primary: Story = {
   args: {

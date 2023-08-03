@@ -1,11 +1,7 @@
 import React, { FunctionComponent } from "react"
-import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image"
-import { useStaticText } from "../hooks"
-import { graphql, useStaticQuery } from "gatsby"
+import { GatsbyImage, ImageDataLike, getImage } from "gatsby-plugin-image"
 
-// This is the same structure as the "footer" part of the useStaticText query,
-// so that we can pass the staticText.footer unchanged into the code
-interface FooterProps {
+export interface FooterProps {
   heading: {
     title: String
     link: string
@@ -16,17 +12,18 @@ interface FooterProps {
     link: String
   }[]
   image?: {
-    imageData: IGatsbyImageData
+    imageData: ImageDataLike
     altText: string
   }
 }
 
-export const FooterLayout: FunctionComponent<FooterProps> = ({
+export const Footer: FunctionComponent<FooterProps> = ({
   heading,
   copyright,
   links,
   image,
 }) => {
+  const resolvedImage = getImage(image.imageData)
   return (
     <footer className="w-full px-2 py-8 bg-footer xl:container xl:px-12">
       <div className="flex items-center justify-center mt-6 lg:my-auto">
@@ -46,10 +43,10 @@ export const FooterLayout: FunctionComponent<FooterProps> = ({
           className="flex items-center gap-4 justify-center flex-wrap"
           href={heading.link}
         >
-          {image && (
+          {resolvedImage && (
             <GatsbyImage
               className="xl:inline-block logotype"
-              image={image.imageData}
+              image={resolvedImage}
               alt={image.altText}
             />
           )}
@@ -67,31 +64,5 @@ const ListItem = ({ target, children }) => {
     <li className="block px-2 py-2 lg:inline-block lg:mx-3 underline hover:no-underline text-center">
       <a href={target}>{children}</a>
     </li>
-  )
-}
-
-export const Footer = () => {
-  const { logo } = useStaticQuery(graphql`
-    query FooterLogoQuery {
-      logo: file(
-        name: { eq: "footer" }
-        extension: { in: ["png", "jpg", "jpeg"] }
-        sourceInstanceName: { eq: "themeImages" }
-      ) {
-        childImageSharp {
-          gatsbyImageData(height: 64)
-        }
-      }
-    }
-  `)
-  const staticText = useStaticText()
-
-  return (
-    <FooterLayout
-      heading={staticText.footer.heading}
-      copyright={staticText.footer.copyright}
-      links={staticText.footer.links}
-      image={{ imageData: getImage(logo), altText: staticText.title + " logo" }}
-    />
   )
 }

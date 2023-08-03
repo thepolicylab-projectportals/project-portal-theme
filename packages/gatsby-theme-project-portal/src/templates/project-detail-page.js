@@ -2,9 +2,40 @@ import { graphql } from "gatsby"
 import { ProjectDetailPage } from "../layouts"
 
 export default ProjectDetailPage
+export { Head } from "../hooks"
 
 export const query = graphql`
   query ProjectDetailPageQuery($slug: String!) {
+    ...HeadData
+    ...LayoutData
+    page: project(slug: { eq: $slug }) {
+      title: question
+      description: summary
+    }
+    defaultContactImage: file(
+      name: { eq: "default-contact" }
+      extension: { in: ["png", "jpg", "jpeg"] }
+      # only match files in the "themeImages" sourced directory:
+      sourceInstanceName: { eq: "themeImages" }
+    ) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 100
+          height: 100
+          placeholder: BLURRED
+          layout: FIXED
+        )
+      }
+    }
+    projectPortalConfig {
+      projectInterestLink
+      staticText {
+        mainContactText: main_contact_text {
+          ongoingText
+          completeText
+        }
+      }
+    }
     project(slug: { eq: $slug }) {
       question
       title
@@ -26,7 +57,7 @@ export const query = graphql`
       priorResearch
       statusOfData
       fundingInfo
-      emailContent
+      openText: emailContent
       mainContact {
         name
         title

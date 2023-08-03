@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { FooterLayout } from "./Footer"
+import { Footer } from "./Footer"
 
 import { IGatsbyImageData } from "gatsby-plugin-image"
 import { loadImage } from "./Story.utilities"
 
-const meta: Meta<typeof FooterLayout> = {
-  component: FooterLayout,
+const meta: Meta<typeof Footer> = {
+  component: Footer,
   tags: ["autodocs"],
   includeStories: /^[A-Z]/,
 }
@@ -19,7 +19,7 @@ export const footerLogo: IGatsbyImageData = loadImage(
 
 export default meta
 
-type Story = StoryObj<typeof FooterLayout>
+type Story = StoryObj<typeof Footer>
 
 export const Primary: Story = {
   args: {

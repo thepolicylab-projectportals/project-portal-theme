@@ -33,7 +33,7 @@ export const CardPageLayout: FunctionComponent<CardPageLayoutProps> = ({
   },
 }) => {
   return (
-    <Layout activePage={pageName} title={title} description={lede}>
+    <>
       <main>
         <ProjectPage
           allProjects={allProject.nodes}
@@ -43,6 +43,6 @@ export const CardPageLayout: FunctionComponent<CardPageLayoutProps> = ({
           sortOptions={sortOptions}
         />
       </main>
-    </Layout>
+    </>
   )
 }
