@@ -8,7 +8,7 @@ interface ProjectContactProps extends ContactType {
   projectInterestLink?: string
   openText: string
   ongoingText: string
-  completedText: string
+  completeText: string
 }
 
 export const MainContact: FunctionComponent<ProjectContactProps> = ({
@@ -16,7 +16,7 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
   projectInterestLink,
   openText,
   ongoingText,
-  completedText,
+  completeText,
   ...contactProps
 }) => {
   return (
@@ -32,7 +32,7 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
         </h4>
         <div className="text-black text-body">
           <MarkdownText
-            text={statusOutput(status, openText, ongoingText, completedText)}
+            text={statusOutput(status, openText, ongoingText, completeText)}
           />
         </div>
         <div className="mt-4">
