@@ -6,6 +6,8 @@
   - [📁`defaults`](./packages/defaults) is a completely empty Gatsby site which imports the theme and builds successfully, but does nothing else. It shows the Gatsby 404 page when you load the site. (This is intentional.)
   - [📁`example`](./packages/example) is a site which uses the components and queries from the theme, and should grow to reflect a minimum working site.
   - [📁`gatsby-theme-project-portal`](./packages/gatsby-theme-project-portal) is the theme and incorporates all the shared components, layouts, templates, reused queries, and styling. It should be imported into the site as a `theme`.
+  - [📁`storybook`](./packages/storybook) is a component workbench based on 
+    [Storybook](storybook.js.org) which displays the components and layout elements.
 - [📄`.prettierrc`](.prettierrc) is a configuration file for the `prettier` JavaScript formatter.
 - [📄`package.json`](package.json) is the config file for the `yarn` workspaces we use when developing the theme.
 - [📄`test-packaging.sh`](test-packaging.sh) contains `zsh` functions used for testing the packaging, publishing, and building of the sites without using `yarn` workspaces (which was the main problem with the first implementation of the theme).
@@ -33,12 +35,37 @@ Install the `node`-dependencies and the workspaces:
 yarn install
 ```
 
-### Build Site in Workspace
+### Develop Site in Workspace
 
 Run the example site in develop mode:
 ```zsh
-yarn workspace example develop
+yarn workspace example-site develop
 ```
+
+If you want to run the NetlifyCMS backend, then you need to start the NetlifyCMS proxy server a separate terminal window.
+
+In the `packages/example-site` directory run:
+```shell
+npx netlify-cms-proxy-server
+```
+
+In the `packages/example-site/static/config.yml` file, change the `local_backend` parameter to:
+```yml
+local_backend: true
+```
+
+Then load the `https://localhost:8000/admin/` to view the NetlifyCMS UI.
+
+### Develop Storybook in Workspace
+
+Run the Storybook in develop mode:
+```zsh
+yarn workspace storybook develop
+```
+
+Updated components in 
+[📁`gatsby-theme-project-portal`](./packages/gatsby-theme-project-portal) will be shown in the 
+Storybook.
 
 ### Build Site in Separate Directory (Locally)
 
