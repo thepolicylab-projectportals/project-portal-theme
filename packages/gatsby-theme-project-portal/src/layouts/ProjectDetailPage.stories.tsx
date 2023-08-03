@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import { ProjectDetailPage } from "./ProjectDetailPage"
 import * as ProjectDetailLayoutStories from "../components/ProjectDetail.stories"
-import { emptyGatsbyImageData } from "../components/Story.utilities"
+import { contactImageYogi } from "../components/Contact.stories"
 
 const meta: Meta<typeof ProjectDetailPage> = {
   component: ProjectDetailPage,
@@ -28,7 +28,7 @@ export const Primary: Story = {
           },
         },
       },
-      defaultContactImage: emptyGatsbyImageData,
+      defaultContactImage: contactImageYogi,
     },
   },
 }
