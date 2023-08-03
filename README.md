@@ -42,6 +42,20 @@ Run the example site in develop mode:
 yarn workspace example-site develop
 ```
 
+If you want to run the NetlifyCMS backend, then you need to start the NetlifyCMS proxy server a separate terminal window.
+
+In the `packages/example-site` directory run:
+```shell
+npx netlify-cms-proxy-server
+```
+
+In the `packages/example-site/static/config.yml` file, change the `local_backend` parameter to:
+```yml
+local_backend: true
+```
+
+Then load the `https://localhost:8000/admin/` to view the NetlifyCMS UI.
+
 ### Develop Storybook in Workspace
 
 Run the Storybook in develop mode:
@@ -104,11 +118,12 @@ process runs without errors and fix any errors which occur.
    
 #### Test the theme
 
-Test installing and building the theme using the test-packaging scripts, where you load the theme from the registry instead of the local directory:
+Test installing and building the theme using the test-packaging scripts, where you load the 
+theme and other plugins from the registry instead of the local directory:
 
 ```zsh
 source test-packaging.sh
-package-and-install -t "packages/example/" -r react@^16.14.0,react-dom@^16.14.0,gatsby@^4.24.0,@thepolicylab-projectportals/gatsby-theme-project-portal
+package-and-install -t "packages/example-site/" -r react@^18,react-dom@^18,gatsby@^5,@thepolicylab-projectportals/gatsby-theme-project-portal,@thepolicylab-projectportals/project-portal-content-netlify
 ```
 
 ### Use Prettier Code Formatter in WebStorm
