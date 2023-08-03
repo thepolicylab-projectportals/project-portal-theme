@@ -19,6 +19,7 @@ export const Primary: Story = {
     email: "some-email@example.com",
     showEmail: true,
     image: emptyGatsbyImageData,
+    defaultImage: emptyGatsbyImageData,
   },
 }
 
