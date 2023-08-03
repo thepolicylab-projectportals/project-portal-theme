@@ -1,10 +1,11 @@
-import React, { FunctionComponent, ReactNode } from "react"
+import React, { FunctionComponent, ReactNode, useState } from "react"
 import {
   Footer,
   BottomBanner,
   DevelopmentBanner,
   Navbar,
   SiteMetadata,
+  SearchBar,
 } from "../components"
 import { useProjectPortalConfig } from "../hooks"
 
@@ -23,6 +24,8 @@ function getShowDevBannerSetting(showDevBanner?: boolean) {
   return showDevBanner ?? showDevBannerThemeSetting
 }
 
+const [searchQuery, setSearchQuery] = useState([])
+
 export const Layout: FunctionComponent<LayoutProps> = ({
   activePage,
   title,
@@ -37,6 +40,10 @@ export const Layout: FunctionComponent<LayoutProps> = ({
       {coalescedShowDevBanner && <DevelopmentBanner />}
       <SiteMetadata title={title} description={description} />
       <Navbar activePage={activePage} />
+      <SearchBar
+        label={"search"}
+        onChange={(e) => setSearchQuery(e.target.value)}
+      />
       <div className="flex-1">{children}</div>
       <BottomBanner />
       <Footer />
