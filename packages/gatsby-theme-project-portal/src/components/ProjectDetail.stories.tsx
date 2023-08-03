@@ -38,9 +38,9 @@ export const Primary: Story = {
       email: "some-email@example.com",
       image: emptyGatsbyImageData,
     },
-    emailContent: "Are you interested in collaborating?",
-    mainContactOngoingText: "This project is ongoing.",
-    mainContactCompleteText: "This project is complete.",
+    openText: "Are you interested in collaborating?",
+    ongoingText: "This project is ongoing.",
+    completeText: "This project is complete.",
 
     projectTeam: ProjectTeamStories.Primary.args.contacts,
 
@@ -54,6 +54,18 @@ export const Primary: Story = {
     lastModified: new Date("2022-05-27T16:34:04.000Z"),
     topics: [{ slug: "test", title: "Test" }],
   },
+}
+
+export const Open: Story = {
+  args: { ...Primary.args, status: "open" },
+}
+
+export const Ongoing: Story = {
+  args: { ...Primary.args, status: "ongoing" },
+}
+
+export const Completed: Story = {
+  args: { ...Primary.args, status: "completed" },
 }
 
 export const Minimum: Story = {

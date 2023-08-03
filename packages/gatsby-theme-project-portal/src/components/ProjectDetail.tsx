@@ -35,9 +35,9 @@ export interface ProjectDetailProps {
 
   // Contact
   mainContact: ContactType
-  emailContent?: string // shown with MainContact for open projects
-  mainContactOngoingText: string // shown with MainContact for ongoing projects
-  mainContactCompleteText: string // shown with MainContact for complete projects
+  openText?: string // shown with MainContact for open projects
+  ongoingText?: string // shown with MainContact for ongoing projects
+  completeText?: string // shown with MainContact for complete projects
   projectInterestLink?: string // shown instead of email address for open projects
 
   // Project team
@@ -80,20 +80,14 @@ export const ProjectDetail: FunctionComponent<ProjectDetailProps> = ({
   statusOfData,
   fundingInfo,
   mainContact,
-  emailContent,
-  mainContactCompleteText,
-  mainContactOngoingText,
+  openText,
+  ongoingText,
+  completeText,
   projectTeam,
   faq,
   projectInterestLink,
   defaultContactImage,
 }) => {
-  const mainContactText =
-    status === "open"
-      ? emailContent
-      : status === "ongoing"
-      ? mainContactOngoingText
-      : mainContactCompleteText
   return (
     <article>
       <header>
@@ -204,7 +198,9 @@ export const ProjectDetail: FunctionComponent<ProjectDetailProps> = ({
               <MainContact
                 {...mainContact}
                 status={status}
-                mainText={mainContactText}
+                openText={openText}
+                ongoingText={ongoingText}
+                completeText={completeText}
                 projectInterestLink={projectInterestLink}
                 defaultImage={defaultContactImage}
               />
