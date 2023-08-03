@@ -10,9 +10,9 @@ export const emptyGatsbyImageData: IGatsbyImageData = {
 
 export function loadImage(
   source: string,
-  width: number,
-  height: number,
-  layout: Layout
+  width?: number,
+  height?: number,
+  layout?: Layout
 ): IGatsbyImageData {
   return {
     layout: layout,

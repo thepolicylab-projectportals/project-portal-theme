@@ -2,6 +2,7 @@ import React from "react"
 import type { Meta, StoryObj } from "@storybook/react"
 import { CardPageLayout } from "./CardPageLayout"
 import { exampleCards } from "../components/Cards.stories"
+import { loadImage } from "../components/Story.utilities"
 
 const meta: Meta<typeof CardPageLayout> = {
   component: CardPageLayout,
@@ -21,14 +22,13 @@ export const Primary: Story = {
         lede:
           "The Project Portal is designed to help share knowledge about governmental" +
           " research projects.",
-        sortOptions: ["created", "opportunityCloses", "startDate", "endDate"],
-        image: {
-          childImageSharp: {
-            resize: {
-              src: "image/background.jpg",
-            },
-          },
-        },
+        sortOptions: [
+          "created",
+          "opportunityCloses",
+          "s" + "tartDate",
+          "endDate",
+        ],
+        image: loadImage("image/background.jpg"),
         filter: { status: [] },
       },
       allProject: {
