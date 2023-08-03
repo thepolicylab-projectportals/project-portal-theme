@@ -23,6 +23,18 @@ export const Primary: Story = {
     defaultImage: emptyGatsbyImageData,
     openText: "Open project – get involved.",
     ongoingText: "Ongoing project – watch us do something awesome.",
-    completedText: "Completed project – look at what we did!",
+    completeText: "Completed project – look at what we did!",
   },
+}
+
+export const Open: Story = {
+  args: { ...Primary.args, status: "open" },
+}
+
+export const Ongoing: Story = {
+  args: { ...Primary.args, status: "ongoing" },
+}
+
+export const Completed: Story = {
+  args: { ...Primary.args, status: "completed" },
 }
