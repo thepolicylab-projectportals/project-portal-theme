@@ -42,7 +42,7 @@ const ProjectPageTest = () => {
         lede={"This is the lede."}
         sortOptions={["created", "opportunityCloses", "startDate", "endDate"]}
         allProjects={sample_cards}
-        bgImage={""}
+        image={""}
       />
     </>
   )
