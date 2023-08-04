@@ -41,7 +41,7 @@ export interface ProjectPageProps {
   lede: string
   sortOptions: [...any]
   allProjects: CardProps[]
-  bgImage: ImageDataLike
+  image: ImageDataLike
 }
 
 export const ProjectPage = ({
@@ -49,7 +49,7 @@ export const ProjectPage = ({
   allProjects,
   lede,
   sortOptions,
-  bgImage,
+  image,
 }: ProjectPageProps) => {
   const getTopics = (project: CardProps[]): CardProps[] => {
     let tempFilterOptions = []
@@ -235,7 +235,7 @@ export const ProjectPage = ({
   return (
     <>
       <header>
-        <HeaderWithImage title={title} image={bgImage} lede={lede} />
+        <HeaderWithImage title={title} image={image} lede={lede} />
       </header>
       <div className="relative">
         <div ref={scrollToRef} className="absolute -top-100px"></div>
