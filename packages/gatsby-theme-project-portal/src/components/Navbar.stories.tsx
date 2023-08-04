@@ -15,7 +15,7 @@ type Story = StoryObj<typeof Navbar>
 export const Primary: Story = {
   args: {
     title: "The Site Title",
-    image: siteTitleLogo,
+    image: SiteTitleStories.siteTitleLogo,
     activePage: "Home",
     pages: [
       { name: "Home", link: "/", show: true },
