@@ -1,6 +1,6 @@
-import { Layout } from "./Layout"
 import { ProjectPage, CardProps } from "../components"
 import React, { FunctionComponent } from "react"
+import { ImageDataLike } from "gatsby-plugin-image"
 
 export interface CardPageLayoutProps {
   data: {
@@ -15,13 +15,7 @@ export interface CardPageLayoutProps {
       filter: {
         status: string[]
       }
-      image: {
-        childImageSharp: {
-          resize: {
-            src: string
-          }
-        }
-      }
+      image: ImageDataLike
     }
   }
 }
@@ -37,7 +31,7 @@ export const CardPageLayout: FunctionComponent<CardPageLayoutProps> = ({
       <main>
         <ProjectPage
           allProjects={allProject.nodes}
-          bgImage={image?.childImageSharp.resize.src}
+          bgImage={image}
           title={title}
           lede={lede}
           sortOptions={sortOptions}
