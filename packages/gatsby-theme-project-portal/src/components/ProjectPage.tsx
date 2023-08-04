@@ -6,6 +6,7 @@ import { ForwardIcon } from "./ForwardIcon"
 import Select, { MultiValue } from "react-select"
 import * as JsSearch from "js-search"
 import { SearchBar } from "./SearchBar"
+import { ImageDataLike } from "gatsby-plugin-image"
 
 function customSort(dateField: string, sortAscending: boolean) {
   return function (a, b) {
@@ -40,7 +41,7 @@ export interface ProjectPageProps {
   lede: string
   sortOptions: [...any]
   allProjects: CardProps[]
-  bgImage: string
+  bgImage: ImageDataLike
 }
 
 export const ProjectPage = ({
@@ -234,7 +235,7 @@ export const ProjectPage = ({
   return (
     <>
       <header>
-        <HeaderWithImage title={title} imageSrc={bgImage} lede={lede} />
+        <HeaderWithImage title={title} image={bgImage} lede={lede} />
       </header>
       <div className="relative">
         <div ref={scrollToRef} className="absolute -top-100px"></div>
