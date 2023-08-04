@@ -31,7 +31,7 @@ export const CardPageLayout: FunctionComponent<CardPageLayoutProps> = ({
       <main>
         <ProjectPage
           allProjects={allProject.nodes}
-          bgImage={image}
+          image={image}
           title={title}
           lede={lede}
           sortOptions={sortOptions}
