@@ -1,32 +1,24 @@
 import React, { FunctionComponent } from "react"
 import { Link } from "gatsby"
-import { Layout } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/layouts"
 import { HeaderWithImage } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
+import { ImageDataLike } from "gatsby-plugin-image"
 
 interface ThankYouProps {
   data: {
     generalPage: {
-      image: {
-        childImageSharp: {
-          resize: {
-            src: string
-          }
-        }
-      }
+      image?: ImageDataLike
     }
   }
 }
 
 export const ThankYouPageLayout: FunctionComponent<ThankYouProps> = ({
-  data,
+  data: {
+    generalPage: { image },
+  },
 }: ThankYouProps) => {
   return (
     <>
-      <HeaderWithImage
-        title="Thank You"
-        lede=""
-        imageSrc={data.generalPage.image?.childImageSharp.resize.src}
-      />
+      <HeaderWithImage title="Thank You" lede="" image={image} />
       <div className="container pt-6 overflow-hidden bg-white">
         <div className="flex flex-wrap">
           <div className="lg:w-2/3 sm:w-full">
