@@ -6327,7 +6327,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@thepolicylab-projectportals/gatsby-theme-project-portal@0.0.0, @thepolicylab-projectportals/gatsby-theme-project-portal@^0.0.0, @thepolicylab-projectportals/gatsby-theme-project-portal@workspace:packages/gatsby-theme-project-portal":
+"@thepolicylab-projectportals/gatsby-theme-project-portal@0.0.0, @thepolicylab-projectportals/gatsby-theme-project-portal@workspace:packages/gatsby-theme-project-portal":
   version: 0.0.0-use.local
   resolution: "@thepolicylab-projectportals/gatsby-theme-project-portal@workspace:packages/gatsby-theme-project-portal"
   dependencies:
@@ -12135,21 +12135,6 @@ __metadata:
     "@thepolicylab-projectportals/project-portal-content-netlify": 0.0.0
     gatsby: ^5.11.0
     gatsby-plugin-sitemap: ^6.11.0
-    react: ^18.2.0
-    react-dom: ^18.2.0
-  languageName: unknown
-  linkType: soft
-
-"example@workspace:packages/example":
-  version: 0.0.0-use.local
-  resolution: "example@workspace:packages/example"
-  dependencies:
-    "@thepolicylab-projectportals/gatsby-theme-project-portal": ^0.0.0
-    gatsby: ^5.11.0
-    gatsby-plugin-image: ^3.11.0
-    gatsby-plugin-sharp: ^5.11.0
-    gatsby-source-filesystem: ^5.11.0
-    gatsby-transformer-sharp: ^5.11.0
     react: ^18.2.0
     react-dom: ^18.2.0
   languageName: unknown
