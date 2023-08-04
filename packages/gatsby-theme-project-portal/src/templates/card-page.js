@@ -18,11 +18,7 @@ export const query = graphql`
       lede
       sortOptions
       image {
-        childImageSharp {
-          resize(width: 1536) {
-            src
-          }
-        }
+        ...HeaderWithImageBackground
       }
     }
     allProject(filter: { status: { in: $statusFilter } }) {

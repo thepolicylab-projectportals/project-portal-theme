@@ -1,4 +1,4 @@
-import { withPrefix } from "gatsby"
+import { withPrefix, graphql } from "gatsby"
 import React from "react"
 import { MarkdownText } from "../components"
 import { getSrc, ImageDataLike } from "gatsby-plugin-image"
@@ -39,3 +39,11 @@ export const HeaderWithImage = ({
     </div>
   )
 }
+
+export const query = graphql`
+  fragment HeaderWithImageBackground on File {
+    childImageSharp {
+      gatsbyImageData(width: 1563)
+    }
+  }
+`

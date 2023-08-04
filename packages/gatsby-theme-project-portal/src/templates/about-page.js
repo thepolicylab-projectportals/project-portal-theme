@@ -26,11 +26,7 @@ export const query = graphql`
       }
       accessibility
       image {
-        childImageSharp {
-          resize(width: 1536) {
-            src
-          }
-        }
+        ...HeaderWithImageBackground
       }
     }
   }

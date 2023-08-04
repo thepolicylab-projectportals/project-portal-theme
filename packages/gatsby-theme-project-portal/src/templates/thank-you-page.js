@@ -14,11 +14,7 @@ export const query = graphql`
     }
     generalPage(slug: { eq: $slug }) {
       image {
-        childImageSharp {
-          resize(width: 1536) {
-            src
-          }
-        }
+        ...HeaderWithImageBackground
       }
     }
   }
