@@ -2,9 +2,15 @@ import { graphql } from "gatsby"
 import { ProjectDetailPage } from "../layouts"
 
 export default ProjectDetailPage
+export { Head } from "../hooks"
 
 export const query = graphql`
   query ProjectDetailPageQuery($slug: String!) {
+    ...HeadData
+    page: project(slug: { eq: $slug }) {
+      title: question
+      description: summary
+    }
     project(slug: { eq: $slug }) {
       question
       title
