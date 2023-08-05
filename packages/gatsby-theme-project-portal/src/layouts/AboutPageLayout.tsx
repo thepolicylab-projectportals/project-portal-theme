@@ -1,8 +1,5 @@
 import React, { FunctionComponent } from "react"
-import { Disclosure } from "@headlessui/react"
-import { FaPlus, FaMinus } from "react-icons/fa"
 import { Accordion } from "../components/Accordion"
-import { Layout } from "./Layout"
 import {
   HeaderWithImage,
   MarkdownText,

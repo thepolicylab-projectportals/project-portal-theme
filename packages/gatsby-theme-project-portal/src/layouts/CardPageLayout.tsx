@@ -1,4 +1,3 @@
-import { Layout } from "./Layout"
 import { ProjectPage, CardProps } from "../components"
 import React, { FunctionComponent } from "react"
 
