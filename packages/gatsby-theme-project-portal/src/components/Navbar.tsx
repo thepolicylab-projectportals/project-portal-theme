@@ -8,6 +8,7 @@ import {
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/hooks"
 import { SiteTitle } from "./SiteTitle"
 import { NavbarItem } from "./NavbarItem"
+import SearchModal from "./SearchModal"
 
 interface NavbarLayoutProps {
   title: string
@@ -36,7 +37,7 @@ export const NavbarLayout: FunctionComponent<NavbarLayoutProps> = ({
         }
       >
         <div className="flex flex-wrap justify-between w-full px-0 xl:px-4">
-          <div className="relative flex flex-no-wrap w-full xl:static xl:block xl:w-auto">
+          <div className="relative flex flex-no-wrap w-full xl:static xl:w-auto">
             <button
               className="block p-6 ml-0 text-xl leading-none text-white outline-none cursor-pointer bg-primary xl:hidden focus:outline-none"
               type="button"
@@ -51,6 +52,9 @@ export const NavbarLayout: FunctionComponent<NavbarLayoutProps> = ({
             >
               <SiteTitle image={image} title={title} />
             </Link>
+            <div className="flex-1 min-w-30ch auto-rows-auto flex flex-col">
+              <SearchModal />
+            </div>
           </div>
           <div
             className={
