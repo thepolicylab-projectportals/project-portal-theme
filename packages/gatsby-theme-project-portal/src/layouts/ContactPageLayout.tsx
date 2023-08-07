@@ -1,7 +1,6 @@
 import React, { Component, FunctionComponent } from "react"
 import { navigate } from "gatsby"
 import { MarkdownText } from "../components"
-import { Layout } from "./Layout"
 import { HeaderWithImage } from "../components"
 import ReCAPTCHA from "react-google-recaptcha"
 
