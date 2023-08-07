@@ -20,6 +20,7 @@ export const Primary: Story = {
       CardStories.openNoDateData,
       CardStories.ongoingNoDateData,
       CardStories.completedNoDateData,
+      CardStories.longTopicsListData,
     ],
   },
 }

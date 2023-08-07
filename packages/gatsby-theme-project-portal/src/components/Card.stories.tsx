@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react"
+import React from "react"
 import { Card } from "./Card"
 
 import { argType as projectStatusArgType } from "./ProjectStatus.stories"
@@ -112,9 +113,34 @@ export const longTopicsListData = {
   topics: [
     { slug: "short-topic", title: "Short Topic" },
     { slug: "medium-topic-name", title: "Medium Topic Name" },
-    { slug: "extremely-long-topic-name", title: "Extremely Long Topic Name" },
+    {
+      slug: "extremely-long-topic-name",
+      title: "Extremely Long Topic Name Which Goes Over The Edge",
+    },
   ],
 }
 export const LongTopicsList: Story = {
   args: longTopicsListData,
+}
+
+export const LargeDivContainer: Story = {
+  args: primaryData,
+  decorators: [
+    (Story) => (
+      <div className="h-[32rem] w-[32rem]">
+        <Story />
+      </div>
+    ),
+  ],
+}
+
+export const SmallDivContainerLongTopicName: Story = {
+  args: longTopicsListData,
+  decorators: [
+    (Story) => (
+      <div className="w-[24rem]">
+        <Story />
+      </div>
+    ),
+  ],
 }
