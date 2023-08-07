@@ -1,7 +1,6 @@
 import React, { FunctionComponent } from "react"
 import { Link } from "gatsby"
-import { Layout } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/layouts"
-import { HeaderWithImage } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
+import { HeaderWithImage } from "../components"
 
 interface ThankYouProps {
   data: {
