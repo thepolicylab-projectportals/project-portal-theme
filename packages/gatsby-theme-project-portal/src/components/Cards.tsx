@@ -10,9 +10,11 @@ export const Cards: FunctionComponent<CardsProps> = ({ nodes }) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-3 xl:mx-6 gap-4 justify-self-center place-items-stretch">
       {nodes.map((item, i) => (
-        <Link to={`/project/${item.slug}`}>
-          <Card key={"card_" + item.slug} {...item} />
-        </Link>
+        <article>
+          <Link to={`/project/${item.slug}`} className="h-full">
+            <Card key={"card_" + item.slug} {...item} />
+          </Link>
+        </article>
       ))}
     </div>
   )

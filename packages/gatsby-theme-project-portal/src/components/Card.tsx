@@ -80,16 +80,14 @@ export const Card: FunctionComponent<CardProps> = ({
         </div>
       </div>
       <div className="p-5 pb-1 mt-auto border-t-2 border-solid">
-        <Link to={`project/${slug}`}>
-          <button aria-label={title + " Details"} className="btn-wide">
-            {statusOutput(
-              status,
-              "View opportunity",
-              "View project",
-              "View project"
-            )}
-          </button>
-        </Link>
+        <button aria-label={title + " Details"} className="btn-wide">
+          {statusOutput(
+            status,
+            "View opportunity",
+            "View project",
+            "View project"
+          )}
+        </button>
       </div>
     </div>
   )
