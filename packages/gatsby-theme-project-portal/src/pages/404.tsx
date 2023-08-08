@@ -26,5 +26,6 @@ export { Head } from "../hooks"
 export const query = graphql`
   query {
     ...HeadData
+    ...LayoutData
   }
 `
