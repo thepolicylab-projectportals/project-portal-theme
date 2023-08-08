@@ -144,3 +144,12 @@ export const SmallDivContainerLongTopicName: Story = {
     ),
   ],
 }
+
+export const longTitleData = {
+  ...primaryData,
+  question:
+    "Why are we still doing this project? Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+}
+export const LongTitle: Story = {
+  args: longTitleData,
+}
