@@ -1,4 +1,4 @@
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import React, { FunctionComponent } from "react"
 import { isEmpty, statusOutput } from "../utils"
 import { Topics, TopicType, ProjectStatus, KeyDate } from "."
