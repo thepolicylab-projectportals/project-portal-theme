@@ -1,5 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import { Layout } from "../layouts"
 
 export default () => {
   return (
@@ -26,5 +27,6 @@ export { Head } from "../hooks"
 export const query = graphql`
   query {
     ...HeadData
+    ...LayoutData
   }
 `
