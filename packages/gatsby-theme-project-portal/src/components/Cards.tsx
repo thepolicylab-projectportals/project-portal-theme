@@ -17,7 +17,6 @@ export const Cards: FunctionComponent<CardsProps> = ({ nodes }) => {
               current: i,
               items: nodes.map((item) => `/${item.slug}`),
             }}
-            className="h-full"
           >
             <Card key={"card_" + item.slug} {...item} />
           </Link>
