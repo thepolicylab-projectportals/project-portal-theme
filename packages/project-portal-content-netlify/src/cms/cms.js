@@ -372,6 +372,13 @@ CMS.init({
             preview_path: "{{slug}}",
             fields: [
               {
+                name: "title",
+                label: "Title",
+                widget: "string",
+                required: true,
+                hint: "The title of the page shown on the user's browser tab.",
+              },
+              {
                 name: "header",
                 label: "Header",
                 widget: "string",
