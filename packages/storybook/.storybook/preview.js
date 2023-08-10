@@ -1,5 +1,6 @@
 import { withThemeByClassName } from "@storybook/addon-styling"
 import { action } from "@storybook/addon-actions"
+import { MINIMAL_VIEWPORTS, INITIAL_VIEWPORTS } from "@storybook/addon-viewport"
 
 // Gatsby's Link overrides:
 // Gatsby Link calls the `enqueue` & `hovering` methods on the global variable ___loader.
@@ -19,6 +20,52 @@ window.___navigate = (pathname) => {
   action("NavigateTo:")(pathname)
 }
 
+const customViewports = {
+  tailwindXS: {
+    name: "Tailwind XS",
+    styles: {
+      width: "480px",
+      height: "600px",
+    },
+  },
+  tailwindSM: {
+    name: "Tailwind SM",
+    styles: {
+      width: "640px",
+      height: "768px",
+    },
+  },
+  tailwindMD: {
+    name: "Tailwind MD",
+    styles: {
+      width: "768px",
+      height: "768px",
+    },
+  },
+
+  tailwindLG: {
+    name: "Tailwind LG",
+    styles: {
+      width: "1024px",
+      height: "768px",
+    },
+  },
+  tailwindXL: {
+    name: "Tailwind XL",
+    styles: {
+      width: "1280px",
+      height: "800px",
+    },
+  },
+  tailwind2XL: {
+    name: "Tailwind 2XL",
+    styles: {
+      width: "1536px",
+      height: "1200px",
+    },
+  },
+}
+
 import "@thepolicylab-projectportals/gatsby-theme-project-portal/src/styles/global.css"
 /** @type { import('@storybook/react').Preview } */
 const preview = {
@@ -28,6 +75,13 @@ const preview = {
       matchers: {
         color: /(background|color)$/i,
         date: /(Date|opportunityCloses|created|lastModified)$/,
+      },
+    },
+    viewport: {
+      viewports: {
+        ...MINIMAL_VIEWPORTS,
+        ...customViewports,
+        ...INITIAL_VIEWPORTS,
       },
     },
   },
