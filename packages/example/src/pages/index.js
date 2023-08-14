@@ -14,7 +14,6 @@ import {
   CollaboratorDetails,
   NavbarLayout,
   Navbar,
-  SiteMetadata,
   FooterLayout,
   Footer,
   BottomBannerLayout,
@@ -370,7 +369,6 @@ const Index = () => {
         title="all the project team are here today"
         contacts={projectContacts}
       />
-      <SiteMetadata />
       <HeaderWithImage
         title={"test title"}
         imageSrc={headerImageSrc}
