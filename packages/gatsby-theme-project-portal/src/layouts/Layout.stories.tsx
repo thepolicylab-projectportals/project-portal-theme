@@ -4,7 +4,6 @@ import { Layout } from "./Layout"
 import * as BottomBannerStories from "../components/BottomBanner.stories"
 import * as FooterStories from "../components/Footer.stories"
 import * as NavbarStories from "../components/Navbar.stories"
-
 import { bottomBannerLogo } from "../components/BottomBanner.stories"
 import { footerLogo } from "../components/Footer.stories"
 import { siteTitleLogo } from "../components/SiteTitle.stories"
