@@ -1,8 +1,5 @@
 import React, { FunctionComponent } from "react"
-import { Disclosure } from "@headlessui/react"
-import { FaPlus, FaMinus } from "react-icons/fa"
 import { Accordion } from "../components/Accordion"
-import { Layout } from "./Layout"
 import {
   HeaderWithImage,
   MarkdownText,
@@ -11,7 +8,6 @@ import { isNA } from "../utils"
 
 interface AboutProps {
   data: {
-    site: { siteMetadata: { title } }
     generalPage: {
       pageName: string
       title: string
@@ -47,18 +43,11 @@ const AboutList = ({ aboutTitle, aboutText }) => {
 
 export const AboutPageLayout: FunctionComponent<AboutProps> = ({
   data: {
-    site: {
-      siteMetadata: { title: siteTitle },
-    },
     generalPage: { header, aims, faq, accessibility, image },
   },
 }: AboutProps) => {
   return (
-    <Layout
-      activePage="About"
-      title="About"
-      description={`About the ${siteTitle}`}
-    >
+    <>
       <main>
         <article>
           <header>
@@ -112,6 +101,6 @@ export const AboutPageLayout: FunctionComponent<AboutProps> = ({
           </div>
         </article>
       </main>
-    </Layout>
+    </>
   )
 }

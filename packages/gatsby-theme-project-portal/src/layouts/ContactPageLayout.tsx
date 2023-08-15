@@ -1,7 +1,6 @@
 import React, { Component, FunctionComponent } from "react"
 import { navigate } from "gatsby"
 import { MarkdownText } from "../components"
-import { Layout } from "./Layout"
 import { HeaderWithImage } from "../components"
 import ReCAPTCHA from "react-google-recaptcha"
 
@@ -312,7 +311,7 @@ export const ContactPageLayout: FunctionComponent<ContactProps> = ({
 }: ContactProps) => {
   const imageSrc = image?.childImageSharp.resize.src
   return (
-    <Layout activePage="Contact" title={title} description={lede}>
+    <>
       <main>
         <header>
           <HeaderWithImage title="Contact" lede="" imageSrc={imageSrc} />
@@ -330,6 +329,6 @@ export const ContactPageLayout: FunctionComponent<ContactProps> = ({
           />
         </article>
       </main>
-    </Layout>
+    </>
   )
 }

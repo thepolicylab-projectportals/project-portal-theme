@@ -1,7 +1,6 @@
 import React, { FunctionComponent } from "react"
 import { Link } from "gatsby"
-import { Layout } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/layouts"
-import { HeaderWithImage } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
+import { HeaderWithImage } from "../components"
 
 interface ThankYouProps {
   data: {
@@ -21,11 +20,7 @@ export const ThankYouPageLayout: FunctionComponent<ThankYouProps> = ({
   data,
 }: ThankYouProps) => {
   return (
-    <Layout
-      activePage="about"
-      title="Thank you"
-      description="Thank you for your interest in working with us!"
-    >
+    <>
       <HeaderWithImage
         title="Thank You"
         lede=""
@@ -49,6 +44,6 @@ export const ThankYouPageLayout: FunctionComponent<ThankYouProps> = ({
           </div>
         </div>
       </div>
-    </Layout>
+    </>
   )
 }

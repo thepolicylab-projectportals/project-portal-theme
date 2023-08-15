@@ -1,12 +1,37 @@
 {
   "templateKey": "layoutConfig",
-  "showDevBanner": false,
+  "showDevBanner": true,
   "navbar": {
     "title": "Project Portal Example (Site with Queries) (from config)",
     "pages": [
       {
-        "name": "Landing Page (from config)",
+        "name": "All Projects",
         "link": "/",
+        "show": true
+      },
+      {
+        "name": "Open Opportunities",
+        "link": "/open/",
+        "show": true
+      },
+      {
+        "name": "In-Progress Projects",
+        "link": "/ongoing/",
+        "show": true
+      },
+      {
+        "name": "Completed Projects",
+        "link": "/completed/",
+        "show": true
+      },
+      {
+        "name": "About",
+        "link": "/about/",
+        "show": true
+      },
+      {
+        "name": "Contact",
+        "link": "/contact/",
         "show": true
       }
     ]
@@ -27,5 +52,6 @@
         "link": "https://ccv.brown.edu/404"
       }
     ]
-  }
+  },
+  "lastModified": "2023-07-28T17:08:16.685Z"
 }
