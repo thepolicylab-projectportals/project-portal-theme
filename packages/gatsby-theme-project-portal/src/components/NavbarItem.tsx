@@ -18,7 +18,7 @@ export const NavbarItem: FunctionComponent<NavbarItemProps> = ({
             {name}
           </span>
         ) : (
-          <span className="text-nav pb-1 ml-2 border-b-2 hover:border-primary xl:border-transparent">
+          <span className="text-nav pb-1 ml-2 border-b-2 hover:border-primary border-transparent">
             {name}
           </span>
         )}
