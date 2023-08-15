@@ -1,17 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { NavbarLayout } from "./Navbar"
+import { Navbar } from "./Navbar"
 import * as SiteTitleStories from "./SiteTitle.stories"
 
-import { emptyGatsbyImageData } from "./Story.utilities"
-
-const meta: Meta<typeof NavbarLayout> = {
-  component: NavbarLayout,
+const meta: Meta<typeof Navbar> = {
+  component: Navbar,
   tags: ["autodocs"],
 }
 
 export default meta
 
-type Story = StoryObj<typeof NavbarLayout>
+type Story = StoryObj<typeof Navbar>
 
 export const Primary: Story = {
   args: {

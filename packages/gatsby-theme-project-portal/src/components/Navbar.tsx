@@ -1,18 +1,13 @@
 import React, { FunctionComponent } from "react"
-import { graphql, Link, useStaticQuery } from "gatsby"
+import { Link } from "gatsby"
 import { FaBars, FaTimes } from "react-icons/fa"
-import { getImage, IGatsbyImageData } from "gatsby-plugin-image"
-import {
-  useProjectPortalConfig,
-  useSiteMetadata,
-} from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/hooks"
-import { SiteTitle } from "./SiteTitle"
-import { NavbarItem } from "./NavbarItem"
+import { ImageDataLike } from "gatsby-plugin-image"
+import { SiteTitle, NavbarItem } from "."
 
-interface NavbarLayoutProps {
+interface NavbarProps {
   title: string
   activePage?: string
-  image?: IGatsbyImageData
+  image?: ImageDataLike
   pages: {
     name: string
     link: string
@@ -20,12 +15,12 @@ interface NavbarLayoutProps {
   }[]
 }
 
-export const NavbarLayout: FunctionComponent<NavbarLayoutProps> = ({
+export const Navbar: FunctionComponent<NavbarProps> = ({
   title,
   activePage,
   image,
   pages,
-}: NavbarLayoutProps) => {
+}: NavbarProps) => {
   const [navbarOpen, setNavbarOpen] = React.useState(false)
   return (
     <>
@@ -80,39 +75,6 @@ export const NavbarLayout: FunctionComponent<NavbarLayoutProps> = ({
           </div>
         </div>
       </nav>
-    </>
-  )
-}
-
-interface NavbarProps {
-  activePage?: string
-}
-
-export const Navbar: FunctionComponent<NavbarProps> = ({ activePage }) => {
-  const { logo } = useStaticQuery(graphql`
-    query NavbarLogoQuery {
-      logo: file(
-        name: { eq: "navbar" }
-        extension: { in: ["png", "jpg", "jpeg"] }
-        sourceInstanceName: { eq: "themeImages" }
-      ) {
-        childImageSharp {
-          gatsbyImageData(height: 64)
-        }
-      }
-    }
-  `)
-  const { title } = useSiteMetadata()
-  const { pages } = useProjectPortalConfig()
-  const image = getImage(logo)
-  return (
-    <>
-      <NavbarLayout
-        activePage={activePage}
-        title={title}
-        pages={pages}
-        image={image}
-      />
     </>
   )
 }
