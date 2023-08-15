@@ -27,7 +27,7 @@ const config = {
     name: "@storybook/react-webpack5",
     options: {},
   },
-  staticDirs: ["../../example/content"],
+  staticDirs: ["../static"],
   docs: {
     autodocs: "tag",
   },

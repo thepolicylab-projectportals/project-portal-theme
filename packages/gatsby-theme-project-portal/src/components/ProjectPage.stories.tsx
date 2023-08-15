@@ -20,6 +20,6 @@ export const Primary: Story = {
       ...CardsStories.Primary.args.nodes,
     ],
     sortOptions: ["created", "opportunityCloses", "startDate", "endDate"],
-    bgImage: "theme-image/contact.jpg",
+    bgImage: "image/background.jpg",
   },
 }
