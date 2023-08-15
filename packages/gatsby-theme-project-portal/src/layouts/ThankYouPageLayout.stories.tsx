@@ -1,4 +1,3 @@
-import React from "react"
 import type { Meta, StoryObj } from "@storybook/react"
 import { ThankYouPageLayout } from "./ThankYouPageLayout"
 
@@ -11,7 +10,12 @@ export default meta
 
 type Story = StoryObj<typeof ThankYouPageLayout>
 
-// TODO: Fix this – relies on SiteMetadata, which uses a static query.
 export const Primary: Story = {
-  args: {},
+  args: {
+    data: {
+      generalPage: {
+        image: null,
+      },
+    },
+  },
 }
