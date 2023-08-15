@@ -1,17 +1,17 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { ProjectDetailLayout } from "./ProjectDetail"
+import { ProjectDetail } from "./ProjectDetail"
 import * as ContactStories from "./Contact.stories"
 import * as ProjectTeamStories from "./ProjectTeam.stories"
 import { emptyGatsbyImageData } from "./Story.utilities"
 
-const meta: Meta<typeof ProjectDetailLayout> = {
-  component: ProjectDetailLayout,
+const meta: Meta<typeof ProjectDetail> = {
+  component: ProjectDetail,
   tags: ["autodocs"],
 }
 
 export default meta
 
-type Story = StoryObj<typeof ProjectDetailLayout>
+type Story = StoryObj<typeof ProjectDetail>
 
 export const Primary: Story = {
   args: {
@@ -38,7 +38,9 @@ export const Primary: Story = {
       email: "some-email@example.com",
       image: emptyGatsbyImageData,
     },
-    emailContent: "Are you interested in collaborating?",
+    openText: "Are you interested in collaborating?",
+    ongoingText: "This project is ongoing.",
+    completeText: "This project is complete.",
 
     projectTeam: ProjectTeamStories.Primary.args.contacts,
 
@@ -52,6 +54,18 @@ export const Primary: Story = {
     lastModified: new Date("2022-05-27T16:34:04.000Z"),
     topics: [{ slug: "test", title: "Test" }],
   },
+}
+
+export const Open: Story = {
+  args: { ...Primary.args, status: "open" },
+}
+
+export const Ongoing: Story = {
+  args: { ...Primary.args, status: "ongoing" },
+}
+
+export const Completed: Story = {
+  args: { ...Primary.args, status: "completed" },
 }
 
 export const Minimum: Story = {

@@ -1,41 +1,17 @@
 import React from "react"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import { graphql, useStaticQuery } from "gatsby"
+import { GatsbyImage, ImageDataLike, getImage } from "gatsby-plugin-image"
 
 export interface ContactType {
   name: string
   title: string
   employer: string
   email: string
-  image?: any
+  image?: ImageDataLike
+  defaultImage?: ImageDataLike
 }
 
 interface ContactProps extends ContactType {
   showEmail: boolean
-}
-
-export const DefaultContactImage = ({ alt }) => {
-  const { logo } = useStaticQuery(graphql`
-    query DefaultContactImageQuery {
-      logo: file(
-        name: { eq: "default-contact" }
-        extension: { in: ["png", "jpg", "jpeg"] }
-        # only match files in the "themeImages" sourced directory:
-        sourceInstanceName: { eq: "themeImages" }
-      ) {
-        childImageSharp {
-          gatsbyImageData(width: 100, height: 100)
-        }
-      }
-    }
-  `)
-
-  const image = getImage(logo)
-  return (
-    <>
-      <GatsbyImage className="rounded-full" alt={alt} image={image} />
-    </>
-  )
 }
 
 export const Contact: React.FC<ContactProps> = ({
@@ -44,8 +20,10 @@ export const Contact: React.FC<ContactProps> = ({
   employer,
   email,
   image,
+  defaultImage,
   showEmail,
 }) => {
+  const resolvedImage = getImage(image ?? defaultImage)
   return (
     <div className="flex items-start gap-4 overflow-hidden flex-nowrap justify-left">
       <div
@@ -55,17 +33,15 @@ export const Contact: React.FC<ContactProps> = ({
           height: "100px",
         }}
       >
-        {image ? (
+        {resolvedImage && (
           <GatsbyImage
             className="relative rounded-full"
             alt={name}
-            image={getImage(image)}
+            image={getImage(resolvedImage)}
             style={{
               transform: "translateZ(0)",
             }}
           />
-        ) : (
-          <DefaultContactImage alt={name} />
         )}
       </div>
       <div className="pl-2 pr-2 pb-2">
