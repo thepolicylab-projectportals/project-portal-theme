@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import { ProjectPage } from "./ProjectPage"
 import * as CardsStories from "./Cards.stories"
+import { loadImage } from "./Story.utilities"
 
 const meta: Meta<typeof ProjectPage> = {
   component: ProjectPage,
@@ -20,6 +21,6 @@ export const Primary: Story = {
       ...CardsStories.Primary.args.nodes,
     ],
     sortOptions: ["created", "opportunityCloses", "startDate", "endDate"],
-    bgImage: "image/background.jpg",
+    image: loadImage("image/background.jpg"),
   },
 }

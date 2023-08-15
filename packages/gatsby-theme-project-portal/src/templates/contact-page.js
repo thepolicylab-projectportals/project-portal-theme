@@ -16,11 +16,7 @@ export const query = graphql`
       title
       lede
       image {
-        childImageSharp {
-          resize(width: 1536) {
-            src
-          }
-        }
+        ...HeaderWithImageBackground
       }
     }
     projectPortalConfig {

@@ -1,15 +1,20 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import { Contact } from "./Contact"
-import { emptyGatsbyImageData } from "./Story.utilities"
+import { loadImage } from "./Story.utilities"
 
 const meta: Meta<typeof Contact> = {
   component: Contact,
   tags: ["autodocs"],
+  includeStories: /^[A-Z]/,
 }
 
 export default meta
 
 type Story = StoryObj<typeof Contact>
+
+export const contactImage = loadImage("image/torso.png", 100, 100, "fixed")
+
+export const contactImageYogi = loadImage("image/yogi.jpg", 100, 100, "fixed")
 
 export const Primary: Story = {
   args: {
@@ -18,11 +23,15 @@ export const Primary: Story = {
     employer: "Employer",
     email: "some-email@example.com",
     showEmail: true,
-    image: emptyGatsbyImageData,
-    defaultImage: emptyGatsbyImageData,
+    image: contactImage,
+    defaultImage: contactImageYogi,
   },
 }
 
 export const NoEmail: Story = {
   args: { ...Primary.args, showEmail: false },
+}
+
+export const NoImage: Story = {
+  args: { ...Primary.args, image: null },
 }

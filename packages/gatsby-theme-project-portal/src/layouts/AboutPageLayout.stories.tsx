@@ -1,6 +1,7 @@
 import React from "react"
 import type { Meta, StoryObj } from "@storybook/react"
 import { AboutPageLayout } from "./AboutPageLayout"
+import { loadImage } from "../components/Story.utilities"
 
 const meta: Meta<typeof AboutPageLayout> = {
   component: AboutPageLayout,
@@ -18,9 +19,7 @@ export const Primary: Story = {
         pageName: null,
         title: null,
         header: "What we're here to do",
-        image: {
-          childImageSharp: { resize: { src: "image/background.jpg" } },
-        },
+        image: loadImage("image/background.jpg"),
         aims: [
           {
             title: "About Aim",

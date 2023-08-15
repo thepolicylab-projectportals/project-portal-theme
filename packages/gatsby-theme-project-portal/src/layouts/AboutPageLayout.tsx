@@ -5,6 +5,7 @@ import {
   MarkdownText,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
 import { isNA } from "../utils"
+import { ImageDataLike } from "gatsby-plugin-image"
 
 interface AboutProps {
   data: {
@@ -21,13 +22,7 @@ interface AboutProps {
         text: string
       }[]
       accessibility: string
-      image: {
-        childImageSharp: {
-          resize: {
-            src: string
-          }
-        }
-      }
+      image: ImageDataLike
     }
   }
 }
@@ -51,11 +46,7 @@ export const AboutPageLayout: FunctionComponent<AboutProps> = ({
       <main>
         <article>
           <header>
-            <HeaderWithImage
-              title="About"
-              lede=""
-              imageSrc={image?.childImageSharp.resize.src}
-            />
+            <HeaderWithImage title="About" lede="" image={image} />
           </header>
 
           <div className="w-full pt-5 px-8 lg:px-16 xl:px-24 lg:w-2/3">

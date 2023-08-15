@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import { ProjectDetail } from "./ProjectDetail"
-import * as ContactStories from "./Contact.stories"
 import * as ProjectTeamStories from "./ProjectTeam.stories"
 import { emptyGatsbyImageData } from "./Story.utilities"
+import { contactImage, contactImageYogi } from "./Contact.stories"
 
 const meta: Meta<typeof ProjectDetail> = {
   component: ProjectDetail,
@@ -36,7 +36,7 @@ export const Primary: Story = {
       title: "Title",
       employer: "Employer",
       email: "some-email@example.com",
-      image: emptyGatsbyImageData,
+      image: contactImageYogi,
     },
     openText: "Are you interested in collaborating?",
     ongoingText: "This project is ongoing.",
@@ -53,6 +53,8 @@ export const Primary: Story = {
     agency: "Sample Agency",
     lastModified: new Date("2022-05-27T16:34:04.000Z"),
     topics: [{ slug: "test", title: "Test" }],
+
+    defaultContactImage: contactImage,
   },
 }
 
@@ -79,7 +81,6 @@ export const Minimum: Story = {
       title: "Title",
       employer: "Employer",
       email: "some-email@example.com",
-      image: emptyGatsbyImageData,
     },
 
     status: "open",
