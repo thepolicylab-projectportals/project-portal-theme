@@ -24,13 +24,13 @@ export const BottomBanner: FunctionComponent<BottomBannerProps> = ({
       <div className="m-responsive">
         <div className="w-full flex gap-4 sm:gap-8 items-center justify-center flex-wrap">
           {!isNA(link) && resolvedImage && (
-            <Link id={linkId} to={link}>
+            <a id={linkId} href={link}>
               <GatsbyImage
                 className="inline-block logotype"
                 image={resolvedImage}
                 alt="Bottom Banner logo"
               />
-            </Link>
+            </a>
           )}
           {isNA(link) && { resolvedImage } && (
             <GatsbyImage
