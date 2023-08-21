@@ -58,14 +58,11 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
               {pages.map(({ name, link, show }, i) =>
                 show ? (
                   <Link
+                    key={"nav" + i}
                     to={link ? link : "#"}
                     onClick={() => setNavbarOpen(false)}
                   >
-                    <NavbarItem
-                      key={"nav" + i}
-                      name={name}
-                      isActive={activePage === link}
-                    />
+                    <NavbarItem name={name} isActive={activePage === link} />
                   </Link>
                 ) : (
                   ""
