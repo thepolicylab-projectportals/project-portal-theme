@@ -5,8 +5,6 @@ import { ImageDataLike } from "gatsby-plugin-image"
 
 export interface LayoutProps {
   path: string
-  title: string
-  description: string
   children: ReactNode
   data: {
     site: {
