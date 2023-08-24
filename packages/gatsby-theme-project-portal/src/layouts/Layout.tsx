@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import { Footer, BottomBanner, DevelopmentBanner, Navbar } from "../components"
 import { ImageDataLike } from "gatsby-plugin-image"
 
-interface LayoutProps {
+export interface LayoutProps {
   path: string
   title: string
   description: string
