@@ -63,9 +63,29 @@ export const ProjectPage = ({
     }
     return tempFilterOptions
   }
-  const [filterOptions, setFilterOptions] = useState(getTopics(allProjects))
+  const getStatus = (project: CardProps[]): CardProps[] => {
+    let tempStatus = []
+    for (const tempProject of project) {
+      if (tempProject.status) {
+        if (!tempStatus.some(({ value }) => value === tempProject.status)) {
+          tempStatus.push({
+            value: tempProject.status,
+            label: tempProject.status,
+          })
+        }
+      }
+    }
+    return tempStatus
+  }
+  const [filterOptionsTopic, setFilterOptionsTopic] = useState(
+    getTopics(allProjects)
+  )
+  const [filterOptionsStatus, setFilterOptionsStatus] = useState(
+    getStatus(allProjects)
+  )
 
   const ITEMS_PER_PAGE = 6
+  console.log(allProjects)
   const [sortedProjects, setSortedProjects] = useState(allProjects)
   const [displayProjects, setDisplayProjects] = useState(allProjects)
 
@@ -172,7 +192,12 @@ export const ProjectPage = ({
     setHasNext(pageEnd < displayProjects.length)
   }, [list]) // triggered when list is changed
 
-  const [selectedOptions, setSelectedOptions] = useState<MultiValue<any>>([])
+  const [selectedTopicOptions, setSelectedTopicOptions] = useState<
+    MultiValue<any>
+  >([])
+  const [selectedStatusOptions, setSelectedStatusOptions] = useState<
+    MultiValue<any>
+  >([])
 
   useEffect(() => {
     const sortedList = [...allProjects]
@@ -196,8 +221,8 @@ export const ProjectPage = ({
     //2. filter by topic. If there are any filters chosen
     // apply it to filteredProjects
     // or else stick with sortedProjects (which may have been updated by sortOptions) aka the first check
-    if (selectedOptions.length > 0) {
-      const filteredTopics = selectedOptions.map(({ value }) => value)
+    if (selectedTopicOptions.length > 0) {
+      const filteredTopics = selectedTopicOptions.map(({ value }) => value)
       filteredProjects = sortedProjects.filter((project) =>
         project.topics
           .map((topic) => topic.slug)
@@ -207,7 +232,15 @@ export const ProjectPage = ({
     setPageStart(0)
     setPageEnd(ITEMS_PER_PAGE)
 
-    //3. search query
+    // 3. filter by status. If there are any filters chosen
+    // apply it to filteredProjects
+    if (selectedStatusOptions.length > 0) {
+      const filteredStatus = selectedStatusOptions.map(({ value }) => value)
+      filteredProjects = sortedProjects.filter((project) =>
+        filteredStatus.includes(project.status)
+      )
+    }
+    //4. search query
     // if search query is used, we will now apply search results, to filteredProjects
     if (searchQuery.length > 0) {
       for (let i = 0; i < filteredProjects.length; i++) {
@@ -220,12 +253,13 @@ export const ProjectPage = ({
       }
     }
 
-    setFilterOptions(getTopics(filteredProjects))
+    setFilterOptionsTopic(getTopics(filteredProjects))
+    setFilterOptionsStatus(getStatus(filteredProjects))
     //now filteredProjects has gone through all 3 checks
     //ready to update displayProjects
     setDisplayProjects(filteredProjects)
     //setDisplayProjects will trigger an updated display
-  }, [selectedOptions, sortedProjects, searchQuery]) // triggered when list is changed
+  }, [selectedTopicOptions, selectedStatusOptions, sortedProjects, searchQuery]) // triggered when list is changed
 
   const selectStyle = {
     placeholder: (provided) => ({ ...provided, color: "#767676" }),
@@ -257,6 +291,21 @@ export const ProjectPage = ({
           </div>
           <div className="flex-1 min-w-30ch">
             <label id="filter-label" className="font-bold" htmlFor="filter">
+              Filter by status
+            </label>
+            <Select
+              aria-labelledby="filter-label"
+              inputId="filter"
+              name="filter-select"
+              isMulti={true}
+              value={selectedStatusOptions}
+              onChange={setSelectedStatusOptions}
+              options={filterOptionsStatus}
+              styles={selectStyle}
+            />
+          </div>
+          <div className="flex-1 min-w-30ch">
+            <label id="filter-label" className="font-bold" htmlFor="filter">
               Filter by topic
             </label>
             <Select
@@ -264,9 +313,9 @@ export const ProjectPage = ({
               inputId="filter"
               name="filter-select"
               isMulti={true}
-              value={selectedOptions}
-              onChange={setSelectedOptions}
-              options={filterOptions}
+              value={selectedTopicOptions}
+              onChange={setSelectedTopicOptions}
+              options={filterOptionsTopic}
               styles={selectStyle}
             />
           </div>

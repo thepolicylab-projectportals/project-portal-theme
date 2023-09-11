@@ -10,6 +10,7 @@ const CardPageTemplate = require.resolve(`./src/templates/card-page`)
 const AboutPageTemplate = require.resolve(`./src/templates/about-page`)
 const ContactPageTemplate = require.resolve(`./src/templates/contact-page`)
 const ThankYouPageTemplate = require.resolve(`./src/templates/thank-you-page`)
+const SearchPageTemplate = require.resolve(`./src/templates/client-search-page`)
 const fs = require("fs")
 
 exports.onPreBootstrap = ({ reporter }, themeOptions) => {
@@ -58,39 +59,42 @@ const ProjectDetailPageTemplate = require.resolve(
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
-  const result = await graphql(
-    `
-      query {
-        allProject {
-          nodes {
-            slug
-          }
+  const result = await graphql(`
+    query {
+      allProject {
+        nodes {
+          slug
         }
-        allCardPage {
-          nodes {
-            slug
-            filterOn {
-              status
-            }
-          }
-        }
-        aboutPages: allGeneralPage(
-          filter: { templateKey: { eq: "AboutPage" } }
-        ) {
-          nodes {
-            slug
-          }
-        }
-        contactPages: allGeneralPage(
-          filter: { templateKey: { eq: "ContactPage" } }
-        ) {
-          nodes {
-            slug
+      }
+      allCardPage {
+        nodes {
+          slug
+          filterOn {
+            status
           }
         }
       }
-    `
-  )
+      aboutPages: allGeneralPage(filter: { templateKey: { eq: "AboutPage" } }) {
+        nodes {
+          slug
+        }
+      }
+      contactPages: allGeneralPage(
+        filter: { templateKey: { eq: "ContactPage" } }
+      ) {
+        nodes {
+          slug
+        }
+      }
+      searchPage: allGeneralPage(
+        filter: { templateKey: { eq: "SearchPage" } }
+      ) {
+        nodes {
+          slug
+        }
+      }
+    }
+  `)
 
   if (result.errors) {
     reporter.panicOnBuild(result.errors)
@@ -154,6 +158,19 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     createPage({
       path: thankYouPagePath,
       component: ThankYouPageTemplate,
+      context: {
+        slug: slug,
+      },
+    })
+  })
+
+  // results page for site-wide search
+  const { searchPage } = result.data
+  searchPage.nodes.forEach((page) => {
+    const { slug } = page
+    createPage({
+      path: `/${slug}`,
+      component: SearchPageTemplate,
       context: {
         slug: slug,
       },
