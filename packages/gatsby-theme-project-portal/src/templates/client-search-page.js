@@ -28,5 +28,19 @@ export const query = graphql`
         ...CardDetails
       }
     }
+    allGeneralPage {
+      nodes {
+        slug
+        faq {
+          text
+          title
+        }
+        accessibility
+        aims {
+          text
+          title
+        }
+      }
+    }
   }
 `
