@@ -208,7 +208,7 @@ export const ProjectDetail: FunctionComponent<ProjectDetailProps> = ({
           </div>
         </section>
 
-        {status === "open" && (
+        {(expertise || requirement || keyDates) && status === "open" && (
           <>
             <hr className="my-8 border-gray-300 m-responsive" />
             <CollaboratorDetails
