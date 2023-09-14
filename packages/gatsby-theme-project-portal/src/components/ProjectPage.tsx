@@ -269,6 +269,7 @@ export const ProjectPage = ({
               onChange={setSelectedOptions}
               options={filterOptions}
               styles={selectStyle}
+              noOptionsMessage={() => "No remaining topics"}
             />
           </div>
           <div className="flex-1 min-w-30ch auto-rows-auto flex flex-col">
