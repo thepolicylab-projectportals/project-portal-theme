@@ -21693,7 +21693,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.2.14, postcss@npm:^8.4.21, postcss@npm:^8.4.26":
+"postcss@npm:^8.2.14, postcss@npm:^8.4.21":
   version: 8.4.27
   resolution: "postcss@npm:8.4.27"
   dependencies:
@@ -21734,6 +21734,17 @@ __metadata:
     picocolors: ^1.0.0
     source-map-js: ^1.0.2
   checksum: 1cf08ee10d58cbe98f94bf12ac49a5e5ed1588507d333d2642aacc24369ca987274e1f60ff4cbf0081f70d2ab18a5cd3a4a273f188d835b8e7f3ba381b184e57
+  languageName: node
+  linkType: hard
+
+"postcss@npm:^8.4.29":
+  version: 8.4.29
+  resolution: "postcss@npm:8.4.29"
+  dependencies:
+    nanoid: ^3.3.6
+    picocolors: ^1.0.0
+    source-map-js: ^1.0.2
+  checksum: dd6daa25e781db9ae5b651d9b7bfde0ec6e60e86a37da69a18eb4773d5ddd51e28fc4ff054fbdc04636a31462e6bf09a1e50986f69ac52b10d46b7457cd36d12
   languageName: node
   linkType: hard
 
@@ -24866,7 +24877,7 @@ __metadata:
     "@storybook/react-webpack5": ^7.4.2
     "@storybook/testing-library": ^0.2.1
     autoprefixer: ^10.4.15
-    postcss: ^8.4.26
+    postcss: ^8.4.29
     react: ^18.2.0
     react-dom: ^18.2.0
     storybook: ^7.1.0
