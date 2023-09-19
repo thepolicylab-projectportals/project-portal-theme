@@ -1,5 +1,5 @@
 import React from "react"
-import "@testing-library/jest-dom/extend-expect"
+import "@testing-library/jest-dom"
 
 import { screen, render, cleanup } from "@testing-library/react"
 import { Card } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
