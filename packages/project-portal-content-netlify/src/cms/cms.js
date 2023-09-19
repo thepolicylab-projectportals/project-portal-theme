@@ -1,4 +1,4 @@
-import CMS from "netlify-cms-app"
+import CMS from "decap-cms-app"
 
 // Add custom styles to the index.html page
 import "./cms-utils"
