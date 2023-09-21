@@ -18,7 +18,7 @@
     "@storybook/react": "^7.4.2",
     "@storybook/react-webpack5": "^7.4.2",
     "@storybook/testing-library": "^0.2.1",
-    "autoprefixer": "^10.4.15",
+    "autoprefixer": "^10.4.16",
     "postcss": "^8.4.30",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
