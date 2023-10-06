@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react"
+import React, { FunctionComponent, useEffect, useState } from "react"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import { FaBars, FaTimes } from "react-icons/fa"
 import { getImage, IGatsbyImageData } from "gatsby-plugin-image"
@@ -8,7 +8,8 @@ import {
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/hooks"
 import { SiteTitle } from "./SiteTitle"
 import { NavbarItem } from "./NavbarItem"
-import SearchModal from "./SearchModal"
+import { ModalWrapper } from "./ModalWrapper"
+import { Modal } from "./Modal"
 
 interface NavbarLayoutProps {
   title: string
@@ -28,6 +29,16 @@ export const NavbarLayout: FunctionComponent<NavbarLayoutProps> = ({
   pages,
 }: NavbarLayoutProps) => {
   const [navbarOpen, setNavbarOpen] = React.useState(false)
+  const [isModalOpen, setModalOpen] = React.useState(false)
+  const openModal = () => {
+    setModalOpen(true)
+  }
+  const closeModal = () => {
+    setModalOpen(false)
+  }
+  useEffect(() => {
+    console.log(isModalOpen)
+  }, [isModalOpen])
   return (
     <>
       <nav
@@ -52,8 +63,26 @@ export const NavbarLayout: FunctionComponent<NavbarLayoutProps> = ({
             >
               <SiteTitle image={image} title={title} />
             </Link>
-            <div className="flex-1 min-w-30ch auto-rows-auto flex flex-col">
-              <SearchModal />
+            <div>
+              <button
+                className="bg-white text-slate-400 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation()
+                  setModalOpen(true)
+                }}
+              >
+                Quick Search
+              </button>
+              {isModalOpen ? (
+                <div>
+                  <Modal closeModal={closeModal}></Modal>
+                  <div
+                    className="fixed opacity-25 inset-0 z-40 bg-black"
+                    onClick={closeModal}
+                  ></div>
+                </div>
+              ) : null}
             </div>
           </div>
           <div
