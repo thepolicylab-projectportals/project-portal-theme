@@ -63,7 +63,37 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     query {
       allProject {
         nodes {
+          title
+          agency
+          topics {
+            title
+          }
           slug
+          summary
+          statusOfData
+          status
+          startDate
+          requirement
+          question
+          purpose
+          projectTeam {
+            name
+            employer
+          }
+          priorResearch
+          opportunityCloses
+          mainContact {
+            name
+          }
+          fundingInfo
+          expertise
+          faq {
+            text
+            title
+          }
+          deliverable
+          emailContent
+          endDate
         }
       }
       allCardPage {
@@ -105,13 +135,14 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const projects = allProject.nodes
 
   // Create a page for each Post
-  projects.forEach((project) => {
-    const { slug } = project
+  projects.forEach((node) => {
     createPage({
-      path: `project/${slug}`,
+      path: `project/${node.slug}`,
       component: ProjectDetailPageTemplate,
       context: {
-        slug: slug,
+        slug: node.slug,
+        pagePath: `project/${node.slug}`,
+        projectIs: node,
       },
     })
   })

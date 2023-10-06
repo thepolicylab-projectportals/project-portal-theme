@@ -25,21 +25,64 @@ export const query = graphql`
     }
     allProject {
       nodes {
-        ...CardDetails
+        slug
+        question
+        title
+        summary
+        status
+        opportunityCloses
+        startDate
+        endDate
+        lastModified
+        agency
+        topics {
+          ...TopicDetails
+        }
+        deliverable
+        purpose
+        expertise
+        requirement
+        keyDates
+        priorResearch
+        statusOfData
+        fundingInfo
+        emailContent
+        mainContact {
+          name
+          title
+          employer
+          email
+        }
+        projectTeam {
+          name
+          title
+          employer
+          email
+        }
+        faq {
+          text
+          title
+        }
       }
     }
     allGeneralPage {
       nodes {
         slug
+        lede
         faq {
           text
           title
         }
-        accessibility
         aims {
           text
           title
         }
+        title
+      }
+    }
+    allSitePage {
+      nodes {
+        pageContext
       }
     }
   }
