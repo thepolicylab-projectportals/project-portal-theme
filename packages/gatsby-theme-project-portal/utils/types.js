@@ -18,7 +18,7 @@ const projectPortalConfigTypeDefs = `
   }
   type StaticTextType {
     contact: ContactType
-    bottom_banner: BottomBannerType
+    bottomBanner: BottomBannerType
     footer: FooterType
     mainContact: MainContactType
   }
