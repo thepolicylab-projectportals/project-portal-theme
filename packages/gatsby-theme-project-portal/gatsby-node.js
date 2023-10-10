@@ -7,17 +7,6 @@ const {
   contactTypeDefs,
   pageTypeDefs,
 } = require(`./utils/types`)
-const CardPageTemplate = require.resolve(`./src/layouts/CardPageLayout.tsx`)
-const AboutPageTemplate = require.resolve(`./src/layouts/AboutPageLayout.tsx`)
-const ContactPageTemplate = require.resolve(
-  `./src/layouts/ContactPageLayout.tsx`
-)
-const ThankYouPageTemplate = require.resolve(
-  "./src/layouts/ThankYouPageLayout.tsx"
-)
-const ProjectDetailPageTemplate = require.resolve(
-  `./src/layouts/ProjectDetailPage.tsx`
-)
 
 exports.onPreBootstrap = ({ reporter }, themeOptions) => {
   const { themeImageDirectory } = withDefaults(themeOptions)
@@ -104,7 +93,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     const { slug } = project
     createPage({
       path: `project/${slug}`,
-      component: ProjectDetailPageTemplate,
+      component: require.resolve(`./src/layouts/ProjectDetailPage.tsx`),
       context: {
         slug: slug,
       },
@@ -119,7 +108,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     } = page
     createPage({
       path: `/${slug}`,
-      component: CardPageTemplate,
+      component: require.resolve(`./src/layouts/CardPageLayout.tsx`),
       context: {
         slug: slug,
         statusFilter: status,
@@ -132,7 +121,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     const { slug } = page
     createPage({
       path: `/${slug}`,
-      component: AboutPageTemplate,
+      component: require.resolve(`./src/layouts/AboutPageLayout.tsx`),
       context: {
         slug: slug,
       },
@@ -144,7 +133,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     const thankYouPagePath = `/${slug}/thank-you`
     createPage({
       path: `/${slug}`,
-      component: ContactPageTemplate,
+      component: require.resolve(`./src/layouts/ContactPageLayout.tsx`),
       context: {
         slug: slug,
         thankYouPagePath: thankYouPagePath,
@@ -152,7 +141,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     })
     createPage({
       path: thankYouPagePath,
-      component: ThankYouPageTemplate,
+      component: require.resolve("./src/layouts/ThankYouPageLayout.tsx"),
       context: {
         slug: slug,
       },
