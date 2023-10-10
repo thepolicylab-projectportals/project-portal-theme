@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import { ProjectPage } from "./ProjectPage"
 import * as CardsStories from "./Cards.stories"
+import { loadImage } from "./Story.utilities"
 
 const meta: Meta<typeof ProjectPage> = {
   component: ProjectPage,
@@ -20,6 +21,36 @@ export const Primary: Story = {
       ...CardsStories.Primary.args.nodes,
     ],
     sortOptions: ["created", "opportunityCloses", "startDate", "endDate"],
-    bgImage: "theme-image/contact.jpg",
+    image: loadImage("image/background.jpg"),
   },
+}
+
+export const TailwindXSWindow: Story = {
+  args: Primary.args,
+  parameters: { viewport: { defaultViewport: "tailwindXS" } },
+}
+
+export const TailwindSMWindow: Story = {
+  args: Primary.args,
+  parameters: { viewport: { defaultViewport: "tailwindSM" } },
+}
+
+export const TailwindMDWindow: Story = {
+  args: Primary.args,
+  parameters: { viewport: { defaultViewport: "tailwindMD" } },
+}
+
+export const TailwindLGWindow: Story = {
+  args: Primary.args,
+  parameters: { viewport: { defaultViewport: "tailwindLG" } },
+}
+
+export const TailwindXLWindow: Story = {
+  args: Primary.args,
+  parameters: { viewport: { defaultViewport: "tailwindXL" } },
+}
+
+export const Tailwind2XLWindow: Story = {
+  args: Primary.args,
+  parameters: { viewport: { defaultViewport: "tailwind2XL" } },
 }

@@ -9,3 +9,12 @@ updates:
     directory: /
     schedule:
       interval: daily
+    groups:
+      gatsby:
+        patterns:
+          - "gatsby"
+          - "gatsby-*"
+      storybook:
+        patterns:
+          - "storybook"
+          - "@storybook/*"

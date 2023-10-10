@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import { HeaderWithImage } from "./HeaderWithImage"
+import { loadImage } from "./Story.utilities"
 
 const meta: Meta<typeof HeaderWithImage> = {
   component: HeaderWithImage,
@@ -16,6 +17,6 @@ export const Primary: Story = {
     lede:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor" +
       " incididunt ut labore et dolore magna aliqua. ",
-    imageSrc: "theme-image/contact.jpg",
+    image: loadImage("image/background.jpg"),
   },
 }

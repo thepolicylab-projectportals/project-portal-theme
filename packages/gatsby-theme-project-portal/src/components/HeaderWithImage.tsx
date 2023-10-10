@@ -1,22 +1,23 @@
-import { withPrefix } from "gatsby"
+import { withPrefix, graphql } from "gatsby"
 import React from "react"
 import { MarkdownText } from "../components"
+import { getSrc, ImageDataLike } from "gatsby-plugin-image"
 interface HeaderWithImageProps {
   title: string
   lede: string
-  imageSrc: string
+  image: ImageDataLike
 }
 
 export const HeaderWithImage = ({
   title,
   lede,
-  imageSrc,
+  image,
 }: HeaderWithImageProps) => {
   return (
     <div
       className="px-4 py-4 mx-0 lg:mb-16 bg-white md:px-8 md:py-12 xl:px-16 xl:container sm:min-h-15rem"
       style={{
-        background: `url(${withPrefix(imageSrc)})`,
+        background: `url(${withPrefix(getSrc(image))})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "auto",
         backgroundPositionY: "center",
@@ -38,3 +39,11 @@ export const HeaderWithImage = ({
     </div>
   )
 }
+
+export const query = graphql`
+  fragment HeaderWithImageBackground on File {
+    childImageSharp {
+      gatsbyImageData(width: 1563)
+    }
+  }
+`

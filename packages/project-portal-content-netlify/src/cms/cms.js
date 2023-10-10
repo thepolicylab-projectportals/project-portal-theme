@@ -372,6 +372,13 @@ CMS.init({
             preview_path: "{{slug}}",
             fields: [
               {
+                name: "title",
+                label: "Title",
+                widget: "string",
+                required: true,
+                hint: "The title of the page shown on the user's browser tab.",
+              },
+              {
                 name: "header",
                 label: "Header",
                 widget: "string",
@@ -536,7 +543,15 @@ CMS.init({
                     widget: "list",
                     fields: [
                       { name: "name", widget: "string" },
-                      { name: "link", widget: "string" },
+                      {
+                        name: "link",
+                        widget: "string",
+                        pattern: [
+                          /^\/$|^\/.*\/$/,
+                          "Should start and end with a slash.",
+                        ], // from
+                        // https://regexr.com/7hpn2
+                      },
                       { name: "show", widget: "boolean" },
                     ],
                   },

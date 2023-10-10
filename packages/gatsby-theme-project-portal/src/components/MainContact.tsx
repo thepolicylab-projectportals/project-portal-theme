@@ -1,37 +1,24 @@
 import React, { FunctionComponent } from "react"
 import { Link } from "gatsby"
-import { Contact, MarkdownText } from "../components"
 import { statusOutput } from "../utils"
-import { useProjectPortalConfig, useStaticText } from "../hooks"
-import { IGatsbyImageData } from "gatsby-plugin-image"
+import { Contact, MarkdownText, ContactType } from "."
 
-interface ProjectContactProps {
-  name: string
-  title: string
-  employer: string
-  email: string
-  image?: IGatsbyImageData
+interface ProjectContactProps extends ContactType {
   status: string
-  emailContent?: string
+  projectInterestLink?: string
+  openText: string
+  ongoingText: string
+  completeText: string
 }
 
 export const MainContact: FunctionComponent<ProjectContactProps> = ({
-  name,
-  title,
-  employer,
-  email,
-  image,
   status,
-  emailContent,
+  projectInterestLink,
+  openText,
+  ongoingText,
+  completeText,
+  ...contactProps
 }) => {
-  const meta = useProjectPortalConfig()
-  const staticText = useStaticText()
-  const mainText =
-    status === "open"
-      ? emailContent
-      : status === "ongoing"
-      ? staticText.main_contact_text.ongoingText
-      : staticText.main_contact_text.completeText
   return (
     <div className="w-full lg:w-2/5 xl:w-1/3">
       <div className="w-full p-8 mb-8 bg-gray-100">
@@ -44,16 +31,18 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
           )}
         </h4>
         <div className="text-black text-body">
-          <MarkdownText text={mainText} />
+          <MarkdownText
+            text={statusOutput(status, openText, ongoingText, completeText)}
+          />
         </div>
         <div className="mt-4">
           {status === "open" ? (
-            meta.projectInterestLink ? (
-              <a href={meta.projectInterestLink} target="_blank" rel="noopener">
+            projectInterestLink ? (
+              <a href={projectInterestLink} target="_blank" rel="noopener">
                 <button className="btn">Express interest</button>
               </a>
-            ) : email ? (
-              <a href={`mailto:${email}`}>
+            ) : contactProps.email ? (
+              <a href={`mailto:${contactProps.email}`}>
                 <button className="btn">Email point of contact</button>
               </a>
             ) : (
@@ -71,10 +60,7 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
       <div className="w-full p-8 my-8 bg-gray-100">
         <h4 className="text-h4">Project point of contact</h4>
         <div className="mt-4 text-body">
-          <Contact
-            {...{ name, title, employer, email, image }}
-            showEmail={true}
-          />
+          <Contact {...contactProps} showEmail={true} />
         </div>
       </div>
     </div>

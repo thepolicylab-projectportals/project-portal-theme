@@ -1,17 +1,17 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { ProjectDetailLayout } from "./ProjectDetail"
-import * as ContactStories from "./Contact.stories"
+import { ProjectDetail } from "./ProjectDetail"
 import * as ProjectTeamStories from "./ProjectTeam.stories"
 import { emptyGatsbyImageData } from "./Story.utilities"
+import { contactImage, contactImageYogi } from "./Contact.stories"
 
-const meta: Meta<typeof ProjectDetailLayout> = {
-  component: ProjectDetailLayout,
+const meta: Meta<typeof ProjectDetail> = {
+  component: ProjectDetail,
   tags: ["autodocs"],
 }
 
 export default meta
 
-type Story = StoryObj<typeof ProjectDetailLayout>
+type Story = StoryObj<typeof ProjectDetail>
 
 export const Primary: Story = {
   args: {
@@ -36,9 +36,11 @@ export const Primary: Story = {
       title: "Title",
       employer: "Employer",
       email: "some-email@example.com",
-      image: emptyGatsbyImageData,
+      image: contactImageYogi,
     },
-    emailContent: "Are you interested in collaborating?",
+    openText: "Are you interested in collaborating?",
+    ongoingText: "This project is ongoing.",
+    completeText: "This project is complete.",
 
     projectTeam: ProjectTeamStories.Primary.args.contacts,
 
@@ -51,7 +53,21 @@ export const Primary: Story = {
     agency: "Sample Agency",
     lastModified: new Date("2022-05-27T16:34:04.000Z"),
     topics: [{ slug: "test", title: "Test" }],
+
+    defaultContactImage: contactImage,
   },
+}
+
+export const Open: Story = {
+  args: { ...Primary.args, status: "open" },
+}
+
+export const Ongoing: Story = {
+  args: { ...Primary.args, status: "ongoing" },
+}
+
+export const Completed: Story = {
+  args: { ...Primary.args, status: "completed" },
 }
 
 export const Minimum: Story = {
@@ -65,7 +81,6 @@ export const Minimum: Story = {
       title: "Title",
       employer: "Employer",
       email: "some-email@example.com",
-      image: emptyGatsbyImageData,
     },
 
     status: "open",
@@ -76,4 +91,34 @@ export const Minimum: Story = {
     topics: [{ slug: "test", title: "Test" }],
     lastModified: new Date("2022-05-27T16:34:04.000Z"),
   },
+}
+
+export const TailwindXSWindow: Story = {
+  args: Primary.args,
+  parameters: { viewport: { defaultViewport: "tailwindXS" } },
+}
+
+export const TailwindSMWindow: Story = {
+  args: Primary.args,
+  parameters: { viewport: { defaultViewport: "tailwindSM" } },
+}
+
+export const TailwindMDWindow: Story = {
+  args: Primary.args,
+  parameters: { viewport: { defaultViewport: "tailwindMD" } },
+}
+
+export const TailwindLGWindow: Story = {
+  args: Primary.args,
+  parameters: { viewport: { defaultViewport: "tailwindLG" } },
+}
+
+export const TailwindXLWindow: Story = {
+  args: Primary.args,
+  parameters: { viewport: { defaultViewport: "tailwindXL" } },
+}
+
+export const Tailwind2XLWindow: Story = {
+  args: Primary.args,
+  parameters: { viewport: { defaultViewport: "tailwind2XL" } },
 }

@@ -1,17 +1,14 @@
 import React, { FunctionComponent } from "react"
-import { Disclosure } from "@headlessui/react"
-import { FaPlus, FaMinus } from "react-icons/fa"
 import { Accordion } from "../components/Accordion"
-import { Layout } from "./Layout"
 import {
   HeaderWithImage,
   MarkdownText,
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
 import { isNA } from "../utils"
+import { ImageDataLike } from "gatsby-plugin-image"
 
 interface AboutProps {
   data: {
-    site: { siteMetadata: { title } }
     generalPage: {
       pageName: string
       title: string
@@ -25,13 +22,7 @@ interface AboutProps {
         text: string
       }[]
       accessibility: string
-      image: {
-        childImageSharp: {
-          resize: {
-            src: string
-          }
-        }
-      }
+      image: ImageDataLike
     }
   }
 }
@@ -47,26 +38,15 @@ const AboutList = ({ aboutTitle, aboutText }) => {
 
 export const AboutPageLayout: FunctionComponent<AboutProps> = ({
   data: {
-    site: {
-      siteMetadata: { title: siteTitle },
-    },
     generalPage: { header, aims, faq, accessibility, image },
   },
 }: AboutProps) => {
   return (
-    <Layout
-      activePage="About"
-      title="About"
-      description={`About the ${siteTitle}`}
-    >
+    <>
       <main>
         <article>
           <header>
-            <HeaderWithImage
-              title="About"
-              lede=""
-              imageSrc={image?.childImageSharp.resize.src}
-            />
+            <HeaderWithImage title="About" lede="" image={image} />
           </header>
 
           <div className="w-full pt-5 px-8 lg:px-16 xl:px-24 lg:w-2/3">
@@ -112,6 +92,6 @@ export const AboutPageLayout: FunctionComponent<AboutProps> = ({
           </div>
         </article>
       </main>
-    </Layout>
+    </>
   )
 }

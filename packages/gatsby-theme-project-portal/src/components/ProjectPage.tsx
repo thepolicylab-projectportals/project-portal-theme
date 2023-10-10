@@ -6,6 +6,7 @@ import { ForwardIcon } from "./ForwardIcon"
 import Select, { MultiValue } from "react-select"
 import * as JsSearch from "js-search"
 import { SearchBar } from "./SearchBar"
+import { ImageDataLike } from "gatsby-plugin-image"
 
 function customSort(dateField: string, sortAscending: boolean) {
   return function (a, b) {
@@ -40,7 +41,7 @@ export interface ProjectPageProps {
   lede: string
   sortOptions: [...any]
   allProjects: CardProps[]
-  bgImage: string
+  image: ImageDataLike
 }
 
 export const ProjectPage = ({
@@ -48,7 +49,7 @@ export const ProjectPage = ({
   allProjects,
   lede,
   sortOptions,
-  bgImage,
+  image,
 }: ProjectPageProps) => {
   const getTopics = (project: CardProps[]): CardProps[] => {
     let tempFilterOptions = []
@@ -268,7 +269,7 @@ export const ProjectPage = ({
   return (
     <>
       <header>
-        <HeaderWithImage title={title} imageSrc={bgImage} lede={lede} />
+        <HeaderWithImage title={title} image={image} lede={lede} />
       </header>
       <div className="relative">
         <div ref={scrollToRef} className="absolute -top-100px"></div>
@@ -317,6 +318,7 @@ export const ProjectPage = ({
               onChange={setSelectedTopicOptions}
               options={filterOptionsTopic}
               styles={selectStyle}
+              noOptionsMessage={() => "No remaining topics"}
             />
           </div>
           <div className="flex-1 min-w-30ch auto-rows-auto flex flex-col">

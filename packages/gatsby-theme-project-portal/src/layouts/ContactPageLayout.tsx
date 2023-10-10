@@ -1,9 +1,9 @@
 import React, { Component, FunctionComponent } from "react"
 import { navigate } from "gatsby"
 import { MarkdownText } from "../components"
-import { Layout } from "./Layout"
 import { HeaderWithImage } from "../components"
 import ReCAPTCHA from "react-google-recaptcha"
+import { ImageDataLike } from "gatsby-plugin-image"
 
 const encode = (data: { [Key: string]: string }) => {
   return Object.keys(data)
@@ -19,13 +19,7 @@ interface ContactProps {
     generalPage: {
       title: string
       lede: string
-      image: {
-        childImageSharp: {
-          resize: {
-            src: string
-          }
-        }
-      }
+      image: ImageDataLike
     }
     projectPortalConfig: {
       recaptchaSiteKey
@@ -310,12 +304,11 @@ export const ContactPageLayout: FunctionComponent<ContactProps> = ({
     projectPortalConfig: { recaptchaSiteKey },
   },
 }: ContactProps) => {
-  const imageSrc = image?.childImageSharp.resize.src
   return (
-    <Layout activePage="Contact" title={title} description={lede}>
+    <>
       <main>
         <header>
-          <HeaderWithImage title="Contact" lede="" imageSrc={imageSrc} />
+          <HeaderWithImage title="Contact" lede="" image={image} />
         </header>
 
         <article className="w-full pt-5 px-8 lg:px-16 xl:px-24 lg:w-2/3">
@@ -330,6 +323,6 @@ export const ContactPageLayout: FunctionComponent<ContactProps> = ({
           />
         </article>
       </main>
-    </Layout>
+    </>
   )
 }
