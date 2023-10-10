@@ -1,9 +1,11 @@
 import React, { Component, FunctionComponent } from "react"
-import { navigate } from "gatsby"
+import { graphql, navigate } from "gatsby"
 import { MarkdownText } from "../components"
 import { HeaderWithImage } from "../components"
 import ReCAPTCHA from "react-google-recaptcha"
 import { ImageDataLike } from "gatsby-plugin-image"
+
+export { Head } from "../hooks"
 
 const encode = (data: { [Key: string]: string }) => {
   return Object.keys(data)
@@ -326,3 +328,26 @@ export const ContactPageLayout: FunctionComponent<ContactProps> = ({
     </>
   )
 }
+
+export default ContactPageLayout
+
+export const query = graphql`
+  query ContactQuery($slug: String!) {
+    ...HeadData
+    ...LayoutData
+    page: generalPage(slug: { eq: $slug }) {
+      title
+      description: lede
+    }
+    generalPage(slug: { eq: $slug }) {
+      title
+      lede
+      image {
+        ...HeaderWithImageBackground
+      }
+    }
+    projectPortalConfig {
+      recaptchaSiteKey
+    }
+  }
+`
