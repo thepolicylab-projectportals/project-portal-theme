@@ -15,6 +15,9 @@ const ContactPageTemplate = require.resolve(
 const ThankYouPageTemplate = require.resolve(
   "./src/layouts/ThankYouPageLayout.tsx"
 )
+const ProjectDetailPageTemplate = require.resolve(
+  `./src/layouts/ProjectDetailPage.tsx`
+)
 
 exports.onPreBootstrap = ({ reporter }, themeOptions) => {
   const { themeImageDirectory } = withDefaults(themeOptions)
@@ -54,10 +57,6 @@ exports.sourceNodes = ({ actions, createContentDigest }, themeOptions) => {
     },
   })
 }
-
-const ProjectDetailPageTemplate = require.resolve(
-  `./src/templates/project-detail-page`
-)
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
