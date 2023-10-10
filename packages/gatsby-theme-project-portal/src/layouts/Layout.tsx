@@ -10,29 +10,27 @@ export interface LayoutProps {
     site: {
       siteMetadata: {
         title: string
-      }
-    }
-    projectPortalConfig: {
-      showDevBanner?: boolean
-      pages: {
-        name: string
-        link: string
-        show: boolean
-      }[]
-      staticText: {
-        bottomBanner: {
-          text: string
+        showDevBanner?: boolean
+        pages: {
+          name: string
           link: string
-        }
-        footer: {
-          copyright: string
-          links: {
-            title: string
+          show: boolean
+        }[]
+        staticText: {
+          bottomBanner: {
+            text: string
             link: string
-          }[]
-          heading: {
-            title: string
-            link: string
+          }
+          footer: {
+            copyright: string
+            links: {
+              title: string
+              link: string
+            }[]
+            heading: {
+              title: string
+              link: string
+            }
           }
         }
       }
@@ -47,12 +45,12 @@ export const Layout: FunctionComponent<LayoutProps> = ({
   path,
   data: {
     site: {
-      siteMetadata: { title: siteTitle },
-    },
-    projectPortalConfig: {
-      showDevBanner,
-      pages,
-      staticText: { bottomBanner, footer },
+      siteMetadata: {
+        title: siteTitle,
+        showDevBanner,
+        pages,
+        staticText: { bottomBanner, footer },
+      },
     },
     navbarLogo,
     bottomBannerLogo,
@@ -94,29 +92,27 @@ export const query = graphql`
     site {
       siteMetadata {
         title
-      }
-    }
-    projectPortalConfig {
-      showDevBanner
-      pages {
-        link
-        name
-        show
-      }
-      staticText {
-        bottomBanner: bottom_banner {
-          text
+        showDevBanner
+        pages {
           link
+          name
+          show
         }
-        footer {
-          copyright
-          links {
-            title
+        staticText {
+          bottomBanner: bottom_banner {
+            text
             link
           }
-          heading {
-            title
-            link
+          footer {
+            copyright
+            links {
+              title
+              link
+            }
+            heading {
+              title
+              link
+            }
           }
         }
       }

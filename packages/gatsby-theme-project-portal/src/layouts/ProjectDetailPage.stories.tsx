@@ -19,12 +19,14 @@ export const Primary: Story = {
         slug: "the-project",
         ...ProjectDetailLayoutStories.Primary.args,
       },
-      projectPortalConfig: {
-        projectInterestLink: "https://ccv.brown.edu",
-        staticText: {
-          mainContactText: {
-            ongoingText: "ongoingText",
-            completeText: "completeText",
+      site: {
+        siteMetadata: {
+          projectInterestLink: "https://ccv.brown.edu",
+          staticText: {
+            mainContactText: {
+              ongoingText: "ongoingText",
+              completeText: "completeText",
+            },
           },
         },
       },

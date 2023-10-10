@@ -21,15 +21,17 @@ type Story = StoryObj<typeof Layout>
 export const Primary: Story = {
   args: {
     data: {
-      projectPortalConfig: {
-        showDevBanner: true,
-        pages: NavbarStories.Primary.args.pages,
-        staticText: {
-          bottomBanner: BottomBannerStories.Primary.args,
-          footer: FooterStories.Primary.args,
+      site: {
+        siteMetadata: {
+          title: "The Site Title",
+          showDevBanner: true,
+          pages: NavbarStories.Primary.args.pages,
+          staticText: {
+            bottomBanner: BottomBannerStories.Primary.args,
+            footer: FooterStories.Primary.args,
+          },
         },
       },
-      site: { siteMetadata: { title: "The Site Title" } },
       navbarLogo: siteTitleLogo,
       bottomBannerLogo: bottomBannerLogo,
       footerLogo: footerLogo,
