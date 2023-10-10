@@ -61,39 +61,35 @@ const ProjectDetailPageTemplate = require.resolve(
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
-  const result = await graphql(
-    `
-      query {
-        allProject {
-          nodes {
-            slug
-          }
+  const result = await graphql(`
+    query {
+      allProject {
+        nodes {
+          slug
         }
-        allCardPage {
-          nodes {
-            slug
-            filterOn {
-              status
-            }
-          }
-        }
-        aboutPages: allGeneralPage(
-          filter: { templateKey: { eq: "AboutPage" } }
-        ) {
-          nodes {
-            slug
-          }
-        }
-        contactPages: allGeneralPage(
-          filter: { templateKey: { eq: "ContactPage" } }
-        ) {
-          nodes {
-            slug
+      }
+      allCardPage {
+        nodes {
+          slug
+          filterOn {
+            status
           }
         }
       }
-    `
-  )
+      aboutPages: allGeneralPage(filter: { templateKey: { eq: "AboutPage" } }) {
+        nodes {
+          slug
+        }
+      }
+      contactPages: allGeneralPage(
+        filter: { templateKey: { eq: "ContactPage" } }
+      ) {
+        nodes {
+          slug
+        }
+      }
+    }
+  `)
 
   if (result.errors) {
     reporter.panicOnBuild(result.errors)
