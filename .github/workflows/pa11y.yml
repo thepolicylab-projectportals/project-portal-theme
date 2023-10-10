@@ -12,7 +12,7 @@ jobs:
     strategy:
       matrix:
         site: [example-site]
-    uses: thepolicylab-projectportals/.github/.github/workflows/pa11y-ci.yml@v4
+    uses: thepolicylab-projectportals/.github/.github/workflows/pa11y-ci.yml@v5
     secrets: inherit
     with:
       yarn-command: "yarn workspace ${{ matrix.site }}"
