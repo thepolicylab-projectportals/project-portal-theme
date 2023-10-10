@@ -1,7 +1,7 @@
-import { ProjectPage, CardProps } from "../components"
 import React, { FunctionComponent } from "react"
-import { ImageDataLike } from "gatsby-plugin-image"
 import { graphql } from "gatsby"
+import { ImageDataLike } from "gatsby-plugin-image"
+import { ProjectPage, CardProps } from "../components"
 
 export { Head } from "../hooks"
 

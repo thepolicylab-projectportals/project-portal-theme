@@ -1,9 +1,8 @@
 import React, { Component, FunctionComponent } from "react"
 import { graphql, navigate } from "gatsby"
-import { MarkdownText } from "../components"
-import { HeaderWithImage } from "../components"
-import ReCAPTCHA from "react-google-recaptcha"
 import { ImageDataLike } from "gatsby-plugin-image"
+import ReCAPTCHA from "react-google-recaptcha"
+import { MarkdownText, HeaderWithImage } from "../components"
 
 export { Head } from "../hooks"
 

@@ -1,12 +1,8 @@
 import React, { FunctionComponent } from "react"
 import { graphql } from "gatsby"
-import { Accordion } from "../components/Accordion"
-import {
-  HeaderWithImage,
-  MarkdownText,
-} from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
-import { isNA } from "../utils"
 import { ImageDataLike } from "gatsby-plugin-image"
+import { HeaderWithImage, MarkdownText, Accordion } from "../components"
+import { isNA } from "../utils"
 
 export { Head } from "../hooks"
 

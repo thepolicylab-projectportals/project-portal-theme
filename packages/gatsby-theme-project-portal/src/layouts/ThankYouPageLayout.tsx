@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from "react"
 import { graphql, Link } from "gatsby"
-import { HeaderWithImage } from "../components"
 import { ImageDataLike } from "gatsby-plugin-image"
+import { HeaderWithImage } from "../components"
 
 export { Head } from "../hooks"
 

@@ -1,7 +1,7 @@
-import { BackIcon, ProjectDetail, ProjectDetailProps } from "../components"
 import React, { FunctionComponent } from "react"
 import { graphql, Link, withPrefix } from "gatsby"
 import { ImageDataLike } from "gatsby-plugin-image"
+import { BackIcon, ProjectDetail, ProjectDetailProps } from "../components"
 
 export { Head } from "../hooks"
 
