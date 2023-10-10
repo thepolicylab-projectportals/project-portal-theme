@@ -13,7 +13,7 @@ function loadProjectPortalThemeOptions(pluginOptions) {
     staticText: {
       footer: layoutOptions.footer,
       bottomBanner: layoutOptions.bottomBanner,
-      main_contact_text: {
+      mainContact: {
         ongoingText: mainContactConfig.ongoingText,
         completeText: mainContactConfig.completeText,
       },
