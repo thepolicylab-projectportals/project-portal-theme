@@ -1,4 +1,6 @@
 const { withDefaults } = require(`./utils/default-options`)
+const fs = require("fs")
+const path = require("path")
 
 const {
   projectTypeDefs,
@@ -9,8 +11,9 @@ const {
 const CardPageTemplate = require.resolve(`./src/templates/card-page`)
 const AboutPageTemplate = require.resolve(`./src/templates/about-page`)
 const ContactPageTemplate = require.resolve(`./src/templates/contact-page`)
-const ThankYouPageTemplate = require.resolve(`./src/templates/thank-you-page`)
-const fs = require("fs")
+const ThankYouPageLayout = require.resolve(
+  "./src/layouts/ThankYouPageLayout.tsx"
+)
 
 exports.onPreBootstrap = ({ reporter }, themeOptions) => {
   const { themeImageDirectory } = withDefaults(themeOptions)
@@ -153,7 +156,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     })
     createPage({
       path: thankYouPagePath,
-      component: ThankYouPageTemplate,
+      component: ThankYouPageLayout,
       context: {
         slug: slug,
       },
