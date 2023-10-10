@@ -9,7 +9,7 @@ const {
   pageTypeDefs,
 } = require(`./utils/types`)
 const CardPageTemplate = require.resolve(`./src/templates/card-page`)
-const AboutPageTemplate = require.resolve(`./src/templates/about-page`)
+const AboutPageTemplate = require.resolve(`./src/layouts/AboutPageLayout.tsx`)
 const ContactPageTemplate = require.resolve(`./src/templates/contact-page`)
 const ThankYouPageLayout = require.resolve(
   "./src/layouts/ThankYouPageLayout.tsx"

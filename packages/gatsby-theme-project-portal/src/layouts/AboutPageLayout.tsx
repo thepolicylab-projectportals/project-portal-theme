@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from "react"
+import { graphql } from "gatsby"
 import { Accordion } from "../components/Accordion"
 import {
   HeaderWithImage,
@@ -6,6 +7,8 @@ import {
 } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
 import { isNA } from "../utils"
 import { ImageDataLike } from "gatsby-plugin-image"
+
+export { Head } from "../hooks"
 
 interface AboutProps {
   data: {
@@ -95,3 +98,33 @@ export const AboutPageLayout: FunctionComponent<AboutProps> = ({
     </>
   )
 }
+
+export default AboutPageLayout
+
+export const query = graphql`
+  query AboutQuery($slug: String!) {
+    ...HeadData
+    ...LayoutData
+    page: generalPage(slug: { eq: $slug }) {
+      title
+      description: lede
+    }
+    generalPage(slug: { eq: $slug }) {
+      pageName
+      title
+      header
+      aims {
+        title
+        text
+      }
+      faq {
+        title
+        text
+      }
+      accessibility
+      image {
+        ...HeaderWithImageBackground
+      }
+    }
+  }
+`
