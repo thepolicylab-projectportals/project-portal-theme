@@ -30,7 +30,7 @@ export const query = graphql`
     projectPortalConfig {
       projectInterestLink
       staticText {
-        mainContactText {
+        mainContact {
           ongoingText
           completeText
         }

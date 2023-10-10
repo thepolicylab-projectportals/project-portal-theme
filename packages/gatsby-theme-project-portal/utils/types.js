@@ -20,7 +20,7 @@ const projectPortalConfigTypeDefs = `
     contact: ContactType
     bottom_banner: BottomBannerType
     footer: FooterType
-    mainContactText: MainContactTextType
+    mainContact: MainContactType
   }
   type ContactType {
     title: String
@@ -30,7 +30,7 @@ const projectPortalConfigTypeDefs = `
     text: String
     link: String
   }
-  type MainContactTextType {
+  type MainContactType {
     ongoingText: String
     completeText: String
   }
