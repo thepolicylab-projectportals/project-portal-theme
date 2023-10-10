@@ -1,3 +1,50 @@
+// constants for Project Portal Config type
+const CONFIG_NODE_TYPE = `ProjectPortalConfig`
+
+const projectPortalConfigTypeDefs = `
+  type ${CONFIG_NODE_TYPE} implements Node {
+    siteTitle: String
+    shortTitle: String
+    showDevBanner: Boolean
+    projectInterestLink: String
+    pages: [NavbarItemType]
+    recaptchaSiteKey: String
+    staticText: StaticTextType
+  }
+  type NavbarItemType {
+    name: String
+    link: String
+    show: Boolean
+  }
+  type StaticTextType {
+    contact: ContactType
+    bottom_banner: BottomBannerType
+    footer: FooterType
+    main_contact_text: MainContactTextType
+  }
+  type ContactType {
+    title: String
+    lede: String
+  }
+  type BottomBannerType {
+    text: String
+    link: String
+  }
+  type MainContactTextType {
+    ongoingText: String
+    completeText: String
+  }
+  type FooterType {
+    copyright: String
+    heading: LinkType
+    links: [LinkType]
+  }
+  type LinkType {
+    title: String
+    link: String
+  }
+`
+
 // constants for GraphQL Project and Contact types
 const PROJECT_NODE_TYPE = `Project`
 const CONTACT_NODE_TYPE = `Contact`
@@ -103,6 +150,8 @@ const pageTypeDefs = `
 `
 
 module.exports = {
+  CONFIG_NODE_TYPE,
+  projectPortalConfigTypeDefs,
   PROJECT_NODE_TYPE,
   projectTypeDefs,
   CONTACT_NODE_TYPE,
