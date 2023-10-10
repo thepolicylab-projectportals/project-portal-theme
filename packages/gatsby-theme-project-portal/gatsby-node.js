@@ -11,7 +11,7 @@ const {
 const CardPageTemplate = require.resolve(`./src/templates/card-page`)
 const AboutPageTemplate = require.resolve(`./src/layouts/AboutPageLayout.tsx`)
 const ContactPageTemplate = require.resolve(`./src/templates/contact-page`)
-const ThankYouPageLayout = require.resolve(
+const ThankYouPageTemplate = require.resolve(
   "./src/layouts/ThankYouPageLayout.tsx"
 )
 
@@ -156,7 +156,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     })
     createPage({
       path: thankYouPagePath,
-      component: ThankYouPageLayout,
+      component: ThankYouPageTemplate,
       context: {
         slug: slug,
       },
