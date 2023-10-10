@@ -18,7 +18,7 @@ interface ProjectDetailPageQueryResults {
       siteMetadata: {
         projectInterestLink: string
         staticText: {
-          mainContactText: {
+          mainContact: {
             ongoingText: string
             completeText: string
           }
@@ -40,7 +40,7 @@ export const ProjectDetailPage: FunctionComponent<
         siteMetadata: {
           projectInterestLink,
           staticText: {
-            mainContactText: { ongoingText, completeText },
+            mainContact: { ongoingText, completeText },
           },
         },
       },
@@ -106,7 +106,7 @@ export const query = graphql`
       siteMetadata {
         projectInterestLink
         staticText {
-          mainContactText: main_contact_text {
+          mainContact {
             ongoingText
             completeText
           }

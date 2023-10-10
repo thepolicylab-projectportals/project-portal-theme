@@ -19,9 +19,9 @@ const siteMetadataTypeDefs = `
   }
   type StaticTextType {
     contact: ContactType
-    bottom_banner: BottomBannerType
+    bottomBanner: BottomBannerType
     footer: FooterType
-    main_contact_text: MainContactTextType
+    mainContact: MainContactType
   }
   type ContactType {
     title: String
@@ -31,7 +31,7 @@ const siteMetadataTypeDefs = `
     text: String
     link: String
   }
-  type MainContactTextType {
+  type MainContactType {
     ongoingText: String
     completeText: String
   }

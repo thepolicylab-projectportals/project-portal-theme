@@ -23,7 +23,7 @@ export const Primary: Story = {
         siteMetadata: {
           projectInterestLink: "https://ccv.brown.edu",
           staticText: {
-            mainContactText: {
+            mainContact: {
               ongoingText: "ongoingText",
               completeText: "completeText",
             },
