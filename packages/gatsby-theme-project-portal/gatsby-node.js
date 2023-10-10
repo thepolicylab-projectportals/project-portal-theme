@@ -1,9 +1,12 @@
 const { withDefaults } = require(`./utils/default-options`)
 const fs = require("fs")
 
-const { projectTypeDefs, contactTypeDefs, pageTypeDefs } = require(
-  `./utils/types`
-)
+const {
+  projectPortalConfigTypeDefs,
+  projectTypeDefs,
+  contactTypeDefs,
+  pageTypeDefs,
+} = require(`./utils/types`)
 
 exports.onPreBootstrap = ({ reporter }, themeOptions) => {
   const { themeImageDirectory } = withDefaults(themeOptions)
@@ -19,6 +22,7 @@ exports.onPreBootstrap = ({ reporter }, themeOptions) => {
 
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
+  createTypes(projectPortalConfigTypeDefs)
   createTypes(projectTypeDefs)
   createTypes(contactTypeDefs)
   createTypes(pageTypeDefs)
