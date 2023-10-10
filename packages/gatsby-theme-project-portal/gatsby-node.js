@@ -2,7 +2,7 @@ const { withDefaults } = require(`./utils/default-options`)
 const fs = require("fs")
 
 const {
-  projectPortalConfigTypeDefs,
+  siteMetadataTypeDefs,
   projectTypeDefs,
   contactTypeDefs,
   pageTypeDefs,
@@ -22,7 +22,7 @@ exports.onPreBootstrap = ({ reporter }, themeOptions) => {
 
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
-  createTypes(projectPortalConfigTypeDefs)
+  createTypes(siteMetadataTypeDefs)
   createTypes(projectTypeDefs)
   createTypes(contactTypeDefs)
   createTypes(pageTypeDefs)

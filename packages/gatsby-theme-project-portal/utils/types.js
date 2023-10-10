@@ -1,5 +1,5 @@
 // constants for Project Portal Config type
-const projectPortalConfigTypeDefs = `
+const siteMetadataTypeDefs = `
   type Site {
     siteMetadata: SiteMetadataType
   }
@@ -151,7 +151,7 @@ const pageTypeDefs = `
 `
 
 module.exports = {
-  projectPortalConfigTypeDefs,
+  siteMetadataTypeDefs,
   PROJECT_NODE_TYPE,
   projectTypeDefs,
   CONTACT_NODE_TYPE,
