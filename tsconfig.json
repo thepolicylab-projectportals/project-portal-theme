@@ -1,27 +1,11 @@
 {
-  "compileOnSave": true,
   "compilerOptions": {
     "resolveJsonModule": true,
-    "module": "es6",
-    "target": "es5",
-    "noImplicitAny": true,
+    "module": "commonjs",
+    "target": "es2017",
+    "noImplicitAny": false,
     "esModuleInterop": true,
     "jsx": "react",
-    "types": ["node"],
-    "moduleResolution": "node",
-    "lib": ["dom", "es2015", "es2017"],
-    "sourceMap": true,
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "allowSyntheticDefaultImports": true,
-    "downlevelIteration": true,
-    "baseUrl": "./",
-    "paths": {
-      "~/*": ["src/*"]
-    }
-  },
-  "include": ["./src/**/*"],
-  "exclude": ["node_modules", "plugins"]
+    "isolatedModules": true
+  }
 }
