@@ -12,8 +12,8 @@ function loadProjectPortalThemeOptions(pluginOptions) {
     pages: layoutOptions.navbar.pages,
     staticText: {
       footer: layoutOptions.footer,
-      bottom_banner: layoutOptions.bottomBanner,
-      main_contact_text: {
+      bottomBanner: layoutOptions.bottomBanner,
+      mainContact: {
         ongoingText: mainContactConfig.ongoingText,
         completeText: mainContactConfig.completeText,
       },

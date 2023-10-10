@@ -17,7 +17,7 @@ interface ProjectDetailPageQueryResults {
     projectPortalConfig: {
       projectInterestLink: string
       staticText: {
-        mainContactText: {
+        mainContact: {
           ongoingText: string
           completeText: string
         }
@@ -37,7 +37,7 @@ export const ProjectDetailPage: FunctionComponent<
       projectPortalConfig: {
         projectInterestLink,
         staticText: {
-          mainContactText: { ongoingText, completeText },
+          mainContact: { ongoingText, completeText },
         },
       },
       defaultContactImage,
@@ -101,7 +101,7 @@ export const query = graphql`
     projectPortalConfig {
       projectInterestLink
       staticText {
-        mainContactText: main_contact_text {
+        mainContactText {
           ongoingText
           completeText
         }
