@@ -98,7 +98,7 @@ theme and other plugins from the registry instead of the local directory:
 
 ```zsh
 source test-packaging.sh
-package-and-install -t "packages/example-site/" -r react@^18,react-dom@^18,gatsby@^5,@thepolicylab-projectportals/gatsby-theme-project-portal,@thepolicylab-projectportals/project-portal-content-netlify
+package-and-install -t "packages/example-site/" -w @thepolicylab-projectportals/gatsby-theme-project-portal,@thepolicylab-projectportals/project-portal-content-netlify
 ```
 
 ### Use Prettier Code Formatter in WebStorm
