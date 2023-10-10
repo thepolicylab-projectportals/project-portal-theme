@@ -8,7 +8,7 @@ const {
   contactTypeDefs,
   pageTypeDefs,
 } = require(`./utils/types`)
-const CardPageTemplate = require.resolve(`./src/templates/card-page`)
+const CardPageTemplate = require.resolve(`./src/layouts/CardPageLayout.tsx`)
 const AboutPageTemplate = require.resolve(`./src/layouts/AboutPageLayout.tsx`)
 const ContactPageTemplate = require.resolve(`./src/templates/contact-page`)
 const ThankYouPageTemplate = require.resolve(
