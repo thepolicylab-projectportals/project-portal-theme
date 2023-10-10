@@ -1,6 +1,5 @@
 const { withDefaults } = require(`./utils/default-options`)
 const fs = require("fs")
-const path = require("path")
 
 const {
   projectTypeDefs,
