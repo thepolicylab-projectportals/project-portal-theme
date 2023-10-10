@@ -12,7 +12,7 @@ function loadProjectPortalThemeOptions(pluginOptions) {
     pages: layoutOptions.navbar.pages,
     staticText: {
       footer: layoutOptions.footer,
-      bottom_banner: layoutOptions.bottomBanner,
+      bottomBanner: layoutOptions.bottomBanner,
       main_contact_text: {
         ongoingText: mainContactConfig.ongoingText,
         completeText: mainContactConfig.completeText,
