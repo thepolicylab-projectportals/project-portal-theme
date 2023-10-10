@@ -20,7 +20,7 @@ const projectPortalConfigTypeDefs = `
     contact: ContactType
     bottom_banner: BottomBannerType
     footer: FooterType
-    main_contact_text: MainContactTextType
+    mainContactText: MainContactTextType
   }
   type ContactType {
     title: String
