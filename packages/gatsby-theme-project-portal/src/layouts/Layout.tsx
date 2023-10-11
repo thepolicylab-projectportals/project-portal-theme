@@ -1,7 +1,7 @@
 import React, { FunctionComponent, ReactNode } from "react"
 import { graphql } from "gatsby"
 import { ImageDataLike } from "gatsby-plugin-image"
-import { PageLayout } from "../components/PageLayout"
+import { PageLayout } from "../components"
 
 export interface LayoutProps {
   path?: string
