@@ -5,7 +5,6 @@ const {
   contactTypeDefs,
   pageTypeDefs,
 } = require(`./utils/types`)
-const SearchPageTemplate = require.resolve(`./src/templates/client-search-page`)
 const fs = require("fs")
 
 exports.onPreBootstrap = ({ reporter }, themeOptions) => {
@@ -174,19 +173,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     createPage({
       path: thankYouPagePath,
       component: require.resolve("./src/layouts/ThankYouPageLayout.tsx"),
-      context: {
-        slug: slug,
-      },
-    })
-  })
-
-  // results page for site-wide search
-  const { searchPage } = result.data
-  searchPage.nodes.forEach((page) => {
-    const { slug } = page
-    createPage({
-      path: `/${slug}`,
-      component: SearchPageTemplate,
       context: {
         slug: slug,
       },
