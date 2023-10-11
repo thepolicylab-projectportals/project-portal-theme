@@ -1,6 +1,12 @@
 import React, { FunctionComponent, ReactNode } from "react"
 import { graphql } from "gatsby"
-import { Footer, BottomBanner, DevelopmentBanner, Navbar } from "../components"
+import {
+  Footer,
+  BottomBanner,
+  DevelopmentBanner,
+  Navbar,
+  TopicType,
+} from "../components"
 import { ImageDataLike } from "gatsby-plugin-image"
 
 export interface LayoutProps {
@@ -10,6 +16,7 @@ export interface LayoutProps {
     site: {
       siteMetadata: {
         title: string
+        siteUrl: string
       }
     }
     projectPortalConfig: {
@@ -37,6 +44,61 @@ export interface LayoutProps {
         }
       }
     }
+    allProject: {
+      nodes: {
+        slug
+        question
+        title
+        summary
+        status
+        opportunityCloses
+        startDate
+        endDate
+        lastModified
+        agency
+        topics: TopicType[]
+        deliverable
+        purpose
+        expertise
+        requirement
+        keyDates
+        priorResearch
+        statusOfData
+        fundingInfo
+        emailContent
+        mainContact: {
+          name
+          title
+          employer
+          email
+        }
+        projectTeam: {
+          name
+          title
+          employer
+          email
+        }
+        faq: {
+          text
+          title
+        }
+      }
+    }
+    allGeneralPage: {
+      nodes: {
+        slug
+        lede
+        faq: {
+          text
+          title
+        }
+        aims: {
+          text
+          title
+        }
+        title
+      }
+    }
     navbarLogo?: ImageDataLike
     bottomBannerLogo?: ImageDataLike
     footerLogo?: ImageDataLike
@@ -47,19 +109,22 @@ export const Layout: FunctionComponent<LayoutProps> = ({
   path,
   data: {
     site: {
-      siteMetadata: { title: siteTitle },
+      siteMetadata: { title: siteTitle, siteUrl },
     },
     projectPortalConfig: {
       showDevBanner,
       pages,
       staticText: { bottomBanner, footer },
     },
+    allProject,
+    allGeneralPage,
     navbarLogo,
     bottomBannerLogo,
     footerLogo,
   },
   children,
 }) => {
+  const searchNodes = { siteUrl, allProject, allGeneralPage }
   return (
     <div className="w-full mx-0 bg-white border-0 xl:container xl:p-0 xl:mx-auto xl:border-l xl:border-r xl:border-gray-200 flex flex-col min-h-screen">
       {showDevBanner && <DevelopmentBanner />}
@@ -68,6 +133,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
         image={navbarLogo}
         pages={pages}
         activePage={path}
+        searchNodes={searchNodes}
       />
       <div className="flex-1">{children}</div>
       <BottomBanner
@@ -94,6 +160,7 @@ export const query = graphql`
     site {
       siteMetadata {
         title
+        siteUrl
       }
     }
     projectPortalConfig {
@@ -146,6 +213,63 @@ export const query = graphql`
     ) {
       childImageSharp {
         gatsbyImageData(height: 64)
+      }
+    }
+    allProject {
+      nodes {
+        slug
+        question
+        title
+        summary
+        status
+        opportunityCloses
+        startDate
+        endDate
+        lastModified
+        agency
+        topics {
+          ...TopicDetails
+        }
+        deliverable
+        purpose
+        expertise
+        requirement
+        keyDates
+        priorResearch
+        statusOfData
+        fundingInfo
+        emailContent
+        mainContact {
+          name
+          title
+          employer
+          email
+        }
+        projectTeam {
+          name
+          title
+          employer
+          email
+        }
+        faq {
+          text
+          title
+        }
+      }
+    }
+    allGeneralPage {
+      nodes {
+        slug
+        lede
+        faq {
+          text
+          title
+        }
+        aims {
+          text
+          title
+        }
+        title
       }
     }
   }

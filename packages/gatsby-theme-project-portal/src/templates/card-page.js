@@ -5,7 +5,7 @@ export default CardPageLayout
 export { Head } from "../hooks"
 
 export const query = graphql`
-  query CardPageQuery($slug: String!, $statusFilter: [String]) {
+  query CardPageQuery($slug: String!) {
     ...HeadData
     ...LayoutData
     page: cardPage(slug: { eq: $slug }) {
@@ -19,11 +19,6 @@ export const query = graphql`
       sortOptions
       image {
         ...HeaderWithImageBackground
-      }
-    }
-    allProject(filter: { status: { in: $statusFilter } }) {
-      nodes {
-        ...CardDetails
       }
     }
   }
