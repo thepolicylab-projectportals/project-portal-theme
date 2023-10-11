@@ -5,7 +5,7 @@ import { ImageDataLike } from "gatsby-plugin-image"
 import { SiteTitle, NavbarItem } from "."
 
 export interface NavbarProps {
-  title: string
+  title?: string
   activePage?: string
   image?: ImageDataLike
   pages?: {
