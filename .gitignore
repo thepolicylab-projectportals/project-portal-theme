@@ -22,3 +22,5 @@ pa11y-results.json
 /test-results/
 /playwright-report/
 /playwright/.cache/
+
+storybook-static/
