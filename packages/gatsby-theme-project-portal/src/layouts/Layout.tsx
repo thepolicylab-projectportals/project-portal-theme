@@ -12,12 +12,12 @@ export interface LayoutProps {
         showDevBanner?: boolean
         staticText?: {
           navbar?: {
+            title?: string
             pages?: {
               name: string
               link: string
               show: boolean
             }[]
-            title?: string
           }
           bottomBanner?: {
             text: string
@@ -79,12 +79,12 @@ export const query = graphql`
         showDevBanner
         staticText {
           navbar {
+            title
             pages {
               link
               name
               show
             }
-            title
           }
           bottomBanner {
             text
