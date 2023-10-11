@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import { FaBars, FaTimes } from "react-icons/fa"
 import { ImageDataLike } from "gatsby-plugin-image"
 import { SiteTitle, NavbarItem } from "."
+import { Modal } from "./Modal"
 
 interface NavbarProps {
   title: string
@@ -13,6 +14,7 @@ interface NavbarProps {
     link: string
     show: boolean
   }[]
+  searchNodes
 }
 
 export const Navbar: FunctionComponent<NavbarProps> = ({
@@ -20,6 +22,7 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
   activePage,
   image,
   pages,
+  searchNodes,
 }: NavbarProps) => {
   const [navbarOpen, setNavbarOpen] = React.useState(false)
   const [isModalOpen, setModalOpen] = React.useState(false)
@@ -29,9 +32,7 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
   const closeModal = () => {
     setModalOpen(false)
   }
-  useEffect(() => {
-    console.log(isModalOpen)
-  }, [isModalOpen])
+
   return (
     <>
       <nav
@@ -56,18 +57,6 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
             >
               <SiteTitle image={image} title={title} />
             </Link>
-            <div>
-              <button
-                className="bg-white text-slate-400 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                type="button"
-                onClick={(e) => {
-                  e.stopPropagation()
-                  setModalOpen(true)
-                }}
-              >
-                Quick Search
-              </button>
-            </div>
           </div>
           <div
             className={
@@ -76,7 +65,7 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
             }
             id="example-navbar-danger"
           >
-            <ul className="flex flex-col list-none xl:flex-row xl:ml-auto">
+            <ul className="flex flex-col items-center justify-center list-none xl:flex-row xl:ml-auto">
               {pages.map(({ name, link, show }, i) =>
                 show ? (
                   <Link
@@ -90,6 +79,21 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
                   ""
                 )
               )}
+              <div>
+                <button
+                  className="bg-white font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    setModalOpen(true)
+                  }}
+                >
+                  Quick Search
+                </button>
+              </div>
+              {isModalOpen ? (
+                <Modal closeModal={closeModal} data={searchNodes} />
+              ) : null}
             </ul>
           </div>
         </div>

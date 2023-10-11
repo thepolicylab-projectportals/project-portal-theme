@@ -86,7 +86,6 @@ export const ProjectPage = ({
   )
 
   const ITEMS_PER_PAGE = 6
-  console.log(allProjects)
   const [sortedProjects, setSortedProjects] = useState(allProjects)
   const [displayProjects, setDisplayProjects] = useState(allProjects)
 

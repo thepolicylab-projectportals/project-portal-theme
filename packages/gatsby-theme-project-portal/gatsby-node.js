@@ -11,6 +11,9 @@ const AboutPageTemplate = require.resolve(`./src/templates/about-page`)
 const ContactPageTemplate = require.resolve(`./src/templates/contact-page`)
 const ThankYouPageTemplate = require.resolve(`./src/templates/thank-you-page`)
 const SearchPageTemplate = require.resolve(`./src/templates/client-search-page`)
+const ProjectDetailPageTemplate = require.resolve(
+  `./src/templates/project-detail-page`
+)
 const fs = require("fs")
 
 exports.onPreBootstrap = ({ reporter }, themeOptions) => {
@@ -51,10 +54,6 @@ exports.sourceNodes = ({ actions, createContentDigest }, themeOptions) => {
     },
   })
 }
-
-const ProjectDetailPageTemplate = require.resolve(
-  `./src/templates/project-detail-page`
-)
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
