@@ -158,7 +158,7 @@ export const SearchPageLayout: FunctionComponent<SearchProps> = ({
                     </h2>
                     {found}
                   </ul>
-                  <h2 className="mt-4">
+                  <h2 className="pt-3 mt-4 border-t-2 border-solid">
                     <a className="btn-wide" href={`${siteUrl}/${result.ref}`}>
                       View Page
                     </a>
