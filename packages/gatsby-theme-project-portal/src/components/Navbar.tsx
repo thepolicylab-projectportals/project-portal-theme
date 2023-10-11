@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect } from "react"
+import React, { FunctionComponent } from "react"
 import { Link } from "gatsby"
 import { FaBars, FaTimes } from "react-icons/fa"
 import { ImageDataLike } from "gatsby-plugin-image"
@@ -65,7 +65,7 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
             }
             id="example-navbar-danger"
           >
-            {(isModalOpen && navbarOpen) && (
+            {isModalOpen && navbarOpen && (
               <div
                 className="opacity-20 fixed inset-0 z-60 bg-black"
                 onClick={closeModal}

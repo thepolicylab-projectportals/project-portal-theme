@@ -1,6 +1,0 @@
-{
-  "templateKey": "SearchPage",
-  "header": "Search for a Page",
-  "accessibility": "We are committed to making the Research Partnerships Portal accessible for all visitors, and we welcome your feedback on the site. If you encounter any accessibility barriers while using the Portal, please contact Jenna Wallace (email: [jenna.wallace@sanantonio.gov](mailto:jenna.wallace@sanantonio.gov), office phone number: 210-207-7930) for assistance.\n\nWe are currently working to make the Research Partnerships Portal fully compliant with requirements in the Web Content Accessibility Guidelines’ A and AA standard. Our final steps to meet WCAG 2.1 A and AA criteria are to fulfill 2.4.2 Page Titled, which will make pages easier to differentiate for screen reader users, 2.5.3 Label in Name, which will make project cards more descriptive for screen reader users, and 2.4.5 Multiple Ways, which will make it easier for all users to find the content most relevant to them.\nFor more detailed descriptions of how the Research Partnerships Portal meets WCAG criteria, please see our full [Accessibility Conformance Report](https://drive.google.com/file/d/1C9ohi1t6N2yFsaVW_xcKsexflZymh_82/view).",
-  "image": "about.jpg"
-}
