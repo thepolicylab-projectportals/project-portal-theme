@@ -36,3 +36,5 @@ export const Nulls: Story = {
     image: null,
   },
 }
+
+export const NoArgs: Story = {}
