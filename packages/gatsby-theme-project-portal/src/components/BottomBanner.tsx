@@ -1,4 +1,3 @@
-import { Link } from "gatsby"
 import React, { FunctionComponent } from "react"
 import { GatsbyImage, ImageDataLike, getImage } from "gatsby-plugin-image"
 import { MarkdownText } from "."
