@@ -19,3 +19,6 @@ artifacts
 .env
 
 pa11y-results.json
+/test-results/
+/playwright-report/
+/playwright/.cache/
