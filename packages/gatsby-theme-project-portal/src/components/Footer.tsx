@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react"
 import { GatsbyImage, ImageDataLike, getImage } from "gatsby-plugin-image"
 
 export interface FooterProps {
-  heading: {
+  heading?: {
     title: String
     link: string
   }
@@ -41,7 +41,7 @@ export const Footer: FunctionComponent<FooterProps> = ({
       <div className="block w-full lg:w-auto mt-5">
         <a
           className="flex items-center gap-4 justify-center flex-wrap"
-          href={heading.link}
+          href={heading?.link}
         >
           {resolvedImage && (
             <GatsbyImage
@@ -51,7 +51,7 @@ export const Footer: FunctionComponent<FooterProps> = ({
             />
           )}
           <p className="text-center inline-block text-h4 font-bold text-footertext">
-            {heading.title}
+            {heading?.title}
           </p>
         </a>
       </div>
