@@ -10555,6 +10555,38 @@ __metadata:
   languageName: node
   linkType: hard
 
+"axe-core@npm:^4.5.1":
+  version: 4.8.2
+  resolution: "axe-core@npm:4.8.2"
+  checksum: 8c19f507dabfcb8514e4280c7fc66e85143be303ddb57ec9f119338021228dc9b80560993938003837bda415fde7c07bba3a96560008ffa5f4145a248ed8f5fe
+  languageName: node
+  linkType: hard
+
+"axe-html-reporter@npm:2.2.3":
+  version: 2.2.3
+  resolution: "axe-html-reporter@npm:2.2.3"
+  dependencies:
+    mustache: ^4.0.1
+    rimraf: ^3.0.2
+  peerDependencies:
+    axe-core: ">=3"
+  checksum: 758e358d1a8e4b1e5a8b54521cac928966ad797e9d8aa27964a923a13fc43ddcfe01b9238d98565e30d79b28361f93de64da5ebd2f5df051b469f46b6a1fd445
+  languageName: node
+  linkType: hard
+
+"axe-playwright@npm:^1.2.3":
+  version: 1.2.3
+  resolution: "axe-playwright@npm:1.2.3"
+  dependencies:
+    axe-core: ^4.5.1
+    axe-html-reporter: 2.2.3
+    picocolors: ^1.0.0
+  peerDependencies:
+    playwright: ">1.0.0"
+  checksum: f538d8e36eb7266825f0b82b9e169b937d5bc753ca5911f89c07328b739f1c1a3101bc276fcebfe75cbd15306e67c1ce78da1e32b87b4d65366ac91bc917aef9
+  languageName: node
+  linkType: hard
+
 "axios@npm:^0.21.1":
   version: 0.21.4
   resolution: "axios@npm:0.21.4"
@@ -21182,6 +21214,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"mustache@npm:^4.0.1":
+  version: 4.2.0
+  resolution: "mustache@npm:4.2.0"
+  bin:
+    mustache: bin/mustache
+  checksum: 928fcb63e3aa44a562bfe9b59ba202cccbe40a46da50be6f0dd831b495be1dd7e38ca4657f0ecab2c1a89dc7bccba0885eab7ee7c1b215830da765758c7e0506
+  languageName: node
+  linkType: hard
+
 "mute-stream@npm:0.0.8, mute-stream@npm:~0.0.4":
   version: 0.0.8
   resolution: "mute-stream@npm:0.0.8"
@@ -27066,6 +27107,7 @@ __metadata:
     "@storybook/test-runner": ^0.13.0
     "@storybook/testing-library": ^0.2.2
     autoprefixer: ^10.4.16
+    axe-playwright: ^1.2.3
     playwright: ^1.38.1
     postcss: ^8.4.31
     react: ^18.2.0
