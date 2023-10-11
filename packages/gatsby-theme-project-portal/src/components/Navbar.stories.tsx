@@ -84,3 +84,5 @@ export const Nulls: Story = {
     pages: null,
   },
 }
+
+export const NoArgs: Story = {}
