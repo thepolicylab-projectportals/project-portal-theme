@@ -4,7 +4,7 @@ import { ImageDataLike } from "gatsby-plugin-image"
 import { PageLayout } from "../components/PageLayout"
 
 export interface LayoutProps {
-  path: string
+  path?: string
   children: ReactNode
   data?: {
     site?: {
