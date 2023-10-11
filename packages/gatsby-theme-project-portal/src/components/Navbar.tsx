@@ -4,7 +4,7 @@ import { FaBars, FaTimes } from "react-icons/fa"
 import { ImageDataLike } from "gatsby-plugin-image"
 import { SiteTitle, NavbarItem } from "."
 
-interface NavbarProps {
+export interface NavbarProps {
   title: string
   activePage?: string
   image?: ImageDataLike
