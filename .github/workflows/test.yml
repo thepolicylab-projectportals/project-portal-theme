@@ -13,8 +13,10 @@ jobs:
         with:
           node-version-file: '.nvmrc'
           cache: 'yarn'
-      - run: yarn install --immutable
-      - run: yarn test
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Run tests
+        run: yarn test
   interaction-and-accessibility:
     runs-on: ubuntu-latest
     steps:
