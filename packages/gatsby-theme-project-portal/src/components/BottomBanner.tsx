@@ -31,7 +31,7 @@ export const BottomBanner: FunctionComponent<BottomBannerProps> = ({
               />
             </a>
           )}
-          {isNA(link) && { resolvedImage } && (
+          {isNA(link) && resolvedImage && (
             <GatsbyImage
               className="inline-block logotype"
               image={resolvedImage}
