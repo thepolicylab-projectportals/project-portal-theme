@@ -9,6 +9,7 @@ export interface LayoutProps {
   data?: {
     site?: {
       siteMetadata?: {
+        siteTitle: string
         showDevBanner?: boolean
         staticText?: {
           navbar?: {
@@ -65,7 +66,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
         ...data?.site?.siteMetadata?.staticText?.footer,
         image: {
           imageData: data?.footerLogo,
-          altText: data?.site?.siteMetadata?.title + " logo",
+          altText: data?.site?.siteMetadata?.siteTitle + " logo",
         },
       }}
     />
