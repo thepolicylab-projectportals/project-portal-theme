@@ -1,17 +1,17 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { PageLayoutNested } from "./PageLayoutNested"
+import { PageLayout } from "./PageLayout"
 import * as bottomBannerStories from "../components/BottomBanner.stories"
 import * as footerStories from "../components/Footer.stories"
 import * as navbarStories from "../components/Navbar.stories"
 
-const meta: Meta<typeof PageLayoutNested> = {
-  component: PageLayoutNested,
+const meta: Meta<typeof PageLayout> = {
+  component: PageLayout,
   tags: ["autodocs"],
 }
 
 export default meta
 
-type Story = StoryObj<typeof PageLayoutNested>
+type Story = StoryObj<typeof PageLayout>
 
 export const Primary: Story = {
   args: {

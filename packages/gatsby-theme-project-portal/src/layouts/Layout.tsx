@@ -1,7 +1,7 @@
 import React, { FunctionComponent, ReactNode } from "react"
 import { graphql } from "gatsby"
 import { ImageDataLike } from "gatsby-plugin-image"
-import { PageLayoutNested } from "../components/PageLayoutNested"
+import { PageLayout } from "../components/PageLayout"
 
 export interface LayoutProps {
   path: string
@@ -49,7 +49,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
   children,
 }) => {
   return (
-    <PageLayoutNested
+    <PageLayout
       children={children}
       devBanner={{ show: data?.site?.siteMetadata?.showDevBanner }}
       navbar={{

@@ -4,7 +4,7 @@ import { Navbar, NavbarProps } from "./Navbar"
 import { BottomBanner, BottomBannerProps } from "./BottomBanner"
 import { Footer, FooterProps } from "./Footer"
 
-export interface PageLayoutNestedProps {
+export interface PageLayoutProps {
   children: ReactNode
   devBanner?: { show?: boolean }
   navbar?: NavbarProps
@@ -12,7 +12,7 @@ export interface PageLayoutNestedProps {
   footer?: FooterProps
 }
 
-export const PageLayoutNested: FunctionComponent<PageLayoutNestedProps> = ({
+export const PageLayout: FunctionComponent<PageLayoutProps> = ({
   children,
   devBanner,
   navbar,
