@@ -1,13 +1,20 @@
-import React, {ChangeEventHandler, Dispatch, FunctionComponent, SetStateAction} from "react"
+import React, {
+  ChangeEventHandler,
+  Dispatch,
+  FunctionComponent,
+  SetStateAction,
+} from "react"
 
 interface SearchBarProps {
   label: string
-  onChange:  any
+  onChange: any
+  placeholder: string
 }
 
 export const SearchBar: FunctionComponent<SearchBarProps> = ({
   label,
   onChange,
+  placeholder,
 }) => {
   return (
     <>
@@ -16,10 +23,10 @@ export const SearchBar: FunctionComponent<SearchBarProps> = ({
       </label>
       <input
         className="rounded border-gray-300 hover:border-gray-400"
-        style={{height: "62%"}}
+        style={{ height: "62%" }}
         type="text"
         aria-label="Search"
-        placeholder="Type to filter posts..."
+        placeholder={placeholder}
         onChange={onChange}
       />
     </>

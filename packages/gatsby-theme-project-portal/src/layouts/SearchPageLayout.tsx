@@ -119,6 +119,7 @@ export const SearchPageLayout: FunctionComponent<SearchProps> = ({
       <div className="container mx-auto my-2 border-b-4 border-primary">
         <SearchBar
           label={"Search"}
+          placeholder={"Type to search pages..."}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
         <div className=" pt-2">

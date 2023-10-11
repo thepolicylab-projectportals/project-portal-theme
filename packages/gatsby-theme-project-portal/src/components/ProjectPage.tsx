@@ -323,6 +323,7 @@ export const ProjectPage = ({
           <div className="flex-1 min-w-30ch auto-rows-auto flex flex-col">
             <SearchBar
               label={"Search"}
+              placeholder="Type to filter posts..."
               onChange={(e) => setSearchQuery(e.target.value)}
             />
           </div>
