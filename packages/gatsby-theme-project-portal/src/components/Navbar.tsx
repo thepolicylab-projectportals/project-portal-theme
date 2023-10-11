@@ -65,6 +65,13 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
             }
             id="example-navbar-danger"
           >
+            {(isModalOpen && navbarOpen) && (
+              <div
+                className="opacity-20 fixed inset-0 z-60 bg-black"
+                onClick={closeModal}
+              ></div>
+            )}
+
             <ul className="flex flex-col items-center justify-center list-none xl:flex-row xl:ml-auto">
               {pages.map(({ name, link, show }, i) =>
                 show ? (
