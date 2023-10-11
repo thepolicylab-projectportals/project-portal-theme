@@ -27,3 +27,14 @@ export const Primary: Story = {
     image: bottomBannerLogo,
   },
 }
+
+export const Nulls: Story = {
+  args: {
+    text: null,
+    link: null,
+    linkId: null,
+    image: null,
+  },
+}
+
+export const NoArgs: Story = {}

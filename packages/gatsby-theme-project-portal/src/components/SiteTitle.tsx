@@ -2,8 +2,8 @@ import React, { FunctionComponent } from "react"
 import { GatsbyImage, getImage, ImageDataLike } from "gatsby-plugin-image"
 
 export interface SiteTitleProps {
-  image: ImageDataLike
-  title: string
+  image?: ImageDataLike
+  title?: string
 }
 
 export const SiteTitle: FunctionComponent<SiteTitleProps> = ({

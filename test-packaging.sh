@@ -80,7 +80,7 @@ EXAMPLES
     % package-and-install -t "packages/example/" -w @thepolicylab-projectportals/gatsby-theme-project-portal
 
   Create a new duplicate of the "example-content" site:
-    % package-and-install -t "packages/example-content/" -w @thepolicylab-projectportals/gatsby-theme-project-portal,@thepolicylab-projectportals/project-portal-content-netlify
+    % package-and-install -t "packages/example-site/" -w @thepolicylab-projectportals/gatsby-theme-project-portal,@thepolicylab-projectportals/project-portal-content-netlify
 
 EOM
 

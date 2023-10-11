@@ -4,11 +4,11 @@ import { FaBars, FaTimes } from "react-icons/fa"
 import { ImageDataLike } from "gatsby-plugin-image"
 import { SiteTitle, NavbarItem } from "."
 
-interface NavbarProps {
-  title: string
+export interface NavbarProps {
+  title?: string
   activePage?: string
   image?: ImageDataLike
-  pages: {
+  pages?: {
     name: string
     link: string
     show: boolean
@@ -55,7 +55,7 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
             id="example-navbar-danger"
           >
             <ul className="flex flex-col list-none xl:flex-row xl:ml-auto">
-              {pages.map(({ name, link, show }, i) =>
+              {pages?.map(({ name, link, show }, i) =>
                 show ? (
                   <Link
                     key={"nav" + i}

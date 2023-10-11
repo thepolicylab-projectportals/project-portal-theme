@@ -66,3 +66,23 @@ export const Tailwind2XLWindow: Story = {
   args: Primary.args,
   parameters: { viewport: { defaultViewport: "tailwind2XL" } },
 }
+
+export const EmptyStrings: Story = {
+  args: {
+    title: "",
+    image: SiteTitleStories.siteTitleLogo,
+    activePage: "",
+    pages: [],
+  },
+}
+
+export const Nulls: Story = {
+  args: {
+    title: null,
+    image: null,
+    activePage: null,
+    pages: null,
+  },
+}
+
+export const NoArgs: Story = {}
