@@ -1,19 +1,11 @@
 const { withDefaults } = require(`./utils/default-options`)
-
 const {
   projectTypeDefs,
   projectPortalConfigTypeDefs,
   contactTypeDefs,
   pageTypeDefs,
 } = require(`./utils/types`)
-const CardPageTemplate = require.resolve(`./src/templates/card-page`)
-const AboutPageTemplate = require.resolve(`./src/templates/about-page`)
-const ContactPageTemplate = require.resolve(`./src/templates/contact-page`)
-const ThankYouPageTemplate = require.resolve(`./src/templates/thank-you-page`)
 const SearchPageTemplate = require.resolve(`./src/templates/client-search-page`)
-const ProjectDetailPageTemplate = require.resolve(
-  `./src/templates/project-detail-page`
-)
 const fs = require("fs")
 
 exports.onPreBootstrap = ({ reporter }, themeOptions) => {
@@ -93,6 +85,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           deliverable
           emailContent
           endDate
+          slug
         }
       }
       allCardPage {
@@ -115,13 +108,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           slug
         }
       }
-      searchPage: allGeneralPage(
-        filter: { templateKey: { eq: "SearchPage" } }
-      ) {
-        nodes {
-          slug
-        }
-      }
     }
   `)
 
@@ -137,7 +123,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   projects.forEach((node) => {
     createPage({
       path: `project/${node.slug}`,
-      component: ProjectDetailPageTemplate,
+      component: require.resolve(`./src/layouts/ProjectDetailPage.tsx`),
       context: {
         slug: node.slug,
         pagePath: `project/${node.slug}`,
@@ -154,7 +140,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     } = page
     createPage({
       path: `/${slug}`,
-      component: CardPageTemplate,
+      component: require.resolve(`./src/layouts/CardPageLayout.tsx`),
       context: {
         slug: slug,
         statusFilter: status,
@@ -167,7 +153,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     const { slug } = page
     createPage({
       path: `/${slug}`,
-      component: AboutPageTemplate,
+      component: require.resolve(`./src/layouts/AboutPageLayout.tsx`),
       context: {
         slug: slug,
       },
@@ -179,7 +165,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     const thankYouPagePath = `/${slug}/thank-you`
     createPage({
       path: `/${slug}`,
-      component: ContactPageTemplate,
+      component: require.resolve(`./src/layouts/ContactPageLayout.tsx`),
       context: {
         slug: slug,
         thankYouPagePath: thankYouPagePath,
@@ -187,7 +173,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     })
     createPage({
       path: thankYouPagePath,
-      component: ThankYouPageTemplate,
+      component: require.resolve("./src/layouts/ThankYouPageLayout.tsx"),
       context: {
         slug: slug,
       },

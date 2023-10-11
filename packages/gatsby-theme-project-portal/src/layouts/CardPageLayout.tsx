@@ -1,6 +1,9 @@
-import { ProjectPage, CardProps } from "../components"
 import React, { FunctionComponent } from "react"
+import { graphql } from "gatsby"
 import { ImageDataLike } from "gatsby-plugin-image"
+import { ProjectPage, CardProps } from "../components"
+
+export { Head } from "../hooks"
 
 export interface CardPageLayoutProps {
   data: {
@@ -39,3 +42,30 @@ export const CardPageLayout: FunctionComponent<CardPageLayoutProps> = ({
     </>
   )
 }
+
+export default CardPageLayout
+
+export const query = graphql`
+  query CardPageQuery($slug: String!, $statusFilter: [String]) {
+    ...HeadData
+    ...LayoutData
+    page: cardPage(slug: { eq: $slug }) {
+      title
+      description: lede
+    }
+    cardPage(slug: { eq: $slug }) {
+      pageName
+      title
+      lede
+      sortOptions
+      image {
+        ...HeaderWithImageBackground
+      }
+    }
+    allProject(filter: { status: { in: $statusFilter } }) {
+      nodes {
+        ...CardDetails
+      }
+    }
+  }
+`

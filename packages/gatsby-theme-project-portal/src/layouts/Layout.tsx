@@ -171,7 +171,7 @@ export const query = graphql`
         show
       }
       staticText {
-        bottomBanner: bottom_banner {
+        bottomBanner {
           text
           link
         }
