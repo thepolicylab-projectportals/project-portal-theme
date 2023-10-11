@@ -6,8 +6,8 @@ export interface FooterProps {
     title: String
     link: string
   }
-  copyright: String
-  links: {
+  copyright?: String
+  links?: {
     title: String
     link: String
   }[]
@@ -31,7 +31,7 @@ export const Footer: FunctionComponent<FooterProps> = ({
       </div>
       <div className="flex items-center justify-center mt-6 lg:my-auto">
         <ul className="text-nav text-footertext list-none">
-          {links.map(({ title, link }, i) => (
+          {links?.map(({ title, link }, i) => (
             <ListItem key={"link_" + i} target={link}>
               {title}
             </ListItem>
