@@ -4,6 +4,7 @@ import React, {
   FunctionComponent,
   SetStateAction,
 } from "react"
+import { Label } from "./Label"
 
 interface SearchBarProps {
   id: string
@@ -20,9 +21,7 @@ export const SearchBar: FunctionComponent<SearchBarProps> = ({
 }) => {
   return (
     <>
-      <label id="search-label" className="font-bold" htmlFor={id}>
-        {label}
-      </label>
+      <Label id={id} label={label} />
       <input
         className="rounded border-gray-300 hover:border-gray-400"
         style={{ height: "62%" }}
