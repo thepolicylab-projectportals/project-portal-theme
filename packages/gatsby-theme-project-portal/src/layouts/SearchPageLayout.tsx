@@ -118,6 +118,7 @@ export const SearchPageLayout: FunctionComponent<SearchProps> = ({
     <div className="flex flex-col items-center justify-center align-middle text-center px-2">
       <div className="container mx-auto my-2 border-b-4 border-primary">
         <SearchBar
+          id="siteSearch"
           label={"Search"}
           placeholder={"Type to search pages..."}
           onChange={(e) => setSearchQuery(e.target.value)}
