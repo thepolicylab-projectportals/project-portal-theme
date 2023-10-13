@@ -7,7 +7,7 @@ import "./cms-utils"
 // (if it exists in the site's directory static/admin/config.yml)
 CMS.init({
   config: {
-    media_folder: "content/image",
+    media_folder: "static/image",
     public_folder: "/image",
     publish_mode: "editorial_workflow",
     collections: [
