@@ -42,6 +42,11 @@ export const Primary: Story = {
     ongoingText: "This project is ongoing.",
     completeText: "This project is complete.",
 
+    newsletter: {
+      link: "https://ccv.brown.edu",
+      text: "Subscribe for project portal updates",
+    },
+
     projectTeam: ProjectTeamStories.Primary.args.contacts,
 
     faq: [{ title: "Question 1?", text: "Answer 1!" }],

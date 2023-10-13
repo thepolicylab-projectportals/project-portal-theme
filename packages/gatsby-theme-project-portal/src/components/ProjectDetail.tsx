@@ -11,6 +11,8 @@ import {
   SectionOfItem,
   ShareProject,
   TopicType,
+  Newsletter,
+  NewsletterProps,
 } from "."
 
 import { statusOutput, isNA, isEmpty } from "../utils"
@@ -39,6 +41,7 @@ export interface ProjectDetailProps {
   ongoingText?: string // shown with MainContact for ongoing projects
   completeText?: string // shown with MainContact for complete projects
   projectInterestLink?: string // shown instead of email address for open projects
+  newsletter?: NewsletterProps
 
   // Project team
   projectTeam?: ContactType[]
@@ -86,6 +89,7 @@ export const ProjectDetail: FunctionComponent<ProjectDetailProps> = ({
   projectTeam,
   faq,
   projectInterestLink,
+  newsletter,
   defaultContactImage,
 }) => {
   return (
@@ -206,6 +210,7 @@ export const ProjectDetail: FunctionComponent<ProjectDetailProps> = ({
                   defaultImage={defaultContactImage}
                 />
               )}
+              <Newsletter {...newsletter} />
             </div>
           </div>
         </section>
