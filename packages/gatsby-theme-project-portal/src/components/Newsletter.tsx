@@ -1,11 +1,14 @@
 import React, { FunctionComponent } from "react"
 
-interface Newsletter {
+export interface NewsletterProps {
   text?: string
   link?: string
 }
 
-export const Newsletter: FunctionComponent<Newsletter> = ({ text, link }) => {
+export const Newsletter: FunctionComponent<NewsletterProps> = ({
+  text,
+  link,
+}) => {
   return (
     <>
       {link ? (
