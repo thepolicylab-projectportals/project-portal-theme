@@ -13,7 +13,8 @@ type Story = StoryObj<typeof Newsletter>
 export const Primary: Story = {
   args: {
     link: "https://ccv.brown.edu",
-    text: "Sign up for project portal updates",
+    title: "Sign up for project portal updates",
+    text: "Subscribe here for monthly updates on new and existing projects on the project portal.",
   },
 }
 
@@ -26,6 +27,26 @@ export const NoText: Story = {
 export const TextNoLink: Story = {
   args: {
     text: "Sign up for project portal updates",
+  },
+}
+
+export const TitleNoLink: Story = {
+  args: {
+    title: "The title",
+  },
+}
+
+export const TextLinkNoTitle: Story = {
+  args: {
+    texts: "Sign up for project portal updates",
+    link: "https://ccv.brown.edu",
+  },
+}
+
+export const TitleLinkNoText: Story = {
+  args: {
+    title: "Sign up for project portal updates",
+    link: "https://ccv.brown.edu",
   },
 }
 
