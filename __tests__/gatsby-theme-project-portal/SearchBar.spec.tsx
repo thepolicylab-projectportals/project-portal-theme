@@ -11,7 +11,7 @@ describe("SearchBar", () => {
       <SearchBar
         label="Test Label"
         onChange={onChange}
-        id={"test"}
+        id={"search"}
         placeholder={"Type to filter posts..."}
       />
     )
@@ -26,7 +26,7 @@ describe("SearchBar", () => {
       <SearchBar
         label="Test Label"
         onChange={onChange}
-        id={"test"}
+        id={"search"}
         placeholder={"Type to filter posts..."}
       />
     )
@@ -43,7 +43,7 @@ describe("SearchBar", () => {
       <SearchBar
         label="Test Label"
         onChange={onChange}
-        id={"test"}
+        id={"search"}
         placeholder={"Type to filter posts..."}
       />
     )
@@ -56,7 +56,7 @@ describe("SearchBar", () => {
       <SearchBar
         label="Test Label"
         onChange={onChange}
-        id={"test"}
+        id={"search"}
         placeholder={"Type to filter posts..."}
       />
     )
@@ -69,7 +69,7 @@ describe("SearchBar", () => {
       <SearchBar
         label="Test Label"
         onChange={onChange}
-        id={"test"}
+        id={"search"}
         placeholder={"Type to filter posts..."}
       />
     )
@@ -86,7 +86,7 @@ describe("SearchBar", () => {
       <SearchBar
         label="Test Label"
         onChange={onChange}
-        id={"test"}
+        id={"search"}
         placeholder={"Type to filter posts..."}
       />
     )
@@ -99,7 +99,7 @@ describe("SearchBar", () => {
       <SearchBar
         label="Test Label"
         onChange={onChange}
-        id={"test"}
+        id={"search"}
         placeholder={"Type to filter posts..."}
       />
     )
