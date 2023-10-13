@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from "react"
-import { graphql } from "gatsby"
 
 export interface NewsletterProps {
   text?: string
@@ -23,16 +22,3 @@ export const Newsletter: FunctionComponent<NewsletterProps> = ({
     </>
   )
 }
-
-export const query = graphql`
-  fragment NewsletterProps on Query {
-    site {
-      siteMetadata {
-        newsletter {
-          link
-          text
-        }
-      }
-    }
-  }
-`

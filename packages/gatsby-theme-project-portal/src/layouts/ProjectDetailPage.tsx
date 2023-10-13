@@ -88,6 +88,16 @@ export const ProjectDetailPage: FunctionComponent<
 export default ProjectDetailPage
 
 export const query = graphql`
+  fragment NewsletterProps on Query {
+    site {
+      siteMetadata {
+        newsletter {
+          link
+          text
+        }
+      }
+    }
+  }
   query ProjectDetailPageQuery($slug: String!) {
     ...HeadData
     ...LayoutData
