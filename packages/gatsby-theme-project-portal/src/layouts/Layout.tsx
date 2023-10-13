@@ -9,7 +9,6 @@ import {
 } from "../components"
 import { ImageDataLike } from "gatsby-plugin-image"
 import Modal from "react-modal"
-Modal.setAppElement(`#___gatsby`)
 
 export interface LayoutProps {
   path: string
@@ -127,6 +126,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
   children,
 }) => {
   const searchNodes = { siteUrl, allProject, allGeneralPage }
+  Modal.setAppElement(`#___gatsby`)
   return (
     <div className="w-full mx-0 bg-white border-0 xl:container xl:p-0 xl:mx-auto xl:border-l xl:border-r xl:border-gray-200 flex flex-col min-h-screen">
       {showDevBanner && <DevelopmentBanner />}
