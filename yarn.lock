@@ -22483,6 +22483,7 @@ __metadata:
     prop-types: ^15.8.1
     react: ^18.2.0
     react-dom: ^18.2.0
+    react-modal: ^3.16.1
     tslint-react: ^5.0.0
   languageName: unknown
   linkType: soft
@@ -23216,7 +23217,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-modal@npm:^3.8.1":
+"react-modal@npm:^3.16.1, react-modal@npm:^3.8.1":
   version: 3.16.1
   resolution: "react-modal@npm:3.16.1"
   dependencies:
