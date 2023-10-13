@@ -29,6 +29,20 @@ export const TextNoLink: Story = {
   },
 }
 
+export const TextEmptyLink: Story = {
+  args: {
+    link: "",
+    text: "Sign up for project portal updates",
+  },
+}
+
+export const EmptyStrings: Story = {
+  args: {
+    link: "",
+    text: "",
+  },
+}
+
 export const NoArgs: Story = {
   args: {},
 }
