@@ -194,17 +194,19 @@ export const ProjectDetail: FunctionComponent<ProjectDetailProps> = ({
                 </>
               )}
             </div>
-            {!(mainContact === null || mainContact === undefined) && (
-              <MainContact
-                {...mainContact}
-                status={status}
-                openText={openText}
-                ongoingText={ongoingText}
-                completeText={completeText}
-                projectInterestLink={projectInterestLink}
-                defaultImage={defaultContactImage}
-              />
-            )}
+            <div className="w-full lg:w-2/5 xl:w-1/3">
+              {!(mainContact === null || mainContact === undefined) && (
+                <MainContact
+                  {...mainContact}
+                  status={status}
+                  openText={openText}
+                  ongoingText={ongoingText}
+                  completeText={completeText}
+                  projectInterestLink={projectInterestLink}
+                  defaultImage={defaultContactImage}
+                />
+              )}
+            </div>
           </div>
         </section>
 
