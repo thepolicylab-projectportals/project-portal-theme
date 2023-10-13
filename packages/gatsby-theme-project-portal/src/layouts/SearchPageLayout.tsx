@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect, useState } from "react"
+import React, { FunctionComponent, useEffect, useRef, useState } from "react"
 import lunr from "lunr"
 import { SearchBar } from "../components/SearchBar"
 import { isNull } from "lodash"
@@ -20,15 +20,9 @@ export const SearchPageLayout: FunctionComponent<SearchProps> = ({
     if (page === "siteUrl") {
       return
     } else {
-      if (page === "allProject") {
-        searchNodes[page].nodes.forEach((node) => {
-          if (!node.slug.includes("/")) {
-            node.slug = `project/${node.slug}`
-          }
-        })
-      }
       searchNodes[page].nodes.forEach((node) => {
-        const newItem = Object.values(node).map((field) => {
+        let tempNode = structuredClone(node)
+        const newItem = Object.values(tempNode).map((field) => {
           if (isNull(field)) {
             return null
           }
@@ -48,11 +42,18 @@ export const SearchPageLayout: FunctionComponent<SearchProps> = ({
             return field
           }
         })
+        if (page === "allProject") {
+          searchNodes[page].nodes.forEach((node) => {
+            if (!node.slug.includes("/")) {
+              tempNode.slug = `project/${node.slug}`
+            }
+          })
+        }
 
-        Object.keys(node).forEach((page, i) => {
-          node[page] = newItem[i]
+        Object.keys(tempNode).forEach((page, i) => {
+          tempNode[page] = newItem[i]
         })
-        documents.push(node)
+        documents.push(tempNode)
       })
     }
   })
@@ -116,9 +117,10 @@ export const SearchPageLayout: FunctionComponent<SearchProps> = ({
   //const meta = useSiteMetadata()
   return (
     <div className="flex flex-col items-center justify-center align-middle text-center px-2">
-      <div className="container mx-auto my-2 border-b-4 border-primary">
+      <div className="container mx-auto mt-2 border-b-4 border-primary">
         <SearchBar
           id="siteSearch"
+          autoFocus={true}
           label={"Search"}
           placeholder={"Type to search pages..."}
           onChange={(e) => setSearchQuery(e.target.value)}
@@ -153,7 +155,7 @@ export const SearchPageLayout: FunctionComponent<SearchProps> = ({
                   <h2 className="capitalize">
                     {db[result.ref].question || db[result.ref].slug}
                   </h2>
-                  <ul className="mt-4">
+                  <ul className="grid grid-rows-1 justify-center md:block">
                     <h2 className="font-sans text-black text-tag mb-1 font-extrabold">
                       Match found in:
                     </h2>

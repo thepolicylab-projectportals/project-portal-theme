@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactNode } from "react"
+import React, { FunctionComponent, ReactNode, useState } from "react"
 import { graphql } from "gatsby"
 import {
   Footer,
@@ -8,6 +8,8 @@ import {
   TopicType,
 } from "../components"
 import { ImageDataLike } from "gatsby-plugin-image"
+import Modal from "react-modal"
+Modal.setAppElement(`#___gatsby`)
 
 export interface LayoutProps {
   path: string

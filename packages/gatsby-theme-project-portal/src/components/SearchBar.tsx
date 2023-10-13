@@ -1,9 +1,4 @@
-import React, {
-  ChangeEventHandler,
-  Dispatch,
-  FunctionComponent,
-  SetStateAction,
-} from "react"
+import React, { FunctionComponent } from "react"
 import { Label } from "./Label"
 
 interface SearchBarProps {
@@ -11,6 +6,7 @@ interface SearchBarProps {
   label: string
   onChange: any
   placeholder: string
+  autoFocus?: boolean
 }
 
 export const SearchBar: FunctionComponent<SearchBarProps> = ({
@@ -18,11 +14,13 @@ export const SearchBar: FunctionComponent<SearchBarProps> = ({
   label,
   onChange,
   placeholder,
+  autoFocus,
 }) => {
   return (
     <>
       <Label id={id} label={label} />
       <input
+        autoFocus={autoFocus}
         className="rounded border-gray-300 hover:border-gray-400"
         style={{ height: "62%" }}
         type="text"
