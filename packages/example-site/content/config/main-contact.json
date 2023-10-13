@@ -3,5 +3,9 @@
   "ongoingText": "We plan to post results and deliverables when the project is complete. In the meantime, we welcome questions about the project.",
   "completeText": "We’re eager to learn how you use the results and welcome any questions.",
   "projectInterestLink": "",
-  "newsletter": {"link": "https://mailchi.mp/12498740d69d/research-partnerships-portal", "text": "Subscribe to our newsletter"}
+  "newsletter": {
+    "link": "https://mailchi.mp/12498740d69d/research-partnerships-portal",
+    "title": "Subscribe to our newsletter",
+    "text":"Sign up for **project** portal updates"
+  }
 }
