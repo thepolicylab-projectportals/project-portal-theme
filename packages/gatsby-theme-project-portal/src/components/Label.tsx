@@ -8,7 +8,7 @@ interface LabelProps {
 export const Label: FunctionComponent<LabelProps> = ({ id, label }) => {
   return (
     <>
-      <label id="search-label" className="font-bold p-1" htmlFor={id}>
+      <label id={`${id}-label`} className="font-bold p-1" htmlFor={id}>
         {label}
       </label>
     </>
