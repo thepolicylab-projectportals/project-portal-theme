@@ -93,6 +93,7 @@ export const query = graphql`
       siteMetadata {
         newsletter {
           link
+          title
           text
         }
       }
