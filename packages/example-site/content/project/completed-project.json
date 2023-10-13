@@ -5,7 +5,7 @@
   ],
   "agency": "example agency",
   "keyDates": "example keyDates",
-  "summary": "example summary that is also testing the media folder.  \n\n![](/image/cat.jpg)",
+  "summary": "example summary that is also testing the media folder.  \n\n![A watercolor painting of a cat laying in some leaves.](/image/cat.jpg \"Cat\")",
   "question": "Hello world (from json)?",
   "mainContact": "first-contact",
   "created": "2023-10-13T16:07:13.466Z",
@@ -24,6 +24,6 @@
   "description": "example description",
   "emailContent": "example emailContent",
   "purpose": "example purpose",
-  "lastModified": "2023-10-13T16:08:11.832Z",
+  "lastModified": "2023-10-13T21:29:52.403Z",
   "deliverable": "example deliverable"
 }
