@@ -91,6 +91,7 @@ export const query = graphql`
   query ProjectDetailPageQuery($slug: String!) {
     ...HeadData
     ...LayoutData
+    ...NewsletterProps
     page: project(slug: { eq: $slug }) {
       title: question
       description: summary
@@ -118,10 +119,6 @@ export const query = graphql`
             ongoingText
             completeText
           }
-        }
-        newsletter {
-          link
-          text
         }
       }
     }
