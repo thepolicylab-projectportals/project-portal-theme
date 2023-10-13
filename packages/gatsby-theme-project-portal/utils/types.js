@@ -38,6 +38,7 @@ const siteMetadataTypeDefs = `
   }
   type NewsletterType {
     text: String
+    title: String
     link: String
   }
   type MainContactType {
