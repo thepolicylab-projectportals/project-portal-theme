@@ -1,7 +1,9 @@
 import React, { FunctionComponent } from "react"
-import { Link } from "gatsby"
-import { HeaderWithImage } from "../components"
+import { graphql, Link } from "gatsby"
 import { ImageDataLike } from "gatsby-plugin-image"
+import { HeaderWithImage } from "../components"
+
+export { Head } from "../hooks"
 
 interface ThankYouProps {
   data: {
@@ -40,3 +42,21 @@ export const ThankYouPageLayout: FunctionComponent<ThankYouProps> = ({
     </>
   )
 }
+
+export default ThankYouPageLayout
+
+export const query = graphql`
+  query ThankYouQuery($slug: String!) {
+    ...HeadData
+    ...LayoutData
+    page: generalPage(slug: { eq: $slug }) {
+      title
+      description: lede
+    }
+    generalPage(slug: { eq: $slug }) {
+      image {
+        ...HeaderWithImageBackground
+      }
+    }
+  }
+`
