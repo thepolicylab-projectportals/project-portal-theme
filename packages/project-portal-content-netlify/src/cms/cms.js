@@ -666,6 +666,39 @@ CMS.init({
                   "Must be a valid URL.",
                 ],
               },
+              {
+                name: "newsletter",
+                label: "Newsletter form link",
+                hint:
+                  "A link to a newsletter sign-up form, for instance, one set up on" +
+                  " Mailchimp.",
+                widget: "object",
+                fields: [
+                  {
+                    name: "link",
+                    widget: "string",
+                    hint: "URL of the newsletter sign-up form.",
+                    pattern: [
+                      "^(https?:\\/\\/)?([\\da-z\\.-]+\\.[a-z\\.]{2,6}|[\\d\\.]+)([\\/:?=&#]{1}[\\da-z\\.-]+)*[\\/\\?]?$",
+                      // from https://regexr.com/3dqa0
+                      "Must be a valid URL.",
+                    ],
+                    required: false,
+                  },
+                  {
+                    name: "title",
+                    widget: "string",
+                    required: false,
+                    hint: "The heading shown in the sign-up box. ",
+                  },
+                  {
+                    name: "text",
+                    widget: "markdown",
+                    required: false,
+                    hint: 'The text shown above the "Subscribe" button. ',
+                  },
+                ],
+              },
             ],
           },
           {
