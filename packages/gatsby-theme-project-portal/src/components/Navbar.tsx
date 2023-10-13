@@ -57,13 +57,26 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
             <ul className="flex flex-col list-none xl:flex-row xl:ml-auto">
               {pages?.map(({ name, link, show }, i) =>
                 show ? (
-                  <Link
-                    key={"nav" + i}
-                    to={link ? link : "#"}
-                    onClick={() => setNavbarOpen(false)}
-                  >
-                    <NavbarItem name={name} isActive={activePage === link} />
-                  </Link>
+                  /^\/.*/.test(link) ? (
+                    <li>
+                      <Link
+                        key={"nav" + i}
+                        to={link ? link : "#"}
+                        onClick={() => setNavbarOpen(false)}
+                      >
+                        <NavbarItem
+                          name={name}
+                          isActive={activePage === link}
+                        />
+                      </Link>
+                    </li>
+                  ) : (
+                    <li>
+                      <a key={"nav" + i} href={link}>
+                        <NavbarItem name={name} isActive={false} />
+                      </a>
+                    </li>
+                  )
                 ) : (
                   ""
                 )
