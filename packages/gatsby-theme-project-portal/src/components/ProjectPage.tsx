@@ -65,25 +65,8 @@ export const ProjectPage = ({
     }
     return tempFilterOptions
   }
-  const getStatus = (project: CardProps[]): CardProps[] => {
-    let tempStatus = []
-    for (const tempProject of project) {
-      if (tempProject.status) {
-        if (!tempStatus.some(({ value }) => value === tempProject.status)) {
-          tempStatus.push({
-            value: tempProject.status,
-            label: tempProject.status,
-          })
-        }
-      }
-    }
-    return tempStatus
-  }
   const [filterOptionsTopic, setFilterOptionsTopic] = useState(
     getTopics(allProjects)
-  )
-  const [filterOptionsStatus, setFilterOptionsStatus] = useState(
-    getStatus(allProjects)
   )
 
   const ITEMS_PER_PAGE = 6
@@ -232,16 +215,7 @@ export const ProjectPage = ({
     }
     setPageStart(0)
     setPageEnd(ITEMS_PER_PAGE)
-
-    // 3. filter by status. If there are any filters chosen
-    // apply it to filteredProjects
-    if (selectedStatusOptions.length > 0) {
-      const filteredStatus = selectedStatusOptions.map(({ value }) => value)
-      filteredProjects = sortedProjects.filter((project) =>
-        filteredStatus.includes(project.status)
-      )
-    }
-    //4. search query
+    //3. search query
     // if search query is used, we will now apply search results, to filteredProjects
     if (searchQuery.length > 0) {
       for (let i = 0; i < filteredProjects.length; i++) {
@@ -255,12 +229,11 @@ export const ProjectPage = ({
     }
 
     setFilterOptionsTopic(getTopics(filteredProjects))
-    setFilterOptionsStatus(getStatus(filteredProjects))
     //now filteredProjects has gone through all 3 checks
     //ready to update displayProjects
     setDisplayProjects(filteredProjects)
     //setDisplayProjects will trigger an updated display
-  }, [selectedTopicOptions, selectedStatusOptions, sortedProjects, searchQuery]) // triggered when list is changed
+  }, [selectedTopicOptions, sortedProjects, searchQuery]) // triggered when list is changed
 
   const selectStyle = {
     placeholder: (provided) => ({ ...provided, color: "#767676" }),
@@ -285,19 +258,6 @@ export const ProjectPage = ({
               value={sortDirection}
               onChange={setSortDirection}
               options={sortingOptions}
-              styles={selectStyle}
-            />
-          </div>
-          <div className="flex-1 min-w-30ch">
-            <Label id="filter" label="Filter by status" />
-            <Select
-              aria-labelledby="filter-label"
-              inputId="filter"
-              name="filter-select"
-              isMulti={true}
-              value={selectedStatusOptions}
-              onChange={setSelectedStatusOptions}
-              options={filterOptionsStatus}
               styles={selectStyle}
             />
           </div>
