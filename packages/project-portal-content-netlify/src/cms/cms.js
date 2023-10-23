@@ -18,6 +18,8 @@ CMS.init({
         folder: "content/project",
         extension: "json",
         create: true,
+        media_folder: "/static/image",
+        public_folder: "/image",
         identifier_field: "title",
         sortable_fields: ["title", "status", "lastModified"],
         preview_path: "project/{{slug}}",
