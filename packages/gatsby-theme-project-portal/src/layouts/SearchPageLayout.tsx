@@ -79,8 +79,6 @@ export const SearchPageLayout: FunctionComponent<SearchProps> = ({
     allGeneralPage,
   },
 }: SearchProps) => {
-  // The following is run when the component mounts, unmounts, or changes
-  // TODO: Want to create the idx at build time
   const [searchQuery, setSearchQuery] = useState([])
   const [queryResults, setQueryResults] = useState([])
   const searchNodes = { siteUrl, allProject, allGeneralPage }
@@ -113,11 +111,9 @@ export const SearchPageLayout: FunctionComponent<SearchProps> = ({
           }
         })
         if (page === "allProject") {
-          searchNodes[page].nodes.forEach((node) => {
-            if (!node.slug.includes("/")) {
-              tempNode.slug = `project/${node.slug}`
-            }
-          })
+          if (!node.slug.includes("/")) {
+            tempNode.slug = `project/${node.slug}`
+          }
         }
 
         Object.keys(tempNode).forEach((page, i) => {
