@@ -183,7 +183,7 @@ export const SearchPageLayout: FunctionComponent<SearchProps> = ({
   //const meta = useSiteMetadata()
   return (
     <div className="flex flex-col items-center justify-center align-middle text-center px-2">
-      <div className="container mx-auto mt-2 border-b-4 border-primary">
+      <div className="container mx-auto mt-4 border-b-4 border-primary">
         <SearchBar
           id="siteSearch"
           autoFocus={true}
@@ -197,8 +197,8 @@ export const SearchPageLayout: FunctionComponent<SearchProps> = ({
         </div>
       </div>
 
-      <article className="container py-6 mx-auto">
-        <div className="grid grid-cols-1 mx-4 xl:mx-6 gap-4 justify-self-center">
+      <article className="py-6 md:container md:mx-auto">
+        <div className="grid grid-cols-1 md:mx-4 xl:mx-6 gap-4 justify-self-center">
           {queryResults.map((result) => {
             const fields = new Set<string>()
             Object.keys(result.matchData.metadata).forEach((term) => {
@@ -217,12 +217,12 @@ export const SearchPageLayout: FunctionComponent<SearchProps> = ({
             ))
             const item = (
               <React.Fragment key={result.ref}>
-                <div className="px-2 py-4 overflow-hidden bg-white border border-gray-200 rounded-md shadow-md h-full flex flex-col">
+                <div className="px-2 py-4 overflow-hidden bg-white border border-gray-200 rounded-md shadow-md h-full flex flex-col md:mx-10 md:py-6 lg:mx-60">
                   <h2 className="capitalize">
                     {db[result.ref].question || db[result.ref].slug}
                   </h2>
                   <ul className="grid grid-rows-1 justify-center md:block">
-                    <h2 className="font-sans text-black text-tag mb-1 font-extrabold">
+                    <h2 className="font-sans text-black text-tag my-2 font-extrabold">
                       Match found in:
                     </h2>
                     {found}
@@ -252,6 +252,7 @@ export const SearchPageLayout: FunctionComponent<SearchProps> = ({
 
 export default SearchPageLayout
 
+export { Head } from "../hooks"
 export const query = graphql`
   query SearchQuery($slug: String!) {
     ...HeadData
