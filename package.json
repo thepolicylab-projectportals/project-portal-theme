@@ -31,8 +31,6 @@
     "node": ">=18.0.0"
   },
   "dependencies": {
-    "gatsby-plugin-testing": "^0.3.5",
-    "lunr": "^2.3.9",
-    "react-modal": "^3.16.1"
+    "gatsby-plugin-testing": "^0.3.5"
   }
 }
