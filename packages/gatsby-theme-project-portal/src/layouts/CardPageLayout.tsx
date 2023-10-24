@@ -46,7 +46,7 @@ export const CardPageLayout: FunctionComponent<CardPageLayoutProps> = ({
 export default CardPageLayout
 
 export const query = graphql`
-  query CardPageQuery($slug: String!) {
+  query CardPageQuery($slug: String!, $statusFilter: [String]) {
     ...HeadData
     ...LayoutData
     page: cardPage(slug: { eq: $slug }) {
@@ -60,6 +60,11 @@ export const query = graphql`
       sortOptions
       image {
         ...HeaderWithImageBackground
+      }
+    }
+    allProject(filter: { status: { in: $statusFilter } }) {
+      nodes {
+        ...CardDetails
       }
     }
   }

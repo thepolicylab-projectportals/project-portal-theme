@@ -15,7 +15,6 @@ interface NavbarProps {
     link: string
     show: boolean
   }[]
-  searchNodes
 }
 
 export const Navbar: FunctionComponent<NavbarProps> = ({
@@ -23,7 +22,6 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
   activePage,
   image,
   pages,
-  searchNodes,
 }: NavbarProps) => {
   const [navbarOpen, setNavbarOpen] = React.useState(false)
 
@@ -73,8 +71,6 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
                   ""
                 )
               )}
-
-              <SearchModal data={searchNodes} />
             </ul>
           </div>
         </div>

@@ -2,18 +2,88 @@ import React, { FunctionComponent, useEffect, useRef, useState } from "react"
 import lunr from "lunr"
 import { SearchBar } from "../components/SearchBar"
 import { isNull } from "lodash"
+import { graphql } from "gatsby"
+import { TopicType } from "../components"
 
 export interface SearchProps {
-  searchNodes
+  data: {
+    site: {
+      siteMetadata: {
+        siteUrl
+      }
+    }
+    allProject: {
+      nodes: {
+        slug
+        question
+        title
+        summary
+        status
+        opportunityCloses
+        startDate
+        endDate
+        lastModified
+        agency
+        topics: TopicType[]
+        deliverable
+        purpose
+        expertise
+        requirement
+        keyDates
+        priorResearch
+        statusOfData
+        fundingInfo
+        emailContent
+        mainContact: {
+          name
+          title
+          employer
+          email
+        }
+        projectTeam: {
+          name
+          title
+          employer
+          email
+        }
+        faq: {
+          text
+          title
+        }
+      }
+    }
+    allGeneralPage: {
+      nodes: {
+        slug
+        lede
+        faq: {
+          text
+          title
+        }
+        aims: {
+          text
+          title
+        }
+        title
+      }
+    }
+  }
 }
 
 export const SearchPageLayout: FunctionComponent<SearchProps> = ({
-  searchNodes,
+  data: {
+    site: {
+      siteMetadata: { siteUrl },
+    },
+    allProject,
+    allGeneralPage,
+  },
 }: SearchProps) => {
-  const siteUrl = searchNodes.siteUrl
+  // The following is run when the component mounts, unmounts, or changes
+  // TODO: Want to create the idx at build time
   const [searchQuery, setSearchQuery] = useState([])
   const [queryResults, setQueryResults] = useState([])
-
+  const searchNodes = { siteUrl, allProject, allGeneralPage }
   let documents = []
 
   Object.keys(searchNodes).forEach((page) => {
@@ -183,3 +253,26 @@ export const SearchPageLayout: FunctionComponent<SearchProps> = ({
     </div>
   )
 }
+
+export default SearchPageLayout
+
+export const query = graphql`
+  query SearchQuery($slug: String!) {
+    ...HeadData
+    ...LayoutData
+    ...SearchData
+    page: generalPage(slug: { eq: $slug }) {
+      title
+      description: lede
+    }
+    generalPage(slug: { eq: $slug }) {
+      pageName
+      title
+      header
+      accessibility
+      image {
+        ...HeaderWithImageBackground
+      }
+    }
+  }
+`
