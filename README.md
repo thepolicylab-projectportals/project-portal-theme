@@ -8,7 +8,7 @@
     the theme, and should grow to reflect a minimum working site.
   - [📁`gatsby-theme-project-portal`](./packages/gatsby-theme-project-portal) is the theme and incorporates all the shared components, layouts, templates, reused queries, and styling. It should be imported into the site as a `theme`.
   - [📁`storybook`](./packages/storybook) is a component workbench based on 
-    [Storybook](storybook.js.org) which displays the components and layout elements.
+    [Storybook](https://storybook.js.org) which displays the components and layout elements.
 - [📄`.prettierrc`](.prettierrc) is a configuration file for the `prettier` JavaScript formatter.
 - [📄`package.json`](package.json) is the config file for the `yarn` workspaces we use when developing the theme.
 - [📄`test-packaging.sh`](test-packaging.sh) contains `zsh` functions used for testing the packaging, publishing, and building of the sites without using `yarn` workspaces (which was the main problem with the first implementation of the theme).
