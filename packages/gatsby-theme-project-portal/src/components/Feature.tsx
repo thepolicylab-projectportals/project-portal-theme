@@ -11,7 +11,7 @@ export const Feature: FunctionComponent<FeatureProps> = ({
   value,
   className,
 }) => {
-  let out = null
+  let out
   if (Array.isArray(value)) {
     out = value.map((item, i) => (
       <Tag key={`${label}_${i}`} className={className}>
