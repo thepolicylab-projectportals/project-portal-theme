@@ -15,7 +15,8 @@
 - [📄`yarn.lock`](yarn.lock) lists all the current package version used when setting up the workspaces.
 - [📄`Brewfile`](Brewfile) can be used by the macOS homebrew package manager to install project dependencies. For more info, run `brew bundle --help` or visit [https://brew.sh](https://brew.sh).
 - [📁`node_modules`](./node_modules) When you run `yarn install`, the packages from `./.yarn/cache` are unpacked here.
-- [📁`artifacts`](./artifacts) is not checked in to the repository, but is where the `yarn pack` command in the test scripts outputs the `.tgz` file containing the theme.
+- 📁`artifacts` is not checked in to the repository, and is where the `yarn pack` command in the 
+  test scripts outputs the `.tgz` file containing the theme.
 
 ## Getting Started with Development
 
