@@ -1,3 +1,6 @@
+// Ignore checks of unused exported defaults & constants as they are used implicitly by Storybook
+// noinspection JSUnusedGlobalSymbols
+
 import type { Meta, StoryObj } from "@storybook/react"
 import { ThankYouPageLayout } from "./ThankYouPageLayout"
 import { loadImage } from "../components/Story.utilities"

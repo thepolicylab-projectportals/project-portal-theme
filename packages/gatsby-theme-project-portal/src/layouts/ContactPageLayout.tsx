@@ -1,3 +1,6 @@
+// Ignore checks of unused exported defaults & constants as they are used implicitly by Storybook
+// noinspection JSUnusedGlobalSymbols
+
 import React, { Component, FunctionComponent } from "react"
 import { graphql, navigate } from "gatsby"
 import { ImageDataLike } from "gatsby-plugin-image"
