@@ -68,7 +68,6 @@ export const ProjectDetail: FunctionComponent<ProjectDetailProps> = ({
   opportunityCloses,
   startDate,
   endDate,
-  lastModified,
   agency,
   topics,
   deliverable,
