@@ -39,7 +39,6 @@ export const query = graphql`
 `
 
 export const Card: FunctionComponent<CardProps> = ({
-  slug,
   title,
   question,
   status,
@@ -48,7 +47,6 @@ export const Card: FunctionComponent<CardProps> = ({
   opportunityCloses,
   startDate,
   endDate,
-  lastModified,
 }) => {
   return (
     <div className="px-2 py-4 overflow-hidden bg-white border border-gray-200 rounded-md shadow-sm h-full flex flex-col">
