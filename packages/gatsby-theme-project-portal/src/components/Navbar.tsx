@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react"
 import { Link } from "gatsby"
-import { FaBars, FaTimes, FaTimesCircle } from "react-icons/fa"
+import { FaBars, FaTimes } from "react-icons/fa"
 import { ImageDataLike } from "gatsby-plugin-image"
 import { SiteTitle, NavbarItem } from "."
 
@@ -22,7 +22,6 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
   pages,
 }: NavbarProps) => {
   const [navbarOpen, setNavbarOpen] = React.useState(false)
-
   return (
     <>
       <nav
@@ -32,7 +31,7 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
         }
       >
         <div className="flex flex-wrap justify-between w-full px-0 xl:px-4">
-          <div className="relative flex flex-no-wrap w-full xl:static xl:w-auto">
+          <div className="relative flex flex-no-wrap w-full xl:static xl:block xl:w-auto">
             <button
               className="block p-6 ml-0 text-xl leading-none text-white outline-none cursor-pointer bg-primary xl:hidden focus:outline-none"
               type="button"
@@ -55,7 +54,7 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
             }
             id="example-navbar-danger"
           >
-            <ul className="flex flex-col items-center justify-center list-none xl:flex-row xl:ml-auto">
+            <ul className="flex flex-col list-none xl:flex-row xl:ml-auto">
               {pages.map(({ name, link, show }, i) =>
                 show ? (
                   <Link

@@ -1,12 +1,12 @@
 const { withDefaults } = require(`./utils/default-options`)
+const fs = require("fs")
+
 const {
   projectTypeDefs,
   projectPortalConfigTypeDefs,
   contactTypeDefs,
   pageTypeDefs,
 } = require(`./utils/types`)
-const fs = require("fs")
-const { node } = require("prop-types")
 
 exports.onPreBootstrap = ({ reporter }, themeOptions) => {
   const { themeImageDirectory } = withDefaults(themeOptions)
@@ -32,7 +32,7 @@ exports.sourceNodes = ({ actions, createContentDigest }, themeOptions) => {
   const { createNode } = actions
 
   const projectPortalConfig = withDefaults(themeOptions)
-  const searchData = node
+
   createNode({
     ...projectPortalConfig,
     id: `@thepolicylab-projectportals/gatsby-theme-project-portal`,
@@ -127,14 +127,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const projects = allProject.nodes
 
   // Create a page for each Post
-  projects.forEach((node) => {
+  projects.forEach((project) => {
+    const { slug } = project
     createPage({
-      path: `project/${node.slug}`,
+      path: `project/${slug}`,
       component: require.resolve(`./src/layouts/ProjectDetailPage.tsx`),
       context: {
-        slug: node.slug,
-        pagePath: `project/${node.slug}`,
-        projectIs: node,
+        slug: slug,
       },
     })
   })

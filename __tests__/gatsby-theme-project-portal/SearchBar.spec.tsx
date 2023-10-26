@@ -8,12 +8,7 @@ describe("SearchBar", () => {
 
   it("renders label and input elements with the correct props", () => {
     const { getByLabelText, getByText } = render(
-      <SearchBar
-        label="Test Label"
-        onChange={onChange}
-        id={"search"}
-        placeholder={"Type to filter posts..."}
-      />
+      <SearchBar label="Test Label" onChange={onChange} />
     )
     //looking for text set to "Test Label"
     expect(getByText("Test Label")).toBeInTheDocument()
@@ -23,12 +18,7 @@ describe("SearchBar", () => {
 
   it("calls the onChange callback when the input value changes", () => {
     const { getByLabelText } = render(
-      <SearchBar
-        label="Test Label"
-        onChange={onChange}
-        id={"search"}
-        placeholder={"Type to filter posts..."}
-      />
+      <SearchBar label="Test Label" onChange={onChange} />
     )
     //fireEvent.change to simulate the input value change
     //trigger's a change event on the input element
@@ -40,12 +30,7 @@ describe("SearchBar", () => {
 
   it("renders the input placeholder correctly", () => {
     const { getByPlaceholderText } = render(
-      <SearchBar
-        label="Test Label"
-        onChange={onChange}
-        id={"search"}
-        placeholder={"Type to filter posts..."}
-      />
+      <SearchBar label="Test Label" onChange={onChange} />
     )
     //check placeholder text
     expect(getByPlaceholderText("Type to filter posts...")).toBeInTheDocument()
@@ -53,12 +38,7 @@ describe("SearchBar", () => {
 
   it("sets the aria-label attribute to the correct value", () => {
     const { getByLabelText } = render(
-      <SearchBar
-        label="Test Label"
-        onChange={onChange}
-        id={"search"}
-        placeholder={"Type to filter posts..."}
-      />
+      <SearchBar label="Test Label" onChange={onChange} />
     )
     //checks  that aria-label is set correctly
     expect(getByLabelText("Search")).toHaveAttribute("aria-label", "Search")
@@ -66,12 +46,7 @@ describe("SearchBar", () => {
 
   it("applies the correct CSS classes to the input element", () => {
     const { getByLabelText } = render(
-      <SearchBar
-        label="Test Label"
-        onChange={onChange}
-        id={"search"}
-        placeholder={"Type to filter posts..."}
-      />
+      <SearchBar label="Test Label" onChange={onChange} />
     )
     //checks that tailwind styling is correct
     expect(getByLabelText("Search")).toHaveClass(
@@ -83,12 +58,7 @@ describe("SearchBar", () => {
 
   it("sets the htmlFor attribute on the label element", () => {
     const { getByText } = render(
-      <SearchBar
-        label="Test Label"
-        onChange={onChange}
-        id={"search"}
-        placeholder={"Type to filter posts..."}
-      />
+      <SearchBar label="Test Label" onChange={onChange} />
     )
     //check rendered component has attribute id = search-label
     expect(getByText("Test Label")).toHaveAttribute("id", "search-label")
@@ -96,12 +66,7 @@ describe("SearchBar", () => {
 
   it("applies the style prop correctly to the input element", () => {
     const { getByLabelText } = render(
-      <SearchBar
-        label="Test Label"
-        onChange={onChange}
-        id={"search"}
-        placeholder={"Type to filter posts..."}
-      />
+      <SearchBar label="Test Label" onChange={onChange} />
     )
     expect(getByLabelText("Search")).toHaveStyle({ height: "62%" })
   })
