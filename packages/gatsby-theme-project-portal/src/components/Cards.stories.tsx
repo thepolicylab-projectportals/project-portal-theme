@@ -1,3 +1,6 @@
+// Ignore checks of unused exported defaults & constants as they are used implicitly by Storybook
+// noinspection JSUnusedGlobalSymbols
+
 import type { Meta, StoryObj } from "@storybook/react"
 import { Cards } from "./Cards"
 import * as CardStories from "./Card.stories"
@@ -19,7 +22,7 @@ export const exampleCards = [
   CardStories.openNoDateData,
   CardStories.ongoingNoDateData,
   CardStories.completedNoDateData,
-  CardStories.longTopicsListData,  
+  CardStories.longTopicsListData,
 ]
 
 export const Primary: Story = {
