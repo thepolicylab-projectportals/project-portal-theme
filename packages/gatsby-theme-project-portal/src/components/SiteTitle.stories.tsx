@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from "@storybook/react"
 import { SiteTitle } from "./SiteTitle"
 
 import { loadImage } from "./Story.utilities"
-import { IGatsbyImageData } from "gatsby-plugin-image"
 
 const meta: Meta<typeof SiteTitle> = {
   component: SiteTitle,
