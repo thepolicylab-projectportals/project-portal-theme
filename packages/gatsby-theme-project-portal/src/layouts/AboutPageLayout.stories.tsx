@@ -1,4 +1,3 @@
-import React from "react"
 import type { Meta, StoryObj } from "@storybook/react"
 import { AboutPageLayout } from "./AboutPageLayout"
 import { loadImage } from "../components/Story.utilities"
