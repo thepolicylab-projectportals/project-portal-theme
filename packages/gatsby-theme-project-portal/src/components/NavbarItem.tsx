@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from "react"
-import { Link } from "gatsby"
 
 interface NavbarItemProps {
   name: string
