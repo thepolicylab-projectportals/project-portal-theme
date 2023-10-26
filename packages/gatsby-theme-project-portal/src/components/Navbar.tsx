@@ -3,8 +3,6 @@ import { Link } from "gatsby"
 import { FaBars, FaTimes, FaTimesCircle } from "react-icons/fa"
 import { ImageDataLike } from "gatsby-plugin-image"
 import { SiteTitle, NavbarItem } from "."
-import Modal from "react-modal"
-import { SearchModal } from "./SearchModal"
 
 interface NavbarProps {
   title: string

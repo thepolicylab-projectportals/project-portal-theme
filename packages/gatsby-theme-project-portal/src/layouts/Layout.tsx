@@ -1,8 +1,7 @@
-import React, { FunctionComponent, ReactNode, useState } from "react"
+import React, { FunctionComponent, ReactNode } from "react"
 import { graphql } from "gatsby"
 import { Footer, BottomBanner, DevelopmentBanner, Navbar } from "../components"
 import { ImageDataLike } from "gatsby-plugin-image"
-import Modal from "react-modal"
 
 export interface LayoutProps {
   path: string
@@ -11,7 +10,6 @@ export interface LayoutProps {
     site: {
       siteMetadata: {
         title: string
-        siteUrl: string
       }
     }
     projectPortalConfig: {
@@ -49,7 +47,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
   path,
   data: {
     site: {
-      siteMetadata: { title: siteTitle, siteUrl },
+      siteMetadata: { title: siteTitle },
     },
     projectPortalConfig: {
       showDevBanner,
@@ -62,7 +60,6 @@ export const Layout: FunctionComponent<LayoutProps> = ({
   },
   children,
 }) => {
-  Modal.setAppElement(`#___gatsby`)
   return (
     <div className="w-full mx-0 bg-white border-0 xl:container xl:p-0 xl:mx-auto xl:border-l xl:border-r xl:border-gray-200 flex flex-col min-h-screen">
       {showDevBanner && <DevelopmentBanner />}
@@ -97,7 +94,6 @@ export const query = graphql`
     site {
       siteMetadata {
         title
-        siteUrl
       }
     }
     projectPortalConfig {

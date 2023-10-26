@@ -11,9 +11,5 @@ export default meta
 type Story = StoryObj<typeof SearchBar>
 
 export const Primary: Story = {
-  args: {
-    label: "Search here: ",
-    id: "filter",
-    placeholder: "Type to Search...",
-  },
+  args: { label: "Search here: " },
 }

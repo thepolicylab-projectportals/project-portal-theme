@@ -7,7 +7,6 @@ import Select, { MultiValue } from "react-select"
 import * as JsSearch from "js-search"
 import { SearchBar } from "./SearchBar"
 import { ImageDataLike } from "gatsby-plugin-image"
-import { Label } from "./Label"
 
 function customSort(dateField: string, sortAscending: boolean) {
   return function (a, b) {
@@ -65,9 +64,7 @@ export const ProjectPage = ({
     }
     return tempFilterOptions
   }
-  const [filterOptionsTopic, setFilterOptionsTopic] = useState(
-    getTopics(allProjects)
-  )
+  const [filterOptions, setFilterOptions] = useState(getTopics(allProjects))
 
   const ITEMS_PER_PAGE = 6
   const [sortedProjects, setSortedProjects] = useState(allProjects)
@@ -176,12 +173,7 @@ export const ProjectPage = ({
     setHasNext(pageEnd < displayProjects.length)
   }, [list]) // triggered when list is changed
 
-  const [selectedTopicOptions, setSelectedTopicOptions] = useState<
-    MultiValue<any>
-  >([])
-  const [selectedStatusOptions, setSelectedStatusOptions] = useState<
-    MultiValue<any>
-  >([])
+  const [selectedOptions, setSelectedOptions] = useState<MultiValue<any>>([])
 
   useEffect(() => {
     const sortedList = [...allProjects]
@@ -205,8 +197,8 @@ export const ProjectPage = ({
     //2. filter by topic. If there are any filters chosen
     // apply it to filteredProjects
     // or else stick with sortedProjects (which may have been updated by sortOptions) aka the first check
-    if (selectedTopicOptions.length > 0) {
-      const filteredTopics = selectedTopicOptions.map(({ value }) => value)
+    if (selectedOptions.length > 0) {
+      const filteredTopics = selectedOptions.map(({ value }) => value)
       filteredProjects = sortedProjects.filter((project) =>
         project.topics
           .map((topic) => topic.slug)
@@ -215,6 +207,7 @@ export const ProjectPage = ({
     }
     setPageStart(0)
     setPageEnd(ITEMS_PER_PAGE)
+
     //3. search query
     // if search query is used, we will now apply search results, to filteredProjects
     if (searchQuery.length > 0) {
@@ -228,12 +221,12 @@ export const ProjectPage = ({
       }
     }
 
-    setFilterOptionsTopic(getTopics(filteredProjects))
+    setFilterOptions(getTopics(filteredProjects))
     //now filteredProjects has gone through all 3 checks
     //ready to update displayProjects
     setDisplayProjects(filteredProjects)
     //setDisplayProjects will trigger an updated display
-  }, [selectedTopicOptions, sortedProjects, searchQuery]) // triggered when list is changed
+  }, [selectedOptions, sortedProjects, searchQuery]) // triggered when list is changed
 
   const selectStyle = {
     placeholder: (provided) => ({ ...provided, color: "#767676" }),
@@ -248,9 +241,11 @@ export const ProjectPage = ({
         <div ref={scrollToRef} className="absolute -top-100px"></div>
       </div>
       <div className="pt-4 pb-10 md:mx-8 lg:mt-6 lg:pt-8 lg:pb-20 overflow-hidden px-2 xl:px-12 bg-white">
-        <div className="flex flex-wrap items-end gap-4 mb-8 mx-3 xl:mx-6 bg-white">
+        <div className="flex flex-wrap gap-4 mb-8 mx-3 xl:mx-6 bg-white">
           <div className="flex-1 min-w-30ch">
-            <Label id="sort" label="Filter by" />
+            <label id="sort-label" className="font-bold" htmlFor="sort">
+              Sort by
+            </label>
             <Select
               aria-labelledby="sort-label"
               inputId="sort"
@@ -262,24 +257,24 @@ export const ProjectPage = ({
             />
           </div>
           <div className="flex-1 min-w-30ch">
-            <Label id="filter-select" label="Filter by topic" />
+            <label id="filter-label" className="font-bold" htmlFor="filter">
+              Filter by topic
+            </label>
             <Select
               aria-labelledby="filter-label"
-              inputId="filter-select"
+              inputId="filter"
               name="filter-select"
               isMulti={true}
-              value={selectedTopicOptions}
-              onChange={setSelectedTopicOptions}
-              options={filterOptionsTopic}
+              value={selectedOptions}
+              onChange={setSelectedOptions}
+              options={filterOptions}
               styles={selectStyle}
               noOptionsMessage={() => "No remaining topics"}
             />
           </div>
           <div className="flex-1 min-w-30ch auto-rows-auto flex flex-col">
             <SearchBar
-              id="projSearch"
               label={"Search"}
-              placeholder="Type to filter posts..."
               onChange={(e) => setSearchQuery(e.target.value)}
             />
           </div>
