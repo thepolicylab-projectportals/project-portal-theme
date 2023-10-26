@@ -1,7 +1,7 @@
 import * as React from "react"
 import { graphql } from "gatsby"
 
-export function Head({ location, params, data, pageContext }) {
+export function Head({ location, data }) {
   const socialShareImage = `${data.site.siteMetadata.siteUrl}${data.socialShareImage?.childImageSharp.gatsbyImageData.images.fallback.src}`
 
   return (
