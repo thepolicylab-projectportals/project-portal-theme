@@ -1,7 +1,7 @@
 import React from "react"
 import "@testing-library/jest-dom"
 
-import { render, screen } from "@testing-library/react"
+import { render } from "@testing-library/react"
 import { HeaderWithImage } from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/components"
 
 describe("test HeaderWithImage Component", () => {
