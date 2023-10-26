@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import { ProjectDetail } from "./ProjectDetail"
 import * as ProjectTeamStories from "./ProjectTeam.stories"
-import { emptyGatsbyImageData } from "./Story.utilities"
 import { contactImage, contactImageYogi } from "./Contact.stories"
 
 const meta: Meta<typeof ProjectDetail> = {
