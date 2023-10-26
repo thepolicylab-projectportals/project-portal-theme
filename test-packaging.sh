@@ -146,7 +146,7 @@ package-and-install () {
   echo "workspacePackages: ${workspacePackages}"
   echo "gatsbyConfigPackages: ${gatsbyConfigPackages}"
   echo "artifactDir: ${artifactDir}"
-  echo "gatsbyCommands:" ${gatsbyCommands}
+  echo "gatsbyCommands: ${gatsbyCommands}"
 
 
   ###################
