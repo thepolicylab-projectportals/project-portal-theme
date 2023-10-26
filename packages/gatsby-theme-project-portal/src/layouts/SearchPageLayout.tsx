@@ -3,68 +3,58 @@ import lunr from "lunr"
 import { SearchBar } from "../components/SearchBar"
 import { isNull } from "lodash"
 import { graphql } from "gatsby"
-import { TopicType } from "../components"
+import { ContactType, TopicType } from "../components"
 
 export interface SearchProps {
   data: {
     site: {
       siteMetadata: {
-        siteUrl
+        siteUrl: string
       }
     }
     allProject: {
       nodes: {
-        slug
-        question
-        title
-        summary
-        status
-        opportunityCloses
-        startDate
-        endDate
-        lastModified
-        agency
-        topics: TopicType[]
+        slug: string
+        question: string
+        title: string
+        summary: string
+        status: string
+        opportunityCloses: Date
+        startDate: Date
+        endDate: Date
+        lastModified: Date
+        agency: string
+        topics?: TopicType[]
         deliverable
-        purpose
-        expertise
-        requirement
-        keyDates
-        priorResearch
-        statusOfData
-        fundingInfo
-        emailContent
-        mainContact: {
-          name
-          title
-          employer
-          email
-        }
-        projectTeam: {
-          name
-          title
-          employer
-          email
-        }
+        purpose: string
+        expertise: string
+        requirement: string
+        keyDates: string
+        priorResearch: string
+        statusOfData: string
+        fundingInfo: string
+        emailContent: string
+        mainContact: ContactType
+        projectTeam?: ContactType[]
         faq: {
-          text
-          title
-        }
+          text: string
+          title: string
+        }[]
       }
     }
     allGeneralPage: {
       nodes: {
-        slug
-        lede
+        slug: string
+        lede: string
         faq: {
-          text
-          title
-        }
+          text: string
+          title: string
+        }[]
         aims: {
-          text
-          title
-        }
-        title
+          text: string
+          title: string
+        }[]
+        title: string
       }
     }
   }
