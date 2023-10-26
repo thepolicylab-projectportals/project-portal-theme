@@ -7,6 +7,7 @@ import Select, { MultiValue } from "react-select"
 import * as JsSearch from "js-search"
 import { SearchBar } from "./SearchBar"
 import { ImageDataLike } from "gatsby-plugin-image"
+import { Label } from "./Label"
 
 function customSort(dateField: string, sortAscending: boolean) {
   return function (a, b) {

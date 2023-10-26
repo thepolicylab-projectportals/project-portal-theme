@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import { SearchPageLayout } from "./SearchPageLayout"
-import { contactImage } from "../components/Contact.stories"
 import * as ProjectTeamStories from "../components/ProjectTeam.stories"
 
 const meta: Meta<typeof SearchPageLayout> = {
