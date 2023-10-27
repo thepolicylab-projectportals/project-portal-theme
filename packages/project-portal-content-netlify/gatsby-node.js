@@ -115,7 +115,7 @@ exports.createSchemaCustomization = ({ actions, schema, getNode }) => {
         mainContact: {
           type: CONTACT_NODE_TYPE,
           resolve: async (source, args, context) => {
-            return await context.nodeModel.findOne({
+            return context.nodeModel.findOne({
               type: CONTACT_JSON_TYPE,
               query: {
                 filter: { slug: { eq: source.mainContact } },
@@ -160,7 +160,7 @@ exports.createSchemaCustomization = ({ actions, schema, getNode }) => {
         image: {
           type: "File",
           resolve: async (source, args, context) => {
-            return await context.nodeModel.findOne({
+            return context.nodeModel.findOne({
               type: "File",
               query: {
                 filter: {
@@ -206,7 +206,7 @@ exports.createSchemaCustomization = ({ actions, schema, getNode }) => {
         image: {
           type: "File",
           resolve: async (source, args, context) => {
-            return await context.nodeModel.findOne({
+            return context.nodeModel.findOne({
               type: "File",
               query: {
                 filter: {
@@ -244,7 +244,7 @@ exports.createSchemaCustomization = ({ actions, schema, getNode }) => {
         image: {
           type: "File",
           resolve: async (source, args, context) => {
-            return await context.nodeModel.findOne({
+            return context.nodeModel.findOne({
               type: "File",
               query: {
                 filter: {
