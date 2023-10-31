@@ -5,7 +5,6 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "build": "yarn workspace example build",
     "test": "jest --passWithNoTests"
   },
   "workspaces": [
