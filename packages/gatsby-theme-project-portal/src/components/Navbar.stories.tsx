@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import { Navbar } from "./Navbar"
-import { loadImage } from "./Story.utilities"
+import * as SiteTitleStories from "./SiteTitle.stories"
 
 const meta: Meta<typeof Navbar> = {
   component: Navbar,
@@ -12,13 +12,11 @@ export default meta
 
 type Story = StoryObj<typeof Navbar>
 
-export const siteTitleLogo = loadImage("image/logo-square.png", 64, 74, "fixed")
-
 export const Primary: Story = {
   args: {
     title: "The Site Title",
-    image: siteTitleLogo,
-    activePage: "/",
+    image: SiteTitleStories.siteTitleLogo,
+    activePage: "Home",
     pages: [
       { name: "Home", link: "/", show: true },
       { name: "Open", link: "/open/", show: true },
@@ -29,6 +27,10 @@ export const Primary: Story = {
       { name: "FAQ", link: "/faq/", show: true },
     ],
   },
+}
+
+export const OpenPageIsActive: Story = {
+  args: { ...Primary.args, activePage: "/open/" },
 }
 
 export const NoLogo: Story = {
@@ -77,7 +79,7 @@ export const Tailwind2XLWindow: Story = {
 export const EmptyStrings: Story = {
   args: {
     title: "",
-    image: siteTitleLogo,
+    image: SiteTitleStories.siteTitleLogo,
     activePage: "",
     pages: [],
   },

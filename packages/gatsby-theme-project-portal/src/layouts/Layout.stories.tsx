@@ -7,7 +7,7 @@ import * as NavbarStories from "../components/Navbar.stories"
 
 import { bottomBannerLogo } from "../components/BottomBanner.stories"
 import { footerLogo } from "../components/Footer.stories"
-import { siteTitleLogo } from "../components/Navbar.stories"
+import { siteTitleLogo } from "../components/SiteTitle.stories"
 
 const meta: Meta<typeof Layout> = {
   component: Layout,
