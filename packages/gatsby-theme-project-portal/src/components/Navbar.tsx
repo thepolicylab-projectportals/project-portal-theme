@@ -1,7 +1,9 @@
 import React, { FunctionComponent } from "react"
 import { Link } from "gatsby"
 import { FaBars, FaTimes } from "react-icons/fa"
-import { GatsbyImage, getImage, ImageDataLike } from "gatsby-plugin-image"
+import { ImageDataLike } from "gatsby-plugin-image"
+import { SiteTitle, NavbarItem } from "."
+
 export interface NavbarProps {
   title?: string
   activePage?: string
@@ -13,6 +15,8 @@ export interface NavbarProps {
   }[]
 }
 
+import { SiteTitle } from "."
+
 export const Navbar: FunctionComponent<NavbarProps> = ({
   title,
   activePage,
@@ -20,7 +24,6 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
   pages,
 }: NavbarProps) => {
   const [navbarOpen, setNavbarOpen] = React.useState(false)
-  const resolvedImage = getImage(image)
   return (
     <>
       <nav
@@ -43,16 +46,7 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
               className="block mx-4 my-3 xl:my-auto overflow-hidden text-nav text-black font-bold flex gap-4 items-center whitespace-nowrap"
               to="/"
             >
-              {resolvedImage ? (
-                <GatsbyImage
-                  className="xl:inline-block logotype"
-                  image={resolvedImage}
-                  alt={"nav_logo"}
-                />
-              ) : (
-                <></>
-              )}
-              <div>{title}</div>
+              <SiteTitle image={image} title={title} />
             </Link>
           </div>
           <div
