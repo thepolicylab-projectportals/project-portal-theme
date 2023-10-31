@@ -25,8 +25,10 @@ export const Primary: Story = {
           " Portal, and ideas for how we can improve this site.",
         image: loadImage("image/background.jpg"),
       },
-      projectPortalConfig: {
-        recaptchaSiteKey: "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI",
+      site: {
+        siteMetadata: {
+          recaptchaSiteKey: "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI",
+        },
       },
     },
   },

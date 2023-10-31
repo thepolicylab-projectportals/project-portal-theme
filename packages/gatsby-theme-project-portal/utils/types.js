@@ -1,8 +1,9 @@
 // constants for Project Portal Config type
-const CONFIG_NODE_TYPE = `ProjectPortalConfig`
-
-const projectPortalConfigTypeDefs = `
-  type ${CONFIG_NODE_TYPE} implements Node {
+const siteMetadataTypeDefs = `
+  type Site {
+    siteMetadata: SiteMetadataType
+  }
+  type SiteMetadataType {
     siteTitle: String
     shortTitle: String
     showDevBanner: Boolean
@@ -150,8 +151,7 @@ const pageTypeDefs = `
 `
 
 module.exports = {
-  CONFIG_NODE_TYPE,
-  projectPortalConfigTypeDefs,
+  siteMetadataTypeDefs,
   PROJECT_NODE_TYPE,
   projectTypeDefs,
   CONTACT_NODE_TYPE,
