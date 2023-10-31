@@ -15,8 +15,6 @@ export interface NavbarProps {
   }[]
 }
 
-import { SiteTitle } from "."
-
 export const Navbar: FunctionComponent<NavbarProps> = ({
   title,
   activePage,
@@ -64,19 +62,7 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
                     to={link ? link : "#"}
                     onClick={() => setNavbarOpen(false)}
                   >
-                    <li className="nav-item">
-                      <span className="flex items-center p-5 leading-snug text-white hover:opacity-75 xl:text-black xl:px-3 xl:py-2">
-                        {activePage === link ? (
-                          <span className="text-nav ml-2 font-bold border-b-2 border-white xl:border-primary">
-                            {name}
-                          </span>
-                        ) : (
-                          <span className="text-nav ml-2 border-b-2 hover:border-primary border-transparent">
-                            {name}
-                          </span>
-                        )}
-                      </span>
-                    </li>
+                    <NavbarItem name={name} isActive={activePage === link} />
                   </Link>
                 ) : (
                   ""
