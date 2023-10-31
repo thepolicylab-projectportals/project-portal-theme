@@ -5,11 +5,14 @@
   "author": "The Policy Lab <thepolicylab@brown.edu>",
   "contributors": [
     "John Gerrard Holland <john_holland1@brown.edu>",
+    "Aidan Hudson-Lapore <aidan_hudson-lapore@brown.edu>",
+    "Jordan Lawson <jordan_lawson@brown.edu>",
     "Joshua Lu <joshua_lu1@brown.edu>",
     "Aisulu Omar <aisulu_omar@brown.edu>",
-    "Paul Xu <yang_xu@brown.edu>",
+    "Joselynn Wallace <Joselynn Wallace@brown.edu>",
     "Kevin Wilson <kevin_wilson@brown.edu>",
-    "Aidan Hudson-Lapore <aidan_hudson-lapore@brown.edu>"
+    "Paul Xu <yang_xu@brown.edu>",
+    "Heather Yu <heather_yu@brown.edu>"
   ],
   "license": "MIT",
   "peerDependencies": {
