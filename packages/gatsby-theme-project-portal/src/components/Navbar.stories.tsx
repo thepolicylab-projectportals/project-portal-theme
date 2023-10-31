@@ -32,16 +32,16 @@ export const Primary: Story = {
 }
 
 export const NoLogo: Story = {
-  args: { ...Primary.args, activePage: "Open", image: null },
+  args: { ...Primary.args, image: null },
 }
 
 export const NoLogoXL: Story = {
-  args: { ...Primary.args, activePage: "Open", image: null },
+  args: { ...Primary.args, image: null },
   parameters: { viewport: { defaultViewport: "tailwindXL" } },
 }
 
 export const NoTitle: Story = {
-  args: { ...Primary.args, activePage: "Open", title: null },
+  args: { ...Primary.args, title: null },
 }
 
 export const TailwindXSWindow: Story = {
