@@ -22,8 +22,10 @@ interface ContactProps {
       lede: string
       image: ImageDataLike
     }
-    projectPortalConfig: {
-      recaptchaSiteKey
+    site: {
+      siteMetadata: {
+        recaptchaSiteKey
+      }
     }
   }
 }
@@ -302,7 +304,9 @@ export const ContactPageLayout: FunctionComponent<ContactProps> = ({
   pageContext: { thankYouPagePath },
   data: {
     generalPage: { title, lede, image },
-    projectPortalConfig: { recaptchaSiteKey },
+    site: {
+      siteMetadata: { recaptchaSiteKey },
+    },
   },
 }: ContactProps) => {
   return (
@@ -334,6 +338,11 @@ export const query = graphql`
   query ContactQuery($slug: String!) {
     ...HeadData
     ...LayoutData
+    site {
+      siteMetadata {
+        recaptchaSiteKey
+      }
+    }
     page: generalPage(slug: { eq: $slug }) {
       title
       description: lede
@@ -344,9 +353,6 @@ export const query = graphql`
       image {
         ...HeaderWithImageBackground
       }
-    }
-    projectPortalConfig {
-      recaptchaSiteKey
     }
   }
 `

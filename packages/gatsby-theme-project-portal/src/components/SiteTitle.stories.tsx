@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from "@storybook/react"
 import { SiteTitle } from "./SiteTitle"
 
 import { loadImage } from "./Story.utilities"
-import { IGatsbyImageData } from "gatsby-plugin-image"
 
 const meta: Meta<typeof SiteTitle> = {
   component: SiteTitle,
@@ -22,3 +21,19 @@ export const Primary: Story = {
     title: "The Site Title",
   },
 }
+
+export const Nulls: Story = {
+  args: {
+    image: null,
+    title: null,
+  },
+}
+
+export const EmptyString: Story = {
+  args: {
+    image: null,
+    title: "",
+  },
+}
+
+export const NoArgs: Story = {}

@@ -2,12 +2,12 @@ import React, { FunctionComponent } from "react"
 import { GatsbyImage, ImageDataLike, getImage } from "gatsby-plugin-image"
 
 export interface FooterProps {
-  heading: {
+  heading?: {
     title: String
     link: string
   }
-  copyright: String
-  links: {
+  copyright?: String
+  links?: {
     title: String
     link: String
   }[]
@@ -31,7 +31,7 @@ export const Footer: FunctionComponent<FooterProps> = ({
       </div>
       <div className="flex items-center justify-center mt-6 lg:my-auto">
         <ul className="text-nav text-footertext list-none">
-          {links.map(({ title, link }, i) => (
+          {links?.map(({ title, link }, i) => (
             <ListItem key={"link_" + i} target={link}>
               {title}
             </ListItem>
@@ -41,17 +41,17 @@ export const Footer: FunctionComponent<FooterProps> = ({
       <div className="block w-full lg:w-auto mt-5">
         <a
           className="flex items-center gap-4 justify-center flex-wrap"
-          href={heading.link}
+          href={heading?.link}
         >
           {resolvedImage && (
             <GatsbyImage
               className="xl:inline-block logotype"
               image={resolvedImage}
-              alt={image.altText}
+              alt={image?.altText}
             />
           )}
           <p className="text-center inline-block text-h4 font-bold text-footertext">
-            {heading.title}
+            {heading?.title}
           </p>
         </a>
       </div>
