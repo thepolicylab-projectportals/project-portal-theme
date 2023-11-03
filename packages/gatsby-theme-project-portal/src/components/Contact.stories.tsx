@@ -35,3 +35,13 @@ export const NoEmail: Story = {
 export const NoImage: Story = {
   args: { ...Primary.args, image: null },
 }
+
+export const TailwindXSWindow: Story = {
+  args: Primary.args,
+  parameters: { viewport: { defaultViewport: "tailwindXS" } },
+}
+
+export const TailwindSMWindow: Story = {
+  args: Primary.args,
+  parameters: { viewport: { defaultViewport: "tailwindSM" } },
+}

@@ -8,17 +8,12 @@ const siteMetadataTypeDefs = `
     shortTitle: String
     showDevBanner: Boolean
     projectInterestLink: String
-    pages: [NavbarItemType]
     recaptchaSiteKey: String
     staticText: StaticTextType
   }
-  type NavbarItemType {
-    name: String
-    link: String
-    show: Boolean
-  }
   type StaticTextType {
     contact: ContactType
+    navbar: NavbarType
     bottomBanner: BottomBannerType
     footer: FooterType
     mainContact: MainContactType
@@ -26,6 +21,15 @@ const siteMetadataTypeDefs = `
   type ContactType {
     title: String
     lede: String
+  }
+  type NavbarType {
+    title: String
+    pages: [NavbarItemType]
+  }
+  type NavbarItemType {
+    name: String
+    link: String
+    show: Boolean
   }
   type BottomBannerType {
     text: String

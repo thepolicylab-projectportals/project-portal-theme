@@ -1,21 +1,24 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { ProjectTeam } from "./ProjectTeam"
-import * as ContactStories from "./Contact.stories"
+import { PageLayout } from "./PageLayout"
+import * as bottomBannerStories from "../components/BottomBanner.stories"
+import * as footerStories from "../components/Footer.stories"
+import * as navbarStories from "../components/Navbar.stories"
 
-const meta: Meta<typeof ProjectTeam> = {
-  component: ProjectTeam,
+const meta: Meta<typeof PageLayout> = {
+  component: PageLayout,
   tags: ["autodocs"],
 }
 
 export default meta
 
-type Story = StoryObj<typeof ProjectTeam>
+type Story = StoryObj<typeof PageLayout>
 
 export const Primary: Story = {
   args: {
-    title: "The Project Team",
-    contacts: [ContactStories.Primary.args, ContactStories.NoEmail.args],
-    defaultImage: ContactStories.contactImage,
+    devBanner: { show: true },
+    navbar: navbarStories.Primary.args,
+    bottomBanner: bottomBannerStories.Primary.args,
+    footer: footerStories.Primary.args,
   },
 }
 
@@ -48,3 +51,14 @@ export const Tailwind2XLWindow: Story = {
   args: Primary.args,
   parameters: { viewport: { defaultViewport: "tailwind2XL" } },
 }
+
+export const Nulls: Story = {
+  args: {
+    devBanner: { show: true },
+    navbar: navbarStories.Nulls.args,
+    bottomBanner: bottomBannerStories.Nulls.args,
+    footer: footerStories.Nulls.args,
+  },
+}
+
+export const NoArgs: Story = {}

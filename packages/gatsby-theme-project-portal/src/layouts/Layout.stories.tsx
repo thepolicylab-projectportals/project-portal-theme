@@ -23,10 +23,13 @@ export const Primary: Story = {
     data: {
       site: {
         siteMetadata: {
-          title: "The Site Title",
           showDevBanner: true,
-          pages: NavbarStories.Primary.args.pages,
+
           staticText: {
+            navbar: {
+              title: "The Site Title",
+              pages: NavbarStories.Primary.args.pages,
+            },
             bottomBanner: BottomBannerStories.Primary.args,
             footer: FooterStories.Primary.args,
           },
@@ -70,3 +73,31 @@ export const Tailwind2XLWindow: Story = {
   args: Primary.args,
   parameters: { viewport: { defaultViewport: "tailwind2XL" } },
 }
+
+export const Nulls: Story = {
+  args: {
+    data: {
+      site: {
+        siteMetadata: {
+          showDevBanner: null,
+          staticText: {
+            navbar: { title: null, pages: [] },
+            bottomBanner: { text: null, link: null },
+            footer: {
+              copyright: null,
+              heading: { title: null, link: null },
+              links: [],
+            },
+          },
+        },
+      },
+      navbarLogo: null,
+      bottomBannerLogo: null,
+      footerLogo: null,
+    },
+    path: null,
+    children: null,
+  },
+}
+
+export const NoArgs: Story = {}

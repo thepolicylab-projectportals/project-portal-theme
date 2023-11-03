@@ -1,4 +1,3 @@
-import { Link } from "gatsby"
 import React, { FunctionComponent } from "react"
 import { GatsbyImage, ImageDataLike, getImage } from "gatsby-plugin-image"
 import { MarkdownText } from "."
@@ -32,7 +31,7 @@ export const BottomBanner: FunctionComponent<BottomBannerProps> = ({
               />
             </a>
           )}
-          {isNA(link) && { resolvedImage } && (
+          {isNA(link) && resolvedImage && (
             <GatsbyImage
               className="inline-block logotype"
               image={resolvedImage}

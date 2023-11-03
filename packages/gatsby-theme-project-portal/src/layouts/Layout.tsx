@@ -1,33 +1,36 @@
 import React, { FunctionComponent, ReactNode } from "react"
 import { graphql } from "gatsby"
-import { Footer, BottomBanner, DevelopmentBanner, Navbar } from "../components"
 import { ImageDataLike } from "gatsby-plugin-image"
+import { PageLayout } from "../components"
 
 export interface LayoutProps {
-  path: string
+  path?: string
   children: ReactNode
-  data: {
-    site: {
-      siteMetadata: {
-        title: string
+  data?: {
+    site?: {
+      siteMetadata?: {
+        siteTitle: string
         showDevBanner?: boolean
-        pages: {
-          name: string
-          link: string
-          show: boolean
-        }[]
-        staticText: {
-          bottomBanner: {
+        staticText?: {
+          navbar?: {
+            title?: string
+            pages?: {
+              name: string
+              link: string
+              show: boolean
+            }[]
+          }
+          bottomBanner?: {
             text: string
             link: string
           }
-          footer: {
-            copyright: string
-            links: {
+          footer?: {
+            copyright?: string
+            links?: {
               title: string
               link: string
             }[]
-            heading: {
+            heading?: {
               title: string
               link: string
             }
@@ -43,47 +46,30 @@ export interface LayoutProps {
 
 export const Layout: FunctionComponent<LayoutProps> = ({
   path,
-  data: {
-    site: {
-      siteMetadata: {
-        title: siteTitle,
-        showDevBanner,
-        pages,
-        staticText: { bottomBanner, footer },
-      },
-    },
-    navbarLogo,
-    bottomBannerLogo,
-    footerLogo,
-  },
+  data,
   children,
 }) => {
   return (
-    <div className="w-full mx-0 bg-white border-0 xl:container xl:p-0 xl:mx-auto xl:border-l xl:border-r xl:border-gray-200 flex flex-col min-h-screen">
-      {showDevBanner && <DevelopmentBanner />}
-      <Navbar
-        title={siteTitle}
-        image={navbarLogo}
-        pages={pages}
-        activePage={path}
-      />
-      <div className="flex-1">{children}</div>
-      <BottomBanner
-        text={bottomBanner.text}
-        link={bottomBanner.link}
-        linkId={"bottomBannerLink"}
-        image={bottomBannerLogo}
-      />
-      <Footer
-        heading={footer.heading}
-        copyright={footer.copyright}
-        links={footer.links}
-        image={{
-          imageData: footerLogo,
-          altText: siteTitle + " logo",
-        }}
-      />
-    </div>
+    <PageLayout
+      children={children}
+      devBanner={{ show: data?.site?.siteMetadata?.showDevBanner }}
+      navbar={{
+        ...data?.site?.siteMetadata?.staticText?.navbar,
+        image: data?.navbarLogo,
+        activePage: path,
+      }}
+      bottomBanner={{
+        ...data?.site?.siteMetadata?.staticText?.bottomBanner,
+        image: data?.bottomBannerLogo,
+      }}
+      footer={{
+        ...data?.site?.siteMetadata?.staticText?.footer,
+        image: {
+          imageData: data?.footerLogo,
+          altText: data?.site?.siteMetadata?.siteTitle + " logo",
+        },
+      }}
+    />
   )
 }
 
@@ -91,14 +77,16 @@ export const query = graphql`
   fragment LayoutData on Query {
     site {
       siteMetadata {
-        title
         showDevBanner
-        pages {
-          link
-          name
-          show
-        }
         staticText {
+          navbar {
+            title
+            pages {
+              link
+              name
+              show
+            }
+          }
           bottomBanner {
             text
             link
