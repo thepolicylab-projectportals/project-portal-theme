@@ -31,3 +31,11 @@ export const NoTitle: Story = {
 export const NoText: Story = {
   args: { title: "A title", text: "" },
 }
+
+export const EmptyString: Story = {
+  args: { title: "", text: "" },
+}
+
+export const Nulls: Story = {
+  args: { title: null, text: null },
+}
