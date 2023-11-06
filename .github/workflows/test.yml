@@ -29,12 +29,5 @@ jobs:
           cache: 'yarn'
       - name: Install dependencies
         run: yarn install --immutable
-      - name: Install Playwright Browsers
-        run: yarn workspace storybook playwright install
-      - name: Build Storybook
-        run: yarn workspace storybook build --quiet
-      - name: Serve Storybook and run tests
-        run: |
-          npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
-            "npx http-server packages/storybook/storybook-static --port 6006 --silent" \
-            "npx wait-on tcp:127.0.0.1:6006 && yarn workspace storybook test-storybook"
+      - name: Run tests
+        run: yarn test-storybook
