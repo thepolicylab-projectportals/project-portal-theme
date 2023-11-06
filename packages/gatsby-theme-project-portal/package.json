@@ -5,11 +5,14 @@
   "author": "The Policy Lab <thepolicylab@brown.edu>",
   "contributors": [
     "John Gerrard Holland <john_holland1@brown.edu>",
+    "Aidan Hudson-Lapore <aidan_hudson-lapore@brown.edu>",
+    "Jordan Lawson <jordan_lawson@brown.edu>",
     "Joshua Lu <joshua_lu1@brown.edu>",
     "Aisulu Omar <aisulu_omar@brown.edu>",
-    "Paul Xu <yang_xu@brown.edu>",
+    "Joselynn Wallace <Joselynn Wallace@brown.edu>",
     "Kevin Wilson <kevin_wilson@brown.edu>",
-    "Aidan Hudson-Lapore <aidan_hudson-lapore@brown.edu>"
+    "Paul Xu <yang_xu@brown.edu>",
+    "Heather Yu <heather_yu@brown.edu>"
   ],
   "license": "MIT",
   "peerDependencies": {
@@ -21,22 +24,22 @@
     "@headlessui/react": "^1.7.17",
     "@tailwindcss/forms": "^0.5.6",
     "autoprefixer": "^10.4.16",
-    "gatsby-plugin-image": "^3.12.1",
-    "gatsby-plugin-manifest": "^5.12.1",
+    "gatsby-plugin-image": "^3.12.2",
+    "gatsby-plugin-manifest": "^5.12.2",
     "gatsby-plugin-postcss": "^6.12.0",
     "gatsby-plugin-robots-txt": "^1.8.0",
-    "gatsby-plugin-sharp": "^5.12.1",
+    "gatsby-plugin-sharp": "^5.12.2",
     "gatsby-source-filesystem": "^5.12.0",
-    "gatsby-transformer-sharp": "^5.12.1",
+    "gatsby-transformer-sharp": "^5.12.2",
     "js-search": "^2.0.1",
     "lodash": "^4.17.21",
     "markdown-to-jsx": "^7.3.2",
     "moment": "^2.29.4",
     "react-google-recaptcha": "^3.1.0",
     "react-icons": "^4.11.0",
-    "react-select": "^5.7.7",
+    "react-select": "^5.8.0",
     "react-share": "^4.4.0",
-    "tailwindcss": "^3.3.3"
+    "tailwindcss": "^3.3.5"
   },
   "devDependencies": {
     "@types/tailwindcss": "^3.1.0"

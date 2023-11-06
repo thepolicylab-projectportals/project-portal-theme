@@ -2,8 +2,8 @@ const { withDefaults } = require(`./utils/default-options`)
 const fs = require("fs")
 
 const {
+  siteMetadataTypeDefs,
   projectTypeDefs,
-  projectPortalConfigTypeDefs,
   contactTypeDefs,
   pageTypeDefs,
 } = require(`./utils/types`)
@@ -22,29 +22,10 @@ exports.onPreBootstrap = ({ reporter }, themeOptions) => {
 
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
-  createTypes(projectPortalConfigTypeDefs)
+  createTypes(siteMetadataTypeDefs)
   createTypes(projectTypeDefs)
   createTypes(contactTypeDefs)
   createTypes(pageTypeDefs)
-}
-
-exports.sourceNodes = ({ actions, createContentDigest }, themeOptions) => {
-  const { createNode } = actions
-
-  const projectPortalConfig = withDefaults(themeOptions)
-
-  createNode({
-    ...projectPortalConfig,
-    id: `@thepolicylab-projectportals/gatsby-theme-project-portal`,
-    parent: null,
-    children: [],
-    internal: {
-      type: `ProjectPortalConfig`,
-      contentDigest: createContentDigest(projectPortalConfig),
-      content: JSON.stringify(projectPortalConfig),
-      description: `Options for @thepolicylab-projectportals/gatsby-theme-project-portal`,
-    },
-  })
 }
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
