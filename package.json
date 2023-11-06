@@ -5,8 +5,9 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "test": "jest",
-    "test-storybook": "yarn workspace storybook playwright install && yarn workspace storybook build --quiet && npx concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"npx http-server packages/storybook/storybook-static --port 6006 --silent\" \"npx wait-on tcp:127.0.0.1:6006 && yarn workspace storybook test-storybook\""
+    "test": "$npm_execpath run test:jest && $npm_execpath run test:storybook",
+    "test:jest": "jest",
+    "test:storybook": "yarn workspace storybook playwright install && yarn workspace storybook build --quiet && npx concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"npx http-server packages/storybook/storybook-static --port 6006 --silent\" \"npx wait-on tcp:127.0.0.1:6006 && yarn workspace storybook test-storybook\""
   },
   "workspaces": [
     "packages/*"
