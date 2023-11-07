@@ -9,8 +9,8 @@ function loadProjectPortalThemeOptions(pluginOptions) {
   const layoutOptions = require(`${configAbsolutePath}/layout.json`)
   const mainContactConfig = require(`${configAbsolutePath}/main-contact.json`)
   const themeOptions = {
-    pages: layoutOptions.navbar.pages,
     staticText: {
+      navbar: layoutOptions.navbar,
       footer: layoutOptions.footer,
       bottomBanner: layoutOptions.bottomBanner,
       mainContact: {

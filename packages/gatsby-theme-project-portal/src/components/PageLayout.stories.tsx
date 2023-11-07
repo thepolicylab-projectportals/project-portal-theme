@@ -1,36 +1,24 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { ContactPageLayout } from "./ContactPageLayout"
-import { loadImage } from "../components/Story.utilities"
+import { PageLayout } from "./PageLayout"
+import * as bottomBannerStories from "../components/BottomBanner.stories"
+import * as footerStories from "../components/Footer.stories"
+import * as navbarStories from "../components/Navbar.stories"
 
-const meta: Meta<typeof ContactPageLayout> = {
-  component: ContactPageLayout,
+const meta: Meta<typeof PageLayout> = {
+  component: PageLayout,
   tags: ["autodocs"],
 }
 
 export default meta
 
-type Story = StoryObj<typeof ContactPageLayout>
+type Story = StoryObj<typeof PageLayout>
 
 export const Primary: Story = {
   args: {
-    pageContext: {
-      thankYouPagePath: "/contact/thank-you/",
-    },
-    data: {
-      generalPage: {
-        title: "Want to talk to the Policy Lab? We'd love to hear from you!",
-        lede:
-          "Our team is happy to answer questions about the partnerships pilot," +
-          " project-specific questions, general questions about working with the Project" +
-          " Portal, and ideas for how we can improve this site.",
-        image: loadImage("image/background.jpg"),
-      },
-      site: {
-        siteMetadata: {
-          recaptchaSiteKey: "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI",
-        },
-      },
-    },
+    devBanner: { show: true },
+    navbar: navbarStories.Primary.args,
+    bottomBanner: bottomBannerStories.Primary.args,
+    footer: footerStories.Primary.args,
   },
 }
 
@@ -63,3 +51,14 @@ export const Tailwind2XLWindow: Story = {
   args: Primary.args,
   parameters: { viewport: { defaultViewport: "tailwind2XL" } },
 }
+
+export const Nulls: Story = {
+  args: {
+    devBanner: { show: true },
+    navbar: navbarStories.Nulls.args,
+    bottomBanner: bottomBannerStories.Nulls.args,
+    footer: footerStories.Nulls.args,
+  },
+}
+
+export const NoArgs: Story = {}
