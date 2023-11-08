@@ -14,7 +14,12 @@ updates:
         patterns:
           - "gatsby"
           - "gatsby-*"
+          - "babel-preset-gatsby"
       storybook:
         patterns:
           - "storybook"
           - "@storybook/*"
+      babel:
+        patterns:
+          - "babel"
+          - "@babel/*"
