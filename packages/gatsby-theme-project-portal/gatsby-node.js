@@ -69,6 +69,21 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           slug
         }
       }
+      allGeneralPage {
+        nodes {
+          slug
+          lede
+          faq {
+            text
+            title
+          }
+          aims {
+            text
+            title
+          }
+          title
+        }
+      }
       allCardPage {
         nodes {
           slug
