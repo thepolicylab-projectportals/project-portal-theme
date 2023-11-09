@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect, useRef, useState } from "react"
+import React, { FunctionComponent } from "react"
 import { graphql } from "gatsby"
 import SiteSearchWrapper from "../components/SiteSearchWrapper"
 
