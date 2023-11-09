@@ -44,7 +44,7 @@ export const SiteSearch: FunctionComponent<SearchProps> = ({
         </div>
       </div>
 
-      <article className="py-6 md:container md:mx-auto">
+      <article className="py-6 container mx-auto">
         <div className="grid grid-cols-1 md:mx-4 xl:mx-6 gap-4 justify-self-center">
           {queryResults.map((result) => {
             const fields = new Set<string>()
