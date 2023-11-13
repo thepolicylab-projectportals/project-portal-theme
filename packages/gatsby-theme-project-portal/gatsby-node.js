@@ -337,10 +337,10 @@ exports.onPostBuild = async ({ reporter, basePath, pathPrefix, graphql }) => {
   }
 
   const { index, documents } = createSearchIndex({ allProject, allGeneralPage })
-  fs.writeFile("static/lunr-index.json", JSON.stringify(index), (err) => {
+  await fs.writeFile("static/lunr-index.json", JSON.stringify(index), (err) => {
     if (err) console.error(err)
   })
-  fs.writeFile("static/documents.json", JSON.stringify(documents), (err) => {
+  await fs.writeFile("static/documents.json", JSON.stringify(documents), (err) => {
     if (err) console.error(err)
   })
 
