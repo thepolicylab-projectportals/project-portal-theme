@@ -195,7 +195,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   })
 }
 
-exports.onPostBuild = async ({ reporter, basePath, pathPrefix, graphql }) => {
+exports.onPreBuild = async ({ reporter, basePath, pathPrefix, graphql }) => {
   const result = await graphql(`
     query {
       allProject {
@@ -340,9 +340,13 @@ exports.onPostBuild = async ({ reporter, basePath, pathPrefix, graphql }) => {
   await fs.writeFile("static/lunr-index.json", JSON.stringify(index), (err) => {
     if (err) console.error(err)
   })
-  await fs.writeFile("static/documents.json", JSON.stringify(documents), (err) => {
-    if (err) console.error(err)
-  })
+  await fs.writeFile(
+    "static/documents.json",
+    JSON.stringify(documents),
+    (err) => {
+      if (err) console.error(err)
+    }
+  )
 
   reporter.info(
     `Site was built with basePath: ${basePath} & pathPrefix: ${pathPrefix}`
