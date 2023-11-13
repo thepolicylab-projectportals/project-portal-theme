@@ -1,9 +1,10 @@
 import React, { FunctionComponent, useEffect, useState } from "react"
 import { SearchBar } from "../components/SearchBar"
+import lunr from "lunr"
 
 export interface SearchProps {
   siteUrl: string
-  index
+  index: lunr.Index
   db: Function
 }
 
