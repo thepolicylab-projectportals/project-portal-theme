@@ -1,6 +1,8 @@
 import React, { FunctionComponent } from "react"
 import { graphql } from "gatsby"
 import SiteSearchWrapper from "../components/SiteSearchWrapper"
+import { HeaderWithImage } from "../components"
+import { ImageDataLike } from "gatsby-plugin-image"
 
 export interface SearchLayoutProps {
   data: {
@@ -8,6 +10,10 @@ export interface SearchLayoutProps {
       siteMetadata: {
         siteUrl: string
       }
+    }
+    generalPage: {
+      title: string
+      image: ImageDataLike
     }
   }
 }
@@ -17,11 +23,15 @@ export const SearchPageLayout: FunctionComponent<SearchLayoutProps> = ({
     site: {
       siteMetadata: { siteUrl },
     },
+    generalPage: { title, image },
   },
 }: SearchLayoutProps) => {
   return (
     <>
       <main>
+        <header>
+          <HeaderWithImage title={title} image={image} lede={""} />
+        </header>
         <SiteSearchWrapper siteUrl={siteUrl} />
       </main>
     </>
