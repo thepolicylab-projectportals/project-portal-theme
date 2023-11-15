@@ -1,4 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
+import { userEvent, within } from "@storybook/testing-library"
+
 import SiteSearch from "./SiteSearch"
 import lunr from "lunr"
 import lodash from "lodash"
@@ -404,7 +406,7 @@ export const exampleGenPages = {
     {
       slug: "about",
       lede: null,
-      faq: "We are looking for academic and scientific researchers from a range of disciplines relevant to policy and program design and evaluation. Example disciplines include public policy, economics, behavioral science, sociology, marketing, data analytics, and law, but we encourage you to apply for any opportunity that you think would be a good fit for you or your team. Where possible, project summaries include information about what types of expertise are likely needed, but if you have an idea for how to contribute that is different or not stated in the summary, please let us know. What sort of collaborators are you looking for? No, but prior experience is helpful. Applied research and collaboration with government partners often requires more flexibility and communication than a lab-based or retrospective study, so be sure to discuss expectations and timeline when considering a collaboration opportunity. Do I need to have prior experience working with government? It depends on the project, so check out the project description to learn more about expectations and requirements. Opportunities typically require a PhD or equivalent experience. Those challenges open to student participation will usually state so in the announcement. Are these opportunities available for students? Needs vary from project to project with respect to expertise needed, project scope, timeline, and other factors. Each project summary page describes expectations and requirements for that project. When appropriate and feasible, the City of San Antonio encourages collaboration within or across organizations. If you are interested in working with a team, please indicate this on the interest form for the project for further discussion. Can multiple people work on a project? Some projects have dedicated funding, others may not have funding available at this time, and some may be open to funding from external sources. The extent and source of funding will depend on the scope of the project, level of expertise needed, and other factors. Research partners, City department representatives, and the Office of Innovation can discuss funding details on a case-by-case basis, including needs and potential sources. What kind of funding is available? Data availability depends on the specific project. Projects may involve qualitative and quantitative data, and collecting or analyzing data. In many cases, academic collaborators will need to sign a Data Use Agreement in order to access and use existing government data. What kind of data is available? After we collect expressions of interest, City departments, research partners, and the Office of Innovation will work together to determine fit and how to best approach the project. Some projects may have a Q&A session to provide more information and some may require a more detailed submission process. The City of San Antonio prioritizes partnerships that are scalable, sustainable, and develop public, open-source resources. What happens after I submit an interest form? The City of San Antonio is always interested in exploring government–research partnerships or other cross-sector collaborative opportunities for improving City services. If you have a research idea, please email us at [rdleague@sanantonio.gov](mailto:rdleague@sanantonio.gov) with a description of your idea. The description should include, at a minimum, a project overview, how the results would benefit residents of San Antonio, and an estimated project timeline. We’ll get in touch to discuss if it’s a good fit for the portal. Can I propose a project idea? The R&D League is a partnership established to build a research and development (R&D) program in the City of San Antonio that paves the path to a better future for our community. The League creates opportunities for cross-sector, multi-disciplinary teams to utilize scientific methods and data to investigate new ideas, facilitate evidence-based policymaking, and explore the frontier of innovation for our 1.5 million residents.\n\nCore League members are the City of San Antonio (CoSA), Southwest Research Institute (SwRI), United Services Automobile Association (USAA), the University of Texas at San Antonio (UTSA), and The Policy Lab @ Brown University. [Learn more about the R&D League](https://www.sanantonio.gov/Innovation/R-D-League).\n What is the R&D League?",
+      faq: "We are looking for academic and scientific researchers from a range of disciplines relevant to policy and program design and evaluation. Example disciplines include public policy, economics, behavioral science, sociology, marketing, data analytics, and law, but we encourage you to apply for any opportunity that you think would be a good fit for you or your team. Where possible, project summaries include information about what types of expertise are likely needed, but if you have an idea for how to contribute that is different or not stated in the summary, please let us know. What sort of collaborators are you looking for? No, but prior experience is helpful. Applied research and collaboration with government partners often requires more flexibility and communication than a lab-based or retrospective study, so be sure to discuss expectations and timeline when considering a collaboration opportunity. Do I need to have prior experience working with government? It depends on the project, so check out the project description to learn more about expectations and requirements. Opportunities typically require a PhD or equivalent experience. Those challenges open to student participation will usually state so in the announcement. Are these opportunities available for students? Needs vary from project to project with respect to expertise needed, project scope, timeline, and other factors. Each project summary page describes expectations and requirements for that project. When appropriate and feasible, the City of San Antonio encourages collaboration within or across organizations. If you are interested in working with a team, please indicate this on the interest form for the project for further discussion. Can multiple people work on a project? Some projects have dedicated funding, others may not have funding available at this time, and some may be open to funding from external sources. The extent and source of funding will depend on the scope of the project, level of expertise needed, and other factors. Research partners, City department representatives, and the Office of Innovation can discuss funding details on a case-by-case basis, including needs and potential sources. What kind of funding is available? Data availability depends on the specific project. Projects may involve qualitative and quantitative data, and collecting or analyzing data. In many cases, academic collaborators will need to sign a Data Use Agreement in order to access and use existing government data. What kind of data is available? After we collect expressions of interest, City departments, research partners, and the Office of Innovation will work together to determine fit and how to best approach the project. Some projects may have a Q&A session to provide more information and some may require a more detailed submission process. The City of San Antonio prioritizes partnerships that are scalable, sustainable, and develop public, open-source resources. What happens after I submit an interest form? The City of San Antonio is always interested in exploring government–research partnerships or other cross-sector collaborative opportunities for improving City services. If you have a research idea, please search us at [rdleague@sanantonio.gov](mailto:rdleague@sanantonio.gov) with a description of your idea. The description should include, at a minimum, a project overview, how the results would benefit residents of San Antonio, and an estimated project timeline. We’ll get in touch to discuss if it’s a good fit for the portal. Can I propose a project idea? The R&D League is a partnership established to build a research and development (R&D) program in the City of San Antonio that paves the path to a better future for our community. The League creates opportunities for cross-sector, multi-disciplinary teams to utilize scientific methods and data to investigate new ideas, facilitate evidence-based policymaking, and explore the frontier of innovation for our 1.5 million residents.\n\nCore League members are the City of San Antonio (CoSA), Southwest Research Institute (SwRI), United Services Automobile Association (USAA), the University of Texas at San Antonio (UTSA), and The Policy Lab @ Brown University. [Learn more about the R&D League](https://www.sanantonio.gov/Innovation/R-D-League).\n What is the R&D League?",
       aims: "The Research Partnerships Portal is a pilot initiative from the City of San Antonio’s Office of Innovation and multiple City departments. Our goal is to connect City departments and offices with San Antonio's research and philanthropic sectors to answer important questions about how to best design, deliver, and evaluate city services. We believe that evidence is an important part of improving public services and policy, and we're excited about what we can do together! Build and use evidence to improve the lives of San Antonio residents. We believe that great work is built from lasting relationships. We're looking for thought partners, not just evaluators, and seek collaborators from a wide variety of research disciplines. Project opportunities may include problem framing, introduction to existing research, intervention and evaluation design, technical assistance, reporting, and other research and collaboration areas. Promote durable partnerships at all stages of the learning process. Applied research on a specific challenge has the potential to benefit public services as a whole. To do this, we need to be transparent with our results and methods. We know that publication is an important part of the research process, and will work with collaborators to support publication where appropriate. Share knowledge about what works.",
       title: "About the Project Portal",
     },
@@ -434,6 +436,7 @@ const db = documents.reduce(function (acc, document) {
   acc[document.slug] = document
   return acc
 }, {})
+
 export const primaryData = {
   siteUrl: "localhost",
   index: index,
@@ -445,4 +448,60 @@ export default meta
 type Story = StoryObj<typeof SiteSearch>
 export const Primary: Story = {
   args: primaryData,
+}
+
+export const ValidSearches: Story = {
+  args: primaryData,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+
+    const searchInput = canvas.getByLabelText("Search")
+
+    await userEvent.type(searchInput, "about", {
+      delay: 500,
+    })
+
+    await userEvent.clear(searchInput)
+
+    await userEvent.type(searchInput, "project", {
+      delay: 500,
+    })
+  },
+}
+
+export const InvalidSearches: Story = {
+  args: primaryData,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+
+    const searchInput = canvas.getByLabelText("Search")
+
+    await userEvent.type(searchInput, "%about%", {
+      delay: 500,
+    })
+
+    await userEvent.clear(searchInput)
+
+    await userEvent.type(searchInput, "😋", {
+      delay: 500,
+    })
+
+    await userEvent.clear(searchInput)
+
+    await userEvent.type(searchInput, "ひらがな", {
+      delay: 500,
+    })
+
+    await userEvent.clear(searchInput)
+
+    await userEvent.type(searchInput, "𒐫", {
+      delay: 500,
+    })
+
+    await userEvent.clear(searchInput)
+
+    await userEvent.type(searchInput, "____", {
+      delay: 500,
+    })
+  },
 }
