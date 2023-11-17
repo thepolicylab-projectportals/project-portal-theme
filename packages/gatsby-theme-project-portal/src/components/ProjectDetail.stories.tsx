@@ -63,8 +63,8 @@ export const LongTitle: Story = {
     title: "completed 2",
     agency: "example agency",
     topics: [],
-    slug: "project/completed-project2",
-    summary: "example summary",
+    slug: "project/completed-project",
+    summary: "example project summary",
     statusOfData: "example statusOfData",
     status: "completed",
     startDate: new Date("2022-06-17"),
@@ -99,7 +99,7 @@ export const LongTitle: Story = {
 
 export const NullValues: Story = {
   args: {
-    title: "completed 2",
+    title: "project completed 2",
     agency: "example agency",
     topics: [],
     slug: "project/completed-project2",

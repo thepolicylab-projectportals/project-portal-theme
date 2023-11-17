@@ -4,10 +4,14 @@ import SiteSearch from "./SiteSearch"
 
 export interface SearchWrapperProps {
   siteUrl: string
+  index?: lunr.Index
+  dataBase?: Function
 }
 
 export const SearchWrapper: FunctionComponent<SearchWrapperProps> = ({
   siteUrl,
+  index,
+  dataBase,
 }: SearchWrapperProps) => {
   const [idx, setIdx] = useState()
   const [db, setDb] = useState()
