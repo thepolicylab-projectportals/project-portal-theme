@@ -38,7 +38,31 @@ export const Primary: Story = {
     },
   },
 }
-
+export const NoImage: Story = {
+  args: {
+    data: {
+      generalPage: {
+        pageName: null,
+        title: null,
+        header: "What we're here to do",
+        aims: [
+          {
+            title: "About Aim",
+            text: "Some text",
+          },
+        ],
+        faq: [
+          {
+            title: "Is this an FAQ question?",
+            text: "Yes, and here is the answer.",
+          },
+        ],
+        accessibility:
+          "We are committed to making the Project Portal accessible for all.",
+      },
+    },
+  },
+}
 export const TailwindXSWindow: Story = {
   args: Primary.args,
   parameters: { viewport: { defaultViewport: "tailwindXS" } },
