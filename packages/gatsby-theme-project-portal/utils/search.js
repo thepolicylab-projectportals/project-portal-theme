@@ -81,7 +81,7 @@ function createSearchIndex(searchNodes) {
       this.add(doc)
     }, this)
   })
-  return { index, documents }
+  return [index, documents]
 }
 
 module.exports = { createSearchIndex }

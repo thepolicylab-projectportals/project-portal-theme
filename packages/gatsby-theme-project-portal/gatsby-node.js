@@ -252,7 +252,7 @@ exports.onPreBuild = async ({ reporter, basePath, pathPrefix, graphql }) => {
   `)
   const { allProject, allGeneralPage } = result.data
 
-  const { index, documents } = createSearchIndex({ allProject, allGeneralPage })
+  const [index, documents] = createSearchIndex({ allProject, allGeneralPage })
   await fs.writeFile("static/lunr-index.json", JSON.stringify(index), (err) => {
     if (err) console.error(err)
   })
