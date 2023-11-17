@@ -58,6 +58,78 @@ export const Primary: Story = {
   },
 }
 
+export const LongTitle: Story = {
+  args: {
+    title: "completed 2",
+    agency: "example agency",
+    topics: [],
+    slug: "project/completed-project2",
+    summary: "example summary",
+    statusOfData: "example statusOfData",
+    status: "completed",
+    startDate: new Date("2022-06-17"),
+    requirement: "example requirement",
+    question:
+      "Hello world2 (from json)? Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua?",
+    purpose: "example purpose",
+    projectTeam: ProjectTeamStories.Primary.args.contacts,
+    priorResearch: null,
+    opportunityCloses: new Date("2022-10-28"),
+    mainContact: {
+      name: "Contact Name",
+      title: "Title",
+      employer: "Employer",
+      email: "some-email@example.com",
+      image: contactImageYogi,
+    },
+    fundingInfo: "example fundingInfo",
+    expertise: "example expertise",
+    faq: [
+      { title: "Question 1?", text: "Answer 1!" },
+      {
+        title: "This is another question?",
+        text: "Here's an answer for that question! Yay!",
+      },
+    ],
+    deliverable: "example deliverable",
+    emailContent: "example emailContent",
+    endDate: new Date("2016-12-15"),
+  },
+}
+
+export const NullValues: Story = {
+  args: {
+    title: "completed 2",
+    agency: "example agency",
+    topics: [],
+    slug: "project/completed-project2",
+    summary: "",
+    statusOfData: null,
+    status: "completed",
+    startDate: new Date("2022-06-17"),
+    requirement: null,
+    question: "",
+    purpose: null,
+    projectTeam: ProjectTeamStories.Primary.args.contacts,
+    priorResearch: null,
+    opportunityCloses: new Date("2022-10-28"),
+    mainContact: {
+      name: "Contact Name",
+      title: "Title",
+      employer: "Employer",
+      email: "some-email@example.com",
+      image: contactImageYogi,
+    },
+    keyDates: null,
+    fundingInfo: null,
+    expertise: null,
+    faq: null,
+    deliverable: null,
+    emailContent: null,
+    endDate: new Date("2016-12-15"),
+  },
+}
+
 export const Open: Story = {
   args: { ...Primary.args, status: "open" },
 }
