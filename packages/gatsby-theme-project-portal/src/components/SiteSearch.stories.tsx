@@ -30,7 +30,7 @@ export const oneProject = {
   nodes: [{ ...ProjectDetailStories.LongTitle.args }],
 }
 
-export const twoGenPages = {
+export const twoGeneralPages = {
   nodes: [
     {
       slug: "about",
