@@ -13,7 +13,7 @@ export interface SearchLayoutProps {
     }
     generalPage: {
       title: string
-      image: ImageDataLike
+      image?: ImageDataLike
     }
   }
 }
