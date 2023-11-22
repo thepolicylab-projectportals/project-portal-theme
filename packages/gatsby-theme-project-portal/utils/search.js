@@ -4,43 +4,44 @@ function createSearchIndex(searchNodes) {
   // searchNodes = {allProject[], allGeneralPage[], siteUrl}
   let documents = []
   Object.keys(searchNodes).forEach((page) => {
-    if (page === "siteUrl") {
-      return
-    } else {
-      searchNodes[page].nodes.forEach((node) => {
-        let tempNode = structuredClone(node)
-        if (page === "allProject") {
-          if (!node.slug.includes("/")) {
-            tempNode.slug = `project/${node.slug}`
-          }
+    searchNodes[page].nodes.forEach((node) => {
+      let tempNode = structuredClone(node)
+      if (page === "allProject") {
+        if (!node.slug.includes("/")) {
+          tempNode.slug = `project/${node.slug}`
         }
-        const newItem = Object.values(tempNode).map((field) => {
-          if (lodash.isNull(field)) {
-            return null
-          }
-
-          if (typeof field === "object") {
-            return Object.values(field)
-              .filter((value) => !lodash.isNull(value))
-              .map((value) =>
-                typeof value === "string"
-                  ? value
-                  : Object.values(value)
-                      .filter((k) => !lodash.isNull(k))
-                      .join(" ")
-              )
-              .join(" ")
-          } else {
-            return field
-          }
-        })
-
-        Object.keys(tempNode).forEach((page, i) => {
-          tempNode[page] = newItem[i]
-        })
-        documents.push(tempNode)
+      }
+      const newItem = Object.values(tempNode).map((field) => {
+        if (lodash.isNull(field)) {
+          return null
+        }
+        // extract this part out, test it with a bunch of object cases
+        if (typeof field === "object") {
+          return Object.values(field)
+            .filter((value) => !lodash.isNull(value))
+            .map((value) => {
+              if (typeof value === "string") {
+                return value
+              } else if (value == undefined) {
+                // loose assignment for null
+                return value
+              } else {
+                Object.values(value)
+                  .filter((k) => !lodash.isNull(k))
+                  .join(" ")
+              }
+            })
+            .join(" ")
+        } else {
+          return field
+        }
       })
-    }
+
+      Object.keys(tempNode).forEach((page, i) => {
+        tempNode[page] = newItem[i]
+      })
+      documents.push(tempNode)
+    })
   })
 
   // ask lunr to ignore these words within a search
@@ -65,9 +66,6 @@ function createSearchIndex(searchNodes) {
     "been",
     "but",
     "by",
-    "can",
-    "cannot",
-    "could",
     "dear",
     "did",
     "do",
@@ -81,14 +79,11 @@ function createSearchIndex(searchNodes) {
     "get",
     "got",
     "had",
-    "has",
-    "have",
     "he",
     "her",
     "hers",
     "him",
     "his",
-    "how",
     "however",
     "i",
     "if",
@@ -101,7 +96,6 @@ function createSearchIndex(searchNodes) {
     "least",
     "let",
     "like",
-    "likely",
     "may",
     "me",
     "might",
@@ -126,7 +120,6 @@ function createSearchIndex(searchNodes) {
     "say",
     "says",
     "she",
-    "should",
     "since",
     "so",
     "some",
@@ -145,21 +138,12 @@ function createSearchIndex(searchNodes) {
     "too",
     "twas",
     "us",
-    "wants",
     "was",
     "we",
     "were",
-    "what",
-    "when",
-    "where",
-    "which",
     "while",
-    "who",
-    "whom",
-    "why",
     "will",
     "with",
-    "would",
     "yet",
     "you",
     "your",
@@ -199,4 +183,60 @@ function createSearchIndex(searchNodes) {
   return [index, documents]
 }
 
-module.exports = { createSearchIndex }
+const searchQuery = `
+    query {
+      allProject {
+        nodes {
+          title
+          agency
+          topics {
+            title
+          }
+          slug
+          summary
+          statusOfData
+          status
+          startDate
+          requirement
+          question
+          purpose
+          projectTeam {
+            name
+            employer
+          }
+          priorResearch
+          opportunityCloses
+          mainContact {
+            name
+          }
+          fundingInfo
+          expertise
+          faq {
+            text
+            title
+          }
+          deliverable
+          emailContent
+          endDate
+          slug
+        }
+      }
+      allGeneralPage {
+        nodes {
+          slug
+          lede
+          faq {
+            text
+            title
+          }
+          aims {
+            text
+            title
+          }
+          title
+        }
+      }
+    }
+  `
+
+module.exports = { createSearchIndex, searchQuery }

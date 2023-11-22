@@ -66,9 +66,7 @@ export const SiteSearch: FunctionComponent<SearchProps> = ({
             const item = (
               <React.Fragment key={result.ref}>
                 <div className="px-2 py-4 overflow-hidden bg-white border border-gray-200 rounded-md shadow-md h-full flex flex-col md:mx-10 md:py-6 lg:mx-60">
-                  <h2 className="capitalize">
-                    {db[result.ref].question || db[result.ref].slug}
-                  </h2>
+                  <h2 className="capitalize">{db[result.ref].title}</h2>
                   <ul className="grid grid-rows-1 justify-center md:block">
                     <h2 className="font-sans text-black text-tag my-2 font-extrabold">
                       Match found in:

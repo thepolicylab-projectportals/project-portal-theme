@@ -7,7 +7,8 @@ const meta: Meta<typeof AboutPageLayout> = {
   component: AboutPageLayout,
   tags: ["autodocs"],
 }
-
+const backgroundImage = loadImage("image/background.jpg")
+console.log(backgroundImage)
 export default meta
 
 type Story = StoryObj<typeof AboutPageLayout>
@@ -17,7 +18,7 @@ export const Primary: Story = {
     data: {
       generalPage: {
         pageName: null,
-        title: null,
+        title: "About the Site",
         header: "What we're here to do",
         image: loadImage("image/background.jpg"),
         aims: [
@@ -43,8 +44,9 @@ export const NoImage: Story = {
     data: {
       generalPage: {
         pageName: null,
-        title: null,
+        title: "About No Images",
         header: "What we're here to do",
+        image: undefined,
         aims: [
           {
             title: "About Aim",

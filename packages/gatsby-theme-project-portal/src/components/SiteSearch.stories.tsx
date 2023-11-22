@@ -23,6 +23,7 @@ export const manyProjects = {
     { ...ProjectDetailStories.Open.args },
     { ...ProjectDetailStories.Ongoing.args },
     { ...ProjectDetailStories.Completed.args },
+    { ...ProjectDetailStories.Maximum.args },
   ],
 }
 
@@ -30,15 +31,15 @@ export const oneProject = {
   nodes: [{ ...ProjectDetailStories.LongTitle.args }],
 }
 
-export const twoGeneralPages = {
+export const twoGenPages = {
   nodes: [
     {
       slug: "about",
-      ...AboutPageStories.NoImage.args.data.generalPage,
+      ...AboutPageStories.Primary.args.data.generalPage,
     },
     {
       slug: "contact",
-      ...ContactPageStories.NoImage.args.data.generalPage,
+      ...ContactPageStories.Primary.args.data.generalPage,
     },
   ],
 }
@@ -47,18 +48,15 @@ export const oneGeneralPage = {
   nodes: [
     {
       slug: "about",
-      ...AboutPageStories.NoImage.args.data.generalPage,
+      ...AboutPageStories.Primary.args.data.generalPage,
     },
   ],
 }
 
-export const noProjectPage = {
-  nodes: [{}],
-}
-
-export const noGeneralPage = {
+export const noPage = {
   nodes: [],
 }
+
 // Valid search function
 const validSearches = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
@@ -129,7 +127,7 @@ export const manyData = {
 
 // One general page, no project pages
 const [indexOneGen, documentsOneGen] = createSearchIndex({
-  noProjectPage,
+  noPage,
   oneGeneralPage,
 })
 const dbOneGen = documentsOneGen.reduce(function (acc, document) {
@@ -146,7 +144,7 @@ export const oneData = {
 // No general pages, one project page
 const [indexOneProj, documentsOneProj] = createSearchIndex({
   oneProject,
-  noGeneralPage,
+  noPage,
 })
 const dbOneProj = documentsOneProj.reduce(function (acc, document) {
   acc[document.slug] = document
@@ -159,7 +157,6 @@ export const oneProjectData = {
   db: dbOneProj,
 }
 
-//
 export const Primary: Story = {
   args: manyData,
 }

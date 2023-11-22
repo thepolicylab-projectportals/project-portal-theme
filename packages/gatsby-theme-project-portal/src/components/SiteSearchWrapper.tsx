@@ -4,31 +4,20 @@ import SiteSearch from "./SiteSearch"
 
 export interface SearchWrapperProps {
   siteUrl: string
-  index?: lunr.Index
-  dataBase?: Function
 }
 
-export const SearchWrapper: FunctionComponent<SearchWrapperProps> = ({
+export const SiteSearchWrapper: FunctionComponent<SearchWrapperProps> = ({
   siteUrl,
-  index,
-  dataBase,
 }: SearchWrapperProps) => {
   const [idx, setIdx] = useState()
   const [db, setDb] = useState()
   useEffect(() => {
     const getIndex = async () => {
       const savedIndex = await (await fetch("/lunr-index.json")).json()
-      const documents = await (await fetch("/documents.json")).json()
+      const db = await (await fetch("/documents-reduced.json")).json()
 
       setIdx(lunr.Index.load(savedIndex))
-      // this is a function which grabs the slug from the original documents
-      // lunr tosses this info for SPEED
-      setDb(
-        documents.reduce(function (acc, document) {
-          acc[document.slug] = document
-          return acc
-        }, {})
-      )
+      setDb(db)
     }
 
     // Because Gatsby runs this on build, we need to say to ignore getting the json files
@@ -39,4 +28,3 @@ export const SearchWrapper: FunctionComponent<SearchWrapperProps> = ({
 
   return <div>{<SiteSearch siteUrl={siteUrl} index={idx} db={db} />}</div>
 }
-export default SearchWrapper

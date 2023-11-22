@@ -1,7 +1,6 @@
 import React, { FunctionComponent } from "react"
 import { graphql } from "gatsby"
-import SiteSearchWrapper from "../components/SiteSearchWrapper"
-import { HeaderWithImage } from "../components"
+import { HeaderWithImage, SiteSearchWrapper } from "../components"
 import { ImageDataLike } from "gatsby-plugin-image"
 
 export interface SearchLayoutProps {
