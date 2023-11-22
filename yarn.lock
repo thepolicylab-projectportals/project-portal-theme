@@ -8453,6 +8453,7 @@ __metadata:
     gatsby-transformer-sharp: ^5.12.3
     js-search: ^2.0.1
     lodash: ^4.17.21
+    lunr: ^2.3.9
     markdown-to-jsx: ^7.3.2
     moment: ^2.29.4
     react-google-recaptcha: ^3.1.0
@@ -20359,6 +20360,13 @@ __metadata:
   dependencies:
     es5-ext: ~0.10.2
   checksum: 7f2c53c5e7f2de20efb6ebb3086b7aea88d6cf9ae91ac5618ece974122960c4e8ed04988e81d92c3e63d60b12c556b14d56ef7a9c5a4627b23859b813e39b1a2
+  languageName: node
+  linkType: hard
+
+"lunr@npm:^2.3.9":
+  version: 2.3.9
+  resolution: "lunr@npm:2.3.9"
+  checksum: 176719e24fcce7d3cf1baccce9dd5633cd8bdc1f41ebe6a180112e5ee99d80373fe2454f5d4624d437e5a8319698ca6837b9950566e15d2cae5f2a543a3db4b8
   languageName: node
   linkType: hard
 
