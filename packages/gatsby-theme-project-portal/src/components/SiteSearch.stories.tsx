@@ -104,7 +104,7 @@ const invalidSearches = async ({ canvasElement }) => {
 
   await userEvent.clear(searchInput)
 
-  await userEvent.type(searchInput, "____", {
+  await userEvent.type(searchInput, "--", {
     delay: 100,
   })
 }
