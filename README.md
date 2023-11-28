@@ -6,6 +6,9 @@
   - [📁`defaults`](./packages/defaults) is a completely empty Gatsby site which imports the theme and builds successfully, but does nothing else. It shows the Gatsby 404 page when you load the site. (This is intentional.)
   - [📁`example`](./packages/example) is a site which uses the components and queries from the theme, and should grow to reflect a minimum working site.
   - [📁`gatsby-theme-project-portal`](./packages/gatsby-theme-project-portal) is the theme and incorporates all the shared components, layouts, templates, reused queries, and styling. It should be imported into the site as a `theme`.
+  - [📁`project-portal-content-decap`](./packages/project-portal-content-decap) is a plugin for 
+    the theme which provides configuration for the [Decap-CMS](https://decapcms.org) and loads data 
+    from the JSON files it produces.
   - [📁`storybook`](./packages/storybook) is a component workbench based on 
     [Storybook](storybook.js.org) which displays the components and layout elements.
 - [📄`.prettierrc`](.prettierrc) is a configuration file for the `prettier` JavaScript formatter.
@@ -98,7 +101,7 @@ theme and other plugins from the registry instead of the local directory:
 
 ```zsh
 source test-packaging.sh
-package-and-install -t "packages/example-site/" -w @thepolicylab-projectportals/gatsby-theme-project-portal,@thepolicylab-projectportals/project-portal-content-netlify
+package-and-install -t "packages/example-site/" -w @thepolicylab-projectportals/gatsby-theme-project-portal,@thepolicylab-projectportals/project-portal-content-decap
 ```
 
 ### Use Prettier Code Formatter in WebStorm
