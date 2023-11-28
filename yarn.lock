@@ -9065,9 +9065,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@thepolicylab-projectportals/project-portal-content-netlify@0.0.0, @thepolicylab-projectportals/project-portal-content-netlify@workspace:packages/project-portal-content-netlify":
+"@thepolicylab-projectportals/project-portal-content-decap@0.0.0, @thepolicylab-projectportals/project-portal-content-decap@workspace:packages/project-portal-content-decap":
   version: 0.0.0-use.local
-  resolution: "@thepolicylab-projectportals/project-portal-content-netlify@workspace:packages/project-portal-content-netlify"
+  resolution: "@thepolicylab-projectportals/project-portal-content-decap@workspace:packages/project-portal-content-decap"
   dependencies:
     decap-cms-app: ^3.0.12
     gatsby-plugin-decap-cms: ^4.0.3
@@ -15877,7 +15877,7 @@ __metadata:
   resolution: "example-site@workspace:packages/example-site"
   dependencies:
     "@thepolicylab-projectportals/gatsby-theme-project-portal": 0.0.0
-    "@thepolicylab-projectportals/project-portal-content-netlify": 0.0.0
+    "@thepolicylab-projectportals/project-portal-content-decap": 0.0.0
     gatsby: ^5.12.11
     gatsby-plugin-sitemap: ^6.12.3
     react: ^18.2.0
