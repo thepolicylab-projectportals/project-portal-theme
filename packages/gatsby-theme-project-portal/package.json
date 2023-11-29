@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.17",
-    "@tailwindcss/forms": "^0.5.6",
+    "@tailwindcss/forms": "^0.5.7",
     "autoprefixer": "^10.4.16",
     "gatsby-plugin-image": "^3.12.3",
     "gatsby-plugin-manifest": "^5.12.3",
