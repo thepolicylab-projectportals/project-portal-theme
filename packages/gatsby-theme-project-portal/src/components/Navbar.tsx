@@ -42,15 +42,12 @@ export const InactivePageNavItem: FunctionComponent<{ name }> = ({ name }) => {
 export const ExternalLinkSymbol = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="16"
-    height="16"
+    width="24"
+    height="24"
     viewBox="0 0 16 16"
     {...props}
   >
-    <path
-      fill="#36c"
-      d="M6 1h5v5L8.86 3.85 4.7 8 4 7.3l4.15-4.16L6 1Z M2 3h2v1H2v6h6V8h1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"
-    />
+    <path d="M6 1h5v5L8.86 3.85 4.7 8 4 7.3l4.15-4.16L6 1Z M2 3h2v1H2v6h6V8h1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z" />
   </svg>
 )
 
@@ -60,8 +57,8 @@ export const ExternalPageNavItem: FunctionComponent<{ name }> = ({ name }) => {
       <span className="flex items-center p-5 leading-snug text-white hover:opacity-75 xl:text-black xl:px-3 xl:py-2">
         <span className="text-nav ml-2 border-b-2 hover:border-primary border-transparent">
           <div>
-            {name} &#8239;
-            <ExternalLinkSymbol className="inline-block" />
+            {name}
+            <ExternalLinkSymbol className="inline ml-1 -mr-3 fill-white xl:fill-black" />
           </div>
         </span>
       </span>
