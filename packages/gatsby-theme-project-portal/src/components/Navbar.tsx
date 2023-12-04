@@ -1,14 +1,12 @@
 import React, { FunctionComponent } from "react"
 import { Link } from "gatsby"
 import { FaBars, FaTimes } from "react-icons/fa"
-import { ImageDataLike } from "gatsby-plugin-image"
-import { SiteTitle, NavbarItem } from "."
-
-interface NavbarProps {
-  title: string
+import { GatsbyImage, getImage, ImageDataLike } from "gatsby-plugin-image"
+export interface NavbarProps {
+  title?: string
   activePage?: string
   image?: ImageDataLike
-  pages: {
+  pages?: {
     name: string
     link: string
     show: boolean
@@ -22,6 +20,7 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
   pages,
 }: NavbarProps) => {
   const [navbarOpen, setNavbarOpen] = React.useState(false)
+  const resolvedImage = getImage(image)
   return (
     <>
       <nav
@@ -41,10 +40,19 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
               {navbarOpen ? <FaTimes /> : <FaBars />}
             </button>
             <Link
-              className="block mx-4 my-3 xl:my-auto overflow-hidden text-nav text-black font-bold flex gap-4 items-center whitespace-nowrap"
+              className="block xl:min-h-full mx-4 my-3 xl:my-auto overflow-hidden text-nav text-black font-bold flex gap-4 items-center whitespace-nowrap"
               to="/"
             >
-              <SiteTitle image={image} title={title} />
+              {resolvedImage ? (
+                <GatsbyImage
+                  className="xl:inline-block logotype"
+                  image={resolvedImage}
+                  alt={"nav_logo"}
+                />
+              ) : (
+                <></>
+              )}
+              <div>{title}</div>
             </Link>
           </div>
           <div
@@ -55,28 +63,27 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
             id="example-navbar-danger"
           >
             <ul className="flex flex-col list-none xl:flex-row xl:ml-auto">
-              {pages.map(({ name, link, show }, i) =>
+              {pages?.map(({ name, link, show }, i) =>
                 show ? (
-                  /^\/.*/.test(link) ? (
-                    <li>
-                      <Link
-                        key={"nav" + i}
-                        to={link ? link : "#"}
-                        onClick={() => setNavbarOpen(false)}
-                      >
-                        <NavbarItem
-                          name={name}
-                          isActive={activePage === link}
-                        />
-                      </Link>
+                  <Link
+                    key={"nav" + i}
+                    to={link ? link : "#"}
+                    onClick={() => setNavbarOpen(false)}
+                  >
+                    <li className="nav-item">
+                      <span className="flex items-center p-5 leading-snug text-white hover:opacity-75 xl:text-black xl:px-3 xl:py-2">
+                        {activePage === link ? (
+                          <span className="text-nav ml-2 font-bold border-b-2 border-white xl:border-primary">
+                            {name}
+                          </span>
+                        ) : (
+                          <span className="text-nav ml-2 border-b-2 hover:border-primary border-transparent">
+                            {name}
+                          </span>
+                        )}
+                      </span>
                     </li>
-                  ) : (
-                    <li>
-                      <a key={"nav" + i} href={link}>
-                        <NavbarItem name={name} isActive={false} />
-                      </a>
-                    </li>
-                  )
+                  </Link>
                 ) : (
                   ""
                 )

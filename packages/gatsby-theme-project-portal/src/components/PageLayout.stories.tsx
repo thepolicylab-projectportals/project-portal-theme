@@ -1,37 +1,24 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { ProjectDetailPage } from "./ProjectDetailPage"
-import * as ProjectDetailLayoutStories from "../components/ProjectDetail.stories"
-import { contactImageYogi } from "../components/Contact.stories"
+import { PageLayout } from "./PageLayout"
+import * as bottomBannerStories from "../components/BottomBanner.stories"
+import * as footerStories from "../components/Footer.stories"
+import * as navbarStories from "../components/Navbar.stories"
 
-const meta: Meta<typeof ProjectDetailPage> = {
-  component: ProjectDetailPage,
+const meta: Meta<typeof PageLayout> = {
+  component: PageLayout,
   tags: ["autodocs"],
 }
 
 export default meta
 
-type Story = StoryObj<typeof ProjectDetailPage>
+type Story = StoryObj<typeof PageLayout>
 
 export const Primary: Story = {
   args: {
-    data: {
-      project: {
-        slug: "the-project",
-        ...ProjectDetailLayoutStories.Primary.args,
-      },
-      site: {
-        siteMetadata: {
-          projectInterestLink: "https://ccv.brown.edu",
-          staticText: {
-            mainContact: {
-              ongoingText: "ongoingText",
-              completeText: "completeText",
-            },
-          },
-        },
-      },
-      defaultContactImage: contactImageYogi,
-    },
+    devBanner: { show: true },
+    navbar: navbarStories.Primary.args,
+    bottomBanner: bottomBannerStories.Primary.args,
+    footer: footerStories.Primary.args,
   },
 }
 
@@ -64,3 +51,14 @@ export const Tailwind2XLWindow: Story = {
   args: Primary.args,
   parameters: { viewport: { defaultViewport: "tailwind2XL" } },
 }
+
+export const Nulls: Story = {
+  args: {
+    devBanner: { show: true },
+    navbar: navbarStories.Nulls.args,
+    bottomBanner: bottomBannerStories.Nulls.args,
+    footer: footerStories.Nulls.args,
+  },
+}
+
+export const NoArgs: Story = {}

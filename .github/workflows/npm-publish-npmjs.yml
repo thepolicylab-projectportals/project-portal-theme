@@ -31,16 +31,16 @@ jobs:
       - name: Update version numbers
         run: | 
           yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" version "${{ github.ref_name }}"
-          yarn workspace "@thepolicylab-projectportals/project-portal-content-netlify" version "${{ github.ref_name }}"
+          yarn workspace "@thepolicylab-projectportals/project-portal-content-decap" version "${{ github.ref_name }}"
   
       - name: Pre-release packages
         if: ${{ github.event_name == 'release' && github.event.release.prerelease == true }}
         run: |
           yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" npm publish --tag next --access public
-          yarn workspace "@thepolicylab-projectportals/project-portal-content-netlify" npm publish --tag next --access public
+          yarn workspace "@thepolicylab-projectportals/project-portal-content-decap" npm publish --tag next --access public
           
       - name: Release packages
         if: ${{ github.event_name == 'release' && github.event.release.prerelease == false }}
         run: |
           yarn workspace "@thepolicylab-projectportals/gatsby-theme-project-portal" npm publish --access public
-          yarn workspace "@thepolicylab-projectportals/project-portal-content-netlify" npm publish --access public
+          yarn workspace "@thepolicylab-projectportals/project-portal-content-decap" npm publish --access public

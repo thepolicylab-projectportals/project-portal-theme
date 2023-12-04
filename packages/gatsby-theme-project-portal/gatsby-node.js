@@ -1,9 +1,9 @@
 const { withDefaults } = require(`./utils/default-options`)
 const fs = require("fs")
-
+const { createSearchIndex, searchQuery } = require(`./utils/search`)
 const {
+  siteMetadataTypeDefs,
   projectTypeDefs,
-  projectPortalConfigTypeDefs,
   contactTypeDefs,
   pageTypeDefs,
 } = require(`./utils/types`)
@@ -22,29 +22,10 @@ exports.onPreBootstrap = ({ reporter }, themeOptions) => {
 
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
-  createTypes(projectPortalConfigTypeDefs)
+  createTypes(siteMetadataTypeDefs)
   createTypes(projectTypeDefs)
   createTypes(contactTypeDefs)
   createTypes(pageTypeDefs)
-}
-
-exports.sourceNodes = ({ actions, createContentDigest }, themeOptions) => {
-  const { createNode } = actions
-
-  const projectPortalConfig = withDefaults(themeOptions)
-
-  createNode({
-    ...projectPortalConfig,
-    id: `@thepolicylab-projectportals/gatsby-theme-project-portal`,
-    parent: null,
-    children: [],
-    internal: {
-      type: `ProjectPortalConfig`,
-      contentDigest: createContentDigest(projectPortalConfig),
-      content: JSON.stringify(projectPortalConfig),
-      description: `Options for @thepolicylab-projectportals/gatsby-theme-project-portal`,
-    },
-  })
 }
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
@@ -65,6 +46,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           }
         }
       }
+      searchPages: allGeneralPage(
+        filter: { templateKey: { eq: "SearchPage" } }
+      ) {
+        nodes {
+          slug
+        }
+      }
       aboutPages: allGeneralPage(filter: { templateKey: { eq: "AboutPage" } }) {
         nodes {
           slug
@@ -79,7 +67,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       }
     }
   `)
-
   if (result.errors) {
     reporter.panicOnBuild(result.errors)
   }
@@ -116,6 +103,18 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     })
   })
 
+  const { searchPages } = result.data
+  searchPages.nodes.forEach((page) => {
+    const { slug } = page
+    createPage({
+      path: `/${slug}`,
+      component: require.resolve(`./src/layouts/SearchPageLayout.tsx`),
+      context: {
+        slug: slug,
+      },
+    })
+  })
+
   const { aboutPages } = result.data
   aboutPages.nodes.forEach((page) => {
     const { slug } = page
@@ -147,4 +146,39 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       },
     })
   })
+}
+
+exports.onPreBuild = async ({ reporter, basePath, pathPrefix, graphql }) => {
+  const result = await graphql(searchQuery)
+  const { allProject, allGeneralPage } = result.data
+
+  const [index, documents] = createSearchIndex({ allProject, allGeneralPage })
+  await fs.writeFile("static/lunr-index.json", JSON.stringify(index), (err) => {
+    if (err) console.error(err)
+  })
+  await fs.writeFile(
+    "static/documents.json",
+    JSON.stringify(documents),
+    (err) => {
+      if (err) console.error(err)
+    }
+  )
+  // this is a function which grabs the page from the original documents
+  // lunr tosses this info for SPEED
+  const reduceDocuments = documents.reduce(function (page, document) {
+    page[document.slug] = document
+    return page
+  }, {})
+
+  await fs.writeFile(
+    "static/documents-reduced.json",
+    JSON.stringify(reduceDocuments),
+    (err) => {
+      if (err) console.error(err)
+    }
+  )
+
+  reporter.info(
+    `Site was built with basePath: ${basePath} & pathPrefix: ${pathPrefix}`
+  )
 }

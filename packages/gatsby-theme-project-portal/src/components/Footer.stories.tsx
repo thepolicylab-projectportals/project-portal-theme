@@ -77,3 +77,14 @@ export const ThreeLinks: Story = {
     ],
   },
 }
+
+export const Nulls: Story = {
+  args: {
+    heading: null,
+    copyright: null,
+    links: null,
+    image: null,
+  },
+}
+
+export const NoArgs: Story = {}

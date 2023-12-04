@@ -14,12 +14,14 @@ interface ProjectDetailPageProps extends ProjectDetailProps {
 interface ProjectDetailPageQueryResults {
   data: {
     project: ProjectDetailPageProps
-    projectPortalConfig: {
-      projectInterestLink: string
-      staticText: {
-        mainContact: {
-          ongoingText: string
-          completeText: string
+    site: {
+      siteMetadata: {
+        projectInterestLink: string
+        staticText: {
+          mainContact: {
+            ongoingText: string
+            completeText: string
+          }
         }
       }
     }
@@ -34,10 +36,12 @@ export const ProjectDetailPage: FunctionComponent<
   const {
     data: {
       project,
-      projectPortalConfig: {
-        projectInterestLink,
-        staticText: {
-          mainContact: { ongoingText, completeText },
+      site: {
+        siteMetadata: {
+          projectInterestLink,
+          staticText: {
+            mainContact: { ongoingText, completeText },
+          },
         },
       },
       defaultContactImage,
@@ -98,12 +102,14 @@ export const query = graphql`
         )
       }
     }
-    projectPortalConfig {
-      projectInterestLink
-      staticText {
-        mainContact {
-          ongoingText
-          completeText
+    site {
+      siteMetadata {
+        projectInterestLink
+        staticText {
+          mainContact {
+            ongoingText
+            completeText
+          }
         }
       }
     }
