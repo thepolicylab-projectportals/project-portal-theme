@@ -96,7 +96,7 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
             >
               {resolvedImage ? (
                 <GatsbyImage
-                  className="xl:inline-flex logotype"
+                  className="xl:inline-block logotype"
                   image={resolvedImage}
                   alt={"nav_logo"}
                 />
