@@ -15,17 +15,26 @@ export const SiteSearch: FunctionComponent<SearchProps> = ({
 }: SearchProps) => {
   const [searchQuery, setSearchQuery] = useState([])
   const [queryResults, setQueryResults] = useState([])
+  const [errorMessage, setErrorMessage] = useState("")
 
   useEffect(() => {
     if (searchQuery.length > 0) {
-      let searchResults = index.search(searchQuery)
-      let results = []
-      searchResults.forEach(function (result) {
-        results.push(db[result.ref])
-      })
-      setQueryResults(searchResults)
+      // catch the error, and display an error message to help user
+      try {
+        let searchResults = index.search(searchQuery)
+        setQueryResults(searchResults)
+        setErrorMessage("")
+      } catch (error) {
+        if (error instanceof lunr.QueryParseError) {
+          setErrorMessage(error.message)
+          return
+        } else {
+          throw error
+        }
+      }
     } else {
       setQueryResults([])
+      setErrorMessage("")
     }
   }, [searchQuery])
 
@@ -39,7 +48,10 @@ export const SiteSearch: FunctionComponent<SearchProps> = ({
           placeholder={"Type to search pages..."}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
-        <div className=" pt-2">
+        {errorMessage && (
+          <p className="px-4 text-red text-tag font-bold">{errorMessage}</p>
+        )}
+        <div className="pt-2">
           Number of found pages:
           {queryResults.length}
         </div>
