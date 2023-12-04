@@ -18,6 +18,7 @@ import { statusOutput, isNA, isEmpty } from "../utils"
 export interface ProjectDetailProps {
   // Core content
   question: string
+  slug?: string
   summary: string
   title: string
 
@@ -57,17 +58,19 @@ export interface ProjectDetailProps {
   agency: string
   topics?: TopicType[]
   lastModified: Date
-
+  emailContent?: String
   defaultContactImage: ImageDataLike
 }
 
 export const ProjectDetail: FunctionComponent<ProjectDetailProps> = ({
   question,
+  slug,
   summary,
   status,
   opportunityCloses,
   startDate,
   endDate,
+  emailContent,
   lastModified,
   agency,
   topics,

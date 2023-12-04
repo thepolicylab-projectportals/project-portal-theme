@@ -10,9 +10,9 @@
   },
   "dependencies": {
     "@thepolicylab-projectportals/gatsby-theme-project-portal": "0.0.0",
-    "@thepolicylab-projectportals/project-portal-content-netlify": "0.0.0",
-    "gatsby": "^5.12.8",
-    "gatsby-plugin-sitemap": "^6.12.2",
+    "@thepolicylab-projectportals/project-portal-content-decap": "0.0.0",
+    "gatsby": "^5.12.11",
+    "gatsby-plugin-sitemap": "^6.12.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }

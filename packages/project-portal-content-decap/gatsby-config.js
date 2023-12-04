@@ -5,7 +5,7 @@ module.exports = (pluginOptions) => {
     plugins: [
       `gatsby-transformer-json`,
       {
-        resolve: `gatsby-plugin-netlify-cms`,
+        resolve: `gatsby-plugin-decap-cms`,
         options: {
           enableIdentityWidget: true,
           publicPath: `admin`,
