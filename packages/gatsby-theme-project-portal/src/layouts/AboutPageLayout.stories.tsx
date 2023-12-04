@@ -7,7 +7,8 @@ const meta: Meta<typeof AboutPageLayout> = {
   component: AboutPageLayout,
   tags: ["autodocs"],
 }
-
+const backgroundImage = loadImage("image/background.jpg")
+console.log(backgroundImage)
 export default meta
 
 type Story = StoryObj<typeof AboutPageLayout>
@@ -17,7 +18,7 @@ export const Primary: Story = {
     data: {
       generalPage: {
         pageName: null,
-        title: null,
+        title: "About the Site",
         header: "What we're here to do",
         image: loadImage("image/background.jpg"),
         aims: [
@@ -38,7 +39,32 @@ export const Primary: Story = {
     },
   },
 }
-
+export const NoImage: Story = {
+  args: {
+    data: {
+      generalPage: {
+        pageName: null,
+        title: "About No Images",
+        header: "What we're here to do",
+        image: undefined,
+        aims: [
+          {
+            title: "About Aim",
+            text: "Some text",
+          },
+        ],
+        faq: [
+          {
+            title: "Is this an FAQ question?",
+            text: "Yes, and here is the answer.",
+          },
+        ],
+        accessibility:
+          "We are committed to making the Project Portal accessible for all.",
+      },
+    },
+  },
+}
 export const TailwindXSWindow: Story = {
   args: Primary.args,
   parameters: { viewport: { defaultViewport: "tailwindXS" } },

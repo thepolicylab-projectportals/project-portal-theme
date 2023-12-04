@@ -35,6 +35,11 @@
         "show": true
       },
       {
+        "name": "Search",
+        "link": "/search/",
+        "show": true
+      },
+      {
         "name": "Newsletter",
         "link": "https://mailchi.mp/12498740d69d/research-partnerships-portal",
         "show": true

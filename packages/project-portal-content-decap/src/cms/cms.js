@@ -1,4 +1,4 @@
-import CMS from "netlify-cms-app"
+import CMS from "decap-cms-app"
 
 // Add custom styles to the index.html page
 import "./cms-utils"
@@ -18,6 +18,8 @@ CMS.init({
         folder: "content/project",
         extension: "json",
         create: true,
+        media_folder: "/static/image",
+        public_folder: "/image",
         identifier_field: "title",
         sortable_fields: ["title", "status", "lastModified"],
         preview_path: "project/{{slug}}",
@@ -59,8 +61,10 @@ CMS.init({
           {
             name: "opportunityCloses",
             label: "Opportunity closes",
-            widget: "date",
+            widget: "datetime",
             required: false,
+            date_format: "MM/DD/YYYY",
+            time_format: false,
             format: "YYYY-MM-DD",
             default: "",
             hint:
@@ -70,8 +74,10 @@ CMS.init({
           {
             name: "startDate",
             label: "Project started",
-            widget: "date",
+            widget: "datetime",
             required: false,
+            date_format: "MM/DD/YYYY",
+            time_format: false,
             format: "YYYY-MM-DD",
             default: "",
             hint:
@@ -81,8 +87,10 @@ CMS.init({
           {
             name: "endDate",
             label: "Project ended",
-            widget: "date",
+            widget: "datetime",
             required: false,
+            date_format: "MM/DD/YYYY",
+            time_format: false,
             format: "YYYY-MM-DD",
             default: "",
             hint:

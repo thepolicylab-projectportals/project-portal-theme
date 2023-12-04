@@ -33,7 +33,27 @@ export const Primary: Story = {
     },
   },
 }
-
+export const NoImage: Story = {
+  args: {
+    pageContext: {
+      thankYouPagePath: "/contact/thank-you/",
+    },
+    data: {
+      generalPage: {
+        title: "Want to talk to the Policy Lab? We'd love to hear from you!",
+        lede:
+          "Our team is happy to answer questions about the partnerships pilot," +
+          " project-specific questions, general questions about working with the Project" +
+          " Portal, and ideas for how we can improve this site.",
+      },
+      site: {
+        siteMetadata: {
+          recaptchaSiteKey: "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI",
+        },
+      },
+    },
+  },
+}
 export const TailwindXSWindow: Story = {
   args: Primary.args,
   parameters: { viewport: { defaultViewport: "tailwindXS" } },

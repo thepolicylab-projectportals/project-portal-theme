@@ -37,6 +37,15 @@ export const NoLogo: Story = {
   args: { ...Primary.args, activePage: "Open", image: null },
 }
 
+export const NoLogoXL: Story = {
+  args: { ...Primary.args, activePage: "Open", image: null },
+  parameters: { viewport: { defaultViewport: "tailwindXL" } },
+}
+
+export const NoTitle: Story = {
+  args: { ...Primary.args, activePage: "Open", title: null },
+}
+
 export const TailwindXSWindow: Story = {
   args: Primary.args,
   parameters: { viewport: { defaultViewport: "tailwindXS" } },
