@@ -21,7 +21,7 @@ interface AboutProps {
         text: string
       }[]
       accessibility: string
-      image: ImageDataLike
+      image?: ImageDataLike
     }
   }
 }

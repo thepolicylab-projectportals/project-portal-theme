@@ -36,14 +36,14 @@ DESCRIPTION
       Examples:
         -r "gatsby,react,react-dom"
         -r "gatsby@^4.24.0,react@16.13.0,react-dom@16.13.0"
-        -r "gatsby@^4.24.0,react@16.13.0,react-dom@16.13.0,@thepolicylab-projectportals/gatsby-theme-project-portal,@thepolicylab-projectportals/project-portal-content-netlify"
+        -r "gatsby@^4.24.0,react@16.13.0,react-dom@16.13.0,@thepolicylab-projectportals/gatsby-theme-project-portal,@thepolicylab-projectportals/project-portal-content-decap"
 
   -w workspacePackages
     The names of packages to create and install from workspaces, separated by commas.
     They should be identical to the "name" parameter in the plugins' package.json files.
     If unset, no additional packages are added from the workspaces.
     Examples:
-      -w "@thepolicylab-projectportals/gatsby-theme-project-portal,@thepolicylab-projectportals/project-portal-content-netlify"
+      -w "@thepolicylab-projectportals/gatsby-theme-project-portal,@thepolicylab-projectportals/project-portal-content-decap"
       -w "@thepolicylab-projectportals/project-portal-content-airtable"
       -w ""
 
@@ -80,7 +80,7 @@ EXAMPLES
     % package-and-install -t "packages/example/" -w @thepolicylab-projectportals/gatsby-theme-project-portal
 
   Create a new duplicate of the "example-content" site:
-    % package-and-install -t "packages/example-site/" -w @thepolicylab-projectportals/gatsby-theme-project-portal,@thepolicylab-projectportals/project-portal-content-netlify
+    % package-and-install -t "packages/example-site/" -w @thepolicylab-projectportals/gatsby-theme-project-portal,@thepolicylab-projectportals/project-portal-content-decap
 
 EOM
 
