@@ -2,6 +2,7 @@ import React, { FunctionComponent } from "react"
 import { Link } from "gatsby"
 import { FaBars, FaTimes } from "react-icons/fa"
 import { GatsbyImage, getImage, ImageDataLike } from "gatsby-plugin-image"
+
 export interface NavbarProps {
   title?: string
   activePage?: string
@@ -10,7 +11,62 @@ export interface NavbarProps {
     name: string
     link: string
     show: boolean
+    isExternal?: boolean
   }[]
+}
+
+export const ActivePageNavItem: FunctionComponent<{ name }> = ({ name }) => {
+  return (
+    <li className="nav-item">
+      <span className="flex items-center p-5 leading-snug text-white hover:opacity-75 xl:text-black xl:px-3 xl:py-2">
+        <span className="text-nav ml-2 font-bold border-b-2 border-white xl:border-primary">
+          {name}
+        </span>
+      </span>
+    </li>
+  )
+}
+
+export const InactivePageNavItem: FunctionComponent<{ name }> = ({ name }) => {
+  return (
+    <li className="nav-item">
+      <span className="flex items-center p-5 leading-snug text-white hover:opacity-75 xl:text-black xl:px-3 xl:py-2">
+        <span className="text-nav ml-2 border-b-2 hover:border-primary border-transparent">
+          {name}
+        </span>
+      </span>
+    </li>
+  )
+}
+
+export const ExternalLinkSymbol = (props) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="12"
+    height="12"
+    viewBox="0 0 12 12"
+    {...props}
+  >
+    <path
+      fill="#36c"
+      d="M6 1h5v5L8.86 3.85 4.7 8 4 7.3l4.15-4.16L6 1Z M2 3h2v1H2v6h6V8h1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"
+    />
+  </svg>
+)
+
+export const ExternalPageNavItem: FunctionComponent<{ name }> = ({ name }) => {
+  return (
+    <li className="nav-item">
+      <span className="flex items-center p-5 leading-snug text-white hover:opacity-75 xl:text-black xl:px-3 xl:py-2">
+        <span className="text-nav ml-2 border-b-2 hover:border-primary border-transparent">
+          <div>
+            {name} &#8239;
+            <ExternalLinkSymbol className="inline-block" />
+          </div>
+        </span>
+      </span>
+    </li>
+  )
 }
 
 export const Navbar: FunctionComponent<NavbarProps> = ({
@@ -63,31 +119,33 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
             id="example-navbar-danger"
           >
             <ul className="flex flex-col list-none xl:flex-row xl:ml-auto">
-              {pages?.map(({ name, link, show }, i) =>
-                show ? (
-                  <Link
-                    key={"nav" + i}
-                    to={link ? link : "#"}
-                    onClick={() => setNavbarOpen(false)}
-                  >
-                    <li className="nav-item">
-                      <span className="flex items-center p-5 leading-snug text-white hover:opacity-75 xl:text-black xl:px-3 xl:py-2">
+              {pages
+                ?.filter((e) => e.show)
+                .map(({ name, link, isExternal }, i) => (
+                  <>
+                    {!isExternal ? (
+                      <Link
+                        key={"nav" + i}
+                        to={link ? link : "#"}
+                        onClick={() => setNavbarOpen(false)}
+                      >
                         {activePage === link ? (
-                          <span className="text-nav ml-2 font-bold border-b-2 border-white xl:border-primary">
-                            {name}
-                          </span>
+                          <ActivePageNavItem name={name} />
                         ) : (
-                          <span className="text-nav ml-2 border-b-2 hover:border-primary border-transparent">
-                            {name}
-                          </span>
+                          <InactivePageNavItem name={name} />
                         )}
-                      </span>
-                    </li>
-                  </Link>
-                ) : (
-                  ""
-                )
-              )}
+                      </Link>
+                    ) : (
+                      <a
+                        key={"nav" + i}
+                        href={link}
+                        onClick={() => setNavbarOpen(false)}
+                      >
+                        <ExternalPageNavItem name={name} />
+                      </a>
+                    )}
+                  </>
+                ))}
             </ul>
           </div>
         </div>
