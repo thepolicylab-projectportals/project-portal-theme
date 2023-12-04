@@ -3,11 +3,10 @@
 export const STANDARD_LOCAL_LINK = /^\/$|^\/.*\/$/
 export const ABSOLUTE_URL_REGEX = /^([a-zA-Z]+:)?\/\//
 export const ABSOLUTE_URL_REGEX_WITH_PROTOCOL = /^[a-zA-Z]+:\/\//
-const isAbsolute = (path) => ABSOLUTE_URL_REGEX.test(path)
 
 export const isLocalLink = (path: string) => {
   if (typeof path !== `string`) {
     return undefined
   }
-  return !isAbsolute(path)
+  return !ABSOLUTE_URL_REGEX.test(path)
 }
