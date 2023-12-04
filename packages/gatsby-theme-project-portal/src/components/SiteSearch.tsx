@@ -48,7 +48,9 @@ export const SiteSearch: FunctionComponent<SearchProps> = ({
           placeholder={"Type to search pages..."}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
-        <p className="px-4 text-red text-tag font-bold">{errorMessage}</p>
+        {errorMessage && (
+          <p className="px-4 text-red text-tag font-bold">{errorMessage}</p>
+        )}
         <div className="pt-2">
           Number of found pages:
           {queryResults.length}
