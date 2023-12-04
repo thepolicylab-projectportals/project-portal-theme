@@ -2,6 +2,10 @@ import CMS from "decap-cms-app"
 
 // Add custom styles to the index.html page
 import "./cms-utils"
+import {
+  ABSOLUTE_URL_REGEX_WITH_PROTOCOL,
+  STANDARD_LOCAL_LINK,
+} from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/utils/is-external-link"
 
 // The following configuration is merged with the configuration from the site's config.yml file
 // (if it exists in the site's directory static/admin/config.yml)
@@ -555,10 +559,14 @@ CMS.init({
                         name: "link",
                         widget: "string",
                         pattern: [
-                          /^\/$|^\/.*\/$/,
-                          "Should start and end with a slash.",
-                        ], // from
-                        // https://regexr.com/7hpn2
+                          new RegExp(
+                            STANDARD_LOCAL_LINK.source +
+                              "|" +
+                              ABSOLUTE_URL_REGEX_WITH_PROTOCOL.source
+                          ),
+                          "Internal links start and end with a single slash, e.g. '/open/'.\n" +
+                            "External links include the protocol and hostname, like 'https://ccv.brown.edu/'",
+                        ],
                       },
                       { name: "show", widget: "boolean" },
                     ],
