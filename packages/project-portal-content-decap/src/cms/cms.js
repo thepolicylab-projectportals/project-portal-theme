@@ -61,8 +61,9 @@ CMS.init({
           {
             name: "opportunityCloses",
             label: "Opportunity closes",
-            widget: "date",
+            widget: "datetime",
             required: false,
+            time_format: false,
             format: "YYYY-MM-DD",
             default: "",
             hint:
@@ -72,8 +73,9 @@ CMS.init({
           {
             name: "startDate",
             label: "Project started",
-            widget: "date",
+            widget: "datetime",
             required: false,
+            time_format: false,
             format: "YYYY-MM-DD",
             default: "",
             hint:
@@ -83,8 +85,9 @@ CMS.init({
           {
             name: "endDate",
             label: "Project ended",
-            widget: "date",
+            widget: "datetime",
             required: false,
+            time_format: false,
             format: "YYYY-MM-DD",
             default: "",
             hint:
