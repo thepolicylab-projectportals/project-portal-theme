@@ -56,11 +56,9 @@ export const ExternalPageNavItem: FunctionComponent<{ name }> = ({ name }) => {
     <li className="nav-item">
       <span className="flex items-center p-5 leading-snug text-white hover:opacity-75 xl:text-black xl:px-3 xl:py-2">
         <span className="text-nav ml-2 border-b-2 hover:border-primary border-transparent">
-          <div>
-            {name}
-            <ExternalLinkSymbol className="inline ml-1 -mr-3 fill-white xl:fill-black" />
-          </div>
+          {name}
         </span>
+        <ExternalLinkSymbol className="inline ml-1 -mr-3 fill-white xl:fill-black" />
       </span>
     </li>
   )
