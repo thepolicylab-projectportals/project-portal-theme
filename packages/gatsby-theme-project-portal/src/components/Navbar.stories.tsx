@@ -29,9 +29,8 @@ export const Primary: Story = {
       { name: "FAQ", link: "/faq/", show: true },
       {
         name: "Mailing List",
-        link: "/external/",
+        link: "//external/",
         show: true,
-        isExternal: true,
       },
     ],
   },

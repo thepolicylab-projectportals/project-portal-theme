@@ -2,6 +2,7 @@ import React, { FunctionComponent } from "react"
 import { Link } from "gatsby"
 import { FaBars, FaTimes } from "react-icons/fa"
 import { GatsbyImage, getImage, ImageDataLike } from "gatsby-plugin-image"
+import { isLocalLink } from "../utils/is-external-link"
 
 export interface NavbarProps {
   title?: string
@@ -11,7 +12,6 @@ export interface NavbarProps {
     name: string
     link: string
     show: boolean
-    isExternal?: boolean
   }[]
 }
 
@@ -121,9 +121,9 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
             <ul className="flex flex-col list-none xl:flex-row xl:ml-auto">
               {pages
                 ?.filter((e) => e.show)
-                .map(({ name, link, isExternal }, i) => (
+                .map(({ name, link }, i) => (
                   <>
-                    {!isExternal ? (
+                    {isLocalLink(link) ? (
                       <Link
                         key={"nav" + i}
                         to={link ? link : "#"}
