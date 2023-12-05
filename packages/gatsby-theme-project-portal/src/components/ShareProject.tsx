@@ -1,10 +1,6 @@
 import React from "react"
-import {
-  FaFacebookSquare,
-  FaLinkedin,
-  FaTwitterSquare,
-  FaEnvelopeSquare,
-} from "react-icons/fa"
+import { FaFacebookSquare, FaLinkedin, FaEnvelopeSquare } from "react-icons/fa"
+import { FaSquareXTwitter } from "react-icons/fa6"
 import {
   FacebookShareButton,
   TwitterShareButton,
@@ -32,9 +28,9 @@ export const ShareProject: React.FC = () => {
         <TwitterShareButton
           url={url}
           resetButtonStyle={true}
-          aria-label="Twitter"
+          aria-label="X / Twitter"
         >
-          <FaTwitterSquare />
+          <FaSquareXTwitter />
         </TwitterShareButton>
         <LinkedinShareButton
           url={url}
