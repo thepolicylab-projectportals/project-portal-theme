@@ -25,19 +25,29 @@ export const ShareProject: React.FC = () => {
           url={url}
           resetButtonStyle={true}
           className="shared"
+          aria-label="Facebook"
         >
           <FaFacebookSquare />
         </FacebookShareButton>
-        <TwitterShareButton url={url} resetButtonStyle={true}>
+        <TwitterShareButton
+          url={url}
+          resetButtonStyle={true}
+          aria-label="Twitter"
+        >
           <FaTwitterSquare />
         </TwitterShareButton>
-        <LinkedinShareButton url={url} resetButtonStyle={true}>
+        <LinkedinShareButton
+          url={url}
+          resetButtonStyle={true}
+          aria-label="LinkedIn"
+        >
           <FaLinkedin />
         </LinkedinShareButton>
         <EmailShareButton
           resetButtonStyle={true}
           url={url}
           subject={"Sharing a wonderful project opportunity!"}
+          aria-label="e-mail"
         >
           <FaEnvelopeSquare />
         </EmailShareButton>
