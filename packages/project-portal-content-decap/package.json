@@ -1,5 +1,5 @@
 {
-  "name": "@thepolicylab-projectportals/project-portal-content-netlify",
+  "name": "@thepolicylab-projectportals/project-portal-content-decap",
   "version": "0.0.0",
   "main": "index.js",
   "author": "The Policy Lab <thepolicylab@brown.edu>",
@@ -22,10 +22,10 @@
     "react-dom": "^18.2.0"
   },
   "dependencies": {
-    "gatsby-plugin-netlify-cms": "^7.12.0",
+    "decap-cms-app": "^3.0.12",
+    "gatsby-plugin-decap-cms": "^4.0.3",
     "gatsby-source-filesystem": "^5.12.1",
-    "gatsby-transformer-json": "5.12.0",
-    "netlify-cms-app": "^2.15.72"
+    "gatsby-transformer-json": "5.12.0"
   },
   "repository": {
     "type": "git",

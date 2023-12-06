@@ -1,6 +1,7 @@
-# project-portal-content-netlify
+# project-portal-content-decap
 
-A source plugin for the Gatsby theme `@thepolicylab-projectportals/gatsby-theme-project-portal`, to load data from Netlify-formatted json files. 
+A source plugin for the Gatsby theme `@thepolicylab-projectportals/gatsby-theme-project-portal`, 
+to load data from Decap-CMS-formatted json files. 
 
 ## Functionality
 
@@ -15,7 +16,7 @@ Load the theme and then the plugin into a site's `gatsby-config.js`:
 module.exports = {
   plugins: [
     `@thepolicylab-projectportals/gatsby-theme-project-portal`,
-    `@thepolicylab-projectportals/project-portal-content-netlify`,
+    `@thepolicylab-projectportals/project-portal-content-decap`,
   ],
 }
 ```
@@ -61,14 +62,14 @@ To modify the paths searched for the `Projects` and `Contacts`, pass the theme o
 ```js
 module.exports = {
   plugins: [
-    `@thepolicylab-projectportals/gatsby-theme-project-portal`,
-      { 
-          resolve: `@thepolicylab-projectportals/project-portal-content-netlify`,
-          options: { 
-              projectPath: `{__dirname}/info/projects`,
-              contactPath: `{__dirname}/info/contacts`
-          }
-      },
+    `@thepolicylab-projectportals/gatsby-theme-project-portal`, 
+    { 
+      resolve: `@thepolicylab-projectportals/project-portal-content-decap`,
+      options: { 
+          projectPath: `{__dirname}/info/projects`,
+          contactPath: `{__dirname}/info/contacts`
+      }
+    },
   ],
 }
 ```
