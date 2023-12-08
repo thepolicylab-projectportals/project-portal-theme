@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import { ProjectDetail } from "./ProjectDetail"
 import * as ProjectTeamStories from "./ProjectTeam.stories"
-import { emptyGatsbyImageData } from "./Story.utilities"
+import * as NewsletterStories from "./Newsletter.stories"
 import { contactImage, contactImageYogi } from "./Contact.stories"
 
 const meta: Meta<typeof ProjectDetail> = {
@@ -41,6 +41,8 @@ export const Primary: Story = {
     openText: "Are you interested in collaborating?",
     ongoingText: "This project is ongoing.",
     completeText: "This project is complete.",
+
+    newsletter: NewsletterStories.Primary.args,
 
     projectTeam: ProjectTeamStories.Primary.args.contacts,
 
