@@ -7,6 +7,7 @@ import Select, { MultiValue } from "react-select"
 import * as JsSearch from "js-search"
 import { SearchBar } from "./SearchBar"
 import { ImageDataLike } from "gatsby-plugin-image"
+import { Label } from "./Label"
 
 function customSort(dateField: string, sortAscending: boolean) {
   return function (a, b) {
@@ -241,11 +242,9 @@ export const ProjectPage = ({
         <div ref={scrollToRef} className="absolute -top-100px"></div>
       </div>
       <div className="pt-4 pb-10 md:mx-8 lg:mt-6 lg:pt-8 lg:pb-20 overflow-hidden px-2 xl:px-12 bg-white">
-        <div className="flex flex-wrap gap-4 mb-8 mx-3 xl:mx-6 bg-white">
+        <div className="flex flex-wrap items-end gap-4 mb-8 mx-3 xl:mx-6 bg-white">
           <div className="flex-1 min-w-30ch">
-            <label id="sort-label" className="font-bold" htmlFor="sort">
-              Sort by
-            </label>
+            <Label id="sort" label="Filter by" />
             <Select
               aria-labelledby="sort-label"
               inputId="sort"
@@ -257,12 +256,10 @@ export const ProjectPage = ({
             />
           </div>
           <div className="flex-1 min-w-30ch">
-            <label id="filter-label" className="font-bold" htmlFor="filter">
-              Filter by topic
-            </label>
+            <Label id="filter-select" label="Filter by topic" />
             <Select
               aria-labelledby="filter-label"
-              inputId="filter"
+              inputId="filter-select"
               name="filter-select"
               isMulti={true}
               value={selectedOptions}
@@ -274,7 +271,9 @@ export const ProjectPage = ({
           </div>
           <div className="flex-1 min-w-30ch auto-rows-auto flex flex-col">
             <SearchBar
+              id="projSearch"
               label={"Search"}
+              placeholder="Type to filter posts..."
               onChange={(e) => setSearchQuery(e.target.value)}
             />
           </div>

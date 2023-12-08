@@ -20,7 +20,7 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
   ...contactProps
 }) => {
   return (
-    <div className="w-full lg:w-2/5 xl:w-1/3">
+    <>
       <div className="w-full p-8 mb-8 bg-gray-100">
         <h4 className="text-h4">
           {statusOutput(
@@ -63,6 +63,6 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
           <Contact {...contactProps} showEmail={true} />
         </div>
       </div>
-    </div>
+    </>
   )
 }
