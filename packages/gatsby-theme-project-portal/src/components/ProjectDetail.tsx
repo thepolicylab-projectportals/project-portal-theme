@@ -96,7 +96,7 @@ export const ProjectDetail: FunctionComponent<ProjectDetailProps> = ({
       <header>
         <div className="py-16 p-responsive bg-primary">
           <div className="flex flex-col justify-between m-responsive lg:flex-row">
-            <div className="w-3/4">
+            <div className="w-full">
               <h1 className="text-h3 w-full font-bold leading-h2 text-white lg:w-4/5 lg:text-h2">
                 {question}
               </h1>
