@@ -2,9 +2,18 @@ import CMS from "decap-cms-app"
 
 // Add custom styles to the index.html page
 import "./cms-utils"
+import {
+  ABSOLUTE_URL_REGEX_WITH_PROTOCOL,
+  STANDARD_LOCAL_LINK,
+} from "@thepolicylab-projectportals/gatsby-theme-project-portal/src/utils/is-external-link"
+
+const VALID_URL_REGEXP = new RegExp( // from https://regexr.com/3dqa0
+  "^(https?:\\/\\/)?([\\da-z\\.-]+\\.[a-z\\.]{2,6}|[\\d\\.]+)([\\/:?=&#]{1}[\\da-z\\.-]+)*[\\/\\?]?$"
+)
 
 // The following configuration is merged with the configuration from the site's config.yml file
 // (if it exists in the site's directory static/admin/config.yml)
+
 CMS.init({
   config: {
     media_folder: "content/image",
@@ -555,10 +564,14 @@ CMS.init({
                         name: "link",
                         widget: "string",
                         pattern: [
-                          /^\/$|^\/.*\/$/,
-                          "Should start and end with a slash.",
-                        ], // from
-                        // https://regexr.com/7hpn2
+                          new RegExp(
+                            STANDARD_LOCAL_LINK.source +
+                              "|" +
+                              ABSOLUTE_URL_REGEX_WITH_PROTOCOL.source
+                          ),
+                          "Internal links start and end with a single slash, e.g. '/open/'.\n" +
+                            "External links include the protocol and hostname, like 'https://ccv.brown.edu/'",
+                        ],
                       },
                       { name: "show", widget: "boolean" },
                     ],
@@ -668,10 +681,35 @@ CMS.init({
                 widget: "string",
                 required: false,
                 hint: "Link for users to use instead of the email address of the main contact. If this value is set, the button to send an email to the main contact will be replaced with a button with this link.",
-                pattern: [
-                  "^(https?:\\/\\/)?([\\da-z\\.-]+\\.[a-z\\.]{2,6}|[\\d\\.]+)([\\/:?=&#]{1}[\\da-z\\.-]+)*[\\/\\?]?$",
-                  // from https://regexr.com/3dqa0
-                  "Must be a valid URL.",
+                pattern: [VALID_URL_REGEXP, "Must be a valid URL."],
+              },
+              {
+                name: "newsletter",
+                label: "Newsletter form link",
+                hint:
+                  "A link to a newsletter sign-up form, for instance, one set up on" +
+                  " Mailchimp.",
+                widget: "object",
+                fields: [
+                  {
+                    name: "link",
+                    widget: "string",
+                    hint: "URL of the newsletter sign-up form.",
+                    pattern: [VALID_URL_REGEXP, "Must be a valid URL."],
+                    required: false,
+                  },
+                  {
+                    name: "title",
+                    widget: "string",
+                    required: false,
+                    hint: "The heading shown in the sign-up box. ",
+                  },
+                  {
+                    name: "text",
+                    widget: "markdown",
+                    required: false,
+                    hint: 'The text shown above the "Subscribe" button. ',
+                  },
                 ],
               },
             ],

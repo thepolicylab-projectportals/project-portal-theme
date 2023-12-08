@@ -1,7 +1,12 @@
 import React, { FunctionComponent } from "react"
 import { graphql, Link, withPrefix } from "gatsby"
 import { ImageDataLike } from "gatsby-plugin-image"
-import { BackIcon, ProjectDetail, ProjectDetailProps } from "../components"
+import {
+  BackIcon,
+  NewsletterProps,
+  ProjectDetail,
+  ProjectDetailProps,
+} from "../components"
 
 export { Head } from "../hooks"
 
@@ -23,6 +28,7 @@ interface ProjectDetailPageQueryResults {
             completeText: string
           }
         }
+        newsletter: NewsletterProps
       }
     }
     defaultContactImage: ImageDataLike
@@ -42,6 +48,7 @@ export const ProjectDetailPage: FunctionComponent<
           staticText: {
             mainContact: { ongoingText, completeText },
           },
+          newsletter,
         },
       },
       defaultContactImage,
@@ -57,6 +64,7 @@ export const ProjectDetailPage: FunctionComponent<
           completeText={completeText}
           projectInterestLink={projectInterestLink}
           defaultContactImage={defaultContactImage}
+          newsletter={newsletter}
         />
       </main>
       <div className="p-responsive pb-4">
@@ -80,9 +88,21 @@ export const ProjectDetailPage: FunctionComponent<
 export default ProjectDetailPage
 
 export const query = graphql`
+  fragment NewsletterProps on Query {
+    site {
+      siteMetadata {
+        newsletter {
+          link
+          title
+          text
+        }
+      }
+    }
+  }
   query ProjectDetailPageQuery($slug: String!) {
     ...HeadData
     ...LayoutData
+    ...NewsletterProps
     page: project(slug: { eq: $slug }) {
       title: question
       description: summary
