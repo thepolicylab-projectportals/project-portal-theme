@@ -1,16 +1,41 @@
-# Example site with defaults
+# Example Site with example content
 
 A usage of
 [gatsby-theme-project-portal](https://github.com/thepolicylab-projectportals/project-portal-theme)
-that loads the theme and shows the default set of features without changing anything. 
+that serves as a local development environment designed to facilitate the testing and development of new features for the Project Portal theme. 
 
 
+## Quick Start Guide
 
-### Running Netlify CMS locally
-To run the Netlify CMS interface on a local deployment, there are two things you must configure. 
+Once the repository is cloned, 
 
-Inside `.../example-site/static/admin/config.yml`, you must set `local_backend: true`
+Make sure you are at the root of the repository and run the following command to install the required dependencies.
 
-Also inside `.../example-site/`, you must run the command `npx netlify-cms-proxy-server` to start the Netlify CMS File System Proxy Server.
-It is important to run this command in the root of the example-site directory in order to view and manipulate the data.
-This also applies to all standalone sites, must be at the root of each site directory if you want to start up the CMS interface locally. 
+```shell
+yarn install
+```
+
+Again at the root of the repository, run the following command to generate a production-ready version of your website. Currently, the production-ready version is required to enable the site-wide `Search` feature.
+```shell
+yarn workspace example-site build
+```
+
+Once the build process is completed, run the following command to preview the production build locally. 
+```shell
+yarn workspace example-site serve
+```
+
+
+## Accessing Decap CMS
+
+Navigate to [static/admin/config.yml](./static/admin/config.yml) and make the following change locally:
+
+```yaml
+local_backend: true
+```
+
+Spin up the `decap-server` in a separate terminal by running the following command.
+
+```shell
+npx decap-server
+```
