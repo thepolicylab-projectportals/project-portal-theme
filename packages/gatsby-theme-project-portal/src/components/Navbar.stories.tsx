@@ -13,6 +13,7 @@ export default meta
 type Story = StoryObj<typeof Navbar>
 
 export const siteTitleLogo = loadImage("image/logo-square.png", 64, 74, "fixed")
+export const ccvLogo = loadImage("image/ccv-logo.png", 143, 74, "fixed")
 
 export const Primary: Story = {
   args: {
@@ -88,6 +89,15 @@ export const EmptyStrings: Story = {
   args: {
     title: "",
     image: siteTitleLogo,
+    activePage: "",
+    pages: [],
+  },
+}
+
+export const WideImage: Story = {
+  args: {
+    title: "",
+    image: ccvLogo,
     activePage: "",
     pages: [],
   },
