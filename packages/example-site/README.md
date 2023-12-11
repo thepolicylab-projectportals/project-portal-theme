@@ -37,7 +37,7 @@ Navigate to [static/admin/config.yml](./static/admin/config.yml) and make the fo
 local_backend: true
 ```
 
-Spin up the `decap-server` in a separate terminal by running the following command.
+In a separate terminal, make sure you have navigated to the `packages/example-site/` sub-directory and spin up the `decap-server` by running the following command.
 
 ```shell
 npx decap-server
