@@ -5,7 +5,9 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "test": "jest --passWithNoTests"
+    "test": "$npm_execpath run test:jest && $npm_execpath run test:storybook",
+    "test:jest": "jest",
+    "test:storybook": "yarn workspace storybook test"
   },
   "workspaces": [
     "packages/*"
