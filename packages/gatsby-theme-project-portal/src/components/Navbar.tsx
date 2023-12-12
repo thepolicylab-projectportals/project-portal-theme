@@ -84,21 +84,25 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
             >
               {navbarOpen ? <FaTimes /> : <FaBars />}
             </button>
-            <Link
-              className="block xl:min-h-full mx-4 my-3 xl:my-auto overflow-hidden text-nav text-black font-bold flex gap-4 items-center whitespace-nowrap"
-              to="/"
-            >
-              {resolvedImage ? (
-                <GatsbyImage
-                  className="xl:inline-block logotype"
-                  image={resolvedImage}
-                  alt={"nav_logo"}
-                />
-              ) : (
-                <></>
-              )}
-              <div>{title}</div>
-            </Link>
+            {resolvedImage || title ? (
+              <Link
+                className="block xl:min-h-full mx-4 my-3 xl:my-auto overflow-hidden text-nav text-black font-bold flex gap-4 items-center whitespace-nowrap"
+                to="/"
+              >
+                {resolvedImage ? (
+                  <GatsbyImage
+                    className="xl:inline-block logotype"
+                    image={resolvedImage}
+                    alt={"nav_logo"}
+                  />
+                ) : (
+                  <></>
+                )}
+                <div>{title}</div>
+              </Link>
+            ) : (
+              ""
+            )}
           </div>
           <div
             className={
