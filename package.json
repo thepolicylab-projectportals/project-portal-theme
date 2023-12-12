@@ -5,16 +5,18 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "test": "jest --passWithNoTests"
+    "test": "$npm_execpath run test:jest && $npm_execpath run test:storybook",
+    "test:jest": "jest",
+    "test:storybook": "yarn workspace storybook test"
   },
   "workspaces": [
     "packages/*"
   ],
   "devDependencies": {
     "@testing-library/jest-dom": "^6.1.4",
-    "@testing-library/react": "^14.0.0",
-    "@types/jest": "^29.5.6",
-    "@types/node": "^20.8.4",
+    "@testing-library/react": "^14.1.2",
+    "@types/jest": "^29.5.8",
+    "@types/node": "^20.10.3",
     "babel-jest": "^29.7.0",
     "babel-preset-gatsby": "^3.12.1",
     "identity-obj-proxy": "^3.0.0",

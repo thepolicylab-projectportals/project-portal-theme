@@ -20,6 +20,7 @@ function loadProjectPortalThemeOptions(pluginOptions) {
     },
     showDevBanner: layoutOptions.showDevBanner,
     projectInterestLink: mainContactConfig.projectInterestLink,
+    newsletter: mainContactConfig.newsletter,
   }
 
   return {

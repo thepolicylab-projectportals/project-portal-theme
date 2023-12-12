@@ -20,7 +20,7 @@ interface ContactProps {
     generalPage: {
       title: string
       lede: string
-      image: ImageDataLike
+      image?: ImageDataLike
     }
     site: {
       siteMetadata: {

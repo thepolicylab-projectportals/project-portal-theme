@@ -11,6 +11,8 @@ import {
   SectionOfItem,
   ShareProject,
   TopicType,
+  Newsletter,
+  NewsletterProps,
 } from "."
 
 import { statusOutput, isNA, isEmpty } from "../utils"
@@ -18,6 +20,7 @@ import { statusOutput, isNA, isEmpty } from "../utils"
 export interface ProjectDetailProps {
   // Core content
   question: string
+  slug?: string
   summary: string
   title: string
 
@@ -39,6 +42,7 @@ export interface ProjectDetailProps {
   ongoingText?: string // shown with MainContact for ongoing projects
   completeText?: string // shown with MainContact for complete projects
   projectInterestLink?: string // shown instead of email address for open projects
+  newsletter?: NewsletterProps
 
   // Project team
   projectTeam?: ContactType[]
@@ -57,17 +61,19 @@ export interface ProjectDetailProps {
   agency: string
   topics?: TopicType[]
   lastModified: Date
-
+  emailContent?: String
   defaultContactImage: ImageDataLike
 }
 
 export const ProjectDetail: FunctionComponent<ProjectDetailProps> = ({
   question,
+  slug,
   summary,
   status,
   opportunityCloses,
   startDate,
   endDate,
+  emailContent,
   lastModified,
   agency,
   topics,
@@ -86,6 +92,7 @@ export const ProjectDetail: FunctionComponent<ProjectDetailProps> = ({
   projectTeam,
   faq,
   projectInterestLink,
+  newsletter,
   defaultContactImage,
 }) => {
   return (
@@ -194,17 +201,20 @@ export const ProjectDetail: FunctionComponent<ProjectDetailProps> = ({
                 </>
               )}
             </div>
-            {!(mainContact === null || mainContact === undefined) && (
-              <MainContact
-                {...mainContact}
-                status={status}
-                openText={openText}
-                ongoingText={ongoingText}
-                completeText={completeText}
-                projectInterestLink={projectInterestLink}
-                defaultImage={defaultContactImage}
-              />
-            )}
+            <div className="w-full lg:w-2/5 xl:w-1/3">
+              {!(mainContact === null || mainContact === undefined) && (
+                <MainContact
+                  {...mainContact}
+                  status={status}
+                  openText={openText}
+                  ongoingText={ongoingText}
+                  completeText={completeText}
+                  projectInterestLink={projectInterestLink}
+                  defaultImage={defaultContactImage}
+                />
+              )}
+              <Newsletter {...newsletter} />
+            </div>
           </div>
         </section>
 
