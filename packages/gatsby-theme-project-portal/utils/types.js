@@ -10,6 +10,7 @@ const siteMetadataTypeDefs = `
     projectInterestLink: String
     recaptchaSiteKey: String
     staticText: StaticTextType
+    newsletter: NewsletterType
   }
   type StaticTextType {
     contact: ContactType
@@ -33,6 +34,11 @@ const siteMetadataTypeDefs = `
   }
   type BottomBannerType {
     text: String
+    link: String
+  }
+  type NewsletterType {
+    text: String
+    title: String
     link: String
   }
   type MainContactType {

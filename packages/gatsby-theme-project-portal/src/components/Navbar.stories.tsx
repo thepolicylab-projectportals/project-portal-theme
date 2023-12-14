@@ -27,6 +27,16 @@ export const Primary: Story = {
       { name: "Hidden", link: "/hidden/", show: false },
       { name: "Contact", link: "/contact/", show: true },
       { name: "FAQ", link: "/faq/", show: true },
+      {
+        name: "External",
+        link: "//external/",
+        show: true,
+      },
+      {
+        name: "CCV",
+        link: "https://ccv.brown.edu/",
+        show: true,
+      },
     ],
   },
 }
