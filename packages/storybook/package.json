@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "develop": "storybook dev -p 6006",
-    "build": "storybook build"
+    "build": "storybook build",
+    "test": "$npm_execpath run playwright install && $npm_execpath run storybook build --quiet && npx concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"npx http-server storybook-static --port 6006 --silent\" \"npx wait-on tcp:127.0.0.1:6006 && $npm_execpath run test-storybook --browsers chromium firefox\""
   },
   "devDependencies": {
     "@babel/core": "^7.23.5",

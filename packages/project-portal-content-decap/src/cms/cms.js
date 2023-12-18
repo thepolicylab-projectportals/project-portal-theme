@@ -261,7 +261,7 @@ CMS.init({
         fields: [
           {
             name: "name",
-            label: "Name",
+            label: "Name or Department",
           },
           {
             name: "title",
