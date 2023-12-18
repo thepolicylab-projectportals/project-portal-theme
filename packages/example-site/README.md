@@ -10,7 +10,7 @@ that serves as a local development environment designed to facilitate the testin
 
 ## Quick Start Guide
 
-Once the repository is cloned, 
+Clone the repository. 
 
 Make sure you are at the root of the repository and run the following command to install the required dependencies.
 
