@@ -27,7 +27,7 @@ export const Feature: FunctionComponent<FeatureProps> = ({
       <h5 className="font-sans text-black text-tag mb-1 font-extrabold uppercase">
         {label}
       </h5>
-      <div className="text-tag flex flex-wrap">{out}</div>
+      <ul className="text-tag flex flex-wrap">{out}</ul>
     </>
   )
 }
@@ -38,9 +38,9 @@ interface TagProps {
 }
 
 const Tag: FunctionComponent<TagProps> = ({ className, children }) => (
-  <span
+  <li
     className={`px-3 py-1 mt-1 uppercase text-tag whitespace-nowrap font-semibold mr-2 ${className}`}
   >
     {children}
-  </span>
+  </li>
 )
