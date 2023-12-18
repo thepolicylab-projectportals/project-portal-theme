@@ -23,7 +23,7 @@ export const BottomBanner: FunctionComponent<BottomBannerProps> = ({
       <div className="m-responsive">
         <div className="w-full flex gap-4 sm:gap-8 items-center justify-center flex-wrap">
           {!isNA(link) && resolvedImage && (
-            <a id={linkId} href={link}>
+            <a id={linkId} href={link} aria-labelledby="bottomBannerText">
               <GatsbyImage
                 className="inline-block logotype"
                 image={resolvedImage}
@@ -38,7 +38,10 @@ export const BottomBanner: FunctionComponent<BottomBannerProps> = ({
               alt="R+D logo"
             />
           )}
-          <div className="inline-block text-body flex-4 min-w-20ch">
+          <div
+            className="inline-block text-body flex-4 min-w-20ch"
+            id="bottomBannerText"
+          >
             <MarkdownText text={text} />
           </div>
         </div>
