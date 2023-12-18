@@ -24,10 +24,12 @@ export const Feature: FunctionComponent<FeatureProps> = ({
 
   return (
     <>
-      <h5 className="font-sans text-black text-tag mb-1 font-extrabold uppercase">
-        {label}
-      </h5>
-      <ul className="text-tag flex flex-wrap">{out}</ul>
+      <figure>
+        <figcaption className="font-sans text-black text-tag mb-1 font-extrabold uppercase">
+          {label}
+        </figcaption>
+        <ul className="text-tag flex flex-wrap">{out}</ul>
+      </figure>
     </>
   )
 }
