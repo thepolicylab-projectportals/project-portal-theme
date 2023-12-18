@@ -11,7 +11,7 @@
     "@babel/preset-env": "^7.23.5",
     "@babel/preset-react": "^7.23.3",
     "@babel/preset-typescript": "^7.23.3",
-    "@playwright/test": "^1.38.1",
+    "@playwright/test": "^1.40.1",
     "@storybook/addon-a11y": "^7.5.1",
     "@storybook/addon-essentials": "^7.5.1",
     "@storybook/addon-interactions": "^7.5.1",
