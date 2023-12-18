@@ -35,7 +35,7 @@ export const BottomBanner: FunctionComponent<BottomBannerProps> = ({
             <GatsbyImage
               className="inline-block logotype"
               image={resolvedImage}
-              alt="R+D logo"
+              alt="Bottom Banner logo"
             />
           )}
           <div
