@@ -60,6 +60,44 @@ export const Primary: Story = {
   },
 }
 
+export const MediumTitle: Story = {
+  args: {
+    title: "completed 2",
+    agency: "example agency",
+    topics: [],
+    slug: "project/completed-project",
+    summary: "example project summary",
+    statusOfData: "example statusOfData",
+    status: "completed",
+    startDate: new Date("2022-06-17"),
+    requirement: "example requirement",
+    question:
+      "Testing Out A Medium Length Title Here?",
+    purpose: "example purpose",
+    projectTeam: ProjectTeamStories.Primary.args.contacts,
+    priorResearch: null,
+    opportunityCloses: new Date("2022-10-28"),
+    mainContact: {
+      name: "Contact Name",
+      title: "Title",
+      employer: "Employer",
+      email: "some-email@example.com",
+      image: contactImageYogi,
+    },
+    fundingInfo: "example fundingInfo",
+    expertise: "example expertise",
+    faq: [
+      { title: "Question 1?", text: "Answer 1!" },
+      {
+        title: "This is another different question?",
+        text: "Here's an answer for that question! Yay!",
+      },
+    ],
+    deliverable: "example deliverable",
+    emailContent: "example emailContent",
+    endDate: new Date("2016-12-15"),
+  },
+}
 export const LongTitle: Story = {
   args: {
     title: "completed 2",
@@ -242,8 +280,28 @@ export const TailwindXSWindow: Story = {
   parameters: { viewport: { defaultViewport: "tailwindXS" } },
 }
 
+export const TailwindXSWindowMediumTitle: Story = {
+  args: MediumTitle.args,
+  parameters: { viewport: { defaultViewport: "tailwindXS" } },
+}
+
+export const TailwindXSWindowLongTitle: Story = {
+  args: LongTitle.args,
+  parameters: { viewport: { defaultViewport: "tailwindXS" } },
+}
+
 export const TailwindSMWindow: Story = {
   args: Primary.args,
+  parameters: { viewport: { defaultViewport: "tailwindSM" } },
+}
+
+export const TailwindSMWindowMediumTitle: Story = {
+  args: MediumTitle.args,
+  parameters: { viewport: { defaultViewport: "tailwindSM" } },
+}
+
+export const TailwindSMWindowLongTitle: Story = {
+  args: LongTitle.args,
   parameters: { viewport: { defaultViewport: "tailwindSM" } },
 }
 
@@ -252,8 +310,28 @@ export const TailwindMDWindow: Story = {
   parameters: { viewport: { defaultViewport: "tailwindMD" } },
 }
 
+export const TailwindMDWindowMediumTitle: Story = {
+  args: MediumTitle.args,
+  parameters: { viewport: { defaultViewport: "tailwindMD" } },
+}
+
+export const TailwindMDWindowLongTitle: Story = {
+  args: LongTitle.args,
+  parameters: { viewport: { defaultViewport: "tailwindMD" } },
+}
+
 export const TailwindLGWindow: Story = {
   args: Primary.args,
+  parameters: { viewport: { defaultViewport: "tailwindLG" } },
+}
+
+export const TailwindLGWindowMediumTitle: Story = {
+  args: MediumTitle.args,
+  parameters: { viewport: { defaultViewport: "tailwindLG" } },
+}
+
+export const TailwindLGWindowLongTitle: Story = {
+  args: LongTitle.args,
   parameters: { viewport: { defaultViewport: "tailwindLG" } },
 }
 
@@ -262,7 +340,27 @@ export const TailwindXLWindow: Story = {
   parameters: { viewport: { defaultViewport: "tailwindXL" } },
 }
 
+export const TailwindXLWindowMediumTitle: Story = {
+  args: MediumTitle.args,
+  parameters: { viewport: { defaultViewport: "tailwindXL" } },
+}
+
+export const TailwindXLWindowLongTitle: Story = {
+  args: LongTitle.args,
+  parameters: { viewport: { defaultViewport: "tailwindXL" } },
+}
+
 export const Tailwind2XLWindow: Story = {
   args: Primary.args,
+  parameters: { viewport: { defaultViewport: "tailwind2XL" } },
+}
+
+export const Tailwind2XLWindowMediumTitle: Story = {
+  args: MediumTitle.args,
+  parameters: { viewport: { defaultViewport: "tailwind2XL" } },
+}
+
+export const Tailwind2XLWindowLongTitle: Story = {
+  args: LongTitle.args,
   parameters: { viewport: { defaultViewport: "tailwind2XL" } },
 }
