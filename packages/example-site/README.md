@@ -11,6 +11,9 @@ that serves as a local development environment designed to facilitate the testin
 ## Quick Start Guide
 
 Clone the repository. 
+```shell
+git clone https://github.com/thepolicylab-projectportals/project-portal-theme.git
+```
 
 Make sure you are at the root of the repository and run the following command to install the required dependencies.
 
@@ -18,17 +21,19 @@ Make sure you are at the root of the repository and run the following command to
 yarn install
 ```
 
-You can run the site in developer mode using:
+For rapid development of new components or styling, run the following command.
+
 ```shell
-yarn develop
+yarn workspace example-site develop
 ```
 
-Again at the root of the repository, run the following command to generate a built version of your website. Currently, the built version is required to enable the site-wide `Search` feature.
+Afterwards, run the following command to generate a production-ready version of your website. Certain gatsby node APIs only fire during the build process. While `develop` mode is fine for most cases, the final built site might act in a subtly different way. For more details, see https://www.gatsbyjs.com/docs/conceptual/overview-of-the-gatsby-build-process/#differences-between-develop-and-build
+
 ```shell
 yarn workspace example-site build
 ```
 
-Once the build process is completed, run the following command to preview the production build locally. 
+Once the build process is completed, run the following command to preview the production build locally.
 ```shell
 yarn workspace example-site serve
 ```
