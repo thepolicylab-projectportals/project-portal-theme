@@ -47,3 +47,6 @@ In a separate terminal, make sure you have navigated to the `packages/example-si
 ```shell
 npx decap-server
 ```
+
+Once `decap-server` is running, you can run `yarn develop` and access the CMS at the address shown in the output of `yarn develop`, typically `http://localhost:8000`.
+
