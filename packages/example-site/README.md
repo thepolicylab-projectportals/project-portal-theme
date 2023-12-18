@@ -18,6 +18,11 @@ Make sure you are at the root of the repository and run the following command to
 yarn install
 ```
 
+You can run the site in developer mode using:
+```shell
+yarn develop
+```
+
 Again at the root of the repository, run the following command to generate a built version of your website. Currently, the built version is required to enable the site-wide `Search` feature.
 ```shell
 yarn workspace example-site build
