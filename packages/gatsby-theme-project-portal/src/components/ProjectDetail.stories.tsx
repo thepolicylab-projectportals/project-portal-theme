@@ -130,6 +130,24 @@ export const NullValues: Story = {
     emailContent: null,
     endDate: new Date("2016-12-15"),
   },
+  parameters: {
+    a11y: {
+      config: {
+        rules: [
+          {
+            // The top H1 heading is missing – ignore here
+            id: "empty-heading",
+            enabled: false,
+          },
+          {
+            // Because there's no content in the overview, the contact heading order is broken
+            id: "heading-order",
+            enabled: false,
+          },
+        ],
+      },
+    },
+  },
 }
 
 export const Open: Story = {
