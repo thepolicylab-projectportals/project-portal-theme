@@ -16,8 +16,7 @@ export const ShareProject: React.FC = () => {
   const url = typeof window !== "undefined" ? window.location.href : ""
 
   return (
-    <div className="mt-8 w-72 lg:mt-0">
-      <h4 className="font-bold text-white text-xl lg:text-h4">
+    <aside className="mt-8 w-72 lg:mt-0">
       <div className="font-bold text-white text-xl lg:text-h4">
         Share this project
       </div>
@@ -43,6 +42,6 @@ export const ShareProject: React.FC = () => {
           <FaEnvelopeSquare />
         </EmailShareButton>
       </div>
-    </div>
+    </aside>
   )
 }
