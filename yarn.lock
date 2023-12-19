@@ -9082,7 +9082,7 @@ __metadata:
     react-icons: ^4.12.0
     react-select: ^5.8.0
     react-share: ^5.0.3
-    tailwindcss: ^3.3.5
+    tailwindcss: ^3.3.7
   peerDependencies:
     gatsby: ^5.3.3
     react: ^18.2.0
@@ -28426,9 +28426,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tailwindcss@npm:^3.3.5":
-  version: 3.3.5
-  resolution: "tailwindcss@npm:3.3.5"
+"tailwindcss@npm:^3.3.7":
+  version: 3.3.7
+  resolution: "tailwindcss@npm:3.3.7"
   dependencies:
     "@alloc/quick-lru": ^5.2.0
     arg: ^5.0.2
@@ -28455,7 +28455,7 @@ __metadata:
   bin:
     tailwind: lib/cli.js
     tailwindcss: lib/cli.js
-  checksum: e04bb3bb7f9f17e9b6db0c7ace755ef0d6d05bff36ebeb9e5006e13c018ed5566f09db30a1a34380e38fa93ebbb4ae0e28fe726879d5e9ddd8c5b52bffd26f14
+  checksum: 73728e03ac00bb90a09436895b663473336da4a539ca22df41c62948fd4e45c5feda71d6f33c03666045dbb1806ee36658caf604256d20196ebf580ec0987c2d
   languageName: node
   linkType: hard
 
