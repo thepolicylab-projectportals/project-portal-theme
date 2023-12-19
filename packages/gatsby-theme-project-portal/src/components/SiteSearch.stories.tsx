@@ -57,6 +57,9 @@ export const noPage = {
   nodes: [],
 }
 
+// Typing delay
+const delay = 500
+
 // Valid search function
 const validSearches = async ({ canvasElement }) => {
   const canvas = within(canvasElement)
@@ -64,13 +67,13 @@ const validSearches = async ({ canvasElement }) => {
   const searchInput = canvas.getByLabelText("Search")
 
   await userEvent.type(searchInput, "about", {
-    delay: 500,
+    delay,
   })
 
   await userEvent.clear(searchInput)
 
   await userEvent.type(searchInput, "project", {
-    delay: 500,
+    delay,
   })
 }
 
@@ -81,31 +84,31 @@ const invalidSearches = async ({ canvasElement }) => {
   const searchInput = canvas.getByLabelText("Search")
 
   await userEvent.type(searchInput, "%about%", {
-    delay: 100,
+    delay,
   })
 
   await userEvent.clear(searchInput)
 
   await userEvent.type(searchInput, "😋", {
-    delay: 100,
+    delay,
   })
 
   await userEvent.clear(searchInput)
 
   await userEvent.type(searchInput, "ひらがな", {
-    delay: 100,
+    delay,
   })
 
   await userEvent.clear(searchInput)
 
   await userEvent.type(searchInput, "𒐫", {
-    delay: 100,
+    delay,
   })
 
   await userEvent.clear(searchInput)
 
   await userEvent.type(searchInput, "--", {
-    delay: 100,
+    delay,
   })
 }
 
