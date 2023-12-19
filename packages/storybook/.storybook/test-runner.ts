@@ -13,6 +13,19 @@ const a11yConfig: TestRunnerConfig = {
     await injectAxe(page)
   },
   async postVisit(page) {
+    // Get the entire context of a story, including parameters, args, argTypes, etc.
+    const storyContext = await getStoryContext(page, context)
+
+    // Apply story-level a11y rules
+    await configureAxe(page, {
+      rules: storyContext.parameters?.a11y?.config?.rules,
+    })
+
+    // Skip stories which are disabled
+    if (storyContext.parameters?.a11y?.disable) {
+      return
+    }
+
     await checkA11y(page, "#storybook-root", {
       detailedReport: true,
       detailedReportOptions: {
