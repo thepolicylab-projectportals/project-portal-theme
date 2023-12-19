@@ -58,7 +58,7 @@ export const noPage = {
 }
 
 // Typing delay
-const delay = 500
+const delay = 50
 
 // Valid search function
 const validSearches = async ({ canvasElement }) => {
