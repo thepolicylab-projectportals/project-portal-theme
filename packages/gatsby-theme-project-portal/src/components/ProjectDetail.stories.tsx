@@ -71,8 +71,7 @@ export const MediumTitle: Story = {
     status: "completed",
     startDate: new Date("2022-06-17"),
     requirement: "example requirement",
-    question:
-      "Testing Out A Medium Length Title Here?",
+    question: "Testing Out A Medium Length Title Here?",
     purpose: "example purpose",
     projectTeam: ProjectTeamStories.Primary.args.contacts,
     priorResearch: null,
