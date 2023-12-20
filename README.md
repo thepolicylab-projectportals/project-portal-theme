@@ -4,7 +4,7 @@
 
 - [📁`packages`](./packages) has the example sites and theme itself:
   - [📁`defaults`](./packages/defaults) is a completely empty Gatsby site which imports the theme and builds successfully, but does nothing else. It shows the Gatsby 404 page when you load the site. (This is intentional.)
-  - [📁`example`](./packages/example) is a site which uses the components and queries from the theme, and should grow to reflect a minimum working site.
+  - [📁`example-site`](./packages/example-site) is a site which uses the components and queries from the theme, and should grow to reflect a minimum working site.
   - [📁`gatsby-theme-project-portal`](./packages/gatsby-theme-project-portal) is the theme and incorporates all the shared components, layouts, templates, reused queries, and styling. It should be imported into the site as a `theme`.
   - [📁`project-portal-content-decap`](./packages/project-portal-content-decap) is a plugin for 
     the theme which provides configuration for the [Decap-CMS](https://decapcms.org) and loads data 
@@ -104,6 +104,8 @@ theme and other plugins from the registry instead of the local directory:
 source test-packaging.sh
 package-and-install -t "packages/example-site/" -w @thepolicylab-projectportals/gatsby-theme-project-portal,@thepolicylab-projectportals/project-portal-content-decap
 ```
+
+This script simulates the package release and build process that the sites undergo during deployment via Netlify. This script is helpful when debugging strange errors in the build process, i.e. when errors only occur during deployment.
 
 ### Use Prettier Code Formatter in WebStorm
 
