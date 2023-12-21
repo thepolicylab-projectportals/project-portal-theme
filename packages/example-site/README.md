@@ -1,16 +1,57 @@
-# Example site with defaults
+# Example Site with example content
+
+https://gatsby-theme-project-portal-ex-site.netlify.app/
 
 A usage of
 [gatsby-theme-project-portal](https://github.com/thepolicylab-projectportals/project-portal-theme)
-that loads the theme and shows the default set of features without changing anything. 
+that serves as a local development environment designed to facilitate the testing and development of new features for the Project Portal theme. 
 
 
 
-### Running Netlify CMS locally
-To run the Netlify CMS interface on a local deployment, there are two things you must configure. 
+## Quick Start Guide
 
-Inside `.../example-site/static/admin/config.yml`, you must set `local_backend: true`
+Clone the repository. 
+```shell
+git clone https://github.com/thepolicylab-projectportals/project-portal-theme.git
+```
 
-Also inside `.../example-site/`, you must run the command `npx netlify-cms-proxy-server` to start the Netlify CMS File System Proxy Server.
-It is important to run this command in the root of the example-site directory in order to view and manipulate the data.
-This also applies to all standalone sites, must be at the root of each site directory if you want to start up the CMS interface locally. 
+Make sure you are at the root of the repository and run the following command to install the required dependencies.
+
+```shell
+yarn install
+```
+
+For rapid development of new components or styling, run the following command.
+
+```shell
+yarn workspace example-site develop
+```
+
+Afterwards, run the following command to generate a production-ready version of your website. Certain gatsby node APIs only fire during the build process. While `develop` mode is fine for most cases, the final built site might act in a subtly different way. For more details, see https://www.gatsbyjs.com/docs/conceptual/overview-of-the-gatsby-build-process/#differences-between-develop-and-build
+
+```shell
+yarn workspace example-site build
+```
+
+Once the build process is completed, run the following command to preview the production build locally.
+```shell
+yarn workspace example-site serve
+```
+
+
+## Accessing Decap CMS
+
+Navigate to [static/admin/config.yml](./static/admin/config.yml) and make the following change locally:
+
+```yaml
+local_backend: true
+```
+
+In a separate terminal, make sure you have navigated to the `packages/example-site/` sub-directory and spin up the `decap-server` by running the following command.
+
+```shell
+npx decap-server
+```
+
+Once `decap-server` is running, you can run `yarn develop` and access the CMS at the address shown in the output of `yarn develop`, typically `http://localhost:8000`.
+

@@ -13,9 +13,9 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@testing-library/jest-dom": "^6.1.4",
+    "@testing-library/jest-dom": "^6.1.5",
     "@testing-library/react": "^14.1.2",
-    "@types/jest": "^29.5.8",
+    "@types/jest": "^29.5.11",
     "@types/node": "^20.10.3",
     "babel-jest": "^29.7.0",
     "babel-preset-gatsby": "^3.13.0",

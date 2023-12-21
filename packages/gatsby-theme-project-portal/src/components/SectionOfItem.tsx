@@ -13,7 +13,7 @@ export const SectionOfItem: FunctionComponent<SectionOfItemProps> = ({
   return (
     <>
       <section className="pt-4">
-        <h4 className="text-h4">{label}</h4>
+        <h3 className="text-h4">{label}</h3>
         <div className="text-body">
           <MarkdownText text={value} />
         </div>

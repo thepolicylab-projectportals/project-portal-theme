@@ -71,8 +71,7 @@ export const MediumTitle: Story = {
     status: "completed",
     startDate: new Date("2022-06-17"),
     requirement: "example requirement",
-    question:
-      "Testing Out A Medium Length Title Here?",
+    question: "Testing Out A Medium Length Title Here?",
     purpose: "example purpose",
     projectTeam: ProjectTeamStories.Primary.args.contacts,
     priorResearch: null,
@@ -167,6 +166,24 @@ export const NullValues: Story = {
     deliverable: null,
     emailContent: null,
     endDate: new Date("2016-12-15"),
+  },
+  parameters: {
+    a11y: {
+      config: {
+        rules: [
+          {
+            // The top H1 heading is missing – ignore here
+            id: "empty-heading",
+            enabled: false,
+          },
+          {
+            // Because there's no content in the overview, the contact heading order is broken
+            id: "heading-order",
+            enabled: false,
+          },
+        ],
+      },
+    },
   },
 }
 
