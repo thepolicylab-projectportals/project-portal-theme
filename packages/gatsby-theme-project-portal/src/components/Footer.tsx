@@ -39,21 +39,25 @@ export const Footer: FunctionComponent<FooterProps> = ({
         </ul>
       </div>
       <div className="block w-full lg:w-auto mt-5">
-        <a
-          className="flex items-center gap-4 justify-center flex-wrap"
-          href={heading?.link}
-        >
-          {resolvedImage && (
-            <GatsbyImage
-              className="xl:inline-block logotype"
-              image={resolvedImage}
-              alt={image?.altText}
-            />
-          )}
-          <p className="text-center inline-block text-h4 font-bold text-footertext">
-            {heading?.title}
-          </p>
-        </a>
+        {heading?.title || resolvedImage ? (
+          <a
+            className="flex items-center gap-4 justify-center flex-wrap"
+            href={heading?.link}
+          >
+            {resolvedImage && (
+              <GatsbyImage
+                className="xl:inline-block logotype"
+                image={resolvedImage}
+                alt={image?.altText}
+              />
+            )}
+            <p className="text-center inline-block text-h4 font-bold text-footertext">
+              {heading?.title}
+            </p>
+          </a>
+        ) : (
+          ""
+        )}
       </div>
     </footer>
   )

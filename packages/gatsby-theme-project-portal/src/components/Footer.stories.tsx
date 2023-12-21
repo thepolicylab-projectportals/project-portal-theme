@@ -43,7 +43,11 @@ export const Primary: Story = {
 }
 
 export const ImageNoHeading: Story = {
-  args: { ...Primary.args, heading: { title: "", link: "" } },
+  args: { ...Primary.args, heading: { title: "", link: "https://brown.edu/" } },
+}
+
+export const HeadingNoImage: Story = {
+  args: { ...Primary.args, image: undefined },
 }
 
 export const Empty: Story = {

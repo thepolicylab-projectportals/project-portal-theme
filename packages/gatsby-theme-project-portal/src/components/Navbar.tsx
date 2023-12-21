@@ -17,25 +17,21 @@ export interface NavbarProps {
 
 export const ActivePageNavItem: FunctionComponent<{ name }> = ({ name }) => {
   return (
-    <li className="nav-item">
-      <span className="flex items-center p-5 leading-snug text-white hover:opacity-75 xl:text-black xl:px-3 xl:py-2">
-        <span className="text-nav ml-2 font-bold border-b-2 border-white xl:border-primary">
-          {name}
-        </span>
+    <span className="flex items-center p-5 leading-snug text-white hover:opacity-75 xl:text-black xl:px-3 xl:py-2">
+      <span className="text-nav ml-2 font-bold border-b-2 border-white xl:border-primary">
+        {name}
       </span>
-    </li>
+    </span>
   )
 }
 
 export const InactivePageNavItem: FunctionComponent<{ name }> = ({ name }) => {
   return (
-    <li className="nav-item">
-      <span className="flex items-center p-5 leading-snug text-white hover:opacity-75 xl:text-black xl:px-3 xl:py-2">
-        <span className="text-nav ml-2 border-b-2 hover:border-primary border-transparent">
-          {name}
-        </span>
+    <span className="flex items-center p-5 leading-snug text-white hover:opacity-75 xl:text-black xl:px-3 xl:py-2">
+      <span className="text-nav ml-2 border-b-2 hover:border-primary border-transparent">
+        {name}
       </span>
-    </li>
+    </span>
   )
 }
 
@@ -53,14 +49,12 @@ export const ExternalLinkSymbol = (props) => (
 
 export const ExternalPageNavItem: FunctionComponent<{ name }> = ({ name }) => {
   return (
-    <li className="nav-item">
-      <span className="flex items-center p-5 leading-snug text-white hover:opacity-75 xl:text-black xl:px-3 xl:py-2">
-        <span className="text-nav ml-2 border-b-2 hover:border-primary border-transparent">
-          {name}
-        </span>
-        <ExternalLinkSymbol className="inline ml-1 -mr-3 fill-white xl:fill-black" />
+    <span className="flex items-center p-5 leading-snug text-white hover:opacity-75 xl:text-black xl:px-3 xl:py-2">
+      <span className="text-nav ml-2 border-b-2 hover:border-primary border-transparent">
+        {name}
       </span>
-    </li>
+      <ExternalLinkSymbol className="inline ml-1 -mr-3 fill-white xl:fill-black" />
+    </span>
   )
 }
 
@@ -90,21 +84,25 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
             >
               {navbarOpen ? <FaTimes /> : <FaBars />}
             </button>
-            <Link
-              className="block xl:min-h-full mx-4 my-3 xl:my-auto overflow-hidden text-nav text-black font-bold flex gap-4 items-center whitespace-nowrap"
-              to="/"
-            >
-              {resolvedImage ? (
-                <GatsbyImage
-                  className="xl:inline-block logotype"
-                  image={resolvedImage}
-                  alt={"nav_logo"}
-                />
-              ) : (
-                <></>
-              )}
-              <div>{title}</div>
-            </Link>
+            {resolvedImage || title ? (
+              <Link
+                className="block xl:min-h-full mx-4 my-3 xl:my-auto overflow-hidden text-nav text-black font-bold flex gap-4 items-center whitespace-nowrap"
+                to="/"
+              >
+                {resolvedImage ? (
+                  <GatsbyImage
+                    className="xl:inline-block logotype"
+                    image={resolvedImage}
+                    alt={"nav_logo"}
+                  />
+                ) : (
+                  <></>
+                )}
+                <div>{title}</div>
+              </Link>
+            ) : (
+              ""
+            )}
           </div>
           <div
             className={
@@ -117,10 +115,9 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
               {pages
                 ?.filter((e) => e.show)
                 .map(({ name, link }, i) => (
-                  <>
+                  <li className="nav-item" key={"nav" + i}>
                     {isLocalLink(link) ? (
                       <Link
-                        key={"nav" + i}
                         to={link ? link : "#"}
                         onClick={() => setNavbarOpen(false)}
                       >
@@ -139,7 +136,7 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
                         <ExternalPageNavItem name={name} />
                       </a>
                     )}
-                  </>
+                  </li>
                 ))}
             </ul>
           </div>
