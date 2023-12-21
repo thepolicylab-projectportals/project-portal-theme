@@ -383,6 +383,8 @@ CMS.init({
       {
         name: "page",
         label: "Other Pages",
+        media_folder: "/content/image",
+        public_folder: "",
         files: [
           {
             name: "about",
