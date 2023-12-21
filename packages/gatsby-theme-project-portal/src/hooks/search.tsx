@@ -1,6 +1,7 @@
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 export default function buildDynamicIndex() {
+  // this query is duplicated in packages/gatsby-theme-project-portal/utils/search.js
   const { allProject, allGeneralPage } = useStaticQuery(graphql`
     query {
       allProject {
