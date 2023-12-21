@@ -182,7 +182,7 @@ function createSearchIndex(searchNodes) {
   })
   return [index, documents]
 }
-
+// This query is duplicated in the search hook! (packages/gatsby-theme-project-portal/src/hooks/search.tsx)
 const searchQuery = `
     query {
       allProject {

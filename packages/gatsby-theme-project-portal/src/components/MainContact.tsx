@@ -21,6 +21,7 @@ export const MainContact: FunctionComponent<ProjectContactProps> = ({
 }) => {
   return (
     <>
+      <h3 class="hidden">Contact and Project Updates</h3>
       <div className="w-full p-8 mb-8 bg-gray-100">
         <h4 className="text-h4">
           {statusOutput(
