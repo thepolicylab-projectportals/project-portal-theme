@@ -65,7 +65,28 @@ export const ProjectPage = ({
     }
     return tempFilterOptions
   }
-  const [filterOptions, setFilterOptions] = useState(getTopics(allProjects))
+
+  const getAgency = (project: CardProps[]): CardProps[] => {
+    let tempAgency = []
+    for (const tempProject of project) {
+      if (tempProject.agency) {
+        if (!tempAgency.some(({ value }) => value === tempProject.agency)) {
+          tempAgency.push({
+            value: tempProject.agency,
+            label: tempProject.agency,
+          })
+        }
+      }
+    }
+    return tempAgency
+  }
+
+  const [filterOptionsTopic, setFilterOptionsTopic] = useState(
+    getTopics(allProjects)
+  )
+  const [filterOptionsAgency, setFilterOptionsAgency] = useState(
+    getAgency(allProjects)
+  )
 
   const ITEMS_PER_PAGE = 6
   const [sortedProjects, setSortedProjects] = useState(allProjects)
@@ -77,9 +98,9 @@ export const ProjectPage = ({
   projectStatus.set("startDate", "Project Started")
   projectStatus.set("endDate", "Project Ended")
 
-  var sortingOptions = []
-  var index = 1
-  var sortDirections = [
+  const sortingOptions = []
+  let index = 1
+  const sortDirections = [
     { direction: "Newest to Oldest", sortAscending: false },
     { direction: "Oldest to Newest", sortAscending: true },
   ]
@@ -174,7 +195,12 @@ export const ProjectPage = ({
     setHasNext(pageEnd < displayProjects.length)
   }, [list]) // triggered when list is changed
 
-  const [selectedOptions, setSelectedOptions] = useState<MultiValue<any>>([])
+  const [selectedTopicOptions, setSelectedTopicOptions] = useState<
+    MultiValue<any>
+  >([])
+  const [selectedAgencyOptions, setSelectedAgencyOptions] = useState<
+    MultiValue<any>
+  >([])
 
   useEffect(() => {
     const sortedList = [...allProjects]
@@ -195,11 +221,11 @@ export const ProjectPage = ({
 
     let filteredProjects = sortedProjects
 
-    //2. filter by topic. If there are any filters chosen
+    // 2. filter by topic. If there are any filters chosen
     // apply it to filteredProjects
     // or else stick with sortedProjects (which may have been updated by sortOptions) aka the first check
-    if (selectedOptions.length > 0) {
-      const filteredTopics = selectedOptions.map(({ value }) => value)
+    if (selectedTopicOptions.length > 0) {
+      const filteredTopics = selectedTopicOptions.map(({ value }) => value)
       filteredProjects = sortedProjects.filter((project) =>
         project.topics
           .map((topic) => topic.slug)
@@ -209,7 +235,16 @@ export const ProjectPage = ({
     setPageStart(0)
     setPageEnd(ITEMS_PER_PAGE)
 
-    //3. search query
+    // 3. filter by agency. If there are any filters chosen
+    // apply it to filteredProjects
+    if (selectedAgencyOptions.length > 0) {
+      const filteredAgency = selectedAgencyOptions.map(({ value }) => value)
+      filteredProjects = filteredProjects.filter((project) =>
+        filteredAgency.includes(project.agency)
+      )
+    }
+
+    // 4. search query
     // if search query is used, we will now apply search results, to filteredProjects
     if (searchQuery.length > 0) {
       for (let i = 0; i < filteredProjects.length; i++) {
@@ -222,12 +257,14 @@ export const ProjectPage = ({
       }
     }
 
-    setFilterOptions(getTopics(filteredProjects))
+    setFilterOptionsTopic(getTopics(filteredProjects))
+    setFilterOptionsAgency(getAgency(filteredProjects))
+
     //now filteredProjects has gone through all 3 checks
     //ready to update displayProjects
     setDisplayProjects(filteredProjects)
     //setDisplayProjects will trigger an updated display
-  }, [selectedOptions, sortedProjects, searchQuery]) // triggered when list is changed
+  }, [selectedTopicOptions, selectedAgencyOptions, sortedProjects, searchQuery]) // triggered when list is changed
 
   const selectStyle = {
     placeholder: (provided) => ({ ...provided, color: "#767676" }),
@@ -256,15 +293,34 @@ export const ProjectPage = ({
             />
           </div>
           <div className="flex-1 min-w-30ch">
+            <label
+              id="filter-agency-label"
+              className="font-bold"
+              htmlFor="filter-agency"
+            >
+              Filter by agency
+            </label>
+            <Select
+              aria-labelledby="filter-agency-label"
+              inputId="filter-agency"
+              name="filter-select"
+              isMulti={true}
+              value={selectedAgencyOptions}
+              onChange={setSelectedAgencyOptions}
+              options={filterOptionsAgency}
+              styles={selectStyle}
+            />
+          </div>
+          <div className="flex-1 min-w-30ch">
             <Label id="filter-select" label="Filter by topic" />
             <Select
               aria-labelledby="filter-label"
               inputId="filter-select"
               name="filter-select"
               isMulti={true}
-              value={selectedOptions}
-              onChange={setSelectedOptions}
-              options={filterOptions}
+              value={selectedTopicOptions}
+              onChange={setSelectedTopicOptions}
+              options={filterOptionsTopic}
               styles={selectStyle}
               noOptionsMessage={() => "No remaining topics"}
             />
