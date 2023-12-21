@@ -48,19 +48,15 @@ const config = {
     plugins: [],
   },
   webpackFinal: async (config) => {
-    // This needs to be the index of the rule which includes the mjs, ts(x) and js(x) files
-    const gatsbyConfigIndex = config.module.rules.findIndex((rule) => {
-      return rule.test?.toString() === "/\\.(mjs|tsx?|jsx?)$/"
-    })
-
     // Transpile Gatsby module because Gatsby includes un-transpiled ES6 code.
-    config.module.rules[gatsbyConfigIndex].exclude = [
+    config.module.rules[2].exclude = [
       /node_modules\/(?!(gatsby|gatsby-script)\/)/,
     ]
+
     // Remove core-js to prevent issues with Storybook
-    config.module.rules[gatsbyConfigIndex].exclude = [/core-js/]
+    config.module.rules[2].exclude = [/core-js/]
     // Use babel-plugin-remove-graphql-queries to remove static queries from components when rendering in storybook
-    config.module.rules[gatsbyConfigIndex].use[0].options.plugins.push(
+    config.module.rules[2].use[0].options.plugins.push(
       require.resolve("babel-plugin-remove-graphql-queries")
     )
 
