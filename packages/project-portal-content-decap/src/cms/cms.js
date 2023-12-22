@@ -312,6 +312,8 @@ CMS.init({
         name: "cardPage",
         label: "Card Page",
         folder: "content/card-page",
+        media_folder: "/content/image",
+        public_folder: "",
         identifier_field: "shortTitle",
         extension: "json",
         create: true,
@@ -381,6 +383,8 @@ CMS.init({
       {
         name: "page",
         label: "Other Pages",
+        media_folder: "/content/image",
+        public_folder: "",
         files: [
           {
             name: "about",
