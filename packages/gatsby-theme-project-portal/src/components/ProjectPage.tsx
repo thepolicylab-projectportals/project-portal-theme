@@ -118,7 +118,12 @@ export const ProjectPage = ({
     scrollToRef?.current?.scrollIntoView({ behavior: "smooth" })
   }
 
-  const [searchQuery, setSearchQuery] = useState([])
+  let initialSearchQuery: string[] = []
+  const cachedSearchQuery = sessionStorage.getItem(`${title}_searchQuery`)
+  if (cachedSearchQuery){
+    initialSearchQuery = JSON.parse(cachedSearchQuery);
+  }
+  const [searchQuery, setSearchQuery] = useState(initialSearchQuery)
 
   let search = new JsSearch.Search("slug")
   search.addIndex("topicNames")
@@ -174,9 +179,19 @@ export const ProjectPage = ({
     setHasNext(pageEnd < displayProjects.length)
   }, [list]) // triggered when list is changed
 
-  const [selectedOptions, setSelectedOptions] = useState<MultiValue<any>>([])
+  let initialSelectedOptions = []
+  const cachedFilterByTopic = sessionStorage.getItem(`${title}_filterByTopic`)
+  if (cachedFilterByTopic){
+    initialSelectedOptions = JSON.parse(cachedFilterByTopic);
+  }
+  const [selectedOptions, setSelectedOptions] = useState<MultiValue<any>>(initialSelectedOptions)
+
 
   useEffect(() => {
+    sessionStorage.setItem(`${title}_sortDirection`, JSON.stringify(sortDirection))
+
+    //1. Sort by. Custom sort function that filters in ascending or descending
+    // based on certain dates associated with the type of project.
     const sortedList = [...allProjects]
     sortedList.sort(
       customSort(sortDirection.field, sortDirection.sortAscending)
@@ -199,12 +214,18 @@ export const ProjectPage = ({
     // apply it to filteredProjects
     // or else stick with sortedProjects (which may have been updated by sortOptions) aka the first check
     if (selectedOptions.length > 0) {
+      sessionStorage.setItem(`${title}_filterByTopic`, JSON.stringify(selectedOptions))
+
       const filteredTopics = selectedOptions.map(({ value }) => value)
       filteredProjects = sortedProjects.filter((project) =>
         project.topics
           .map((topic) => topic.slug)
           .some((topicSlug) => filteredTopics.includes(topicSlug))
       )
+
+    }
+    else{
+      sessionStorage.setItem(`${title}_filterByTopic`, "")
     }
     setPageStart(0)
     setPageEnd(ITEMS_PER_PAGE)
@@ -212,6 +233,8 @@ export const ProjectPage = ({
     //3. search query
     // if search query is used, we will now apply search results, to filteredProjects
     if (searchQuery.length > 0) {
+      sessionStorage.setItem(`${title}_searchQuery`, JSON.stringify(searchQuery))
+
       for (let i = 0; i < filteredProjects.length; i++) {
         filteredProjects[i]["topicNames"] = flattenTopics(filteredProjects[i])
       }
@@ -221,13 +244,22 @@ export const ProjectPage = ({
         filteredProjects = searchResults
       }
     }
+    else{
+      sessionStorage.setItem(`${title}_searchQuery`, "")
+    }
 
     setFilterOptions(getTopics(filteredProjects))
     //now filteredProjects has gone through all 3 checks
     //ready to update displayProjects
     setDisplayProjects(filteredProjects)
-    //setDisplayProjects will trigger an updated display
+
   }, [selectedOptions, sortedProjects, searchQuery]) // triggered when list is changed
+
+  useEffect(() => {
+
+    const cachedSortDirection = sessionStorage.getItem(`${title}_sortDirection`)
+    setSortDirection(cachedSortDirection)
+  }, []);
 
   const selectStyle = {
     placeholder: (provided) => ({ ...provided, color: "#767676" }),
@@ -275,6 +307,7 @@ export const ProjectPage = ({
               label={"Search"}
               placeholder="Type to filter posts..."
               onChange={(e) => setSearchQuery(e.target.value)}
+              defaultVal={initialSearchQuery || null}
             />
           </div>
         </div>
