@@ -7,26 +7,27 @@
     "test": "$npm_execpath run playwright install && $npm_execpath run storybook build --quiet && npx concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"npx http-server storybook-static --port 6006 --silent\" \"npx wait-on tcp:127.0.0.1:6006 && $npm_execpath run test-storybook --browsers chromium firefox\""
   },
   "devDependencies": {
-    "@babel/core": "^7.23.5",
-    "@babel/preset-env": "^7.23.5",
+    "@babel/core": "^7.23.6",
+    "@babel/preset-env": "^7.23.6",
     "@babel/preset-react": "^7.23.3",
     "@babel/preset-typescript": "^7.23.3",
     "@playwright/test": "^1.40.1",
-    "@storybook/addon-a11y": "^7.5.1",
-    "@storybook/addon-essentials": "^7.5.1",
-    "@storybook/addon-interactions": "^7.5.1",
-    "@storybook/addon-links": "^7.5.1",
+    "@storybook/addon-a11y": "^7.6.6",
+    "@storybook/addon-essentials": "^7.6.6",
+    "@storybook/addon-interactions": "^7.6.6",
+    "@storybook/addon-links": "^7.6.6",
     "@storybook/addon-styling": "^1.3.7",
-    "@storybook/blocks": "^7.5.1",
-    "@storybook/react": "^7.5.1",
-    "@storybook/react-webpack5": "^7.5.1",
-    "@storybook/test-runner": "^0.13.0",
+    "@storybook/blocks": "^7.6.6",
+    "@storybook/react": "^7.6.6",
+    "@storybook/react-webpack5": "^7.6.6",
+    "@storybook/test-runner": "^0.16.0",
     "@storybook/testing-library": "^0.2.2",
     "autoprefixer": "^10.4.16",
+    "axe-playwright": "^1.2.3",
     "playwright": "^1.38.1",
     "postcss": "^8.4.31",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "storybook": "^7.5.1"
+    "storybook": "^7.6.6"
   }
 }
