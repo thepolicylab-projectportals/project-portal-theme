@@ -119,7 +119,12 @@ export const ProjectPage = ({
     }
   }
 
-  const [sortDirection, setSortDirection] = useState(sortingOptions[0])
+  let initialSortingDirection = sortingOptions[0]
+  const cachedSortingDirection = sessionStorage.getItem(`${title}_sortDirection`)
+  if (cachedSortingDirection){
+    initialSortingDirection = JSON.parse(cachedSortingDirection)
+  }
+  const [sortDirection, setSortDirection] = useState(initialSortingDirection)
 
   const [pageStart, setPageStart] = useState(0)
   const [pageEnd, setPageEnd] = useState(ITEMS_PER_PAGE)
@@ -200,19 +205,23 @@ export const ProjectPage = ({
     setHasNext(pageEnd < displayProjects.length)
   }, [list]) // triggered when list is changed
 
-  let initialSelectedOptions = []
+  let initialTopicOptions = []
   const cachedFilterByTopic = sessionStorage.getItem(`${title}_filterByTopic`)
   if (cachedFilterByTopic){
-    initialSelectedOptions = JSON.parse(cachedFilterByTopic);
+    initialTopicOptions = JSON.parse(cachedFilterByTopic)
   }
   const [selectedTopicOptions, setSelectedTopicOptions] = useState<
     MultiValue<any>
-  >(initialSelectedOptions)
+  >(initialTopicOptions)
 
-
+  let initialAgencyOptions = []
+  const cachedFilterByAgency = sessionStorage.getItem(`${title}_filterByAgency`)
+  if (cachedFilterByAgency){
+    initialAgencyOptions = JSON.parse(cachedFilterByAgency)
+  }
   const [selectedAgencyOptions, setSelectedAgencyOptions] = useState<
     MultiValue<any>
-  >([])
+  >(initialAgencyOptions)
 
   useEffect(() => {
     sessionStorage.setItem(`${title}_sortDirection`, JSON.stringify(sortDirection))
@@ -260,10 +269,15 @@ export const ProjectPage = ({
     // 3. filter by agency. If there are any filters chosen
     // apply it to filteredProjects
     if (selectedAgencyOptions.length > 0) {
+      sessionStorage.setItem(`${title}_filterByAgency`, JSON.stringify(selectedAgencyOptions))
+
       const filteredAgency = selectedAgencyOptions.map(({ value }) => value)
       filteredProjects = filteredProjects.filter((project) =>
         filteredAgency.includes(project.agency)
       )
+    }
+    else{
+      sessionStorage.setItem(`${title}_filterByAgency`, "")
     }
 
     // 4. search query
@@ -293,11 +307,6 @@ export const ProjectPage = ({
     //setDisplayProjects will trigger an updated display
   }, [selectedTopicOptions, selectedAgencyOptions, sortedProjects, searchQuery]) // triggered when list is changed
 
-  useEffect(() => {
-
-    const cachedSortDirection = sessionStorage.getItem(`${title}_sortDirection`)
-    setSortDirection(cachedSortDirection)
-  }, []);
 
   const selectStyle = {
     placeholder: (provided) => ({ ...provided, color: "#767676" }),
