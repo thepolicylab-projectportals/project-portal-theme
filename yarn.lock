@@ -8541,12 +8541,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^20.10.3":
-  version: 20.10.3
-  resolution: "@types/node@npm:20.10.3"
+"@types/node@npm:^20.10.8":
+  version: 20.10.8
+  resolution: "@types/node@npm:20.10.8"
   dependencies:
     undici-types: ~5.26.4
-  checksum: 34a329494f0ea239af05eeb6f00f396963725b3eb9a2f79c5e6a6d37e823f2ab85e1079c2ee56723a37d8b89e7bbe2bd050c97144e5bb06dab93fd1cace65c97
+  checksum: ce9b7ee545b3605f667be2ea900e38ab58d7b561192a7342443e5d7f61c44fd9d016eac48e95d3011f090ceea65a727e83a31d51fabdd9fc20ff9992edcbc682
   languageName: node
   linkType: hard
 
@@ -23235,7 +23235,7 @@ __metadata:
     "@testing-library/jest-dom": ^6.1.5
     "@testing-library/react": ^14.1.2
     "@types/jest": ^29.5.11
-    "@types/node": ^20.10.3
+    "@types/node": ^20.10.8
     babel-jest: ^29.7.0
     babel-preset-gatsby: ^3.13.0
     gatsby-plugin-testing: ^0.3.5
