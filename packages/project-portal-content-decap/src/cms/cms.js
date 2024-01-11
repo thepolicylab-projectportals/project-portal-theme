@@ -507,6 +507,41 @@ CMS.init({
               },
             ],
           },
+          {
+            name: "search",
+            file: "content/page/search.json",
+            label: "Search",
+            preview_path: "search",
+            fields: [
+              {
+                name: "templateKey",
+                label: "Template Key",
+                widget: "hidden",
+                default: "SearchPage",
+              },
+              {
+                name: "title",
+                label: "Title",
+                widget: "string",
+                required: false,
+                hint: "The heading which appears above the lede",
+              },
+              {
+                name: "lede",
+                label: "Lede",
+                widget: "markdown",
+                required: false,
+                hint: "A text which appears immediately above the contact form",
+              },
+              {
+                name: "image",
+                label: "Image",
+                widget: "image",
+                required: false,
+                hint: "The image which appears behind the lede.",
+              },
+            ],
+          },
         ],
       },
       {
