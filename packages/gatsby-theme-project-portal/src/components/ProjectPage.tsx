@@ -39,6 +39,7 @@ function customSort(dateField: string, sortAscending: boolean) {
     return sortValue
   }
 }
+
 export interface ProjectPageProps {
   title: string
   lede: string
@@ -48,19 +49,19 @@ export interface ProjectPageProps {
 }
 
 export const ProjectPage = ({
-  title,
-  allProjects,
-  lede,
-  sortOptions,
-  image,
-}: ProjectPageProps) => {
+                              title,
+                              allProjects,
+                              lede,
+                              sortOptions,
+                              image,
+                            }: ProjectPageProps) => {
   const getTopics = (project: CardProps[]): CardProps[] => {
     let tempFilterOptions = []
     for (const tempProject of project) {
       if (tempProject.topics) {
         for (const topic of tempProject.topics) {
-          if (!tempFilterOptions.some(({ value }) => value === topic.slug)) {
-            tempFilterOptions.push({ value: topic.slug, label: topic.title })
+          if (!tempFilterOptions.some(({value}) => value === topic.slug)) {
+            tempFilterOptions.push({value: topic.slug, label: topic.title})
           }
         }
       }
@@ -72,7 +73,7 @@ export const ProjectPage = ({
     let tempAgency = []
     for (const tempProject of project) {
       if (tempProject.agency) {
-        if (!tempAgency.some(({ value }) => value === tempProject.agency)) {
+        if (!tempAgency.some(({value}) => value === tempProject.agency)) {
           tempAgency.push({
             value: tempProject.agency,
             label: tempProject.agency,
@@ -122,9 +123,9 @@ export const ProjectPage = ({
   }
 
   let initialSortingDirection = sortingOptions[0]
-  if (isBrowser){
+  if (isBrowser) {
     const cachedSortingDirection = sessionStorage.getItem(`${title}_sortDirection`)
-    if (cachedSortingDirection){
+    if (cachedSortingDirection) {
       initialSortingDirection = JSON.parse(cachedSortingDirection)
     }
   }
@@ -145,13 +146,13 @@ export const ProjectPage = ({
   const scrollToRef = useRef<HTMLDivElement>(null)
 
   const handleScroll = () => {
-    scrollToRef?.current?.scrollIntoView({ behavior: "smooth" })
+    scrollToRef?.current?.scrollIntoView({behavior: "smooth"})
   }
 
   let initialSearchQuery: string[] = []
-  if (isBrowser){
+  if (isBrowser) {
     const cachedSearchQuery = sessionStorage.getItem(`${title}_searchQuery`)
-    if (cachedSearchQuery){
+    if (cachedSearchQuery) {
       initialSearchQuery = JSON.parse(cachedSearchQuery);
     }
   }
@@ -212,26 +213,22 @@ export const ProjectPage = ({
   }, [list]) // triggered when list is changed
 
   let initialTopicOptions = []
-  if (isBrowser){
+  if (isBrowser) {
     const cachedFilterByTopic = sessionStorage.getItem(`${title}_filterByTopic`)
-    if (cachedFilterByTopic){
+    if (cachedFilterByTopic) {
       initialTopicOptions = JSON.parse(cachedFilterByTopic)
     }
   }
-  const [selectedTopicOptions, setSelectedTopicOptions] = useState<
-    MultiValue<any>
-  >(initialTopicOptions)
+  const [selectedTopicOptions, setSelectedTopicOptions] = useState<MultiValue<any>>(initialTopicOptions)
 
   let initialAgencyOptions = []
-  if (isBrowser){
+  if (isBrowser) {
     const cachedFilterByAgency = sessionStorage.getItem(`${title}_filterByAgency`)
-    if (cachedFilterByAgency){
+    if (cachedFilterByAgency) {
       initialAgencyOptions = JSON.parse(cachedFilterByAgency)
     }
   }
-  const [selectedAgencyOptions, setSelectedAgencyOptions] = useState<
-    MultiValue<any>
-  >(initialAgencyOptions)
+  const [selectedAgencyOptions, setSelectedAgencyOptions] = useState<MultiValue<any>>(initialAgencyOptions)
 
   useEffect(() => {
     isBrowser && sessionStorage.setItem(`${title}_sortDirection`, JSON.stringify(sortDirection))
@@ -261,15 +258,14 @@ export const ProjectPage = ({
     if (selectedTopicOptions.length > 0) {
       isBrowser && sessionStorage.setItem(`${title}_filterByTopic`, JSON.stringify(selectedTopicOptions))
 
-      const filteredTopics = selectedTopicOptions.map(({ value }) => value)
+      const filteredTopics = selectedTopicOptions.map(({value}) => value)
       filteredProjects = sortedProjects.filter((project) =>
         project.topics
           .map((topic) => topic.slug)
           .some((topicSlug) => filteredTopics.includes(topicSlug))
       )
 
-    }
-    else{
+    } else {
       isBrowser && sessionStorage.setItem(`${title}_filterByTopic`, "")
     }
     setPageStart(0)
@@ -280,12 +276,11 @@ export const ProjectPage = ({
     if (selectedAgencyOptions.length > 0) {
       isBrowser && sessionStorage.setItem(`${title}_filterByAgency`, JSON.stringify(selectedAgencyOptions))
 
-      const filteredAgency = selectedAgencyOptions.map(({ value }) => value)
+      const filteredAgency = selectedAgencyOptions.map(({value}) => value)
       filteredProjects = filteredProjects.filter((project) =>
         filteredAgency.includes(project.agency)
       )
-    }
-    else{
+    } else {
       isBrowser && sessionStorage.setItem(`${title}_filterByAgency`, "")
     }
 
@@ -302,8 +297,7 @@ export const ProjectPage = ({
       if (searchResults.length > 0) {
         filteredProjects = searchResults
       }
-    }
-    else{
+    } else {
       isBrowser && sessionStorage.setItem(`${title}_searchQuery`, "")
     }
 
@@ -318,13 +312,13 @@ export const ProjectPage = ({
 
 
   const selectStyle = {
-    placeholder: (provided) => ({ ...provided, color: "#767676" }),
+    placeholder: (provided) => ({...provided, color: "#767676"}),
   }
 
   return (
     <>
       <header>
-        <HeaderWithImage title={title} image={image} lede={lede} />
+        <HeaderWithImage title={title} image={image} lede={lede}/>
       </header>
       <div className="relative">
         <div ref={scrollToRef} className="absolute -top-100px"></div>
@@ -332,7 +326,7 @@ export const ProjectPage = ({
       <div className="pt-4 pb-10 md:mx-8 lg:mt-6 lg:pt-8 lg:pb-20 overflow-hidden px-2 xl:px-12 bg-white">
         <div className="flex flex-wrap items-end gap-4 mb-8 mx-3 xl:mx-6 bg-white">
           <div className="flex-1 min-w-30ch">
-            <Label id="sort" label="Filter by" />
+            <Label id="sort" label="Filter by"/>
             <Select
               aria-labelledby="sort-label"
               inputId="sort"
@@ -363,7 +357,7 @@ export const ProjectPage = ({
             />
           </div>
           <div className="flex-1 min-w-30ch">
-            <Label id="filter-select" label="Filter by topic" />
+            <Label id="filter-select" label="Filter by topic"/>
             <Select
               aria-labelledby="filter-label"
               inputId="filter-select"
@@ -389,7 +383,7 @@ export const ProjectPage = ({
         <div className="sr-only">
           Total Results: {displayProjects.length} Projects
         </div>
-        <Cards nodes={list} />
+        <Cards nodes={list}/>
       </div>
       {!(hasPrev == null && hasNext == null) && (
         <div className="flex items-center gap-4 justify-center flex-wrap">
@@ -400,11 +394,11 @@ export const ProjectPage = ({
               }`}
               onClick={handleLoadPrev}
             >
-              <BackIcon /> Previous
+              <BackIcon/> Previous
             </button>
           </div>
           <div className="flex items-center gap-4 justify-center">
-            {Array.from({ length: numPages }, (_, i) => {
+            {Array.from({length: numPages}, (_, i) => {
               return (
                 <button
                   className={`${
@@ -427,7 +421,7 @@ export const ProjectPage = ({
               }`}
               onClick={handleLoadNext}
             >
-              Next <ForwardIcon />
+              Next <ForwardIcon/>
             </button>
           </div>
         </div>
