@@ -7,7 +7,7 @@ interface SearchBarProps {
   onChange: any
   placeholder: string
   autoFocus?: boolean
-  defaultVal: string[] | null
+  defaultValue: string[] | null
 }
 
 export const SearchBar: FunctionComponent<SearchBarProps> = ({
@@ -16,7 +16,7 @@ export const SearchBar: FunctionComponent<SearchBarProps> = ({
   onChange,
   placeholder,
   autoFocus,
-                                                               defaultVal
+  defaultValue
 }) => {
   return (
     <>
@@ -30,7 +30,7 @@ export const SearchBar: FunctionComponent<SearchBarProps> = ({
         aria-label="Search"
         placeholder={placeholder}
         onChange={onChange}
-        defaultValue={defaultVal || undefined}
+        defaultValue={defaultValue || undefined}
       />
     </>
   )

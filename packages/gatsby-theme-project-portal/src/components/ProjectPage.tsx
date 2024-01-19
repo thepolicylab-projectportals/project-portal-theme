@@ -382,7 +382,7 @@ export const ProjectPage = ({
               label={"Search"}
               placeholder="Type to filter posts..."
               onChange={(e) => setSearchQuery(e.target.value)}
-              defaultVal={initialSearchQuery || null}
+              defaultValue={initialSearchQuery || null}
             />
           </div>
         </div>
