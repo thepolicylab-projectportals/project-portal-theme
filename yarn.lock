@@ -9211,7 +9211,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"abbrev@npm:1, abbrev@npm:^1.0.0":
+"abbrev@npm:^1.0.0":
   version: 1.1.1
   resolution: "abbrev@npm:1.1.1"
   checksum: a4a97ec07d7ea112c517036882b2ac22f3109b7b19077dc656316d07d308438aac28e4d9746dc4d84bf6b1e75b4a7b0a5f3cb30592419f128ca9a8cee3bcfa17
@@ -9983,7 +9983,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"async@npm:~2.6.3":
+"async@npm:~2.6.4":
   version: 2.6.4
   resolution: "async@npm:2.6.4"
   dependencies:
@@ -10056,13 +10056,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axe-core@npm:^4.0.2, axe-core@npm:^4.6.2":
-  version: 4.6.3
-  resolution: "axe-core@npm:4.6.3"
-  checksum: d0c46be92b9707c48b88a53cd5f471b155a2bfc8bf6beffb514ecd14e30b4863e340b5fc4f496d82a3c562048088c1f3ff5b93b9b3b026cb9c3bfacfd535da10
-  languageName: node
-  linkType: hard
-
 "axe-core@npm:^4.2.0":
   version: 4.7.2
   resolution: "axe-core@npm:4.7.2"
@@ -10074,6 +10067,20 @@ __metadata:
   version: 4.8.3
   resolution: "axe-core@npm:4.8.3"
   checksum: f546c74d1f3a7bff81752457fe9e5573693a8ecce11d3c265db501a82105efe0cd29964a491dd98e5979f6f3d85db6776e5e46626c2b09ab579a3729108964fd
+  languageName: node
+  linkType: hard
+
+"axe-core@npm:^4.6.2":
+  version: 4.6.3
+  resolution: "axe-core@npm:4.6.3"
+  checksum: d0c46be92b9707c48b88a53cd5f471b155a2bfc8bf6beffb514ecd14e30b4863e340b5fc4f496d82a3c562048088c1f3ff5b93b9b3b026cb9c3bfacfd535da10
+  languageName: node
+  linkType: hard
+
+"axe-core@npm:~4.2.1":
+  version: 4.2.4
+  resolution: "axe-core@npm:4.2.4"
+  checksum: bb0e1076005ad876af8f09dc878a7d6a468e97d2816e27920994669394cb52e8821f35c6cabb62010ad8d84ab15d169fa64b77671bf1e6db61a655585f1b2a05
   languageName: node
   linkType: hard
 
@@ -17026,18 +17033,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"hogan.js@npm:^3.0.2":
-  version: 3.0.2
-  resolution: "hogan.js@npm:3.0.2"
-  dependencies:
-    mkdirp: 0.3.0
-    nopt: 1.0.10
-  bin:
-    hulk: ./bin/hulk
-  checksum: c7bbff84faa9ca265c39f4a2100546ba0388fcc9c5bac8526f488592ce3fcaa042eba6ac25db277f4478ec3855b9bc28ce59acffbf6e8a28d45a17df7590c6aa
-  languageName: node
-  linkType: hard
-
 "hoist-non-react-statics@npm:^3.1.0, hoist-non-react-statics@npm:^3.3.0, hoist-non-react-statics@npm:^3.3.1, hoist-non-react-statics@npm:^3.3.2":
   version: 3.3.2
   resolution: "hoist-non-react-statics@npm:3.3.2"
@@ -17174,7 +17169,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"html_codesniffer@npm:^2.5.1":
+"html_codesniffer@npm:~2.5.1":
   version: 2.5.1
   resolution: "html_codesniffer@npm:2.5.1"
   checksum: f93fcda96a3145af5e5f0da71df4e5236f8078ee0c4d3236a48d780faf31c030d7e3297f9e1982198d2d45054f20ff8de56d97f72d2dd56c9f5eb8f45dd05c8a
@@ -20890,13 +20885,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mkdirp@npm:0.3.0":
-  version: 0.3.0
-  resolution: "mkdirp@npm:0.3.0"
-  checksum: 3ec9cda8bd89b64892728e5092bc79e88382e444d4bbde040c2fb8d7034dc70682cfdd729e93241fd5243d2397324c420ef68c717d806db51bf96c0fc80f4b1d
-  languageName: node
-  linkType: hard
-
 "mkdirp@npm:^0.5.1, mkdirp@npm:^0.5.4":
   version: 0.5.6
   resolution: "mkdirp@npm:0.5.6"
@@ -21010,7 +20998,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mustache@npm:^4.0.1":
+"mustache@npm:^4.0.1, mustache@npm:~4.2.0":
   version: 4.2.0
   resolution: "mustache@npm:4.2.0"
   bin:
@@ -21385,17 +21373,6 @@ __metadata:
     has: ^1.0.3
     is: ^3.2.1
   checksum: 1fe3a1ca7fc35392f169c8a46d889d07deb201bba3a20d17df23efab509698c9639737b0c235c9be772a34035e749bae5d477f74c9e26a1b67c78bd7d6dce8e4
-  languageName: node
-  linkType: hard
-
-"nopt@npm:1.0.10":
-  version: 1.0.10
-  resolution: "nopt@npm:1.0.10"
-  dependencies:
-    abbrev: 1
-  bin:
-    nopt: ./bin/nopt.js
-  checksum: f62575aceaa3be43f365bf37a596b89bbac2e796b001b6d2e2a85c2140a4e378ff919e2753ccba959c4fd344776fc88c29b393bc167fa939fb1513f126f4cd45
   languageName: node
   linkType: hard
 
@@ -21970,45 +21947,45 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pa11y-ci@npm:^3.0.1":
-  version: 3.0.1
-  resolution: "pa11y-ci@npm:3.0.1"
+"pa11y-ci@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "pa11y-ci@npm:3.1.0"
   dependencies:
-    async: ~2.6.3
+    async: ~2.6.4
     cheerio: ~1.0.0-rc.10
     commander: ~6.2.1
     globby: ~6.1.0
     kleur: ~4.1.4
     lodash: ~4.17.21
     node-fetch: ~2.6.1
-    pa11y: ~6.1.0
+    pa11y: ^6.2.3
     protocolify: ~3.0.0
     puppeteer: ~9.1.1
     wordwrap: ~1.0.0
   bin:
     pa11y-ci: bin/pa11y-ci.js
-  checksum: 15dc9cd0fcbfe4daff60d473dbd7a18c1b8cbf2ff93355190ff75a708214b5d8c7091ec57da0a6599f4d484a6ddb691c74aaa2f8393fc4ebe6e1d0339a12b17e
+  checksum: 32c0ebbf5bfb414fe5567f59d103413952d032bedcf2c69078142236db7a4e1b7c9da4894fc705af28c533961e2225b4c12450166b0ed84b3da3f911cd1963cb
   languageName: node
   linkType: hard
 
-"pa11y@npm:~6.1.0":
-  version: 6.1.1
-  resolution: "pa11y@npm:6.1.1"
+"pa11y@npm:^6.2.3":
+  version: 6.2.3
+  resolution: "pa11y@npm:6.2.3"
   dependencies:
-    axe-core: ^4.0.2
+    axe-core: ~4.2.1
     bfj: ~7.0.2
     commander: ~8.0.0
     envinfo: ~7.8.1
-    hogan.js: ^3.0.2
-    html_codesniffer: ^2.5.1
+    html_codesniffer: ~2.5.1
     kleur: ~4.1.4
+    mustache: ~4.2.0
     node.extend: ~2.0.2
     p-timeout: ~4.1.0
     puppeteer: ~9.1.1
     semver: ~7.3.5
   bin:
     pa11y: bin/pa11y.js
-  checksum: 12b2cfa3d2ad5f36839dd039edcb53fa7a34dd6cd28291796d52a4d391d6a48ff0174e13dc72d009710f75024670f440d9ea51f0f0f0d57892ef00d0c4b92a46
+  checksum: 08748bc666f11841afcf4a5550f1c3d1b74d282605c536afdb503803d7b11e817cb3d9c85df214294c397664081d2866506194f4e4f15575419925478cf83c7b
   languageName: node
   linkType: hard
 
@@ -23305,7 +23282,7 @@ __metadata:
     identity-obj-proxy: ^3.0.0
     jest: ^29.7.0
     jest-environment-jsdom: ^29.7.0
-    pa11y-ci: ^3.0.1
+    pa11y-ci: ^3.1.0
     prettier: ^3.0.3
     prop-types: ^15.8.1
     react: ^18.2.0
