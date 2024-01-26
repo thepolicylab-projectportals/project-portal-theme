@@ -49,19 +49,19 @@ export interface ProjectPageProps {
 }
 
 export const ProjectPage = ({
-                              title,
-                              allProjects,
-                              lede,
-                              sortOptions,
-                              image,
-                            }: ProjectPageProps) => {
+  title,
+  allProjects,
+  lede,
+  sortOptions,
+  image,
+}: ProjectPageProps) => {
   const getTopics = (project: CardProps[]): CardProps[] => {
     let tempFilterOptions = []
     for (const tempProject of project) {
       if (tempProject.topics) {
         for (const topic of tempProject.topics) {
-          if (!tempFilterOptions.some(({value}) => value === topic.slug)) {
-            tempFilterOptions.push({value: topic.slug, label: topic.title})
+          if (!tempFilterOptions.some(({ value }) => value === topic.slug)) {
+            tempFilterOptions.push({ value: topic.slug, label: topic.title })
           }
         }
       }
@@ -73,7 +73,7 @@ export const ProjectPage = ({
     let tempAgency = []
     for (const tempProject of project) {
       if (tempProject.agency) {
-        if (!tempAgency.some(({value}) => value === tempProject.agency)) {
+        if (!tempAgency.some(({ value }) => value === tempProject.agency)) {
           tempAgency.push({
             value: tempProject.agency,
             label: tempProject.agency,
@@ -124,7 +124,9 @@ export const ProjectPage = ({
 
   let initialSortingDirection = sortingOptions[0]
   if (isBrowser) {
-    const cachedSortingDirection = sessionStorage.getItem(`${title}_sortDirection`)
+    const cachedSortingDirection = sessionStorage.getItem(
+      `${title}_sortDirection`
+    )
     if (cachedSortingDirection) {
       initialSortingDirection = JSON.parse(cachedSortingDirection)
     }
@@ -146,14 +148,14 @@ export const ProjectPage = ({
   const scrollToRef = useRef<HTMLDivElement>(null)
 
   const handleScroll = () => {
-    scrollToRef?.current?.scrollIntoView({behavior: "smooth"})
+    scrollToRef?.current?.scrollIntoView({ behavior: "smooth" })
   }
 
   let initialSearchQuery: string[] = []
   if (isBrowser) {
     const cachedSearchQuery = sessionStorage.getItem(`${title}_searchQuery`)
     if (cachedSearchQuery) {
-      initialSearchQuery = JSON.parse(cachedSearchQuery);
+      initialSearchQuery = JSON.parse(cachedSearchQuery)
     }
   }
   const [searchQuery, setSearchQuery] = useState(initialSearchQuery)
@@ -219,19 +221,27 @@ export const ProjectPage = ({
       initialTopicOptions = JSON.parse(cachedFilterByTopic)
     }
   }
-  const [selectedTopicOptions, setSelectedTopicOptions] = useState<MultiValue<any>>(initialTopicOptions)
+  const [selectedTopicOptions, setSelectedTopicOptions] =
+    useState<MultiValue<any>>(initialTopicOptions)
 
   let initialAgencyOptions = []
   if (isBrowser) {
-    const cachedFilterByAgency = sessionStorage.getItem(`${title}_filterByAgency`)
+    const cachedFilterByAgency = sessionStorage.getItem(
+      `${title}_filterByAgency`
+    )
     if (cachedFilterByAgency) {
       initialAgencyOptions = JSON.parse(cachedFilterByAgency)
     }
   }
-  const [selectedAgencyOptions, setSelectedAgencyOptions] = useState<MultiValue<any>>(initialAgencyOptions)
+  const [selectedAgencyOptions, setSelectedAgencyOptions] =
+    useState<MultiValue<any>>(initialAgencyOptions)
 
   useEffect(() => {
-    isBrowser && sessionStorage.setItem(`${title}_sortDirection`, JSON.stringify(sortDirection))
+    isBrowser &&
+      sessionStorage.setItem(
+        `${title}_sortDirection`,
+        JSON.stringify(sortDirection)
+      )
     //1. Sort by. Custom sort function that filters in ascending or descending
     // based on certain dates associated with the type of project.
     const sortedList = [...allProjects]
@@ -256,15 +266,18 @@ export const ProjectPage = ({
     // apply it to filteredProjects
     // or else stick with sortedProjects (which may have been updated by sortOptions) aka the first check
     if (selectedTopicOptions.length > 0) {
-      isBrowser && sessionStorage.setItem(`${title}_filterByTopic`, JSON.stringify(selectedTopicOptions))
+      isBrowser &&
+        sessionStorage.setItem(
+          `${title}_filterByTopic`,
+          JSON.stringify(selectedTopicOptions)
+        )
 
-      const filteredTopics = selectedTopicOptions.map(({value}) => value)
+      const filteredTopics = selectedTopicOptions.map(({ value }) => value)
       filteredProjects = sortedProjects.filter((project) =>
         project.topics
           .map((topic) => topic.slug)
           .some((topicSlug) => filteredTopics.includes(topicSlug))
       )
-
     } else {
       isBrowser && sessionStorage.setItem(`${title}_filterByTopic`, "")
     }
@@ -274,9 +287,13 @@ export const ProjectPage = ({
     // 3. filter by agency. If there are any filters chosen
     // apply it to filteredProjects
     if (selectedAgencyOptions.length > 0) {
-      isBrowser && sessionStorage.setItem(`${title}_filterByAgency`, JSON.stringify(selectedAgencyOptions))
+      isBrowser &&
+        sessionStorage.setItem(
+          `${title}_filterByAgency`,
+          JSON.stringify(selectedAgencyOptions)
+        )
 
-      const filteredAgency = selectedAgencyOptions.map(({value}) => value)
+      const filteredAgency = selectedAgencyOptions.map(({ value }) => value)
       filteredProjects = filteredProjects.filter((project) =>
         filteredAgency.includes(project.agency)
       )
@@ -287,7 +304,11 @@ export const ProjectPage = ({
     // 4. search query
     // if search query is used, we will now apply search results, to filteredProjects
     if (searchQuery.length > 0) {
-      isBrowser && sessionStorage.setItem(`${title}_searchQuery`, JSON.stringify(searchQuery))
+      isBrowser &&
+        sessionStorage.setItem(
+          `${title}_searchQuery`,
+          JSON.stringify(searchQuery)
+        )
 
       for (let i = 0; i < filteredProjects.length; i++) {
         filteredProjects[i]["topicNames"] = flattenTopics(filteredProjects[i])
@@ -310,15 +331,14 @@ export const ProjectPage = ({
     //setDisplayProjects will trigger an updated display
   }, [selectedTopicOptions, selectedAgencyOptions, sortedProjects, searchQuery]) // triggered when list is changed
 
-
   const selectStyle = {
-    placeholder: (provided) => ({...provided, color: "#767676"}),
+    placeholder: (provided) => ({ ...provided, color: "#767676" }),
   }
 
   return (
     <>
       <header>
-        <HeaderWithImage title={title} image={image} lede={lede}/>
+        <HeaderWithImage title={title} image={image} lede={lede} />
       </header>
       <div className="relative">
         <div ref={scrollToRef} className="absolute -top-100px"></div>
@@ -326,7 +346,7 @@ export const ProjectPage = ({
       <div className="pt-4 pb-10 md:mx-8 lg:mt-6 lg:pt-8 lg:pb-20 overflow-hidden px-2 xl:px-12 bg-white">
         <div className="flex flex-wrap items-end gap-4 mb-8 mx-3 xl:mx-6 bg-white">
           <div className="flex-1 min-w-30ch">
-            <Label id="sort" label="Filter by"/>
+            <Label id="sort" label="Filter by" />
             <Select
               aria-labelledby="sort-label"
               inputId="sort"
@@ -357,7 +377,7 @@ export const ProjectPage = ({
             />
           </div>
           <div className="flex-1 min-w-30ch">
-            <Label id="filter-select" label="Filter by topic"/>
+            <Label id="filter-select" label="Filter by topic" />
             <Select
               aria-labelledby="filter-label"
               inputId="filter-select"
@@ -383,7 +403,7 @@ export const ProjectPage = ({
         <div className="sr-only">
           Total Results: {displayProjects.length} Projects
         </div>
-        <Cards nodes={list}/>
+        <Cards nodes={list} />
       </div>
       {!(hasPrev == null && hasNext == null) && (
         <div className="flex items-center gap-4 justify-center flex-wrap">
@@ -394,11 +414,11 @@ export const ProjectPage = ({
               }`}
               onClick={handleLoadPrev}
             >
-              <BackIcon/> Previous
+              <BackIcon /> Previous
             </button>
           </div>
           <div className="flex items-center gap-4 justify-center">
-            {Array.from({length: numPages}, (_, i) => {
+            {Array.from({ length: numPages }, (_, i) => {
               return (
                 <button
                   className={`${
@@ -421,7 +441,7 @@ export const ProjectPage = ({
               }`}
               onClick={handleLoadNext}
             >
-              Next <ForwardIcon/>
+              Next <ForwardIcon />
             </button>
           </div>
         </div>
