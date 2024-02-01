@@ -9,6 +9,8 @@ import { SearchBar } from "./SearchBar"
 import { ImageDataLike } from "gatsby-plugin-image"
 import { Label } from "./Label"
 
+const isBrowser = typeof window !== "undefined"
+
 function customSort(dateField: string, sortAscending: boolean) {
   return function (a, b) {
     let sortValue
@@ -37,6 +39,7 @@ function customSort(dateField: string, sortAscending: boolean) {
     return sortValue
   }
 }
+
 export interface ProjectPageProps {
   title: string
   lede: string
@@ -119,7 +122,16 @@ export const ProjectPage = ({
     }
   }
 
-  const [sortDirection, setSortDirection] = useState(sortingOptions[0])
+  let initialSortingDirection = sortingOptions[0]
+  if (isBrowser) {
+    const cachedSortingDirection = sessionStorage.getItem(
+      `${title}_sortDirection`
+    )
+    if (cachedSortingDirection) {
+      initialSortingDirection = JSON.parse(cachedSortingDirection)
+    }
+  }
+  const [sortDirection, setSortDirection] = useState(initialSortingDirection)
 
   const [pageStart, setPageStart] = useState(0)
   const [pageEnd, setPageEnd] = useState(ITEMS_PER_PAGE)
@@ -139,7 +151,14 @@ export const ProjectPage = ({
     scrollToRef?.current?.scrollIntoView({ behavior: "smooth" })
   }
 
-  const [searchQuery, setSearchQuery] = useState([])
+  let initialSearchQuery: string[] = []
+  if (isBrowser) {
+    const cachedSearchQuery = sessionStorage.getItem(`${title}_searchQuery`)
+    if (cachedSearchQuery) {
+      initialSearchQuery = JSON.parse(cachedSearchQuery)
+    }
+  }
+  const [searchQuery, setSearchQuery] = useState(initialSearchQuery)
 
   let search = new JsSearch.Search("slug")
   search.addIndex("topicNames")
@@ -195,14 +214,36 @@ export const ProjectPage = ({
     setHasNext(pageEnd < displayProjects.length)
   }, [list]) // triggered when list is changed
 
-  const [selectedTopicOptions, setSelectedTopicOptions] = useState<
-    MultiValue<any>
-  >([])
-  const [selectedAgencyOptions, setSelectedAgencyOptions] = useState<
-    MultiValue<any>
-  >([])
+  let initialTopicOptions = []
+  if (isBrowser) {
+    const cachedFilterByTopic = sessionStorage.getItem(`${title}_filterByTopic`)
+    if (cachedFilterByTopic) {
+      initialTopicOptions = JSON.parse(cachedFilterByTopic)
+    }
+  }
+  const [selectedTopicOptions, setSelectedTopicOptions] =
+    useState<MultiValue<any>>(initialTopicOptions)
+
+  let initialAgencyOptions = []
+  if (isBrowser) {
+    const cachedFilterByAgency = sessionStorage.getItem(
+      `${title}_filterByAgency`
+    )
+    if (cachedFilterByAgency) {
+      initialAgencyOptions = JSON.parse(cachedFilterByAgency)
+    }
+  }
+  const [selectedAgencyOptions, setSelectedAgencyOptions] =
+    useState<MultiValue<any>>(initialAgencyOptions)
 
   useEffect(() => {
+    isBrowser &&
+      sessionStorage.setItem(
+        `${title}_sortDirection`,
+        JSON.stringify(sortDirection)
+      )
+    //1. Sort by. Custom sort function that filters in ascending or descending
+    // based on certain dates associated with the type of project.
     const sortedList = [...allProjects]
     sortedList.sort(
       customSort(sortDirection.field, sortDirection.sortAscending)
@@ -225,12 +266,20 @@ export const ProjectPage = ({
     // apply it to filteredProjects
     // or else stick with sortedProjects (which may have been updated by sortOptions) aka the first check
     if (selectedTopicOptions.length > 0) {
+      isBrowser &&
+        sessionStorage.setItem(
+          `${title}_filterByTopic`,
+          JSON.stringify(selectedTopicOptions)
+        )
+
       const filteredTopics = selectedTopicOptions.map(({ value }) => value)
       filteredProjects = sortedProjects.filter((project) =>
         project.topics
           .map((topic) => topic.slug)
           .some((topicSlug) => filteredTopics.includes(topicSlug))
       )
+    } else {
+      isBrowser && sessionStorage.setItem(`${title}_filterByTopic`, "")
     }
     setPageStart(0)
     setPageEnd(ITEMS_PER_PAGE)
@@ -238,15 +287,29 @@ export const ProjectPage = ({
     // 3. filter by agency. If there are any filters chosen
     // apply it to filteredProjects
     if (selectedAgencyOptions.length > 0) {
+      isBrowser &&
+        sessionStorage.setItem(
+          `${title}_filterByAgency`,
+          JSON.stringify(selectedAgencyOptions)
+        )
+
       const filteredAgency = selectedAgencyOptions.map(({ value }) => value)
       filteredProjects = filteredProjects.filter((project) =>
         filteredAgency.includes(project.agency)
       )
+    } else {
+      isBrowser && sessionStorage.setItem(`${title}_filterByAgency`, "")
     }
 
     // 4. search query
     // if search query is used, we will now apply search results, to filteredProjects
     if (searchQuery.length > 0) {
+      isBrowser &&
+        sessionStorage.setItem(
+          `${title}_searchQuery`,
+          JSON.stringify(searchQuery)
+        )
+
       for (let i = 0; i < filteredProjects.length; i++) {
         filteredProjects[i]["topicNames"] = flattenTopics(filteredProjects[i])
       }
@@ -255,6 +318,8 @@ export const ProjectPage = ({
       if (searchResults.length > 0) {
         filteredProjects = searchResults
       }
+    } else {
+      isBrowser && sessionStorage.setItem(`${title}_searchQuery`, "")
     }
 
     setFilterOptionsTopic(getTopics(filteredProjects))
@@ -331,6 +396,7 @@ export const ProjectPage = ({
               label={"Search"}
               placeholder="Type to filter posts..."
               onChange={(e) => setSearchQuery(e.target.value)}
+              defaultValue={initialSearchQuery || null}
             />
           </div>
         </div>
