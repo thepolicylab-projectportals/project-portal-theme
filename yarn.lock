@@ -7875,7 +7875,7 @@ __metadata:
     js-search: ^2.0.1
     lodash: ^4.17.21
     lunr: ^2.3.9
-    markdown-to-jsx: ^7.3.2
+    markdown-to-jsx: ^7.4.3
     moment: ^2.29.4
     react-google-recaptcha: ^3.1.0
     react-icons: ^4.12.0
@@ -20088,12 +20088,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"markdown-to-jsx@npm:^7.3.2":
-  version: 7.3.2
-  resolution: "markdown-to-jsx@npm:7.3.2"
+"markdown-to-jsx@npm:^7.4.3":
+  version: 7.4.3
+  resolution: "markdown-to-jsx@npm:7.4.3"
   peerDependencies:
     react: ">= 0.14.0"
-  checksum: 8885c6343b71570b0a7ec16cd85a49b853a830234790ee7430e2517ea5d8d361ff138bd52147f650790f3e7b3a28a15c755fc16f8856dd01ddf09a6161782e06
+  checksum: e06c4314aabd467986385b4dda3108a08a3f3a665fa6414e56357a3edcab94d89fd5c7b3baff1ad8d62de52f4d0f9ea8d2bc560317344ae9c0f796ac9f885ee7
   languageName: node
   linkType: hard
 
